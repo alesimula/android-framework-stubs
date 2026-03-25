@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'com.github.alesimula'
+def localVer = 'EMPTY'
+version = project.hasProperty('VERSION') ? project.VERSION : localVer
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+def stubsSrcDir = file("${rootDir}/framework")
+def stubsDepsDir = file("${rootDir}/framework-deps")
+
+sourceSets {
+    // Fake-deps: compile-only fake dependencies (not shipped in the JAR)
+    fakeDeps {
+        java.srcDirs = [stubsDepsDir]
+    }
+
+    // Provides source directory and exclusion for main compilation
+    main {
+        java {
+            srcDirs = [stubsSrcDir]
+            // JDK module split-package exclusions
+            exclude 'javax/xml/**', 'org/xml/**', 'org/w3c/**', 'sun/**'
+        }
+    }
+}
+
+// Fake-deps compilation
+compileFakeDepsJava {
+    options.encoding = 'UTF-8'
+    options.sourcepath = files(stubsDepsDir, stubsSrcDir)
+}
+
+// Main stubs compilation
+compileJava {
+    dependsOn compileFakeDepsJava
+    // Deps classes on classpath - not used as sources but as compile-time dependencies
+    classpath = files(tasks.named('compileFakeDepsJava').flatMap { it.destinationDirectory })
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xmaxerrs', '50000']
+}
+
+jar {
+    // java-library already includes sourceSets.main.output
+    archiveClassifier = ''
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
