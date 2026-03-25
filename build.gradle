@@ -4,12 +4,12 @@ plugins {
 }
 
 group = 'com.github.alesimula'
-def localVer = 'EMPTY'
+def localVer = '11'
 version = project.hasProperty('VERSION') ? project.VERSION : localVer
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 def stubsSrcDir = file("${rootDir}/framework")
