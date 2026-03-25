@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.alesimula'
-def localVer = 'EMPTY'
+def localVer = '14'
 version = project.hasProperty('VERSION') ? project.VERSION : localVer
 
 java {
