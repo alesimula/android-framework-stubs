@@ -1,0 +1,13 @@
+package android.credentials;
+
+public final class GetCredentialResponse implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.credentials.GetCredentialResponse> CREATOR = null;
+    private final android.credentials.Credential mCredential = null;
+    public GetCredentialResponse(android.credentials.Credential p0) {}
+    private GetCredentialResponse(android.os.Parcel p0) {}
+    public int describeContents() { return 0; }
+    public android.view.autofill.AutofillId getAutofillId() { return null; }
+    public android.credentials.Credential getCredential() { return null; }
+    public java.lang.String toString() { return null; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+}

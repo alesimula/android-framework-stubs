@@ -1,0 +1,50 @@
+package android.os.statsd.microxr;
+
+public final class MicroXrEnums {
+    public static final int AUDIO_ALERT_TRIGGER_TYPE_EARCON = 2;
+    public static final int AUDIO_ALERT_TRIGGER_TYPE_SOUND_POOL = 1;
+    public static final int AUDIO_ALERT_TRIGGER_TYPE_UNKNOWN = 0;
+    public static final int AUDIO_ALERT_TRIGGER_TYPE_VOICE_ALERT = 3;
+    public static final int AUDIO_FOCUS_REQUEST_STATUS_FAILURE_TIMEOUT = 2;
+    public static final int AUDIO_FOCUS_REQUEST_STATUS_SUCCESS = 1;
+    public static final int AUDIO_FOCUS_REQUEST_STATUS_UNKNOWN = 0;
+    public static final int CAPTURE_MODE_HDR = 2;
+    public static final int CAPTURE_MODE_NON_HDR = 1;
+    public static final int CAPTURE_MODE_UNKNOWN = 0;
+    public static final int COMPANION_DEVICE_ANDROID_PHONE = 1;
+    public static final int COMPANION_DEVICE_IOS_PHONE = 2;
+    public static final int COMPANION_DEVICE_UNSPECIFIED = 0;
+    public static final int THWART_CHECK_STATUS_ERROR = 4;
+    public static final int THWART_CHECK_STATUS_FAILED = 2;
+    public static final int THWART_CHECK_STATUS_PASSED = 1;
+    public static final int THWART_CHECK_STATUS_TIMEOUT = 3;
+    public static final int THWART_CHECK_STATUS_UNKNOWN = 0;
+    public static final int UPDATE_REASON_DEVICE_DEVICE_OVERHEAT = 2;
+    public static final int UPDATE_REASON_DEVICE_DEVICE_ROAMING = 3;
+    public static final int UPDATE_REASON_DEVICE_INSUFFICIENT_SPACE = 4;
+    public static final int UPDATE_REASON_DEVICE_LOW_BATTERY = 5;
+    public static final int UPDATE_REASON_DEVICE_NEED_WIFI = 6;
+    public static final int UPDATE_REASON_DEVICE_NETWORK_ERROR = 7;
+    public static final int UPDATE_REASON_DEVICE_NOT_APPROVED = 8;
+    public static final int UPDATE_REASON_DEVICE_NOT_IDLE = 1;
+    public static final int UPDATE_REASON_DEVICE_NOT_ON_CHARGER = 9;
+    public static final int UPDATE_REASON_DEVICE_NOT_PROVISIONED = 12;
+    public static final int UPDATE_REASON_DEVICE_PAUSED = 10;
+    public static final int UPDATE_REASON_DEVICE_SCHEDULED_UPDATE = 11;
+    public static final int UPDATE_REASON_UNSPECIFIED = 0;
+    public static final int UPDATE_STATUS_DOWNLOADING = 5;
+    public static final int UPDATE_STATUS_DOWNLOAD_FAILED = 6;
+    public static final int UPDATE_STATUS_INSTALLED = 13;
+    public static final int UPDATE_STATUS_INSTALLING = 9;
+    public static final int UPDATE_STATUS_INSTALL_FAILED = 10;
+    public static final int UPDATE_STATUS_NO_UPDATE = 1;
+    public static final int UPDATE_STATUS_PRE_DOWNLOAD_VALIDATE_FAILED = 4;
+    public static final int UPDATE_STATUS_PRE_DOWNLOAD_VALIDATING = 3;
+    public static final int UPDATE_STATUS_PROCESSING = 7;
+    public static final int UPDATE_STATUS_UNSPECIFIED = 0;
+    public static final int UPDATE_STATUS_VERIFYING = 11;
+    public static final int UPDATE_STATUS_WAITING_DOWNLOAD = 2;
+    public static final int UPDATE_STATUS_WAITING_INSTALL = 8;
+    public static final int UPDATE_STATUS_WAITING_REBOOT = 12;
+    public MicroXrEnums() {}
+}

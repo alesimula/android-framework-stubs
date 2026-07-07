@@ -1,0 +1,67 @@
+package com.android.internal.util;
+
+public class Preconditions {
+    public Preconditions() {}
+    public static void checkArgument(boolean p0) {}
+    public static void checkArgument(boolean p0, java.lang.Object p1) {}
+    public static void checkArgument(boolean p0, java.lang.String p1, java.lang.Object... p2) {}
+    public static float checkArgumentFinite(float p0, java.lang.String p1) { return 0.0f; }
+    public static double checkArgumentInRange(double p0, double p1, double p2, java.lang.String p3) { return 0.0; }
+    public static float checkArgumentInRange(float p0, float p1, float p2, java.lang.String p3) { return 0.0f; }
+    public static int checkArgumentInRange(int p0, int p1, int p2, java.lang.String p3) { return 0; }
+    public static long checkArgumentInRange(long p0, long p1, long p2, java.lang.String p3) { return 0L; }
+    public static java.lang.String checkArgumentIsSupported(java.lang.String[] p0, java.lang.String p1) { return null; }
+    public static float checkArgumentNonNegative(float p0, java.lang.String p1) { return 0.0f; }
+    public static int checkArgumentNonnegative(int p0) { return 0; }
+    public static int checkArgumentNonnegative(int p0, java.lang.String p1) { return 0; }
+    public static long checkArgumentNonnegative(long p0) { return 0L; }
+    public static long checkArgumentNonnegative(long p0, java.lang.String p1) { return 0L; }
+    public static float checkArgumentPositive(float p0, java.lang.String p1) { return 0.0f; }
+    public static int checkArgumentPositive(int p0, java.lang.String p1) { return 0; }
+    public static float[] checkArrayElementsInRange(float[] p0, float p1, float p2, java.lang.String p3) { return null; }
+    public static int[] checkArrayElementsInRange(int[] p0, int p1, int p2, java.lang.String p3) { return null; }
+    public static <T extends java.lang.Object> T[] checkArrayElementsNotNull(T[] p0, java.lang.String p1) { return null; }
+    public static byte[] checkByteArrayNotEmpty(byte[] p0, java.lang.String p1) { return null; }
+    public static void checkCallAuthorization(boolean p0) {}
+    public static void checkCallAuthorization(boolean p0, java.lang.String p1) {}
+    public static void checkCallAuthorization(boolean p0, java.lang.String p1, java.lang.Object... p2) {}
+    public static void checkCallingUser(boolean p0) {}
+    public static <C extends java.util.Collection<T>, T extends java.lang.Object> C checkCollectionElementsNotNull(C p0, java.lang.String p1) { return null; }
+    @java.lang.Deprecated
+    public static <T extends java.lang.Object> java.util.Collection<T> checkCollectionNotEmpty(java.util.Collection<T> p0, java.lang.String p1) { return null; }
+    public static <T extends java.lang.Object> java.util.Collection<T> checkCollectionNotEmptyWithName(java.util.Collection<T> p0, java.lang.String p1) { return null; }
+    public static int checkFlagsArgument(int p0, int p1) { return 0; }
+    private static void checkFlagsArgumentThrow(int p0, int p1) {}
+    @java.lang.Deprecated
+    public static <T extends java.lang.Object> T checkNotNull(T p0) { return null; }
+    @java.lang.Deprecated
+    public static <T extends java.lang.Object> T checkNotNull(T p0, java.lang.Object p1) { return null; }
+    public static <T extends java.lang.Object> T checkNotNull(T p0, java.lang.String p1, java.lang.Object... p2) { return null; }
+    public static <T extends java.lang.Object> T checkNotNullWithName(T p0, java.lang.String p1) { return null; }
+    public static void checkState(boolean p0) {}
+    public static void checkState(boolean p0, java.lang.String p1) {}
+    public static void checkState(boolean p0, java.lang.String p1, java.lang.Object... p2) {}
+    public static <T extends java.lang.CharSequence> T checkStringNotEmpty(T p0) { return null; }
+    public static <T extends java.lang.CharSequence> T checkStringNotEmpty(T p0, java.lang.Object p1) { return null; }
+    public static <T extends java.lang.CharSequence> T checkStringNotEmpty(T p0, java.lang.String p1, java.lang.Object... p2) { return null; }
+    public static <T extends java.lang.CharSequence> T checkStringNotEmptyWithName(T p0, java.lang.String p1) { return null; }
+    private static boolean contains(java.lang.String[] p0, java.lang.String p1) { return false; }
+    private static void illegalArgumentException() {}
+    private static void illegalArgumentException(java.lang.String p0) {}
+    private static void illegalArgumentException(java.lang.String p0, java.lang.Object... p1) {}
+    private static void illegalArgumentExceptionForEmpty(java.lang.String p0) {}
+    private static void illegalArgumentExceptionForInfinite(java.lang.String p0) {}
+    private static void illegalArgumentExceptionForNaN(java.lang.String p0) {}
+    private static void illegalArgumentExceptionForNaN(java.lang.String p0, int p1) {}
+    private static void illegalArgumentExceptionForUnsupportedValue(java.lang.String p0, java.lang.String[] p1) {}
+    private static void illegalArgumentExceptionObj(java.lang.Object p0) {}
+    private static void illegalStateException(java.lang.String p0) {}
+    private static void illegalStateException(java.lang.String p0, java.lang.Object... p1) {}
+    private static void nullPointerException() {}
+    private static void nullPointerException(java.lang.String p0) {}
+    private static void nullPointerException(java.lang.String p0, java.lang.Object... p1) {}
+    private static void nullPointerExceptionObj(java.lang.Object p0) {}
+    public static <T extends java.lang.Object> T requireNonNullViaRavenwoodRule(T p0) { return null; }
+    private static void securityException(java.lang.String p0) {}
+    private static void securityException(java.lang.String p0, java.lang.Object... p1) {}
+}

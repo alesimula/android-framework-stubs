@@ -1,0 +1,19 @@
+package android.app.time;
+
+@android.annotation.SystemApi
+public final class TimeState implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.app.time.TimeState> CREATOR = null;
+    private final android.app.time.UnixEpochTime mUnixEpochTime = null;
+    private final boolean mUserShouldConfirmTime = false;
+    public TimeState(android.app.time.UnixEpochTime p0, boolean p1) {}
+    private static android.app.time.TimeState createFromParcel(android.os.Parcel p0) { return null; }
+    public static android.app.time.TimeState parseCommandLineArgs(android.os.ShellCommand p0) { return null; }
+    public static void printCommandLineOpts(java.io.PrintWriter p0) {}
+    public int describeContents() { return 0; }
+    public boolean equals(java.lang.Object p0) { return false; }
+    public android.app.time.UnixEpochTime getUnixEpochTime() { return null; }
+    public boolean getUserShouldConfirmTime() { return false; }
+    public int hashCode() { return 0; }
+    public java.lang.String toString() { return null; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+}

@@ -1,0 +1,45 @@
+package android.view.textclassifier;
+
+final class TextClassificationSession implements android.view.textclassifier.TextClassifier {
+    private static final java.lang.String LOG_TAG = "TextClassificationSession";
+    private final android.view.textclassifier.TextClassificationContext mClassificationContext = null;
+    private final android.view.textclassifier.TextClassifier mDelegate = null;
+    private boolean mDestroyed;
+    private final android.view.textclassifier.TextClassificationSession.SelectionEventHelper mEventHelper = null;
+    private final java.lang.Object mLock = null;
+    private final android.view.textclassifier.TextClassificationSessionId mSessionId = null;
+    TextClassificationSession(android.view.textclassifier.TextClassificationContext p0, android.view.textclassifier.TextClassifier p1) {}
+    private <T extends java.lang.Object> T checkDestroyedAndRun(java.util.function.Supplier<T> p0) { return null; }
+    private void initializeRemoteSession() {}
+    public android.view.textclassifier.TextClassification classifyText(android.view.textclassifier.TextClassification.Request p0) { return null; }
+    public void destroy() {}
+    public android.view.textclassifier.TextLanguage detectLanguage(android.view.textclassifier.TextLanguage.Request p0) { return null; }
+    public android.view.textclassifier.TextLinks generateLinks(android.view.textclassifier.TextLinks.Request p0) { return null; }
+    public int getMaxGenerateLinksTextLength() { return 0; }
+    public boolean isDestroyed() { return false; }
+    public void onSelectionEvent(android.view.textclassifier.SelectionEvent p0) {}
+    public void onTextClassifierEvent(android.view.textclassifier.TextClassifierEvent p0) {}
+    public android.view.textclassifier.ConversationActions suggestConversationActions(android.view.textclassifier.ConversationActions.Request p0) { return null; }
+    public android.view.textclassifier.TextSelection suggestSelection(android.view.textclassifier.TextSelection.Request p0) { return null; }
+
+    private static class CleanerRunnable implements java.lang.Runnable {
+        private final android.view.textclassifier.TextClassifier mDelegate = null;
+        private final android.view.textclassifier.TextClassificationSession.SelectionEventHelper mEventHelper = null;
+        CleanerRunnable(android.view.textclassifier.TextClassificationSession.SelectionEventHelper p0, android.view.textclassifier.TextClassifier p1) {}
+        public void run() {}
+    }
+
+    private static final class SelectionEventHelper {
+        private final android.view.textclassifier.TextClassificationContext mContext = null;
+        private int mInvocationMethod;
+        private android.view.textclassifier.SelectionEvent mPrevEvent;
+        private final android.view.textclassifier.TextClassificationSessionId mSessionId = null;
+        private android.view.textclassifier.SelectionEvent mSmartEvent;
+        private android.view.textclassifier.SelectionEvent mStartEvent;
+        SelectionEventHelper(android.view.textclassifier.TextClassificationSessionId p0, android.view.textclassifier.TextClassificationContext p1) {}
+        private void modifyAutoSelectionEventType(android.view.textclassifier.SelectionEvent p0) {}
+        private void updateInvocationMethod(android.view.textclassifier.SelectionEvent p0) {}
+        void endSession() {}
+        boolean sanitizeEvent(android.view.textclassifier.SelectionEvent p0) { return false; }
+    }
+}

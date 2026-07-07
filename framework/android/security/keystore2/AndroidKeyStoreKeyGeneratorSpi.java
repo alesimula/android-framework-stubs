@@ -1,0 +1,56 @@
+package android.security.keystore2;
+
+public abstract class AndroidKeyStoreKeyGeneratorSpi extends javax.crypto.KeyGeneratorSpi {
+    private static final java.lang.String TAG = "AndroidKeyStoreKeyGeneratorSpi";
+    private final int mDefaultKeySizeBits = 0;
+    protected int mKeySizeBits;
+    private final android.security.KeyStore2 mKeyStore = null;
+    private final int mKeymasterAlgorithm = 0;
+    private int[] mKeymasterBlockModes;
+    private final int mKeymasterDigest = 0;
+    private int[] mKeymasterDigests;
+    private int[] mKeymasterPaddings;
+    private int[] mKeymasterPurposes;
+    private java.security.SecureRandom mRng;
+    private android.security.keystore.KeyGenParameterSpec mSpec;
+    protected AndroidKeyStoreKeyGeneratorSpi(int p0, int p1) { super(); }
+    protected AndroidKeyStoreKeyGeneratorSpi(int p0, int p1, int p2) { super(); }
+    private void resetAll() {}
+    protected javax.crypto.SecretKey engineGenerateKey() { return null; }
+    protected void engineInit(int p0, java.security.SecureRandom p1) {}
+    protected void engineInit(java.security.SecureRandom p0) {}
+    protected void engineInit(java.security.spec.AlgorithmParameterSpec p0, java.security.SecureRandom p1) throws java.security.InvalidAlgorithmParameterException {}
+
+    public static class AES extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi {
+        public AES() { super(0, 0); }
+        protected void engineInit(java.security.spec.AlgorithmParameterSpec p0, java.security.SecureRandom p1) throws java.security.InvalidAlgorithmParameterException {}
+    }
+
+    public static class DESede extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi {
+        public DESede() { super(0, 0); }
+    }
+
+    protected static abstract class HmacBase extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi {
+        protected HmacBase(int p0) { super(0, 0); }
+    }
+
+    public static class HmacSHA1 extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi.HmacBase {
+        public HmacSHA1() { super(0); }
+    }
+
+    public static class HmacSHA224 extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi.HmacBase {
+        public HmacSHA224() { super(0); }
+    }
+
+    public static class HmacSHA256 extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi.HmacBase {
+        public HmacSHA256() { super(0); }
+    }
+
+    public static class HmacSHA384 extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi.HmacBase {
+        public HmacSHA384() { super(0); }
+    }
+
+    public static class HmacSHA512 extends android.security.keystore2.AndroidKeyStoreKeyGeneratorSpi.HmacBase {
+        public HmacSHA512() { super(0); }
+    }
+}

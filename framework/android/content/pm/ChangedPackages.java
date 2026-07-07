@@ -1,0 +1,13 @@
+package android.content.pm;
+
+public final class ChangedPackages implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.content.pm.ChangedPackages> CREATOR = null;
+    private final java.util.List<java.lang.String> mPackageNames = null;
+    private final int mSequenceNumber = 0;
+    public ChangedPackages(int p0, java.util.List<java.lang.String> p1) {}
+    protected ChangedPackages(android.os.Parcel p0) {}
+    public int describeContents() { return 0; }
+    public java.util.List<java.lang.String> getPackageNames() { return null; }
+    public int getSequenceNumber() { return 0; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+}

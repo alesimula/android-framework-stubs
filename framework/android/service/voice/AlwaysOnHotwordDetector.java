@@ -1,0 +1,223 @@
+package android.service.voice;
+
+@android.annotation.SystemApi
+public class AlwaysOnHotwordDetector extends android.service.voice.AbstractDetector {
+    public static final int AUDIO_CAPABILITY_ECHO_CANCELLATION = 1;
+    public static final int AUDIO_CAPABILITY_NOISE_SUPPRESSION = 2;
+    static final boolean DBG = false;
+    public static final int MODEL_PARAM_THRESHOLD_FACTOR = 0;
+    private static final int MSG_AVAILABILITY_CHANGED = 1;
+    private static final int MSG_DETECTION_ERROR = 3;
+    private static final int MSG_DETECTION_HOTWORD_DETECTION_SERVICE_FAILURE = 9;
+    private static final int MSG_DETECTION_PAUSE = 4;
+    private static final int MSG_DETECTION_RESUME = 5;
+    private static final int MSG_DETECTION_SOUND_TRIGGER_FAILURE = 10;
+    private static final int MSG_DETECTION_UNKNOWN_FAILURE = 11;
+    private static final int MSG_HOTWORD_DETECTED = 2;
+    private static final int MSG_HOTWORD_REJECTED = 6;
+    private static final int MSG_HOTWORD_STATUS_REPORTED = 7;
+    private static final int MSG_PROCESS_RESTARTED = 8;
+    public static final int RECOGNITION_FLAG_ALLOW_MULTIPLE_TRIGGERS = 2;
+    public static final int RECOGNITION_FLAG_CAPTURE_TRIGGER_AUDIO = 1;
+    public static final int RECOGNITION_FLAG_ENABLE_AUDIO_ECHO_CANCELLATION = 4;
+    public static final int RECOGNITION_FLAG_ENABLE_AUDIO_NOISE_SUPPRESSION = 8;
+    public static final int RECOGNITION_FLAG_NONE = 0;
+    public static final int RECOGNITION_FLAG_RUN_IN_BATTERY_SAVER = 16;
+    public static final int RECOGNITION_MODE_USER_IDENTIFICATION = 2;
+    public static final int RECOGNITION_MODE_VOICE_TRIGGER = 1;
+    static final long SEND_ON_FAILURE_FOR_ASYNC_EXCEPTIONS = 280471513L;
+    public static final int STATE_ERROR = 3;
+    public static final int STATE_HARDWARE_UNAVAILABLE = -2;
+    private static final int STATE_INVALID = -3;
+    public static final int STATE_KEYPHRASE_ENROLLED = 2;
+    public static final int STATE_KEYPHRASE_UNENROLLED = 1;
+    @java.lang.Deprecated
+    public static final int STATE_KEYPHRASE_UNSUPPORTED = -1;
+    private static final int STATE_NOT_READY = 0;
+    private static final int STATUS_ERROR = -2147483648;
+    private static final int STATUS_OK = 0;
+    static final java.lang.String TAG = "AlwaysOnHotwordDetector";
+    static final long THROW_ON_INITIALIZE_IF_NO_DSP = 269165460L;
+    private final java.lang.String mAttributionTag = null;
+    private int mAvailability;
+    private final android.os.IBinder mBinder = null;
+    private final android.service.voice.AlwaysOnHotwordDetector.Callback mExternalCallback = null;
+    private final java.util.concurrent.Executor mExternalExecutor = null;
+    private final android.os.Handler mHandler = null;
+    private final android.service.voice.AlwaysOnHotwordDetector.SoundTriggerListener mInternalCallback = null;
+    private boolean mIsAvailabilityOverriddenByTestApi;
+    private final android.hardware.soundtrigger.KeyphraseEnrollmentInfo mKeyphraseEnrollmentInfo = null;
+    private android.hardware.soundtrigger.KeyphraseMetadata mKeyphraseMetadata;
+    private final java.util.Locale mLocale = null;
+    private final com.android.internal.app.IVoiceInteractionManagerService mModelManagementService = null;
+    private com.android.internal.app.IVoiceInteractionSoundTriggerSession mSoundTriggerSession;
+    private final boolean mSupportSandboxedDetectionService = false;
+    private final java.lang.String mText = null;
+    public AlwaysOnHotwordDetector(java.lang.String p0, java.util.Locale p1, java.util.concurrent.Executor p2, android.service.voice.AlwaysOnHotwordDetector.Callback p3, android.hardware.soundtrigger.KeyphraseEnrollmentInfo p4, com.android.internal.app.IVoiceInteractionManagerService p5, int p6, boolean p7, java.lang.String p8) { super(null, null, null); }
+    private void detachSessionLocked() {}
+    private android.content.Intent getManageIntentLocked(int p0) { return null; }
+    private int getParameterLocked(int p0) { return 0; }
+    private int getSupportedAudioCapabilitiesLocked() { return 0; }
+    private int getSupportedRecognitionModesLocked() { return 0; }
+    private void notifyStateChangedLocked() {}
+    private android.service.voice.AlwaysOnHotwordDetector.ModelParamRange queryParameterLocked(int p0) { return null; }
+    private void sendSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) {}
+    private void sendUnknownFailure(java.lang.String p0) {}
+    private int setParameterLocked(int p0, int p1) { return 0; }
+    private int startRecognitionLocked(int p0, byte[] p1) { return 0; }
+    private int stopRecognitionLocked() { return 0; }
+    private void updateAndNotifyStateChangedLocked(int p0) {}
+    private void updateAvailabilityLocked(int p0) {}
+    public android.content.Intent createEnrollIntent() { return null; }
+    public android.content.Intent createReEnrollIntent() { return null; }
+    public android.content.Intent createUnEnrollIntent() { return null; }
+    public void destroy() {}
+    public void dump(java.lang.String p0, java.io.PrintWriter p1) {}
+    public boolean equals(java.lang.Object p0) { return false; }
+    public int getParameter(int p0) { return 0; }
+    public int getSupportedAudioCapabilities() { return 0; }
+    public int getSupportedRecognitionModes() { return 0; }
+    public int hashCode() { return 0; }
+    void initialize(android.os.PersistableBundle p0, android.os.SharedMemory p1) {}
+    void initialize(android.os.PersistableBundle p0, android.os.SharedMemory p1, android.hardware.soundtrigger.SoundTrigger.ModuleProperties p2) {}
+    public boolean isUsingSandboxedDetectionService() { return false; }
+    void onDetectorRemoteException() {}
+    void onSoundModelsChanged() {}
+    public void overrideAvailability(int p0) {}
+    public android.service.voice.AlwaysOnHotwordDetector.ModelParamRange queryParameter(int p0) { return null; }
+    public void resetAvailability() {}
+    public int setParameter(int p0, int p1) { return 0; }
+    public boolean startRecognition() { return false; }
+    public boolean startRecognition(int p0) { return false; }
+    public boolean startRecognition(int p0, byte[] p1) { return false; }
+    public boolean stopRecognition() { return false; }
+    public void triggerHardwareRecognitionEventForTest(int p0, int p1, long p2, boolean p3, int p4, int p5, int p6, boolean p7, android.media.AudioFormat p8, byte[] p9, java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p10) {}
+    public final void updateState(android.os.PersistableBundle p0, android.os.SharedMemory p1) {}
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioCapabilities {
+    }
+
+    public static abstract class Callback implements android.service.voice.HotwordDetector.Callback {
+        public Callback() {}
+        public abstract void onAvailabilityChanged(int p0);
+        public abstract void onDetected(android.service.voice.AlwaysOnHotwordDetector.EventPayload p0);
+        @java.lang.Deprecated
+        public abstract void onError();
+        public void onFailure(android.service.voice.SoundTriggerFailure p0) {}
+        public void onHotwordDetectionServiceInitialized(int p0) {}
+        public void onHotwordDetectionServiceRestarted() {}
+        public abstract void onRecognitionPaused();
+        public abstract void onRecognitionResumed();
+        public void onRejected(android.service.voice.HotwordRejectedResult p0) {}
+    }
+
+    public static class EventPayload {
+        public static final int DATA_FORMAT_RAW = 0;
+        public static final int DATA_FORMAT_TRIGGER_AUDIO = 1;
+        private final android.media.AudioFormat mAudioFormat = null;
+        private final android.os.ParcelFileDescriptor mAudioStream = null;
+        private final boolean mCaptureAvailable = false;
+        private final int mCaptureSession = 0;
+        private final byte[] mData = null;
+        private final int mDataFormat = 0;
+        private final long mHalEventReceivedMillis = 0L;
+        private final android.service.voice.HotwordDetectedResult mHotwordDetectedResult = null;
+        private final boolean mIsRecognitionStopped = false;
+        private final java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> mKephraseExtras = null;
+        private EventPayload(boolean p0, android.media.AudioFormat p1, int p2, int p3, byte[] p4, android.service.voice.HotwordDetectedResult p5, android.os.ParcelFileDescriptor p6, java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p7, long p8, boolean p9) {}
+        public android.os.ParcelFileDescriptor getAudioStream() { return null; }
+        public android.media.AudioFormat getCaptureAudioFormat() { return null; }
+        public java.lang.Integer getCaptureSession() { return null; }
+        public byte[] getData() { return null; }
+        public int getDataFormat() { return 0; }
+        public long getHalEventReceivedMillis() { return 0L; }
+        public android.service.voice.HotwordDetectedResult getHotwordDetectedResult() { return null; }
+        public java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> getKeyphraseRecognitionExtras() { return null; }
+        @java.lang.Deprecated
+        public byte[] getTriggerAudio() { return null; }
+        public boolean isRecognitionStopped() { return false; }
+
+        public static final class Builder {
+            private android.media.AudioFormat mAudioFormat;
+            private android.os.ParcelFileDescriptor mAudioStream;
+            private boolean mCaptureAvailable;
+            private int mCaptureSession;
+            private byte[] mData;
+            private int mDataFormat;
+            private long mHalEventReceivedMillis;
+            private android.service.voice.HotwordDetectedResult mHotwordDetectedResult;
+            private boolean mIsRecognitionStopped;
+            private java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> mKeyphraseExtras;
+            public Builder() {}
+            Builder(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0) {}
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload build() { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setAudioStream(android.os.ParcelFileDescriptor p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setCaptureAudioFormat(android.media.AudioFormat p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setCaptureAvailable(boolean p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setCaptureSession(int p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setData(byte[] p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setDataFormat(int p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setHalEventReceivedMillis(long p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setHotwordDetectedResult(android.service.voice.HotwordDetectedResult p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setIsRecognitionStopped(boolean p0) { return null; }
+            public android.service.voice.AlwaysOnHotwordDetector.EventPayload.Builder setKeyphraseRecognitionExtras(java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p0) { return null; }
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface DataFormat {
+        }
+    }
+
+    public static final class ModelParamRange {
+        private final android.hardware.soundtrigger.SoundTrigger.ModelParamRange mModelParamRange = null;
+        ModelParamRange(android.hardware.soundtrigger.SoundTrigger.ModelParamRange p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getEnd() { return 0; }
+        public int getStart() { return 0; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ModelParams {
+    }
+
+    class MyHandler extends android.os.Handler {
+        MyHandler(android.service.voice.AlwaysOnHotwordDetector p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecognitionFlags {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecognitionModes {
+    }
+
+    class RefreshAvailabilityTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Void> {
+        RefreshAvailabilityTask(android.service.voice.AlwaysOnHotwordDetector p0) { super(); }
+        private int internalGetInitialAvailability() { return 0; }
+        private void internalUpdateEnrolledKeyphraseMetadata() {}
+        public java.lang.Void doInBackground(java.lang.Void... p0) { return null; }
+    }
+
+    static final class SoundTriggerListener extends com.android.internal.app.IHotwordRecognitionStatusCallback.Stub {
+        private final android.os.Handler mHandler = null;
+        public SoundTriggerListener(android.os.Handler p0) { super(); }
+        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) {}
+        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) {}
+        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) {}
+        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) {}
+        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
+        public void onProcessRestarted() {}
+        public void onRecognitionPaused() {}
+        public void onRecognitionResumed() {}
+        public void onRejected(android.service.voice.HotwordRejectedResult p0) {}
+        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) {}
+        public void onStatusReported(int p0) {}
+        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
+    }
+}

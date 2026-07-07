@@ -1,0 +1,54 @@
+package android.hardware.security.keymint;
+
+public interface IKeyMintOperation extends android.os.IInterface {
+    public static final java.lang.String DESCRIPTOR = null;
+    public static final java.lang.String HASH = "177877c3782ff5543c231b8616f1ee6a300f810d";
+    public static final int VERSION = 5;
+    public void abort() throws android.os.RemoteException;
+    public byte[] finish(byte[] p0, byte[] p1, android.hardware.security.keymint.HardwareAuthToken p2, android.hardware.security.secureclock.TimeStampToken p3, byte[] p4) throws android.os.RemoteException;
+    public java.lang.String getInterfaceHash() throws android.os.RemoteException;
+    public int getInterfaceVersion() throws android.os.RemoteException;
+    public byte[] update(byte[] p0, android.hardware.security.keymint.HardwareAuthToken p1, android.hardware.security.secureclock.TimeStampToken p2) throws android.os.RemoteException;
+    public void updateAad(byte[] p0, android.hardware.security.keymint.HardwareAuthToken p1, android.hardware.security.secureclock.TimeStampToken p2) throws android.os.RemoteException;
+
+    public static class Default implements android.hardware.security.keymint.IKeyMintOperation {
+        public Default() {}
+        public void abort() throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public byte[] finish(byte[] p0, byte[] p1, android.hardware.security.keymint.HardwareAuthToken p2, android.hardware.security.secureclock.TimeStampToken p3, byte[] p4) throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public byte[] update(byte[] p0, android.hardware.security.keymint.HardwareAuthToken p1, android.hardware.security.secureclock.TimeStampToken p2) throws android.os.RemoteException { return null; }
+        public void updateAad(byte[] p0, android.hardware.security.keymint.HardwareAuthToken p1, android.hardware.security.secureclock.TimeStampToken p2) throws android.os.RemoteException {}
+    }
+
+    public static abstract class Stub extends android.os.Binder implements android.hardware.security.keymint.IKeyMintOperation {
+        static final int TRANSACTION_abort = 4;
+        static final int TRANSACTION_finish = 3;
+        static final int TRANSACTION_getInterfaceHash = 16777214;
+        static final int TRANSACTION_getInterfaceVersion = 16777215;
+        static final int TRANSACTION_update = 2;
+        static final int TRANSACTION_updateAad = 1;
+        public Stub() { super(); }
+        public static android.hardware.security.keymint.IKeyMintOperation asInterface(android.os.IBinder p0) { return null; }
+        public static java.lang.String getDefaultTransactionName(int p0) { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getTransactionName(int p0) { return null; }
+        public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+
+        private static final class Proxy implements android.hardware.security.keymint.IKeyMintOperation {
+            private java.lang.String mCachedHash;
+            private int mCachedVersion;
+            private android.os.IBinder mRemote;
+            Proxy(android.os.IBinder p0) {}
+            public void abort() throws android.os.RemoteException {}
+            public android.os.IBinder asBinder() { return null; }
+            public byte[] finish(byte[] p0, byte[] p1, android.hardware.security.keymint.HardwareAuthToken p2, android.hardware.security.secureclock.TimeStampToken p3, byte[] p4) throws android.os.RemoteException { return null; }
+            public final java.lang.String getInterfaceDescriptor() { return null; }
+            public java.lang.String getInterfaceHash() throws android.os.RemoteException { return null; }
+            public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
+            public byte[] update(byte[] p0, android.hardware.security.keymint.HardwareAuthToken p1, android.hardware.security.secureclock.TimeStampToken p2) throws android.os.RemoteException { return null; }
+            public void updateAad(byte[] p0, android.hardware.security.keymint.HardwareAuthToken p1, android.hardware.security.secureclock.TimeStampToken p2) throws android.os.RemoteException {}
+        }
+    }
+}

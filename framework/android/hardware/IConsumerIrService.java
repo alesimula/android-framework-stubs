@@ -1,0 +1,43 @@
+package android.hardware;
+
+public interface IConsumerIrService extends android.os.IInterface {
+    public int[] getCarrierFrequencies() throws android.os.RemoteException;
+    public boolean hasIrEmitter() throws android.os.RemoteException;
+    public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException;
+
+    public static class Default implements android.hardware.IConsumerIrService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int[] getCarrierFrequencies() throws android.os.RemoteException { return null; }
+        public boolean hasIrEmitter() throws android.os.RemoteException { return false; }
+        public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException {}
+    }
+
+    public static abstract class Stub extends android.os.Binder implements android.hardware.IConsumerIrService {
+        public static final java.lang.String DESCRIPTOR = "android.hardware.IConsumerIrService";
+        static final int TRANSACTION_getCarrierFrequencies = 3;
+        static final int TRANSACTION_hasIrEmitter = 1;
+        static final int TRANSACTION_transmit = 2;
+        private final android.os.PermissionEnforcer mEnforcer = null;
+        @java.lang.Deprecated
+        public Stub() { super(); }
+        public Stub(android.os.PermissionEnforcer p0) { super(); }
+        public static android.hardware.IConsumerIrService asInterface(android.os.IBinder p0) { return null; }
+        public static java.lang.String getDefaultTransactionName(int p0) { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        protected void getCarrierFrequencies_enforcePermission() throws java.lang.SecurityException {}
+        public java.lang.String getTransactionName(int p0) { return null; }
+        public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+        protected void transmit_enforcePermission() throws java.lang.SecurityException {}
+
+        private static final class Proxy implements android.hardware.IConsumerIrService {
+            private android.os.IBinder mRemote;
+            Proxy(android.os.IBinder p0) {}
+            public android.os.IBinder asBinder() { return null; }
+            public int[] getCarrierFrequencies() throws android.os.RemoteException { return null; }
+            public final java.lang.String getInterfaceDescriptor() { return null; }
+            public boolean hasIrEmitter() throws android.os.RemoteException { return false; }
+            public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException {}
+        }
+    }
+}

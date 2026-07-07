@@ -1,0 +1,23 @@
+package android.graphics;
+
+public class Point implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.graphics.Point> CREATOR = null;
+    public int x;
+    public int y;
+    public Point() {}
+    public Point(int p0, int p1) {}
+    public Point(android.graphics.Point p0) {}
+    public static android.graphics.Point unflattenFromString(java.lang.String p0) throws java.lang.NumberFormatException { return null; }
+    public int describeContents() { return 0; }
+    public final boolean equals(int p0, int p1) { return false; }
+    public boolean equals(java.lang.Object p0) { return false; }
+    public java.lang.String flattenToString() { return null; }
+    public int hashCode() { return 0; }
+    public final void negate() {}
+    public final void offset(int p0, int p1) {}
+    public void readFromParcel(android.os.Parcel p0) {}
+    public void set(int p0, int p1) {}
+    public void set(android.graphics.Point p0) {}
+    public java.lang.String toString() { return null; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+}

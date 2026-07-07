@@ -1,0 +1,16 @@
+package android.hardware.biometrics;
+
+public final class StrongSensorStrengthInternal implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.hardware.biometrics.StrongSensorStrengthInternal> CREATOR = null;
+    private final int mModality = 0;
+    private final int mStrength = 0;
+    public StrongSensorStrengthInternal(int p0, int p1) {}
+    private StrongSensorStrengthInternal(android.os.Parcel p0) {}
+    public int describeContents() { return 0; }
+    public boolean equals(java.lang.Object p0) { return false; }
+    public int getModality() { return 0; }
+    public int getStrength() { return 0; }
+    public int hashCode() { return 0; }
+    public java.lang.String toString() { return null; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+}

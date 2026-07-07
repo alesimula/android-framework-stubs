@@ -1,0 +1,24 @@
+package android.media;
+
+public class AudioDevicePort extends android.media.AudioPort {
+    private final java.lang.String mAddress = null;
+    private final int[] mEncapsulationMetadataTypes = null;
+    private final int[] mEncapsulationModes = null;
+    private final int mSpeakerLayoutChannelMask = 0;
+    private final int mType = 0;
+    AudioDevicePort(android.media.AudioHandle p0, java.lang.String p1, java.util.List<android.media.AudioProfile> p2, android.media.AudioGain[] p3, int p4, java.lang.String p5, int p6, int[] p7, int[] p8, java.util.List<android.media.AudioDescriptor> p9) { super((android.media.AudioHandle)null, 0, (java.lang.String)null, (java.util.List)null, (android.media.AudioGain[])null, (java.util.List)null); }
+    AudioDevicePort(android.media.AudioHandle p0, java.lang.String p1, int[] p2, android.media.AudioFormat.ChannelMasksArray p3, int[] p4, android.media.AudioGain[] p5, int p6, java.lang.String p7, int[] p8, int[] p9) { super((android.media.AudioHandle)null, 0, (java.lang.String)null, (java.util.List)null, (android.media.AudioGain[])null, (java.util.List)null); }
+    AudioDevicePort(android.media.AudioHandle p0, java.lang.String p1, int[] p2, int[] p3, int[] p4, int[] p5, android.media.AudioGain[] p6, int p7, java.lang.String p8, int[] p9, int[] p10) { super((android.media.AudioHandle)null, 0, (java.lang.String)null, (java.util.List)null, (android.media.AudioGain[])null, (java.util.List)null); }
+    public static android.media.AudioDevicePort createForTesting(int p0) { return null; }
+    public static android.media.AudioDevicePort createForTesting(int p0, java.lang.String p1, java.lang.String p2) { return null; }
+    public java.lang.String address() { return null; }
+    public android.media.AudioDevicePortConfig buildConfig(int p0, int p1, int p2, android.media.AudioGainConfig p3) { return null; }
+    public android.media.AudioDevicePortConfig buildConfig(int p0, android.media.AudioFormat.ChannelMasks p1, int p2, android.media.AudioGainConfig p3) { return null; }
+    public int[] encapsulationMetadataTypes() { return null; }
+    public int[] encapsulationModes() { return null; }
+    public boolean equals(java.lang.Object p0) { return false; }
+    public boolean isSameAs(android.media.AudioDevicePort p0) { return false; }
+    public int speakerLayoutChannelMask() { return 0; }
+    public java.lang.String toString() { return null; }
+    public int type() { return 0; }
+}

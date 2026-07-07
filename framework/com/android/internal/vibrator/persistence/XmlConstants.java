@@ -1,0 +1,101 @@
+package com.android.internal.vibrator.persistence;
+
+public final class XmlConstants {
+    public static final java.lang.String ATTRIBUTE_AMPLITUDE = "amplitude";
+    public static final java.lang.String ATTRIBUTE_DELAY_MS = "delayMs";
+    public static final java.lang.String ATTRIBUTE_DELAY_TYPE = "delayType";
+    public static final java.lang.String ATTRIBUTE_DURATION_MS = "durationMs";
+    public static final java.lang.String ATTRIBUTE_FALLBACK = "fallback";
+    public static final java.lang.String ATTRIBUTE_FREQUENCY_HZ = "frequencyHz";
+    public static final java.lang.String ATTRIBUTE_INITIAL_FREQUENCY_HZ = "initialFrequencyHz";
+    public static final java.lang.String ATTRIBUTE_INITIAL_SHARPNESS = "initialSharpness";
+    public static final java.lang.String ATTRIBUTE_INTENSITY = "intensity";
+    public static final java.lang.String ATTRIBUTE_NAME = "name";
+    public static final java.lang.String ATTRIBUTE_SCALE = "scale";
+    public static final java.lang.String ATTRIBUTE_SHARPNESS = "sharpness";
+    public static final java.lang.String ATTRIBUTE_START_TIME_MS = "startTimeMs";
+    public static final int FLAG_ALLOW_HIDDEN_APIS = 1;
+    public static final java.lang.String NAMESPACE = null;
+    public static final java.lang.String TAG_BASIC_ENVELOPE_EFFECT = "basic-envelope-effect";
+    public static final java.lang.String TAG_CONTROL_POINT = "control-point";
+    public static final java.lang.String TAG_PREAMBLE = "preamble";
+    public static final java.lang.String TAG_PREDEFINED_EFFECT = "predefined-effect";
+    public static final java.lang.String TAG_PRIMITIVE_EFFECT = "primitive-effect";
+    public static final java.lang.String TAG_REPEATING = "repeating";
+    public static final java.lang.String TAG_REPEATING_EFFECT = "repeating-effect";
+    public static final java.lang.String TAG_VENDOR_EFFECT = "vendor-effect";
+    public static final java.lang.String TAG_VIBRATION_EFFECT = "vibration-effect";
+    public static final java.lang.String TAG_VIBRATION_SELECT = "vibration-select";
+    public static final java.lang.String TAG_WAVEFORM_EFFECT = "waveform-effect";
+    public static final java.lang.String TAG_WAVEFORM_ENTRY = "waveform-entry";
+    public static final java.lang.String TAG_WAVEFORM_ENVELOPE_EFFECT = "waveform-envelope-effect";
+    public static final java.lang.String VALUE_AMPLITUDE_DEFAULT = "default";
+    public XmlConstants() {}
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Flags {
+    }
+
+    public static enum PredefinedEffectName {
+        CLICK,
+        DOUBLE_CLICK,
+        HEAVY_CLICK,
+        POP,
+        RINGTONE_1,
+        RINGTONE_10,
+        RINGTONE_11,
+        RINGTONE_12,
+        RINGTONE_13,
+        RINGTONE_14,
+        RINGTONE_15,
+        RINGTONE_2,
+        RINGTONE_3,
+        RINGTONE_4,
+        RINGTONE_5,
+        RINGTONE_6,
+        RINGTONE_7,
+        RINGTONE_8,
+        RINGTONE_9,
+        TEXTURE_TICK,
+        THUD,
+        TICK;
+        private static final com.android.internal.vibrator.persistence.XmlConstants.PredefinedEffectName[] $VALUES = null;
+        private final int mEffectId = 0;
+        private final boolean mIsPublic = false;
+        private PredefinedEffectName() {}
+        public static com.android.internal.vibrator.persistence.XmlConstants.PredefinedEffectName findById(int p0, int p1) { return null; }
+        public static com.android.internal.vibrator.persistence.XmlConstants.PredefinedEffectName findByName(java.lang.String p0, int p1) { return null; }
+        public int getEffectId() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static enum PrimitiveDelayType {
+        PAUSE,
+        RELATIVE_START_OFFSET;
+        private static final com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType[] $VALUES = null;
+        private final int mDelayType = 0;
+        private PrimitiveDelayType() {}
+        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType findByName(java.lang.String p0) { return null; }
+        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType findByType(int p0) { return null; }
+        public int getDelayType() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static enum PrimitiveEffectName {
+        CLICK,
+        LOW_TICK,
+        QUICK_FALL,
+        QUICK_RISE,
+        SLOW_RISE,
+        SPIN,
+        THUD,
+        TICK;
+        private static final com.android.internal.vibrator.persistence.XmlConstants.PrimitiveEffectName[] $VALUES = null;
+        private final int mPrimitiveId = 0;
+        private PrimitiveEffectName() {}
+        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveEffectName findById(int p0) { return null; }
+        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveEffectName findByName(java.lang.String p0) { return null; }
+        public int getPrimitiveId() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+}

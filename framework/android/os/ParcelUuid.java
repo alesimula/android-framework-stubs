@@ -1,0 +1,14 @@
+package android.os;
+
+public final class ParcelUuid implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.os.ParcelUuid> CREATOR = null;
+    private final java.util.UUID mUuid = null;
+    public ParcelUuid(java.util.UUID p0) {}
+    public static android.os.ParcelUuid fromString(java.lang.String p0) { return null; }
+    public int describeContents() { return 0; }
+    public boolean equals(java.lang.Object p0) { return false; }
+    public java.util.UUID getUuid() { return null; }
+    public int hashCode() { return 0; }
+    public java.lang.String toString() { return null; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+}

@@ -1,0 +1,69 @@
+package android.hardware.contexthub;
+
+public interface IContextHubCallback extends android.os.IInterface {
+    public static final int CONTEXTHUB_NAN_TRANSACTION_TIMEOUT_MS = 10000;
+    public static final java.lang.String DESCRIPTOR = null;
+    public static final java.lang.String HASH = "4a4662588b9e38b5e93c37e46353efac231f7a98";
+    public static final int VERSION = 5;
+    public java.lang.String getInterfaceHash() throws android.os.RemoteException;
+    public int getInterfaceVersion() throws android.os.RemoteException;
+    public java.lang.String getName() throws android.os.RemoteException;
+    public byte[] getUuid() throws android.os.RemoteException;
+    public void handleContextHubAsyncEvent(int p0) throws android.os.RemoteException;
+    public void handleContextHubMessage(android.hardware.contexthub.ContextHubMessage p0, java.lang.String[] p1) throws android.os.RemoteException;
+    public void handleMessageDeliveryStatus(char p0, android.hardware.contexthub.MessageDeliveryStatus p1) throws android.os.RemoteException;
+    public void handleNanSessionRequest(android.hardware.contexthub.NanSessionRequest p0) throws android.os.RemoteException;
+    public void handleNanoappInfo(android.hardware.contexthub.NanoappInfo[] p0) throws android.os.RemoteException;
+    public void handleTransactionResult(int p0, boolean p1) throws android.os.RemoteException;
+
+    public static class Default implements android.hardware.contexthub.IContextHubCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public java.lang.String getName() throws android.os.RemoteException { return null; }
+        public byte[] getUuid() throws android.os.RemoteException { return null; }
+        public void handleContextHubAsyncEvent(int p0) throws android.os.RemoteException {}
+        public void handleContextHubMessage(android.hardware.contexthub.ContextHubMessage p0, java.lang.String[] p1) throws android.os.RemoteException {}
+        public void handleMessageDeliveryStatus(char p0, android.hardware.contexthub.MessageDeliveryStatus p1) throws android.os.RemoteException {}
+        public void handleNanSessionRequest(android.hardware.contexthub.NanSessionRequest p0) throws android.os.RemoteException {}
+        public void handleNanoappInfo(android.hardware.contexthub.NanoappInfo[] p0) throws android.os.RemoteException {}
+        public void handleTransactionResult(int p0, boolean p1) throws android.os.RemoteException {}
+    }
+
+    public static abstract class Stub extends android.os.Binder implements android.hardware.contexthub.IContextHubCallback {
+        static final int TRANSACTION_getInterfaceHash = 16777214;
+        static final int TRANSACTION_getInterfaceVersion = 16777215;
+        static final int TRANSACTION_getName = 8;
+        static final int TRANSACTION_getUuid = 7;
+        static final int TRANSACTION_handleContextHubAsyncEvent = 3;
+        static final int TRANSACTION_handleContextHubMessage = 2;
+        static final int TRANSACTION_handleMessageDeliveryStatus = 6;
+        static final int TRANSACTION_handleNanSessionRequest = 5;
+        static final int TRANSACTION_handleNanoappInfo = 1;
+        static final int TRANSACTION_handleTransactionResult = 4;
+        public Stub() { super(); }
+        public static android.hardware.contexthub.IContextHubCallback asInterface(android.os.IBinder p0) { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+
+        private static final class Proxy implements android.hardware.contexthub.IContextHubCallback {
+            private java.lang.String mCachedHash;
+            private int mCachedVersion;
+            private android.os.IBinder mRemote;
+            Proxy(android.os.IBinder p0) {}
+            public android.os.IBinder asBinder() { return null; }
+            public final java.lang.String getInterfaceDescriptor() { return null; }
+            public java.lang.String getInterfaceHash() throws android.os.RemoteException { return null; }
+            public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
+            public java.lang.String getName() throws android.os.RemoteException { return null; }
+            public byte[] getUuid() throws android.os.RemoteException { return null; }
+            public void handleContextHubAsyncEvent(int p0) throws android.os.RemoteException {}
+            public void handleContextHubMessage(android.hardware.contexthub.ContextHubMessage p0, java.lang.String[] p1) throws android.os.RemoteException {}
+            public void handleMessageDeliveryStatus(char p0, android.hardware.contexthub.MessageDeliveryStatus p1) throws android.os.RemoteException {}
+            public void handleNanSessionRequest(android.hardware.contexthub.NanSessionRequest p0) throws android.os.RemoteException {}
+            public void handleNanoappInfo(android.hardware.contexthub.NanoappInfo[] p0) throws android.os.RemoteException {}
+            public void handleTransactionResult(int p0, boolean p1) throws android.os.RemoteException {}
+        }
+    }
+}

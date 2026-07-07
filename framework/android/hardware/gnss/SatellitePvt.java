@@ -1,0 +1,32 @@
+package android.hardware.gnss;
+
+public class SatellitePvt implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.hardware.gnss.SatellitePvt> CREATOR = null;
+    public static final int HAS_IONO = 2;
+    public static final int HAS_POSITION_VELOCITY_CLOCK_INFO = 1;
+    public static final int HAS_TROPO = 4;
+    public int ephemerisSource;
+    public int flags;
+    public double ionoDelayMeters;
+    public int issueOfDataClock;
+    public int issueOfDataEphemeris;
+    public android.hardware.gnss.SatelliteClockInfo satClockInfo;
+    public android.hardware.gnss.SatellitePositionEcef satPosEcef;
+    public android.hardware.gnss.SatelliteVelocityEcef satVelEcef;
+    public long timeOfClockSeconds;
+    public long timeOfEphemerisSeconds;
+    public double tropoDelayMeters;
+    public SatellitePvt() {}
+    private int describeContents(java.lang.Object p0) { return 0; }
+    public int describeContents() { return 0; }
+    public final int getStability() { return 0; }
+    public final void readFromParcel(android.os.Parcel p0) {}
+    public final void writeToParcel(android.os.Parcel p0, int p1) {}
+
+    public static @interface SatelliteEphemerisSource {
+        public static final int DEMODULATED = 0;
+        public static final int OTHER = 3;
+        public static final int SERVER_LONG_TERM = 2;
+        public static final int SERVER_NORMAL = 1;
+    }
+}

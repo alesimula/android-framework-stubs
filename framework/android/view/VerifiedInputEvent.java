@@ -1,0 +1,28 @@
+package android.view;
+
+public abstract class VerifiedInputEvent implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.view.VerifiedInputEvent> CREATOR = null;
+    private static final java.lang.String TAG = "VerifiedInputEvent";
+    protected static final int VERIFIED_KEY = 1;
+    protected static final int VERIFIED_MOTION = 2;
+    private int mDeviceId;
+    private int mDisplayId;
+    private long mEventTimeNanos;
+    private int mSource;
+    private int mType;
+    protected VerifiedInputEvent(int p0, int p1, long p2, int p3, int p4) {}
+    protected VerifiedInputEvent(android.os.Parcel p0, int p1) {}
+    private static int peekInt(android.os.Parcel p0) { return 0; }
+    public int describeContents() { return 0; }
+    public boolean equals(java.lang.Object p0) { return false; }
+    public int getDeviceId() { return 0; }
+    public int getDisplayId() { return 0; }
+    public long getEventTimeNanos() { return 0L; }
+    public int getSource() { return 0; }
+    public int hashCode() { return 0; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VerifiedInputEventType {
+    }
+}

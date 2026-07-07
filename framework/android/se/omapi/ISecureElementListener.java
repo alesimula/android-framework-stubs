@@ -1,0 +1,36 @@
+package android.se.omapi;
+
+public interface ISecureElementListener extends android.os.IInterface {
+    public static final java.lang.String HASH = "894069bcfe4f35ceb2088278ddf87c83adee8014";
+    public static final int VERSION = 1;
+    public java.lang.String getInterfaceHash() throws android.os.RemoteException;
+    public int getInterfaceVersion() throws android.os.RemoteException;
+
+    public static class Default implements android.se.omapi.ISecureElementListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+    }
+
+    public static abstract class Stub extends android.os.Binder implements android.se.omapi.ISecureElementListener {
+        public static final java.lang.String DESCRIPTOR = null;
+        static final int TRANSACTION_getInterfaceHash = 16777214;
+        static final int TRANSACTION_getInterfaceVersion = 16777215;
+        public Stub() { super(); }
+        public static android.se.omapi.ISecureElementListener asInterface(android.os.IBinder p0) { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+
+        private static final class Proxy implements android.se.omapi.ISecureElementListener {
+            private java.lang.String mCachedHash;
+            private int mCachedVersion;
+            private android.os.IBinder mRemote;
+            Proxy(android.os.IBinder p0) {}
+            public android.os.IBinder asBinder() { return null; }
+            public final java.lang.String getInterfaceDescriptor() { return null; }
+            public java.lang.String getInterfaceHash() throws android.os.RemoteException { return null; }
+            public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
+        }
+    }
+}

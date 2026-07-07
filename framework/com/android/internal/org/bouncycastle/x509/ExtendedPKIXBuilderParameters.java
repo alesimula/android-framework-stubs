@@ -1,0 +1,14 @@
+package com.android.internal.org.bouncycastle.x509;
+
+public class ExtendedPKIXBuilderParameters extends com.android.internal.org.bouncycastle.x509.ExtendedPKIXParameters {
+    private java.util.Set excludedCerts;
+    private int maxPathLength;
+    public ExtendedPKIXBuilderParameters(java.util.Set p0, com.android.internal.org.bouncycastle.util.Selector p1) throws java.security.InvalidAlgorithmParameterException { super(null); }
+    public static com.android.internal.org.bouncycastle.x509.ExtendedPKIXParameters getInstance(java.security.cert.PKIXParameters p0) { return null; }
+    public java.lang.Object clone() { return null; }
+    public java.util.Set getExcludedCerts() { return null; }
+    public int getMaxPathLength() { return 0; }
+    public void setExcludedCerts(java.util.Set p0) {}
+    public void setMaxPathLength(int p0) {}
+    protected void setParams(java.security.cert.PKIXParameters p0) {}
+}

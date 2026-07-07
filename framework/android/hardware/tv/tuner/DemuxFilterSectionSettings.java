@@ -1,0 +1,16 @@
+package android.hardware.tv.tuner;
+
+public class DemuxFilterSectionSettings implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.hardware.tv.tuner.DemuxFilterSectionSettings> CREATOR = null;
+    public int bitWidthOfLengthField;
+    public android.hardware.tv.tuner.DemuxFilterSectionSettingsCondition condition;
+    public boolean isCheckCrc;
+    public boolean isRaw;
+    public boolean isRepeat;
+    public DemuxFilterSectionSettings() {}
+    private int describeContents(java.lang.Object p0) { return 0; }
+    public int describeContents() { return 0; }
+    public final int getStability() { return 0; }
+    public final void readFromParcel(android.os.Parcel p0) {}
+    public final void writeToParcel(android.os.Parcel p0, int p1) {}
+}

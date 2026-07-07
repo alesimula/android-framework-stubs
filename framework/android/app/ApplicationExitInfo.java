@@ -1,0 +1,201 @@
+package android.app;
+
+public final class ApplicationExitInfo implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<android.app.ApplicationExitInfo> CREATOR = null;
+    public static final int REASON_ANR = 6;
+    public static final int REASON_CRASH = 4;
+    public static final int REASON_CRASH_NATIVE = 5;
+    public static final int REASON_DEPENDENCY_DIED = 12;
+    public static final int REASON_EXCESSIVE_RESOURCE_USAGE = 9;
+    public static final int REASON_EXIT_SELF = 1;
+    public static final int REASON_FREEZER = 14;
+    public static final int REASON_INITIALIZATION_FAILURE = 7;
+    public static final int REASON_LOW_MEMORY = 3;
+    public static final int REASON_MEMORY_LIMITER = 17;
+    public static final int REASON_OTHER = 13;
+    public static final int REASON_PACKAGE_STATE_CHANGE = 15;
+    public static final int REASON_PACKAGE_UPDATED = 16;
+    public static final int REASON_PERMISSION_CHANGE = 8;
+    public static final int REASON_SIGNALED = 2;
+    public static final int REASON_UNKNOWN = 0;
+    public static final int REASON_USER_REQUESTED = 10;
+    public static final int REASON_USER_STOPPED = 11;
+    public static final int SUBREASON_ACTIVITY_LAUNCH_FAILURE = 57;
+    public static final int SUBREASON_ANR_TYPE_APP_TRIGGERED = 33;
+    public static final int SUBREASON_ANR_TYPE_BIND_APPLICATION = 34;
+    public static final int SUBREASON_ANR_TYPE_BROADCAST_OF_INTENT = 35;
+    public static final int SUBREASON_ANR_TYPE_CONTENT_PROVIDER_NOT_RESPONDING = 36;
+    public static final int SUBREASON_ANR_TYPE_EXECUTING_SERVICE = 37;
+    public static final int SUBREASON_ANR_TYPE_FOREGROUND_SERVICE_TIMEOUT = 38;
+    public static final int SUBREASON_ANR_TYPE_FOREGROUND_SHORT_SERVICE_TIMEOUT = 39;
+    public static final int SUBREASON_ANR_TYPE_GPU_HANG = 40;
+    public static final int SUBREASON_ANR_TYPE_INPUT_DISPATCHING_TIMEOUT = 41;
+    public static final int SUBREASON_ANR_TYPE_INPUT_DISPATCHING_TIMEOUT_NO_FOCUSED_WINDOW = 42;
+    public static final int SUBREASON_ANR_TYPE_JOB_SERVICE_BIND = 43;
+    public static final int SUBREASON_ANR_TYPE_JOB_SERVICE_NOTIFICATION_NOT_PROVIDED = 44;
+    public static final int SUBREASON_ANR_TYPE_JOB_SERVICE_START = 45;
+    public static final int SUBREASON_ANR_TYPE_JOB_SERVICE_STOP = 46;
+    public static final int SUBREASON_ANR_TYPE_START_FOREGROUND_SERVICE = 47;
+    public static final int SUBREASON_ANR_TYPE_SYSTEM_SERVER_WATCHDOG_TIMEOUT = 48;
+    public static final int SUBREASON_APP_DATA_CLEARED = 55;
+    public static final int SUBREASON_CACHED_IDLE_FORCED_APP_STANDBY = 18;
+    public static final int SUBREASON_CONFIG_RESET_RESTART = 60;
+    public static final int SUBREASON_EXCESSIVE_BINDER_OBJECTS = 29;
+    public static final int SUBREASON_EXCESSIVE_CPU = 7;
+    public static final int SUBREASON_EXCESSIVE_ENQUEUED_BROADCASTS_COUNT = 49;
+    public static final int SUBREASON_EXCESSIVE_OUTGOING_BROADCASTS_WHILE_CACHED = 32;
+    public static final int SUBREASON_FORCE_STOP = 21;
+    public static final int SUBREASON_FREEZER_BINDER_ASYNC_FULL = 31;
+    public static final int SUBREASON_FREEZER_BINDER_IOCTL = 19;
+    public static final int SUBREASON_FREEZER_BINDER_TRANSACTION = 20;
+    public static final int SUBREASON_IMPERCEPTIBLE = 15;
+    public static final int SUBREASON_INVALID_START = 13;
+    public static final int SUBREASON_INVALID_STATE = 14;
+    public static final int SUBREASON_ISOLATED_NOT_NEEDED = 17;
+    public static final int SUBREASON_KILL_ALL_BG_EXCEPT = 10;
+    public static final int SUBREASON_KILL_ALL_FG = 9;
+    public static final int SUBREASON_KILL_BACKGROUND = 24;
+    public static final int SUBREASON_KILL_PID = 12;
+    public static final int SUBREASON_KILL_UID = 11;
+    public static final int SUBREASON_LARGE_CACHED = 5;
+    public static final int SUBREASON_MEMORY_PRESSURE = 6;
+    public static final int SUBREASON_OOM_KILL = 30;
+    public static final int SUBREASON_PACKAGE_DELETED = 53;
+    public static final int SUBREASON_PACKAGE_HIDDEN = 52;
+    public static final int SUBREASON_PACKAGE_MOVED = 54;
+    public static final int SUBREASON_PACKAGE_UPDATE = 25;
+    public static final int SUBREASON_PROVIDER_CLIENT_REPORTED_DEATH = 61;
+    public static final int SUBREASON_RAPID_ACTIVITY_LAUNCH = 59;
+    public static final int SUBREASON_REMOVE_LRU = 16;
+    public static final int SUBREASON_REMOVE_TASK = 22;
+    public static final int SUBREASON_RESTART_ACTIVITY_PROCESS_TIMEOUT = 58;
+    public static final int SUBREASON_SDK_SANDBOX_DIED = 27;
+    public static final int SUBREASON_SDK_SANDBOX_NOT_NEEDED = 28;
+    public static final int SUBREASON_STOP_APP = 23;
+    public static final int SUBREASON_STORAGE_SESSION_RESET = 56;
+    public static final int SUBREASON_SYSTEM_UPDATE_DONE = 8;
+    public static final int SUBREASON_TOO_MANY_CACHED = 2;
+    public static final int SUBREASON_TOO_MANY_EMPTY = 3;
+    public static final int SUBREASON_TRIM_EMPTY = 4;
+    public static final int SUBREASON_UNDELIVERED_BROADCAST = 26;
+    public static final int SUBREASON_UNKNOWN = 0;
+    public static final int SUBREASON_VOLUME_MOUNT = 50;
+    public static final int SUBREASON_VOLUME_UNMOUNT = 51;
+    public static final int SUBREASON_WAIT_FOR_DEBUGGER = 1;
+    private android.app.ApplicationExitInfo.AnrInfo mAnrInfo;
+    private android.app.IAppTraceRetriever mAppTraceRetriever;
+    private int mConnectionGroup;
+    private int mDefiningUid;
+    private java.lang.String mDescription;
+    private boolean mHasForegroundServices;
+    private boolean mHasShownUi;
+    private int mImportance;
+    private boolean mLoggedInStatsd;
+    private android.app.IParcelFileDescriptorRetriever mNativeTombstoneRetriever;
+    private java.lang.String[] mPackageList;
+    private java.lang.String mPackageName;
+    private int mPackageUid;
+    private int mPid;
+    private java.lang.String mProcessName;
+    private long mPss;
+    private int mRealUid;
+    private int mReason;
+    private long mRss;
+    private byte[] mState;
+    private int mStatus;
+    private int mSubReason;
+    private long mTimestamp;
+    private java.io.File mTraceFile;
+    public ApplicationExitInfo() {}
+    public ApplicationExitInfo(android.app.ApplicationExitInfo p0) {}
+    private ApplicationExitInfo(android.os.Parcel p0) {}
+    private void dumpInternalState(android.util.IndentingPrintWriter p0, android.icu.text.SimpleDateFormat p1) {}
+    private static java.lang.String intern(java.lang.String p0) { return null; }
+    public static java.lang.String reasonCodeToString(int p0) { return null; }
+    public static java.lang.String subreasonToString(int p0) { return null; }
+    public int describeContents() { return 0; }
+    public void dump(android.util.IndentingPrintWriter p0, java.lang.String p1, android.icu.text.SimpleDateFormat p2) {}
+    public boolean equals(java.lang.Object p0) { return false; }
+    public android.app.ApplicationExitInfo.AnrInfo getAnrInfo() { return null; }
+    public int getConnectionGroup() { return 0; }
+    public int getDefiningUid() { return 0; }
+    public java.lang.String getDescription() { return null; }
+    public int getImportance() { return 0; }
+    public java.lang.String[] getPackageList() { return null; }
+    public java.lang.String getPackageName() { return null; }
+    public int getPackageUid() { return 0; }
+    public int getPid() { return 0; }
+    public java.lang.String getProcessName() { return null; }
+    public byte[] getProcessStateSummary() { return null; }
+    public long getPss() { return 0L; }
+    public int getRealUid() { return 0; }
+    public int getReason() { return 0; }
+    public long getRss() { return 0L; }
+    public int getStatus() { return 0; }
+    public int getSubReason() { return 0; }
+    public long getTimestamp() { return 0L; }
+    public java.io.File getTraceFile() { return null; }
+    public java.io.InputStream getTraceInputStream() throws java.io.IOException { return null; }
+    public android.os.UserHandle getUserHandle() { return null; }
+    public boolean hasForegroundServices() { return false; }
+    public boolean hasShownUi() { return false; }
+    public int hashCode() { return 0; }
+    public boolean isLoggedInStatsd() { return false; }
+    public void readFromProto(android.util.proto.ProtoInputStream p0, long p1) throws java.io.IOException, android.util.proto.WireTypeMismatchException {}
+    public void setAnrInfo(android.app.ApplicationExitInfo.AnrInfo p0) {}
+    public void setAppTraceRetriever(android.app.IAppTraceRetriever p0) {}
+    public void setConnectionGroup(int p0) {}
+    public void setDefiningUid(int p0) {}
+    public void setDescription(java.lang.String p0) {}
+    public void setHasForegroundServices(boolean p0) {}
+    public void setHasShownUi(boolean p0) {}
+    public void setImportance(int p0) {}
+    public void setLoggedInStatsd(boolean p0) {}
+    public void setNativeTombstoneRetriever(android.app.IParcelFileDescriptorRetriever p0) {}
+    public void setPackageList(java.lang.String[] p0) {}
+    public void setPackageName(java.lang.String p0) {}
+    public void setPackageUid(int p0) {}
+    public void setPid(int p0) {}
+    public void setProcessName(java.lang.String p0) {}
+    public void setProcessStateSummary(byte[] p0) {}
+    public void setPss(long p0) {}
+    public void setRealUid(int p0) {}
+    public void setReason(int p0) {}
+    public void setRss(long p0) {}
+    public void setStatus(int p0) {}
+    public void setSubReason(int p0) {}
+    public void setTimestamp(long p0) {}
+    public void setTraceFile(java.io.File p0) {}
+    public java.lang.String toString() { return null; }
+    public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public void writeToProto(android.util.proto.ProtoOutputStream p0, long p1) {}
+
+    public static final class AnrInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.app.ApplicationExitInfo.AnrInfo> CREATOR = null;
+        private final int mAnrId = 0;
+        private final int mAnrType = 0;
+        private final boolean mIsUserPerceptible = false;
+        private final long mTimeoutMillis = 0L;
+        public AnrInfo(int p0, int p1, long p2, boolean p3) {}
+        private AnrInfo(android.os.Parcel p0) {}
+        private static android.app.ApplicationExitInfo.AnrInfo readFromProto(android.util.proto.ProtoInputStream p0, long p1) throws java.io.IOException, android.util.proto.WireTypeMismatchException { return null; }
+        private void writeToProto(android.util.proto.ProtoOutputStream p0, long p1, android.app.ApplicationExitInfo.AnrInfo p2) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getAnrId() { return 0; }
+        public int getAnrType() { return 0; }
+        public long getTimeoutMillis() { return 0L; }
+        public int hashCode() { return 0; }
+        public boolean isUserPerceptible() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Reason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SubReason {
+    }
+}
