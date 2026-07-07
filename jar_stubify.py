@@ -802,6 +802,10 @@ JAVA_KEYWORDS = {
 }
 
 
+# Valid Java source identifier (JVM allows e.g. dashes — 'Foo-IA' — Java doesn't)
+_VALID_JAVA_IDENT = re.compile(r'^[A-Za-z_$][A-Za-z0-9_$]*$')
+
+
 def safe_name(name: str) -> str:
     """Escape Java keywords used as identifiers."""
     # Some JVM names use $ or weird chars; also handle keywords
@@ -1095,6 +1099,12 @@ class StubGenerator:
                         ice.inner_class == iname and
                         ice.outer_class != iname and
                         ice.outer_class in self.classes):
+                    # Method-local classes (Outer$1Name) can't be declared
+                    # at class scope — mark as inner but don't emit.
+                    seg = iname.rsplit('$', 1)[-1]
+                    if seg and seg[0].isdigit():
+                        self.inner_classes_set.add(iname)
+                        continue
                     self.inner_classes_set.add(iname)
                     self.inner_map[ice.outer_class].append((ci, ice))
         # Also mark $-containing classes whose outer is in the class set but
@@ -1105,8 +1115,8 @@ class StubGenerator:
                 outer_candidate = iname.rsplit('$', 1)[0]
                 ci = self.classes[iname]
                 simple = iname.rsplit('$', 1)[-1]
-                # Skip anonymous classes (numeric names like Foo$1)
-                if simple.isdigit():
+                # Skip anonymous and method-local classes (Foo$1, Foo$1Runnable)
+                if simple[0].isdigit():
                     self.inner_classes_set.add(iname)
                     continue
                 if outer_candidate in self.classes:
@@ -1196,6 +1206,11 @@ class StubGenerator:
             if simple == "module-info":
                 skipped += 1
                 continue
+            # Skip classes whose name is not a valid Java source identifier
+            # (e.g. dash names like 'NtpTrustedTime-IA')
+            if not _VALID_JAVA_IDENT.match(simple):
+                skipped += 1
+                continue
             # Skip synthetic classes
             if ci.access_flags & ACC_SYNTHETIC:
                 skipped += 1
@@ -1263,8 +1278,8 @@ class StubGenerator:
             if '$' in simple:
                 simple = simple.rsplit('$', 1)[-1]
 
-        # Skip anonymous classes (numeric names)
-        if simple.isdigit():
+        # Skip anonymous and method-local classes (numeric or digit-prefixed names)
+        if not simple or simple[0].isdigit():
             return
 
         # Annotations
@@ -1327,7 +1342,8 @@ class StubGenerator:
 
         # Extends (strip if unresolvable to avoid cascade errors)
         if (not is_interface and not is_enum and not is_annotation and not is_record
-                and super_type and super_type != "java.lang.Object"):
+                and super_type and super_type != "java.lang.Object"
+                and super_type != "java.lang.Record"):
             if self._type_resolvable(super_type):
                 decl += f" extends {super_type}"
             else:
@@ -1575,6 +1591,11 @@ class StubGenerator:
 
     def _emit_field(self, fi: FieldInfo, lines: List[str], indent: str,
                     is_interface: bool):
+        # Skip compiler-synthesized outer-class references (this$0, this$1, ...)
+        # — some jars strip the synthetic flag, and emitting them explicitly
+        # conflicts with the reference javac synthesizes for inner classes.
+        if re.match(r'^this\$\d+$', fi.name):
+            return
         mods = field_modifiers(fi.access_flags)
 
         # Use generic signature if available
@@ -1833,7 +1854,7 @@ def _make_body(is_constructor: bool, return_type: str,
         if is_enum:
             return ("{}", [])
         # If extends something other than Object, generate super(...) call
-        if super_class and super_class != "java/lang/Object":
+        if super_class and super_class not in ("java/lang/Object", "java/lang/Record"):
             super_call, extra_throws = _build_super_call(super_class, all_classes, ctor_descriptor, child_class)
             return ("{ " + super_call + " }", extra_throws)
         return ("{}", [])
@@ -2002,7 +2023,11 @@ def _build_super_call(super_class: str, all_classes: Optional[Dict[str, ClassInf
     # Count constructors visible to the caller for ambiguity detection.
     # If we ended up using private ctors (inner class access), count all non-synthetic.
     has_private = any(m.access_flags & ACC_PRIVATE for _, m in ctor_entries)
-    if has_private:
+    # Sibling/nested classes can also access the parent's private ctors, so
+    # javac considers them in overload resolution — count them too.
+    same_outer = (child_class and super_class and
+                  child_class.split('$')[0] == super_class.split('$')[0])
+    if has_private or same_outer:
         all_ctor_count = sum(1 for m in parent.methods
                              if m.name == "<init>"
                              and not (m.access_flags & ACC_SYNTHETIC))
@@ -2059,6 +2084,7 @@ class ExternalClassRef:
     type_param_count: int = 0  # max type args seen in generic signatures
     members: List[ExternalMemberRef] = field(default_factory=list)
     annotation_elements: Dict[str, str] = field(default_factory=dict)
+    required_interfaces: Set[str] = field(default_factory=set)  # bounds propagated from generic usage
     known_sub_classes: Set[str] = field(default_factory=set)
 
     @property
@@ -2348,6 +2374,89 @@ def collect_external_refs(classes: Dict[str, ClassInfo], jar_path: str) \
         _get(c)  # creates entry with defaults
 
     print(f"Found {len(ext)} external class references.")
+
+    # ── Phase 3: propagate type-parameter bounds to external type arguments ──
+    # If a known generic type G<D extends Bound> is instantiated with an
+    # external argument X (G<X>), the fake stub for X must satisfy Bound.
+    def _sig_type_param_bounds(sig: str) -> List[str]:
+        """First meaningful bound (internal name) per type param, '' if none."""
+        bounds: List[str] = []
+        if not sig or sig[0] != '<':
+            return bounds
+        def _end_of_ref(j: int) -> int:
+            depth = 0
+            while j < len(sig):
+                c = sig[j]
+                if c == '<': depth += 1
+                elif c == '>': depth -= 1
+                elif c == ';' and depth == 0: return j + 1
+                j += 1
+            return j
+        i = 1
+        while i < len(sig) and sig[i] != '>':
+            colon = sig.find(':', i)
+            if colon < 0: break
+            i = colon
+            first = ''
+            while i < len(sig) and sig[i] == ':':
+                i += 1
+                if i < len(sig) and sig[i] in 'LT[':
+                    end = _end_of_ref(i)
+                    b = sig[i:end]
+                    if not first and b.startswith('L'):
+                        base = b[1:].split('<')[0].rstrip(';')
+                        if base != 'java/lang/Object':
+                            first = base
+                    i = end
+            bounds.append(first)
+        return bounds
+
+    def _top_level_args(s: str, start: int) -> List[str]:
+        args: List[str] = []; depth = 1; j = start; last = start
+        while j < len(s):
+            c = s[j]
+            if c == '<': depth += 1
+            elif c == '>':
+                depth -= 1
+                if depth == 0: break
+            elif c == ';' and depth == 1:
+                args.append(s[last:j + 1]); last = j + 1
+            j += 1
+        return args
+
+    _use_re = _re.compile(r'L([\w/$]+)<')
+    _bounds_cache: Dict[str, List[str]] = {}
+    all_sigs: List[str] = []
+    for ci in classes.values():
+        if ci.signature: all_sigs.append(ci.signature)
+        for fi in ci.fields:
+            if fi.signature: all_sigs.append(fi.signature)
+        for mi in ci.methods:
+            if mi.signature: all_sigs.append(mi.signature)
+    for sig in all_sigs:
+        for m in _use_re.finditer(sig):
+            gbase = m.group(1)
+            if gbase not in known:
+                continue
+            if gbase not in _bounds_cache:
+                _bounds_cache[gbase] = _sig_type_param_bounds(classes[gbase].signature or '')
+            gb = _bounds_cache[gbase]
+            if not gb:
+                continue
+            for idx, arg in enumerate(_top_level_args(sig, m.end())):
+                if idx >= len(gb) or not gb[idx]:
+                    continue
+                a = arg.lstrip('+-')
+                if not a.startswith('L'):
+                    continue
+                abase = a[1:].split('<')[0].rstrip(';')
+                if abase in known or abase not in ext:
+                    continue
+                bci = classes.get(gb[idx])
+                if bci and (bci.access_flags & ACC_INTERFACE):
+                    ext[abase].required_interfaces.add(
+                        gb[idx].replace('/', '.').replace('$', '.'))
+
     return ext
 
 
@@ -2385,6 +2494,14 @@ class FakeDepsGenerator:
         skipped = 0
         written_lower: Dict[str, str] = {}
 
+        # Ensure top-level outers exist for inner-class-only external refs
+        # (e.g. only Foo$Bar referenced -> still need Foo.java to nest it in)
+        for iname in list(self.ext_refs.keys()):
+            if '$' in iname:
+                outer = iname.split('$', 1)[0]
+                if outer not in self.known and outer not in self.ext_refs:
+                    self.ext_refs[outer] = ExternalClassRef(internal_name=outer)
+
         for iname, ref in self.ext_refs.items():
             # Skip array types, primitives
             if iname.startswith('[') or len(iname) == 1:
@@ -2392,6 +2509,11 @@ class FakeDepsGenerator:
                 continue
             # Skip inner classes — they'll be nested in outer
             if '$' in iname:
+                skipped += 1
+                continue
+            # Skip classes whose name is not a valid Java source identifier
+            # (e.g. dash names like 'NtpTrustedTime-IA')
+            if not _VALID_JAVA_IDENT.match(iname.rsplit('/', 1)[-1]):
                 skipped += 1
                 continue
             # Skip JDK classes and JDK module packages — javac uses real JDK
@@ -2558,7 +2680,13 @@ class FakeDepsGenerator:
         if ref.type_param_count > 0:
             tparams = "<" + ", ".join(f"T{i+1}" if ref.type_param_count > 1 else "T"
                                       for i in range(ref.type_param_count)) + ">"
-        lines.append(f"{indent}{mod}class {simple}{tparams} {{")
+        impl = ""
+        if ref.required_interfaces:
+            # Satisfy propagated generic bounds; abstract so the interfaces'
+            # methods need not be implemented in the fake.
+            impl = " implements " + ", ".join(sorted(ref.required_interfaces))
+            mod = mod.replace("public ", "public abstract ", 1)
+        lines.append(f"{indent}{mod}class {simple}{tparams}{impl} {{")
         inner_indent = indent + "    "
 
         # Constructors
