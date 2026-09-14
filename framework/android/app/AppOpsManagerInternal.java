@@ -3,6 +3,7 @@ package android.app;
 public abstract class AppOpsManagerInternal {
     public AppOpsManagerInternal() {}
     public abstract int getOpRestrictionCount(int p0, android.os.UserHandle p1, java.lang.String p2, java.lang.String p3);
+    public abstract void notifyAppOpsChangedForUid(int[] p0, int p1);
     public abstract void onPackageAdded(java.lang.String p0, int p1);
     public abstract void setDeviceAndProfileOwners(android.util.SparseIntArray p0);
     public abstract void setGlobalRestriction(int p0, boolean p1, android.os.IBinder p2);

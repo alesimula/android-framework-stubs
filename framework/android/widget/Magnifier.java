@@ -79,6 +79,17 @@ public final class Magnifier {
     public void update() {}
     void updateSourceFactors(int p0, float p1) {}
 
+    private static class SurfaceInfo {
+        public static final android.widget.Magnifier.SurfaceInfo NULL = null;
+        private int mHeight;
+        private android.graphics.Rect mInsets;
+        private boolean mIsMainWindowSurface;
+        private android.view.Surface mSurface;
+        private android.view.SurfaceControl mSurfaceControl;
+        private int mWidth;
+        SurfaceInfo(android.view.SurfaceControl p0, android.view.Surface p1, int p2, int p3, android.graphics.Rect p4, boolean p5) {}
+    }
+
     public static final class Builder {
         private int mBottomContentBound;
         private boolean mClippingEnabled;
@@ -114,6 +125,10 @@ public final class Magnifier {
 
     public static interface Callback {
         public void onOperationComplete();
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SourceBound {
     }
 
     private static class InternalPopupWindow {
@@ -165,20 +180,5 @@ public final class Magnifier {
         public void destroy() {}
         public void setContentPositionForNextDraw(int p0, int p1) {}
         public void updateContent(android.graphics.Bitmap p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SourceBound {
-    }
-
-    private static class SurfaceInfo {
-        public static final android.widget.Magnifier.SurfaceInfo NULL = null;
-        private int mHeight;
-        private android.graphics.Rect mInsets;
-        private boolean mIsMainWindowSurface;
-        private android.view.Surface mSurface;
-        private android.view.SurfaceControl mSurfaceControl;
-        private int mWidth;
-        SurfaceInfo(android.view.SurfaceControl p0, android.view.Surface p1, int p2, int p3, android.graphics.Rect p4, boolean p5) {}
     }
 }

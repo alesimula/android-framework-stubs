@@ -8,16 +8,6 @@ public interface ICaptureProcessorImpl extends android.os.IInterface {
     public void onResolutionUpdate(android.hardware.camera2.extension.Size p0, android.hardware.camera2.extension.Size p1) throws android.os.RemoteException;
     public void process(java.util.List<android.hardware.camera2.extension.CaptureBundle> p0, android.hardware.camera2.extension.IProcessResultImpl p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.ICaptureProcessorImpl {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onImageFormatUpdate(int p0) throws android.os.RemoteException {}
-        public void onOutputSurface(android.view.Surface p0, int p1) throws android.os.RemoteException {}
-        public void onPostviewOutputSurface(android.view.Surface p0) throws android.os.RemoteException {}
-        public void onResolutionUpdate(android.hardware.camera2.extension.Size p0, android.hardware.camera2.extension.Size p1) throws android.os.RemoteException {}
-        public void process(java.util.List<android.hardware.camera2.extension.CaptureBundle> p0, android.hardware.camera2.extension.IProcessResultImpl p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.ICaptureProcessorImpl {
         static final int TRANSACTION_onImageFormatUpdate = 4;
         static final int TRANSACTION_onOutputSurface = 1;
@@ -42,5 +32,15 @@ public interface ICaptureProcessorImpl extends android.os.IInterface {
             public void onResolutionUpdate(android.hardware.camera2.extension.Size p0, android.hardware.camera2.extension.Size p1) throws android.os.RemoteException {}
             public void process(java.util.List<android.hardware.camera2.extension.CaptureBundle> p0, android.hardware.camera2.extension.IProcessResultImpl p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.ICaptureProcessorImpl {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onImageFormatUpdate(int p0) throws android.os.RemoteException {}
+        public void onOutputSurface(android.view.Surface p0, int p1) throws android.os.RemoteException {}
+        public void onPostviewOutputSurface(android.view.Surface p0) throws android.os.RemoteException {}
+        public void onResolutionUpdate(android.hardware.camera2.extension.Size p0, android.hardware.camera2.extension.Size p1) throws android.os.RemoteException {}
+        public void process(java.util.List<android.hardware.camera2.extension.CaptureBundle> p0, android.hardware.camera2.extension.IProcessResultImpl p1, boolean p2) throws android.os.RemoteException {}
     }
 }

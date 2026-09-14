@@ -4,6 +4,7 @@ public class PeopleHelper {
     private static final float COLOR_SHIFT_AMOUNT = 60.0f;
     private static final java.util.regex.Pattern IGNORABLE_CHAR_PATTERN = null;
     private static final java.util.regex.Pattern SPECIAL_CHAR_PATTERN = null;
+    private static final android.graphics.Typeface TYPEFACE = null;
     private int mAvatarSize;
     private android.content.Context mContext;
     private android.graphics.Paint mPaint;

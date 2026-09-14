@@ -22,6 +22,7 @@ public abstract class AdvancedExtender {
     public boolean isCaptureProcessProgressAvailable() { return false; }
     public abstract boolean isExtensionAvailable(java.lang.String p0, android.hardware.camera2.extension.CharacteristicsMap p1);
     public boolean isPostviewAvailable() { return false; }
+    public boolean isStillCaptureAvailable() { return false; }
     void setCameraUsageTracker(android.hardware.camera2.extension.CameraUsageTracker p0) {}
 
     private final class AdvancedExtenderImpl extends android.hardware.camera2.extension.IAdvancedExtenderImpl.Stub {
@@ -38,5 +39,6 @@ public abstract class AdvancedExtender {
         public boolean isCaptureProcessProgressAvailable() { return false; }
         public boolean isExtensionAvailable(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) { return false; }
         public boolean isPostviewAvailable() { return false; }
+        public boolean isStillCaptureAvailable() { return false; }
     }
 }

@@ -1,6 +1,7 @@
 package com.android.internal.telephony;
 
 public abstract class SmsMessageBase {
+    private static final int MAX_EMAIL_ADDRESS_LENGTH = 512;
     public static final java.util.regex.Pattern NAME_ADDR_EMAIL_PATTERN = null;
     protected java.lang.String mEmailBody;
     protected java.lang.String mEmailFrom;

@@ -4,6 +4,7 @@ public interface IVibratorManagerService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.os.IVibratorManagerService";
     public void cancelVibrate(int p0, android.os.IBinder p1) throws android.os.RemoteException;
     public int getCapabilities() throws android.os.RemoteException;
+    public int[] getTargetVibratorIds() throws android.os.RemoteException;
     public int[] getVibratorIds() throws android.os.RemoteException;
     public android.os.VibratorInfo getVibratorInfo(int p0) throws android.os.RemoteException;
     public boolean isVibrating(int p0) throws android.os.RemoteException;
@@ -21,6 +22,7 @@ public interface IVibratorManagerService extends android.os.IInterface {
         public android.os.IBinder asBinder() { return null; }
         public void cancelVibrate(int p0, android.os.IBinder p1) throws android.os.RemoteException {}
         public int getCapabilities() throws android.os.RemoteException { return 0; }
+        public int[] getTargetVibratorIds() throws android.os.RemoteException { return null; }
         public int[] getVibratorIds() throws android.os.RemoteException { return null; }
         public android.os.VibratorInfo getVibratorInfo(int p0) throws android.os.RemoteException { return null; }
         public boolean isVibrating(int p0) throws android.os.RemoteException { return false; }
@@ -36,19 +38,20 @@ public interface IVibratorManagerService extends android.os.IInterface {
 
     public static abstract class Stub extends android.os.Binder implements android.os.IVibratorManagerService {
         static final java.lang.String[] PERMISSIONS_startVendorVibrationSession = null;
-        static final int TRANSACTION_cancelVibrate = 9;
-        static final int TRANSACTION_getCapabilities = 2;
+        static final int TRANSACTION_cancelVibrate = 10;
+        static final int TRANSACTION_getCapabilities = 3;
+        static final int TRANSACTION_getTargetVibratorIds = 2;
         static final int TRANSACTION_getVibratorIds = 1;
-        static final int TRANSACTION_getVibratorInfo = 3;
-        static final int TRANSACTION_isVibrating = 4;
-        static final int TRANSACTION_performHapticFeedback = 10;
-        static final int TRANSACTION_performHapticFeedbackForInputDevice = 11;
-        static final int TRANSACTION_registerVibratorStateListener = 5;
-        static final int TRANSACTION_setAlwaysOnEffect = 7;
-        static final int TRANSACTION_startHapticGeneratorSession = 13;
-        static final int TRANSACTION_startVendorVibrationSession = 12;
-        static final int TRANSACTION_unregisterVibratorStateListener = 6;
-        static final int TRANSACTION_vibrate = 8;
+        static final int TRANSACTION_getVibratorInfo = 4;
+        static final int TRANSACTION_isVibrating = 5;
+        static final int TRANSACTION_performHapticFeedback = 11;
+        static final int TRANSACTION_performHapticFeedbackForInputDevice = 12;
+        static final int TRANSACTION_registerVibratorStateListener = 6;
+        static final int TRANSACTION_setAlwaysOnEffect = 8;
+        static final int TRANSACTION_startHapticGeneratorSession = 14;
+        static final int TRANSACTION_startVendorVibrationSession = 13;
+        static final int TRANSACTION_unregisterVibratorStateListener = 7;
+        static final int TRANSACTION_vibrate = 9;
         private final android.os.PermissionEnforcer mEnforcer = null;
         @java.lang.Deprecated
         public Stub() { super(); }
@@ -71,6 +74,7 @@ public interface IVibratorManagerService extends android.os.IInterface {
             public void cancelVibrate(int p0, android.os.IBinder p1) throws android.os.RemoteException {}
             public int getCapabilities() throws android.os.RemoteException { return 0; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
+            public int[] getTargetVibratorIds() throws android.os.RemoteException { return null; }
             public int[] getVibratorIds() throws android.os.RemoteException { return null; }
             public android.os.VibratorInfo getVibratorInfo(int p0) throws android.os.RemoteException { return null; }
             public boolean isVibrating(int p0) throws android.os.RemoteException { return false; }

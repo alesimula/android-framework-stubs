@@ -4,12 +4,6 @@ public interface IHdmiCecVolumeControlFeatureListener extends android.os.IInterf
     public static final java.lang.String DESCRIPTOR = "android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener";
     public void onHdmiCecVolumeControlFeature(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onHdmiCecVolumeControlFeature(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener {
         static final int TRANSACTION_onHdmiCecVolumeControlFeature = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IHdmiCecVolumeControlFeatureListener extends android.os.IInterf
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onHdmiCecVolumeControlFeature(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hdmi.IHdmiCecVolumeControlFeatureListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onHdmiCecVolumeControlFeature(int p0) throws android.os.RemoteException {}
     }
 }

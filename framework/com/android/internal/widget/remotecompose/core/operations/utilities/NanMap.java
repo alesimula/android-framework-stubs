@@ -19,6 +19,7 @@ public class NanMap {
     public static final float QUADRATIC_NAN = Float.valueOf(0.0f);
     public static final int START_ARRAY = 2097194;
     public static final int START_VAR = 1048618;
+    public static final int START_VARIABLE_ID = 42;
     public static final int TYPE_ARRAY = 2;
     public static final int TYPE_OPERATION = 3;
     public static final int TYPE_SYSTEM = 0;

@@ -30,12 +30,6 @@ public class OverlayConfig {
     public boolean isEnabled(java.lang.String p0) { return false; }
     public boolean isMutable(java.lang.String p0) { return false; }
 
-    public static final class Configuration {
-        public final int configIndex = 0;
-        public final com.android.internal.content.om.OverlayConfigParser.ParsedConfiguration parsedConfig = null;
-        public Configuration(com.android.internal.content.om.OverlayConfigParser.ParsedConfiguration p0, int p1) {}
-    }
-
     public static class IdmapInvocation {
         public final boolean enforceOverlayable = false;
         public final java.util.ArrayList<java.lang.String> overlayPaths = null;
@@ -55,5 +49,11 @@ public class OverlayConfig {
             public int getTargetSdkVersion();
             public boolean isOverlayIsStatic();
         }
+    }
+
+    public static final class Configuration {
+        public final int configIndex = 0;
+        public final com.android.internal.content.om.OverlayConfigParser.ParsedConfiguration parsedConfig = null;
+        public Configuration(com.android.internal.content.om.OverlayConfigParser.ParsedConfiguration p0, int p1) {}
     }
 }

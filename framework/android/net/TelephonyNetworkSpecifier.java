@@ -4,6 +4,7 @@ public final class TelephonyNetworkSpecifier extends android.net.NetworkSpecifie
     public static final android.os.Parcelable.Creator<android.net.TelephonyNetworkSpecifier> CREATOR = null;
     private final int mSubId = 0;
     public TelephonyNetworkSpecifier(int p0) { super(); }
+    @android.annotation.SystemApi
     public boolean canBeSatisfiedBy(android.net.NetworkSpecifier p0) { return false; }
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }

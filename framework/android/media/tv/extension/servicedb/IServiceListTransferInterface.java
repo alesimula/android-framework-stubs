@@ -6,14 +6,6 @@ public interface IServiceListTransferInterface extends android.os.IInterface {
     public android.os.IBinder createImportSession(android.media.tv.extension.servicedb.IServiceListImportListener p0) throws android.os.RemoteException;
     public android.os.IBinder createSetChannelListSession(android.media.tv.extension.servicedb.IServiceListSetChannelListListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.servicedb.IServiceListTransferInterface {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.IBinder createExportSession(android.media.tv.extension.servicedb.IServiceListExportListener p0) throws android.os.RemoteException { return null; }
-        public android.os.IBinder createImportSession(android.media.tv.extension.servicedb.IServiceListImportListener p0) throws android.os.RemoteException { return null; }
-        public android.os.IBinder createSetChannelListSession(android.media.tv.extension.servicedb.IServiceListSetChannelListListener p0) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.servicedb.IServiceListTransferInterface {
         static final int TRANSACTION_createExportSession = 1;
         static final int TRANSACTION_createImportSession = 2;
@@ -34,5 +26,13 @@ public interface IServiceListTransferInterface extends android.os.IInterface {
             public android.os.IBinder createSetChannelListSession(android.media.tv.extension.servicedb.IServiceListSetChannelListListener p0) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.servicedb.IServiceListTransferInterface {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.IBinder createExportSession(android.media.tv.extension.servicedb.IServiceListExportListener p0) throws android.os.RemoteException { return null; }
+        public android.os.IBinder createImportSession(android.media.tv.extension.servicedb.IServiceListImportListener p0) throws android.os.RemoteException { return null; }
+        public android.os.IBinder createSetChannelListSession(android.media.tv.extension.servicedb.IServiceListSetChannelListListener p0) throws android.os.RemoteException { return null; }
     }
 }

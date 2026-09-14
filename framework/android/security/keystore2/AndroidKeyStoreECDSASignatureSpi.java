@@ -11,8 +11,13 @@ abstract class AndroidKeyStoreECDSASignatureSpi extends android.security.keystor
     protected final void resetAll() {}
     protected final void resetWhilePreservingInitState() {}
 
-    public static final class Ed25519 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
-        public Ed25519() { super(0); }
+    public static final class SHA384 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
+        public SHA384() { super(0); }
+        protected java.lang.String getAlgorithm() { return null; }
+    }
+
+    public static final class SHA512 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
+        public SHA512() { super(0); }
         protected java.lang.String getAlgorithm() { return null; }
     }
 
@@ -34,8 +39,8 @@ abstract class AndroidKeyStoreECDSASignatureSpi extends android.security.keystor
         }
     }
 
-    public static final class SHA1 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
-        public SHA1() { super(0); }
+    public static final class SHA256 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
+        public SHA256() { super(0); }
         protected java.lang.String getAlgorithm() { return null; }
     }
 
@@ -44,18 +49,13 @@ abstract class AndroidKeyStoreECDSASignatureSpi extends android.security.keystor
         protected java.lang.String getAlgorithm() { return null; }
     }
 
-    public static final class SHA256 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
-        public SHA256() { super(0); }
+    public static final class SHA1 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
+        public SHA1() { super(0); }
         protected java.lang.String getAlgorithm() { return null; }
     }
 
-    public static final class SHA384 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
-        public SHA384() { super(0); }
-        protected java.lang.String getAlgorithm() { return null; }
-    }
-
-    public static final class SHA512 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
-        public SHA512() { super(0); }
+    public static final class Ed25519 extends android.security.keystore2.AndroidKeyStoreECDSASignatureSpi {
+        public Ed25519() { super(0); }
         protected java.lang.String getAlgorithm() { return null; }
     }
 }

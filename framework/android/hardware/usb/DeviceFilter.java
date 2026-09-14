@@ -9,7 +9,7 @@ public class DeviceFilter {
     private static final java.lang.String PROTOCOL_ATTR = "protocol";
     private static final java.lang.String SERIAL_NAME_ATTR = "serial-number";
     private static final java.lang.String SUBCLASS_ATTR = "subclass";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DeviceFilter";
     private static final java.lang.String VENDOR_ID_ATTR = "vendor-id";
     public static final java.lang.String XML_ROOT_NAME = "usb-device";
     public final int mClass = 0;

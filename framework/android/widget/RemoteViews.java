@@ -8,6 +8,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     private static final android.widget.RemoteViews.InteractionHandler DEFAULT_INTERACTION_HANDLER = null;
     public static final java.lang.String EXTRA_CHECKED = "android.widget.extra.CHECKED";
     public static final java.lang.String EXTRA_SHARED_ELEMENT_BOUNDS = "android.widget.extra.SHARED_ELEMENT_BOUNDS";
+    private static final android.view.LayoutInflater.Factory FACTORY_BLOCKS_FRAGMENTS = null;
     static final int FLAG_MASK_TO_PROPAGATE = 6;
     public static final int FLAG_REAPPLY_DISALLOWED = 1;
     public static final int FLAG_USE_LIGHT_BACKGROUND_LAYOUT = 4;
@@ -24,7 +25,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     public static final int MARGIN_TOP = 1;
     private static final int MAX_INIT_VIEW_COUNT = 16;
     private static final int MAX_NESTED_VIEWS = 10;
-    private static final int MAX_SINGLE_PARCEL_SIZE = 800000;
+    public static final int MAX_SINGLE_PARCEL_SIZE = 800000;
     private static final int MODE_HAS_LANDSCAPE_AND_PORTRAIT = 1;
     private static final int MODE_HAS_SIZED_REMOTEVIEWS = 2;
     private static final int MODE_NORMAL = 0;
@@ -94,6 +95,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     private void addAction(android.widget.RemoteViews.Action p0) {}
     private android.view.View apply(android.content.Context p0, android.view.ViewGroup p1, android.view.ViewGroup p2, android.util.SizeF p3, android.widget.RemoteViews.ActionApplyParams p4) { return null; }
     private static void checkContainsKeys(android.util.LongSparseArray<?> p0, long[] p1) {}
+    private void checkDrawInstructionsLimits() {}
     private static void checkProtoResultNotNull(java.lang.Object p0, java.lang.String p1) throws android.widget.RemoteViews.InvalidProtoException {}
     private static void checkValidResource(int p0, java.lang.String p1, java.lang.String p2) throws java.lang.Exception {}
     private void configureAsChild(android.widget.RemoteViews.HierarchyRootData p0) {}
@@ -109,10 +111,12 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     private static android.widget.RemoteViews.PendingResources<android.graphics.drawable.Icon> createIconFromProto(android.util.proto.ProtoInputStream p0, long p1) throws java.lang.Exception { return null; }
     private static android.widget.RemoteViews createInitializedFrom(android.widget.RemoteViews p0, android.widget.RemoteViews p1) { return null; }
     private static java.time.Instant createInstantFromProto(android.util.proto.ProtoInputStream p0, long p1) throws java.lang.Exception { return null; }
+    private android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createNightModeActionFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
     public static android.widget.RemoteViews createPreviewFromProto(android.content.Context p0, android.util.proto.ProtoInputStream p1) throws java.lang.Exception { return null; }
     private android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createSetDrawInstructionActionFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
     private android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createSetRemoteCollectionItemListAdapterActionFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
     private static android.util.SizeF createSizeFFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+    private android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createTextViewDrawableActionFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
     private android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createViewGroupActionAddFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
     private void finalizeViewRecycling(android.view.ViewGroup p0) {}
     private android.widget.RemoteViews findBestFitLayout(android.util.SizeF p0) { return null; }
@@ -121,7 +125,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     private android.widget.RemoteViews.Action getActionFromParcel(android.os.Parcel p0, int p1) { return null; }
     private static android.content.pm.ApplicationInfo getApplicationInfo(java.lang.String p0, int p1) { return null; }
     private static int getAsIdentifier(android.content.res.Resources p0, android.util.LongSparseArray<?> p1, long p2) throws java.lang.Exception { return 0; }
-    private static int getAsIdentifier(android.content.res.Resources p0, android.util.SparseArray<?> p1, int p2) throws java.lang.Exception { return 0; }
+    private static int getAsIdentifier(android.content.res.Resources p0, java.lang.String p1) throws java.lang.Exception { return 0; }
     private int getBitmapMemoryUsedByActions() { return 0; }
     private int getChildId(android.widget.RemoteViews p0) { return 0; }
     private android.content.Context getContextForResourcesEnsuringCorrectCachedApkPaths(android.content.Context p0) { return null; }
@@ -146,6 +150,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     private static int getViewLayoutId(android.view.View p0) { return 0; }
     private boolean hasDrawInstructions() { return false; }
     private boolean hasLandscapeAndPortraitLayouts() { return false; }
+    private static boolean hasMixedSizedRemoteViews(java.util.Collection<android.widget.RemoteViews> p0) { return false; }
     private boolean hasMultipleLayouts() { return false; }
     private boolean hasSizedRemoteViews() { return false; }
     private static boolean hasStableId(android.view.View p0) { return false; }
@@ -167,7 +172,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     public static boolean startPendingIntent(android.view.View p0, android.app.PendingIntent p1, android.util.Pair<android.content.Intent, android.app.ActivityOptions> p2) { return false; }
     private void tryAddRemoteResponse(int p0) {}
     private void updateActionsImageCacheReferencesInternal(android.widget.RemoteViews.ImageCache p0) {}
-    private static void visitIconUri(android.graphics.drawable.Icon p0, java.util.function.Consumer<android.net.Uri> p1) {}
+    private void validateNestedViews(android.widget.RemoteViews p0) {}
     private void writeActionsToParcel(android.os.Parcel p0, int p1) {}
     private static void writeCharSequenceListToProto(android.util.proto.ProtoOutputStream p0, java.util.List<java.lang.CharSequence> p1, long p2) {}
     private static void writeColorStateListToProto(android.util.proto.ProtoOutputStream p0, android.content.res.ColorStateList p1, long p2) {}
@@ -195,10 +200,12 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     public java.util.concurrent.CompletableFuture<java.lang.Void> collectAllIntents(int p0, boolean p1, android.appwidget.AppWidgetManager.ServiceCollectionCache p2) { return null; }
     public long computeUniqueId(android.widget.RemoteViews p0) { return 0L; }
     public int describeContents() { return 0; }
+    public long estimateDrawInstructionsMemoryUsage() { return 0L; }
     public long estimateIconMemoryUsage() { return 0L; }
     public long estimateMemoryUsage() { return 0L; }
     public long estimateTotalBitmapMemoryUsage() { return 0L; }
     public android.widget.RemoteViews getDarkTextViews() { return null; }
+    public android.widget.RemoteViews.DrawInstructions getDrawInstructions() { return null; }
     android.widget.RemoteViews.ImageCache getImageCache() { return null; }
     public int getLayoutId() { return 0; }
     public android.view.LayoutInflater.Factory2 getLayoutInflaterFactory() { return null; }
@@ -265,6 +272,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     public void setFloatDimen(int p0, java.lang.String p1, float p2, int p3) {}
     public void setFloatDimen(int p0, java.lang.String p1, int p2) {}
     public void setFloatDimenAttr(int p0, java.lang.String p1, int p2) {}
+    public void setHasDrawInstructions(boolean p0) {}
     public void setIcon(int p0, java.lang.String p1, android.graphics.drawable.Icon p2) {}
     public void setIcon(int p0, java.lang.String p1, android.graphics.drawable.Icon p2, android.graphics.drawable.Icon p3) {}
     public void setImageViewBitmap(int p0, android.graphics.Bitmap p1) {}
@@ -344,136 +352,6 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
     public void writePreviewToProto(android.content.Context p0, android.util.proto.ProtoOutputStream p1) {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    private static abstract class Action {
-        public static final int MERGE_APPEND = 1;
-        public static final int MERGE_IGNORE = 2;
-        public static final int MERGE_REPLACE = 0;
-        int mViewId;
-        private Action() {}
-        public abstract void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException;
-        public boolean canWriteToProto() { return false; }
-        public abstract int getActionTag();
-        public java.lang.String getUniqueKey() { return null; }
-        public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
-        public int mergeBehavior() { return 0; }
-        public boolean prefersAsyncApply() { return false; }
-        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
-        public void updateActionImageCacheReferences(android.widget.RemoteViews.ImageCache p0) {}
-        public void visitIcons(java.util.function.Consumer<android.graphics.drawable.Icon> p0) {}
-        protected void visitRemoteViews(java.util.function.Consumer<android.widget.RemoteViews> p0) {}
-        public void visitUris(java.util.function.Consumer<android.net.Uri> p0) {}
-        public abstract void writeToParcel(android.os.Parcel p0, int p1);
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    public class ActionApplyParams {
-        public int applyThemeResId;
-        public android.widget.RemoteViews.ColorResources colorResources;
-        public java.util.concurrent.Executor executor;
-        public android.widget.RemoteViews.InteractionHandler handler;
-        public float originalDensity;
-        public ActionApplyParams(android.widget.RemoteViews p0) {}
-        public android.widget.RemoteViews.ActionApplyParams clone() { return null; }
-        public boolean hasOriginalDensity() { return false; }
-        public android.widget.RemoteViews.ActionApplyParams withColorResources(android.widget.RemoteViews.ColorResources p0) { return null; }
-        public android.widget.RemoteViews.ActionApplyParams withExecutor(java.util.concurrent.Executor p0) { return null; }
-        public android.widget.RemoteViews.ActionApplyParams withInteractionHandler(android.widget.RemoteViews.InteractionHandler p0) { return null; }
-        public android.widget.RemoteViews.ActionApplyParams withOriginalDensity(float p0) { return null; }
-        public android.widget.RemoteViews.ActionApplyParams withThemeResId(int p0) { return null; }
-    }
-
-    public static class ActionException extends java.lang.RuntimeException {
-        public ActionException(java.lang.Exception p0) { super(); }
-        public ActionException(java.lang.String p0) { super(); }
-        public ActionException(java.lang.String p0, java.lang.Throwable p1) { super(); }
-        public ActionException(java.lang.Throwable p0) { super(); }
-    }
-
-    private static class ApplicationInfoCache {
-        private final java.util.List<android.content.pm.ApplicationInfo> mCachedApplicationInfos = null;
-        ApplicationInfoCache() {}
-        ApplicationInfoCache(android.os.Parcel p0) {}
-        int findId(android.content.pm.ApplicationInfo p0) { return 0; }
-        android.content.pm.ApplicationInfo get(int p0) { return null; }
-        int getOrPut(android.content.pm.ApplicationInfo p0) { return 0; }
-        int updateAndGetId(android.content.pm.ApplicationInfo p0) { return 0; }
-        void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ApplyFlags {
-    }
-
-    private class AsyncApplyTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, android.widget.RemoteViews.ViewTree> implements android.os.CancellationSignal.OnCancelListener {
-        private android.widget.RemoteViews.Action[] mActions;
-        final android.widget.RemoteViews.ActionApplyParams mApplyParams = null;
-        final android.os.CancellationSignal mCancelSignal = null;
-        final android.content.Context mContext = null;
-        private java.lang.Exception mError;
-        final android.widget.RemoteViews.OnViewAppliedListener mListener = null;
-        final android.view.ViewGroup mParent = null;
-        final android.widget.RemoteViews mRV = null;
-        private android.view.View mResult;
-        final boolean mTopLevel = false;
-        private android.widget.RemoteViews.ViewTree mTree;
-        private AsyncApplyTask(android.widget.RemoteViews p0, android.widget.RemoteViews p1, android.view.ViewGroup p2, android.content.Context p3, android.widget.RemoteViews.OnViewAppliedListener p4, android.widget.RemoteViews.ActionApplyParams p5, android.view.View p6, boolean p7) { super(); }
-        private android.os.CancellationSignal startTaskOnExecutor(java.util.concurrent.Executor p0) { return null; }
-        protected android.widget.RemoteViews.ViewTree doInBackground(java.lang.Void... p0) { return null; }
-        public void onCancel() {}
-        protected void onPostExecute(android.widget.RemoteViews.ViewTree p0) {}
-    }
-
-    private static final class AttributeReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
-        static final int COLOR_RESOURCE = 2;
-        static final int DIMEN_RESOURCE = 1;
-        static final int STRING_RESOURCE = 3;
-        private final int mAttrId = 0;
-        private final int mResourceType = 0;
-        AttributeReflectionAction(int p0, java.lang.String p1, int p2, int p3, int p4) { super((android.os.Parcel)null); }
-        AttributeReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static abstract class BaseReflectionAction extends android.widget.RemoteViews.Action {
-        static final int BLEND_MODE = 17;
-        static final int BOOLEAN = 1;
-        static final int BUNDLE = 13;
-        static final int BYTE = 2;
-        static final int CHAR = 8;
-        static final int CHAR_SEQUENCE = 10;
-        static final int COLOR_STATE_LIST = 15;
-        static final int DOUBLE = 7;
-        static final int DURATION = 19;
-        static final int FLOAT = 6;
-        static final int ICON = 16;
-        static final int INSTANT = 18;
-        static final int INT = 4;
-        static final int INTENT = 14;
-        static final int LIST_CHAR_SEQUENCE = 20;
-        static final int LONG = 5;
-        static final int SHORT = 3;
-        static final int STRING = 9;
-        static final int URI = 11;
-        java.lang.String mMethodName;
-        int mType;
-        BaseReflectionAction(int p0, java.lang.String p1, int p2) { super(); }
-        BaseReflectionAction(android.os.Parcel p0) { super(); }
-        public final void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        protected abstract java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException;
-        public final java.lang.String getUniqueKey() { return null; }
-        public final android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
-        public final int mergeBehavior() { return 0; }
-        public final boolean prefersAsyncApply() { return false; }
-        public void visitIcons(java.util.function.Consumer<android.graphics.drawable.Icon> p0) {}
-        public void visitUris(java.util.function.Consumer<android.net.Uri> p0) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static final class ColorResources {
         private static final int ARSC_ENTRY_SIZE = 16;
         private static final int FIRST_RESOURCE_COLOR_ID = 17170461;
@@ -493,6 +371,52 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         public android.util.SparseIntArray getColorMapping() { return null; }
     }
 
+    @java.lang.Deprecated
+    private final class ViewContentNavigation extends android.widget.RemoteViews.Action {
+        final boolean mNext = false;
+        ViewContentNavigation(android.widget.RemoteViews p0, int p1, boolean p2) { super(); }
+        ViewContentNavigation(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public int getActionTag() { return 0; }
+        public int mergeBehavior() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class DrawInstructions {
+        private static final long VERSION = 1L;
+        final java.util.List<byte[]> mInstructions = null;
+        private DrawInstructions() {}
+        private DrawInstructions(java.util.List<byte[]> p0) {}
+        public static long getSupportedVersion() { return 0L; }
+        private static android.widget.RemoteViews.DrawInstructions readFromParcel(android.os.Parcel p0) { return null; }
+        private static void writeToParcel(android.widget.RemoteViews.DrawInstructions p0, android.os.Parcel p1, int p2) {}
+        public java.util.List<byte[]> getBytes() { return null; }
+
+        public static final class Builder {
+            private final java.util.List<byte[]> mInstructions = null;
+            public Builder(java.util.List<byte[]> p0) {}
+            public android.widget.RemoteViews.DrawInstructions build() { return null; }
+        }
+    }
+
+    public static interface OnViewAppliedListener {
+        public void onError(java.lang.Exception p0);
+        public void onViewApplied(android.view.View p0);
+        default public void onViewInflated(android.view.View p0) {}
+    }
+
+    private static class SetEmptyView extends android.widget.RemoteViews.Action {
+        int mEmptyViewId;
+        SetEmptyView(int p0, int p1) { super(); }
+        SetEmptyView(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
     private static final class ComplexUnitDimensionReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
         private final int mUnit = 0;
         private final float mValue = 0.0f;
@@ -506,195 +430,27 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
     }
 
-    public static final class DrawInstructions {
-        private static final long VERSION = 1L;
-        final java.util.List<byte[]> mInstructions = null;
-        private DrawInstructions() {}
-        private DrawInstructions(java.util.List<byte[]> p0) {}
-        public static long getSupportedVersion() { return 0L; }
-        private static android.widget.RemoteViews.DrawInstructions readFromParcel(android.os.Parcel p0) { return null; }
-        private static void writeToParcel(android.widget.RemoteViews.DrawInstructions p0, android.os.Parcel p1, int p2) {}
-
-        public static final class Builder {
-            private final java.util.List<byte[]> mInstructions = null;
-            public Builder(java.util.List<byte[]> p0) {}
-            public android.widget.RemoteViews.DrawInstructions build() { return null; }
-        }
-    }
-
-    private static final class HierarchyRootData {
-        final android.widget.RemoteViews.ApplicationInfoCache mApplicationInfoCache = null;
-        final java.util.Map<java.lang.Class, java.lang.Object> mClassCookies = null;
-        final android.widget.RemoteViews.ImageCache mImageCache = null;
-        final android.widget.RemoteViews.RemoteCollectionCache mRemoteCollectionCache = null;
-        HierarchyRootData(android.widget.RemoteViews.ImageCache p0, android.widget.RemoteViews.RemoteCollectionCache p1, android.widget.RemoteViews.ApplicationInfoCache p2, java.util.Map<java.lang.Class, java.lang.Object> p3) {}
-    }
-
-    static class ImageCache {
-        private long mBitmapMemory;
-        private final java.util.ArrayList<android.widget.RemoteViews.LocalImage> mEntries = null;
-        private final java.util.HashMap<android.widget.RemoteViews.LocalImage, java.lang.Integer> mLocalImageToId = null;
-        ImageCache() {}
-        ImageCache(android.os.Parcel p0) {}
-        ImageCache(android.widget.RemoteViews.ImageCache p0) {}
-        public android.graphics.Bitmap getBitmapForId(int p0) { return null; }
-        public long getBitmapMemory() { return 0L; }
-        public long getConvertedFromBitmapMemory() { return 0L; }
-        public long getIconBitmapMemory() { return 0L; }
-        public android.graphics.drawable.Icon getIconForId(int p0) { return null; }
-        public int getImageId(android.graphics.Bitmap p0) { return 0; }
-        public int getImageId(android.graphics.drawable.Icon p0) { return 0; }
-        public int getImageId(android.widget.RemoteViews.LocalImage p0) { return 0; }
-        public android.widget.RemoteViews.LocalImage getLocalImage(int p0) { return null; }
-        public void markImageConvertedFromBitmap(int p0) {}
-        public void mergeWithCache(android.widget.RemoteViews.ImageCache p0) {}
-        public boolean offloadBitmaps(java.util.function.Function<android.graphics.Bitmap, android.net.Uri> p0) { return false; }
-        public void rebuildHashes() {}
-        public void writeImagesToParcel(android.os.Parcel p0, int p1) {}
-        public void writeImagesToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1) {}
-    }
-
-    class ImageReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
-        int mImageId;
-        android.widget.RemoteViews.LocalImage mLocalImage;
-        ImageReflectionAction(android.widget.RemoteViews p0, int p1, java.lang.String p2, int p3) { super((android.os.Parcel)null); }
-        ImageReflectionAction(android.widget.RemoteViews p0, int p1, java.lang.String p2, android.graphics.drawable.Icon p3) { super((android.os.Parcel)null); }
-        ImageReflectionAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super((android.os.Parcel)null); }
+    private static class SetViewOutlinePreferredRadiusAction extends android.widget.RemoteViews.Action {
+        private final int mValue = 0;
+        private final int mValueType = 0;
+        SetViewOutlinePreferredRadiusAction(int p0, float p1, int p2) { super(); }
+        SetViewOutlinePreferredRadiusAction(int p0, int p1, int p2) { super(); }
+        SetViewOutlinePreferredRadiusAction(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
         public boolean canWriteToProto() { return false; }
         public int getActionTag() { return 0; }
-        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
-        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
-        public void updateActionImageCacheReferences(android.widget.RemoteViews.ImageCache p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
     }
 
-    public static interface InteractionHandler {
-        public boolean onInteraction(android.view.View p0, android.app.PendingIntent p1, android.widget.RemoteViews.RemoteResponse p2);
-        default public void onScroll(android.widget.AbsListView p0) {}
-    }
-
-    private static class InvalidProtoException extends java.lang.Exception {
-        InvalidProtoException(java.lang.String p0) { super(); }
-    }
-
-    private static class LayoutParamAction extends android.widget.RemoteViews.Action {
-        static final int LAYOUT_HEIGHT = 9;
-        static final int LAYOUT_MARGIN_BOTTOM = 3;
-        static final int LAYOUT_MARGIN_END = 5;
-        static final int LAYOUT_MARGIN_LEFT = 0;
-        static final int LAYOUT_MARGIN_RIGHT = 2;
-        static final int LAYOUT_MARGIN_START = 4;
-        static final int LAYOUT_MARGIN_TOP = 1;
-        static final int LAYOUT_WIDTH = 8;
-        final int mProperty = 0;
-        final int mValue = 0;
-        final int mValueType = 0;
-        LayoutParamAction(int p0, int p1, float p2, int p3) { super(); }
-        LayoutParamAction(int p0, int p1, int p2, int p3) { super(); }
-        public LayoutParamAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        private int getPixelOffset(android.view.View p0, android.widget.RemoteViews.ActionApplyParams p1) { return 0; }
-        private int getPixelSize(android.view.View p0, android.widget.RemoteViews.ActionApplyParams p1) { return 0; }
+    private static class SetRemoteInputsAction extends android.widget.RemoteViews.Action {
+        final android.os.Parcelable[] mRemoteInputs = null;
+        public SetRemoteInputsAction(int p0, android.app.RemoteInput[] p1) { super(); }
+        public SetRemoteInputsAction(android.os.Parcel p0) { super(); }
         public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
         public int getActionTag() { return 0; }
-        public java.lang.String getUniqueKey() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    static final class LocalImage {
-        private android.graphics.Bitmap mBitmap;
-        private android.graphics.drawable.Icon mIcon;
-        private boolean mIsConvertedFromBitmap;
-        LocalImage(android.graphics.Bitmap p0) {}
-        LocalImage(android.graphics.drawable.Icon p0, boolean p1) {}
-        LocalImage(android.os.Parcel p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        android.graphics.Bitmap getBitmap() { return null; }
-        long getBitmapMemory() { return 0L; }
-        android.graphics.drawable.Icon getIcon() { return null; }
-        public int hashCode() { return 0; }
-        boolean isConvertedFromBitmap() { return false; }
-        void setConvertedFromBitmap(boolean p0) {}
-        void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MarginType {
-    }
-
-    static class MethodArgs {
-        public java.lang.invoke.MethodHandle asyncMethod;
-        public java.lang.String asyncMethodName;
-        public java.lang.invoke.MethodHandle syncMethod;
-        MethodArgs() {}
-    }
-
-    static class MethodKey {
-        public java.lang.String methodName;
-        public java.lang.Class<?> paramClass;
-        public java.lang.Class<?> paramTypeArgumentClass;
-        public java.lang.Class<?> targetClass;
-        MethodKey() {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public void set(java.lang.Class<?> p0, java.lang.Class<?> p1, java.lang.Class<?> p2, java.lang.String p3) {}
-    }
-
-    private static final class NightModeReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
-        private final java.lang.Object mDarkValue = null;
-        private final java.lang.Object mLightValue = null;
-        NightModeReflectionAction(int p0, java.lang.String p1, int p2, java.lang.Object p3, java.lang.Object p4) { super((android.os.Parcel)null); }
-        NightModeReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
-        public void visitUris(java.util.function.Consumer<android.net.Uri> p0) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    public static interface OnViewAppliedListener {
-        public void onError(java.lang.Exception p0);
-        public void onViewApplied(android.view.View p0);
-        default public void onViewInflated(android.view.View p0) {}
-    }
-
-    static interface PendingResources<T extends java.lang.Object> {
-        public T create(android.content.Context p0, android.content.res.Resources p1, android.widget.RemoteViews.HierarchyRootData p2, int p3) throws java.lang.Exception;
-    }
-
-    private static final class ReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
-        java.lang.Object mValue;
-        ReflectionAction(int p0, java.lang.String p1, int p2, java.lang.Object p3) { super((android.os.Parcel)null); }
-        ReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private class RemoteCollectionCache {
-        private final android.util.SparseArray<java.lang.String> mIdToUriMapping = null;
-        private final java.util.Map<java.lang.String, android.widget.RemoteViews.RemoteCollectionItems> mUriToCollectionMapping = null;
-        RemoteCollectionCache(android.widget.RemoteViews p0) {}
-        RemoteCollectionCache(android.widget.RemoteViews p0, android.os.Parcel p1) {}
-        RemoteCollectionCache(android.widget.RemoteViews p0, android.widget.RemoteViews.RemoteCollectionCache p1) {}
-        private void collectAllIntentsInternal(android.widget.RemoteViews p0, android.util.SparseArray<android.content.Intent> p1) {}
-        private java.util.concurrent.CompletableFuture<java.lang.Void> connectAllUniqueIntents(int p0, int p1, android.util.SparseArray<android.content.Intent> p2, boolean p3, android.appwidget.AppWidgetManager.ServiceCollectionCache p4) { return null; }
-        private static java.util.concurrent.CompletableFuture<android.widget.RemoteViews.RemoteCollectionItems> getItemsFutureFromIntent(android.content.Intent p0, int p1, int p2, boolean p3, android.appwidget.AppWidgetManager.ServiceCollectionCache p4) { return null; }
-        void addMapping(int p0, java.lang.String p1, android.widget.RemoteViews.RemoteCollectionItems p2) {}
-        public java.util.concurrent.CompletableFuture<java.lang.Void> collectAllIntentsNoComplete(android.widget.RemoteViews p0, int p1, boolean p2, android.appwidget.AppWidgetManager.ServiceCollectionCache p3) { return null; }
-        android.widget.RemoteViews.RemoteCollectionItems getItemsForId(int p0) { return null; }
-        public void replaceAllIntentsWithEmptyList(android.widget.RemoteViews p0) {}
-        void setHierarchyDataForId(int p0, android.widget.RemoteViews.HierarchyRootData p1) {}
-        public void writeToParcel(android.os.Parcel p0, int p1, android.util.SparseArray<android.content.Intent> p2) {}
-        public void writeToProto(android.content.Context p0, android.util.proto.ProtoOutputStream p1) {}
     }
 
     public static final class RemoteCollectionItems implements android.os.Parcelable {
@@ -722,6 +478,7 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         boolean hasLegacyNullItems() { return false; }
         public boolean hasStableIds() { return false; }
         void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
+        public void visitRemoteViews(java.util.function.Consumer<android.widget.RemoteViews> p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeToProto(android.content.Context p0, android.util.proto.ProtoOutputStream p1) {}
 
@@ -738,6 +495,30 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
             public android.widget.RemoteViews.RemoteCollectionItems.Builder setHasStableIds(boolean p0) { return null; }
             public android.widget.RemoteViews.RemoteCollectionItems.Builder setViewTypeCount(int p0) { return null; }
         }
+    }
+
+    static class ImageCache {
+        private long mBitmapMemory;
+        private final java.util.ArrayList<android.widget.RemoteViews.LocalImage> mEntries = null;
+        private final java.util.HashMap<android.widget.RemoteViews.LocalImage, java.lang.Integer> mLocalImageToId = null;
+        ImageCache() {}
+        ImageCache(android.os.Parcel p0) {}
+        ImageCache(android.widget.RemoteViews.ImageCache p0) {}
+        public android.graphics.Bitmap getBitmapForId(int p0) { return null; }
+        public long getBitmapMemory() { return 0L; }
+        public long getConvertedFromBitmapMemory() { return 0L; }
+        public long getIconBitmapMemory() { return 0L; }
+        public android.graphics.drawable.Icon getIconForId(int p0) { return null; }
+        public int getImageId(android.graphics.Bitmap p0) { return 0; }
+        public int getImageId(android.graphics.drawable.Icon p0) { return 0; }
+        public int getImageId(android.widget.RemoteViews.LocalImage p0) { return 0; }
+        public android.widget.RemoteViews.LocalImage getLocalImage(int p0) { return null; }
+        public void markImageConvertedFromBitmap(int p0) {}
+        public void mergeWithCache(android.widget.RemoteViews.ImageCache p0) {}
+        public boolean offloadBitmaps(java.util.function.Function<android.graphics.Bitmap, android.net.Uri> p0) { return false; }
+        public void rebuildHashes() {}
+        public void writeImagesToParcel(android.os.Parcel p0, int p1) {}
+        public void writeImagesToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1) {}
     }
 
     public static class RemoteResponse {
@@ -765,144 +546,39 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
-    public static @interface RemoteView {
-    }
-
-    public static final class RemoteViewOutlineProvider extends android.view.ViewOutlineProvider {
-        private final float mRadius = 0.0f;
-        public RemoteViewOutlineProvider(float p0) { super(); }
-        public void getOutline(android.view.View p0, android.graphics.Outline p1) {}
-        public float getRadius() { return 0.0f; }
-    }
-
-    private static class RemoteViewsContextWrapper extends android.content.ContextWrapper {
-        private final android.content.Context mContextForResources = null;
-        RemoteViewsContextWrapper(android.content.Context p0, android.content.Context p1) { super(null); }
-        public java.lang.String getPackageName() { return null; }
-        public android.content.res.Resources getResources() { return null; }
-        public android.content.res.Resources.Theme getTheme() { return null; }
-        public android.os.UserHandle getUser() { return null; }
-        public int getUserId() { return 0; }
-        public boolean isRestricted() { return false; }
-    }
-
-    private static class RemoveFromParentAction extends android.widget.RemoteViews.Action {
-        RemoveFromParentAction(int p0) { super(); }
-        RemoveFromParentAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+    private class NightModeAction extends android.widget.RemoteViews.Action {
+        private final android.widget.RemoteViews.Action mDarkAction = null;
+        private final android.widget.RemoteViews.Action mLightAction = null;
+        NightModeAction(android.widget.RemoteViews p0, android.os.Parcel p1, int p2) { super(); }
+        NightModeAction(android.widget.RemoteViews p0, android.widget.RemoteViews.Action p1, android.widget.RemoteViews.Action p2) { super(); }
+        private android.widget.RemoteViews.Action getDelegate(android.view.View p0) { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
         public boolean canWriteToProto() { return false; }
         public int getActionTag() { return 0; }
         public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
-        public int mergeBehavior() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static final class ResourceReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
-        static final int COLOR_RESOURCE = 2;
-        static final int DIMEN_RESOURCE = 1;
-        static final int STRING_RESOURCE = 3;
-        private final int mResId = 0;
-        private final int mResourceType = 0;
-        ResourceReflectionAction(int p0, java.lang.String p1, int p2, int p3, int p4) { super((android.os.Parcel)null); }
-        ResourceReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static final class RunnableAction extends android.widget.RemoteViews.RuntimeAction {
-        private final java.lang.Runnable mRunnable = null;
-        RunnableAction(java.lang.Runnable p0) { super(); }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-    }
-
-    private static abstract class RuntimeAction extends android.widget.RemoteViews.Action {
-        private RuntimeAction() { super(); }
-        public final int getActionTag() { return 0; }
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    private static class SetCompoundButtonCheckedAction extends android.widget.RemoteViews.Action {
-        private final boolean mChecked = false;
-        SetCompoundButtonCheckedAction(int p0, boolean p1) { super(); }
-        SetCompoundButtonCheckedAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static class SetDrawableTint extends android.widget.RemoteViews.Action {
-        int mColorFilter;
-        android.graphics.PorterDuff.Mode mFilterMode;
-        boolean mTargetBackground;
-        SetDrawableTint(int p0, boolean p1, int p2, android.graphics.PorterDuff.Mode p3) { super(); }
-        SetDrawableTint(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private class SetDrawInstructionAction extends android.widget.RemoteViews.Action {
-        private final android.widget.RemoteViews.DrawInstructions mInstructions = null;
-        SetDrawInstructionAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
-        SetDrawInstructionAction(android.widget.RemoteViews p0, android.widget.RemoteViews.DrawInstructions p1) { super(); }
-        private android.widget.RemoteViews.Action applyAction(android.view.View p0, java.util.function.BiFunction<com.android.internal.widget.remotecompose.player.RemoteComposePlayer, com.android.internal.widget.remotecompose.player.RemoteDocument, android.widget.RemoteViews.Action> p1) { return null; }
-        private void applyActionListener(com.android.internal.widget.remotecompose.player.RemoteComposePlayer p0, android.widget.RemoteViews.ActionApplyParams p1) {}
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public final android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
         public boolean prefersAsyncApply() { return false; }
+        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
+        public void updateActionImageCacheReferences(android.widget.RemoteViews.ImageCache p0) {}
+        protected void visitRemoteViews(java.util.function.Consumer<android.widget.RemoteViews> p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
     }
 
-    private static class SetEmptyView extends android.widget.RemoteViews.Action {
-        int mEmptyViewId;
-        SetEmptyView(int p0, int p1) { super(); }
-        SetEmptyView(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static class SetIntTagAction extends android.widget.RemoteViews.Action {
-        private final int mKey = 0;
-        private final int mTag = 0;
-        private final int mViewId = 0;
-        SetIntTagAction(int p0, int p1, int p2) { super(); }
-        SetIntTagAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private class SetOnCheckedChangeResponse extends android.widget.RemoteViews.Action {
-        private final android.widget.RemoteViews.RemoteResponse mResponse = null;
-        SetOnCheckedChangeResponse(android.widget.RemoteViews p0, int p1, android.widget.RemoteViews.RemoteResponse p2) { super(); }
-        SetOnCheckedChangeResponse(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    static final class LocalImage {
+        private android.graphics.Bitmap mBitmap;
+        private android.graphics.drawable.Icon mIcon;
+        private boolean mIsConvertedFromBitmap;
+        LocalImage(android.graphics.Bitmap p0) {}
+        LocalImage(android.graphics.drawable.Icon p0, boolean p1) {}
+        LocalImage(android.os.Parcel p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        android.graphics.Bitmap getBitmap() { return null; }
+        long getBitmapMemory() { return 0L; }
+        android.graphics.drawable.Icon getIcon() { return null; }
+        public int hashCode() { return 0; }
+        boolean isConvertedFromBitmap() { return false; }
+        void setConvertedFromBitmap(boolean p0) {}
+        void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     private class SetOnClickResponse extends android.widget.RemoteViews.Action {
@@ -914,147 +590,97 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    private class SetOnStylusHandwritingResponse extends android.widget.RemoteViews.Action {
-        final android.app.PendingIntent mPendingIntent = null;
-        SetOnStylusHandwritingResponse(android.widget.RemoteViews p0, int p1, android.app.PendingIntent p2) { super(); }
-        SetOnStylusHandwritingResponse(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    static class MethodKey {
+        public java.lang.String methodName;
+        public java.lang.Class<?> paramClass;
+        public java.lang.Class<?> paramTypeArgumentClass;
+        public java.lang.Class<?> targetClass;
+        MethodKey() {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public void set(java.lang.Class<?> p0, java.lang.Class<?> p1, java.lang.Class<?> p2, java.lang.String p3) {}
     }
 
-    private static class SetPendingIntentTemplate extends android.widget.RemoteViews.Action {
-        android.app.PendingIntent mPendingIntentTemplate;
-        public SetPendingIntentTemplate(int p0, android.app.PendingIntent p1) { super(); }
-        public SetPendingIntentTemplate(android.os.Parcel p0) { super(); }
-        private android.widget.RemoteViews.RemoteResponse findRemoteResponseTag(android.view.View p0) { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    private static class SetRadioGroupCheckedAction extends android.widget.RemoteViews.Action {
-        private final int mCheckedId = 0;
-        SetRadioGroupCheckedAction(int p0, int p1) { super(); }
-        SetRadioGroupCheckedAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
+    private static abstract class Action {
+        public static final int MERGE_APPEND = 1;
+        public static final int MERGE_IGNORE = 2;
+        public static final int MERGE_REPLACE = 0;
+        int mViewId;
+        private Action() {}
+        public abstract void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException;
         public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private class SetRemoteCollectionItemListAdapterAction extends android.widget.RemoteViews.Action {
-        int mIntentId;
-        boolean mIsReplacedIntoAction;
-        private android.widget.RemoteViews.RemoteCollectionItems mItems;
-        final android.content.Intent mServiceIntent = null;
-        SetRemoteCollectionItemListAdapterAction(android.widget.RemoteViews p0, int p1, android.content.Intent p2) { super(); }
-        SetRemoteCollectionItemListAdapterAction(android.widget.RemoteViews p0, int p1, android.widget.RemoteViews.RemoteCollectionItems p2) { super(); }
-        SetRemoteCollectionItemListAdapterAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
+        public abstract int getActionTag();
         public java.lang.String getUniqueKey() { return null; }
-        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
-        public void visitIcons(java.util.function.Consumer<android.graphics.drawable.Icon> p0) {}
-        public void visitUris(java.util.function.Consumer<android.net.Uri> p0) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static class SetRemoteInputsAction extends android.widget.RemoteViews.Action {
-        final android.os.Parcelable[] mRemoteInputs = null;
-        public SetRemoteInputsAction(int p0, android.app.RemoteInput[] p1) { super(); }
-        public SetRemoteInputsAction(android.os.Parcel p0) { super(); }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    private static class SetRippleDrawableColor extends android.widget.RemoteViews.Action {
-        android.content.res.ColorStateList mColorStateList;
-        SetRippleDrawableColor(int p0, android.content.res.ColorStateList p1) { super(); }
-        SetRippleDrawableColor(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static class SetViewOutlinePreferredRadiusAction extends android.widget.RemoteViews.Action {
-        private final int mValue = 0;
-        private final int mValueType = 0;
-        SetViewOutlinePreferredRadiusAction(int p0, float p1, int p2) { super(); }
-        SetViewOutlinePreferredRadiusAction(int p0, int p1, int p2) { super(); }
-        SetViewOutlinePreferredRadiusAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
-    }
-
-    private static class TextViewDrawableAction extends android.widget.RemoteViews.Action {
-        int mD1;
-        int mD2;
-        int mD3;
-        int mD4;
-        boolean mDrawablesLoaded;
-        android.graphics.drawable.Icon mI1;
-        android.graphics.drawable.Icon mI2;
-        android.graphics.drawable.Icon mI3;
-        android.graphics.drawable.Icon mI4;
-        android.graphics.drawable.Drawable mId1;
-        android.graphics.drawable.Drawable mId2;
-        android.graphics.drawable.Drawable mId3;
-        android.graphics.drawable.Drawable mId4;
-        boolean mIsRelative;
-        boolean mUseIcons;
-        public TextViewDrawableAction(int p0, boolean p1, int p2, int p3, int p4, int p5) { super(); }
-        public TextViewDrawableAction(int p0, boolean p1, android.graphics.drawable.Icon p2, android.graphics.drawable.Icon p3, android.graphics.drawable.Icon p4, android.graphics.drawable.Icon p5) { super(); }
-        public TextViewDrawableAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
         public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
+        public int mergeBehavior() { return 0; }
         public boolean prefersAsyncApply() { return false; }
-        public void visitUris(java.util.function.Consumer<android.net.Uri> p0) {}
+        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
+        public void updateActionImageCacheReferences(android.widget.RemoteViews.ImageCache p0) {}
+        protected void visitRemoteViews(java.util.function.Consumer<android.widget.RemoteViews> p0) {}
+        public abstract void writeToParcel(android.os.Parcel p0, int p1);
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MarginType {
+    }
+
+    private static final class ReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
+        java.lang.Object mValue;
+        ReflectionAction(int p0, java.lang.String p1, int p2, java.lang.Object p3) { super((android.os.Parcel)null); }
+        ReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
     }
 
-    private static class TextViewSizeAction extends android.widget.RemoteViews.Action {
-        float mSize;
-        int mUnits;
-        TextViewSizeAction(int p0, int p1, float p2) { super(); }
-        TextViewSizeAction(android.os.Parcel p0) { super(); }
-        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public boolean canWriteToProto() { return false; }
-        public int getActionTag() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    static interface PendingResources<T extends java.lang.Object> {
+        public T create(android.content.Context p0, android.content.res.Resources p1, android.widget.RemoteViews.HierarchyRootData p2, int p3) throws java.lang.Exception;
+    }
+
+    public static class ActionException extends java.lang.RuntimeException {
+        public ActionException(java.lang.Exception p0) { super(); }
+        public ActionException(java.lang.String p0) { super(); }
+        public ActionException(java.lang.String p0, java.lang.Throwable p1) { super(); }
+        public ActionException(java.lang.Throwable p0) { super(); }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     static @interface ValueType {
     }
 
-    @java.lang.Deprecated
-    private final class ViewContentNavigation extends android.widget.RemoteViews.Action {
-        final boolean mNext = false;
-        ViewContentNavigation(android.widget.RemoteViews p0, int p1, boolean p2) { super(); }
-        ViewContentNavigation(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
-        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
-        public int getActionTag() { return 0; }
-        public int mergeBehavior() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
+    public static @interface RemoteView {
+    }
+
+    private class RemoteCollectionCache {
+        private final android.util.SparseArray<java.lang.String> mIdToUriMapping = null;
+        private final java.util.Map<java.lang.String, android.widget.RemoteViews.RemoteCollectionItems> mUriToCollectionMapping = null;
+        RemoteCollectionCache(android.widget.RemoteViews p0) {}
+        RemoteCollectionCache(android.widget.RemoteViews p0, android.os.Parcel p1) {}
+        RemoteCollectionCache(android.widget.RemoteViews p0, android.widget.RemoteViews.RemoteCollectionCache p1) {}
+        private void collectAllIntentsInternal(android.widget.RemoteViews p0, android.util.SparseArray<android.content.Intent> p1) {}
+        private java.util.concurrent.CompletableFuture<java.lang.Void> connectAllUniqueIntents(int p0, int p1, android.util.SparseArray<android.content.Intent> p2, boolean p3, android.appwidget.AppWidgetManager.ServiceCollectionCache p4) { return null; }
+        private static java.util.concurrent.CompletableFuture<android.widget.RemoteViews.RemoteCollectionItems> getItemsFutureFromIntent(android.content.Intent p0, int p1, int p2, boolean p3, android.appwidget.AppWidgetManager.ServiceCollectionCache p4) { return null; }
+        void addMapping(int p0, java.lang.String p1, android.widget.RemoteViews.RemoteCollectionItems p2) {}
+        public java.util.concurrent.CompletableFuture<java.lang.Void> collectAllIntentsNoComplete(android.widget.RemoteViews p0, int p1, boolean p2, android.appwidget.AppWidgetManager.ServiceCollectionCache p3) { return null; }
+        android.widget.RemoteViews.RemoteCollectionItems getItemsForId(int p0) { return null; }
+        public void replaceAllIntentsWithEmptyList(android.widget.RemoteViews p0) {}
+        void setHierarchyDataForId(int p0, android.widget.RemoteViews.HierarchyRootData p1) {}
+        public void writeToParcel(android.os.Parcel p0, int p1, android.util.SparseArray<android.content.Intent> p2) {}
+        public void writeToProto(android.content.Context p0, android.util.proto.ProtoOutputStream p1) {}
+    }
+
+    private static final class HierarchyRootData {
+        final android.widget.RemoteViews.ApplicationInfoCache mApplicationInfoCache = null;
+        final java.util.Map<java.lang.Class, java.lang.Object> mClassCookies = null;
+        final android.widget.RemoteViews.ImageCache mImageCache = null;
+        final android.widget.RemoteViews.RemoteCollectionCache mRemoteCollectionCache = null;
+        HierarchyRootData(android.widget.RemoteViews.ImageCache p0, android.widget.RemoteViews.RemoteCollectionCache p1, android.widget.RemoteViews.ApplicationInfoCache p2, java.util.Map<java.lang.Class, java.lang.Object> p3) {}
     }
 
     private class ViewGroupActionAdd extends android.widget.RemoteViews.Action {
@@ -1075,28 +701,42 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         public int mergeBehavior() { return 0; }
         public boolean prefersAsyncApply() { return false; }
         public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
-        public void visitIcons(java.util.function.Consumer<android.graphics.drawable.Icon> p0) {}
         protected void visitRemoteViews(java.util.function.Consumer<android.widget.RemoteViews> p0) {}
-        public void visitUris(java.util.function.Consumer<android.net.Uri> p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
     }
 
-    private static class ViewGroupActionRemove extends android.widget.RemoteViews.Action {
-        private static final int REMOVE_ALL_VIEWS_ID = -2;
-        private int mViewIdToKeep;
-        ViewGroupActionRemove(int p0) { super(); }
-        ViewGroupActionRemove(int p0, int p1) { super(); }
-        ViewGroupActionRemove(android.os.Parcel p0) { super(); }
+    private static class SetIntTagAction extends android.widget.RemoteViews.Action {
+        private final int mKey = 0;
+        private final int mTag = 0;
+        private final int mViewId = 0;
+        SetIntTagAction(int p0, int p1, int p2) { super(); }
+        SetIntTagAction(android.os.Parcel p0) { super(); }
         public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
-        private void removeAllViewsExceptIdToKeep(android.view.ViewGroup p0) {}
         public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
         public boolean canWriteToProto() { return false; }
         public int getActionTag() { return 0; }
-        public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
-        public int mergeBehavior() { return 0; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static class SetRippleDrawableColor extends android.widget.RemoteViews.Action {
+        android.content.res.ColorStateList mColorStateList;
+        SetRippleDrawableColor(int p0, android.content.res.ColorStateList p1) { super(); }
+        SetRippleDrawableColor(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    public static final class RemoteViewOutlineProvider extends android.view.ViewOutlineProvider {
+        private final float mRadius = 0.0f;
+        public RemoteViewOutlineProvider(float p0) { super(); }
+        public void getOutline(android.view.View p0, android.graphics.Outline p1) {}
+        public float getRadius() { return 0.0f; }
     }
 
     private static class ViewPaddingAction extends android.widget.RemoteViews.Action {
@@ -1131,5 +771,375 @@ public class RemoteViews implements android.os.Parcelable, android.view.LayoutIn
         public android.widget.RemoteViews.ViewTree findViewTreeParentOf(android.widget.RemoteViews.ViewTree p0) { return null; }
         public void removeChildren(int p0, int p1) {}
         public void replaceView(android.view.View p0) {}
+    }
+
+    private static class ViewGroupActionRemove extends android.widget.RemoteViews.Action {
+        private static final int REMOVE_ALL_VIEWS_ID = -2;
+        private int mViewIdToKeep;
+        ViewGroupActionRemove(int p0) { super(); }
+        ViewGroupActionRemove(int p0, int p1) { super(); }
+        ViewGroupActionRemove(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        private void removeAllViewsExceptIdToKeep(android.view.ViewGroup p0) {}
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
+        public int mergeBehavior() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static class RemoteViewsContextWrapper extends android.content.ContextWrapper {
+        private final android.content.Context mContextForResources = null;
+        RemoteViewsContextWrapper(android.content.Context p0, android.content.Context p1) { super(null); }
+        public java.lang.String getPackageName() { return null; }
+        public android.content.res.Resources getResources() { return null; }
+        public android.content.res.Resources.Theme getTheme() { return null; }
+        public android.os.UserHandle getUser() { return null; }
+        public int getUserId() { return 0; }
+        public boolean isRestricted() { return false; }
+    }
+
+    private static final class AttributeReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
+        static final int COLOR_RESOURCE = 2;
+        static final int DIMEN_RESOURCE = 1;
+        static final int STRING_RESOURCE = 3;
+        private final int mAttrId = 0;
+        private final int mResourceType = 0;
+        AttributeReflectionAction(int p0, java.lang.String p1, int p2, int p3, int p4) { super((android.os.Parcel)null); }
+        AttributeReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    class ImageReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
+        int mImageId;
+        android.widget.RemoteViews.LocalImage mLocalImage;
+        ImageReflectionAction(android.widget.RemoteViews p0, int p1, java.lang.String p2, int p3) { super((android.os.Parcel)null); }
+        ImageReflectionAction(android.widget.RemoteViews p0, int p1, java.lang.String p2, android.graphics.drawable.Icon p3) { super((android.os.Parcel)null); }
+        ImageReflectionAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super((android.os.Parcel)null); }
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
+        public boolean prefersAsyncApply() { return false; }
+        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
+        public void updateActionImageCacheReferences(android.widget.RemoteViews.ImageCache p0) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static final class ResourceReflectionAction extends android.widget.RemoteViews.BaseReflectionAction {
+        static final int COLOR_RESOURCE = 2;
+        static final int DIMEN_RESOURCE = 1;
+        static final int STRING_RESOURCE = 3;
+        private final int mResId = 0;
+        private final int mResourceType = 0;
+        ResourceReflectionAction(int p0, java.lang.String p1, int p2, int p3, int p4) { super((android.os.Parcel)null); }
+        ResourceReflectionAction(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        protected java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static class TextViewSizeAction extends android.widget.RemoteViews.Action {
+        float mSize;
+        int mUnits;
+        TextViewSizeAction(int p0, int p1, float p2) { super(); }
+        TextViewSizeAction(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static class InvalidProtoException extends java.lang.Exception {
+        InvalidProtoException(java.lang.String p0) { super(); }
+    }
+
+    private class AsyncApplyTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, android.widget.RemoteViews.ViewTree> implements android.os.CancellationSignal.OnCancelListener {
+        private android.widget.RemoteViews.Action[] mActions;
+        final android.widget.RemoteViews.ActionApplyParams mApplyParams = null;
+        final android.os.CancellationSignal mCancelSignal = null;
+        final android.content.Context mContext = null;
+        private java.lang.Exception mError;
+        final android.widget.RemoteViews.OnViewAppliedListener mListener = null;
+        final android.view.ViewGroup mParent = null;
+        final android.widget.RemoteViews mRV = null;
+        private android.view.View mResult;
+        final boolean mTopLevel = false;
+        private android.widget.RemoteViews.ViewTree mTree;
+        private AsyncApplyTask(android.widget.RemoteViews p0, android.widget.RemoteViews p1, android.view.ViewGroup p2, android.content.Context p3, android.widget.RemoteViews.OnViewAppliedListener p4, android.widget.RemoteViews.ActionApplyParams p5, android.view.View p6, boolean p7) { super(); }
+        private android.os.CancellationSignal startTaskOnExecutor(java.util.concurrent.Executor p0) { return null; }
+        protected android.widget.RemoteViews.ViewTree doInBackground(java.lang.Void... p0) { return null; }
+        public void onCancel() {}
+        protected void onPostExecute(android.widget.RemoteViews.ViewTree p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
+    public static @interface NotificationOnlyRemoteView {
+    }
+
+    private class SetOnStylusHandwritingResponse extends android.widget.RemoteViews.Action {
+        final android.app.PendingIntent mPendingIntent = null;
+        SetOnStylusHandwritingResponse(android.widget.RemoteViews p0, int p1, android.app.PendingIntent p2) { super(); }
+        SetOnStylusHandwritingResponse(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static abstract class BaseReflectionAction extends android.widget.RemoteViews.Action {
+        static final int BLEND_MODE = 17;
+        static final int BOOLEAN = 1;
+        static final int BUNDLE = 13;
+        static final int BYTE = 2;
+        static final int CHAR = 8;
+        static final int CHAR_SEQUENCE = 10;
+        static final int COLOR_STATE_LIST = 15;
+        static final int DOUBLE = 7;
+        static final int DURATION = 19;
+        static final int FLOAT = 6;
+        static final int ICON = 16;
+        static final int INSTANT = 18;
+        static final int INT = 4;
+        static final int INTENT = 14;
+        static final int LIST_CHAR_SEQUENCE = 20;
+        static final int LONG = 5;
+        static final int SHORT = 3;
+        static final int STRING = 9;
+        java.lang.String mMethodName;
+        int mType;
+        BaseReflectionAction(int p0, java.lang.String p1, int p2) { super(); }
+        BaseReflectionAction(android.os.Parcel p0) { super(); }
+        public final void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        protected abstract java.lang.Object getParameterValue(android.view.View p0) throws android.widget.RemoteViews.ActionException;
+        public final java.lang.String getUniqueKey() { return null; }
+        public final android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
+        public final int mergeBehavior() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static class ApplicationInfoCache {
+        private final java.util.List<android.content.pm.ApplicationInfo> mCachedApplicationInfos = null;
+        ApplicationInfoCache() {}
+        ApplicationInfoCache(android.os.Parcel p0) {}
+        int findId(android.content.pm.ApplicationInfo p0) { return 0; }
+        android.content.pm.ApplicationInfo get(int p0) { return null; }
+        int getOrPut(android.content.pm.ApplicationInfo p0) { return 0; }
+        int updateAndGetId(android.content.pm.ApplicationInfo p0) { return 0; }
+        void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static class RemoveFromParentAction extends android.widget.RemoteViews.Action {
+        RemoveFromParentAction(int p0) { super(); }
+        RemoveFromParentAction(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
+        public int mergeBehavior() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private class TextViewDrawableAction extends android.widget.RemoteViews.Action {
+        int mD1;
+        int mD2;
+        int mD3;
+        int mD4;
+        final boolean mHasIcons = false;
+        android.widget.RemoteViews.LocalImage mI1;
+        android.widget.RemoteViews.LocalImage mI2;
+        android.widget.RemoteViews.LocalImage mI3;
+        android.widget.RemoteViews.LocalImage mI4;
+        final boolean mIsRelative = false;
+        public TextViewDrawableAction(android.widget.RemoteViews p0, int p1, boolean p2, int p3, int p4, int p5, int p6) { super(); }
+        public TextViewDrawableAction(android.widget.RemoteViews p0, int p1, boolean p2, android.graphics.drawable.Icon p3, android.graphics.drawable.Icon p4, android.graphics.drawable.Icon p5, android.graphics.drawable.Icon p6) { super(); }
+        public TextViewDrawableAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
+        private android.graphics.drawable.Drawable loadDrawable(android.content.Context p0, android.widget.RemoteViews.LocalImage p1) { return null; }
+        private android.widget.RemoteViews.RuntimeAction loadIconsToApply(android.widget.TextView p0) { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
+        public boolean prefersAsyncApply() { return false; }
+        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
+        public void updateActionImageCacheReferences(android.widget.RemoteViews.ImageCache p0) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static class LayoutParamAction extends android.widget.RemoteViews.Action {
+        static final int LAYOUT_HEIGHT = 9;
+        static final int LAYOUT_MARGIN_BOTTOM = 3;
+        static final int LAYOUT_MARGIN_END = 5;
+        static final int LAYOUT_MARGIN_LEFT = 0;
+        static final int LAYOUT_MARGIN_RIGHT = 2;
+        static final int LAYOUT_MARGIN_START = 4;
+        static final int LAYOUT_MARGIN_TOP = 1;
+        static final int LAYOUT_WIDTH = 8;
+        final int mProperty = 0;
+        final int mValue = 0;
+        final int mValueType = 0;
+        LayoutParamAction(int p0, int p1, float p2, int p3) { super(); }
+        LayoutParamAction(int p0, int p1, int p2, int p3) { super(); }
+        public LayoutParamAction(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        private int getPixelOffset(android.view.View p0, android.widget.RemoteViews.ActionApplyParams p1) { return 0; }
+        private int getPixelSize(android.view.View p0, android.widget.RemoteViews.ActionApplyParams p1) { return 0; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public java.lang.String getUniqueKey() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static class SetRadioGroupCheckedAction extends android.widget.RemoteViews.Action {
+        private final int mCheckedId = 0;
+        SetRadioGroupCheckedAction(int p0, int p1) { super(); }
+        SetRadioGroupCheckedAction(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        private static void forAllCompoundButtons(android.view.ViewGroup p0, java.util.function.Consumer<android.widget.CompoundButton> p1) {}
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private static abstract class RuntimeAction extends android.widget.RemoteViews.Action {
+        private RuntimeAction() { super(); }
+        public final int getActionTag() { return 0; }
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private class SetRemoteCollectionItemListAdapterAction extends android.widget.RemoteViews.Action {
+        int mIntentId;
+        boolean mIsReplacedIntoAction;
+        private android.widget.RemoteViews.RemoteCollectionItems mItems;
+        final android.content.Intent mServiceIntent = null;
+        SetRemoteCollectionItemListAdapterAction(android.widget.RemoteViews p0, int p1, android.content.Intent p2) { super(); }
+        SetRemoteCollectionItemListAdapterAction(android.widget.RemoteViews p0, int p1, android.widget.RemoteViews.RemoteCollectionItems p2) { super(); }
+        SetRemoteCollectionItemListAdapterAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
+        private android.widget.RemoteViews.RemoteCollectionItems getRemoteCollectionItems() { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public java.lang.String getUniqueKey() { return null; }
+        public void setHierarchyRootData(android.widget.RemoteViews.HierarchyRootData p0) {}
+        public void visitRemoteViews(java.util.function.Consumer<android.widget.RemoteViews> p0) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    public static interface InteractionHandler {
+        public boolean onInteraction(android.view.View p0, android.app.PendingIntent p1, android.widget.RemoteViews.RemoteResponse p2);
+        default public void onScroll(android.widget.AbsListView p0) {}
+    }
+
+    public class ActionApplyParams {
+        public int applyThemeResId;
+        public android.widget.RemoteViews.ColorResources colorResources;
+        public java.util.concurrent.Executor executor;
+        public android.widget.RemoteViews.InteractionHandler handler;
+        public float originalDensity;
+        public ActionApplyParams(android.widget.RemoteViews p0) {}
+        public android.widget.RemoteViews.ActionApplyParams clone() { return null; }
+        public boolean hasOriginalDensity() { return false; }
+        public android.widget.RemoteViews.ActionApplyParams withColorResources(android.widget.RemoteViews.ColorResources p0) { return null; }
+        public android.widget.RemoteViews.ActionApplyParams withExecutor(java.util.concurrent.Executor p0) { return null; }
+        public android.widget.RemoteViews.ActionApplyParams withInteractionHandler(android.widget.RemoteViews.InteractionHandler p0) { return null; }
+        public android.widget.RemoteViews.ActionApplyParams withOriginalDensity(float p0) { return null; }
+        public android.widget.RemoteViews.ActionApplyParams withThemeResId(int p0) { return null; }
+    }
+
+    static class MethodArgs {
+        public java.lang.invoke.MethodHandle asyncMethod;
+        public java.lang.String asyncMethodName;
+        public java.lang.invoke.MethodHandle syncMethod;
+        MethodArgs() {}
+    }
+
+    private static class SetDrawableTint extends android.widget.RemoteViews.Action {
+        int mColorFilter;
+        android.graphics.PorterDuff.Mode mFilterMode;
+        boolean mTargetBackground;
+        SetDrawableTint(int p0, boolean p1, int p2, android.graphics.PorterDuff.Mode p3) { super(); }
+        SetDrawableTint(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ApplyFlags {
+    }
+
+    private class SetOnCheckedChangeResponse extends android.widget.RemoteViews.Action {
+        private final android.widget.RemoteViews.RemoteResponse mResponse = null;
+        SetOnCheckedChangeResponse(android.widget.RemoteViews p0, int p1, android.widget.RemoteViews.RemoteResponse p2) { super(); }
+        SetOnCheckedChangeResponse(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static final class RunnableAction extends android.widget.RemoteViews.RuntimeAction {
+        private final java.lang.Runnable mRunnable = null;
+        RunnableAction(java.lang.Runnable p0) { super(); }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+    }
+
+    private static class SetPendingIntentTemplate extends android.widget.RemoteViews.Action {
+        android.app.PendingIntent mPendingIntentTemplate;
+        public SetPendingIntentTemplate(int p0, android.app.PendingIntent p1) { super(); }
+        public SetPendingIntentTemplate(android.os.Parcel p0) { super(); }
+        private android.widget.RemoteViews.RemoteResponse findRemoteResponseTag(android.view.View p0) { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) {}
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static class SetCompoundButtonCheckedAction extends android.widget.RemoteViews.Action {
+        private final boolean mChecked = false;
+        SetCompoundButtonCheckedAction(int p0, boolean p1) { super(); }
+        SetCompoundButtonCheckedAction(android.os.Parcel p0) { super(); }
+        public static android.widget.RemoteViews.PendingResources<android.widget.RemoteViews.Action> createFromProto(android.util.proto.ProtoInputStream p0) throws java.lang.Exception { return null; }
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
+    }
+
+    private class SetDrawInstructionAction extends android.widget.RemoteViews.Action {
+        private final android.widget.RemoteViews.DrawInstructions mInstructions = null;
+        SetDrawInstructionAction(android.widget.RemoteViews p0, android.os.Parcel p1) { super(); }
+        SetDrawInstructionAction(android.widget.RemoteViews p0, android.widget.RemoteViews.DrawInstructions p1) { super(); }
+        private android.widget.RemoteViews.Action applyAction(android.view.View p0, java.util.function.BiFunction<com.android.internal.widget.remotecompose.player.RemoteComposePlayer, com.android.internal.widget.remotecompose.player.RemoteDocument, android.widget.RemoteViews.Action> p1) { return null; }
+        private void applyActionListener(com.android.internal.widget.remotecompose.player.RemoteComposePlayer p0, android.widget.RemoteViews.ActionApplyParams p1) {}
+        public void apply(android.view.View p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) throws android.widget.RemoteViews.ActionException {}
+        public boolean canWriteToProto() { return false; }
+        public int getActionTag() { return 0; }
+        public final android.widget.RemoteViews.Action initActionAsync(android.widget.RemoteViews.ViewTree p0, android.view.ViewGroup p1, android.widget.RemoteViews.ActionApplyParams p2) { return null; }
+        public boolean prefersAsyncApply() { return false; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+        public void writeToProto(android.util.proto.ProtoOutputStream p0, android.content.Context p1, android.content.res.Resources p2) {}
     }
 }

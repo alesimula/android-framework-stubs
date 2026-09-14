@@ -20,29 +20,6 @@ public interface ISession extends android.os.IInterface {
     public void setQueueTitle(java.lang.CharSequence p0) throws android.os.RemoteException;
     public void setRatingType(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.session.ISession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void destroySession() throws android.os.RemoteException {}
-        public android.os.IBinder getBinderForSetQueue() throws android.os.RemoteException { return null; }
-        public android.media.session.ISessionController getController() throws android.os.RemoteException { return null; }
-        public void resetQueue() throws android.os.RemoteException {}
-        public void sendEvent(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void setActive(boolean p0) throws android.os.RemoteException {}
-        public void setCurrentVolume(int p0) throws android.os.RemoteException {}
-        public void setExtras(android.os.Bundle p0) throws android.os.RemoteException {}
-        public void setFlags(int p0) throws android.os.RemoteException {}
-        public void setLaunchPendingIntent(android.app.PendingIntent p0) throws android.os.RemoteException {}
-        public void setMediaButtonBroadcastReceiver(android.content.ComponentName p0) throws android.os.RemoteException {}
-        public void setMediaButtonReceiver(android.app.PendingIntent p0) throws android.os.RemoteException {}
-        public void setMetadata(android.media.MediaMetadata p0, long p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void setPlaybackState(android.media.session.PlaybackState p0) throws android.os.RemoteException {}
-        public void setPlaybackToLocal(android.media.AudioAttributes p0) throws android.os.RemoteException {}
-        public void setPlaybackToRemote(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void setQueueTitle(java.lang.CharSequence p0) throws android.os.RemoteException {}
-        public void setRatingType(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.session.ISession {
         public static final java.lang.String DESCRIPTOR = "android.media.session.ISession";
         static final int TRANSACTION_destroySession = 8;
@@ -94,5 +71,28 @@ public interface ISession extends android.os.IInterface {
             public void setQueueTitle(java.lang.CharSequence p0) throws android.os.RemoteException {}
             public void setRatingType(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.session.ISession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void destroySession() throws android.os.RemoteException {}
+        public android.os.IBinder getBinderForSetQueue() throws android.os.RemoteException { return null; }
+        public android.media.session.ISessionController getController() throws android.os.RemoteException { return null; }
+        public void resetQueue() throws android.os.RemoteException {}
+        public void sendEvent(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void setActive(boolean p0) throws android.os.RemoteException {}
+        public void setCurrentVolume(int p0) throws android.os.RemoteException {}
+        public void setExtras(android.os.Bundle p0) throws android.os.RemoteException {}
+        public void setFlags(int p0) throws android.os.RemoteException {}
+        public void setLaunchPendingIntent(android.app.PendingIntent p0) throws android.os.RemoteException {}
+        public void setMediaButtonBroadcastReceiver(android.content.ComponentName p0) throws android.os.RemoteException {}
+        public void setMediaButtonReceiver(android.app.PendingIntent p0) throws android.os.RemoteException {}
+        public void setMetadata(android.media.MediaMetadata p0, long p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void setPlaybackState(android.media.session.PlaybackState p0) throws android.os.RemoteException {}
+        public void setPlaybackToLocal(android.media.AudioAttributes p0) throws android.os.RemoteException {}
+        public void setPlaybackToRemote(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void setQueueTitle(java.lang.CharSequence p0) throws android.os.RemoteException {}
+        public void setRatingType(int p0) throws android.os.RemoteException {}
     }
 }

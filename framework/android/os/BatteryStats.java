@@ -379,53 +379,25 @@ public abstract class BatteryStats {
     public abstract com.android.internal.os.BatteryStatsHistoryIterator iterateBatteryStatsHistory(long p0, long p1);
     public void prepareForDumpLocked() {}
 
-    public static interface BatteryStatsDumpHelper {
-        public android.os.BatteryUsageStats getBatteryUsageStats(android.os.BatteryStats p0, boolean p1);
+    private static class ProportionalAttributionCalculator {
+        private static final double SYSTEM_BATTERY_CONSUMER = -1.0;
+        private final android.content.pm.PackageManager mPackageManager = null;
+        private final android.util.SparseDoubleArray mProportionalPowerMah = null;
+        private final java.util.HashSet<java.lang.String> mSystemAndServicePackages = null;
+        ProportionalAttributionCalculator(android.content.Context p0, android.os.BatteryUsageStats p1) {}
+        private boolean isSystemUid(int p0) { return false; }
+        double getProportionalPowerMah(android.os.UidBatteryConsumer p0) { return 0.0; }
+        boolean isSystemBatteryConsumer(android.os.UidBatteryConsumer p0) { return false; }
     }
 
-    public static final class BitDescription {
-        public final int mask = 0;
-        public final java.lang.String name = null;
-        public final int shift = 0;
-        public final java.lang.String shortName = null;
-        public final java.lang.String[] shortValues = null;
-        public final java.lang.String[] values = null;
-        public BitDescription(int p0, int p1, java.lang.String p2, java.lang.String p3, java.lang.String[] p4, java.lang.String[] p5) {}
-        public BitDescription(int p0, java.lang.String p1, java.lang.String p2) {}
-    }
-
-    public static abstract class ControllerActivityCounter {
-        public ControllerActivityCounter() {}
-        public abstract android.os.BatteryStats.LongCounter getIdleTimeCounter();
-        public abstract android.os.BatteryStats.LongCounter getMonitoredRailChargeConsumedMaMs();
-        public abstract android.os.BatteryStats.LongCounter getPowerCounter();
-        public abstract android.os.BatteryStats.LongCounter getRxTimeCounter();
-        public abstract android.os.BatteryStats.LongCounter getScanTimeCounter();
-        public abstract android.os.BatteryStats.LongCounter getSleepTimeCounter();
-        public abstract android.os.BatteryStats.LongCounter[] getTxTimeCounters();
-    }
-
-    public static abstract class Counter {
-        public Counter() {}
-        public abstract int getCountLocked(int p0);
-        public abstract void logState(android.util.Printer p0, java.lang.String p1);
-    }
-
-    public static final class DailyItem {
-        public android.os.BatteryStats.LevelStepTracker mChargeSteps;
-        public android.os.BatteryStats.LevelStepTracker mDischargeSteps;
-        public long mEndTime;
-        public java.util.ArrayList<android.os.BatteryStats.PackageChange> mPackageChanges;
-        public long mStartTime;
-        public DailyItem() {}
-    }
-
-    public static final class HistoryEventTracker {
-        private final java.util.HashMap<java.lang.String, android.util.SparseIntArray>[] mActiveEvents = null;
-        public HistoryEventTracker() {}
-        public java.util.HashMap<java.lang.String, android.util.SparseIntArray> getStateForEvent(int p0) { return null; }
-        public void removeEvents(int p0) {}
-        public boolean updateState(int p0, java.lang.String p1, int p2, int p3) { return false; }
+    private static class UidMobileRadioStats {
+        public final double millisecondsPerPacket = 0.0;
+        public final int radioActiveCount = 0;
+        public final long radioActiveMs = 0L;
+        public final long rxPackets = 0L;
+        public final long txPackets = 0L;
+        public final int uid = 0;
+        private UidMobileRadioStats(int p0, long p1, long p2, long p3, int p4, double p5) {}
     }
 
     public static final class HistoryItem {
@@ -579,182 +551,9 @@ public abstract class BatteryStats {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class HistoryPrinter {
-        private static final boolean DEBUG_TIMELINE = false;
-        private static final int FORMAT_LEGACY = 1;
-        private static final int FORMAT_VERSION = 2;
-        long lastTime;
-        private final java.text.SimpleDateFormat mCurrentTimeEventTimeFormat = null;
-        private final java.util.Date mDate = null;
-        private final int mFormatVersion = 0;
-        private final java.text.SimpleDateFormat mHistoryItemTimestampFormat = null;
-        private final android.os.BatteryStats.HistoryPrinter.HistoryLogTimeFormatter mHistoryLogTimeFormatter = null;
-        private final boolean mPerformanceBaseline = false;
-        private final java.lang.StringBuilder mStringBuilder = null;
-        int oldChargeMAh;
-        int oldHealth;
-        int oldLevel;
-        double oldModemRailChargeMah;
-        int oldPlug;
-        int oldState;
-        int oldState2;
-        int oldStatus;
-        int oldTemp;
-        int oldVolt;
-        double oldWifiRailChargeMah;
-        public HistoryPrinter() {}
-        public HistoryPrinter(int p0) {}
-        private HistoryPrinter(int p0, java.util.TimeZone p1, int p2) {}
-        public HistoryPrinter(java.util.TimeZone p0, int p1) {}
-        private java.lang.String printNextItem(android.os.BatteryStats.HistoryItem p0, long p1, boolean p2, boolean p3) { return null; }
-        private void printStepCpuUidCheckinDetails(java.lang.StringBuilder p0, int p1, int p2, int p3) {}
-        private void printStepCpuUidDetails(java.lang.StringBuilder p0, int p1, int p2, int p3) {}
-        public void printNextItem(android.util.proto.ProtoOutputStream p0, android.os.BatteryStats.HistoryItem p1, long p2, boolean p3) {}
-        public void printNextItem(java.io.PrintWriter p0, android.os.BatteryStats.HistoryItem p1, long p2, boolean p3, boolean p4) {}
-        void reset() {}
-
-        private static class HistoryLogTimeFormatter {
-            private static final long HOUR_MILLIS = 3600000L;
-            private static final long MINUTE_MILLIS = 60000L;
-            private long mCachedHour;
-            private java.lang.String mCachedHourFormatted;
-            private final java.util.Date mDate = null;
-            private final java.text.SimpleDateFormat mDateFormat = null;
-            private final long mTimeZoneOffset = 0L;
-            private HistoryLogTimeFormatter(java.util.TimeZone p0) {}
-            void append(java.lang.StringBuilder p0, long p1) {}
-        }
-    }
-
-    public static final class HistoryStepDetails {
-        public int appCpuSTime1;
-        public int appCpuSTime2;
-        public int appCpuSTime3;
-        public int appCpuUTime1;
-        public int appCpuUTime2;
-        public int appCpuUTime3;
-        public int appCpuUid1;
-        public int appCpuUid2;
-        public int appCpuUid3;
-        public int statIOWaitTime;
-        public int statIdlTime;
-        public int statIrqTime;
-        public int statSoftIrqTime;
-        public java.lang.String statSubsystemPowerState;
-        public int statSystemTime;
-        public int statUserTime;
-        public int systemTime;
-        public int userTime;
-        public HistoryStepDetails() {}
-        public void clear() {}
-        public boolean isEmpty() { return false; }
-        public void readFromParcel(android.os.Parcel p0) {}
-        public void writeToParcel(android.os.Parcel p0) {}
-    }
-
-    public static final class HistoryTag {
-        public static final int HISTORY_TAG_POOL_OVERFLOW = -1;
-        public int poolIdx;
-        public java.lang.String string;
-        public int uid;
-        public HistoryTag() {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public void readFromParcel(android.os.Parcel p0) {}
-        public void setTo(android.os.BatteryStats.HistoryTag p0) {}
-        public void setTo(java.lang.String p0, int p1) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.FunctionalInterface
-    public static interface IntToString {
-        public java.lang.String applyAsString(int p0);
-    }
-
-    public static final class LevelStepTracker {
-        public long mLastStepTime;
-        public int mNumStepDurations;
-        public final long[] mStepDurations = null;
-        public LevelStepTracker(int p0) {}
-        public LevelStepTracker(int p0, long[] p1) {}
-        private void appendHex(long p0, int p1, java.lang.StringBuilder p2) {}
-        public void addLevelSteps(int p0, long p1, long p2) {}
-        public void clearTime() {}
-        public long computeTimeEstimate(long p0, long p1, int[] p2) { return 0L; }
-        public long computeTimePerLevel() { return 0L; }
-        public void decodeEntryAt(int p0, java.lang.String p1) {}
-        public void encodeEntryAt(int p0, java.lang.StringBuilder p1) {}
-        public long getDurationAt(int p0) { return 0L; }
-        public int getInitModeAt(int p0) { return 0; }
-        public int getLevelAt(int p0) { return 0; }
-        public int getModModeAt(int p0) { return 0; }
-        public void init() {}
-        public void readFromParcel(android.os.Parcel p0) {}
-        public void writeToParcel(android.os.Parcel p0) {}
-    }
-
-    public static abstract class LongCounter {
-        public LongCounter() {}
-        public abstract long getCountForProcessState(int p0);
-        public abstract long getCountLocked(int p0);
-        public abstract void logState(android.util.Printer p0, java.lang.String p1);
-    }
-
     public static abstract class LongCounterArray {
         public LongCounterArray() {}
         public abstract long[] getCountsLocked(int p0);
-        public abstract void logState(android.util.Printer p0, java.lang.String p1);
-    }
-
-    public static final class PackageChange {
-        public java.lang.String mPackageName;
-        public boolean mUpdate;
-        public long mVersionCode;
-        public PackageChange() {}
-    }
-
-    public static final class ProcessStateChange {
-        private static final int LARGE_UID_FLAG = -2147483648;
-        private static final int PROC_STATE_MASK = 2130706432;
-        private static final int PROC_STATE_SHIFT = Integer.valueOf(0);
-        private static final int SMALL_UID_MASK = 16777215;
-        public int processState;
-        public int uid;
-        public ProcessStateChange() {}
-        public java.lang.String formatForBatteryHistory() { return null; }
-        public void readFromParcel(android.os.Parcel p0) {}
-        public void writeToParcel(android.os.Parcel p0) {}
-    }
-
-    private static class ProportionalAttributionCalculator {
-        private static final double SYSTEM_BATTERY_CONSUMER = -1.0;
-        private final android.content.pm.PackageManager mPackageManager = null;
-        private final android.util.SparseDoubleArray mProportionalPowerMah = null;
-        private final java.util.HashSet<java.lang.String> mSystemAndServicePackages = null;
-        ProportionalAttributionCalculator(android.content.Context p0, android.os.BatteryUsageStats p1) {}
-        private boolean isSystemUid(int p0) { return false; }
-        double getProportionalPowerMah(android.os.UidBatteryConsumer p0) { return 0.0; }
-        boolean isSystemBatteryConsumer(android.os.UidBatteryConsumer p0) { return false; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RadioAccessTechnology {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StatName {
-    }
-
-    public static abstract class Timer {
-        public Timer() {}
-        public abstract int getCountLocked(int p0);
-        public long getCurrentDurationMsLocked(long p0) { return 0L; }
-        public long getMaxDurationMsLocked(long p0) { return 0L; }
-        public android.os.BatteryStats.Timer getSubTimer() { return null; }
-        public abstract long getTimeSinceMarkLocked(long p0);
-        public long getTotalDurationMsLocked(long p0) { return 0L; }
-        public abstract long getTotalTimeLocked(long p0, int p1);
-        public boolean isRunningLocked() { return false; }
         public abstract void logState(android.util.Printer p0, java.lang.String p1);
     }
 
@@ -860,24 +659,17 @@ public abstract class BatteryStats {
         public abstract void noteWifiScanStoppedLocked(long p0);
         public abstract void noteWifiStoppedLocked(long p0);
 
-        public class Pid {
-            public int mWakeNesting;
-            public long mWakeStartMs;
-            public long mWakeSumMs;
-            public Pid(android.os.BatteryStats.Uid p0) {}
+        public static abstract class Sensor {
+            public static final int GPS = -10000;
+            public Sensor() {}
+            public abstract int getHandle();
+            public abstract android.os.BatteryStats.Timer getSensorBackgroundTime();
+            public abstract android.os.BatteryStats.Timer getSensorTime();
         }
 
-        public static abstract class Pkg {
-            public Pkg() {}
-            public abstract android.util.ArrayMap<java.lang.String, ? extends android.os.BatteryStats.Uid.Pkg.Serv> getServiceStats();
-            public abstract android.util.ArrayMap<java.lang.String, ? extends android.os.BatteryStats.Counter> getWakeupAlarmStats();
-
-            public static abstract class Serv {
-                public Serv() {}
-                public abstract int getLaunches(int p0);
-                public abstract long getStartTime(long p0, int p1);
-                public abstract int getStarts(int p0);
-            }
+        public static abstract class Wakelock {
+            public Wakelock() {}
+            public abstract android.os.BatteryStats.Timer getWakeTime(int p0);
         }
 
         public static abstract class Proc {
@@ -902,27 +694,235 @@ public abstract class BatteryStats {
             }
         }
 
-        public static abstract class Sensor {
-            public static final int GPS = -10000;
-            public Sensor() {}
-            public abstract int getHandle();
-            public abstract android.os.BatteryStats.Timer getSensorBackgroundTime();
-            public abstract android.os.BatteryStats.Timer getSensorTime();
+        public class Pid {
+            public int mWakeNesting;
+            public long mWakeStartMs;
+            public long mWakeSumMs;
+            public Pid(android.os.BatteryStats.Uid p0) {}
         }
 
-        public static abstract class Wakelock {
-            public Wakelock() {}
-            public abstract android.os.BatteryStats.Timer getWakeTime(int p0);
+        public static abstract class Pkg {
+            public Pkg() {}
+            public abstract android.util.ArrayMap<java.lang.String, ? extends android.os.BatteryStats.Uid.Pkg.Serv> getServiceStats();
+            public abstract android.util.ArrayMap<java.lang.String, ? extends android.os.BatteryStats.Counter> getWakeupAlarmStats();
+
+            public static abstract class Serv {
+                public Serv() {}
+                public abstract int getLaunches(int p0);
+                public abstract long getStartTime(long p0, int p1);
+                public abstract int getStarts(int p0);
+            }
         }
     }
 
-    private static class UidMobileRadioStats {
-        public final double millisecondsPerPacket = 0.0;
-        public final int radioActiveCount = 0;
-        public final long radioActiveMs = 0L;
-        public final long rxPackets = 0L;
-        public final long txPackets = 0L;
-        public final int uid = 0;
-        private UidMobileRadioStats(int p0, long p1, long p2, long p3, int p4, double p5) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StatName {
+    }
+
+    public static abstract class Timer {
+        public Timer() {}
+        public abstract int getCountLocked(int p0);
+        public long getCurrentDurationMsLocked(long p0) { return 0L; }
+        public long getMaxDurationMsLocked(long p0) { return 0L; }
+        public android.os.BatteryStats.Timer getSubTimer() { return null; }
+        public abstract long getTimeSinceMarkLocked(long p0);
+        public long getTotalDurationMsLocked(long p0) { return 0L; }
+        public abstract long getTotalTimeLocked(long p0, int p1);
+        public boolean isRunningLocked() { return false; }
+        public abstract void logState(android.util.Printer p0, java.lang.String p1);
+    }
+
+    public static abstract class Counter {
+        public Counter() {}
+        public abstract int getCountLocked(int p0);
+        public abstract void logState(android.util.Printer p0, java.lang.String p1);
+    }
+
+    public static final class BitDescription {
+        public final int mask = 0;
+        public final java.lang.String name = null;
+        public final int shift = 0;
+        public final java.lang.String shortName = null;
+        public final java.lang.String[] shortValues = null;
+        public final java.lang.String[] values = null;
+        public BitDescription(int p0, int p1, java.lang.String p2, java.lang.String p3, java.lang.String[] p4, java.lang.String[] p5) {}
+        public BitDescription(int p0, java.lang.String p1, java.lang.String p2) {}
+    }
+
+    public static final class HistoryEventTracker {
+        private final java.util.HashMap<java.lang.String, android.util.SparseIntArray>[] mActiveEvents = null;
+        public HistoryEventTracker() {}
+        public java.util.HashMap<java.lang.String, android.util.SparseIntArray> getStateForEvent(int p0) { return null; }
+        public void removeEvents(int p0) {}
+        public boolean updateState(int p0, java.lang.String p1, int p2, int p3) { return false; }
+    }
+
+    public static final class HistoryStepDetails {
+        public int appCpuSTime1;
+        public int appCpuSTime2;
+        public int appCpuSTime3;
+        public int appCpuUTime1;
+        public int appCpuUTime2;
+        public int appCpuUTime3;
+        public int appCpuUid1;
+        public int appCpuUid2;
+        public int appCpuUid3;
+        public int statIOWaitTime;
+        public int statIdlTime;
+        public int statIrqTime;
+        public int statSoftIrqTime;
+        public java.lang.String statSubsystemPowerState;
+        public int statSystemTime;
+        public int statUserTime;
+        public int systemTime;
+        public int userTime;
+        public HistoryStepDetails() {}
+        public void clear() {}
+        public boolean isEmpty() { return false; }
+        public void readFromParcel(android.os.Parcel p0) {}
+        public void writeToParcel(android.os.Parcel p0) {}
+    }
+
+    public static abstract class ControllerActivityCounter {
+        public ControllerActivityCounter() {}
+        public abstract android.os.BatteryStats.LongCounter getIdleTimeCounter();
+        public abstract android.os.BatteryStats.LongCounter getMonitoredRailChargeConsumedMaMs();
+        public abstract android.os.BatteryStats.LongCounter getPowerCounter();
+        public abstract android.os.BatteryStats.LongCounter getRxTimeCounter();
+        public abstract android.os.BatteryStats.LongCounter getScanTimeCounter();
+        public abstract android.os.BatteryStats.LongCounter getSleepTimeCounter();
+        public abstract android.os.BatteryStats.LongCounter[] getTxTimeCounters();
+    }
+
+    public static final class LevelStepTracker {
+        public long mLastStepTime;
+        public int mNumStepDurations;
+        public final long[] mStepDurations = null;
+        public LevelStepTracker(int p0) {}
+        public LevelStepTracker(int p0, long[] p1) {}
+        private void appendHex(long p0, int p1, java.lang.StringBuilder p2) {}
+        public void addLevelSteps(int p0, long p1, long p2) {}
+        public void clearTime() {}
+        public long computeTimeEstimate(long p0, long p1, int[] p2) { return 0L; }
+        public long computeTimePerLevel() { return 0L; }
+        public void decodeEntryAt(int p0, java.lang.String p1) {}
+        public void encodeEntryAt(int p0, java.lang.StringBuilder p1) {}
+        public long getDurationAt(int p0) { return 0L; }
+        public int getInitModeAt(int p0) { return 0; }
+        public int getLevelAt(int p0) { return 0; }
+        public int getModModeAt(int p0) { return 0; }
+        public void init() {}
+        public void readFromParcel(android.os.Parcel p0) {}
+        public void writeToParcel(android.os.Parcel p0) {}
+    }
+
+    public static final class PackageChange {
+        public java.lang.String mPackageName;
+        public boolean mUpdate;
+        public long mVersionCode;
+        public PackageChange() {}
+    }
+
+    public static final class HistoryTag {
+        public static final int HISTORY_TAG_POOL_OVERFLOW = -1;
+        public int poolIdx;
+        public java.lang.String string;
+        public int uid;
+        public HistoryTag() {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public void readFromParcel(android.os.Parcel p0) {}
+        public void setTo(android.os.BatteryStats.HistoryTag p0) {}
+        public void setTo(java.lang.String p0, int p1) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class ProcessStateChange {
+        private static final int LARGE_UID_FLAG = -2147483648;
+        private static final int PROC_STATE_MASK = 2130706432;
+        private static final int PROC_STATE_SHIFT = 24;
+        private static final int SMALL_UID_MASK = 16777215;
+        public int processState;
+        public int uid;
+        public ProcessStateChange() {}
+        public java.lang.String formatForBatteryHistory() { return null; }
+        public void readFromParcel(android.os.Parcel p0) {}
+        public void writeToParcel(android.os.Parcel p0) {}
+    }
+
+    public static class HistoryPrinter {
+        private static final boolean DEBUG_TIMELINE = false;
+        private static final int FORMAT_LEGACY = 1;
+        private static final int FORMAT_VERSION = 2;
+        long lastTime;
+        private final java.text.SimpleDateFormat mCurrentTimeEventTimeFormat = null;
+        private final java.util.Date mDate = null;
+        private final int mFormatVersion = 0;
+        private final java.text.SimpleDateFormat mHistoryItemTimestampFormat = null;
+        private final android.os.BatteryStats.HistoryPrinter.HistoryLogTimeFormatter mHistoryLogTimeFormatter = null;
+        private final boolean mPerformanceBaseline = false;
+        private final java.lang.StringBuilder mStringBuilder = null;
+        int oldChargeMAh;
+        int oldHealth;
+        int oldLevel;
+        double oldModemRailChargeMah;
+        int oldPlug;
+        int oldState;
+        int oldState2;
+        int oldStatus;
+        int oldTemp;
+        int oldVolt;
+        double oldWifiRailChargeMah;
+        public HistoryPrinter() {}
+        public HistoryPrinter(int p0) {}
+        private HistoryPrinter(int p0, java.util.TimeZone p1, int p2) {}
+        public HistoryPrinter(java.util.TimeZone p0, int p1) {}
+        private java.lang.String printNextItem(android.os.BatteryStats.HistoryItem p0, long p1, boolean p2, boolean p3) { return null; }
+        private void printStepCpuUidCheckinDetails(java.lang.StringBuilder p0, int p1, int p2, int p3) {}
+        private void printStepCpuUidDetails(java.lang.StringBuilder p0, int p1, int p2, int p3) {}
+        public void printNextItem(android.util.proto.ProtoOutputStream p0, android.os.BatteryStats.HistoryItem p1, long p2, boolean p3) {}
+        public void printNextItem(java.io.PrintWriter p0, android.os.BatteryStats.HistoryItem p1, long p2, boolean p3, boolean p4) {}
+        void reset() {}
+
+        private static class HistoryLogTimeFormatter {
+            private static final long HOUR_MILLIS = 3600000L;
+            private static final long MINUTE_MILLIS = 60000L;
+            private long mCachedHour;
+            private java.lang.String mCachedHourFormatted;
+            private final java.util.Date mDate = null;
+            private final java.text.SimpleDateFormat mDateFormat = null;
+            private final long mTimeZoneOffset = 0L;
+            private HistoryLogTimeFormatter(java.util.TimeZone p0) {}
+            void append(java.lang.StringBuilder p0, long p1) {}
+        }
+    }
+
+    @java.lang.FunctionalInterface
+    public static interface IntToString {
+        public java.lang.String applyAsString(int p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RadioAccessTechnology {
+    }
+
+    public static abstract class LongCounter {
+        public LongCounter() {}
+        public abstract long getCountForProcessState(int p0);
+        public abstract long getCountLocked(int p0);
+        public abstract void logState(android.util.Printer p0, java.lang.String p1);
+    }
+
+    public static interface BatteryStatsDumpHelper {
+        public android.os.BatteryUsageStats getBatteryUsageStats(android.os.BatteryStats p0, boolean p1);
+    }
+
+    public static final class DailyItem {
+        public android.os.BatteryStats.LevelStepTracker mChargeSteps;
+        public android.os.BatteryStats.LevelStepTracker mDischargeSteps;
+        public long mEndTime;
+        public java.util.ArrayList<android.os.BatteryStats.PackageChange> mPackageChanges;
+        public long mStartTime;
+        public DailyItem() {}
     }
 }

@@ -5,13 +5,6 @@ public interface ITestSessionCallback extends android.os.IInterface {
     public void onCleanupFinished(int p0) throws android.os.RemoteException;
     public void onCleanupStarted(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.ITestSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCleanupFinished(int p0) throws android.os.RemoteException {}
-        public void onCleanupStarted(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.ITestSessionCallback {
         static final int TRANSACTION_onCleanupFinished = 2;
         static final int TRANSACTION_onCleanupStarted = 1;
@@ -30,5 +23,12 @@ public interface ITestSessionCallback extends android.os.IInterface {
             public void onCleanupFinished(int p0) throws android.os.RemoteException {}
             public void onCleanupStarted(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.ITestSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCleanupFinished(int p0) throws android.os.RemoteException {}
+        public void onCleanupStarted(int p0) throws android.os.RemoteException {}
     }
 }

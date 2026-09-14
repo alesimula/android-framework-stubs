@@ -6,15 +6,6 @@ public interface IWriteResultCallback extends android.os.IInterface {
     public void onWriteFinished(android.print.PageRange[] p0, int p1) throws android.os.RemoteException;
     public void onWriteStarted(android.os.ICancellationSignal p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.print.IWriteResultCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onWriteCanceled(int p0) throws android.os.RemoteException {}
-        public void onWriteFailed(java.lang.CharSequence p0, int p1) throws android.os.RemoteException {}
-        public void onWriteFinished(android.print.PageRange[] p0, int p1) throws android.os.RemoteException {}
-        public void onWriteStarted(android.os.ICancellationSignal p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.print.IWriteResultCallback {
         public static final java.lang.String DESCRIPTOR = "android.print.IWriteResultCallback";
         static final int TRANSACTION_onWriteCanceled = 4;
@@ -38,5 +29,14 @@ public interface IWriteResultCallback extends android.os.IInterface {
             public void onWriteFinished(android.print.PageRange[] p0, int p1) throws android.os.RemoteException {}
             public void onWriteStarted(android.os.ICancellationSignal p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.print.IWriteResultCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onWriteCanceled(int p0) throws android.os.RemoteException {}
+        public void onWriteFailed(java.lang.CharSequence p0, int p1) throws android.os.RemoteException {}
+        public void onWriteFinished(android.print.PageRange[] p0, int p1) throws android.os.RemoteException {}
+        public void onWriteStarted(android.os.ICancellationSignal p0, int p1) throws android.os.RemoteException {}
     }
 }

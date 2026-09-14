@@ -46,10 +46,10 @@ public final class VelocityTracker {
     public void recycle() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VelocityTrackableMotionEventAxis {
+    public static @interface VelocityTrackerStrategy {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VelocityTrackerStrategy {
+    public static @interface VelocityTrackableMotionEventAxis {
     }
 }

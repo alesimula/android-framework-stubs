@@ -5,13 +5,6 @@ public interface IImsConfigCallback extends android.os.IInterface {
     public void onIntConfigChanged(int p0, int p1) throws android.os.RemoteException;
     public void onStringConfigChanged(int p0, java.lang.String p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IImsConfigCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onIntConfigChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void onStringConfigChanged(int p0, java.lang.String p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IImsConfigCallback {
         static final int TRANSACTION_onIntConfigChanged = 1;
         static final int TRANSACTION_onStringConfigChanged = 2;
@@ -30,5 +23,12 @@ public interface IImsConfigCallback extends android.os.IInterface {
             public void onIntConfigChanged(int p0, int p1) throws android.os.RemoteException {}
             public void onStringConfigChanged(int p0, java.lang.String p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IImsConfigCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onIntConfigChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void onStringConfigChanged(int p0, java.lang.String p1) throws android.os.RemoteException {}
     }
 }

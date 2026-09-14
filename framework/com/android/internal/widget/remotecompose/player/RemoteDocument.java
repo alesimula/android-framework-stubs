@@ -24,6 +24,7 @@ public class RemoteDocument {
     public boolean isUpdateDoc() { return false; }
     public int needsRepaint() { return 0; }
     public void paint(com.android.internal.widget.remotecompose.core.RemoteContext p0, int p1) {}
+    public void reinflate() {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
     public void setDocument(com.android.internal.widget.remotecompose.core.CoreDocument p0) {}
     public java.lang.String toString() { return null; }

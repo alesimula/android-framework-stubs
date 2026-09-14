@@ -47,12 +47,6 @@ class ExpandableListConnector extends android.widget.BaseAdapter implements andr
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    protected class MyDataSetObserver extends android.database.DataSetObserver {
-        protected MyDataSetObserver(android.widget.ExpandableListConnector p0) { super(); }
-        public void onChanged() {}
-        public void onInvalidated() {}
-    }
-
     public static class PositionMetadata {
         private static final int MAX_POOL_SIZE = 5;
         private static java.util.ArrayList<android.widget.ExpandableListConnector.PositionMetadata> sPool;
@@ -65,5 +59,11 @@ class ExpandableListConnector extends android.widget.BaseAdapter implements andr
         private void resetState() {}
         public boolean isExpanded() { return false; }
         public void recycle() {}
+    }
+
+    protected class MyDataSetObserver extends android.database.DataSetObserver {
+        protected MyDataSetObserver(android.widget.ExpandableListConnector p0) { super(); }
+        public void onChanged() {}
+        public void onInvalidated() {}
     }
 }

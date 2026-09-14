@@ -98,6 +98,54 @@ public class AlwaysOnHotwordDetector extends android.service.voice.AbstractDetec
     public static @interface AudioCapabilities {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecognitionModes {
+    }
+
+    public static final class ModelParamRange {
+        private final android.hardware.soundtrigger.SoundTrigger.ModelParamRange mModelParamRange = null;
+        ModelParamRange(android.hardware.soundtrigger.SoundTrigger.ModelParamRange p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getEnd() { return 0; }
+        public int getStart() { return 0; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    static final class SoundTriggerListener extends com.android.internal.app.IHotwordRecognitionStatusCallback.Stub {
+        private final android.os.Handler mHandler = null;
+        public SoundTriggerListener(android.os.Handler p0) { super(); }
+        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) {}
+        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) {}
+        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) {}
+        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) {}
+        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
+        public void onProcessRestarted() {}
+        public void onRecognitionPaused() {}
+        public void onRecognitionResumed() {}
+        public void onRejected(android.service.voice.HotwordRejectedResult p0) {}
+        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) {}
+        public void onStatusReported(int p0) {}
+        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
+    }
+
+    class MyHandler extends android.os.Handler {
+        MyHandler(android.service.voice.AlwaysOnHotwordDetector p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecognitionFlags {
+    }
+
+    class RefreshAvailabilityTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Void> {
+        RefreshAvailabilityTask(android.service.voice.AlwaysOnHotwordDetector p0) { super(); }
+        private int internalGetInitialAvailability() { return 0; }
+        private void internalUpdateEnrolledKeyphraseMetadata() {}
+        public java.lang.Void doInBackground(java.lang.Void... p0) { return null; }
+    }
+
     public static abstract class Callback implements android.service.voice.HotwordDetector.Callback {
         public Callback() {}
         public abstract void onAvailabilityChanged(int p0);
@@ -169,55 +217,7 @@ public class AlwaysOnHotwordDetector extends android.service.voice.AbstractDetec
         }
     }
 
-    public static final class ModelParamRange {
-        private final android.hardware.soundtrigger.SoundTrigger.ModelParamRange mModelParamRange = null;
-        ModelParamRange(android.hardware.soundtrigger.SoundTrigger.ModelParamRange p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getEnd() { return 0; }
-        public int getStart() { return 0; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ModelParams {
-    }
-
-    class MyHandler extends android.os.Handler {
-        MyHandler(android.service.voice.AlwaysOnHotwordDetector p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecognitionFlags {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecognitionModes {
-    }
-
-    class RefreshAvailabilityTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Void> {
-        RefreshAvailabilityTask(android.service.voice.AlwaysOnHotwordDetector p0) { super(); }
-        private int internalGetInitialAvailability() { return 0; }
-        private void internalUpdateEnrolledKeyphraseMetadata() {}
-        public java.lang.Void doInBackground(java.lang.Void... p0) { return null; }
-    }
-
-    static final class SoundTriggerListener extends com.android.internal.app.IHotwordRecognitionStatusCallback.Stub {
-        private final android.os.Handler mHandler = null;
-        public SoundTriggerListener(android.os.Handler p0) { super(); }
-        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) {}
-        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) {}
-        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) {}
-        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) {}
-        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
-        public void onProcessRestarted() {}
-        public void onRecognitionPaused() {}
-        public void onRecognitionResumed() {}
-        public void onRejected(android.service.voice.HotwordRejectedResult p0) {}
-        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) {}
-        public void onStatusReported(int p0) {}
-        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
     }
 }

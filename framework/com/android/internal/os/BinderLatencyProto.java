@@ -3,14 +3,9 @@ package com.android.internal.os;
 public final class BinderLatencyProto {
     public BinderLatencyProto() {}
 
-    public final class ApiStats {
-        public static final long BUCKETS = 2220498092035L;
-        public static final long BUCKET_COUNT = 1120986464260L;
-        public static final long DIMS = 1146756268033L;
-        public static final long FIRST_BUCKET_INDEX = 1120986464258L;
-        public static final long FIRST_BUCKET_SIZE = 1120986464261L;
-        public static final long SCALE_FACTOR = 1108101562374L;
-        public ApiStats(com.android.internal.os.BinderLatencyProto p0) {}
+    public final class RepeatedApiStats {
+        public static final long API_STATS = 2246267895809L;
+        public RepeatedApiStats(com.android.internal.os.BinderLatencyProto p0) {}
     }
 
     public final class Dims {
@@ -29,8 +24,13 @@ public final class BinderLatencyProto {
         public Dims(com.android.internal.os.BinderLatencyProto p0) {}
     }
 
-    public final class RepeatedApiStats {
-        public static final long API_STATS = 2246267895809L;
-        public RepeatedApiStats(com.android.internal.os.BinderLatencyProto p0) {}
+    public final class ApiStats {
+        public static final long BUCKETS = 2220498092035L;
+        public static final long BUCKET_COUNT = 1120986464260L;
+        public static final long DIMS = 1146756268033L;
+        public static final long FIRST_BUCKET_INDEX = 1120986464258L;
+        public static final long FIRST_BUCKET_SIZE = 1120986464261L;
+        public static final long SCALE_FACTOR = 1108101562374L;
+        public ApiStats(com.android.internal.os.BinderLatencyProto p0) {}
     }
 }

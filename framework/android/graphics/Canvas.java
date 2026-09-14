@@ -74,7 +74,7 @@ public class Canvas extends android.graphics.BaseCanvas {
     public boolean clipRect(android.graphics.RectF p0) { return false; }
     @java.lang.Deprecated
     public boolean clipRect(android.graphics.RectF p0, android.graphics.Region.Op p1) { return false; }
-    public boolean clipRectUnion(android.graphics.Rect p0) { return false; }
+    public final boolean clipRectUnion(android.graphics.Rect p0) { return false; }
     @java.lang.Deprecated
     public boolean clipRegion(android.graphics.Region p0) { return false; }
     @java.lang.Deprecated
@@ -195,19 +195,15 @@ public class Canvas extends android.graphics.BaseCanvas {
     public void skew(float p0, float p1) {}
     public void translate(float p0, float p1) {}
 
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
+    }
+
     public static enum EdgeType {
         AA,
         BW;
         private static final android.graphics.Canvas.EdgeType[] $VALUES = null;
         private EdgeType() {}
-    }
-
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Saveflags {
     }
 
     public static enum VertexMode {
@@ -217,5 +213,9 @@ public class Canvas extends android.graphics.BaseCanvas {
         private static final android.graphics.Canvas.VertexMode[] $VALUES = null;
         final int nativeInt = 0;
         private VertexMode() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Saveflags {
     }
 }

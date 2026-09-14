@@ -256,46 +256,15 @@ public class WebView extends android.widget.AbsoluteLayout implements android.vi
     public boolean zoomIn() { return false; }
     public boolean zoomOut() { return false; }
 
-    public static interface FindListener {
-        public void onFindResultReceived(int p0, int p1, boolean p2);
-    }
-
-    private class FindListenerDistributor implements android.webkit.WebView.FindListener {
-        private android.webkit.WebView.FindListener mFindDialogFindListener;
-        private android.webkit.WebView.FindListener mUserFindListener;
-        private FindListenerDistributor(android.webkit.WebView p0) {}
-        public void onFindResultReceived(int p0, int p1, boolean p2) {}
-    }
-
-    public static class HitTestResult {
-        @java.lang.Deprecated
-        public static final int ANCHOR_TYPE = 1;
-        public static final int EDIT_TEXT_TYPE = 9;
-        public static final int EMAIL_TYPE = 4;
-        public static final int GEO_TYPE = 3;
-        @java.lang.Deprecated
-        public static final int IMAGE_ANCHOR_TYPE = 6;
-        public static final int IMAGE_TYPE = 5;
-        public static final int PHONE_TYPE = 2;
-        public static final int SRC_ANCHOR_TYPE = 7;
-        public static final int SRC_IMAGE_ANCHOR_TYPE = 8;
-        public static final int UNKNOWN_TYPE = 0;
-        private java.lang.String mExtra;
-        private int mType;
-        @android.annotation.SystemApi
-        public HitTestResult() {}
-        public java.lang.String getExtra() { return null; }
-        public int getType() { return 0; }
-        @android.annotation.SystemApi
-        public void setExtra(java.lang.String p0) {}
-        @android.annotation.SystemApi
-        public void setType(int p0) {}
-    }
-
     @java.lang.Deprecated
     public static interface PictureListener {
         @java.lang.Deprecated
         public void onNewPicture(android.webkit.WebView p0, android.graphics.Picture p1);
+    }
+
+    public static abstract class VisualStateCallback {
+        public VisualStateCallback() {}
+        public abstract void onComplete(long p0);
     }
 
     @android.annotation.SystemApi
@@ -327,13 +296,44 @@ public class WebView extends android.widget.AbsoluteLayout implements android.vi
         public void super_startActivityForResult(android.content.Intent p0, int p1) {}
     }
 
+    public static class HitTestResult {
+        @java.lang.Deprecated
+        public static final int ANCHOR_TYPE = 1;
+        public static final int EDIT_TEXT_TYPE = 9;
+        public static final int EMAIL_TYPE = 4;
+        public static final int GEO_TYPE = 3;
+        @java.lang.Deprecated
+        public static final int IMAGE_ANCHOR_TYPE = 6;
+        public static final int IMAGE_TYPE = 5;
+        public static final int PHONE_TYPE = 2;
+        public static final int SRC_ANCHOR_TYPE = 7;
+        public static final int SRC_IMAGE_ANCHOR_TYPE = 8;
+        public static final int UNKNOWN_TYPE = 0;
+        private java.lang.String mExtra;
+        private int mType;
+        @android.annotation.SystemApi
+        public HitTestResult() {}
+        public java.lang.String getExtra() { return null; }
+        public int getType() { return 0; }
+        @android.annotation.SystemApi
+        public void setExtra(java.lang.String p0) {}
+        @android.annotation.SystemApi
+        public void setType(int p0) {}
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface RendererPriority {
     }
 
-    public static abstract class VisualStateCallback {
-        public VisualStateCallback() {}
-        public abstract void onComplete(long p0);
+    public static interface FindListener {
+        public void onFindResultReceived(int p0, int p1, boolean p2);
+    }
+
+    private class FindListenerDistributor implements android.webkit.WebView.FindListener {
+        private android.webkit.WebView.FindListener mFindDialogFindListener;
+        private android.webkit.WebView.FindListener mUserFindListener;
+        private FindListenerDistributor(android.webkit.WebView p0) {}
+        public void onFindResultReceived(int p0, int p1, boolean p2) {}
     }
 
     public class WebViewTransport {

@@ -55,13 +55,6 @@ public class QuickAccessWalletClientImpl implements android.service.quickaccessw
     public void removeWalletServiceEventListener(android.service.quickaccesswallet.QuickAccessWalletClient.WalletServiceEventListener p0) {}
     public void selectWalletCard(android.service.quickaccesswallet.SelectWalletCardRequest p0) {}
 
-    private static abstract class ApiCaller {
-        private final java.lang.String mDesc = null;
-        private ApiCaller(java.lang.String p0) {}
-        void onApiError() {}
-        abstract void performApiCall(android.service.quickaccesswallet.IQuickAccessWalletService p0) throws android.os.RemoteException;
-    }
-
     private static class BaseCallbacks extends android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks.Stub {
         private BaseCallbacks() { super(); }
         public void onGestureTargetActivityPendingIntentReceived(android.app.PendingIntent p0) {}
@@ -69,5 +62,12 @@ public class QuickAccessWalletClientImpl implements android.service.quickaccessw
         public void onGetWalletCardsSuccess(android.service.quickaccesswallet.GetWalletCardsResponse p0) {}
         public void onTargetActivityPendingIntentReceived(android.app.PendingIntent p0) {}
         public void onWalletServiceEvent(android.service.quickaccesswallet.WalletServiceEvent p0) {}
+    }
+
+    private static abstract class ApiCaller {
+        private final java.lang.String mDesc = null;
+        private ApiCaller(java.lang.String p0) {}
+        void onApiError() {}
+        abstract void performApiCall(android.service.quickaccesswallet.IQuickAccessWalletService p0) throws android.os.RemoteException;
     }
 }

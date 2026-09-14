@@ -33,6 +33,9 @@ public final class SQLiteDatabase extends android.database.sqlite.SQLiteClosable
     public static final java.lang.String SYNC_MODE_OFF = "OFF";
     private static final java.lang.String TAG = "SQLiteDatabase";
     private static java.util.WeakHashMap<android.database.sqlite.SQLiteDatabase, java.lang.Object> sActiveDatabases;
+    private static final java.lang.ThreadLocal<java.util.WeakHashMap<android.database.sqlite.SQLiteDatabase, android.database.sqlite.SQLiteSession>> sThreadSessionMap = null;
+    private java.lang.ref.Cleaner.Cleanable mCleanable;
+    private android.database.sqlite.SQLiteDatabase.CleanupAction mCleanupActionLocked;
     private final android.database.sqlite.SQLiteDatabaseConfiguration mConfigurationLocked = null;
     private android.database.sqlite.SQLiteConnectionPool mConnectionPoolLocked;
     private final android.database.sqlite.SQLiteDatabase.CursorFactory mCursorFactory = null;
@@ -48,7 +51,7 @@ public final class SQLiteDatabase extends android.database.sqlite.SQLiteClosable
     public static android.database.sqlite.SQLiteDatabase createInMemory(android.database.sqlite.SQLiteDatabase.OpenParams p0) { return null; }
     public static boolean deleteDatabase(java.io.File p0) { return false; }
     public static boolean deleteDatabase(java.io.File p0, boolean p1) { return false; }
-    private void dispose(boolean p0) {}
+    private void dispose() {}
     static void dumpAll(android.util.Printer p0, boolean p1, boolean p2) {}
     private static void dumpDatabaseDirectory(android.util.Printer p0, java.io.File p1, boolean p2) {}
     public static java.lang.String findEditTable(java.lang.String p0) { return null; }
@@ -89,7 +92,6 @@ public final class SQLiteDatabase extends android.database.sqlite.SQLiteClosable
     public void execSQL(java.lang.String p0) throws android.database.SQLException {}
     public void execSQL(java.lang.String p0, java.lang.Object[] p1) throws android.database.SQLException {}
     public int executeSql(java.lang.String p0, java.lang.Object[] p1) throws android.database.SQLException { return 0; }
-    protected void finalize() throws java.lang.Throwable {}
     public java.util.List<android.util.Pair<java.lang.String, java.lang.String>> getAttachedDbs() { return null; }
     java.lang.String getLabel() { return null; }
     public long getLastChangedRowCount() { return 0L; }
@@ -155,6 +157,14 @@ public final class SQLiteDatabase extends android.database.sqlite.SQLiteClosable
     public boolean yieldIfContended() { return false; }
     public boolean yieldIfContendedSafely() { return false; }
     public boolean yieldIfContendedSafely(long p0) { return false; }
+
+    private static final class CleanupAction implements java.lang.Runnable {
+        private volatile boolean mGraceful;
+        private final android.database.sqlite.SQLiteConnectionPool mPool = null;
+        public CleanupAction(android.database.sqlite.SQLiteConnectionPool p0, dalvik.system.CloseGuard p1) {}
+        public void run() {}
+        public void setGraceful() {}
+    }
 
     public static interface CursorFactory {
         public android.database.Cursor newCursor(android.database.sqlite.SQLiteDatabase p0, android.database.sqlite.SQLiteCursorDriver p1, java.lang.String p2, android.database.sqlite.SQLiteQuery p3);

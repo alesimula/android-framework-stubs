@@ -62,14 +62,35 @@ public class ActionMenuPresenter extends com.android.internal.view.menu.BaseMenu
     public boolean showOverflowMenu() { return false; }
     public void updateMenuView(boolean p0) {}
 
-    private class ActionButtonSubmenu extends com.android.internal.view.menu.MenuPopupHelper {
-        public ActionButtonSubmenu(android.widget.ActionMenuPresenter p0, android.content.Context p1, com.android.internal.view.menu.SubMenuBuilder p2, android.view.View p3) { super((android.content.Context)null, (com.android.internal.view.menu.MenuBuilder)null); }
-        protected void onDismiss() {}
+    private class OpenOverflowRunnable implements java.lang.Runnable {
+        private android.widget.ActionMenuPresenter.OverflowPopup mPopup;
+        public OpenOverflowRunnable(android.widget.ActionMenuPresenter p0, android.widget.ActionMenuPresenter.OverflowPopup p1) {}
+        public void run() {}
+    }
+
+    private class PopupPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
+        private PopupPresenterCallback(android.widget.ActionMenuPresenter p0) {}
+        public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
+        public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
+    }
+
+    private class OverflowMenuButton extends android.widget.ImageButton implements android.widget.ActionMenuView.ActionMenuChildView {
+        public OverflowMenuButton(android.widget.ActionMenuPresenter p0, android.content.Context p1) { super((android.content.Context)null); }
+        public boolean needsDividerAfter() { return false; }
+        public boolean needsDividerBefore() { return false; }
+        public void onInitializeAccessibilityNodeInfoInternal(android.view.accessibility.AccessibilityNodeInfo p0) {}
+        public boolean performClick() { return false; }
+        protected boolean setFrame(int p0, int p1, int p2, int p3) { return false; }
     }
 
     private class ActionMenuPopupCallback extends com.android.internal.view.menu.ActionMenuItemView.PopupCallback {
         private ActionMenuPopupCallback(android.widget.ActionMenuPresenter p0) { super(); }
         public com.android.internal.view.menu.ShowableListMenu getPopup() { return null; }
+    }
+
+    private class ActionButtonSubmenu extends com.android.internal.view.menu.MenuPopupHelper {
+        public ActionButtonSubmenu(android.widget.ActionMenuPresenter p0, android.content.Context p1, com.android.internal.view.menu.SubMenuBuilder p2, android.view.View p3) { super((android.content.Context)null, (com.android.internal.view.menu.MenuBuilder)null); }
+        protected void onDismiss() {}
     }
 
     private static class ItemAnimationInfo {
@@ -83,39 +104,6 @@ public class ActionMenuPresenter extends com.android.internal.view.menu.BaseMenu
         ItemAnimationInfo(int p0, android.widget.ActionMenuPresenter.MenuItemLayoutInfo p1, android.animation.Animator p2, int p3) {}
     }
 
-    private static class MenuItemLayoutInfo {
-        int left;
-        int top;
-        android.view.View view;
-        MenuItemLayoutInfo(android.view.View p0, boolean p1) {}
-    }
-
-    private class OpenOverflowRunnable implements java.lang.Runnable {
-        private android.widget.ActionMenuPresenter.OverflowPopup mPopup;
-        public OpenOverflowRunnable(android.widget.ActionMenuPresenter p0, android.widget.ActionMenuPresenter.OverflowPopup p1) {}
-        public void run() {}
-    }
-
-    private class OverflowMenuButton extends android.widget.ImageButton implements android.widget.ActionMenuView.ActionMenuChildView {
-        public OverflowMenuButton(android.widget.ActionMenuPresenter p0, android.content.Context p1) { super((android.content.Context)null); }
-        public boolean needsDividerAfter() { return false; }
-        public boolean needsDividerBefore() { return false; }
-        public void onInitializeAccessibilityNodeInfoInternal(android.view.accessibility.AccessibilityNodeInfo p0) {}
-        public boolean performClick() { return false; }
-        protected boolean setFrame(int p0, int p1, int p2, int p3) { return false; }
-    }
-
-    private class OverflowPopup extends com.android.internal.view.menu.MenuPopupHelper {
-        public OverflowPopup(android.widget.ActionMenuPresenter p0, android.content.Context p1, com.android.internal.view.menu.MenuBuilder p2, android.view.View p3, boolean p4) { super((android.content.Context)null, (com.android.internal.view.menu.MenuBuilder)null); }
-        protected void onDismiss() {}
-    }
-
-    private class PopupPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
-        private PopupPresenterCallback(android.widget.ActionMenuPresenter p0) {}
-        public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
-        public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
-    }
-
     private static class SavedState implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.widget.ActionMenuPresenter.SavedState> CREATOR = null;
         public int openSubMenuId;
@@ -123,5 +111,17 @@ public class ActionMenuPresenter extends com.android.internal.view.menu.BaseMenu
         SavedState(android.os.Parcel p0) {}
         public int describeContents() { return 0; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static class MenuItemLayoutInfo {
+        int left;
+        int top;
+        android.view.View view;
+        MenuItemLayoutInfo(android.view.View p0, boolean p1) {}
+    }
+
+    private class OverflowPopup extends com.android.internal.view.menu.MenuPopupHelper {
+        public OverflowPopup(android.widget.ActionMenuPresenter p0, android.content.Context p1, com.android.internal.view.menu.MenuBuilder p2, android.view.View p3, boolean p4) { super((android.content.Context)null, (com.android.internal.view.menu.MenuBuilder)null); }
+        protected void onDismiss() {}
     }
 }

@@ -32,6 +32,15 @@ public class SystemPerformanceHinter {
     public void setAdpfSession(android.os.PerformanceHintManager.Session p0) {}
     public android.window.SystemPerformanceHinter.HighPerfSession startSession(int p0, int p1, java.lang.String p2) { return null; }
 
+    private class NoOpHighPerfSession extends android.window.SystemPerformanceHinter.HighPerfSession {
+        public NoOpHighPerfSession(android.window.SystemPerformanceHinter p0) { super(null, 0, 0, null); }
+        public void close() {}
+        public void start() {}
+    }
+
+    private static @interface HintFlags {
+    }
+
     public static interface DisplayRootProvider {
         public android.view.SurfaceControl getRootForDisplay(int p0);
     }
@@ -46,15 +55,6 @@ public class SystemPerformanceHinter {
         boolean asyncTraceEnd() { return false; }
         public void close() {}
         public void finalize() {}
-        public void start() {}
-    }
-
-    private static @interface HintFlags {
-    }
-
-    private class NoOpHighPerfSession extends android.window.SystemPerformanceHinter.HighPerfSession {
-        public NoOpHighPerfSession(android.window.SystemPerformanceHinter p0) { super(null, 0, 0, null); }
-        public void close() {}
         public void start() {}
     }
 }

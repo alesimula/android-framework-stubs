@@ -23,6 +23,52 @@ public interface IGnssMeasurementCallback extends android.hardware.gnss.V1_1.IGn
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
+    public static final class Proxy implements android.hardware.gnss.V2_0.IGnssMeasurementCallback {
+        private android.os.IHwBinder mRemote;
+        public Proxy(android.os.IHwBinder p0) {}
+        public void GnssMeasurementCb(android.hardware.gnss.V1_0.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) throws android.os.RemoteException {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() throws android.os.RemoteException { return null; }
+        public java.util.ArrayList<byte[]> getHashChain() throws android.os.RemoteException { return null; }
+        public void gnssMeasurementCb(android.hardware.gnss.V1_1.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
+        public void gnssMeasurementCb_2_0(android.hardware.gnss.V2_0.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
+        public final int hashCode() { return 0; }
+        public java.util.ArrayList<java.lang.String> interfaceChain() throws android.os.RemoteException { return null; }
+        public java.lang.String interfaceDescriptor() throws android.os.RemoteException { return null; }
+        public boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) throws android.os.RemoteException { return false; }
+        public void notifySyspropsChanged() throws android.os.RemoteException {}
+        public void ping() throws android.os.RemoteException {}
+        public void setHALInstrumentation() throws android.os.RemoteException {}
+        public java.lang.String toString() { return null; }
+        public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
+    }
+
+    public static final class GnssMeasurementState {
+        public static final int STATE_2ND_CODE_LOCK = 65536;
+        public static final int STATE_BDS_D2_BIT_SYNC = 256;
+        public static final int STATE_BDS_D2_SUBFRAME_SYNC = 512;
+        public static final int STATE_BIT_SYNC = 2;
+        public static final int STATE_CODE_LOCK = 1;
+        public static final int STATE_GAL_E1BC_CODE_LOCK = 1024;
+        public static final int STATE_GAL_E1B_PAGE_SYNC = 4096;
+        public static final int STATE_GAL_E1C_2ND_CODE_LOCK = 2048;
+        public static final int STATE_GLO_STRING_SYNC = 64;
+        public static final int STATE_GLO_TOD_DECODED = 128;
+        public static final int STATE_GLO_TOD_KNOWN = 32768;
+        public static final int STATE_MSEC_AMBIGUOUS = 16;
+        public static final int STATE_SBAS_SYNC = 8192;
+        public static final int STATE_SUBFRAME_SYNC = 4;
+        public static final int STATE_SYMBOL_SYNC = 32;
+        public static final int STATE_TOW_DECODED = 8;
+        public static final int STATE_TOW_KNOWN = 16384;
+        public static final int STATE_UNKNOWN = 0;
+        public GnssMeasurementState() {}
+        public static final java.lang.String dumpBitfield(int p0) { return null; }
+        public static final java.lang.String toString(int p0) { return null; }
+    }
+
     public static final class GnssData {
         public android.hardware.gnss.V1_0.IGnssMeasurementCallback.GnssClock clock;
         public android.hardware.gnss.V2_0.ElapsedRealtime elapsedRealtime;
@@ -54,52 +100,6 @@ public interface IGnssMeasurementCallback extends android.hardware.gnss.V1_1.IGn
         public final java.lang.String toString() { return null; }
         public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
         public final void writeToParcel(android.os.HwParcel p0) {}
-    }
-
-    public static final class GnssMeasurementState {
-        public static final int STATE_2ND_CODE_LOCK = 65536;
-        public static final int STATE_BDS_D2_BIT_SYNC = 256;
-        public static final int STATE_BDS_D2_SUBFRAME_SYNC = 512;
-        public static final int STATE_BIT_SYNC = 2;
-        public static final int STATE_CODE_LOCK = 1;
-        public static final int STATE_GAL_E1BC_CODE_LOCK = 1024;
-        public static final int STATE_GAL_E1B_PAGE_SYNC = 4096;
-        public static final int STATE_GAL_E1C_2ND_CODE_LOCK = 2048;
-        public static final int STATE_GLO_STRING_SYNC = 64;
-        public static final int STATE_GLO_TOD_DECODED = 128;
-        public static final int STATE_GLO_TOD_KNOWN = 32768;
-        public static final int STATE_MSEC_AMBIGUOUS = 16;
-        public static final int STATE_SBAS_SYNC = 8192;
-        public static final int STATE_SUBFRAME_SYNC = 4;
-        public static final int STATE_SYMBOL_SYNC = 32;
-        public static final int STATE_TOW_DECODED = 8;
-        public static final int STATE_TOW_KNOWN = 16384;
-        public static final int STATE_UNKNOWN = 0;
-        public GnssMeasurementState() {}
-        public static final java.lang.String dumpBitfield(int p0) { return null; }
-        public static final java.lang.String toString(int p0) { return null; }
-    }
-
-    public static final class Proxy implements android.hardware.gnss.V2_0.IGnssMeasurementCallback {
-        private android.os.IHwBinder mRemote;
-        public Proxy(android.os.IHwBinder p0) {}
-        public void GnssMeasurementCb(android.hardware.gnss.V1_0.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) throws android.os.RemoteException {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() throws android.os.RemoteException { return null; }
-        public java.util.ArrayList<byte[]> getHashChain() throws android.os.RemoteException { return null; }
-        public void gnssMeasurementCb(android.hardware.gnss.V1_1.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
-        public void gnssMeasurementCb_2_0(android.hardware.gnss.V2_0.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
-        public final int hashCode() { return 0; }
-        public java.util.ArrayList<java.lang.String> interfaceChain() throws android.os.RemoteException { return null; }
-        public java.lang.String interfaceDescriptor() throws android.os.RemoteException { return null; }
-        public boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) throws android.os.RemoteException { return false; }
-        public void notifySyspropsChanged() throws android.os.RemoteException {}
-        public void ping() throws android.os.RemoteException {}
-        public void setHALInstrumentation() throws android.os.RemoteException {}
-        public java.lang.String toString() { return null; }
-        public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
     }
 
     public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V2_0.IGnssMeasurementCallback {

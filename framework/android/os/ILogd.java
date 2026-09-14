@@ -5,13 +5,6 @@ public interface ILogd extends android.os.IInterface {
     public void approve(int p0, int p1, int p2, int p3) throws android.os.RemoteException;
     public void decline(int p0, int p1, int p2, int p3) throws android.os.RemoteException;
 
-    public static class Default implements android.os.ILogd {
-        public Default() {}
-        public void approve(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void decline(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.ILogd {
         static final int TRANSACTION_approve = 1;
         static final int TRANSACTION_decline = 2;
@@ -30,5 +23,12 @@ public interface ILogd extends android.os.IInterface {
             public void decline(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.os.ILogd {
+        public Default() {}
+        public void approve(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void decline(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
     }
 }

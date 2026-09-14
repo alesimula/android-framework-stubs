@@ -4,12 +4,6 @@ public interface ILongConsumer extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.ILongConsumer";
     public void accept(long p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.ILongConsumer {
-        public Default() {}
-        public void accept(long p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.ILongConsumer {
         static final int TRANSACTION_accept = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ILongConsumer extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.ILongConsumer {
+        public Default() {}
+        public void accept(long p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

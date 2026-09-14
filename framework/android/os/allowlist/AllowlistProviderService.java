@@ -3,7 +3,7 @@ package android.os.allowlist;
 @android.annotation.SystemApi
 public abstract class AllowlistProviderService extends android.app.Service {
     public static final java.lang.String ACTION_ALLOWLIST_PROVIDER = "android.os.allowlist.action.ALLOWLIST_PROVIDER";
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "AllowlistProviderService";
     private final android.util.ArraySet<android.os.allowlist.AllowlistRequest> mAllowlistListenerRequests = null;
     private final java.lang.Object mLock = null;
     private android.os.allowlist.AllowlistProviderService.ProviderOnAllowlistChangedListener mProviderOnAllowlistChangedListener;

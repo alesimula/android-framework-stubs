@@ -22,10 +22,6 @@ public final class TextLinks implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ApplyStrategy {
-    }
-
     public static final class Builder {
         private android.os.Bundle mExtras;
         private final java.lang.String mFullText = null;
@@ -38,6 +34,50 @@ public final class TextLinks implements android.os.Parcelable {
         public android.view.textclassifier.TextLinks build() { return null; }
         public android.view.textclassifier.TextLinks.Builder clearTextLinks() { return null; }
         public android.view.textclassifier.TextLinks.Builder setExtras(android.os.Bundle p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ApplyStrategy {
+    }
+
+    public static final class TextLink implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextLinks.TextLink> CREATOR = null;
+        private final int mEnd = 0;
+        private final android.view.textclassifier.EntityConfidence mEntityScores = null;
+        private final android.os.Bundle mExtras = null;
+        private final int mStart = 0;
+        private final android.text.style.URLSpan mUrlSpan = null;
+        private TextLink(int p0, int p1, android.view.textclassifier.EntityConfidence p2, android.os.Bundle p3, android.text.style.URLSpan p4) {}
+        private static android.view.textclassifier.TextLinks.TextLink readFromParcel(android.os.Parcel p0) { return null; }
+        public int describeContents() { return 0; }
+        public float getConfidenceScore(java.lang.String p0) { return 0.0f; }
+        public int getEnd() { return 0; }
+        public java.lang.String getEntity(int p0) { return null; }
+        public int getEntityCount() { return 0; }
+        public android.os.Bundle getExtras() { return null; }
+        public int getStart() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Status {
+    }
+
+    public static class TextLinkSpan extends android.text.style.ClickableSpan {
+        public static final int INVOCATION_METHOD_KEYBOARD = 1;
+        public static final int INVOCATION_METHOD_TOUCH = 0;
+        public static final int INVOCATION_METHOD_UNSPECIFIED = -1;
+        private final android.view.textclassifier.TextLinks.TextLink mTextLink = null;
+        public TextLinkSpan(android.view.textclassifier.TextLinks.TextLink p0) { super(); }
+        public final android.view.textclassifier.TextLinks.TextLink getTextLink() { return null; }
+        public final java.lang.String getUrl() { return null; }
+        public void onClick(android.view.View p0) {}
+        public final void onClick(android.view.View p0, int p1) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface InvocationMethod {
+        }
     }
 
     public static final class Request implements android.os.Parcelable {
@@ -77,46 +117,6 @@ public final class TextLinks implements android.os.Parcelable {
             public android.view.textclassifier.TextLinks.Request.Builder setExtras(android.os.Bundle p0) { return null; }
             public android.view.textclassifier.TextLinks.Request.Builder setLegacyFallback(boolean p0) { return null; }
             public android.view.textclassifier.TextLinks.Request.Builder setReferenceTime(java.time.ZonedDateTime p0) { return null; }
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Status {
-    }
-
-    public static final class TextLink implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextLinks.TextLink> CREATOR = null;
-        private final int mEnd = 0;
-        private final android.view.textclassifier.EntityConfidence mEntityScores = null;
-        private final android.os.Bundle mExtras = null;
-        private final int mStart = 0;
-        private final android.text.style.URLSpan mUrlSpan = null;
-        private TextLink(int p0, int p1, android.view.textclassifier.EntityConfidence p2, android.os.Bundle p3, android.text.style.URLSpan p4) {}
-        private static android.view.textclassifier.TextLinks.TextLink readFromParcel(android.os.Parcel p0) { return null; }
-        public int describeContents() { return 0; }
-        public float getConfidenceScore(java.lang.String p0) { return 0.0f; }
-        public int getEnd() { return 0; }
-        public java.lang.String getEntity(int p0) { return null; }
-        public int getEntityCount() { return 0; }
-        public android.os.Bundle getExtras() { return null; }
-        public int getStart() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class TextLinkSpan extends android.text.style.ClickableSpan {
-        public static final int INVOCATION_METHOD_KEYBOARD = 1;
-        public static final int INVOCATION_METHOD_TOUCH = 0;
-        public static final int INVOCATION_METHOD_UNSPECIFIED = -1;
-        private final android.view.textclassifier.TextLinks.TextLink mTextLink = null;
-        public TextLinkSpan(android.view.textclassifier.TextLinks.TextLink p0) { super(); }
-        public final android.view.textclassifier.TextLinks.TextLink getTextLink() { return null; }
-        public final java.lang.String getUrl() { return null; }
-        public void onClick(android.view.View p0) {}
-        public final void onClick(android.view.View p0, int p1) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface InvocationMethod {
         }
     }
 }

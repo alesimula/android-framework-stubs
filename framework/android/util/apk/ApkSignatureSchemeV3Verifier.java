@@ -10,32 +10,34 @@ public class ApkSignatureSchemeV3Verifier {
     private static final int ROTATION_MIN_SDK_VERSION_ATTR_ID = 1436519170;
     public static final int SF_ATTRIBUTE_ANDROID_APK_SIGNED_ID = 3;
     private static final int SIGNER_TARGETS_DEV_RELEASE_ATTR_ID = -1029262406;
-    private final java.io.RandomAccessFile mApk = null;
+    private final android.util.apk.ApkChannel mApk = null;
     private int mBlockId;
     private java.util.OptionalInt mOptionalHybridMaxSdkVersion;
     private java.util.OptionalInt mOptionalHybridMinSdkVersion;
     private java.util.OptionalInt mOptionalRotationMinSdkVersion;
     private int mSignerMinSdkVersion;
     private final boolean mVerifyIntegrity = false;
-    private ApkSignatureSchemeV3Verifier(java.io.RandomAccessFile p0, boolean p1) {}
+    private ApkSignatureSchemeV3Verifier(android.util.apk.ApkChannel p0, boolean p1) {}
+    private static android.util.apk.SignatureInfo findSignature(android.util.apk.ApkChannel p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
+    private static android.util.apk.SignatureInfo findSignature(android.util.apk.ApkChannel p0, int p1) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
     public static android.util.apk.SignatureInfo findSignature(java.io.RandomAccessFile p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
     private static android.util.apk.SignatureInfo findSignature(java.io.RandomAccessFile p0, int p1) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
+    public static android.util.apk.SignatureInfo findSignature(java.nio.channels.FileChannel p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
+    private static android.util.apk.SignatureInfo findSignature(java.nio.channels.FileChannel p0, int p1) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
     static byte[] generateApkVerity(java.lang.String p0, android.util.apk.ByteBufferFactory p1) throws java.io.IOException, android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.security.DigestException, java.security.NoSuchAlgorithmException { return null; }
     static byte[] getVerityRootHash(java.lang.String p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException, java.lang.SecurityException { return null; }
     public static boolean hasSignature(java.lang.String p0) throws java.io.IOException { return false; }
     public static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner unsafeGetCertsWithoutVerification(java.lang.String p0) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
+    static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(android.util.apk.ApkChannel p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     private android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(android.util.apk.SignatureInfo p0, int p1) throws java.lang.SecurityException, java.io.IOException, android.util.apk.ApkSignatureSchemeV3Verifier.PlatformNotSupportedException { return null; }
-    private static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(java.io.RandomAccessFile p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
+    static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(java.io.RandomAccessFile p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     public static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(java.lang.String p0) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     private static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(java.lang.String p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
+    static android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verify(java.nio.channels.FileChannel p0, java.io.FileDescriptor p1, boolean p2) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     private android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verifyAdditionalAttributes(java.nio.ByteBuffer p0, java.util.List<java.security.cert.X509Certificate> p1, java.security.cert.CertificateFactory p2, java.util.Map<java.lang.Integer, byte[]> p3, int p4, int p5, int p6) throws java.io.IOException, android.util.apk.ApkSignatureSchemeV3Verifier.PlatformNotSupportedException { return null; }
     private android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verifySigner(java.nio.ByteBuffer p0, java.security.cert.CertificateFactory p1) throws java.lang.SecurityException, java.io.IOException, android.util.apk.ApkSignatureSchemeV3Verifier.PlatformNotSupportedException { return null; }
     private android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verifyV31Signers(java.util.List<android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner> p0) { return null; }
     public android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner verifyV32Signers(java.util.List<android.util.apk.ApkSignatureSchemeV3Verifier.VerifiedSigner> p0) { return null; }
-
-    private static class PlatformNotSupportedException extends java.lang.Exception {
-        PlatformNotSupportedException(java.lang.String p0) { super(); }
-    }
 
     public static class VerifiedSigner {
         public int algorithmId;
@@ -49,5 +51,9 @@ public class ApkSignatureSchemeV3Verifier {
         public byte[] verityRootHash;
         public VerifiedSigner(java.security.cert.X509Certificate[] p0, android.util.apk.ApkSigningBlockUtils.VerifiedProofOfRotation p1, java.util.Map<java.lang.Integer, byte[]> p2, int p3, int p4, int p5, boolean p6) {}
         public VerifiedSigner(java.security.cert.X509Certificate[] p0, android.util.apk.ApkSigningBlockUtils.VerifiedProofOfRotation p1, byte[] p2, java.util.Map<java.lang.Integer, byte[]> p3, int p4) {}
+    }
+
+    private static class PlatformNotSupportedException extends java.lang.Exception {
+        PlatformNotSupportedException(java.lang.String p0) { super(); }
     }
 }

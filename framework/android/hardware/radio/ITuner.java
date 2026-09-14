@@ -22,31 +22,6 @@ public interface ITuner extends android.os.IInterface {
     public void stopProgramListUpdates() throws android.os.RemoteException;
     public void tune(android.hardware.radio.ProgramSelector p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.ITuner {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancel() throws android.os.RemoteException {}
-        public void cancelAnnouncement() throws android.os.RemoteException {}
-        public void close() throws android.os.RemoteException {}
-        public android.hardware.radio.RadioManager.BandConfig getConfiguration() throws android.os.RemoteException { return null; }
-        public android.graphics.Bitmap getImage(int p0) throws android.os.RemoteException { return null; }
-        public java.util.Map<java.lang.String, java.lang.String> getParameters(java.util.List<java.lang.String> p0) throws android.os.RemoteException { return null; }
-        public boolean isClosed() throws android.os.RemoteException { return false; }
-        public boolean isConfigFlagSet(int p0) throws android.os.RemoteException { return false; }
-        public boolean isConfigFlagSupported(int p0) throws android.os.RemoteException { return false; }
-        public boolean isMuted() throws android.os.RemoteException { return false; }
-        public void seek(boolean p0, boolean p1) throws android.os.RemoteException {}
-        public void setConfigFlag(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setConfiguration(android.hardware.radio.RadioManager.BandConfig p0) throws android.os.RemoteException {}
-        public void setMuted(boolean p0) throws android.os.RemoteException {}
-        public java.util.Map<java.lang.String, java.lang.String> setParameters(java.util.Map<java.lang.String, java.lang.String> p0) throws android.os.RemoteException { return null; }
-        public boolean startBackgroundScan() throws android.os.RemoteException { return false; }
-        public void startProgramListUpdates(android.hardware.radio.ProgramList.Filter p0) throws android.os.RemoteException {}
-        public void step(boolean p0, boolean p1) throws android.os.RemoteException {}
-        public void stopProgramListUpdates() throws android.os.RemoteException {}
-        public void tune(android.hardware.radio.ProgramSelector p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.ITuner {
         public static final java.lang.String DESCRIPTOR = "android.hardware.radio.ITuner";
         static final int TRANSACTION_cancel = 10;
@@ -102,5 +77,30 @@ public interface ITuner extends android.os.IInterface {
             public void stopProgramListUpdates() throws android.os.RemoteException {}
             public void tune(android.hardware.radio.ProgramSelector p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.ITuner {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancel() throws android.os.RemoteException {}
+        public void cancelAnnouncement() throws android.os.RemoteException {}
+        public void close() throws android.os.RemoteException {}
+        public android.hardware.radio.RadioManager.BandConfig getConfiguration() throws android.os.RemoteException { return null; }
+        public android.graphics.Bitmap getImage(int p0) throws android.os.RemoteException { return null; }
+        public java.util.Map<java.lang.String, java.lang.String> getParameters(java.util.List<java.lang.String> p0) throws android.os.RemoteException { return null; }
+        public boolean isClosed() throws android.os.RemoteException { return false; }
+        public boolean isConfigFlagSet(int p0) throws android.os.RemoteException { return false; }
+        public boolean isConfigFlagSupported(int p0) throws android.os.RemoteException { return false; }
+        public boolean isMuted() throws android.os.RemoteException { return false; }
+        public void seek(boolean p0, boolean p1) throws android.os.RemoteException {}
+        public void setConfigFlag(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setConfiguration(android.hardware.radio.RadioManager.BandConfig p0) throws android.os.RemoteException {}
+        public void setMuted(boolean p0) throws android.os.RemoteException {}
+        public java.util.Map<java.lang.String, java.lang.String> setParameters(java.util.Map<java.lang.String, java.lang.String> p0) throws android.os.RemoteException { return null; }
+        public boolean startBackgroundScan() throws android.os.RemoteException { return false; }
+        public void startProgramListUpdates(android.hardware.radio.ProgramList.Filter p0) throws android.os.RemoteException {}
+        public void step(boolean p0, boolean p1) throws android.os.RemoteException {}
+        public void stopProgramListUpdates() throws android.os.RemoteException {}
+        public void tune(android.hardware.radio.ProgramSelector p0) throws android.os.RemoteException {}
     }
 }

@@ -22,15 +22,6 @@ public abstract class PaintPathEffects {
     public int getType() { return 0; }
     abstract float[] toFloatArray();
 
-    public static class Compose extends com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects {
-        public com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects mInnerPE;
-        public com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects mOuterPE;
-        public Compose(com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects p0, com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects p1) { super(); }
-        public static com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects decode(float[] p0, int p1) { return null; }
-        public static int gitIds(int[] p0, int p1, com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects.Register p2) { return 0; }
-        float[] toFloatArray() { return null; }
-    }
-
     public static class Dash extends com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects {
         public float[] mIntervals;
         public float mPhase;
@@ -40,10 +31,10 @@ public abstract class PaintPathEffects {
         float[] toFloatArray() { return null; }
     }
 
-    public static class Discrete extends com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects {
-        public float mDeviation;
-        public float mSegmentLength;
-        public Discrete(float p0, float p1) { super(); }
+    public static class Compose extends com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects {
+        public com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects mInnerPE;
+        public com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects mOuterPE;
+        public Compose(com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects p0, com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects p1) { super(); }
         public static com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects decode(float[] p0, int p1) { return null; }
         public static int gitIds(int[] p0, int p1, com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects.Register p2) { return 0; }
         float[] toFloatArray() { return null; }
@@ -55,6 +46,15 @@ public abstract class PaintPathEffects {
         public int mShapeId;
         public int mStyle;
         public PathDash(int p0, float p1, float p2, int p3) { super(); }
+        public static com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects decode(float[] p0, int p1) { return null; }
+        public static int gitIds(int[] p0, int p1, com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects.Register p2) { return 0; }
+        float[] toFloatArray() { return null; }
+    }
+
+    public static class Discrete extends com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects {
+        public float mDeviation;
+        public float mSegmentLength;
+        public Discrete(float p0, float p1) { super(); }
         public static com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects decode(float[] p0, int p1) { return null; }
         public static int gitIds(int[] p0, int p1, com.android.internal.widget.remotecompose.core.operations.paint.PaintPathEffects.Register p2) { return 0; }
         float[] toFloatArray() { return null; }

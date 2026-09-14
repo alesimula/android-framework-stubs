@@ -7,16 +7,6 @@ public interface INetworkService extends android.os.IInterface {
     public void requestNetworkRegistrationInfo(int p0, int p1, android.telephony.INetworkServiceCallback p2) throws android.os.RemoteException;
     public void unregisterForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.INetworkService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void createNetworkServiceProvider(int p0) throws android.os.RemoteException {}
-        public void registerForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) throws android.os.RemoteException {}
-        public void removeNetworkServiceProvider(int p0) throws android.os.RemoteException {}
-        public void requestNetworkRegistrationInfo(int p0, int p1, android.telephony.INetworkServiceCallback p2) throws android.os.RemoteException {}
-        public void unregisterForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.INetworkService {
         public static final java.lang.String DESCRIPTOR = "android.telephony.INetworkService";
         static final int TRANSACTION_createNetworkServiceProvider = 1;
@@ -42,5 +32,15 @@ public interface INetworkService extends android.os.IInterface {
             public void requestNetworkRegistrationInfo(int p0, int p1, android.telephony.INetworkServiceCallback p2) throws android.os.RemoteException {}
             public void unregisterForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.INetworkService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void createNetworkServiceProvider(int p0) throws android.os.RemoteException {}
+        public void registerForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) throws android.os.RemoteException {}
+        public void removeNetworkServiceProvider(int p0) throws android.os.RemoteException {}
+        public void requestNetworkRegistrationInfo(int p0, int p1, android.telephony.INetworkServiceCallback p2) throws android.os.RemoteException {}
+        public void unregisterForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) throws android.os.RemoteException {}
     }
 }

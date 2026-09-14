@@ -9,17 +9,6 @@ public interface IMagnificationConnectionCallback extends android.os.IInterface 
     public void onSourceBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException;
     public void onWindowMagnifierBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.accessibility.IMagnificationConnectionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAccessibilityActionPerformed(int p0) throws android.os.RemoteException {}
-        public void onChangeMagnificationMode(int p0, int p1) throws android.os.RemoteException {}
-        public void onMove(int p0) throws android.os.RemoteException {}
-        public void onPerformScaleAction(int p0, float p1, boolean p2) throws android.os.RemoteException {}
-        public void onSourceBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException {}
-        public void onWindowMagnifierBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IMagnificationConnectionCallback {
         static final int TRANSACTION_onAccessibilityActionPerformed = 5;
         static final int TRANSACTION_onChangeMagnificationMode = 2;
@@ -46,5 +35,16 @@ public interface IMagnificationConnectionCallback extends android.os.IInterface 
             public void onSourceBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException {}
             public void onWindowMagnifierBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.accessibility.IMagnificationConnectionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAccessibilityActionPerformed(int p0) throws android.os.RemoteException {}
+        public void onChangeMagnificationMode(int p0, int p1) throws android.os.RemoteException {}
+        public void onMove(int p0) throws android.os.RemoteException {}
+        public void onPerformScaleAction(int p0, float p1, boolean p2) throws android.os.RemoteException {}
+        public void onSourceBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException {}
+        public void onWindowMagnifierBoundsChanged(int p0, android.graphics.Rect p1) throws android.os.RemoteException {}
     }
 }

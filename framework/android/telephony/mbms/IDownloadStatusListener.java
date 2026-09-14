@@ -3,12 +3,6 @@ package android.telephony.mbms;
 public interface IDownloadStatusListener extends android.os.IInterface {
     public void onStatusUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.mbms.IDownloadStatusListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onStatusUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.mbms.IDownloadStatusListener {
         public static final java.lang.String DESCRIPTOR = "android.telephony.mbms.IDownloadStatusListener";
         static final int TRANSACTION_onStatusUpdated = 1;
@@ -26,5 +20,11 @@ public interface IDownloadStatusListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onStatusUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.mbms.IDownloadStatusListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onStatusUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2) throws android.os.RemoteException {}
     }
 }

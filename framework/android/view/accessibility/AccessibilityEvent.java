@@ -141,11 +141,11 @@ public final class AccessibilityEvent extends android.view.accessibility.Accessi
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ContentChangeTypes {
+    public static @interface TextChangeTypes {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EventType {
+    public static @interface ContentChangeTypes {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -153,7 +153,7 @@ public final class AccessibilityEvent extends android.view.accessibility.Accessi
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TextChangeTypes {
+    public static @interface EventType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

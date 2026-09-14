@@ -5,13 +5,6 @@ public interface IAttestationVerificationManagerService extends android.os.IInte
     public void verifyAttestation(android.security.attestationverification.AttestationProfile p0, int p1, android.os.Bundle p2, byte[] p3, com.android.internal.infra.AndroidFuture p4) throws android.os.RemoteException;
     public void verifyToken(android.security.attestationverification.VerificationToken p0, android.os.ParcelDuration p1, com.android.internal.infra.AndroidFuture p2) throws android.os.RemoteException;
 
-    public static class Default implements android.security.attestationverification.IAttestationVerificationManagerService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void verifyAttestation(android.security.attestationverification.AttestationProfile p0, int p1, android.os.Bundle p2, byte[] p3, com.android.internal.infra.AndroidFuture p4) throws android.os.RemoteException {}
-        public void verifyToken(android.security.attestationverification.VerificationToken p0, android.os.ParcelDuration p1, com.android.internal.infra.AndroidFuture p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.attestationverification.IAttestationVerificationManagerService {
         static final int TRANSACTION_verifyAttestation = 1;
         static final int TRANSACTION_verifyToken = 2;
@@ -30,5 +23,12 @@ public interface IAttestationVerificationManagerService extends android.os.IInte
             public void verifyAttestation(android.security.attestationverification.AttestationProfile p0, int p1, android.os.Bundle p2, byte[] p3, com.android.internal.infra.AndroidFuture p4) throws android.os.RemoteException {}
             public void verifyToken(android.security.attestationverification.VerificationToken p0, android.os.ParcelDuration p1, com.android.internal.infra.AndroidFuture p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.attestationverification.IAttestationVerificationManagerService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void verifyAttestation(android.security.attestationverification.AttestationProfile p0, int p1, android.os.Bundle p2, byte[] p3, com.android.internal.infra.AndroidFuture p4) throws android.os.RemoteException {}
+        public void verifyToken(android.security.attestationverification.VerificationToken p0, android.os.ParcelDuration p1, com.android.internal.infra.AndroidFuture p2) throws android.os.RemoteException {}
     }
 }

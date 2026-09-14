@@ -5,13 +5,6 @@ public interface IContextualSearchCallback extends android.os.IInterface {
     public void onError(android.os.ParcelableException p0) throws android.os.RemoteException;
     public void onResult(android.app.contextualsearch.ContextualSearchState p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.contextualsearch.IContextualSearchCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
-        public void onResult(android.app.contextualsearch.ContextualSearchState p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.contextualsearch.IContextualSearchCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onResult = 1;
@@ -30,5 +23,12 @@ public interface IContextualSearchCallback extends android.os.IInterface {
             public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
             public void onResult(android.app.contextualsearch.ContextualSearchState p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.contextualsearch.IContextualSearchCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
+        public void onResult(android.app.contextualsearch.ContextualSearchState p0) throws android.os.RemoteException {}
     }
 }

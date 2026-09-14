@@ -8,16 +8,6 @@ public interface ISelectionToolbarClient extends android.os.IInterface {
     public void onUpdated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.graphics.Rect p1, android.graphics.Region p2) throws android.os.RemoteException;
     public void onVisibilityChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.selectiontoolbar.ISelectionToolbarClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMenuItemClicked(int p0) throws android.os.RemoteException {}
-        public void onSessionError(android.os.ParcelableException p0) throws android.os.RemoteException {}
-        public void onSessionOpened() throws android.os.RemoteException {}
-        public void onUpdated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.graphics.Rect p1, android.graphics.Region p2) throws android.os.RemoteException {}
-        public void onVisibilityChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.selectiontoolbar.ISelectionToolbarClient {
         static final int TRANSACTION_onMenuItemClicked = 5;
         static final int TRANSACTION_onSessionError = 2;
@@ -42,5 +32,15 @@ public interface ISelectionToolbarClient extends android.os.IInterface {
             public void onUpdated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.graphics.Rect p1, android.graphics.Region p2) throws android.os.RemoteException {}
             public void onVisibilityChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.selectiontoolbar.ISelectionToolbarClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMenuItemClicked(int p0) throws android.os.RemoteException {}
+        public void onSessionError(android.os.ParcelableException p0) throws android.os.RemoteException {}
+        public void onSessionOpened() throws android.os.RemoteException {}
+        public void onUpdated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.graphics.Rect p1, android.graphics.Region p2) throws android.os.RemoteException {}
+        public void onVisibilityChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

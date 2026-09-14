@@ -5,13 +5,6 @@ public interface IFeatureProvisioningCallback extends android.os.IInterface {
     public void onFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException;
     public void onRcsFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IFeatureProvisioningCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void onRcsFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IFeatureProvisioningCallback {
         static final int TRANSACTION_onFeatureProvisioningChanged = 1;
         static final int TRANSACTION_onRcsFeatureProvisioningChanged = 2;
@@ -30,5 +23,12 @@ public interface IFeatureProvisioningCallback extends android.os.IInterface {
             public void onFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
             public void onRcsFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IFeatureProvisioningCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void onRcsFeatureProvisioningChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
     }
 }

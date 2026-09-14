@@ -7,6 +7,23 @@ public class BrowserContract {
     public static final java.lang.String PARAM_LIMIT = "limit";
     public BrowserContract() {}
 
+    public static final class ImageMappings implements android.provider.BrowserContract.ImageMappingColumns {
+        public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/image_mappings";
+        public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/image_mappings";
+        public static final android.net.Uri CONTENT_URI = null;
+        private ImageMappings() {}
+    }
+
+    public static final class Settings {
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String KEY = "key";
+        public static final java.lang.String KEY_SYNC_ENABLED = "sync_enabled";
+        public static final java.lang.String VALUE = "value";
+        private Settings() {}
+        public static boolean isSyncEnabled(android.content.Context p0) { return false; }
+        public static void setSyncEnabled(android.content.Context p0, boolean p1) {}
+    }
+
     public static final class Accounts {
         public static final java.lang.String ACCOUNT_NAME = "account_name";
         public static final java.lang.String ACCOUNT_TYPE = "account_type";
@@ -15,12 +32,65 @@ public class BrowserContract {
         public Accounts() {}
     }
 
+    static interface ImageMappingColumns {
+        public static final java.lang.String IMAGE_ID = "image_id";
+        public static final java.lang.String URL = "url";
+    }
+
+    public static final class SyncState implements android.provider.SyncStateContract.Columns {
+        public static final java.lang.String CONTENT_DIRECTORY = "syncstate";
+        public static final android.net.Uri CONTENT_URI = null;
+        private SyncState() {}
+        public static byte[] get(android.content.ContentProviderClient p0, android.accounts.Account p1) throws android.os.RemoteException { return null; }
+        public static android.util.Pair<android.net.Uri, byte[]> getWithUri(android.content.ContentProviderClient p0, android.accounts.Account p1) throws android.os.RemoteException { return null; }
+        public static android.content.ContentProviderOperation newSetOperation(android.accounts.Account p0, byte[] p1) { return null; }
+        public static void set(android.content.ContentProviderClient p0, android.accounts.Account p1, byte[] p2) throws android.os.RemoteException {}
+    }
+
+    static interface HistoryColumns {
+        public static final java.lang.String DATE_LAST_VISITED = "date";
+        public static final java.lang.String USER_ENTERED = "user_entered";
+        public static final java.lang.String VISITS = "visits";
+    }
+
+    public static final class ChromeSyncColumns {
+        public static final java.lang.String CLIENT_UNIQUE = "sync4";
+        public static final java.lang.String FOLDER_NAME_BOOKMARKS = "google_chrome_bookmarks";
+        public static final java.lang.String FOLDER_NAME_BOOKMARKS_BAR = "bookmark_bar";
+        public static final java.lang.String FOLDER_NAME_OTHER_BOOKMARKS = "other_bookmarks";
+        public static final java.lang.String FOLDER_NAME_ROOT = "google_chrome";
+        public static final java.lang.String SERVER_UNIQUE = "sync3";
+        private ChromeSyncColumns() {}
+    }
+
     static interface BaseSyncColumns {
         public static final java.lang.String SYNC1 = "sync1";
         public static final java.lang.String SYNC2 = "sync2";
         public static final java.lang.String SYNC3 = "sync3";
         public static final java.lang.String SYNC4 = "sync4";
         public static final java.lang.String SYNC5 = "sync5";
+    }
+
+    static interface CommonColumns {
+        public static final java.lang.String DATE_CREATED = "created";
+        public static final java.lang.String TITLE = "title";
+        public static final java.lang.String URL = "url";
+        public static final java.lang.String _ID = "_id";
+    }
+
+    static interface SyncColumns extends android.provider.BrowserContract.BaseSyncColumns {
+        public static final java.lang.String ACCOUNT_NAME = "account_name";
+        public static final java.lang.String ACCOUNT_TYPE = "account_type";
+        public static final java.lang.String DATE_MODIFIED = "modified";
+        public static final java.lang.String DIRTY = "dirty";
+        public static final java.lang.String SOURCE_ID = "sourceid";
+        public static final java.lang.String VERSION = "version";
+    }
+
+    public static final class Combined implements android.provider.BrowserContract.CommonColumns, android.provider.BrowserContract.HistoryColumns, android.provider.BrowserContract.ImageColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String IS_BOOKMARK = "bookmark";
+        private Combined() {}
     }
 
     public static final class Bookmarks implements android.provider.BrowserContract.CommonColumns, android.provider.BrowserContract.ImageColumns, android.provider.BrowserContract.SyncColumns {
@@ -48,58 +118,11 @@ public class BrowserContract {
         public static final android.net.Uri buildFolderUri(long p0) { return null; }
     }
 
-    public static final class ChromeSyncColumns {
-        public static final java.lang.String CLIENT_UNIQUE = "sync4";
-        public static final java.lang.String FOLDER_NAME_BOOKMARKS = "google_chrome_bookmarks";
-        public static final java.lang.String FOLDER_NAME_BOOKMARKS_BAR = "bookmark_bar";
-        public static final java.lang.String FOLDER_NAME_OTHER_BOOKMARKS = "other_bookmarks";
-        public static final java.lang.String FOLDER_NAME_ROOT = "google_chrome";
-        public static final java.lang.String SERVER_UNIQUE = "sync3";
-        private ChromeSyncColumns() {}
-    }
-
-    public static final class Combined implements android.provider.BrowserContract.CommonColumns, android.provider.BrowserContract.HistoryColumns, android.provider.BrowserContract.ImageColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String IS_BOOKMARK = "bookmark";
-        private Combined() {}
-    }
-
-    static interface CommonColumns {
-        public static final java.lang.String DATE_CREATED = "created";
-        public static final java.lang.String TITLE = "title";
-        public static final java.lang.String URL = "url";
-        public static final java.lang.String _ID = "_id";
-    }
-
     public static final class History implements android.provider.BrowserContract.CommonColumns, android.provider.BrowserContract.HistoryColumns, android.provider.BrowserContract.ImageColumns {
         public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/browser-history";
         public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/browser-history";
         public static final android.net.Uri CONTENT_URI = null;
         private History() {}
-    }
-
-    static interface HistoryColumns {
-        public static final java.lang.String DATE_LAST_VISITED = "date";
-        public static final java.lang.String USER_ENTERED = "user_entered";
-        public static final java.lang.String VISITS = "visits";
-    }
-
-    static interface ImageColumns {
-        public static final java.lang.String FAVICON = "favicon";
-        public static final java.lang.String THUMBNAIL = "thumbnail";
-        public static final java.lang.String TOUCH_ICON = "touch_icon";
-    }
-
-    static interface ImageMappingColumns {
-        public static final java.lang.String IMAGE_ID = "image_id";
-        public static final java.lang.String URL = "url";
-    }
-
-    public static final class ImageMappings implements android.provider.BrowserContract.ImageMappingColumns {
-        public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/image_mappings";
-        public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/image_mappings";
-        public static final android.net.Uri CONTENT_URI = null;
-        private ImageMappings() {}
     }
 
     public static final class Images implements android.provider.BrowserContract.ImageColumns {
@@ -125,32 +148,9 @@ public class BrowserContract {
         private Searches() {}
     }
 
-    public static final class Settings {
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String KEY = "key";
-        public static final java.lang.String KEY_SYNC_ENABLED = "sync_enabled";
-        public static final java.lang.String VALUE = "value";
-        private Settings() {}
-        public static boolean isSyncEnabled(android.content.Context p0) { return false; }
-        public static void setSyncEnabled(android.content.Context p0, boolean p1) {}
-    }
-
-    static interface SyncColumns extends android.provider.BrowserContract.BaseSyncColumns {
-        public static final java.lang.String ACCOUNT_NAME = "account_name";
-        public static final java.lang.String ACCOUNT_TYPE = "account_type";
-        public static final java.lang.String DATE_MODIFIED = "modified";
-        public static final java.lang.String DIRTY = "dirty";
-        public static final java.lang.String SOURCE_ID = "sourceid";
-        public static final java.lang.String VERSION = "version";
-    }
-
-    public static final class SyncState implements android.provider.SyncStateContract.Columns {
-        public static final java.lang.String CONTENT_DIRECTORY = "syncstate";
-        public static final android.net.Uri CONTENT_URI = null;
-        private SyncState() {}
-        public static byte[] get(android.content.ContentProviderClient p0, android.accounts.Account p1) throws android.os.RemoteException { return null; }
-        public static android.util.Pair<android.net.Uri, byte[]> getWithUri(android.content.ContentProviderClient p0, android.accounts.Account p1) throws android.os.RemoteException { return null; }
-        public static android.content.ContentProviderOperation newSetOperation(android.accounts.Account p0, byte[] p1) { return null; }
-        public static void set(android.content.ContentProviderClient p0, android.accounts.Account p1, byte[] p2) throws android.os.RemoteException {}
+    static interface ImageColumns {
+        public static final java.lang.String FAVICON = "favicon";
+        public static final java.lang.String THUMBNAIL = "thumbnail";
+        public static final java.lang.String TOUCH_ICON = "touch_icon";
     }
 }

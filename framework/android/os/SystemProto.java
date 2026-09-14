@@ -29,20 +29,15 @@ public final class SystemProto {
     public static final long WIFI_SUPPLICANT_STATE = 2246267895834L;
     public SystemProto() {}
 
-    public final class Battery {
-        public static final long BATTERY_REALTIME_MS = 1112396529669L;
-        public static final long BATTERY_UPTIME_MS = 1112396529670L;
-        public static final long ESTIMATED_BATTERY_CAPACITY_MAH = 1112396529674L;
-        public static final long MAX_LEARNED_BATTERY_CAPACITY_UAH = 1112396529676L;
-        public static final long MIN_LEARNED_BATTERY_CAPACITY_UAH = 1112396529675L;
-        public static final long SCREEN_DOZE_DURATION_MS = 1112396529673L;
-        public static final long SCREEN_OFF_REALTIME_MS = 1112396529671L;
-        public static final long SCREEN_OFF_UPTIME_MS = 1112396529672L;
-        public static final long START_CLOCK_TIME_MS = 1112396529665L;
-        public static final long START_COUNT = 1112396529666L;
-        public static final long TOTAL_REALTIME_MS = 1112396529667L;
-        public static final long TOTAL_UPTIME_MS = 1112396529668L;
-        public Battery(android.os.SystemProto p0) {}
+    public final class WifiSignalStrength {
+        public static final int GOOD = 3;
+        public static final int GREAT = 4;
+        public static final int MODERATE = 2;
+        public static final long NAME = 1159641169921L;
+        public static final int NONE = 0;
+        public static final int POOR = 1;
+        public static final long TOTAL = 1146756268034L;
+        public WifiSignalStrength(android.os.SystemProto p0) {}
     }
 
     public final class BatteryDischarge {
@@ -57,6 +52,29 @@ public final class SystemProto {
         public static final long TOTAL_MAH_SCREEN_OFF = 1112396529671L;
         public static final long UPPER_BOUND_SINCE_CHARGE = 1120986464258L;
         public BatteryDischarge(android.os.SystemProto p0) {}
+    }
+
+    public final class ResourcePowerManager {
+        public static final long NAME = 1138166333441L;
+        public static final long SCREEN_OFF = 1146756268035L;
+        public static final long TOTAL = 1146756268034L;
+        public ResourcePowerManager(android.os.SystemProto p0) {}
+    }
+
+    public final class Battery {
+        public static final long BATTERY_REALTIME_MS = 1112396529669L;
+        public static final long BATTERY_UPTIME_MS = 1112396529670L;
+        public static final long ESTIMATED_BATTERY_CAPACITY_MAH = 1112396529674L;
+        public static final long MAX_LEARNED_BATTERY_CAPACITY_UAH = 1112396529676L;
+        public static final long MIN_LEARNED_BATTERY_CAPACITY_UAH = 1112396529675L;
+        public static final long SCREEN_DOZE_DURATION_MS = 1112396529673L;
+        public static final long SCREEN_OFF_REALTIME_MS = 1112396529671L;
+        public static final long SCREEN_OFF_UPTIME_MS = 1112396529672L;
+        public static final long START_CLOCK_TIME_MS = 1112396529665L;
+        public static final long START_COUNT = 1112396529666L;
+        public static final long TOTAL_REALTIME_MS = 1112396529667L;
+        public static final long TOTAL_UPTIME_MS = 1112396529668L;
+        public Battery(android.os.SystemProto p0) {}
     }
 
     public final class BatteryLevelStep {
@@ -80,11 +98,54 @@ public final class SystemProto {
         public BatteryLevelStep(android.os.SystemProto p0) {}
     }
 
-    public final class DataConnection {
-        public static final long IS_NONE = 1133871366146L;
+    public final class GlobalWifi {
+        public static final long ON_DURATION_MS = 1112396529665L;
+        public static final long RUNNING_DURATION_MS = 1112396529666L;
+        public GlobalWifi(android.os.SystemProto p0) {}
+    }
+
+    public final class WakeupReason {
+        public static final long NAME = 1138166333441L;
+        public static final long TOTAL = 1146756268034L;
+        public WakeupReason(android.os.SystemProto p0) {}
+    }
+
+    public final class PowerUseItem {
+        public static final int AMBIENT_DISPLAY = 13;
+        public static final int BLUETOOTH = 5;
+        public static final int CAMERA = 11;
+        public static final int CELL = 2;
+        public static final long COMPUTED_POWER_MAH = 1103806595075L;
+        public static final int FLASHLIGHT = 6;
+        public static final int IDLE = 1;
+        public static final int MEMORY = 12;
         public static final long NAME = 1159641169921L;
-        public static final long TOTAL = 1146756268035L;
-        public DataConnection(android.os.SystemProto p0) {}
+        public static final int OVERCOUNTED = 10;
+        public static final int PHONE = 3;
+        public static final long PROPORTIONAL_SMEAR_MAH = 1103806595078L;
+        public static final int SCREEN = 7;
+        public static final long SCREEN_POWER_MAH = 1103806595077L;
+        public static final long SHOULD_HIDE = 1133871366148L;
+        public static final long UID = 1120986464258L;
+        public static final int UNACCOUNTED = 9;
+        public static final int UNKNOWN_SIPPER = 0;
+        public static final int USER = 8;
+        public static final int WIFI = 4;
+        public PowerUseItem(android.os.SystemProto p0) {}
+    }
+
+    public final class PhoneSignalStrength {
+        public static final long NAME = 1159641169921L;
+        public static final long TOTAL = 1146756268034L;
+        public PhoneSignalStrength(android.os.SystemProto p0) {}
+    }
+
+    public final class PowerUseSummary {
+        public static final long BATTERY_CAPACITY_MAH = 1103806595073L;
+        public static final long COMPUTED_POWER_MAH = 1103806595074L;
+        public static final long MAX_DRAINED_POWER_MAH = 1103806595076L;
+        public static final long MIN_DRAINED_POWER_MAH = 1103806595075L;
+        public PowerUseSummary(android.os.SystemProto p0) {}
     }
 
     public final class GlobalNetwork {
@@ -101,10 +162,61 @@ public final class SystemProto {
         public GlobalNetwork(android.os.SystemProto p0) {}
     }
 
-    public final class GlobalWifi {
-        public static final long ON_DURATION_MS = 1112396529665L;
-        public static final long RUNNING_DURATION_MS = 1112396529666L;
-        public GlobalWifi(android.os.SystemProto p0) {}
+    public final class WifiMulticastWakelockTotal {
+        public static final long COUNT = 1120986464258L;
+        public static final long DURATION_MS = 1112396529665L;
+        public WifiMulticastWakelockTotal(android.os.SystemProto p0) {}
+    }
+
+    public final class WifiSupplicantState {
+        public static final int ASSOCIATED = 7;
+        public static final int ASSOCIATING = 6;
+        public static final int AUTHENTICATING = 5;
+        public static final int COMPLETED = 10;
+        public static final int DISCONNECTED = 1;
+        public static final int DORMANT = 11;
+        public static final int FOUR_WAY_HANDSHAKE = 8;
+        public static final int GROUP_HANDSHAKE = 9;
+        public static final int INACTIVE = 3;
+        public static final int INTERFACE_DISABLED = 2;
+        public static final int INVALID = 0;
+        public static final long NAME = 1159641169921L;
+        public static final int SCANNING = 4;
+        public static final long TOTAL = 1146756268034L;
+        public static final int UNINITIALIZED = 12;
+        public WifiSupplicantState(android.os.SystemProto p0) {}
+    }
+
+    public final class WifiState {
+        public static final long NAME = 1159641169921L;
+        public static final int OFF = 0;
+        public static final int OFF_SCANNING = 1;
+        public static final int ON_CONNECTED_P2P = 5;
+        public static final int ON_CONNECTED_STA = 4;
+        public static final int ON_CONNECTED_STA_P2P = 6;
+        public static final int ON_DISCONNECTED = 3;
+        public static final int ON_NO_NETWORKS = 2;
+        public static final int SOFT_AP = 7;
+        public static final long TOTAL = 1146756268034L;
+        public WifiState(android.os.SystemProto p0) {}
+    }
+
+    public final class DataConnection {
+        public static final long IS_NONE = 1133871366146L;
+        public static final long NAME = 1159641169921L;
+        public static final long TOTAL = 1146756268035L;
+        public DataConnection(android.os.SystemProto p0) {}
+    }
+
+    public final class ScreenBrightness {
+        public static final int BRIGHT = 4;
+        public static final int DARK = 0;
+        public static final int DIM = 1;
+        public static final int LIGHT = 3;
+        public static final int MEDIUM = 2;
+        public static final long NAME = 1159641169921L;
+        public static final long TOTAL = 1146756268034L;
+        public ScreenBrightness(android.os.SystemProto p0) {}
     }
 
     public final class KernelWakelock {
@@ -136,117 +248,5 @@ public final class SystemProto {
         public static final long PHONE_ON_DURATION_MS = 1112396529666L;
         public static final long SCREEN_ON_DURATION_MS = 1112396529665L;
         public Misc(android.os.SystemProto p0) {}
-    }
-
-    public final class PhoneSignalStrength {
-        public static final long NAME = 1159641169921L;
-        public static final long TOTAL = 1146756268034L;
-        public PhoneSignalStrength(android.os.SystemProto p0) {}
-    }
-
-    public final class PowerUseItem {
-        public static final int AMBIENT_DISPLAY = 13;
-        public static final int BLUETOOTH = 5;
-        public static final int CAMERA = 11;
-        public static final int CELL = 2;
-        public static final long COMPUTED_POWER_MAH = 1103806595075L;
-        public static final int FLASHLIGHT = 6;
-        public static final int IDLE = 1;
-        public static final int MEMORY = 12;
-        public static final long NAME = 1159641169921L;
-        public static final int OVERCOUNTED = 10;
-        public static final int PHONE = 3;
-        public static final long PROPORTIONAL_SMEAR_MAH = 1103806595078L;
-        public static final int SCREEN = 7;
-        public static final long SCREEN_POWER_MAH = 1103806595077L;
-        public static final long SHOULD_HIDE = 1133871366148L;
-        public static final long UID = 1120986464258L;
-        public static final int UNACCOUNTED = 9;
-        public static final int UNKNOWN_SIPPER = 0;
-        public static final int USER = 8;
-        public static final int WIFI = 4;
-        public PowerUseItem(android.os.SystemProto p0) {}
-    }
-
-    public final class PowerUseSummary {
-        public static final long BATTERY_CAPACITY_MAH = 1103806595073L;
-        public static final long COMPUTED_POWER_MAH = 1103806595074L;
-        public static final long MAX_DRAINED_POWER_MAH = 1103806595076L;
-        public static final long MIN_DRAINED_POWER_MAH = 1103806595075L;
-        public PowerUseSummary(android.os.SystemProto p0) {}
-    }
-
-    public final class ResourcePowerManager {
-        public static final long NAME = 1138166333441L;
-        public static final long SCREEN_OFF = 1146756268035L;
-        public static final long TOTAL = 1146756268034L;
-        public ResourcePowerManager(android.os.SystemProto p0) {}
-    }
-
-    public final class ScreenBrightness {
-        public static final int BRIGHT = 4;
-        public static final int DARK = 0;
-        public static final int DIM = 1;
-        public static final int LIGHT = 3;
-        public static final int MEDIUM = 2;
-        public static final long NAME = 1159641169921L;
-        public static final long TOTAL = 1146756268034L;
-        public ScreenBrightness(android.os.SystemProto p0) {}
-    }
-
-    public final class WakeupReason {
-        public static final long NAME = 1138166333441L;
-        public static final long TOTAL = 1146756268034L;
-        public WakeupReason(android.os.SystemProto p0) {}
-    }
-
-    public final class WifiMulticastWakelockTotal {
-        public static final long COUNT = 1120986464258L;
-        public static final long DURATION_MS = 1112396529665L;
-        public WifiMulticastWakelockTotal(android.os.SystemProto p0) {}
-    }
-
-    public final class WifiSignalStrength {
-        public static final int GOOD = 3;
-        public static final int GREAT = 4;
-        public static final int MODERATE = 2;
-        public static final long NAME = 1159641169921L;
-        public static final int NONE = 0;
-        public static final int POOR = 1;
-        public static final long TOTAL = 1146756268034L;
-        public WifiSignalStrength(android.os.SystemProto p0) {}
-    }
-
-    public final class WifiState {
-        public static final long NAME = 1159641169921L;
-        public static final int OFF = 0;
-        public static final int OFF_SCANNING = 1;
-        public static final int ON_CONNECTED_P2P = 5;
-        public static final int ON_CONNECTED_STA = 4;
-        public static final int ON_CONNECTED_STA_P2P = 6;
-        public static final int ON_DISCONNECTED = 3;
-        public static final int ON_NO_NETWORKS = 2;
-        public static final int SOFT_AP = 7;
-        public static final long TOTAL = 1146756268034L;
-        public WifiState(android.os.SystemProto p0) {}
-    }
-
-    public final class WifiSupplicantState {
-        public static final int ASSOCIATED = 7;
-        public static final int ASSOCIATING = 6;
-        public static final int AUTHENTICATING = 5;
-        public static final int COMPLETED = 10;
-        public static final int DISCONNECTED = 1;
-        public static final int DORMANT = 11;
-        public static final int FOUR_WAY_HANDSHAKE = 8;
-        public static final int GROUP_HANDSHAKE = 9;
-        public static final int INACTIVE = 3;
-        public static final int INTERFACE_DISABLED = 2;
-        public static final int INVALID = 0;
-        public static final long NAME = 1159641169921L;
-        public static final int SCANNING = 4;
-        public static final long TOTAL = 1146756268034L;
-        public static final int UNINITIALIZED = 12;
-        public WifiSupplicantState(android.os.SystemProto p0) {}
     }
 }

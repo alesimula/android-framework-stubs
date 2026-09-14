@@ -64,6 +64,7 @@ public final class DocsuiEnums {
     public static final int MODE_CONVENTIONAL = 3;
     public static final int MODE_CONVERTED = 2;
     public static final int MODE_PROVIDER = 1;
+    public static final int MODE_SKIPPED = 4;
     public static final int MODE_UNKNOWN = 0;
     public static final int OPEN = 1;
     public static final int OPEN_TREE = 4;
@@ -99,6 +100,11 @@ public final class DocsuiEnums {
     public static final int PROVIDER_EXTERNAL = 2;
     public static final int PROVIDER_SYSTEM = 1;
     public static final int PROVIDER_UNKNOWN = 0;
+    public static final int RESULT_TYPE_CHIP = 3;
+    public static final int RESULT_TYPE_KEYWORD = 2;
+    public static final int RESULT_TYPE_NOT_SEARCHING = 1;
+    public static final int RESULT_TYPE_SEMANTIC = 4;
+    public static final int RESULT_TYPE_UNKNOWN = 0;
     public static final int ROOT_AUDIO = 3;
     public static final int ROOT_DEVICE_STORAGE = 4;
     public static final int ROOT_DOCUMENTS = 12;

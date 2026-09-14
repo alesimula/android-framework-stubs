@@ -28,37 +28,6 @@ public interface IContextHubService extends android.os.IInterface {
     public void unloadNanoAppFromHub(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException;
     public void unregisterEndpointDiscoveryCallback(android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.location.IContextHubService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.location.IContextHubClient createClient(int p0, android.hardware.location.IContextHubClientCallback p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-        public android.hardware.location.IContextHubClient createPendingIntentClient(int p0, android.app.PendingIntent p1, long p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-        public void disableNanoApp(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
-        public void enableNanoApp(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
-        public java.util.List<android.hardware.contexthub.HubEndpointInfo> findEndpoints(long p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.contexthub.HubEndpointInfo> findEndpointsWithService(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public int[] findNanoAppOnHub(int p0, android.hardware.location.NanoAppFilter p1) throws android.os.RemoteException { return null; }
-        public int[] getContextHubHandles() throws android.os.RemoteException { return null; }
-        public android.hardware.location.ContextHubInfo getContextHubInfo(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.location.ContextHubInfo> getContextHubs() throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.location.HubInfo> getHubs() throws android.os.RemoteException { return null; }
-        public android.hardware.location.NanoAppInstanceInfo getNanoAppInstanceInfo(int p0) throws android.os.RemoteException { return null; }
-        public long[] getPreloadedNanoAppIds(android.hardware.location.ContextHubInfo p0) throws android.os.RemoteException { return null; }
-        public int loadNanoApp(int p0, android.hardware.location.NanoApp p1) throws android.os.RemoteException { return 0; }
-        public void loadNanoAppOnHub(int p0, android.hardware.location.IContextHubTransactionCallback p1, android.hardware.location.NanoAppBinary p2) throws android.os.RemoteException {}
-        public void onDiscoveryCallbackFinished() throws android.os.RemoteException {}
-        public void queryNanoApps(int p0, android.hardware.location.IContextHubTransactionCallback p1) throws android.os.RemoteException {}
-        public int registerCallback(android.hardware.location.IContextHubCallback p0) throws android.os.RemoteException { return 0; }
-        public android.hardware.contexthub.IContextHubEndpoint registerEndpoint(android.hardware.contexthub.HubEndpointInfo p0, android.hardware.contexthub.IContextHubEndpointCallback p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-        public void registerEndpointDiscoveryCallbackDescriptor(java.lang.String p0, android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p1) throws android.os.RemoteException {}
-        public void registerEndpointDiscoveryCallbackId(long p0, android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p1) throws android.os.RemoteException {}
-        public int sendMessage(int p0, int p1, android.hardware.location.ContextHubMessage p2) throws android.os.RemoteException { return 0; }
-        public boolean setTestMode(boolean p0) throws android.os.RemoteException { return false; }
-        public int unloadNanoApp(int p0) throws android.os.RemoteException { return 0; }
-        public void unloadNanoAppFromHub(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
-        public void unregisterEndpointDiscoveryCallback(android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.location.IContextHubService {
         public static final java.lang.String DESCRIPTOR = "android.hardware.location.IContextHubService";
         static final int TRANSACTION_createClient = 9;
@@ -155,5 +124,36 @@ public interface IContextHubService extends android.os.IInterface {
             public void unloadNanoAppFromHub(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
             public void unregisterEndpointDiscoveryCallback(android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.location.IContextHubService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.location.IContextHubClient createClient(int p0, android.hardware.location.IContextHubClientCallback p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
+        public android.hardware.location.IContextHubClient createPendingIntentClient(int p0, android.app.PendingIntent p1, long p2, java.lang.String p3) throws android.os.RemoteException { return null; }
+        public void disableNanoApp(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
+        public void enableNanoApp(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
+        public java.util.List<android.hardware.contexthub.HubEndpointInfo> findEndpoints(long p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.contexthub.HubEndpointInfo> findEndpointsWithService(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public int[] findNanoAppOnHub(int p0, android.hardware.location.NanoAppFilter p1) throws android.os.RemoteException { return null; }
+        public int[] getContextHubHandles() throws android.os.RemoteException { return null; }
+        public android.hardware.location.ContextHubInfo getContextHubInfo(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.location.ContextHubInfo> getContextHubs() throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.location.HubInfo> getHubs() throws android.os.RemoteException { return null; }
+        public android.hardware.location.NanoAppInstanceInfo getNanoAppInstanceInfo(int p0) throws android.os.RemoteException { return null; }
+        public long[] getPreloadedNanoAppIds(android.hardware.location.ContextHubInfo p0) throws android.os.RemoteException { return null; }
+        public int loadNanoApp(int p0, android.hardware.location.NanoApp p1) throws android.os.RemoteException { return 0; }
+        public void loadNanoAppOnHub(int p0, android.hardware.location.IContextHubTransactionCallback p1, android.hardware.location.NanoAppBinary p2) throws android.os.RemoteException {}
+        public void onDiscoveryCallbackFinished() throws android.os.RemoteException {}
+        public void queryNanoApps(int p0, android.hardware.location.IContextHubTransactionCallback p1) throws android.os.RemoteException {}
+        public int registerCallback(android.hardware.location.IContextHubCallback p0) throws android.os.RemoteException { return 0; }
+        public android.hardware.contexthub.IContextHubEndpoint registerEndpoint(android.hardware.contexthub.HubEndpointInfo p0, android.hardware.contexthub.IContextHubEndpointCallback p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
+        public void registerEndpointDiscoveryCallbackDescriptor(java.lang.String p0, android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p1) throws android.os.RemoteException {}
+        public void registerEndpointDiscoveryCallbackId(long p0, android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p1) throws android.os.RemoteException {}
+        public int sendMessage(int p0, int p1, android.hardware.location.ContextHubMessage p2) throws android.os.RemoteException { return 0; }
+        public boolean setTestMode(boolean p0) throws android.os.RemoteException { return false; }
+        public int unloadNanoApp(int p0) throws android.os.RemoteException { return 0; }
+        public void unloadNanoAppFromHub(int p0, android.hardware.location.IContextHubTransactionCallback p1, long p2) throws android.os.RemoteException {}
+        public void unregisterEndpointDiscoveryCallback(android.hardware.contexthub.IContextHubEndpointDiscoveryCallback p0) throws android.os.RemoteException {}
     }
 }

@@ -15,12 +15,14 @@ public abstract class ConfigurationChangeSetting implements android.os.Parcelabl
         public android.window.ConfigurationChangeSetting createImplFromParcel(int p0, android.os.Parcel p1);
     }
 
-    public static class CreatorImpl implements android.os.Parcelable.Creator<android.window.ConfigurationChangeSetting> {
-        private final boolean mIsSystem = false;
-        private CreatorImpl() {}
-        public CreatorImpl(boolean p0) {}
-        public android.window.ConfigurationChangeSetting createFromParcel(android.os.Parcel p0) { return null; }
-        public android.window.ConfigurationChangeSetting[] newArray(int p0) { return null; }
+    public static class FontScaleSetting extends android.window.ConfigurationChangeSetting {
+        public static final android.os.Parcelable.Creator<android.window.ConfigurationChangeSetting.FontScaleSetting> CREATOR = null;
+        protected final float mFontScaleFactor = 0.0f;
+        public FontScaleSetting(float p0) { super(0); }
+        protected FontScaleSetting(android.os.Parcel p0) { super(0); }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static class DensitySetting extends android.window.ConfigurationChangeSetting {
@@ -34,14 +36,12 @@ public abstract class ConfigurationChangeSetting implements android.os.Parcelabl
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class FontScaleSetting extends android.window.ConfigurationChangeSetting {
-        public static final android.os.Parcelable.Creator<android.window.ConfigurationChangeSetting.FontScaleSetting> CREATOR = null;
-        protected final float mFontScaleFactor = 0.0f;
-        public FontScaleSetting(float p0) { super(0); }
-        protected FontScaleSetting(android.os.Parcel p0) { super(0); }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public static class CreatorImpl implements android.os.Parcelable.Creator<android.window.ConfigurationChangeSetting> {
+        private final boolean mIsSystem = false;
+        private CreatorImpl() {}
+        public CreatorImpl(boolean p0) {}
+        public android.window.ConfigurationChangeSetting createFromParcel(android.os.Parcel p0) { return null; }
+        public android.window.ConfigurationChangeSetting[] newArray(int p0) { return null; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

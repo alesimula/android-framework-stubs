@@ -1,8 +1,8 @@
 package com.android.internal.view.menu;
 
 final class StandardMenuPopup extends com.android.internal.view.menu.MenuPopup implements android.widget.PopupWindow.OnDismissListener, android.widget.AdapterView.OnItemClickListener, com.android.internal.view.menu.MenuPresenter, android.view.View.OnKeyListener {
-    private static final int ITEM_LAYOUT = 17367288;
-    private static final int ITEM_LAYOUT_MATERIAL = 17367289;
+    private static final int ITEM_LAYOUT = 17367290;
+    private static final int ITEM_LAYOUT_MATERIAL = 17367291;
     private final com.android.internal.view.menu.MenuAdapter mAdapter = null;
     private android.view.View mAnchorView;
     private final android.view.View.OnAttachStateChangeListener mAttachStateChangeListener = null;

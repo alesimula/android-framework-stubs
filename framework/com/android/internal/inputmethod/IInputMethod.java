@@ -48,32 +48,6 @@ public interface IInputMethod extends android.os.IInterface {
         public void updateEditorToolType(int p0) throws android.os.RemoteException {}
     }
 
-    public static class InitParams implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<com.android.internal.inputmethod.IInputMethod.InitParams> CREATOR = null;
-        public int navigationBarFlags;
-        public com.android.internal.inputmethod.IInputMethodPrivilegedOperations privilegedOperations;
-        public android.os.IBinder token;
-        public InitParams() {}
-        public int describeContents() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class StartInputParams implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<com.android.internal.inputmethod.IInputMethod.StartInputParams> CREATOR = null;
-        public android.view.inputmethod.EditorInfo editorInfo;
-        public android.os.ResultReceiver imeBackCallbackReceiver;
-        public int navigationBarFlags;
-        public com.android.internal.inputmethod.IRemoteInputConnection remoteInputConnection;
-        public boolean restarting;
-        public android.os.IBinder startInputToken;
-        public StartInputParams() {}
-        private int describeContents(java.lang.Object p0) { return 0; }
-        public int describeContents() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IInputMethod {
         static final int TRANSACTION_bindInput = 3;
         static final int TRANSACTION_canStartStylusHandwriting = 13;
@@ -128,5 +102,31 @@ public interface IInputMethod extends android.os.IInterface {
             public void unbindInput() throws android.os.RemoteException {}
             public void updateEditorToolType(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class StartInputParams implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<com.android.internal.inputmethod.IInputMethod.StartInputParams> CREATOR = null;
+        public android.view.inputmethod.EditorInfo editorInfo;
+        public android.os.ResultReceiver imeBackCallbackReceiver;
+        public int navigationBarFlags;
+        public com.android.internal.inputmethod.IRemoteInputConnection remoteInputConnection;
+        public boolean restarting;
+        public android.os.IBinder startInputToken;
+        public StartInputParams() {}
+        private int describeContents(java.lang.Object p0) { return 0; }
+        public int describeContents() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class InitParams implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<com.android.internal.inputmethod.IInputMethod.InitParams> CREATOR = null;
+        public int navigationBarFlags;
+        public com.android.internal.inputmethod.IInputMethodPrivilegedOperations privilegedOperations;
+        public android.os.IBinder token;
+        public InitParams() {}
+        public int describeContents() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

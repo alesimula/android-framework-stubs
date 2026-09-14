@@ -273,7 +273,7 @@ public final class NotificationRule implements android.os.Parcelable {
         private java.util.List<java.lang.String> getIncludedPackagesWithoutUids() { return null; }
         private java.util.List<java.lang.Integer> getRestoredUnknownUsers() { return null; }
         public static android.app.NotificationRule.Filter readXml(com.android.modules.utils.TypedXmlPullParser p0, boolean p1, int p2, long p3, android.content.Context p4) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
-        private static java.lang.String unrestoredPackageDescriptor(java.lang.String p0, int p1) { return null; }
+        public static java.lang.String unrestoredPackageDescriptor(java.lang.String p0, int p1) { return null; }
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
         public java.util.List<java.lang.Integer> getAppStoreCategories() { return null; }
@@ -290,6 +290,8 @@ public final class NotificationRule implements android.os.Parcelable {
         public java.util.List<java.lang.Integer> getStaticBundleTypes() { return null; }
         public java.util.List<android.os.UserHandle> getUsers() { return null; }
         public int hashCode() { return 0; }
+        public boolean maybeRestorePackageInfo(java.lang.String p0, int p1, int p2, android.content.Context p3) { return false; }
+        public boolean maybeRestoreUserInfo(int p0, int p1, android.content.Context p2) { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
         public void writeXml(com.android.modules.utils.TypedXmlSerializer p0, boolean p1, int p2, android.content.Context p3) throws java.io.IOException {}
@@ -318,7 +320,6 @@ public final class NotificationRule implements android.os.Parcelable {
             final java.util.List<android.os.UserHandle> mUsers = null;
             public Builder() {}
             public Builder(android.app.NotificationRule.Filter p0) {}
-            private android.app.NotificationRule.Filter.Builder addIncludedPackageWithoutUid(java.lang.String p0) { return null; }
             private android.app.NotificationRule.Filter.Builder maybeClearRestoredDataFields(long p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addAppStoreCategory(int p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addCategory(java.lang.String p0) { return null; }
@@ -326,6 +327,7 @@ public final class NotificationRule implements android.os.Parcelable {
             public android.app.NotificationRule.Filter.Builder addExcludedPackageUid(int p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addExcludedPackageWithoutUid(java.lang.String p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addIncludedPackageUid(int p0) { return null; }
+            public android.app.NotificationRule.Filter.Builder addIncludedPackageWithoutUid(java.lang.String p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addKeyword(java.lang.String p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addRestoredUnknownUser(int p0) { return null; }
             public android.app.NotificationRule.Filter.Builder addShortcutId(android.app.NotificationRule.PerUserPackageIdentifier p0) { return null; }

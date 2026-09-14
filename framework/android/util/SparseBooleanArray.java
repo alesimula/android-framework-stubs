@@ -9,6 +9,7 @@ public class SparseBooleanArray implements java.lang.Cloneable {
     public void append(int p0, boolean p1) {}
     public void clear() {}
     public android.util.SparseBooleanArray clone() { return null; }
+    public boolean compute(int p0, java.util.function.IntBinaryOperator p1) { return false; }
     public void delete(int p0) {}
     public boolean equals(java.lang.Object p0) { return false; }
     public boolean get(int p0) { return false; }

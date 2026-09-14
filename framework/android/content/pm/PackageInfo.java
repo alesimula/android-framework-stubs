@@ -10,8 +10,9 @@ public class PackageInfo implements android.os.Parcelable {
     public static final int REQUESTED_PERMISSION_IMPLICIT = 4;
     public static final int REQUESTED_PERMISSION_NEVER_FOR_LOCATION = 65536;
     public static final int REQUESTED_PERMISSION_ONLY_FOR_LOCATION_BUTTON = 131072;
+    public static final int REQUESTED_PERMISSION_PRIVATE_COMPUTE_CORE_ONLY = 262144;
     public static final int REQUESTED_PERMISSION_REQUIRED = 1;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "PackageInfo";
     public android.content.pm.ActivityInfo[] activities;
     public android.content.pm.ApplicationInfo applicationInfo;
     public android.content.pm.Attribution[] attributions;

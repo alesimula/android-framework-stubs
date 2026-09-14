@@ -33,13 +33,13 @@ public final class ViewStub extends android.view.View {
     public void setVisibility(int p0) {}
     public java.lang.Runnable setVisibilityAsync(int p0) { return null; }
 
-    public static interface OnInflateListener {
-        public void onInflate(android.view.ViewStub p0, android.view.View p1);
-    }
-
     public class ViewReplaceRunnable implements java.lang.Runnable {
         public final android.view.View view = null;
         ViewReplaceRunnable(android.view.ViewStub p0, android.view.View p1) {}
         public void run() {}
+    }
+
+    public static interface OnInflateListener {
+        public void onInflate(android.view.ViewStub p0, android.view.View p1);
     }
 }

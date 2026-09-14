@@ -12,11 +12,10 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
     private static boolean sIsHevcDecoderSupported;
     private static boolean sIsHevcDecoderSupportedInitialized;
     private static final java.lang.Object sIsHevcDecoderSupportedLock = null;
-    private static boolean sIsP010SupportedFlagsInitialized;
-    private static boolean sIsP010SupportedForAV1;
-    private static boolean sIsP010SupportedForHEVC;
-    private static final java.lang.Object sIsP010SupportedLock = null;
     private static final java.lang.Object sListenerLock = null;
+    private static boolean sSandboxEnabled;
+    private static final java.lang.Object sSandboxLock = null;
+    private static android.graphics.IImageDecoderService sSandboxService;
     private long mAllocationLimit;
     private int mAllocator;
     private final boolean mAnimated = false;
@@ -47,10 +46,10 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
     private ImageDecoder(long p0, int p1, int p2, boolean p3, boolean p4, java.lang.String p5, android.graphics.ColorSpace p6, android.graphics.Rect p7) {}
     private void callHeaderDecoded(android.graphics.ImageDecoder.OnHeaderDecodedListener p0, android.graphics.ImageDecoder.Source p1) {}
     private boolean checkForExtended() { return false; }
-    private static void checkP010SupportforAV1HEVC() {}
     private void checkState(boolean p0) {}
     private static void checkSubset(int p0, int p1, android.graphics.Rect p2) {}
     private int computeDensity(android.graphics.ImageDecoder.Source p0) { return 0; }
+    public static void crashSandbox() throws java.io.IOException {}
     private static android.graphics.ImageDecoder createFromAsset(android.content.res.AssetManager.AssetInputStream p0, boolean p1, android.graphics.ImageDecoder.Source p2) throws java.io.IOException { return null; }
     private static android.graphics.ImageDecoder createFromAssetFileDescriptor(android.content.res.AssetFileDescriptor p0, boolean p1, android.graphics.ImageDecoder.Source p2) throws java.io.IOException { return null; }
     private static android.graphics.ImageDecoder createFromFile(java.io.File p0, boolean p1, android.graphics.ImageDecoder.Source p2) throws java.io.IOException { return null; }
@@ -75,17 +74,20 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
     private static android.graphics.drawable.Drawable decodeDrawableImpl(android.graphics.ImageDecoder.Source p0, android.graphics.ImageDecoder.OnHeaderDecodedListener p1) throws java.io.IOException { return null; }
     public static android.graphics.ImageDecoder.ImageInfo decodeHeader(android.graphics.ImageDecoder.Source p0) throws java.io.IOException { return null; }
     private static java.lang.String describeDecoderForTrace(android.graphics.ImageDecoder p0) { return null; }
+    private static void disableSandboxing() {}
+    private static void enableSandboxing() throws java.io.IOException {}
     private android.graphics.ColorSpace getColorSpace() { return null; }
     private long getColorSpacePtr() { return 0L; }
     public static android.graphics.ImageDecoder.OnHeaderDecodedListener getDefaultProcessListener() { return null; }
     public static android.graphics.ImageDecoder.OnHeaderDecodedListener getDefaultThreadListener() { return null; }
     private java.lang.String getMimeType() { return null; }
     private android.util.Size getSampledSize(int p0) { return null; }
+    private static android.graphics.IImageDecoderService getSandboxServiceOrWait() throws java.io.IOException { return null; }
     private int getTargetDimension(int p0, int p1, int p2) { return 0; }
     private static boolean isHevcDecoderSupported() { return false; }
     public static boolean isMimeTypeSupported(java.lang.String p0) { return false; }
     private static boolean isP010SupportedForAV1() { return false; }
-    private static boolean isP010SupportedForHEVC() { return false; }
+    public static boolean isSandboxEnabled() { return false; }
     private static native void nClose(long p0);
     private static native android.graphics.ImageDecoder nCreate(long p0, boolean p1, android.graphics.ImageDecoder.Source p2) throws java.io.IOException;
     private static native android.graphics.ImageDecoder nCreate(java.io.FileDescriptor p0, long p1, boolean p2, android.graphics.ImageDecoder.Source p3) throws java.io.IOException;
@@ -94,11 +96,14 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
     private static native android.graphics.ImageDecoder nCreate(byte[] p0, int p1, int p2, boolean p3, android.graphics.ImageDecoder.Source p4) throws java.io.IOException;
     private static native android.graphics.Bitmap nDecodeBitmap(long p0, android.graphics.ImageDecoder p1, int p2, int p3, android.graphics.Rect p4, int p5, int p6, long p7, long p8) throws java.io.IOException;
     private static native android.util.Size nGetSampledSize(long p0, int p1);
+    private static native boolean nIsP010SupportedForAV1();
     private void onPartialImage(int p0, java.lang.Throwable p1) throws android.graphics.ImageDecoder.DecodeException {}
+    public static void pingSandbox() throws java.io.IOException {}
     private int postProcessAndRelease(android.graphics.Canvas p0) { return 0; }
     private boolean requestedResize() { return false; }
     public static void setDefaultProcessListener(android.graphics.ImageDecoder.OnHeaderDecodedListener p0) {}
     public static void setDefaultThreadListener(android.graphics.ImageDecoder.OnHeaderDecodedListener p0) {}
+    public static void setSandboxEnabled(boolean p0) throws java.io.IOException {}
     private static java.lang.AutoCloseable traceDecoderSource(android.graphics.ImageDecoder p0) { return null; }
     public void close() {}
     protected void finalize() throws java.lang.Throwable {}
@@ -125,26 +130,34 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
     public void setTargetSize(int p0, int p1) {}
     public void setUnpremultipliedRequired(boolean p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Allocator {
+    public static abstract class Source {
+        private Source() {}
+        final int computeDstDensity() { return 0; }
+        abstract android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException;
+        int getDensity() { return 0; }
+        android.content.res.Resources getResources() { return null; }
     }
 
-    public static class AssetInputStreamSource extends android.graphics.ImageDecoder.Source {
-        private android.content.res.AssetManager.AssetInputStream mAssetInputStream;
-        private final int mDensity = 0;
-        private final android.content.res.Resources mResources = null;
-        public AssetInputStreamSource(android.content.res.AssetManager.AssetInputStream p0, android.content.res.Resources p1, android.util.TypedValue p2) { super(); }
+    private static class InputStreamSource extends android.graphics.ImageDecoder.Source {
+        final int mInputDensity = 0;
+        java.io.InputStream mInputStream;
+        final android.content.res.Resources mResources = null;
+        InputStreamSource(android.content.res.Resources p0, java.io.InputStream p1, int p2) { super(); }
         public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
         public int getDensity() { return 0; }
         public android.content.res.Resources getResources() { return null; }
         public java.lang.String toString() { return null; }
     }
 
-    private static class AssetSource extends android.graphics.ImageDecoder.Source {
-        private final android.content.res.AssetManager mAssets = null;
-        private final java.lang.String mFileName = null;
-        AssetSource(android.content.res.AssetManager p0, java.lang.String p1) { super(); }
+    private static class ResourceSource extends android.graphics.ImageDecoder.Source {
+        private java.lang.Object mLock;
+        int mResDensity;
+        final int mResId = 0;
+        final android.content.res.Resources mResources = null;
+        ResourceSource(android.content.res.Resources p0, int p1) { super(); }
         public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
+        public int getDensity() { return 0; }
+        public android.content.res.Resources getResources() { return null; }
         public java.lang.String toString() { return null; }
     }
 
@@ -157,17 +170,28 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
         public java.lang.String toString() { return null; }
     }
 
-    private static class ByteBufferSource extends android.graphics.ImageDecoder.Source {
-        private final java.nio.ByteBuffer mBuffer = null;
-        private final int mLength = 0;
-        ByteBufferSource(java.nio.ByteBuffer p0) { super(); }
-        public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MemoryPolicy {
     }
 
     private static class CallableSource extends android.graphics.ImageDecoder.Source {
         private final java.util.concurrent.Callable<android.content.res.AssetFileDescriptor> mCallable = null;
         CallableSource(java.util.concurrent.Callable<android.content.res.AssetFileDescriptor> p0) { super(); }
+        public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
+    private static class FileSource extends android.graphics.ImageDecoder.Source {
+        private final java.io.File mFile = null;
+        FileSource(java.io.File p0) { super(); }
+        public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
+    private static class ByteBufferSource extends android.graphics.ImageDecoder.Source {
+        private final java.nio.ByteBuffer mBuffer = null;
+        private final int mLength = 0;
+        ByteBufferSource(java.nio.ByteBuffer p0) { super(); }
         public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
         public java.lang.String toString() { return null; }
     }
@@ -180,6 +204,17 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
         public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
         android.content.res.Resources getResources() { return null; }
         public java.lang.String toString() { return null; }
+    }
+
+    private static class DecodeOptions {
+        public static final int ALPHA_MASK = 1;
+        public static final int EXTENDED = 2;
+        public static final int HAS_POST_PROCESS = 8;
+        public static final int MUTABLE_REQUIRED = 16;
+        public static final int NONE = 0;
+        public static final int PREFER_RAM_OVER_QUALITY = 4;
+        public static final int UNPREMULTIPLIED_REQUIRED = 32;
+        private DecodeOptions() {}
     }
 
     public static final class DecodeException extends java.io.IOException {
@@ -200,22 +235,26 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
         }
     }
 
-    private static class DecodeOptions {
-        public static final int ALPHA_MASK = 1;
-        public static final int EXTENDED = 2;
-        public static final int HAS_POST_PROCESS = 8;
-        public static final int MUTABLE_REQUIRED = 32;
-        public static final int NONE = 0;
-        public static final int P10_SUPPORTED = 16;
-        public static final int PREFER_RAM_OVER_QUALITY = 4;
-        public static final int UNPREMULTIPLIED_REQUIRED = 64;
-        private DecodeOptions() {}
+    private static class AssetSource extends android.graphics.ImageDecoder.Source {
+        private final android.content.res.AssetManager mAssets = null;
+        private final java.lang.String mFileName = null;
+        AssetSource(android.content.res.AssetManager p0, java.lang.String p1) { super(); }
+        public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
+        public java.lang.String toString() { return null; }
     }
 
-    private static class FileSource extends android.graphics.ImageDecoder.Source {
-        private final java.io.File mFile = null;
-        FileSource(java.io.File p0) { super(); }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Allocator {
+    }
+
+    public static class AssetInputStreamSource extends android.graphics.ImageDecoder.Source {
+        private android.content.res.AssetManager.AssetInputStream mAssetInputStream;
+        private final int mDensity = 0;
+        private final android.content.res.Resources mResources = null;
+        public AssetInputStreamSource(android.content.res.AssetManager.AssetInputStream p0, android.content.res.Resources p1, android.util.TypedValue p2) { super(); }
         public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
+        public int getDensity() { return 0; }
+        public android.content.res.Resources getResources() { return null; }
         public java.lang.String toString() { return null; }
     }
 
@@ -223,6 +262,10 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
         private final boolean mResourceTracingEnabled = false;
         ImageDecoderSourceTrace(android.graphics.ImageDecoder p0) {}
         public void close() {}
+    }
+
+    public static interface OnHeaderDecodedListener {
+        public void onHeaderDecoded(android.graphics.ImageDecoder p0, android.graphics.ImageDecoder.ImageInfo p1, android.graphics.ImageDecoder.Source p2);
     }
 
     public static class ImageInfo {
@@ -237,46 +280,7 @@ public final class ImageDecoder implements java.lang.AutoCloseable {
         public boolean isAnimated() { return false; }
     }
 
-    private static class InputStreamSource extends android.graphics.ImageDecoder.Source {
-        final int mInputDensity = 0;
-        java.io.InputStream mInputStream;
-        final android.content.res.Resources mResources = null;
-        InputStreamSource(android.content.res.Resources p0, java.io.InputStream p1, int p2) { super(); }
-        public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
-        public int getDensity() { return 0; }
-        public android.content.res.Resources getResources() { return null; }
-        public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MemoryPolicy {
-    }
-
-    public static interface OnHeaderDecodedListener {
-        public void onHeaderDecoded(android.graphics.ImageDecoder p0, android.graphics.ImageDecoder.ImageInfo p1, android.graphics.ImageDecoder.Source p2);
-    }
-
     public static interface OnPartialImageListener {
         public boolean onPartialImage(android.graphics.ImageDecoder.DecodeException p0);
-    }
-
-    private static class ResourceSource extends android.graphics.ImageDecoder.Source {
-        private java.lang.Object mLock;
-        int mResDensity;
-        final int mResId = 0;
-        final android.content.res.Resources mResources = null;
-        ResourceSource(android.content.res.Resources p0, int p1) { super(); }
-        public android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException { return null; }
-        public int getDensity() { return 0; }
-        public android.content.res.Resources getResources() { return null; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static abstract class Source {
-        private Source() {}
-        final int computeDstDensity() { return 0; }
-        abstract android.graphics.ImageDecoder createImageDecoder(boolean p0) throws java.io.IOException;
-        int getDensity() { return 0; }
-        android.content.res.Resources getResources() { return null; }
     }
 }

@@ -8,6 +8,7 @@ public final class InsightSurfaceClientInfo implements android.os.Parcelable {
     private final android.service.personalcontext.embedded.IInsightSurfaceClient mClient = null;
     private final android.content.res.Configuration mConfiguration = null;
     private final int mDisplayId = 0;
+    private final android.os.Bundle mExtras = null;
     private final java.util.UUID mId = null;
     private final int mMeasureSpecHeight = 0;
     private final int mMeasureSpecWidth = 0;
@@ -17,13 +18,14 @@ public final class InsightSurfaceClientInfo implements android.os.Parcelable {
     private final boolean mShouldBlur = false;
     private final int mThemeResourceId = 0;
     private InsightSurfaceClientInfo(android.os.Parcel p0) {}
-    public InsightSurfaceClientInfo(java.util.UUID p0, int p1, int p2, int p3, android.graphics.Color p4, int p5, boolean p6, boolean p7, int p8, java.lang.String p9, android.content.res.Configuration p10, android.service.personalcontext.embedded.IInsightSurfaceClient p11) {}
+    public InsightSurfaceClientInfo(java.util.UUID p0, int p1, int p2, int p3, android.graphics.Color p4, int p5, boolean p6, boolean p7, int p8, java.lang.String p9, android.content.res.Configuration p10, android.os.Bundle p11, android.service.personalcontext.embedded.IInsightSurfaceClient p12) {}
     public android.service.personalcontext.embedded.InsightSurfaceClientInfo createInfoFromUpdate(android.service.personalcontext.embedded.InsightSurfaceClientUpdate p0) { return null; }
     public int describeContents() { return 0; }
     public android.graphics.Color getBackgroundColor() { return null; }
     public android.service.personalcontext.embedded.IInsightSurfaceClient getClient() { return null; }
     public android.content.res.Configuration getConfiguration() { return null; }
     public int getDisplayId() { return 0; }
+    public android.os.Bundle getExtras() { return null; }
     public java.util.UUID getId() { return null; }
     public int getMeasureSpecHeight() { return 0; }
     public int getMeasureSpecWidth() { return 0; }
@@ -33,6 +35,9 @@ public final class InsightSurfaceClientInfo implements android.os.Parcelable {
     public int getThemeResourceId() { return 0; }
     public void onReceiveInsight(android.service.personalcontext.insight.ContextInsight p0) {}
     public void onRegistered() {}
+    public void onScrollDelta(float p0, float p1) {}
+    public void onScrollStart(int p0) {}
+    public void onScrollStop(int p0, float p1, float p2) {}
     public void onSizeChanged(int p0, int p1) {}
     public void onSurfaceCreated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.service.personalcontext.embedded.IInsightSurfaceSession p1) {}
     public void onSurfaceReleased(android.view.SurfaceControlViewHost.SurfacePackage p0) {}

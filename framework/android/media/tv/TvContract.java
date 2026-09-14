@@ -88,8 +88,73 @@ public final class TvContract {
     private static boolean isTwoSegmentUriStartingWith(android.net.Uri p0, java.lang.String p1) { return false; }
     public static void requestChannelBrowsable(android.content.Context p0, long p1) {}
 
-    public static interface BaseTvColumns extends android.provider.BaseColumns {
-        public static final java.lang.String COLUMN_PACKAGE_NAME = "package_name";
+    static interface PreviewProgramColumns {
+        public static final int ASPECT_RATIO_16_9 = 0;
+        public static final int ASPECT_RATIO_1_1 = 3;
+        public static final int ASPECT_RATIO_2_3 = 4;
+        public static final int ASPECT_RATIO_3_2 = 1;
+        public static final int ASPECT_RATIO_4_3 = 2;
+        public static final int AVAILABILITY_AVAILABLE = 0;
+        public static final int AVAILABILITY_FREE_WITH_SUBSCRIPTION = 1;
+        public static final int AVAILABILITY_PAID_CONTENT = 2;
+        public static final java.lang.String COLUMN_AUTHOR = "author";
+        public static final java.lang.String COLUMN_AVAILABILITY = "availability";
+        public static final java.lang.String COLUMN_BROWSABLE = "browsable";
+        public static final java.lang.String COLUMN_CONTENT_ID = "content_id";
+        public static final java.lang.String COLUMN_DURATION_MILLIS = "duration_millis";
+        public static final java.lang.String COLUMN_END_TIME_UTC_MILLIS = "end_time_utc_millis";
+        public static final java.lang.String COLUMN_INTENT_URI = "intent_uri";
+        public static final java.lang.String COLUMN_INTERACTION_COUNT = "interaction_count";
+        public static final java.lang.String COLUMN_INTERACTION_TYPE = "interaction_type";
+        public static final java.lang.String COLUMN_INTERNAL_PROVIDER_ID = "internal_provider_id";
+        public static final java.lang.String COLUMN_ITEM_COUNT = "item_count";
+        public static final java.lang.String COLUMN_LAST_PLAYBACK_POSITION_MILLIS = "last_playback_position_millis";
+        public static final java.lang.String COLUMN_LIVE = "live";
+        public static final java.lang.String COLUMN_LOGO_URI = "logo_uri";
+        public static final java.lang.String COLUMN_OFFER_PRICE = "offer_price";
+        public static final java.lang.String COLUMN_POSTER_ART_ASPECT_RATIO = "poster_art_aspect_ratio";
+        public static final java.lang.String COLUMN_PREVIEW_VIDEO_URI = "preview_video_uri";
+        public static final java.lang.String COLUMN_RELEASE_DATE = "release_date";
+        public static final java.lang.String COLUMN_STARTING_PRICE = "starting_price";
+        public static final java.lang.String COLUMN_START_TIME_UTC_MILLIS = "start_time_utc_millis";
+        public static final java.lang.String COLUMN_THUMBNAIL_ASPECT_RATIO = "poster_thumbnail_aspect_ratio";
+        public static final java.lang.String COLUMN_TRANSIENT = "transient";
+        public static final java.lang.String COLUMN_TYPE = "type";
+        public static final int INTERACTION_TYPE_FANS = 3;
+        public static final int INTERACTION_TYPE_FOLLOWERS = 2;
+        public static final int INTERACTION_TYPE_LIKES = 4;
+        public static final int INTERACTION_TYPE_LISTENS = 1;
+        public static final int INTERACTION_TYPE_THUMBS = 5;
+        public static final int INTERACTION_TYPE_VIEWERS = 6;
+        public static final int INTERACTION_TYPE_VIEWS = 0;
+        public static final int TYPE_ALBUM = 8;
+        public static final int TYPE_ARTIST = 9;
+        public static final int TYPE_CHANNEL = 6;
+        public static final int TYPE_CLIP = 4;
+        public static final int TYPE_EVENT = 5;
+        public static final int TYPE_MOVIE = 0;
+        public static final int TYPE_PLAYLIST = 10;
+        public static final int TYPE_STATION = 11;
+        public static final int TYPE_TRACK = 7;
+        public static final int TYPE_TV_EPISODE = 3;
+        public static final int TYPE_TV_SEASON = 2;
+        public static final int TYPE_TV_SERIES = 1;
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Availability {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface InteractionType {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface AspectRatio {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Type {
+        }
     }
 
     public static final class Channels implements android.media.tv.TvContract.BaseTvColumns {
@@ -189,7 +254,7 @@ public final class TvContract {
         public static final java.lang.String getVideoResolution(java.lang.String p0) { return null; }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface BroadcastVisibilityType {
+        public static @interface VideoResolution {
         }
 
         public static final class Logo {
@@ -198,98 +263,20 @@ public final class TvContract {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ServiceType {
+        public static @interface Type {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Type {
+        public static @interface BroadcastVisibilityType {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface ServiceType {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface VideoFormat {
         }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface VideoResolution {
-        }
-    }
-
-    static interface PreviewProgramColumns {
-        public static final int ASPECT_RATIO_16_9 = 0;
-        public static final int ASPECT_RATIO_1_1 = 3;
-        public static final int ASPECT_RATIO_2_3 = 4;
-        public static final int ASPECT_RATIO_3_2 = 1;
-        public static final int ASPECT_RATIO_4_3 = 2;
-        public static final int AVAILABILITY_AVAILABLE = 0;
-        public static final int AVAILABILITY_FREE_WITH_SUBSCRIPTION = 1;
-        public static final int AVAILABILITY_PAID_CONTENT = 2;
-        public static final java.lang.String COLUMN_AUTHOR = "author";
-        public static final java.lang.String COLUMN_AVAILABILITY = "availability";
-        public static final java.lang.String COLUMN_BROWSABLE = "browsable";
-        public static final java.lang.String COLUMN_CONTENT_ID = "content_id";
-        public static final java.lang.String COLUMN_DURATION_MILLIS = "duration_millis";
-        public static final java.lang.String COLUMN_END_TIME_UTC_MILLIS = "end_time_utc_millis";
-        public static final java.lang.String COLUMN_INTENT_URI = "intent_uri";
-        public static final java.lang.String COLUMN_INTERACTION_COUNT = "interaction_count";
-        public static final java.lang.String COLUMN_INTERACTION_TYPE = "interaction_type";
-        public static final java.lang.String COLUMN_INTERNAL_PROVIDER_ID = "internal_provider_id";
-        public static final java.lang.String COLUMN_ITEM_COUNT = "item_count";
-        public static final java.lang.String COLUMN_LAST_PLAYBACK_POSITION_MILLIS = "last_playback_position_millis";
-        public static final java.lang.String COLUMN_LIVE = "live";
-        public static final java.lang.String COLUMN_LOGO_URI = "logo_uri";
-        public static final java.lang.String COLUMN_OFFER_PRICE = "offer_price";
-        public static final java.lang.String COLUMN_POSTER_ART_ASPECT_RATIO = "poster_art_aspect_ratio";
-        public static final java.lang.String COLUMN_PREVIEW_VIDEO_URI = "preview_video_uri";
-        public static final java.lang.String COLUMN_RELEASE_DATE = "release_date";
-        public static final java.lang.String COLUMN_STARTING_PRICE = "starting_price";
-        public static final java.lang.String COLUMN_START_TIME_UTC_MILLIS = "start_time_utc_millis";
-        public static final java.lang.String COLUMN_THUMBNAIL_ASPECT_RATIO = "poster_thumbnail_aspect_ratio";
-        public static final java.lang.String COLUMN_TRANSIENT = "transient";
-        public static final java.lang.String COLUMN_TYPE = "type";
-        public static final int INTERACTION_TYPE_FANS = 3;
-        public static final int INTERACTION_TYPE_FOLLOWERS = 2;
-        public static final int INTERACTION_TYPE_LIKES = 4;
-        public static final int INTERACTION_TYPE_LISTENS = 1;
-        public static final int INTERACTION_TYPE_THUMBS = 5;
-        public static final int INTERACTION_TYPE_VIEWERS = 6;
-        public static final int INTERACTION_TYPE_VIEWS = 0;
-        public static final int TYPE_ALBUM = 8;
-        public static final int TYPE_ARTIST = 9;
-        public static final int TYPE_CHANNEL = 6;
-        public static final int TYPE_CLIP = 4;
-        public static final int TYPE_EVENT = 5;
-        public static final int TYPE_MOVIE = 0;
-        public static final int TYPE_PLAYLIST = 10;
-        public static final int TYPE_STATION = 11;
-        public static final int TYPE_TRACK = 7;
-        public static final int TYPE_TV_EPISODE = 3;
-        public static final int TYPE_TV_SEASON = 2;
-        public static final int TYPE_TV_SERIES = 1;
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface AspectRatio {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Availability {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface InteractionType {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Type {
-        }
-    }
-
-    public static final class PreviewPrograms implements android.media.tv.TvContract.BaseTvColumns, android.media.tv.TvContract.ProgramColumns, android.media.tv.TvContract.PreviewProgramColumns {
-        public static final java.lang.String COLUMN_CHANNEL_ID = "channel_id";
-        public static final java.lang.String COLUMN_WEIGHT = "weight";
-        public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/preview_program";
-        public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/preview_program";
-        public static final android.net.Uri CONTENT_URI = null;
-        private PreviewPrograms() {}
     }
 
     static interface ProgramColumns {
@@ -384,6 +371,15 @@ public final class TvContract {
         }
     }
 
+    public static final class PreviewPrograms implements android.media.tv.TvContract.BaseTvColumns, android.media.tv.TvContract.ProgramColumns, android.media.tv.TvContract.PreviewProgramColumns {
+        public static final java.lang.String COLUMN_CHANNEL_ID = "channel_id";
+        public static final java.lang.String COLUMN_WEIGHT = "weight";
+        public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/preview_program";
+        public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/preview_program";
+        public static final android.net.Uri CONTENT_URI = null;
+        private PreviewPrograms() {}
+    }
+
     public static final class RecordedPrograms implements android.media.tv.TvContract.BaseTvColumns, android.media.tv.TvContract.ProgramColumns {
         public static final java.lang.String COLUMN_BROADCAST_GENRE = "broadcast_genre";
         public static final java.lang.String COLUMN_CHANNEL_ID = "channel_id";
@@ -417,6 +413,10 @@ public final class TvContract {
         public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/watched_program";
         public static final android.net.Uri CONTENT_URI = null;
         private WatchedPrograms() {}
+    }
+
+    public static interface BaseTvColumns extends android.provider.BaseColumns {
+        public static final java.lang.String COLUMN_PACKAGE_NAME = "package_name";
     }
 
     public static final class WatchNextPrograms implements android.media.tv.TvContract.BaseTvColumns, android.media.tv.TvContract.ProgramColumns, android.media.tv.TvContract.PreviewProgramColumns {

@@ -17,14 +17,6 @@ public @interface InspectableProperty {
         public int value();
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
-    public static @interface FlagEntry {
-        public int mask() default 0;
-        public java.lang.String name();
-        public int target();
-    }
-
     public static enum ValueType {
         COLOR,
         GRAVITY,
@@ -35,5 +27,13 @@ public @interface InspectableProperty {
         RESOURCE_ID;
         private static final android.view.inspector.InspectableProperty.ValueType[] $VALUES = null;
         private ValueType() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
+    public static @interface FlagEntry {
+        public int mask() default 0;
+        public java.lang.String name();
+        public int target();
     }
 }

@@ -15,6 +15,7 @@ public class KeyguardManager {
     public static final java.lang.String EXTRA_REMOTE_LOCKSCREEN_VALIDATION_SESSION = "android.app.extra.REMOTE_LOCKSCREEN_VALIDATION_SESSION";
     public static final java.lang.String EXTRA_TITLE = "android.app.extra.TITLE";
     public static final java.lang.String LOCK_ON_USER_SWITCH_CALLBACK = "onSwitchCallback";
+    public static final java.lang.String LOCK_ON_USER_SWITCH_USER_ID = "onSwitchUserId";
     @android.annotation.SystemApi
     public static final int PASSWORD = 0;
     @android.annotation.SystemApi

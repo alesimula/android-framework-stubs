@@ -49,6 +49,25 @@ public interface IRadioResponse extends android.hardware.radio.V1_5.IRadioRespon
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
     public void updateSimPhonebookRecordsResponse(android.hardware.radio.V1_6.RadioResponseInfo p0, int p1) throws android.os.RemoteException;
 
+    public static abstract class Stub extends android.os.HwBinder implements android.hardware.radio.V1_6.IRadioResponse {
+        public Stub() { super(); }
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
+        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
+        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
+        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
+        public final java.lang.String interfaceDescriptor() { return null; }
+        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
+        public final void notifySyspropsChanged() {}
+        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
+        public final void ping() {}
+        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
+        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
+        public final void setHALInstrumentation() {}
+        public java.lang.String toString() { return null; }
+        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    }
+
     public static final class Proxy implements android.hardware.radio.V1_6.IRadioResponse {
         private android.os.IHwBinder mRemote;
         public Proxy(android.os.IHwBinder p0) {}
@@ -271,24 +290,5 @@ public interface IRadioResponse extends android.hardware.radio.V1_5.IRadioRespon
         public void updateSimPhonebookRecordsResponse(android.hardware.radio.V1_6.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
         public void writeSmsToRuimResponse(android.hardware.radio.V1_0.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
         public void writeSmsToSimResponse(android.hardware.radio.V1_0.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
-    }
-
-    public static abstract class Stub extends android.os.HwBinder implements android.hardware.radio.V1_6.IRadioResponse {
-        public Stub() { super(); }
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
-        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
-        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
-        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
-        public final java.lang.String interfaceDescriptor() { return null; }
-        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
-        public final void notifySyspropsChanged() {}
-        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
-        public final void ping() {}
-        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
-        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
-        public final void setHALInstrumentation() {}
-        public java.lang.String toString() { return null; }
-        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
     }
 }

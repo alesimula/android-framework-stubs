@@ -31,17 +31,17 @@ public class MbmsDownloadServiceBase extends android.telephony.mbms.vendor.IMbms
     public int resetDownloadKnowledge(android.telephony.mbms.DownloadRequest p0) throws android.os.RemoteException { return 0; }
     public int setTempFileRootDirectory(int p0, java.lang.String p1) throws android.os.RemoteException { return 0; }
 
-    private static abstract class VendorDownloadProgressListener extends android.telephony.mbms.DownloadProgressListener {
-        private final android.telephony.mbms.IDownloadProgressListener mListener = null;
-        public VendorDownloadProgressListener(android.telephony.mbms.IDownloadProgressListener p0) { super(); }
-        public void onProgressUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2, int p3, int p4, int p5) {}
-        protected abstract void onRemoteException(android.os.RemoteException p0);
-    }
-
     private static abstract class VendorDownloadStatusListener extends android.telephony.mbms.DownloadStatusListener {
         private final android.telephony.mbms.IDownloadStatusListener mListener = null;
         public VendorDownloadStatusListener(android.telephony.mbms.IDownloadStatusListener p0) { super(); }
         protected abstract void onRemoteException(android.os.RemoteException p0);
         public void onStatusUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2) {}
+    }
+
+    private static abstract class VendorDownloadProgressListener extends android.telephony.mbms.DownloadProgressListener {
+        private final android.telephony.mbms.IDownloadProgressListener mListener = null;
+        public VendorDownloadProgressListener(android.telephony.mbms.IDownloadProgressListener p0) { super(); }
+        public void onProgressUpdated(android.telephony.mbms.DownloadRequest p0, android.telephony.mbms.FileInfo p1, int p2, int p3, int p4, int p5) {}
+        protected abstract void onRemoteException(android.os.RemoteException p0);
     }
 }

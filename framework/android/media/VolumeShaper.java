@@ -13,6 +13,68 @@ public final class VolumeShaper implements java.lang.AutoCloseable {
     public float getVolume() { return 0.0f; }
     public void replace(android.media.VolumeShaper.Configuration p0, android.media.VolumeShaper.Operation p1, boolean p2) {}
 
+    public static final class State implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.VolumeShaper.State> CREATOR = null;
+        private float mVolume;
+        private float mXOffset;
+        State(float p0, float p1) {}
+        public static android.media.VolumeShaper.State fromParcelable(android.media.VolumeShaperState p0) { return null; }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public float getVolume() { return 0.0f; }
+        public float getXOffset() { return 0.0f; }
+        public int hashCode() { return 0; }
+        public android.media.VolumeShaperState toParcelable() { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class Operation implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.VolumeShaper.Operation> CREATOR = null;
+        private static final int FLAG_CREATE_IF_NEEDED = 16;
+        private static final int FLAG_DEFER = 8;
+        private static final int FLAG_JOIN = 4;
+        private static final int FLAG_NONE = 0;
+        private static final int FLAG_PUBLIC_ALL = 3;
+        private static final int FLAG_REVERSE = 1;
+        private static final int FLAG_TERMINATE = 2;
+        public static final android.media.VolumeShaper.Operation PLAY = null;
+        public static final android.media.VolumeShaper.Operation REVERSE = null;
+        private final int mFlags = 0;
+        private final int mReplaceId = 0;
+        private final float mXOffset = 0.0f;
+        private Operation(int p0, int p1, float p2) {}
+        private static int flagsFromAidl(int p0) { return 0; }
+        private static int flagsToAidl(int p0) { return 0; }
+        public static android.media.VolumeShaper.Operation fromParcelable(android.media.VolumeShaperOperation p0) { return null; }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public android.media.VolumeShaperOperation toParcelable() { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        public static final class Builder {
+            int mFlags;
+            int mReplaceId;
+            float mXOffset;
+            public Builder() {}
+            public Builder(android.media.VolumeShaper.Operation p0) {}
+            private android.media.VolumeShaper.Operation.Builder setFlags(int p0) { return null; }
+            public android.media.VolumeShaper.Operation build() { return null; }
+            public android.media.VolumeShaper.Operation.Builder createIfNeeded() { return null; }
+            public android.media.VolumeShaper.Operation.Builder defer() { return null; }
+            public android.media.VolumeShaper.Operation.Builder replace(int p0, boolean p1) { return null; }
+            public android.media.VolumeShaper.Operation.Builder reverse() { return null; }
+            public android.media.VolumeShaper.Operation.Builder setXOffset(float p0) { return null; }
+            public android.media.VolumeShaper.Operation.Builder terminate() { return null; }
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Flag {
+        }
+    }
+
     public static final class Configuration implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.VolumeShaper.Configuration> CREATOR = null;
         public static final android.media.VolumeShaper.Configuration CUBIC_RAMP = null;
@@ -66,6 +128,14 @@ public final class VolumeShaper implements java.lang.AutoCloseable {
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Type {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface InterpolatorType {
+        }
+
         public static final class Builder {
             private double mDurationMs;
             private int mId;
@@ -89,77 +159,7 @@ public final class VolumeShaper implements java.lang.AutoCloseable {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface InterpolatorType {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface OptionFlag {
         }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Type {
-        }
-    }
-
-    public static final class Operation implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.VolumeShaper.Operation> CREATOR = null;
-        private static final int FLAG_CREATE_IF_NEEDED = 16;
-        private static final int FLAG_DEFER = 8;
-        private static final int FLAG_JOIN = 4;
-        private static final int FLAG_NONE = 0;
-        private static final int FLAG_PUBLIC_ALL = 3;
-        private static final int FLAG_REVERSE = 1;
-        private static final int FLAG_TERMINATE = 2;
-        public static final android.media.VolumeShaper.Operation PLAY = null;
-        public static final android.media.VolumeShaper.Operation REVERSE = null;
-        private final int mFlags = 0;
-        private final int mReplaceId = 0;
-        private final float mXOffset = 0.0f;
-        private Operation(int p0, int p1, float p2) {}
-        private static int flagsFromAidl(int p0) { return 0; }
-        private static int flagsToAidl(int p0) { return 0; }
-        public static android.media.VolumeShaper.Operation fromParcelable(android.media.VolumeShaperOperation p0) { return null; }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public android.media.VolumeShaperOperation toParcelable() { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        public static final class Builder {
-            int mFlags;
-            int mReplaceId;
-            float mXOffset;
-            public Builder() {}
-            public Builder(android.media.VolumeShaper.Operation p0) {}
-            private android.media.VolumeShaper.Operation.Builder setFlags(int p0) { return null; }
-            public android.media.VolumeShaper.Operation build() { return null; }
-            public android.media.VolumeShaper.Operation.Builder createIfNeeded() { return null; }
-            public android.media.VolumeShaper.Operation.Builder defer() { return null; }
-            public android.media.VolumeShaper.Operation.Builder replace(int p0, boolean p1) { return null; }
-            public android.media.VolumeShaper.Operation.Builder reverse() { return null; }
-            public android.media.VolumeShaper.Operation.Builder setXOffset(float p0) { return null; }
-            public android.media.VolumeShaper.Operation.Builder terminate() { return null; }
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Flag {
-        }
-    }
-
-    public static final class State implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.VolumeShaper.State> CREATOR = null;
-        private float mVolume;
-        private float mXOffset;
-        State(float p0, float p1) {}
-        public static android.media.VolumeShaper.State fromParcelable(android.media.VolumeShaperState p0) { return null; }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public float getVolume() { return 0.0f; }
-        public float getXOffset() { return 0.0f; }
-        public int hashCode() { return 0; }
-        public android.media.VolumeShaperState toParcelable() { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

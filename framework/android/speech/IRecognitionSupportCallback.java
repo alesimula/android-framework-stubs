@@ -5,13 +5,6 @@ public interface IRecognitionSupportCallback extends android.os.IInterface {
     public void onError(int p0) throws android.os.RemoteException;
     public void onSupportResult(android.speech.RecognitionSupport p0) throws android.os.RemoteException;
 
-    public static class Default implements android.speech.IRecognitionSupportCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(int p0) throws android.os.RemoteException {}
-        public void onSupportResult(android.speech.RecognitionSupport p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.speech.IRecognitionSupportCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onSupportResult = 1;
@@ -30,5 +23,12 @@ public interface IRecognitionSupportCallback extends android.os.IInterface {
             public void onError(int p0) throws android.os.RemoteException {}
             public void onSupportResult(android.speech.RecognitionSupport p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.speech.IRecognitionSupportCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(int p0) throws android.os.RemoteException {}
+        public void onSupportResult(android.speech.RecognitionSupport p0) throws android.os.RemoteException {}
     }
 }

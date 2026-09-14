@@ -5,13 +5,6 @@ public interface ISelectionToolbarRenderServiceCallback extends android.os.IInte
     public void onPasteAction(int p0) throws android.os.RemoteException;
     public void transferTouch(android.os.IBinder p0, android.os.IBinder p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.selectiontoolbar.ISelectionToolbarRenderServiceCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPasteAction(int p0) throws android.os.RemoteException {}
-        public void transferTouch(android.os.IBinder p0, android.os.IBinder p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.selectiontoolbar.ISelectionToolbarRenderServiceCallback {
         static final int TRANSACTION_onPasteAction = 2;
         static final int TRANSACTION_transferTouch = 1;
@@ -30,5 +23,12 @@ public interface ISelectionToolbarRenderServiceCallback extends android.os.IInte
             public void onPasteAction(int p0) throws android.os.RemoteException {}
             public void transferTouch(android.os.IBinder p0, android.os.IBinder p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.selectiontoolbar.ISelectionToolbarRenderServiceCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPasteAction(int p0) throws android.os.RemoteException {}
+        public void transferTouch(android.os.IBinder p0, android.os.IBinder p1) throws android.os.RemoteException {}
     }
 }

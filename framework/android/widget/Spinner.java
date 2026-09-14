@@ -59,6 +59,32 @@ public class Spinner extends android.widget.AbsSpinner implements android.conten
     public void setPrompt(java.lang.CharSequence p0) {}
     public void setPromptId(int p0) {}
 
+    private static interface SpinnerPopup {
+        public void dismiss();
+        public android.graphics.drawable.Drawable getBackground();
+        public java.lang.CharSequence getHintText();
+        public int getHorizontalOffset();
+        public int getVerticalOffset();
+        public boolean isShowing();
+        public void setAdapter(android.widget.ListAdapter p0);
+        public void setBackgroundDrawable(android.graphics.drawable.Drawable p0);
+        public void setHorizontalOffset(int p0);
+        public void setPromptText(java.lang.CharSequence p0);
+        public void setVerticalOffset(int p0);
+        public void show(int p0, int p1);
+    }
+
+    private class DropdownPopup extends android.widget.ListPopupWindow implements android.widget.Spinner.SpinnerPopup {
+        private android.widget.ListAdapter mAdapter;
+        private java.lang.CharSequence mHintText;
+        public DropdownPopup(android.widget.Spinner p0, android.content.Context p1, android.util.AttributeSet p2, int p3, int p4) { super((android.content.Context)null); }
+        void computeContentWidth() {}
+        public java.lang.CharSequence getHintText() { return null; }
+        public void setAdapter(android.widget.ListAdapter p0) {}
+        public void setPromptText(java.lang.CharSequence p0) {}
+        public void show(int p0, int p1) {}
+    }
+
     private class DialogPopup implements android.widget.Spinner.SpinnerPopup, android.content.DialogInterface.OnClickListener {
         private android.widget.ListAdapter mListAdapter;
         private android.app.AlertDialog mPopup;
@@ -98,38 +124,12 @@ public class Spinner extends android.widget.AbsSpinner implements android.conten
         public void unregisterDataSetObserver(android.database.DataSetObserver p0) {}
     }
 
-    private class DropdownPopup extends android.widget.ListPopupWindow implements android.widget.Spinner.SpinnerPopup {
-        private android.widget.ListAdapter mAdapter;
-        private java.lang.CharSequence mHintText;
-        public DropdownPopup(android.widget.Spinner p0, android.content.Context p1, android.util.AttributeSet p2, int p3, int p4) { super((android.content.Context)null); }
-        void computeContentWidth() {}
-        public java.lang.CharSequence getHintText() { return null; }
-        public void setAdapter(android.widget.ListAdapter p0) {}
-        public void setPromptText(java.lang.CharSequence p0) {}
-        public void show(int p0, int p1) {}
-    }
-
     static class SavedState extends android.widget.AbsSpinner.SavedState {
         public static final android.os.Parcelable.Creator<android.widget.Spinner.SavedState> CREATOR = null;
         boolean showDropdown;
         private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
         SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    private static interface SpinnerPopup {
-        public void dismiss();
-        public android.graphics.drawable.Drawable getBackground();
-        public java.lang.CharSequence getHintText();
-        public int getHorizontalOffset();
-        public int getVerticalOffset();
-        public boolean isShowing();
-        public void setAdapter(android.widget.ListAdapter p0);
-        public void setBackgroundDrawable(android.graphics.drawable.Drawable p0);
-        public void setHorizontalOffset(int p0);
-        public void setPromptText(java.lang.CharSequence p0);
-        public void setVerticalOffset(int p0);
-        public void show(int p0, int p1);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.Spinner> {

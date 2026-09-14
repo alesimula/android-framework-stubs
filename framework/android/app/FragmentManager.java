@@ -44,6 +44,11 @@ public abstract class FragmentManager {
     }
 
     @java.lang.Deprecated
+    public static interface OnBackStackChangedListener {
+        public void onBackStackChanged();
+    }
+
+    @java.lang.Deprecated
     public static abstract class FragmentLifecycleCallbacks {
         public FragmentLifecycleCallbacks() {}
         public void onFragmentActivityCreated(android.app.FragmentManager p0, android.app.Fragment p1, android.os.Bundle p2) {}
@@ -60,10 +65,5 @@ public abstract class FragmentManager {
         public void onFragmentStopped(android.app.FragmentManager p0, android.app.Fragment p1) {}
         public void onFragmentViewCreated(android.app.FragmentManager p0, android.app.Fragment p1, android.view.View p2, android.os.Bundle p3) {}
         public void onFragmentViewDestroyed(android.app.FragmentManager p0, android.app.Fragment p1) {}
-    }
-
-    @java.lang.Deprecated
-    public static interface OnBackStackChangedListener {
-        public void onBackStackChanged();
     }
 }

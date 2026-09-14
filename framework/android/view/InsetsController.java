@@ -47,10 +47,13 @@ public class InsetsController implements android.view.WindowInsetsController, an
     private final android.os.Handler mHandler = null;
     private final android.view.InsetsController.Host mHost = null;
     private int mImeCaptionBarInsetsHeight;
+    private long mImeHideAnimationDurationOverrideMillis;
+    private long mImeShowAnimationDurationOverrideMillis;
     private final android.view.InsetsSourceConsumer mImeSourceConsumer = null;
     private boolean mIsPredictiveBackImeHideAnimInProgress;
     private final android.view.inputmethod.ImeTracker.InputMethodJankContext mJankContext = null;
     private final android.view.InsetsState mLastDispatchedState = null;
+    private int mLastServerVisibleTypes;
     private int mLastStartedAnimTypes;
     private int mLegacySoftInputMode;
     private int mLegacySystemUiFlags;
@@ -105,6 +108,8 @@ public class InsetsController implements android.view.WindowInsetsController, an
     public int getAppearanceControlled() { return 0; }
     int getCancelledForNewAnimationTypes() { return 0; }
     public android.view.InsetsController.Host getHost() { return null; }
+    public long getImeHideAnimationDurationOverride() { return 0L; }
+    public long getImeShowAnimationDurationOverride() { return 0L; }
     public android.view.InsetsSourceConsumer getImeSourceConsumer() { return null; }
     public android.view.InsetsState getLastDispatchedState() { return null; }
     public int getRequestedVisibleTypes() { return 0; }
@@ -133,12 +138,15 @@ public class InsetsController implements android.view.WindowInsetsController, an
     public void scheduleApplyChangeInsets(android.view.InsetsAnimationControlRunner p0) {}
     public void setAnimationsDisabled(boolean p0) {}
     public void setImeCaptionBarInsetsHeight(int p0) {}
+    public void setImeHideAnimationDurationOverride(long p0) {}
+    public void setImeShowAnimationDurationOverride(long p0) {}
     public void setPredictiveBackImeHideAnimInProgress(boolean p0) {}
     public void setRequestedVisibleTypes(int p0, int p1) {}
     public void setSystemBarsAppearance(int p0, int p1) {}
     public void setSystemBarsAppearanceFromResource(int p0, int p1) {}
     public void setSystemBarsBehavior(int p0) {}
     public void setSystemDrivenInsetsAnimationLoggingListener(android.view.WindowInsetsAnimationControlListener p0) {}
+    void setVisibleTypes(int p0, int p1) {}
     public void setWindowInsetsInfo(boolean p0, int p1, int p2, int p3, int p4, int p5) {}
     public void show(int p0) {}
     public void show(int p0, android.view.inputmethod.ImeTracker.Token p1) {}
@@ -154,7 +162,9 @@ public class InsetsController implements android.view.WindowInsetsController, an
         public void applySurfaceParams(android.view.SyncRtSurfaceTransactionApplier.SurfaceParams... p0);
         public int dipToPx(int p0);
         public void dispatchWindowInsetsAnimationEnd(android.view.WindowInsetsAnimation p0, boolean p1, boolean p2, boolean p3);
+        default public void dispatchWindowInsetsAnimationEndToObserver(android.view.WindowInsetsAnimation p0) {}
         public void dispatchWindowInsetsAnimationPrepare(android.view.WindowInsetsAnimation p0, boolean p1, boolean p2, boolean p3);
+        default public void dispatchWindowInsetsAnimationPrepareToObserver(android.view.WindowInsetsAnimation p0) {}
         public android.view.WindowInsets dispatchWindowInsetsAnimationProgress(android.view.WindowInsets p0, android.view.InsetsState p1, java.util.List<android.view.WindowInsetsAnimation> p2, boolean p3, boolean p4, boolean p5, int p6);
         public android.view.WindowInsetsAnimation.Bounds dispatchWindowInsetsAnimationStart(android.view.WindowInsetsAnimation p0, android.view.WindowInsetsAnimation.Bounds p1, boolean p2, boolean p3, boolean p4);
         public android.os.Handler getHandler();
@@ -180,6 +190,7 @@ public class InsetsController implements android.view.WindowInsetsController, an
     }
 
     public static final class InternalAnimationControlListener implements android.view.WindowInsetsAnimationControlListener, android.view.InsetsAnimationSpec {
+        private final long mAnimationDurationOverrideMillis = 0L;
         private android.animation.ValueAnimator mAnimator;
         private final int mBehavior = 0;
         private android.view.WindowInsetsAnimationController mController;
@@ -191,7 +202,7 @@ public class InsetsController implements android.view.WindowInsetsController, an
         private final int mRequestedTypes = 0;
         private final boolean mShow = false;
         private final boolean mUsesSyncedInsetsAnimationByDefault = false;
-        public InternalAnimationControlListener(boolean p0, boolean p1, int p2, int p3, boolean p4, int p5, android.view.WindowInsetsAnimationControlListener p6, android.view.inputmethod.ImeTracker.InputMethodJankContext p7, boolean p8) {}
+        public InternalAnimationControlListener(boolean p0, boolean p1, int p2, int p3, boolean p4, int p5, android.view.WindowInsetsAnimationControlListener p6, android.view.inputmethod.ImeTracker.InputMethodJankContext p7, boolean p8, long p9) {}
         private int getAnimationType() { return 0; }
         android.view.animation.Interpolator getAlphaInterpolator() { return null; }
         public long getDurationMs(boolean p0) { return 0L; }
@@ -201,10 +212,6 @@ public class InsetsController implements android.view.WindowInsetsController, an
         public void onCancelled(android.view.WindowInsetsAnimationController p0) {}
         public void onFinished(android.view.WindowInsetsAnimationController p0) {}
         public void onReady(android.view.WindowInsetsAnimationController p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface LayoutInsetsDuringAnimation {
     }
 
     private static final class PendingControlRequest {
@@ -222,5 +229,9 @@ public class InsetsController implements android.view.WindowInsetsController, an
         boolean mStartDispatched;
         final int mType = 0;
         RunningAnimation(android.view.InsetsAnimationControlRunner p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface LayoutInsetsDuringAnimation {
     }
 }

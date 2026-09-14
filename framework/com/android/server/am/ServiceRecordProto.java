@@ -31,12 +31,22 @@ public final class ServiceRecordProto {
     public static final long WHITELIST_MANAGER = 1133871366155L;
     public ServiceRecordProto() {}
 
-    public final class AppInfo {
-        public static final long BASE_DIR = 1138166333441L;
-        public static final long DATA_DIR = 1138166333443L;
-        public static final long RES_DIR = 1138166333442L;
-        public static final long TARGET_SDK_VERSION = 1120986464260L;
-        public AppInfo(com.android.server.am.ServiceRecordProto p0) {}
+    public final class Foreground {
+        public static final long FOREGROUND_SERVICE_TYPE = 1120986464259L;
+        public static final long ID = 1120986464257L;
+        public static final long NOTIFICATION = 1146756268034L;
+        public Foreground(com.android.server.am.ServiceRecordProto p0) {}
+    }
+
+    public final class StartItem {
+        public static final long DELIVERY_COUNT = 1120986464259L;
+        public static final long DONE_EXECUTING_COUNT = 1120986464260L;
+        public static final long DURATION = 1146756268034L;
+        public static final long ID = 1120986464257L;
+        public static final long INTENT = 1146756268037L;
+        public static final long NEEDED_GRANTS = 1146756268038L;
+        public static final long URI_PERMISSIONS = 1146756268039L;
+        public StartItem(com.android.server.am.ServiceRecordProto p0) {}
     }
 
     public final class Crash {
@@ -45,20 +55,6 @@ public final class ServiceRecordProto {
         public static final long RESTART_COUNT = 1120986464257L;
         public static final long RESTART_DELAY = 1146756268034L;
         public Crash(com.android.server.am.ServiceRecordProto p0) {}
-    }
-
-    public final class ExecuteNesting {
-        public static final long EXECUTE_FG = 1133871366146L;
-        public static final long EXECUTE_NESTING = 1120986464257L;
-        public static final long EXECUTING_START = 1146756268035L;
-        public ExecuteNesting(com.android.server.am.ServiceRecordProto p0) {}
-    }
-
-    public final class Foreground {
-        public static final long FOREGROUND_SERVICE_TYPE = 1120986464259L;
-        public static final long ID = 1120986464257L;
-        public static final long NOTIFICATION = 1146756268034L;
-        public Foreground(com.android.server.am.ServiceRecordProto p0) {}
     }
 
     public final class ShortFgsInfo {
@@ -71,6 +67,21 @@ public final class ServiceRecordProto {
         public ShortFgsInfo(com.android.server.am.ServiceRecordProto p0) {}
     }
 
+    public final class ExecuteNesting {
+        public static final long EXECUTE_FG = 1133871366146L;
+        public static final long EXECUTE_NESTING = 1120986464257L;
+        public static final long EXECUTING_START = 1146756268035L;
+        public ExecuteNesting(com.android.server.am.ServiceRecordProto p0) {}
+    }
+
+    public final class AppInfo {
+        public static final long BASE_DIR = 1138166333441L;
+        public static final long DATA_DIR = 1138166333443L;
+        public static final long RES_DIR = 1138166333442L;
+        public static final long TARGET_SDK_VERSION = 1120986464260L;
+        public AppInfo(com.android.server.am.ServiceRecordProto p0) {}
+    }
+
     public final class Start {
         public static final long CALL_START = 1133871366148L;
         public static final long DELAYED_STOP = 1133871366146L;
@@ -79,16 +90,5 @@ public final class ServiceRecordProto {
         public static final long START_REQUESTED = 1133871366145L;
         public static final long STOP_IF_KILLED = 1133871366147L;
         public Start(com.android.server.am.ServiceRecordProto p0) {}
-    }
-
-    public final class StartItem {
-        public static final long DELIVERY_COUNT = 1120986464259L;
-        public static final long DONE_EXECUTING_COUNT = 1120986464260L;
-        public static final long DURATION = 1146756268034L;
-        public static final long ID = 1120986464257L;
-        public static final long INTENT = 1146756268037L;
-        public static final long NEEDED_GRANTS = 1146756268038L;
-        public static final long URI_PERMISSIONS = 1146756268039L;
-        public StartItem(com.android.server.am.ServiceRecordProto p0) {}
     }
 }

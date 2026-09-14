@@ -42,11 +42,11 @@ public class WorkSource implements android.os.Parcelable {
     public android.os.WorkSource.WorkChain createWorkChain() { return null; }
     public int describeContents() { return 0; }
     public boolean diff(android.os.WorkSource p0) { return false; }
-    public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
+    public final void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
     public boolean equals(java.lang.Object p0) { return false; }
     @java.lang.Deprecated
     public int get(int p0) { return 0; }
-    public int getAttributionUid() { return 0; }
+    public final int getAttributionUid() { return 0; }
     @java.lang.Deprecated
     public java.lang.String getName(int p0) { return null; }
     @android.annotation.SystemApi
@@ -67,7 +67,7 @@ public class WorkSource implements android.os.Parcelable {
     @android.annotation.SystemApi
     public int size() { return 0; }
     public java.lang.String toString() { return null; }
-    public void transferWorkChains(android.os.WorkSource p0) {}
+    public final void transferWorkChains(android.os.WorkSource p0) {}
     @android.annotation.SystemApi
     public android.os.WorkSource withoutNames() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}

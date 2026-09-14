@@ -163,13 +163,6 @@ public class ListView extends android.widget.AbsListView {
         void populate(int p0, int p1) {}
     }
 
-    public class FixedViewInfo {
-        public java.lang.Object data;
-        public boolean isSelectable;
-        public android.view.View view;
-        public FixedViewInfo(android.widget.ListView p0) {}
-    }
-
     private class FocusSelector implements java.lang.Runnable {
         private static final int STATE_REQUEST_FOCUS = 3;
         private static final int STATE_SET_SELECTION = 1;
@@ -182,6 +175,13 @@ public class ListView extends android.widget.AbsListView {
         public void run() {}
         java.lang.Runnable setupFocusIfValid(int p0) { return null; }
         android.widget.ListView.FocusSelector setupForSetSelection(int p0, int p1) { return null; }
+    }
+
+    public class FixedViewInfo {
+        public java.lang.Object data;
+        public boolean isSelectable;
+        public android.view.View view;
+        public FixedViewInfo(android.widget.ListView p0) {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.ListView> {

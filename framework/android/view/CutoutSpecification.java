@@ -10,7 +10,7 @@ public class CutoutSpecification {
     private static final java.lang.String DP_MARKER = "@dp";
     private static final java.lang.String LEFT_MARKER = "@left";
     private static final char MARKER_START_CHAR = '@';
-    private static final int MINIMAL_ACCEPTABLE_PATH_LENGTH = Integer.valueOf(0);
+    private static final int MINIMAL_ACCEPTABLE_PATH_LENGTH = 5;
     private static final java.lang.String RIGHT_MARKER = "@right";
     private static final java.lang.String TAG = "CutoutSpecification";
     private final android.graphics.Rect mBottomBound = null;

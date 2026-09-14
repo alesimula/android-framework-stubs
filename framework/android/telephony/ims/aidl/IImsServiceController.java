@@ -19,27 +19,6 @@ public interface IImsServiceController extends android.os.IInterface {
     public void resetIms(int p0, int p1) throws android.os.RemoteException;
     public void setListener(android.telephony.ims.aidl.IImsServiceControllerListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IImsServiceController {
-        public Default() {}
-        public void addFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.telephony.ims.aidl.IImsMmTelFeature createEmergencyOnlyMmTelFeature(int p0) throws android.os.RemoteException { return null; }
-        public android.telephony.ims.aidl.IImsMmTelFeature createMmTelFeature(int p0, int p1) throws android.os.RemoteException { return null; }
-        public android.telephony.ims.aidl.IImsRcsFeature createRcsFeature(int p0, int p1) throws android.os.RemoteException { return null; }
-        public void disableIms(int p0, int p1) throws android.os.RemoteException {}
-        public void enableIms(int p0, int p1) throws android.os.RemoteException {}
-        public android.telephony.ims.aidl.IImsConfig getConfig(int p0, int p1) throws android.os.RemoteException { return null; }
-        public long getImsServiceCapabilities() throws android.os.RemoteException { return 0L; }
-        public android.telephony.ims.aidl.IImsRegistration getRegistration(int p0, int p1) throws android.os.RemoteException { return null; }
-        public android.telephony.ims.aidl.ISipTransport getSipTransport(int p0) throws android.os.RemoteException { return null; }
-        public void notifyImsServiceReadyForFeatureCreation() throws android.os.RemoteException {}
-        public android.telephony.ims.stub.ImsFeatureConfiguration querySupportedImsFeatures() throws android.os.RemoteException { return null; }
-        public void removeFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
-        public void removeImsFeature(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void resetIms(int p0, int p1) throws android.os.RemoteException {}
-        public void setListener(android.telephony.ims.aidl.IImsServiceControllerListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IImsServiceController {
         static final int TRANSACTION_addFeatureStatusCallback = 7;
         static final int TRANSACTION_createEmergencyOnlyMmTelFeature = 3;
@@ -86,5 +65,26 @@ public interface IImsServiceController extends android.os.IInterface {
             public void resetIms(int p0, int p1) throws android.os.RemoteException {}
             public void setListener(android.telephony.ims.aidl.IImsServiceControllerListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IImsServiceController {
+        public Default() {}
+        public void addFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.telephony.ims.aidl.IImsMmTelFeature createEmergencyOnlyMmTelFeature(int p0) throws android.os.RemoteException { return null; }
+        public android.telephony.ims.aidl.IImsMmTelFeature createMmTelFeature(int p0, int p1) throws android.os.RemoteException { return null; }
+        public android.telephony.ims.aidl.IImsRcsFeature createRcsFeature(int p0, int p1) throws android.os.RemoteException { return null; }
+        public void disableIms(int p0, int p1) throws android.os.RemoteException {}
+        public void enableIms(int p0, int p1) throws android.os.RemoteException {}
+        public android.telephony.ims.aidl.IImsConfig getConfig(int p0, int p1) throws android.os.RemoteException { return null; }
+        public long getImsServiceCapabilities() throws android.os.RemoteException { return 0L; }
+        public android.telephony.ims.aidl.IImsRegistration getRegistration(int p0, int p1) throws android.os.RemoteException { return null; }
+        public android.telephony.ims.aidl.ISipTransport getSipTransport(int p0) throws android.os.RemoteException { return null; }
+        public void notifyImsServiceReadyForFeatureCreation() throws android.os.RemoteException {}
+        public android.telephony.ims.stub.ImsFeatureConfiguration querySupportedImsFeatures() throws android.os.RemoteException { return null; }
+        public void removeFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
+        public void removeImsFeature(int p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void resetIms(int p0, int p1) throws android.os.RemoteException {}
+        public void setListener(android.telephony.ims.aidl.IImsServiceControllerListener p0) throws android.os.RemoteException {}
     }
 }

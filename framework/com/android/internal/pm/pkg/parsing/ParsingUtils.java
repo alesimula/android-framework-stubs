@@ -2,9 +2,11 @@ package com.android.internal.pm.pkg.parsing;
 
 public class ParsingUtils {
     public static final java.lang.String ANDROID_RES_NAMESPACE = "http://schemas.android.com/apk/res/android";
+    private static final int CERT_DIGEST_SHA256_LENGTH = 64;
     public static final int DEFAULT_MAX_SDK_VERSION = 2147483647;
     public static final int DEFAULT_MIN_SDK_VERSION = 1;
     public static final int DEFAULT_TARGET_SDK_VERSION = 0;
+    private static final int MAX_KNOWN_ACTIVITY_EMBEDDING_CERTS = 50;
     public static final int NOT_SET = -1;
     public static final java.lang.String TAG = "PackageParsing";
     public ParsingUtils() {}
@@ -12,6 +14,7 @@ public class ParsingUtils {
     public static <Interface extends java.lang.Object, Impl extends Interface> java.util.List<Interface> createTypedInterfaceList(android.os.Parcel p0, android.os.Parcelable.Creator<Impl> p1) { return null; }
     public static android.content.pm.parsing.result.ParseResult<java.util.Set<java.lang.String>> parseKnownActivityEmbeddingCerts(android.content.res.TypedArray p0, android.content.res.Resources p1, int p2, android.content.pm.parsing.result.ParseInput p3) { return null; }
     public static android.content.pm.parsing.result.ParseResult unknownTag(java.lang.String p0, com.android.internal.pm.pkg.parsing.ParsingPackage p1, android.content.res.XmlResourceParser p2, android.content.pm.parsing.result.ParseInput p3) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException { return null; }
+    private static android.content.pm.parsing.result.ParseResult<java.util.Set<java.lang.String>> validateCerts(java.util.List<java.lang.String> p0, android.content.pm.parsing.result.ParseInput p1) { return null; }
     public static void writeParcelableList(android.os.Parcel p0, java.util.List<?> p1) {}
 
     public static class StringPairListParceler implements com.android.internal.util.Parcelling<java.util.List<android.util.Pair<java.lang.String, com.android.internal.pm.pkg.component.ParsedIntentInfo>>> {

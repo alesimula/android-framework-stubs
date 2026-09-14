@@ -1,13 +1,13 @@
 package com.android.internal.widget.remotecompose.core.operations;
 
-public class ParticlesCreate extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.VariableSupport {
+public class ParticlesCreate extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.VariableProvider {
     private static final java.lang.String CLASS_NAME = "ParticlesCreate";
     private static final int MAX_EQU_LENGTH = 32;
     private static final int MAX_FLOAT_ARRAY = 2000;
     private static final int OP_CODE = 161;
     private final float[][] mEquations = null;
     com.android.internal.widget.remotecompose.core.operations.utilities.AnimatedFloatExpression mExp;
-    private final int mId = 0;
+    private int mId;
     private final int[] mIndexeVars = null;
     private final float[][] mOutEquations = null;
     private final int mParticleCount = 0;
@@ -19,12 +19,14 @@ public class ParticlesCreate extends com.android.internal.widget.remotecompose.c
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
     public float[][] getEquations() { return null; }
+    public int getId() { return 0; }
     public float[][] getParticles() { return null; }
     public int[] getVariableIds() { return null; }
     void initializeParticle(int p0) {}
     public void paint(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
     public void registerListening(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
+    public void setId(int p0) {}
     public java.lang.String toString() { return null; }
     public void updateVariables(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void write(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}

@@ -40,10 +40,12 @@ public class SpeechRecognizer {
     public static final java.lang.String RESULTS_RECOGNITION = "results_recognition";
     public static final java.lang.String TOP_LOCALE_ALTERNATIVES = "top_locale_alternatives";
     SpeechRecognizer() {}
+    @java.lang.Deprecated
     public static android.speech.SpeechRecognizer createOnDeviceSpeechRecognizer(android.content.Context p0) { return null; }
     public static android.speech.SpeechRecognizer createOnDeviceTestingSpeechRecognizer(android.content.Context p0) { return null; }
     public static android.speech.SpeechRecognizer createSpeechRecognizer(android.content.Context p0) { return null; }
     public static android.speech.SpeechRecognizer createSpeechRecognizer(android.content.Context p0, android.content.ComponentName p1) { return null; }
+    @java.lang.Deprecated
     public static boolean isOnDeviceRecognitionAvailable(android.content.Context p0) { return false; }
     public static boolean isRecognitionAvailable(android.content.Context p0) { return false; }
     private static android.speech.SpeechRecognizer wrapWithProxy(android.speech.SpeechRecognizer p0) { return null; }
@@ -59,12 +61,12 @@ public class SpeechRecognizer {
 
     @java.lang.annotation.Documented
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LanguageDetectionConfidenceLevel {
+    public static @interface LanguageSwitchResult {
     }
 
     @java.lang.annotation.Documented
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LanguageSwitchResult {
+    public static @interface LanguageDetectionConfidenceLevel {
     }
 
     @java.lang.annotation.Documented

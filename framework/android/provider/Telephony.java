@@ -4,6 +4,346 @@ public final class Telephony {
     private static final java.lang.String TAG = "Telephony";
     private Telephony() {}
 
+    @android.annotation.SystemApi
+    public static final class ReadRestriction {
+        public static final java.lang.String READ_RESTRICTION_COLUMN_NAME = "read_restriction";
+        public static final int READ_RESTRICTION_MASK = 16711680;
+        public static final int READ_RESTRICTION_SHIFT = 16;
+        @android.annotation.SystemApi
+        public static final java.lang.String RESTRICTED = "restricted";
+        private ReadRestriction() {}
+        public static void appendReadRestrictionToQuery(android.database.sqlite.SQLiteQueryBuilder p0, java.lang.String p1, boolean p2) {}
+        public static void appendRestrictedToQuery(android.database.sqlite.SQLiteQueryBuilder p0, java.lang.String p1, java.lang.String p2, boolean p3) {}
+        public static void appendRestrictedToQuery(android.database.sqlite.SQLiteQueryBuilder p0, java.lang.String p1, boolean p2) {}
+        public static int performReadRestrictionDatabaseUpdate(android.database.sqlite.SQLiteDatabase p0, java.lang.String p1, android.content.ContentValues p2, java.lang.String p3, java.lang.String[] p4) { return 0; }
+        public static void setReadRestrictionValueOnInsert(android.content.Context p0, android.content.ContentValues p1, java.lang.String p2, boolean p3) {}
+        public static void setReadRestrictionValueOnUpdate(android.content.ContentValues p0, boolean p1) {}
+        private static boolean shouldBeRestrictedByDefault(java.lang.String p0, android.content.Context p1) { return false; }
+        public static void unrestrictMessage(android.content.ContentResolver p0, android.net.Uri p1) {}
+
+        public static final class ReadRestrictionValues {
+            public static final int READ_RESTRICTION_RESTRICTED = 65536;
+            private ReadRestrictionValues() {}
+        }
+    }
+
+    public static final class SatelliteDatagrams {
+        private static final java.util.List<java.lang.String> ALL_COLUMNS = null;
+        public static final java.lang.String COLUMN_DATAGRAM = "datagram";
+        public static final java.lang.String COLUMN_UNIQUE_KEY_DATAGRAM_ID = "datagram_id";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String PROVIDER_NAME = "satellite";
+        public static final java.lang.String TABLE_NAME = "incoming_datagrams";
+        private static final java.lang.String URL = "content://satellite/incoming_datagrams";
+        private SatelliteDatagrams() {}
+        public static java.util.List<java.lang.String> getAllColumns() { return null; }
+    }
+
+    public static interface TextBasedSmsColumns {
+        public static final java.lang.String ADDRESS = "address";
+        public static final java.lang.String BODY = "body";
+        public static final java.lang.String CONTAINS_OTP = "contains_otp";
+        public static final java.lang.String CREATOR = "creator";
+        public static final java.lang.String DATE = "date";
+        public static final java.lang.String DATE_SENT = "date_sent";
+        public static final java.lang.String ERROR_CODE = "error_code";
+        public static final java.lang.String LOCKED = "locked";
+        public static final int MESSAGE_TYPE_ALL = 0;
+        public static final int MESSAGE_TYPE_DRAFT = 3;
+        public static final int MESSAGE_TYPE_FAILED = 5;
+        public static final int MESSAGE_TYPE_INBOX = 1;
+        public static final int MESSAGE_TYPE_OUTBOX = 4;
+        public static final int MESSAGE_TYPE_QUEUED = 6;
+        public static final int MESSAGE_TYPE_SENT = 2;
+        public static final java.lang.String MTU = "mtu";
+        public static final int OTP_SUBTYPE_MASK = 65280;
+        public static final int OTP_SUBTYPE_NONE = 0;
+        public static final int OTP_SUBTYPE_SHIFT = 8;
+        public static final int OTP_SUBTYPE_SMS_RETRIEVER_OTP = 256;
+        public static final int OTP_SUBTYPE_WEB_OTP = 512;
+        public static final int OTP_TYPE_CONTAINS_OTP = 1;
+        public static final int OTP_TYPE_MASK = 255;
+        public static final int OTP_TYPE_NONE = 0;
+        public static final int OTP_TYPE_PENDING = 2;
+        public static final java.lang.String PERSON = "person";
+        public static final java.lang.String PROTOCOL = "protocol";
+        public static final java.lang.String READ = "read";
+        public static final java.lang.String READ_RESTRICTION = "read_restriction";
+        public static final java.lang.String REPLY_PATH_PRESENT = "reply_path_present";
+        public static final java.lang.String SEEN = "seen";
+        public static final java.lang.String SERVICE_CENTER = "service_center";
+        public static final java.lang.String STATUS = "status";
+        public static final int STATUS_COMPLETE = 0;
+        public static final int STATUS_FAILED = 64;
+        public static final int STATUS_NONE = -1;
+        public static final int STATUS_PENDING = 32;
+        public static final java.lang.String SUBJECT = "subject";
+        public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
+        public static final java.lang.String THREAD_ID = "thread_id";
+        public static final java.lang.String TRANSACTION_ID = "tr_id";
+        public static final java.lang.String TYPE = "type";
+    }
+
+    public static final class Threads implements android.provider.Telephony.ThreadsColumns {
+        public static final int BROADCAST_THREAD = 1;
+        public static final int COMMON_THREAD = 0;
+        public static final android.net.Uri CONTENT_URI = null;
+        private static final java.lang.String[] ID_PROJECTION = null;
+        public static final android.net.Uri OBSOLETE_THREADS_URI = null;
+        private static final android.net.Uri THREAD_ID_CONTENT_URI = null;
+        private Threads() {}
+        public static long getOrCreateThreadId(android.content.Context p0, java.lang.String p1) { return 0L; }
+        public static long getOrCreateThreadId(android.content.Context p0, java.util.Set<java.lang.String> p1) { return 0L; }
+    }
+
+    public static final class SimInfo {
+        private static final java.util.List<java.lang.String> ALL_COLUMNS = null;
+        public static final int COLOR_DEFAULT = 0;
+        public static final java.lang.String COLUMN_ACCESS_RULES = "access_rules";
+        public static final java.lang.String COLUMN_ACCESS_RULES_FROM_CARRIER_CONFIGS = "access_rules_from_carrier_configs";
+        public static final java.lang.String COLUMN_ALLOWED_NETWORK_TYPES = "allowed_network_types";
+        public static final java.lang.String COLUMN_ALLOWED_NETWORK_TYPES_FOR_REASONS = "allowed_network_types_for_reasons";
+        public static final java.lang.String COLUMN_CARD_ID = "card_id";
+        public static final java.lang.String COLUMN_CARRIER_ID = "carrier_id";
+        public static final java.lang.String COLUMN_CARRIER_NAME = "carrier_name";
+        public static final java.lang.String COLUMN_CB_ALERT_REMINDER_INTERVAL = "alert_reminder_interval";
+        public static final java.lang.String COLUMN_CB_ALERT_SOUND_DURATION = "alert_sound_duration";
+        public static final java.lang.String COLUMN_CB_ALERT_SPEECH = "enable_alert_speech";
+        public static final java.lang.String COLUMN_CB_ALERT_VIBRATE = "enable_alert_vibrate";
+        public static final java.lang.String COLUMN_CB_AMBER_ALERT = "enable_cmas_amber_alerts";
+        public static final java.lang.String COLUMN_CB_CHANNEL_50_ALERT = "enable_channel_50_alerts";
+        public static final java.lang.String COLUMN_CB_CMAS_TEST_ALERT = "enable_cmas_test_alerts";
+        public static final java.lang.String COLUMN_CB_EMERGENCY_ALERT = "enable_emergency_alerts";
+        public static final java.lang.String COLUMN_CB_ETWS_TEST_ALERT = "enable_etws_test_alerts";
+        public static final java.lang.String COLUMN_CB_EXTREME_THREAT_ALERT = "enable_cmas_extreme_threat_alerts";
+        public static final java.lang.String COLUMN_CB_OPT_OUT_DIALOG = "show_cmas_opt_out_dialog";
+        public static final java.lang.String COLUMN_CB_SEVERE_THREAT_ALERT = "enable_cmas_severe_threat_alerts";
+        public static final java.lang.String COLUMN_COLOR = "color";
+        public static final java.lang.String COLUMN_CROSS_SIM_CALLING_ENABLED = "cross_sim_calling_enabled";
+        public static final java.lang.String COLUMN_D2D_STATUS_SHARING = "d2d_sharing_status";
+        public static final java.lang.String COLUMN_D2D_STATUS_SHARING_SELECTED_CONTACTS = "d2d_sharing_contacts";
+        @java.lang.Deprecated
+        public static final java.lang.String COLUMN_DATA_ENABLED_OVERRIDE_RULES = "data_enabled_override_rules";
+        public static final java.lang.String COLUMN_DATA_ROAMING = "data_roaming";
+        public static final java.lang.String COLUMN_DISPLAY_NAME = "display_name";
+        public static final java.lang.String COLUMN_DISPLAY_NUMBER_FORMAT = "display_number_format";
+        public static final java.lang.String COLUMN_EHPLMNS = "ehplmns";
+        public static final java.lang.String COLUMN_ENABLED_MOBILE_DATA_POLICIES = "enabled_mobile_data_policies";
+        public static final java.lang.String COLUMN_ENHANCED_4G_MODE_ENABLED = "volte_vt_enabled";
+        public static final java.lang.String COLUMN_GROUP_OWNER = "group_owner";
+        public static final java.lang.String COLUMN_GROUP_UUID = "group_uuid";
+        public static final java.lang.String COLUMN_HPLMNS = "hplmns";
+        public static final java.lang.String COLUMN_ICC_ID = "icc_id";
+        public static final java.lang.String COLUMN_IMSI = "imsi";
+        public static final java.lang.String COLUMN_IMS_RCS_UCE_ENABLED = "ims_rcs_uce_enabled";
+        public static final java.lang.String COLUMN_ISO_COUNTRY_CODE = "iso_country_code";
+        public static final java.lang.String COLUMN_IS_EMBEDDED = "is_embedded";
+        public static final java.lang.String COLUMN_IS_METERED = "is_metered";
+        public static final java.lang.String COLUMN_IS_ONLY_NTN = "is_only_ntn";
+        public static final java.lang.String COLUMN_IS_OPPORTUNISTIC = "is_opportunistic";
+        public static final java.lang.String COLUMN_IS_PRIVATE_NETWORK = "is_private_network";
+        public static final java.lang.String COLUMN_IS_REMOVABLE = "is_removable";
+        public static final java.lang.String COLUMN_IS_SATELLITE_PROVISIONED_FOR_NON_IP_DATAGRAM = "is_satellite_provisioned_for_non_ip_datagram";
+        public static final java.lang.String COLUMN_MCC = "mcc";
+        public static final java.lang.String COLUMN_MCC_STRING = "mcc_string";
+        public static final java.lang.String COLUMN_MNC = "mnc";
+        public static final java.lang.String COLUMN_MNC_STRING = "mnc_string";
+        public static final java.lang.String COLUMN_NAME_SOURCE = "name_source";
+        public static final java.lang.String COLUMN_NR_ADVANCED_CALLING_ENABLED = "nr_advanced_calling_enabled";
+        public static final java.lang.String COLUMN_NUMBER = "number";
+        public static final java.lang.String COLUMN_PHONE_NUMBER_SOURCE_CARRIER = "phone_number_source_carrier";
+        public static final java.lang.String COLUMN_PHONE_NUMBER_SOURCE_IMS = "phone_number_source_ims";
+        public static final java.lang.String COLUMN_PHONE_NUMBER_SOURCE_TS43 = "phone_number_source_ts43";
+        public static final java.lang.String COLUMN_PORT_INDEX = "port_index";
+        public static final java.lang.String COLUMN_PROFILE_CLASS = "profile_class";
+        public static final java.lang.String COLUMN_RCS_CONFIG = "rcs_config";
+        public static final java.lang.String COLUMN_SATELLITE_ATTACH_ENABLED_FOR_CARRIER = "satellite_attach_enabled_for_carrier";
+        public static final java.lang.String COLUMN_SATELLITE_ENABLED = "satellite_enabled";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_BARRED_PLMNS = "satellite_entitlement_barred_plmns";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_DATA_PLAN_PLMNS = "satellite_entitlement_data_plan_plmns";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_DATA_SERVICE_POLICY = "satellite_entitlement_data_service_policy";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_PLMNS = "satellite_entitlement_plmns";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_SERVICE_TYPE_MAP = "satellite_entitlement_service_type_map";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_STATUS = "satellite_entitlement_status";
+        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_VOICE_SERVICE_POLICY = "satellite_entitlement_voice_service_policy";
+        public static final java.lang.String COLUMN_SATELLITE_ESOS_SUPPORTED = "satellite_esos_supported";
+        public static final java.lang.String COLUMN_SERVICE_CAPABILITIES = "service_capabilities";
+        public static final java.lang.String COLUMN_SIM_PROVISIONING_STATUS = "sim_provisioning_status";
+        public static final java.lang.String COLUMN_SIM_SLOT_INDEX = "sim_id";
+        public static final java.lang.String COLUMN_STREAMING_APP_MAX_DOWNLINK_KBPS = "streaming_app_max_downlink_kbps";
+        public static final java.lang.String COLUMN_STREAMING_APP_MAX_UPLINK_KBPS = "streaming_app_max_uplink_kbps";
+        public static final java.lang.String COLUMN_SUBSCRIPTION_TYPE = "subscription_type";
+        public static final java.lang.String COLUMN_TP_MESSAGE_REF = "tp_message_ref";
+        public static final java.lang.String COLUMN_TRANSFER_STATUS = "transfer_status";
+        public static final java.lang.String COLUMN_UICC_APPLICATIONS_ENABLED = "uicc_applications_enabled";
+        public static final java.lang.String COLUMN_UNIQUE_KEY_SUBSCRIPTION_ID = "_id";
+        public static final java.lang.String COLUMN_USAGE_SETTING = "usage_setting";
+        public static final java.lang.String COLUMN_USER_HANDLE = "user_handle";
+        public static final java.lang.String COLUMN_VOIMS_OPT_IN_STATUS = "voims_opt_in_status";
+        public static final java.lang.String COLUMN_VT_IMS_ENABLED = "vt_ims_enabled";
+        public static final java.lang.String COLUMN_WFC_IMS_ENABLED = "wfc_ims_enabled";
+        public static final java.lang.String COLUMN_WFC_IMS_MODE = "wfc_ims_mode";
+        public static final java.lang.String COLUMN_WFC_IMS_ROAMING_ENABLED = "wfc_ims_roaming_enabled";
+        public static final java.lang.String COLUMN_WFC_IMS_ROAMING_MODE = "wfc_ims_roaming_mode";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final int DATA_ROAMING_DISABLE = 0;
+        public static final int DATA_ROAMING_ENABLE = 1;
+        public static final int DISPLAY_NUMBER_DEFAULT = 1;
+        public static final int NAME_SOURCE_CARRIER = 3;
+        public static final int NAME_SOURCE_CARRIER_ID = 0;
+        public static final int NAME_SOURCE_SIM_PNN = 4;
+        public static final int NAME_SOURCE_SIM_SPN = 1;
+        public static final int NAME_SOURCE_UNKNOWN = -1;
+        public static final int NAME_SOURCE_USER_INPUT = 2;
+        public static final int PROFILE_CLASS_OPERATIONAL = 2;
+        public static final int PROFILE_CLASS_PROVISIONING = 1;
+        public static final int PROFILE_CLASS_TESTING = 0;
+        public static final int PROFILE_CLASS_UNSET = -1;
+        public static final int SIM_NOT_INSERTED = -1;
+        public static final int SIM_PROVISIONED = 0;
+        public static final int SUBSCRIPTION_TYPE_LOCAL_SIM = 0;
+        public static final int SUBSCRIPTION_TYPE_REMOTE_SIM = 1;
+        private SimInfo() {}
+        public static java.util.List<java.lang.String> getAllColumns() { return null; }
+    }
+
+    public static final class ServiceStateTable {
+        public static final java.lang.String AUTHORITY = "service-state";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String DATA_NETWORK_TYPE = "data_network_type";
+        public static final java.lang.String DATA_REG_STATE = "data_reg_state";
+        public static final java.lang.String DUPLEX_MODE = "duplex_mode";
+        public static final java.lang.String IS_MANUAL_NETWORK_SELECTION = "is_manual_network_selection";
+        public static final java.lang.String VOICE_OPERATOR_NUMERIC = "voice_operator_numeric";
+        public static final java.lang.String VOICE_REG_STATE = "voice_reg_state";
+        private ServiceStateTable() {}
+        public static android.net.Uri getUriForSubscriptionId(int p0) { return null; }
+        public static android.net.Uri getUriForSubscriptionIdAndField(int p0, java.lang.String p1) { return null; }
+    }
+
+    public static interface CarrierColumns extends android.provider.BaseColumns {
+        public static final java.lang.String CARRIER_ID = "carrier_id";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String EXPIRATION_TIME = "expiration_time";
+        public static final java.lang.String KEY_IDENTIFIER = "key_identifier";
+        public static final java.lang.String KEY_TYPE = "key_type";
+        public static final java.lang.String LAST_MODIFIED = "last_modified";
+        public static final java.lang.String MCC = "mcc";
+        public static final java.lang.String MNC = "mnc";
+        public static final java.lang.String PUBLIC_KEY = "public_key";
+    }
+
+    public static final class CarrierId implements android.provider.BaseColumns {
+        public static final java.lang.String AUTHORITY = "carrier_id";
+        public static final java.lang.String CARRIER_ID = "carrier_id";
+        public static final java.lang.String CARRIER_NAME = "carrier_name";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String PARENT_CARRIER_ID = "parent_carrier_id";
+        public static final java.lang.String SPECIFIC_CARRIER_ID = "specific_carrier_id";
+        public static final java.lang.String SPECIFIC_CARRIER_ID_NAME = "specific_carrier_id_name";
+        private CarrierId() {}
+        public static android.net.Uri getSpecificCarrierIdUriForSubscriptionId(int p0) { return null; }
+        public static android.net.Uri getUriForSubscriptionId(int p0) { return null; }
+
+        public static final class All implements android.provider.BaseColumns {
+            public static final java.lang.String APN = "apn";
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String GID1 = "gid1";
+            public static final java.lang.String GID2 = "gid2";
+            public static final java.lang.String ICCID_PREFIX = "iccid_prefix";
+            public static final java.lang.String IMSI_PREFIX_XPATTERN = "imsi_prefix_xpattern";
+            public static final java.lang.String MCCMNC = "mccmnc";
+            public static final java.lang.String PLMN = "plmn";
+            public static final java.lang.String PRIVILEGE_ACCESS_RULE = "privilege_access_rule";
+            public static final java.lang.String SPN = "spn";
+            private All() {}
+        }
+    }
+
+    public static final class Mms implements android.provider.Telephony.BaseMmsColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+        private static final int MAX_EMAIL_ADDRESS_LENGTH = 512;
+        public static final java.util.regex.Pattern NAME_ADDR_EMAIL_PATTERN = null;
+        public static final android.net.Uri REPORT_REQUEST_URI = null;
+        public static final android.net.Uri REPORT_STATUS_URI = null;
+        private Mms() {}
+        public static java.lang.String extractAddrSpec(java.lang.String p0) { return null; }
+        public static boolean isEmailAddress(java.lang.String p0) { return false; }
+        public static boolean isPhoneNumber(java.lang.String p0) { return false; }
+        public static android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1) { return null; }
+        public static android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, java.lang.String p2, java.lang.String p3) { return null; }
+
+        public static final class Intents {
+            public static final java.lang.String CONTENT_CHANGED_ACTION = "android.intent.action.CONTENT_CHANGED";
+            public static final java.lang.String DELETED_CONTENTS = "deleted_contents";
+            private Intents() {}
+        }
+
+        public static final class Draft implements android.provider.Telephony.BaseMmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Draft() {}
+        }
+
+        public static final class Outbox implements android.provider.Telephony.BaseMmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Outbox() {}
+        }
+
+        public static final class Sent implements android.provider.Telephony.BaseMmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Sent() {}
+        }
+
+        public static final class Addr implements android.provider.BaseColumns {
+            public static final java.lang.String ADDRESS = "address";
+            public static final java.lang.String CHARSET = "charset";
+            public static final java.lang.String CONTACT_ID = "contact_id";
+            public static final java.lang.String MSG_ID = "msg_id";
+            public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
+            public static final java.lang.String TYPE = "type";
+            private Addr() {}
+            public static android.net.Uri getAddrUriForMessage(java.lang.String p0) { return null; }
+        }
+
+        public static final class Rate {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String SENT_TIME = "sent_time";
+            public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
+            private Rate() {}
+        }
+
+        public static final class Inbox implements android.provider.Telephony.BaseMmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Inbox() {}
+        }
+
+        public static final class Part implements android.provider.BaseColumns {
+            public static final java.lang.String CHARSET = "chset";
+            public static final java.lang.String CONTENT_DISPOSITION = "cd";
+            public static final java.lang.String CONTENT_ID = "cid";
+            public static final java.lang.String CONTENT_LOCATION = "cl";
+            public static final java.lang.String CONTENT_TYPE = "ct";
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String CT_START = "ctt_s";
+            public static final java.lang.String CT_TYPE = "ctt_t";
+            public static final java.lang.String FILENAME = "fn";
+            public static final java.lang.String MSG_ID = "mid";
+            public static final java.lang.String NAME = "name";
+            public static final java.lang.String SEQ = "seq";
+            public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
+            private static final java.lang.String TABLE_PART = "part";
+            public static final java.lang.String TEXT = "text";
+            public static final java.lang.String _DATA = "_data";
+            private Part() {}
+            public static android.net.Uri getPartUriForMessage(java.lang.String p0) { return null; }
+        }
+    }
+
     public static interface BaseMmsColumns extends android.provider.BaseColumns {
         @java.lang.Deprecated
         public static final java.lang.String ADAPTATION_ALLOWED = "adp_a";
@@ -124,49 +464,15 @@ public final class Telephony {
         public static final java.lang.String TRANSACTION_ID = "tr_id";
     }
 
-    public static interface CanonicalAddressesColumns extends android.provider.BaseColumns {
-        public static final java.lang.String ADDRESS = "address";
-        public static final java.lang.String READ_RESTRICTION = "read_restriction";
-        public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
-    }
-
-    public static interface CarrierColumns extends android.provider.BaseColumns {
-        public static final java.lang.String CARRIER_ID = "carrier_id";
+    public static interface TextBasedSmsChangesColumns {
         public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String EXPIRATION_TIME = "expiration_time";
-        public static final java.lang.String KEY_IDENTIFIER = "key_identifier";
-        public static final java.lang.String KEY_TYPE = "key_type";
-        public static final java.lang.String LAST_MODIFIED = "last_modified";
-        public static final java.lang.String MCC = "mcc";
-        public static final java.lang.String MNC = "mnc";
-        public static final java.lang.String PUBLIC_KEY = "public_key";
-    }
-
-    public static final class CarrierId implements android.provider.BaseColumns {
-        public static final java.lang.String AUTHORITY = "carrier_id";
-        public static final java.lang.String CARRIER_ID = "carrier_id";
-        public static final java.lang.String CARRIER_NAME = "carrier_name";
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String PARENT_CARRIER_ID = "parent_carrier_id";
-        public static final java.lang.String SPECIFIC_CARRIER_ID = "specific_carrier_id";
-        public static final java.lang.String SPECIFIC_CARRIER_ID_NAME = "specific_carrier_id_name";
-        private CarrierId() {}
-        public static android.net.Uri getSpecificCarrierIdUriForSubscriptionId(int p0) { return null; }
-        public static android.net.Uri getUriForSubscriptionId(int p0) { return null; }
-
-        public static final class All implements android.provider.BaseColumns {
-            public static final java.lang.String APN = "apn";
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String GID1 = "gid1";
-            public static final java.lang.String GID2 = "gid2";
-            public static final java.lang.String ICCID_PREFIX = "iccid_prefix";
-            public static final java.lang.String IMSI_PREFIX_XPATTERN = "imsi_prefix_xpattern";
-            public static final java.lang.String MCCMNC = "mccmnc";
-            public static final java.lang.String PLMN = "plmn";
-            public static final java.lang.String PRIVILEGE_ACCESS_RULE = "privilege_access_rule";
-            public static final java.lang.String SPN = "spn";
-            private All() {}
-        }
+        public static final java.lang.String ID = "_id";
+        public static final java.lang.String NEW_READ_STATUS = "new_read_status";
+        public static final java.lang.String ORIG_ROW_ID = "orig_rowid";
+        public static final java.lang.String SUB_ID = "sub_id";
+        public static final java.lang.String TYPE = "type";
+        public static final int TYPE_DELETE = 1;
+        public static final int TYPE_UPDATE = 0;
     }
 
     public static final class Carriers implements android.provider.BaseColumns {
@@ -263,6 +569,21 @@ public final class Telephony {
         }
     }
 
+    public static interface ThreadsColumns extends android.provider.BaseColumns {
+        public static final java.lang.String ARCHIVED = "archived";
+        public static final java.lang.String DATE = "date";
+        public static final java.lang.String ERROR = "error";
+        public static final java.lang.String HAS_ATTACHMENT = "has_attachment";
+        public static final java.lang.String MESSAGE_COUNT = "message_count";
+        public static final java.lang.String READ = "read";
+        public static final java.lang.String READ_RESTRICTION = "read_restriction";
+        public static final java.lang.String RECIPIENT_IDS = "recipient_ids";
+        public static final java.lang.String SNIPPET = "snippet";
+        public static final java.lang.String SNIPPET_CHARSET = "snippet_cs";
+        public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
+        public static final java.lang.String TYPE = "type";
+    }
+
     @android.annotation.SystemApi
     public static final class CellBroadcasts implements android.provider.BaseColumns {
         @android.annotation.SystemApi
@@ -323,86 +644,103 @@ public final class Telephony {
         }
     }
 
-    public static final class Mms implements android.provider.Telephony.BaseMmsColumns {
+    public static final class Sms implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
+        private static final java.util.regex.Matcher CONTAINS_NUMBER = null;
         public static final android.net.Uri CONTENT_URI = null;
         public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-        public static final java.util.regex.Pattern NAME_ADDR_EMAIL_PATTERN = null;
-        public static final android.net.Uri REPORT_REQUEST_URI = null;
-        public static final android.net.Uri REPORT_STATUS_URI = null;
-        private Mms() {}
-        public static java.lang.String extractAddrSpec(java.lang.String p0) { return null; }
-        public static boolean isEmailAddress(java.lang.String p0) { return false; }
-        public static boolean isPhoneNumber(java.lang.String p0) { return false; }
+        private Sms() {}
+        public static android.net.Uri addMessageToUri(int p0, android.content.ContentResolver p1, android.net.Uri p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.Long p6, boolean p7, boolean p8) { return null; }
+        public static android.net.Uri addMessageToUri(int p0, android.content.ContentResolver p1, android.net.Uri p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.Long p6, boolean p7, boolean p8, long p9) { return null; }
+        public static android.net.Uri addMessageToUri(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6, boolean p7) { return null; }
+        public static android.net.Uri addMessageToUri(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6, boolean p7, long p8) { return null; }
+        public static java.lang.String getDefaultSmsPackage(android.content.Context p0) { return null; }
+        public static boolean isOtpRedactionEnabled(android.content.Context p0) { return false; }
+        public static boolean isOutgoingFolder(int p0) { return false; }
+        public static boolean moveMessageToFolder(android.content.Context p0, android.net.Uri p1, int p2, int p3) { return false; }
         public static android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1) { return null; }
         public static android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, java.lang.String p2, java.lang.String p3) { return null; }
+        public static boolean shouldCheckForOtp(android.content.Context p0, java.lang.String p1) { return false; }
 
-        public static final class Addr implements android.provider.BaseColumns {
-            public static final java.lang.String ADDRESS = "address";
-            public static final java.lang.String CHARSET = "charset";
-            public static final java.lang.String CONTACT_ID = "contact_id";
-            public static final java.lang.String MSG_ID = "msg_id";
-            public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
-            public static final java.lang.String TYPE = "type";
-            private Addr() {}
-            public static android.net.Uri getAddrUriForMessage(java.lang.String p0) { return null; }
-        }
-
-        public static final class Draft implements android.provider.Telephony.BaseMmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Draft() {}
-        }
-
-        public static final class Inbox implements android.provider.Telephony.BaseMmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Inbox() {}
-        }
-
-        public static final class Intents {
-            public static final java.lang.String CONTENT_CHANGED_ACTION = "android.intent.action.CONTENT_CHANGED";
-            public static final java.lang.String DELETED_CONTENTS = "deleted_contents";
-            private Intents() {}
-        }
-
-        public static final class Outbox implements android.provider.Telephony.BaseMmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Outbox() {}
-        }
-
-        public static final class Part implements android.provider.BaseColumns {
-            public static final java.lang.String CHARSET = "chset";
-            public static final java.lang.String CONTENT_DISPOSITION = "cd";
-            public static final java.lang.String CONTENT_ID = "cid";
-            public static final java.lang.String CONTENT_LOCATION = "cl";
-            public static final java.lang.String CONTENT_TYPE = "ct";
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String CT_START = "ctt_s";
-            public static final java.lang.String CT_TYPE = "ctt_t";
-            public static final java.lang.String FILENAME = "fn";
-            public static final java.lang.String MSG_ID = "mid";
-            public static final java.lang.String NAME = "name";
-            public static final java.lang.String SEQ = "seq";
-            public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
-            private static final java.lang.String TABLE_PART = "part";
-            public static final java.lang.String TEXT = "text";
-            public static final java.lang.String _DATA = "_data";
-            private Part() {}
-            public static android.net.Uri getPartUriForMessage(java.lang.String p0) { return null; }
-        }
-
-        public static final class Rate {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String SENT_TIME = "sent_time";
-            public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
-            private Rate() {}
-        }
-
-        public static final class Sent implements android.provider.Telephony.BaseMmsColumns {
+        public static final class Sent implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
             public static final android.net.Uri CONTENT_URI = null;
             public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
             private Sent() {}
+            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5) { return null; }
+            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4) { return null; }
+        }
+
+        public static final class Inbox implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Inbox() {}
+            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6) { return null; }
+            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4, boolean p5) { return null; }
+        }
+
+        public static final class Outbox implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Outbox() {}
+            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6, long p7) { return null; }
+            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4, boolean p5, long p6) { return null; }
+        }
+
+        public static final class Intents {
+            public static final java.lang.String ACTION_CHANGE_DEFAULT = "android.provider.Telephony.ACTION_CHANGE_DEFAULT";
+            public static final java.lang.String ACTION_DEFAULT_SMS_PACKAGE_CHANGED = "android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED";
+            public static final java.lang.String ACTION_EXTERNAL_PROVIDER_CHANGE = "android.provider.action.EXTERNAL_PROVIDER_CHANGE";
+            @android.annotation.SystemApi
+            public static final java.lang.String ACTION_SMS_EMERGENCY_CB_RECEIVED = "android.provider.action.SMS_EMERGENCY_CB_RECEIVED";
+            public static final java.lang.String ACTION_SMS_MMS_DB_CREATED = "android.provider.action.SMS_MMS_DB_CREATED";
+            public static final java.lang.String ACTION_SMS_MMS_DB_LOST = "android.provider.action.SMS_MMS_DB_LOST";
+            @android.annotation.SystemApi
+            public static final java.lang.String ACTION_SMS_NETWORK_SECURITY_EVENT_RECEIVED = "android.provider.action.SMS_NETWORK_SECURITY_EVENT_RECEIVED";
+            public static final java.lang.String DATA_SMS_RECEIVED_ACTION = "android.intent.action.DATA_SMS_RECEIVED";
+            public static final java.lang.String EXTRA_IS_CORRUPTED = "android.provider.extra.IS_CORRUPTED";
+            public static final java.lang.String EXTRA_IS_DEFAULT_SMS_APP = "android.provider.extra.IS_DEFAULT_SMS_APP";
+            public static final java.lang.String EXTRA_IS_INITIAL_CREATE = "android.provider.extra.IS_INITIAL_CREATE";
+            public static final java.lang.String EXTRA_PACKAGE_NAME = "package";
+            public static final java.lang.String MMS_DOWNLOADED_ACTION = "android.provider.Telephony.MMS_DOWNLOADED";
+            public static final int RESULT_SMS_DATABASE_ERROR = 10;
+            public static final int RESULT_SMS_DISPATCH_FAILURE = 6;
+            public static final int RESULT_SMS_DUPLICATED = 5;
+            public static final int RESULT_SMS_GENERIC_ERROR = 2;
+            public static final int RESULT_SMS_HANDLED = 1;
+            public static final int RESULT_SMS_INVALID_URI = 11;
+            public static final int RESULT_SMS_NULL_MESSAGE = 8;
+            public static final int RESULT_SMS_NULL_PDU = 7;
+            public static final int RESULT_SMS_OUT_OF_MEMORY = 3;
+            public static final int RESULT_SMS_RECEIVED_WHILE_ENCRYPTED = 9;
+            public static final int RESULT_SMS_UNSUPPORTED = 4;
+            @java.lang.Deprecated
+            public static final java.lang.String SECRET_CODE_ACTION = "android.provider.Telephony.SECRET_CODE";
+            public static final java.lang.String SIM_FULL_ACTION = "android.provider.Telephony.SIM_FULL";
+            public static final java.lang.String SMS_CARRIER_PROVISION_ACTION = "android.provider.Telephony.SMS_CARRIER_PROVISION";
+            public static final java.lang.String SMS_CB_RECEIVED_ACTION = "android.provider.Telephony.SMS_CB_RECEIVED";
+            public static final java.lang.String SMS_DELIVER_ACTION = "android.provider.Telephony.SMS_DELIVER";
+            public static final java.lang.String SMS_RECEIVED_ACTION = "android.provider.Telephony.SMS_RECEIVED";
+            public static final java.lang.String SMS_REJECTED_ACTION = "android.provider.Telephony.SMS_REJECTED";
+            public static final java.lang.String SMS_SERVICE_CATEGORY_PROGRAM_DATA_RECEIVED_ACTION = "android.provider.Telephony.SMS_SERVICE_CATEGORY_PROGRAM_DATA_RECEIVED";
+            public static final java.lang.String WAP_PUSH_DELIVER_ACTION = "android.provider.Telephony.WAP_PUSH_DELIVER";
+            public static final java.lang.String WAP_PUSH_RECEIVED_ACTION = "android.provider.Telephony.WAP_PUSH_RECEIVED";
+            private Intents() {}
+            public static android.telephony.SmsMessage[] getMessagesFromIntent(android.content.Intent p0) { return null; }
+        }
+
+        public static final class Draft implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            private Draft() {}
+            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5) { return null; }
+            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4) { return null; }
+        }
+
+        public static final class Conversations implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
+            public static final android.net.Uri CONTENT_URI = null;
+            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
+            public static final java.lang.String MESSAGE_COUNT = "msg_count";
+            public static final java.lang.String SNIPPET = "snippet";
+            private Conversations() {}
         }
     }
 
@@ -451,344 +789,20 @@ public final class Telephony {
         }
     }
 
-    @android.annotation.SystemApi
-    public static final class ReadRestriction {
-        public static final java.lang.String READ_RESTRICTION_COLUMN_NAME = "read_restriction";
-        public static final int READ_RESTRICTION_MASK = 16711680;
-        public static final int READ_RESTRICTION_SHIFT = 16;
-        @android.annotation.SystemApi
-        public static final java.lang.String RESTRICTED = "restricted";
-        private ReadRestriction() {}
-        public static void appendReadRestrictionToQuery(android.database.sqlite.SQLiteQueryBuilder p0, java.lang.String p1, boolean p2) {}
-        public static void appendRestrictedToQuery(android.database.sqlite.SQLiteQueryBuilder p0, java.lang.String p1, java.lang.String p2, boolean p3) {}
-        public static void appendRestrictedToQuery(android.database.sqlite.SQLiteQueryBuilder p0, java.lang.String p1, boolean p2) {}
-        public static int performReadRestrictionDatabaseUpdate(android.database.sqlite.SQLiteDatabase p0, java.lang.String p1, android.content.ContentValues p2, java.lang.String p3, java.lang.String[] p4) { return 0; }
-        public static void setReadRestrictionValueOnInsert(android.content.Context p0, android.content.ContentValues p1, java.lang.String p2, boolean p3) {}
-        public static void setReadRestrictionValueOnUpdate(android.content.ContentValues p0, boolean p1) {}
-        private static boolean shouldBeRestrictedByDefault(java.lang.String p0, android.content.Context p1) { return false; }
-        public static void unrestrictMessage(android.content.ContentResolver p0, android.net.Uri p1) {}
-
-        public static final class ReadRestrictionValues {
-            public static final int READ_RESTRICTION_RESTRICTED = 65536;
-            private ReadRestrictionValues() {}
-        }
-    }
-
-    public static final class SatelliteDatagrams {
-        private static final java.util.List<java.lang.String> ALL_COLUMNS = null;
-        public static final java.lang.String COLUMN_DATAGRAM = "datagram";
-        public static final java.lang.String COLUMN_UNIQUE_KEY_DATAGRAM_ID = "datagram_id";
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String PROVIDER_NAME = "satellite";
-        public static final java.lang.String TABLE_NAME = "incoming_datagrams";
-        private static final java.lang.String URL = "content://satellite/incoming_datagrams";
-        private SatelliteDatagrams() {}
-        public static java.util.List<java.lang.String> getAllColumns() { return null; }
-    }
-
-    public static final class ServiceStateTable {
-        public static final java.lang.String AUTHORITY = "service-state";
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String DATA_NETWORK_TYPE = "data_network_type";
-        public static final java.lang.String DATA_REG_STATE = "data_reg_state";
-        public static final java.lang.String DUPLEX_MODE = "duplex_mode";
-        public static final java.lang.String IS_MANUAL_NETWORK_SELECTION = "is_manual_network_selection";
-        public static final java.lang.String VOICE_OPERATOR_NUMERIC = "voice_operator_numeric";
-        public static final java.lang.String VOICE_REG_STATE = "voice_reg_state";
-        private ServiceStateTable() {}
-        public static android.net.Uri getUriForSubscriptionId(int p0) { return null; }
-        public static android.net.Uri getUriForSubscriptionIdAndField(int p0, java.lang.String p1) { return null; }
-    }
-
-    public static final class SimInfo {
-        private static final java.util.List<java.lang.String> ALL_COLUMNS = null;
-        public static final int COLOR_DEFAULT = 0;
-        public static final java.lang.String COLUMN_ACCESS_RULES = "access_rules";
-        public static final java.lang.String COLUMN_ACCESS_RULES_FROM_CARRIER_CONFIGS = "access_rules_from_carrier_configs";
-        public static final java.lang.String COLUMN_ALLOWED_NETWORK_TYPES = "allowed_network_types";
-        public static final java.lang.String COLUMN_ALLOWED_NETWORK_TYPES_FOR_REASONS = "allowed_network_types_for_reasons";
-        public static final java.lang.String COLUMN_CARD_ID = "card_id";
+    public static final class CarrierPrivileges {
+        public static final java.lang.String AUTHORITY = "carrier_privileges";
+        public static final java.lang.String COLUMN_ALLOWED_SEGMENTS = "allowed_segments";
         public static final java.lang.String COLUMN_CARRIER_ID = "carrier_id";
-        public static final java.lang.String COLUMN_CARRIER_NAME = "carrier_name";
-        public static final java.lang.String COLUMN_CB_ALERT_REMINDER_INTERVAL = "alert_reminder_interval";
-        public static final java.lang.String COLUMN_CB_ALERT_SOUND_DURATION = "alert_sound_duration";
-        public static final java.lang.String COLUMN_CB_ALERT_SPEECH = "enable_alert_speech";
-        public static final java.lang.String COLUMN_CB_ALERT_VIBRATE = "enable_alert_vibrate";
-        public static final java.lang.String COLUMN_CB_AMBER_ALERT = "enable_cmas_amber_alerts";
-        public static final java.lang.String COLUMN_CB_CHANNEL_50_ALERT = "enable_channel_50_alerts";
-        public static final java.lang.String COLUMN_CB_CMAS_TEST_ALERT = "enable_cmas_test_alerts";
-        public static final java.lang.String COLUMN_CB_EMERGENCY_ALERT = "enable_emergency_alerts";
-        public static final java.lang.String COLUMN_CB_ETWS_TEST_ALERT = "enable_etws_test_alerts";
-        public static final java.lang.String COLUMN_CB_EXTREME_THREAT_ALERT = "enable_cmas_extreme_threat_alerts";
-        public static final java.lang.String COLUMN_CB_OPT_OUT_DIALOG = "show_cmas_opt_out_dialog";
-        public static final java.lang.String COLUMN_CB_SEVERE_THREAT_ALERT = "enable_cmas_severe_threat_alerts";
-        public static final java.lang.String COLUMN_COLOR = "color";
-        public static final java.lang.String COLUMN_CROSS_SIM_CALLING_ENABLED = "cross_sim_calling_enabled";
-        public static final java.lang.String COLUMN_D2D_STATUS_SHARING = "d2d_sharing_status";
-        public static final java.lang.String COLUMN_D2D_STATUS_SHARING_SELECTED_CONTACTS = "d2d_sharing_contacts";
-        @java.lang.Deprecated
-        public static final java.lang.String COLUMN_DATA_ENABLED_OVERRIDE_RULES = "data_enabled_override_rules";
-        public static final java.lang.String COLUMN_DATA_ROAMING = "data_roaming";
-        public static final java.lang.String COLUMN_DISPLAY_NAME = "display_name";
-        public static final java.lang.String COLUMN_DISPLAY_NUMBER_FORMAT = "display_number_format";
-        public static final java.lang.String COLUMN_EHPLMNS = "ehplmns";
-        public static final java.lang.String COLUMN_ENABLED_MOBILE_DATA_POLICIES = "enabled_mobile_data_policies";
-        public static final java.lang.String COLUMN_ENHANCED_4G_MODE_ENABLED = "volte_vt_enabled";
-        public static final java.lang.String COLUMN_GROUP_OWNER = "group_owner";
-        public static final java.lang.String COLUMN_GROUP_UUID = "group_uuid";
-        public static final java.lang.String COLUMN_HPLMNS = "hplmns";
-        public static final java.lang.String COLUMN_ICC_ID = "icc_id";
-        public static final java.lang.String COLUMN_IMSI = "imsi";
-        public static final java.lang.String COLUMN_IMS_RCS_UCE_ENABLED = "ims_rcs_uce_enabled";
-        public static final java.lang.String COLUMN_ISO_COUNTRY_CODE = "iso_country_code";
-        public static final java.lang.String COLUMN_IS_EMBEDDED = "is_embedded";
-        public static final java.lang.String COLUMN_IS_METERED = "is_metered";
-        public static final java.lang.String COLUMN_IS_ONLY_NTN = "is_only_ntn";
-        public static final java.lang.String COLUMN_IS_OPPORTUNISTIC = "is_opportunistic";
-        public static final java.lang.String COLUMN_IS_PRIVATE_NETWORK = "is_private_network";
-        public static final java.lang.String COLUMN_IS_REMOVABLE = "is_removable";
-        public static final java.lang.String COLUMN_IS_SATELLITE_PROVISIONED_FOR_NON_IP_DATAGRAM = "is_satellite_provisioned_for_non_ip_datagram";
-        public static final java.lang.String COLUMN_MCC = "mcc";
-        public static final java.lang.String COLUMN_MCC_STRING = "mcc_string";
-        public static final java.lang.String COLUMN_MNC = "mnc";
-        public static final java.lang.String COLUMN_MNC_STRING = "mnc_string";
-        public static final java.lang.String COLUMN_NAME_SOURCE = "name_source";
-        public static final java.lang.String COLUMN_NR_ADVANCED_CALLING_ENABLED = "nr_advanced_calling_enabled";
-        public static final java.lang.String COLUMN_NUMBER = "number";
-        public static final java.lang.String COLUMN_PHONE_NUMBER_SOURCE_CARRIER = "phone_number_source_carrier";
-        public static final java.lang.String COLUMN_PHONE_NUMBER_SOURCE_IMS = "phone_number_source_ims";
-        public static final java.lang.String COLUMN_PHONE_NUMBER_SOURCE_TS43 = "phone_number_source_ts43";
-        public static final java.lang.String COLUMN_PORT_INDEX = "port_index";
-        public static final java.lang.String COLUMN_PROFILE_CLASS = "profile_class";
-        public static final java.lang.String COLUMN_RCS_CONFIG = "rcs_config";
-        public static final java.lang.String COLUMN_SATELLITE_ATTACH_ENABLED_FOR_CARRIER = "satellite_attach_enabled_for_carrier";
-        public static final java.lang.String COLUMN_SATELLITE_ENABLED = "satellite_enabled";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_BARRED_PLMNS = "satellite_entitlement_barred_plmns";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_DATA_PLAN_PLMNS = "satellite_entitlement_data_plan_plmns";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_DATA_SERVICE_POLICY = "satellite_entitlement_data_service_policy";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_PLMNS = "satellite_entitlement_plmns";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_SERVICE_TYPE_MAP = "satellite_entitlement_service_type_map";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_STATUS = "satellite_entitlement_status";
-        public static final java.lang.String COLUMN_SATELLITE_ENTITLEMENT_VOICE_SERVICE_POLICY = "satellite_entitlement_voice_service_policy";
-        public static final java.lang.String COLUMN_SATELLITE_ESOS_SUPPORTED = "satellite_esos_supported";
-        public static final java.lang.String COLUMN_SERVICE_CAPABILITIES = "service_capabilities";
-        public static final java.lang.String COLUMN_SIM_PROVISIONING_STATUS = "sim_provisioning_status";
-        public static final java.lang.String COLUMN_SIM_SLOT_INDEX = "sim_id";
-        public static final java.lang.String COLUMN_STREAMING_APP_MAX_DOWNLINK_KBPS = "streaming_app_max_downlink_kbps";
-        public static final java.lang.String COLUMN_STREAMING_APP_MAX_UPLINK_KBPS = "streaming_app_max_uplink_kbps";
-        public static final java.lang.String COLUMN_SUBSCRIPTION_TYPE = "subscription_type";
-        public static final java.lang.String COLUMN_TP_MESSAGE_REF = "tp_message_ref";
-        public static final java.lang.String COLUMN_TRANSFER_STATUS = "transfer_status";
-        public static final java.lang.String COLUMN_UICC_APPLICATIONS_ENABLED = "uicc_applications_enabled";
-        public static final java.lang.String COLUMN_UNIQUE_KEY_SUBSCRIPTION_ID = "_id";
-        public static final java.lang.String COLUMN_USAGE_SETTING = "usage_setting";
-        public static final java.lang.String COLUMN_USER_HANDLE = "user_handle";
-        public static final java.lang.String COLUMN_VOIMS_OPT_IN_STATUS = "voims_opt_in_status";
-        public static final java.lang.String COLUMN_VT_IMS_ENABLED = "vt_ims_enabled";
-        public static final java.lang.String COLUMN_WFC_IMS_ENABLED = "wfc_ims_enabled";
-        public static final java.lang.String COLUMN_WFC_IMS_MODE = "wfc_ims_mode";
-        public static final java.lang.String COLUMN_WFC_IMS_ROAMING_ENABLED = "wfc_ims_roaming_enabled";
-        public static final java.lang.String COLUMN_WFC_IMS_ROAMING_MODE = "wfc_ims_roaming_mode";
+        public static final java.lang.String COLUMN_CERTIFICATE_HASH = "certificate_hash";
+        public static final java.lang.String COLUMN_PACKAGE_NAME = "package_name";
         public static final android.net.Uri CONTENT_URI = null;
-        public static final int DATA_ROAMING_DISABLE = 0;
-        public static final int DATA_ROAMING_ENABLE = 1;
-        public static final int DISPLAY_NUMBER_DEFAULT = 1;
-        public static final int NAME_SOURCE_CARRIER = 3;
-        public static final int NAME_SOURCE_CARRIER_ID = 0;
-        public static final int NAME_SOURCE_SIM_PNN = 4;
-        public static final int NAME_SOURCE_SIM_SPN = 1;
-        public static final int NAME_SOURCE_UNKNOWN = -1;
-        public static final int NAME_SOURCE_USER_INPUT = 2;
-        public static final int PROFILE_CLASS_OPERATIONAL = 2;
-        public static final int PROFILE_CLASS_PROVISIONING = 1;
-        public static final int PROFILE_CLASS_TESTING = 0;
-        public static final int PROFILE_CLASS_UNSET = -1;
-        public static final int SIM_NOT_INSERTED = -1;
-        public static final int SIM_PROVISIONED = 0;
-        public static final int SUBSCRIPTION_TYPE_LOCAL_SIM = 0;
-        public static final int SUBSCRIPTION_TYPE_REMOTE_SIM = 1;
-        private SimInfo() {}
-        public static java.util.List<java.lang.String> getAllColumns() { return null; }
+        public static final android.net.Uri PROVIDER_URI = null;
+        private CarrierPrivileges() {}
     }
 
-    public static final class Sms implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
-        private static final java.util.regex.Matcher CONTAINS_NUMBER = null;
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-        private Sms() {}
-        public static android.net.Uri addMessageToUri(int p0, android.content.ContentResolver p1, android.net.Uri p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.Long p6, boolean p7, boolean p8) { return null; }
-        public static android.net.Uri addMessageToUri(int p0, android.content.ContentResolver p1, android.net.Uri p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.Long p6, boolean p7, boolean p8, long p9) { return null; }
-        public static android.net.Uri addMessageToUri(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6, boolean p7) { return null; }
-        public static android.net.Uri addMessageToUri(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6, boolean p7, long p8) { return null; }
-        public static java.lang.String getDefaultSmsPackage(android.content.Context p0) { return null; }
-        public static boolean isOtpRedactionEnabled(android.content.Context p0) { return false; }
-        public static boolean isOutgoingFolder(int p0) { return false; }
-        public static boolean moveMessageToFolder(android.content.Context p0, android.net.Uri p1, int p2, int p3) { return false; }
-        public static android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1) { return null; }
-        public static android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, java.lang.String p2, java.lang.String p3) { return null; }
-        public static boolean shouldCheckForOtp(android.content.Context p0, java.lang.String p1) { return false; }
-
-        public static final class Conversations implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            public static final java.lang.String MESSAGE_COUNT = "msg_count";
-            public static final java.lang.String SNIPPET = "snippet";
-            private Conversations() {}
-        }
-
-        public static final class Draft implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Draft() {}
-            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5) { return null; }
-            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4) { return null; }
-        }
-
-        public static final class Inbox implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Inbox() {}
-            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6) { return null; }
-            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4, boolean p5) { return null; }
-        }
-
-        public static final class Intents {
-            public static final java.lang.String ACTION_CHANGE_DEFAULT = "android.provider.Telephony.ACTION_CHANGE_DEFAULT";
-            public static final java.lang.String ACTION_DEFAULT_SMS_PACKAGE_CHANGED = "android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED";
-            public static final java.lang.String ACTION_EXTERNAL_PROVIDER_CHANGE = "android.provider.action.EXTERNAL_PROVIDER_CHANGE";
-            @android.annotation.SystemApi
-            public static final java.lang.String ACTION_SMS_EMERGENCY_CB_RECEIVED = "android.provider.action.SMS_EMERGENCY_CB_RECEIVED";
-            public static final java.lang.String ACTION_SMS_MMS_DB_CREATED = "android.provider.action.SMS_MMS_DB_CREATED";
-            public static final java.lang.String ACTION_SMS_MMS_DB_LOST = "android.provider.action.SMS_MMS_DB_LOST";
-            public static final java.lang.String DATA_SMS_RECEIVED_ACTION = "android.intent.action.DATA_SMS_RECEIVED";
-            public static final java.lang.String EXTRA_IS_CORRUPTED = "android.provider.extra.IS_CORRUPTED";
-            public static final java.lang.String EXTRA_IS_DEFAULT_SMS_APP = "android.provider.extra.IS_DEFAULT_SMS_APP";
-            public static final java.lang.String EXTRA_IS_INITIAL_CREATE = "android.provider.extra.IS_INITIAL_CREATE";
-            public static final java.lang.String EXTRA_PACKAGE_NAME = "package";
-            public static final java.lang.String MMS_DOWNLOADED_ACTION = "android.provider.Telephony.MMS_DOWNLOADED";
-            public static final int RESULT_SMS_DATABASE_ERROR = 10;
-            public static final int RESULT_SMS_DISPATCH_FAILURE = 6;
-            public static final int RESULT_SMS_DUPLICATED = 5;
-            public static final int RESULT_SMS_GENERIC_ERROR = 2;
-            public static final int RESULT_SMS_HANDLED = 1;
-            public static final int RESULT_SMS_INVALID_URI = 11;
-            public static final int RESULT_SMS_NULL_MESSAGE = 8;
-            public static final int RESULT_SMS_NULL_PDU = 7;
-            public static final int RESULT_SMS_OUT_OF_MEMORY = 3;
-            public static final int RESULT_SMS_RECEIVED_WHILE_ENCRYPTED = 9;
-            public static final int RESULT_SMS_UNSUPPORTED = 4;
-            @java.lang.Deprecated
-            public static final java.lang.String SECRET_CODE_ACTION = "android.provider.Telephony.SECRET_CODE";
-            public static final java.lang.String SIM_FULL_ACTION = "android.provider.Telephony.SIM_FULL";
-            public static final java.lang.String SMS_CARRIER_PROVISION_ACTION = "android.provider.Telephony.SMS_CARRIER_PROVISION";
-            public static final java.lang.String SMS_CB_RECEIVED_ACTION = "android.provider.Telephony.SMS_CB_RECEIVED";
-            public static final java.lang.String SMS_DELIVER_ACTION = "android.provider.Telephony.SMS_DELIVER";
-            public static final java.lang.String SMS_RECEIVED_ACTION = "android.provider.Telephony.SMS_RECEIVED";
-            public static final java.lang.String SMS_REJECTED_ACTION = "android.provider.Telephony.SMS_REJECTED";
-            public static final java.lang.String SMS_SERVICE_CATEGORY_PROGRAM_DATA_RECEIVED_ACTION = "android.provider.Telephony.SMS_SERVICE_CATEGORY_PROGRAM_DATA_RECEIVED";
-            public static final java.lang.String WAP_PUSH_DELIVER_ACTION = "android.provider.Telephony.WAP_PUSH_DELIVER";
-            public static final java.lang.String WAP_PUSH_RECEIVED_ACTION = "android.provider.Telephony.WAP_PUSH_RECEIVED";
-            private Intents() {}
-            public static android.telephony.SmsMessage[] getMessagesFromIntent(android.content.Intent p0) { return null; }
-        }
-
-        public static final class Outbox implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Outbox() {}
-            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5, boolean p6, long p7) { return null; }
-            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4, boolean p5, long p6) { return null; }
-        }
-
-        public static final class Sent implements android.provider.BaseColumns, android.provider.Telephony.TextBasedSmsColumns {
-            public static final android.net.Uri CONTENT_URI = null;
-            public static final java.lang.String DEFAULT_SORT_ORDER = "date DESC";
-            private Sent() {}
-            public static android.net.Uri addMessage(int p0, android.content.ContentResolver p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.Long p5) { return null; }
-            public static android.net.Uri addMessage(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.Long p4) { return null; }
-        }
-    }
-
-    public static interface TextBasedSmsChangesColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String ID = "_id";
-        public static final java.lang.String NEW_READ_STATUS = "new_read_status";
-        public static final java.lang.String ORIG_ROW_ID = "orig_rowid";
-        public static final java.lang.String SUB_ID = "sub_id";
-        public static final java.lang.String TYPE = "type";
-        public static final int TYPE_DELETE = 1;
-        public static final int TYPE_UPDATE = 0;
-    }
-
-    public static interface TextBasedSmsColumns {
+    public static interface CanonicalAddressesColumns extends android.provider.BaseColumns {
         public static final java.lang.String ADDRESS = "address";
-        public static final java.lang.String BODY = "body";
-        public static final java.lang.String CONTAINS_OTP = "contains_otp";
-        public static final java.lang.String CREATOR = "creator";
-        public static final java.lang.String DATE = "date";
-        public static final java.lang.String DATE_SENT = "date_sent";
-        public static final java.lang.String ERROR_CODE = "error_code";
-        public static final java.lang.String LOCKED = "locked";
-        public static final int MESSAGE_TYPE_ALL = 0;
-        public static final int MESSAGE_TYPE_DRAFT = 3;
-        public static final int MESSAGE_TYPE_FAILED = 5;
-        public static final int MESSAGE_TYPE_INBOX = 1;
-        public static final int MESSAGE_TYPE_OUTBOX = 4;
-        public static final int MESSAGE_TYPE_QUEUED = 6;
-        public static final int MESSAGE_TYPE_SENT = 2;
-        public static final java.lang.String MTU = "mtu";
-        public static final int OTP_SUBTYPE_MASK = 65280;
-        public static final int OTP_SUBTYPE_NONE = 0;
-        public static final int OTP_SUBTYPE_SHIFT = 8;
-        public static final int OTP_SUBTYPE_SMS_RETRIEVER_OTP = 256;
-        public static final int OTP_SUBTYPE_WEB_OTP = 512;
-        public static final int OTP_TYPE_CONTAINS_OTP = 1;
-        public static final int OTP_TYPE_MASK = 255;
-        public static final int OTP_TYPE_NONE = 0;
-        public static final int OTP_TYPE_PENDING = 2;
-        public static final java.lang.String PERSON = "person";
-        public static final java.lang.String PROTOCOL = "protocol";
-        public static final java.lang.String READ = "read";
         public static final java.lang.String READ_RESTRICTION = "read_restriction";
-        public static final java.lang.String REPLY_PATH_PRESENT = "reply_path_present";
-        public static final java.lang.String SEEN = "seen";
-        public static final java.lang.String SERVICE_CENTER = "service_center";
-        public static final java.lang.String STATUS = "status";
-        public static final int STATUS_COMPLETE = 0;
-        public static final int STATUS_FAILED = 64;
-        public static final int STATUS_NONE = -1;
-        public static final int STATUS_PENDING = 32;
-        public static final java.lang.String SUBJECT = "subject";
         public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
-        public static final java.lang.String THREAD_ID = "thread_id";
-        public static final java.lang.String TRANSACTION_ID = "tr_id";
-        public static final java.lang.String TYPE = "type";
-    }
-
-    public static final class Threads implements android.provider.Telephony.ThreadsColumns {
-        public static final int BROADCAST_THREAD = 1;
-        public static final int COMMON_THREAD = 0;
-        public static final android.net.Uri CONTENT_URI = null;
-        private static final java.lang.String[] ID_PROJECTION = null;
-        public static final android.net.Uri OBSOLETE_THREADS_URI = null;
-        private static final android.net.Uri THREAD_ID_CONTENT_URI = null;
-        private Threads() {}
-        public static long getOrCreateThreadId(android.content.Context p0, java.lang.String p1) { return 0L; }
-        public static long getOrCreateThreadId(android.content.Context p0, java.util.Set<java.lang.String> p1) { return 0L; }
-    }
-
-    public static interface ThreadsColumns extends android.provider.BaseColumns {
-        public static final java.lang.String ARCHIVED = "archived";
-        public static final java.lang.String DATE = "date";
-        public static final java.lang.String ERROR = "error";
-        public static final java.lang.String HAS_ATTACHMENT = "has_attachment";
-        public static final java.lang.String MESSAGE_COUNT = "message_count";
-        public static final java.lang.String READ = "read";
-        public static final java.lang.String READ_RESTRICTION = "read_restriction";
-        public static final java.lang.String RECIPIENT_IDS = "recipient_ids";
-        public static final java.lang.String SNIPPET = "snippet";
-        public static final java.lang.String SNIPPET_CHARSET = "snippet_cs";
-        public static final java.lang.String SUBSCRIPTION_ID = "sub_id";
-        public static final java.lang.String TYPE = "type";
     }
 }

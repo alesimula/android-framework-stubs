@@ -9,6 +9,7 @@ public class IntFloatMap {
     private float[] mValues;
     public IntFloatMap() {}
     private int findKey(int p0) { return 0; }
+    private int getIndex(int p0) { return 0; }
     private int hash(int p0) { return 0; }
     private float insert(int p0, float p1) { return 0.0f; }
     private void resize() {}

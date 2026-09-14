@@ -5,13 +5,6 @@ public interface IIsFeatureEnabledCallback extends android.os.IInterface {
     public void onFailure(int p0) throws android.os.RemoteException;
     public void onSuccess(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.contentsafety.IIsFeatureEnabledCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFailure(int p0) throws android.os.RemoteException {}
-        public void onSuccess(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.contentsafety.IIsFeatureEnabledCallback {
         static final int TRANSACTION_onFailure = 3;
         static final int TRANSACTION_onSuccess = 2;
@@ -30,5 +23,12 @@ public interface IIsFeatureEnabledCallback extends android.os.IInterface {
             public void onFailure(int p0) throws android.os.RemoteException {}
             public void onSuccess(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.contentsafety.IIsFeatureEnabledCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFailure(int p0) throws android.os.RemoteException {}
+        public void onSuccess(boolean p0) throws android.os.RemoteException {}
     }
 }

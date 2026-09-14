@@ -82,8 +82,8 @@ public class PreferenceManager {
     public void unregisterOnActivityStopListener(android.preference.PreferenceManager.OnActivityStopListener p0) {}
 
     @java.lang.Deprecated
-    public static interface OnActivityDestroyListener {
-        public void onActivityDestroy();
+    public static interface OnActivityStopListener {
+        public void onActivityStop();
     }
 
     @java.lang.Deprecated
@@ -92,8 +92,8 @@ public class PreferenceManager {
     }
 
     @java.lang.Deprecated
-    public static interface OnActivityStopListener {
-        public void onActivityStop();
+    public static interface OnActivityDestroyListener {
+        public void onActivityDestroy();
     }
 
     @java.lang.Deprecated

@@ -6,14 +6,6 @@ public interface IGetKeyCallback extends android.os.IInterface {
     public void onError(byte p0, java.lang.String p1) throws android.os.RemoteException;
     public void onSuccess(android.security.rkp.RemotelyProvisionedKey p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.rkp.IGetKeyCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCancel() throws android.os.RemoteException {}
-        public void onError(byte p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onSuccess(android.security.rkp.RemotelyProvisionedKey p0) throws android.os.RemoteException {}
-    }
-
     public static @interface ErrorCode {
         public static final byte ERROR_PENDING_INTERNET_CONNECTIVITY = 3;
         public static final byte ERROR_PERMANENT = 5;
@@ -41,5 +33,13 @@ public interface IGetKeyCallback extends android.os.IInterface {
             public void onError(byte p0, java.lang.String p1) throws android.os.RemoteException {}
             public void onSuccess(android.security.rkp.RemotelyProvisionedKey p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.rkp.IGetKeyCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCancel() throws android.os.RemoteException {}
+        public void onError(byte p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onSuccess(android.security.rkp.RemotelyProvisionedKey p0) throws android.os.RemoteException {}
     }
 }

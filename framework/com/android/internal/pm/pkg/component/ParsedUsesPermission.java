@@ -3,6 +3,7 @@ package com.android.internal.pm.pkg.component;
 public interface ParsedUsesPermission {
     public static final int FLAG_NEVER_FOR_LOCATION = 65536;
     public static final int FLAG_ONLY_FOR_LOCATION_BUTTON = 131072;
+    public static final int FLAG_PRIVATE_COMPUTE_CORE_ONLY = 262144;
     public java.util.Set<java.lang.String> getGeneralPurposes();
     public java.lang.String getName();
     public int getPurposeStringResource();

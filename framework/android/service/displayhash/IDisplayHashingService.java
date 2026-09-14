@@ -7,15 +7,6 @@ public interface IDisplayHashingService extends android.os.IInterface {
     public void getIntervalBetweenRequestsMillis(android.os.RemoteCallback p0) throws android.os.RemoteException;
     public void verifyDisplayHash(byte[] p0, android.view.displayhash.DisplayHash p1, android.os.RemoteCallback p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.displayhash.IDisplayHashingService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void generateDisplayHash(byte[] p0, android.hardware.HardwareBuffer p1, android.graphics.Rect p2, java.lang.String p3, android.os.RemoteCallback p4) throws android.os.RemoteException {}
-        public void getDisplayHashAlgorithms(android.os.RemoteCallback p0) throws android.os.RemoteException {}
-        public void getIntervalBetweenRequestsMillis(android.os.RemoteCallback p0) throws android.os.RemoteException {}
-        public void verifyDisplayHash(byte[] p0, android.view.displayhash.DisplayHash p1, android.os.RemoteCallback p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.displayhash.IDisplayHashingService {
         static final int TRANSACTION_generateDisplayHash = 1;
         static final int TRANSACTION_getDisplayHashAlgorithms = 3;
@@ -38,5 +29,14 @@ public interface IDisplayHashingService extends android.os.IInterface {
             public void getIntervalBetweenRequestsMillis(android.os.RemoteCallback p0) throws android.os.RemoteException {}
             public void verifyDisplayHash(byte[] p0, android.view.displayhash.DisplayHash p1, android.os.RemoteCallback p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.displayhash.IDisplayHashingService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void generateDisplayHash(byte[] p0, android.hardware.HardwareBuffer p1, android.graphics.Rect p2, java.lang.String p3, android.os.RemoteCallback p4) throws android.os.RemoteException {}
+        public void getDisplayHashAlgorithms(android.os.RemoteCallback p0) throws android.os.RemoteException {}
+        public void getIntervalBetweenRequestsMillis(android.os.RemoteCallback p0) throws android.os.RemoteException {}
+        public void verifyDisplayHash(byte[] p0, android.view.displayhash.DisplayHash p1, android.os.RemoteCallback p2) throws android.os.RemoteException {}
     }
 }

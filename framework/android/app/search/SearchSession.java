@@ -3,7 +3,7 @@ package android.app.search;
 @android.annotation.SystemApi
 public final class SearchSession implements java.lang.AutoCloseable {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SearchSession";
     private final android.app.search.ISearchUiManager mInterface = null;
     private final java.util.concurrent.atomic.AtomicBoolean mIsClosed = null;
     private final android.util.ArrayMap<android.app.search.SearchSession.Callback, android.app.search.SearchSession.CallbackWrapper> mRegisteredCallbacks = null;

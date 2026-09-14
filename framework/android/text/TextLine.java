@@ -75,6 +75,13 @@ public class TextLine {
     public void set(android.text.TextPaint p0, java.lang.CharSequence p1, int p2, int p3, int p4, android.text.Layout.Directions p5, boolean p6, android.text.Layout.TabStops p7, int p8, int p9, boolean p10) {}
     void shape(android.text.TextShaper.GlyphsConsumer p0) {}
 
+    public static final class LineInfo {
+        private int mClusterCount;
+        public LineInfo() {}
+        public int getClusterCount() { return 0; }
+        public void setClusterCount(int p0) {}
+    }
+
     private static final class DecorationInfo {
         public int end;
         public boolean isStrikeThruText;
@@ -85,12 +92,5 @@ public class TextLine {
         private DecorationInfo() {}
         public android.text.TextLine.DecorationInfo copyInfo() { return null; }
         public boolean hasDecoration() { return false; }
-    }
-
-    public static final class LineInfo {
-        private int mClusterCount;
-        public LineInfo() {}
-        public int getClusterCount() { return 0; }
-        public void setClusterCount(int p0) {}
     }
 }

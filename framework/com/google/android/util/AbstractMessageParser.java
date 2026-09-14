@@ -48,96 +48,12 @@ public abstract class AbstractMessageParser {
     public void parse() {}
     public java.lang.String toHtml() { return null; }
 
-    public static class Acronym extends com.google.android.util.AbstractMessageParser.Token {
-        private java.lang.String value;
-        public Acronym(java.lang.String p0, java.lang.String p1) { super(null, null); }
-        public java.util.List<java.lang.String> getInfo() { return null; }
-        public java.lang.String getValue() { return null; }
-        public boolean isHtml() { return false; }
-    }
-
-    public static class FlickrPhoto extends com.google.android.util.AbstractMessageParser.Token {
-        private static final java.util.regex.Pattern GROUPING_PATTERN = null;
-        private static final java.lang.String SETS = "sets";
-        private static final java.lang.String TAGS = "tags";
-        private static final java.util.regex.Pattern URL_PATTERN = null;
-        private java.lang.String grouping;
-        private java.lang.String groupingId;
-        private java.lang.String photo;
-        private java.lang.String user;
-        public FlickrPhoto(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4) { super(null, null); }
-        public static java.lang.String getPhotoURL(java.lang.String p0, java.lang.String p1) { return null; }
-        public static java.lang.String getRssUrl(java.lang.String p0) { return null; }
-        public static java.lang.String getTagsURL(java.lang.String p0) { return null; }
-        public static java.lang.String getUserSetsURL(java.lang.String p0, java.lang.String p1) { return null; }
-        public static java.lang.String getUserTagsURL(java.lang.String p0, java.lang.String p1) { return null; }
-        public static java.lang.String getUserURL(java.lang.String p0) { return null; }
-        public static com.google.android.util.AbstractMessageParser.FlickrPhoto matchURL(java.lang.String p0, java.lang.String p1) { return null; }
-        public java.lang.String getGrouping() { return null; }
-        public java.lang.String getGroupingId() { return null; }
-        public java.util.List<java.lang.String> getInfo() { return null; }
-        public java.lang.String getPhoto() { return null; }
-        public java.lang.String getUrl() { return null; }
-        public java.lang.String getUser() { return null; }
-        public boolean isHtml() { return false; }
-        public boolean isMedia() { return false; }
-    }
-
-    public static class Format extends com.google.android.util.AbstractMessageParser.Token {
-        private char ch;
-        private boolean matched;
-        private boolean start;
-        public Format(char p0, boolean p1) { super(null, null); }
-        private java.lang.String getFormatEnd(char p0) { return null; }
-        private java.lang.String getFormatStart(char p0) { return null; }
-        public boolean controlCaps() { return false; }
-        public java.util.List<java.lang.String> getInfo() { return null; }
-        public boolean isHtml() { return false; }
-        public boolean setCaps() { return false; }
-        public void setMatched(boolean p0) {}
-        public java.lang.String toHtml(boolean p0) { return null; }
-    }
-
-    public static class Html extends com.google.android.util.AbstractMessageParser.Token {
-        private java.lang.String html;
-        public Html(java.lang.String p0, java.lang.String p1) { super(null, null); }
-        private static java.lang.String trimLeadingWhitespace(java.lang.String p0) { return null; }
-        public static java.lang.String trimTrailingWhitespace(java.lang.String p0) { return null; }
-        public java.util.List<java.lang.String> getInfo() { return null; }
-        public boolean isHtml() { return false; }
-        public java.lang.String toHtml(boolean p0) { return null; }
-        public void trimLeadingWhitespace() {}
-        public void trimTrailingWhitespace() {}
-    }
-
-    public static class Link extends com.google.android.util.AbstractMessageParser.Token {
-        private java.lang.String url;
-        public Link(java.lang.String p0, java.lang.String p1) { super(null, null); }
-        public java.util.List<java.lang.String> getInfo() { return null; }
-        public java.lang.String getURL() { return null; }
-        public boolean isHtml() { return false; }
-    }
-
     public static class MusicTrack extends com.google.android.util.AbstractMessageParser.Token {
         private java.lang.String track;
         public MusicTrack(java.lang.String p0) { super(null, null); }
         public java.util.List<java.lang.String> getInfo() { return null; }
         public java.lang.String getTrack() { return null; }
         public boolean isHtml() { return false; }
-    }
-
-    public static class Part {
-        private java.lang.String meText;
-        private java.util.ArrayList<com.google.android.util.AbstractMessageParser.Token> tokens;
-        public Part() {}
-        private java.lang.String getPartType() { return null; }
-        public void add(com.google.android.util.AbstractMessageParser.Token p0) {}
-        public com.google.android.util.AbstractMessageParser.Token getMediaToken() { return null; }
-        public java.lang.String getRawText() { return null; }
-        public java.util.ArrayList<com.google.android.util.AbstractMessageParser.Token> getTokens() { return null; }
-        public java.lang.String getType(boolean p0) { return null; }
-        public boolean isMedia() { return false; }
-        public void setMeText(java.lang.String p0) {}
     }
 
     public static class Photo extends com.google.android.util.AbstractMessageParser.Token {
@@ -158,17 +74,41 @@ public abstract class AbstractMessageParser {
         public boolean isMedia() { return false; }
     }
 
-    public static interface Resources {
-        public com.google.android.util.AbstractMessageParser.TrieNode getAcronyms();
-        public com.google.android.util.AbstractMessageParser.TrieNode getDomainSuffixes();
-        public java.util.Set<java.lang.String> getSchemes();
-        public com.google.android.util.AbstractMessageParser.TrieNode getSmileys();
+    public static class TrieNode {
+        private final java.util.HashMap<java.lang.Character, com.google.android.util.AbstractMessageParser.TrieNode> children = null;
+        private java.lang.String text;
+        private java.lang.String value;
+        public TrieNode() {}
+        public TrieNode(java.lang.String p0) {}
+        public static void addToTrie(com.google.android.util.AbstractMessageParser.TrieNode p0, java.lang.String p1, java.lang.String p2) {}
+        public final boolean exists() { return false; }
+        public com.google.android.util.AbstractMessageParser.TrieNode getChild(char p0) { return null; }
+        public com.google.android.util.AbstractMessageParser.TrieNode getOrCreateChild(char p0) { return null; }
+        public final java.lang.String getText() { return null; }
+        public final java.lang.String getValue() { return null; }
+        public void setValue(java.lang.String p0) {}
     }
 
-    public static class Smiley extends com.google.android.util.AbstractMessageParser.Token {
-        public Smiley(java.lang.String p0) { super(null, null); }
+    public static class Link extends com.google.android.util.AbstractMessageParser.Token {
+        private java.lang.String url;
+        public Link(java.lang.String p0, java.lang.String p1) { super(null, null); }
+        public java.util.List<java.lang.String> getInfo() { return null; }
+        public java.lang.String getURL() { return null; }
+        public boolean isHtml() { return false; }
+    }
+
+    public static class Video extends com.google.android.util.AbstractMessageParser.Token {
+        private static final java.util.regex.Pattern URL_PATTERN = null;
+        private java.lang.String docid;
+        public Video(java.lang.String p0, java.lang.String p1) { super(null, null); }
+        public static java.lang.String getRssUrl(java.lang.String p0) { return null; }
+        public static java.lang.String getURL(java.lang.String p0) { return null; }
+        public static java.lang.String getURL(java.lang.String p0, java.lang.String p1) { return null; }
+        public static com.google.android.util.AbstractMessageParser.Video matchURL(java.lang.String p0, java.lang.String p1) { return null; }
+        public java.lang.String getDocID() { return null; }
         public java.util.List<java.lang.String> getInfo() { return null; }
         public boolean isHtml() { return false; }
+        public boolean isMedia() { return false; }
     }
 
     public static abstract class Token {
@@ -203,33 +143,37 @@ public abstract class AbstractMessageParser {
         }
     }
 
-    public static class TrieNode {
-        private final java.util.HashMap<java.lang.Character, com.google.android.util.AbstractMessageParser.TrieNode> children = null;
-        private java.lang.String text;
+    public static class Acronym extends com.google.android.util.AbstractMessageParser.Token {
         private java.lang.String value;
-        public TrieNode() {}
-        public TrieNode(java.lang.String p0) {}
-        public static void addToTrie(com.google.android.util.AbstractMessageParser.TrieNode p0, java.lang.String p1, java.lang.String p2) {}
-        public final boolean exists() { return false; }
-        public com.google.android.util.AbstractMessageParser.TrieNode getChild(char p0) { return null; }
-        public com.google.android.util.AbstractMessageParser.TrieNode getOrCreateChild(char p0) { return null; }
-        public final java.lang.String getText() { return null; }
-        public final java.lang.String getValue() { return null; }
-        public void setValue(java.lang.String p0) {}
+        public Acronym(java.lang.String p0, java.lang.String p1) { super(null, null); }
+        public java.util.List<java.lang.String> getInfo() { return null; }
+        public java.lang.String getValue() { return null; }
+        public boolean isHtml() { return false; }
     }
 
-    public static class Video extends com.google.android.util.AbstractMessageParser.Token {
-        private static final java.util.regex.Pattern URL_PATTERN = null;
-        private java.lang.String docid;
-        public Video(java.lang.String p0, java.lang.String p1) { super(null, null); }
-        public static java.lang.String getRssUrl(java.lang.String p0) { return null; }
-        public static java.lang.String getURL(java.lang.String p0) { return null; }
-        public static java.lang.String getURL(java.lang.String p0, java.lang.String p1) { return null; }
-        public static com.google.android.util.AbstractMessageParser.Video matchURL(java.lang.String p0, java.lang.String p1) { return null; }
-        public java.lang.String getDocID() { return null; }
+    public static class Smiley extends com.google.android.util.AbstractMessageParser.Token {
+        public Smiley(java.lang.String p0) { super(null, null); }
         public java.util.List<java.lang.String> getInfo() { return null; }
         public boolean isHtml() { return false; }
-        public boolean isMedia() { return false; }
+    }
+
+    public static class Html extends com.google.android.util.AbstractMessageParser.Token {
+        private java.lang.String html;
+        public Html(java.lang.String p0, java.lang.String p1) { super(null, null); }
+        private static java.lang.String trimLeadingWhitespace(java.lang.String p0) { return null; }
+        public static java.lang.String trimTrailingWhitespace(java.lang.String p0) { return null; }
+        public java.util.List<java.lang.String> getInfo() { return null; }
+        public boolean isHtml() { return false; }
+        public java.lang.String toHtml(boolean p0) { return null; }
+        public void trimLeadingWhitespace() {}
+        public void trimTrailingWhitespace() {}
+    }
+
+    public static interface Resources {
+        public com.google.android.util.AbstractMessageParser.TrieNode getAcronyms();
+        public com.google.android.util.AbstractMessageParser.TrieNode getDomainSuffixes();
+        public java.util.Set<java.lang.String> getSchemes();
+        public com.google.android.util.AbstractMessageParser.TrieNode getSmileys();
     }
 
     public static class YouTubeVideo extends com.google.android.util.AbstractMessageParser.Token {
@@ -245,5 +189,61 @@ public abstract class AbstractMessageParser {
         public java.util.List<java.lang.String> getInfo() { return null; }
         public boolean isHtml() { return false; }
         public boolean isMedia() { return false; }
+    }
+
+    public static class Format extends com.google.android.util.AbstractMessageParser.Token {
+        private char ch;
+        private boolean matched;
+        private boolean start;
+        public Format(char p0, boolean p1) { super(null, null); }
+        private java.lang.String getFormatEnd(char p0) { return null; }
+        private java.lang.String getFormatStart(char p0) { return null; }
+        public boolean controlCaps() { return false; }
+        public java.util.List<java.lang.String> getInfo() { return null; }
+        public boolean isHtml() { return false; }
+        public boolean setCaps() { return false; }
+        public void setMatched(boolean p0) {}
+        public java.lang.String toHtml(boolean p0) { return null; }
+    }
+
+    public static class FlickrPhoto extends com.google.android.util.AbstractMessageParser.Token {
+        private static final java.util.regex.Pattern GROUPING_PATTERN = null;
+        private static final java.lang.String SETS = "sets";
+        private static final java.lang.String TAGS = "tags";
+        private static final java.util.regex.Pattern URL_PATTERN = null;
+        private java.lang.String grouping;
+        private java.lang.String groupingId;
+        private java.lang.String photo;
+        private java.lang.String user;
+        public FlickrPhoto(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4) { super(null, null); }
+        public static java.lang.String getPhotoURL(java.lang.String p0, java.lang.String p1) { return null; }
+        public static java.lang.String getRssUrl(java.lang.String p0) { return null; }
+        public static java.lang.String getTagsURL(java.lang.String p0) { return null; }
+        public static java.lang.String getUserSetsURL(java.lang.String p0, java.lang.String p1) { return null; }
+        public static java.lang.String getUserTagsURL(java.lang.String p0, java.lang.String p1) { return null; }
+        public static java.lang.String getUserURL(java.lang.String p0) { return null; }
+        public static com.google.android.util.AbstractMessageParser.FlickrPhoto matchURL(java.lang.String p0, java.lang.String p1) { return null; }
+        public java.lang.String getGrouping() { return null; }
+        public java.lang.String getGroupingId() { return null; }
+        public java.util.List<java.lang.String> getInfo() { return null; }
+        public java.lang.String getPhoto() { return null; }
+        public java.lang.String getUrl() { return null; }
+        public java.lang.String getUser() { return null; }
+        public boolean isHtml() { return false; }
+        public boolean isMedia() { return false; }
+    }
+
+    public static class Part {
+        private java.lang.String meText;
+        private java.util.ArrayList<com.google.android.util.AbstractMessageParser.Token> tokens;
+        public Part() {}
+        private java.lang.String getPartType() { return null; }
+        public void add(com.google.android.util.AbstractMessageParser.Token p0) {}
+        public com.google.android.util.AbstractMessageParser.Token getMediaToken() { return null; }
+        public java.lang.String getRawText() { return null; }
+        public java.util.ArrayList<com.google.android.util.AbstractMessageParser.Token> getTokens() { return null; }
+        public java.lang.String getType(boolean p0) { return null; }
+        public boolean isMedia() { return false; }
+        public void setMeText(java.lang.String p0) {}
     }
 }

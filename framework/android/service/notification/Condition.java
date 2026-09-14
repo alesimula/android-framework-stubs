@@ -46,10 +46,10 @@ public final class Condition implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Source {
+    public static @interface State {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface State {
+    public static @interface Source {
     }
 }

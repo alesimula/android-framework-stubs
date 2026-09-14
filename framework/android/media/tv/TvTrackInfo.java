@@ -55,6 +55,10 @@ public final class TvTrackInfo implements android.os.Parcelable {
     public boolean isSpokenSubtitle() { return false; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Type {
+    }
+
     public static final class Builder {
         private int mAudioChannelCount;
         private boolean mAudioDescription;
@@ -90,9 +94,5 @@ public final class TvTrackInfo implements android.os.Parcelable {
         public android.media.tv.TvTrackInfo.Builder setVideoHeight(int p0) { return null; }
         public android.media.tv.TvTrackInfo.Builder setVideoPixelAspectRatio(float p0) { return null; }
         public android.media.tv.TvTrackInfo.Builder setVideoWidth(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Type {
     }
 }

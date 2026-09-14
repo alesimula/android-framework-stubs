@@ -1,10 +1,13 @@
 package android.service.personalcontext.hint;
 
+@android.annotation.SystemApi
 public abstract class ContextHint {
     private static final android.service.personalcontext.hint.ContextHint ERROR_HINT = null;
+    static final int HINT_TYPE_ATTRIBUTION = 12;
     static final int HINT_TYPE_AUTOFILL_INLINE_REQUEST = 7;
     public static final int HINT_TYPE_BUNDLE = 1;
     static final int HINT_TYPE_CALL = 8;
+    static final int HINT_TYPE_CONTENT_CAPTURE_CONVERSATION = 13;
     static final int HINT_TYPE_CONVERSATION = 4;
     static final int HINT_TYPE_ERROR = -1;
     static final int HINT_TYPE_HINT_INVALIDATION = 9;
@@ -33,28 +36,41 @@ public abstract class ContextHint {
     private final java.util.Set<android.service.personalcontext.RenderToken> mRenderTokens = null;
     private final java.util.Set<android.service.personalcontext.Token> mTokens = null;
     ContextHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0) {}
+    public static android.service.personalcontext.hint.ContextHint.ConstructorParams createConstructorParams(java.util.UUID p0, java.util.Collection<android.service.personalcontext.Token> p1, java.time.Instant p2, java.lang.String p3, java.time.Instant p4, java.util.Set<android.service.personalcontext.hint.ContextHint> p5, java.util.Set<android.service.personalcontext.RenderToken> p6) { return null; }
     public static android.service.personalcontext.hint.ContextHint createHintFromBundle(android.os.Bundle p0) { return null; }
+    public static java.lang.Class<? extends android.service.personalcontext.hint.ContextHint> getClassForHintType(int p0) { return null; }
+    public static int getHintTypeForClass(java.lang.Class<? extends android.service.personalcontext.hint.ContextHint> p0) { return 0; }
+    static android.service.personalcontext.hint.ContextHint readFromParcel(android.os.Parcel p0) { return null; }
+    private void writeCommonDataToParcel(android.os.Parcel p0, int p1) {}
+    private void writePublisherDataToParcel(android.os.Parcel p0, int p1) {}
     public android.service.personalcontext.hint.ContextHint attachPublisherInfo(java.lang.String p0, java.util.Collection<android.service.personalcontext.hint.ContextHint> p1, java.util.Collection<android.service.personalcontext.RenderToken> p2) { return null; }
     public boolean equals(java.lang.Object p0) { return false; }
     public java.util.Set<android.service.personalcontext.hint.ContextHint> getAttributionHints() { return null; }
+    @java.lang.Deprecated
     public final java.time.Instant getCreationTime() { return null; }
-    @android.annotation.SystemApi
+    public final long getCreationTimeMillis() { return 0L; }
     public final java.util.UUID getHintId() { return null; }
     abstract int getHintType();
-    @android.annotation.SystemApi
     public java.lang.String getHintTypeName() { return null; }
+    @java.lang.Deprecated
     public java.time.Instant getPublishedTime() { return null; }
+    public long getPublishedTimeMillis() { return 0L; }
     public java.lang.String getPublishingPackage() { return null; }
     public java.util.Set<android.service.personalcontext.RenderToken> getRenderTokens() { return null; }
     public java.lang.String getSourcePackageName() { return null; }
-    @android.annotation.SystemApi
     @java.lang.Deprecated
     public final java.util.Set<android.service.personalcontext.Token> getTokens() { return null; }
     public int hashCode() { return 0; }
     public android.os.Bundle toBundle() { return null; }
     abstract android.os.Bundle toBundleImpl();
     public java.lang.String toString() { return null; }
+    abstract void writeImplementationDataToParcel(android.os.Parcel p0, int p1);
+    final void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeToSignatureParcel(android.os.Parcel p0) {}
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HintType {
+    }
 
     static class ConstructorParams {
         private final java.util.Set<android.service.personalcontext.hint.ContextHint> mAttributionHints = null;
@@ -64,6 +80,8 @@ public abstract class ContextHint {
         private final java.lang.String mPublishingPackage = null;
         private final java.util.Set<android.service.personalcontext.RenderToken> mRenderTokens = null;
         private final java.util.Collection<android.service.personalcontext.Token> mTokens = null;
+        private ConstructorParams(android.os.Parcel p0) {}
+        ConstructorParams(android.service.personalcontext.hint.ContextHint p0) {}
         private ConstructorParams(java.util.Collection<android.service.personalcontext.Token> p0) {}
         private ConstructorParams(java.util.UUID p0, java.util.Collection<android.service.personalcontext.Token> p1, java.time.Instant p2, java.lang.String p3, java.time.Instant p4, java.util.Set<android.service.personalcontext.hint.ContextHint> p5, java.util.Set<android.service.personalcontext.RenderToken> p6) {}
 
@@ -73,9 +91,5 @@ public abstract class ContextHint {
             android.service.personalcontext.hint.ContextHint.ConstructorParams.Builder addToken(android.service.personalcontext.Token p0) { return null; }
             android.service.personalcontext.hint.ContextHint.ConstructorParams build() { return null; }
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HintType {
     }
 }

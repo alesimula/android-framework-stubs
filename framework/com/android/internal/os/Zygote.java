@@ -4,11 +4,12 @@ public final class Zygote {
     public static final java.lang.String ALLOWLISTED_DATA_INFO_MAP = "--allowlisted-data-info-map";
     private static final java.lang.String ANDROID_SOCKET_PREFIX = "ANDROID_SOCKET_";
     public static final int API_ENFORCEMENT_POLICY_MASK = 12288;
-    public static final int API_ENFORCEMENT_POLICY_SHIFT = Integer.valueOf(0);
+    public static final int API_ENFORCEMENT_POLICY_SHIFT = 12;
     public static final int AUDIT_OUTGOING_TRANSACTIONS = 134217728;
     public static final java.lang.String BIND_MOUNT_APP_DATA_DIRS = "--bind-mount-data-dirs";
     public static final java.lang.String BIND_MOUNT_APP_STORAGE_DIRS = "--bind-mount-storage-dirs";
     public static final java.lang.String BIND_MOUNT_SYSPROP_OVERRIDES = "--bind-mount-sysprop-overrides";
+    public static final java.lang.String CGROUP_UID_ARG = "--cgroup-uid=";
     public static final java.lang.String CHILD_ZYGOTE_ABI_LIST_ARG = "--abi-list=";
     public static final java.lang.String CHILD_ZYGOTE_SOCKET_NAME_ARG = "--zygote-socket=";
     public static final java.lang.String CHILD_ZYGOTE_UID_RANGE_END = "--uid-range-end=";
@@ -91,7 +92,7 @@ public final class Zygote {
     static void emptyUsapPool() {}
     private static boolean enableNativeHeapZeroInit(android.content.pm.ApplicationInfo p0, android.content.pm.ProcessInfo p1, com.android.internal.compat.IPlatformCompat p2) { return false; }
     static void execShell(java.lang.String p0) {}
-    static int forkAndSpecialize(int p0, int p1, int[] p2, int p3, int[][] p4, int p5, java.lang.String p6, java.lang.String p7, int[] p8, int[] p9, boolean p10, java.lang.String p11, java.lang.String p12, boolean p13, java.lang.String[] p14, java.lang.String[] p15, boolean p16, boolean p17, boolean p18) { return 0; }
+    static int forkAndSpecialize(int p0, int p1, int p2, int[] p3, int p4, int[][] p5, int p6, java.lang.String p7, java.lang.String p8, int[] p9, int[] p10, boolean p11, java.lang.String p12, java.lang.String p13, boolean p14, java.lang.String[] p15, java.lang.String[] p16, boolean p17, boolean p18, boolean p19) { return 0; }
     static java.lang.Runnable forkSimpleApps(com.android.internal.os.ZygoteCommandBuffer p0, java.io.FileDescriptor p1, int p2, int p3, java.lang.String p4, boolean p5) { return null; }
     static int forkSystemServer(int p0, int p1, int[] p2, int p3, int[][] p4, long p5, long p6) { return 0; }
     static java.lang.Runnable forkUsap(android.net.LocalServerSocket p0, int[] p1, boolean p2) { return null; }
@@ -116,7 +117,7 @@ public final class Zygote {
     private static native void nativeBoostUsapPriority();
     public static native int nativeCurrentTaggingLevel();
     private static native void nativeEmptyUsapPool();
-    private static native int nativeForkAndSpecialize(int p0, int p1, int[] p2, int p3, int[][] p4, int p5, java.lang.String p6, java.lang.String p7, int[] p8, int[] p9, boolean p10, java.lang.String p11, java.lang.String p12, boolean p13, boolean p14, java.lang.String[] p15, java.lang.String[] p16, boolean p17, boolean p18, boolean p19);
+    private static native int nativeForkAndSpecialize(int p0, int p1, int p2, int[] p3, int p4, int[][] p5, int p6, java.lang.String p7, java.lang.String p8, int[] p9, int[] p10, boolean p11, java.lang.String p12, java.lang.String p13, boolean p14, boolean p15, java.lang.String[] p16, java.lang.String[] p17, boolean p18, boolean p19, boolean p20);
     private static native int nativeForkApp(int p0, int p1, int[] p2, boolean p3, boolean p4);
     private static native int nativeForkSystemServer(int p0, int p1, int[] p2, int p3, int[][] p4, long p5, long p6);
     private static native int[] nativeGetUsapPipeFDs();
@@ -128,13 +129,13 @@ public final class Zygote {
     public static native int nativeParseSigChld(byte[] p0, int p1, int[] p2);
     static native void nativePreApplicationInit();
     private static native boolean nativeRemoveUsapTableEntry(int p0);
-    private static native void nativeSpecializeAppProcess(int p0, int p1, int[] p2, int p3, int[][] p4, int p5, java.lang.String p6, java.lang.String p7, boolean p8, java.lang.String p9, java.lang.String p10, boolean p11, java.lang.String[] p12, java.lang.String[] p13, boolean p14, boolean p15, boolean p16);
+    private static native void nativeSpecializeAppProcess(int p0, int p1, int p2, int[] p3, int p4, int[][] p5, int p6, java.lang.String p7, java.lang.String p8, boolean p9, java.lang.String p10, java.lang.String p11, boolean p12, java.lang.String[] p13, java.lang.String[] p14, boolean p15, boolean p16, boolean p17);
     public static native boolean nativeSupportsMemoryTagging();
     public static native boolean nativeSupportsTaggedPointers();
     private static native void nativeUnblockSigTerm();
     static boolean removeUsapTableEntry(int p0) { return false; }
     static void setAppProcessName(com.android.internal.os.ZygoteArguments p0, java.lang.String p1) {}
-    private static void specializeAppProcess(int p0, int p1, int[] p2, int p3, int[][] p4, int p5, java.lang.String p6, java.lang.String p7, boolean p8, java.lang.String p9, java.lang.String p10, boolean p11, java.lang.String[] p12, java.lang.String[] p13, boolean p14, boolean p15, boolean p16) {}
+    private static void specializeAppProcess(int p0, int p1, int p2, int[] p3, int p4, int[][] p5, int p6, java.lang.String p7, java.lang.String p8, boolean p9, java.lang.String p10, java.lang.String p11, boolean p12, java.lang.String[] p13, java.lang.String[] p14, boolean p15, boolean p16, boolean p17) {}
     private static void unblockSigTerm() {}
     private static void validateUsapCommand(com.android.internal.os.ZygoteArguments p0) {}
 }

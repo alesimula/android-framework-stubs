@@ -29,6 +29,21 @@ public class Type extends android.renderscript.BaseObj {
     public boolean hasMipmaps() { return false; }
     void updateFromNative() {}
 
+    public static enum CubemapFace {
+        NEGATIVE_X,
+        NEGATIVE_Y,
+        NEGATIVE_Z,
+        POSITIVE_X,
+        POSITIVE_Y,
+        POSITIVE_Z,
+        POSITVE_X,
+        POSITVE_Y,
+        POSITVE_Z;
+        private static final android.renderscript.Type.CubemapFace[] $VALUES = null;
+        int mID;
+        private CubemapFace() {}
+    }
+
     public static class Builder {
         int[] mArray;
         boolean mDimFaces;
@@ -48,20 +63,5 @@ public class Type extends android.renderscript.BaseObj {
         public android.renderscript.Type.Builder setY(int p0) { return null; }
         public android.renderscript.Type.Builder setYuvFormat(int p0) { return null; }
         public android.renderscript.Type.Builder setZ(int p0) { return null; }
-    }
-
-    public static enum CubemapFace {
-        NEGATIVE_X,
-        NEGATIVE_Y,
-        NEGATIVE_Z,
-        POSITIVE_X,
-        POSITIVE_Y,
-        POSITIVE_Z,
-        POSITVE_X,
-        POSITVE_Y,
-        POSITVE_Z;
-        private static final android.renderscript.Type.CubemapFace[] $VALUES = null;
-        int mID;
-        private CubemapFace() {}
     }
 }

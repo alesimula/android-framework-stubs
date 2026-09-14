@@ -47,12 +47,12 @@ public class ImsRcsManager {
         }
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RcsImsCapabilityFlag {
+    }
+
     @android.annotation.SystemApi
     public static interface OnAvailabilityChangedListener {
         public void onAvailabilityChanged(int p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RcsImsCapabilityFlag {
     }
 }

@@ -3,12 +3,6 @@ package android.media;
 public interface IMediaResourceMonitor extends android.os.IInterface {
     public void notifyResourceGranted(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMediaResourceMonitor {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyResourceGranted(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMediaResourceMonitor {
         public static final java.lang.String DESCRIPTOR = "android.media.IMediaResourceMonitor";
         static final int TRANSACTION_notifyResourceGranted = 1;
@@ -26,5 +20,11 @@ public interface IMediaResourceMonitor extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void notifyResourceGranted(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IMediaResourceMonitor {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyResourceGranted(int p0, int p1) throws android.os.RemoteException {}
     }
 }

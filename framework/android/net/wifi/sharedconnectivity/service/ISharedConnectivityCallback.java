@@ -10,18 +10,6 @@ public interface ISharedConnectivityCallback extends android.os.IInterface {
     public void onServiceDisconnected() throws android.os.RemoteException;
     public void onSharedConnectivitySettingsChanged(android.net.wifi.sharedconnectivity.app.SharedConnectivitySettingsState p0) throws android.os.RemoteException;
 
-    public static class Default implements android.net.wifi.sharedconnectivity.service.ISharedConnectivityCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onHotspotNetworkConnectionStatusChanged(android.net.wifi.sharedconnectivity.app.HotspotNetworkConnectionStatus p0) throws android.os.RemoteException {}
-        public void onHotspotNetworksUpdated(java.util.List<android.net.wifi.sharedconnectivity.app.HotspotNetwork> p0) throws android.os.RemoteException {}
-        public void onKnownNetworkConnectionStatusChanged(android.net.wifi.sharedconnectivity.app.KnownNetworkConnectionStatus p0) throws android.os.RemoteException {}
-        public void onKnownNetworksUpdated(java.util.List<android.net.wifi.sharedconnectivity.app.KnownNetwork> p0) throws android.os.RemoteException {}
-        public void onServiceConnected() throws android.os.RemoteException {}
-        public void onServiceDisconnected() throws android.os.RemoteException {}
-        public void onSharedConnectivitySettingsChanged(android.net.wifi.sharedconnectivity.app.SharedConnectivitySettingsState p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.wifi.sharedconnectivity.service.ISharedConnectivityCallback {
         static final int TRANSACTION_onHotspotNetworkConnectionStatusChanged = 2;
         static final int TRANSACTION_onHotspotNetworksUpdated = 1;
@@ -50,5 +38,17 @@ public interface ISharedConnectivityCallback extends android.os.IInterface {
             public void onServiceDisconnected() throws android.os.RemoteException {}
             public void onSharedConnectivitySettingsChanged(android.net.wifi.sharedconnectivity.app.SharedConnectivitySettingsState p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.net.wifi.sharedconnectivity.service.ISharedConnectivityCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onHotspotNetworkConnectionStatusChanged(android.net.wifi.sharedconnectivity.app.HotspotNetworkConnectionStatus p0) throws android.os.RemoteException {}
+        public void onHotspotNetworksUpdated(java.util.List<android.net.wifi.sharedconnectivity.app.HotspotNetwork> p0) throws android.os.RemoteException {}
+        public void onKnownNetworkConnectionStatusChanged(android.net.wifi.sharedconnectivity.app.KnownNetworkConnectionStatus p0) throws android.os.RemoteException {}
+        public void onKnownNetworksUpdated(java.util.List<android.net.wifi.sharedconnectivity.app.KnownNetwork> p0) throws android.os.RemoteException {}
+        public void onServiceConnected() throws android.os.RemoteException {}
+        public void onServiceDisconnected() throws android.os.RemoteException {}
+        public void onSharedConnectivitySettingsChanged(android.net.wifi.sharedconnectivity.app.SharedConnectivitySettingsState p0) throws android.os.RemoteException {}
     }
 }

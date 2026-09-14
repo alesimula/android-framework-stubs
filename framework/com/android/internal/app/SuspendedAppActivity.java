@@ -9,7 +9,7 @@ public class SuspendedAppActivity extends com.android.internal.app.AlertActivity
     public static final java.lang.String EXTRA_SUSPENDING_USER = "com.android.internal.app.extra.SUSPENDING_USER";
     public static final java.lang.String EXTRA_UNSUSPEND_INTENT = "com.android.internal.app.extra.UNSUSPEND_INTENT";
     private static final java.lang.String PACKAGE_NAME = "com.android.internal.app";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SuspendedAppActivity";
     private android.content.Intent mMoreDetailsIntent;
     private int mNeutralButtonAction;
     private android.content.IntentSender mOnUnsuspend;

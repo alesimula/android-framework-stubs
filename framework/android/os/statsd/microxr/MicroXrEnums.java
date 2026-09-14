@@ -14,6 +14,9 @@ public final class MicroXrEnums {
     public static final int COMPANION_DEVICE_ANDROID_PHONE = 1;
     public static final int COMPANION_DEVICE_IOS_PHONE = 2;
     public static final int COMPANION_DEVICE_UNSPECIFIED = 0;
+    public static final int PROCESSING_MODE_EIS = 2;
+    public static final int PROCESSING_MODE_NON_EIS = 1;
+    public static final int PROCESSING_MODE_UNKNOWN = 0;
     public static final int THWART_CHECK_STATUS_ERROR = 4;
     public static final int THWART_CHECK_STATUS_FAILED = 2;
     public static final int THWART_CHECK_STATUS_PASSED = 1;

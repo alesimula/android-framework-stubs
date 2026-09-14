@@ -11,6 +11,10 @@ final class SerializedAmplitudeStepWaveform implements com.android.internal.vibr
     public java.lang.String toString() { return null; }
     public void write(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException {}
 
+    static interface StepSegmentBuilder {
+        public void addDurationAmplitudeAndStartTime(long p0, int p1, long p2);
+    }
+
     static final class Builder implements com.android.internal.vibrator.persistence.SerializedAmplitudeStepWaveform.StepSegmentBuilder {
         private final android.util.IntArray mAmplitudes = null;
         private int mRepeatIndex;
@@ -28,9 +32,5 @@ final class SerializedAmplitudeStepWaveform implements com.android.internal.vibr
         static com.android.internal.vibrator.persistence.SerializedAmplitudeStepWaveform parseNext(com.android.modules.utils.TypedXmlPullParser p0) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException { return null; }
         private static void parseRepeating(com.android.modules.utils.TypedXmlPullParser p0, com.android.internal.vibrator.persistence.SerializedAmplitudeStepWaveform.Builder p1) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException {}
         static void parseWaveformEntry(com.android.modules.utils.TypedXmlPullParser p0, com.android.internal.vibrator.persistence.SerializedAmplitudeStepWaveform.StepSegmentBuilder p1) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException {}
-    }
-
-    static interface StepSegmentBuilder {
-        public void addDurationAmplitudeAndStartTime(long p0, int p1, long p2);
     }
 }

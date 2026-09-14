@@ -57,43 +57,6 @@ public abstract class ECCurve {
     public boolean supportsCoordinateSystem(int p0) { return false; }
     public com.android.internal.org.bouncycastle.math.ec.ECPoint validatePoint(java.math.BigInteger p0, java.math.BigInteger p1) { return null; }
 
-    public static abstract class AbstractF2m extends com.android.internal.org.bouncycastle.math.ec.ECCurve {
-        private java.math.BigInteger[] si;
-        protected AbstractF2m(int p0, int p1, int p2, int p3) { super(null); }
-        private static com.android.internal.org.bouncycastle.math.field.FiniteField buildField(int p0, int p1, int p2, int p3) { return null; }
-        private static java.math.BigInteger implRandomFieldElementMult(java.security.SecureRandom p0, int p1) { return null; }
-        public static java.math.BigInteger inverse(int p0, int[] p1, java.math.BigInteger p2) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint createPoint(java.math.BigInteger p0, java.math.BigInteger p1) { return null; }
-        protected com.android.internal.org.bouncycastle.math.ec.ECPoint decompressPoint(int p0, java.math.BigInteger p1) { return null; }
-        java.math.BigInteger[] getSi() { return null; }
-        public boolean isKoblitz() { return false; }
-        public boolean isValidFieldElement(java.math.BigInteger p0) { return false; }
-        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElement(java.security.SecureRandom p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElementMult(java.security.SecureRandom p0) { return null; }
-        protected com.android.internal.org.bouncycastle.math.ec.ECFieldElement solveQuadraticEquation(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
-    }
-
-    public static abstract class AbstractFp extends com.android.internal.org.bouncycastle.math.ec.ECCurve {
-        protected AbstractFp(java.math.BigInteger p0) { super(null); }
-        private static java.math.BigInteger implRandomFieldElement(java.security.SecureRandom p0, java.math.BigInteger p1) { return null; }
-        private static java.math.BigInteger implRandomFieldElementMult(java.security.SecureRandom p0, java.math.BigInteger p1) { return null; }
-        protected com.android.internal.org.bouncycastle.math.ec.ECPoint decompressPoint(int p0, java.math.BigInteger p1) { return null; }
-        public boolean isValidFieldElement(java.math.BigInteger p0) { return false; }
-        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElement(java.security.SecureRandom p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElementMult(java.security.SecureRandom p0) { return null; }
-    }
-
-    public class Config {
-        protected int coord;
-        protected com.android.internal.org.bouncycastle.math.ec.endo.ECEndomorphism endomorphism;
-        protected com.android.internal.org.bouncycastle.math.ec.ECMultiplier multiplier;
-        Config(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, int p1, com.android.internal.org.bouncycastle.math.ec.endo.ECEndomorphism p2, com.android.internal.org.bouncycastle.math.ec.ECMultiplier p3) {}
-        public com.android.internal.org.bouncycastle.math.ec.ECCurve create() { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECCurve.Config setCoordinateSystem(int p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECCurve.Config setEndomorphism(com.android.internal.org.bouncycastle.math.ec.endo.ECEndomorphism p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECCurve.Config setMultiplier(com.android.internal.org.bouncycastle.math.ec.ECMultiplier p0) { return null; }
-    }
-
     public static class F2m extends com.android.internal.org.bouncycastle.math.ec.ECCurve.AbstractF2m {
         private static final int F2M_DEFAULT_COORDS = 6;
         private com.android.internal.org.bouncycastle.math.ec.ECPoint.F2m infinity;
@@ -120,6 +83,43 @@ public abstract class ECCurve {
         public int getM() { return 0; }
         public boolean isTrinomial() { return false; }
         public boolean supportsCoordinateSystem(int p0) { return false; }
+    }
+
+    public class Config {
+        protected int coord;
+        protected com.android.internal.org.bouncycastle.math.ec.endo.ECEndomorphism endomorphism;
+        protected com.android.internal.org.bouncycastle.math.ec.ECMultiplier multiplier;
+        Config(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, int p1, com.android.internal.org.bouncycastle.math.ec.endo.ECEndomorphism p2, com.android.internal.org.bouncycastle.math.ec.ECMultiplier p3) {}
+        public com.android.internal.org.bouncycastle.math.ec.ECCurve create() { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECCurve.Config setCoordinateSystem(int p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECCurve.Config setEndomorphism(com.android.internal.org.bouncycastle.math.ec.endo.ECEndomorphism p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECCurve.Config setMultiplier(com.android.internal.org.bouncycastle.math.ec.ECMultiplier p0) { return null; }
+    }
+
+    public static abstract class AbstractF2m extends com.android.internal.org.bouncycastle.math.ec.ECCurve {
+        private java.math.BigInteger[] si;
+        protected AbstractF2m(int p0, int p1, int p2, int p3) { super(null); }
+        private static com.android.internal.org.bouncycastle.math.field.FiniteField buildField(int p0, int p1, int p2, int p3) { return null; }
+        private static java.math.BigInteger implRandomFieldElementMult(java.security.SecureRandom p0, int p1) { return null; }
+        public static java.math.BigInteger inverse(int p0, int[] p1, java.math.BigInteger p2) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint createPoint(java.math.BigInteger p0, java.math.BigInteger p1) { return null; }
+        protected com.android.internal.org.bouncycastle.math.ec.ECPoint decompressPoint(int p0, java.math.BigInteger p1) { return null; }
+        java.math.BigInteger[] getSi() { return null; }
+        public boolean isKoblitz() { return false; }
+        public boolean isValidFieldElement(java.math.BigInteger p0) { return false; }
+        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElement(java.security.SecureRandom p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElementMult(java.security.SecureRandom p0) { return null; }
+        protected com.android.internal.org.bouncycastle.math.ec.ECFieldElement solveQuadraticEquation(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
+    }
+
+    public static abstract class AbstractFp extends com.android.internal.org.bouncycastle.math.ec.ECCurve {
+        protected AbstractFp(java.math.BigInteger p0) { super(null); }
+        private static java.math.BigInteger implRandomFieldElement(java.security.SecureRandom p0, java.math.BigInteger p1) { return null; }
+        private static java.math.BigInteger implRandomFieldElementMult(java.security.SecureRandom p0, java.math.BigInteger p1) { return null; }
+        protected com.android.internal.org.bouncycastle.math.ec.ECPoint decompressPoint(int p0, java.math.BigInteger p1) { return null; }
+        public boolean isValidFieldElement(java.math.BigInteger p0) { return false; }
+        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElement(java.security.SecureRandom p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement randomFieldElementMult(java.security.SecureRandom p0) { return null; }
     }
 
     public static class Fp extends com.android.internal.org.bouncycastle.math.ec.ECCurve.AbstractFp {

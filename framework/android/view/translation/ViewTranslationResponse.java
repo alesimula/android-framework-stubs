@@ -18,12 +18,6 @@ public final class ViewTranslationResponse implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static abstract class BaseBuilder {
-        BaseBuilder() {}
-        abstract android.view.translation.ViewTranslationResponse.Builder setTranslationResponseValues(java.util.Map<java.lang.String, android.view.translation.TranslationResponseValue> p0);
-        public android.view.translation.ViewTranslationResponse.Builder setValue(java.lang.String p0, android.view.translation.TranslationResponseValue p1) { return null; }
-    }
-
     public static final class Builder extends android.view.translation.ViewTranslationResponse.BaseBuilder {
         private android.view.autofill.AutofillId mAutofillId;
         private long mBuilderFieldsSet;
@@ -32,5 +26,11 @@ public final class ViewTranslationResponse implements android.os.Parcelable {
         private void checkNotUsed() {}
         public android.view.translation.ViewTranslationResponse build() { return null; }
         android.view.translation.ViewTranslationResponse.Builder setTranslationResponseValues(java.util.Map<java.lang.String, android.view.translation.TranslationResponseValue> p0) { return null; }
+    }
+
+    static abstract class BaseBuilder {
+        BaseBuilder() {}
+        abstract android.view.translation.ViewTranslationResponse.Builder setTranslationResponseValues(java.util.Map<java.lang.String, android.view.translation.TranslationResponseValue> p0);
+        public android.view.translation.ViewTranslationResponse.Builder setValue(java.lang.String p0, android.view.translation.TranslationResponseValue p1) { return null; }
     }
 }

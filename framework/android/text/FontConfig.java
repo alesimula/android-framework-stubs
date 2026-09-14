@@ -26,20 +26,50 @@ public final class FontConfig implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static final class Alias implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.text.FontConfig.Alias> CREATOR = null;
-        private final java.lang.String mName = null;
-        private final java.lang.String mOriginal = null;
-        private final int mWeight = 0;
-        public Alias(java.lang.String p0, java.lang.String p1, int p2) {}
+    public static final class FontFamily implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.text.FontConfig.FontFamily> CREATOR = null;
+        public static final int PRELOAD_STRATEGY_ALWAYS = 1;
+        public static final int PRELOAD_STRATEGY_LOCALE = 0;
+        public static final int PRELOAD_STRATEGY_NONE = 2;
+        public static final int VARIANT_COMPACT = 1;
+        public static final int VARIANT_DEFAULT = 0;
+        public static final int VARIANT_ELEGANT = 2;
+        private final java.util.List<android.text.FontConfig.Font> mFonts = null;
+        private final boolean mIsSupplemental = false;
+        private final android.os.LocaleList mLocaleList = null;
+        private final int mPreloadStrategy = 0;
+        private final int mPriority = 0;
+        private final int mVariant = 0;
+        public FontFamily(java.util.List<android.text.FontConfig.Font> p0, android.os.LocaleList p1, int p2) {}
+        public FontFamily(java.util.List<android.text.FontConfig.Font> p0, android.os.LocaleList p1, int p2, int p3) {}
+        public FontFamily(java.util.List<android.text.FontConfig.Font> p0, android.os.LocaleList p1, int p2, int p3, boolean p4, int p5) {}
+        public FontFamily(java.util.List<android.text.FontConfig.Font> p0, android.os.LocaleList p1, int p2, boolean p3) {}
+        public static java.lang.String preloadStrategyToString(int p0) { return null; }
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
+        public java.util.List<android.text.FontConfig.Font> getFontList() { return null; }
+        @java.lang.Deprecated
+        public android.text.FontConfig.Font[] getFonts() { return null; }
+        @java.lang.Deprecated
+        public java.lang.String getLanguages() { return null; }
+        public android.os.LocaleList getLocaleList() { return null; }
+        @java.lang.Deprecated
         public java.lang.String getName() { return null; }
-        public java.lang.String getOriginal() { return null; }
-        public int getWeight() { return 0; }
+        public int getPreloadStrategy() { return 0; }
+        public int getPriority() { return 0; }
+        public int getVariant() { return 0; }
         public int hashCode() { return 0; }
+        public boolean isSupplemental() { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Variant {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface PreloadStrategy {
+        }
     }
 
     public static class Customization {
@@ -105,36 +135,20 @@ public final class FontConfig implements android.os.Parcelable {
         }
     }
 
-    public static final class FontFamily implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.text.FontConfig.FontFamily> CREATOR = null;
-        public static final int VARIANT_COMPACT = 1;
-        public static final int VARIANT_DEFAULT = 0;
-        public static final int VARIANT_ELEGANT = 2;
-        private final java.util.List<android.text.FontConfig.Font> mFonts = null;
-        private final android.os.LocaleList mLocaleList = null;
-        private final int mPriority = 0;
-        private final int mVariant = 0;
-        public FontFamily(java.util.List<android.text.FontConfig.Font> p0, android.os.LocaleList p1, int p2) {}
-        public FontFamily(java.util.List<android.text.FontConfig.Font> p0, android.os.LocaleList p1, int p2, int p3) {}
+    public static final class Alias implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.text.FontConfig.Alias> CREATOR = null;
+        private final java.lang.String mName = null;
+        private final java.lang.String mOriginal = null;
+        private final int mWeight = 0;
+        public Alias(java.lang.String p0, java.lang.String p1, int p2) {}
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
-        public java.util.List<android.text.FontConfig.Font> getFontList() { return null; }
-        @java.lang.Deprecated
-        public android.text.FontConfig.Font[] getFonts() { return null; }
-        @java.lang.Deprecated
-        public java.lang.String getLanguages() { return null; }
-        public android.os.LocaleList getLocaleList() { return null; }
-        @java.lang.Deprecated
         public java.lang.String getName() { return null; }
-        public int getPriority() { return 0; }
-        public int getVariant() { return 0; }
+        public java.lang.String getOriginal() { return null; }
+        public int getWeight() { return 0; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Variant {
-        }
     }
 
     public static final class NamedFamilyList implements android.os.Parcelable {

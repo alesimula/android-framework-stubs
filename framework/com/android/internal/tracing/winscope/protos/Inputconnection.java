@@ -12,12 +12,6 @@ public final class Inputconnection {
         public static final long GET_TEXT_BEFORE_CURSOR = 1146756268033L;
         public InputConnectionCallProto(com.android.internal.tracing.winscope.protos.Inputconnection p0) {}
 
-        public final class GetCursorCapsMode {
-            public static final long REQ_MODES = 1120986464257L;
-            public static final long RESULT = 1120986464258L;
-            public GetCursorCapsMode(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
-        }
-
         public final class GetExtractedText {
             public static final long FLAGS = 1120986464258L;
             public static final long REQUEST = 1146756268033L;
@@ -32,9 +26,27 @@ public final class Inputconnection {
             }
         }
 
+        public final class GetTextAfterCursor {
+            public static final long FLAGS = 1120986464258L;
+            public static final long LENGTH = 1120986464257L;
+            public GetTextAfterCursor(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
+        }
+
         public final class GetSelectedText {
             public static final long FLAGS = 1120986464257L;
             public GetSelectedText(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
+        }
+
+        public final class GetCursorCapsMode {
+            public static final long REQ_MODES = 1120986464257L;
+            public static final long RESULT = 1120986464258L;
+            public GetCursorCapsMode(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
+        }
+
+        public final class GetTextBeforeCursor {
+            public static final long FLAGS = 1120986464258L;
+            public static final long LENGTH = 1120986464257L;
+            public GetTextBeforeCursor(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
         }
 
         public final class GetSurroundingText {
@@ -50,18 +62,6 @@ public final class Inputconnection {
                 public static final long SELECTION_START = 1120986464258L;
                 public SurroundingText(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto.GetSurroundingText p0) {}
             }
-        }
-
-        public final class GetTextAfterCursor {
-            public static final long FLAGS = 1120986464258L;
-            public static final long LENGTH = 1120986464257L;
-            public GetTextAfterCursor(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
-        }
-
-        public final class GetTextBeforeCursor {
-            public static final long FLAGS = 1120986464258L;
-            public static final long LENGTH = 1120986464257L;
-            public GetTextBeforeCursor(com.android.internal.tracing.winscope.protos.Inputconnection.InputConnectionCallProto p0) {}
         }
     }
 

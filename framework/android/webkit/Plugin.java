@@ -32,6 +32,10 @@ public class Plugin {
     @java.lang.Deprecated
     public java.lang.String toString() { return null; }
 
+    public static interface PreferencesClickHandler {
+        public void handleClickEvent(android.content.Context p0);
+    }
+
     @java.lang.Deprecated
     private class DefaultClickHandler implements android.webkit.Plugin.PreferencesClickHandler, android.content.DialogInterface.OnClickListener {
         private android.app.AlertDialog mDialog;
@@ -40,9 +44,5 @@ public class Plugin {
         public void handleClickEvent(android.content.Context p0) {}
         @java.lang.Deprecated
         public void onClick(android.content.DialogInterface p0, int p1) {}
-    }
-
-    public static interface PreferencesClickHandler {
-        public void handleClickEvent(android.content.Context p0);
     }
 }

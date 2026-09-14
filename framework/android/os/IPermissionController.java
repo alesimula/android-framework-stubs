@@ -4,6 +4,7 @@ public interface IPermissionController extends android.os.IInterface {
     public boolean checkPermission(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
     public int getPackageUid(java.lang.String p0, int p1) throws android.os.RemoteException;
     public java.lang.String[] getPackagesForUid(int p0) throws android.os.RemoteException;
+    public android.os.ParcelFileDescriptor getPermissionInvalidationCacheFd() throws android.os.RemoteException;
     public boolean isRuntimePermission(java.lang.String p0) throws android.os.RemoteException;
     public int noteOp(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException;
 
@@ -13,6 +14,7 @@ public interface IPermissionController extends android.os.IInterface {
         public boolean checkPermission(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return false; }
         public int getPackageUid(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
         public java.lang.String[] getPackagesForUid(int p0) throws android.os.RemoteException { return null; }
+        public android.os.ParcelFileDescriptor getPermissionInvalidationCacheFd() throws android.os.RemoteException { return null; }
         public boolean isRuntimePermission(java.lang.String p0) throws android.os.RemoteException { return false; }
         public int noteOp(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
     }
@@ -22,6 +24,7 @@ public interface IPermissionController extends android.os.IInterface {
         static final int TRANSACTION_checkPermission = 1;
         static final int TRANSACTION_getPackageUid = 5;
         static final int TRANSACTION_getPackagesForUid = 3;
+        static final int TRANSACTION_getPermissionInvalidationCacheFd = 6;
         static final int TRANSACTION_isRuntimePermission = 4;
         static final int TRANSACTION_noteOp = 2;
         public Stub() { super(); }
@@ -39,6 +42,7 @@ public interface IPermissionController extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public int getPackageUid(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
             public java.lang.String[] getPackagesForUid(int p0) throws android.os.RemoteException { return null; }
+            public android.os.ParcelFileDescriptor getPermissionInvalidationCacheFd() throws android.os.RemoteException { return null; }
             public boolean isRuntimePermission(java.lang.String p0) throws android.os.RemoteException { return false; }
             public int noteOp(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
         }

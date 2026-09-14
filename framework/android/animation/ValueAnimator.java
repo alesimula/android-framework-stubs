@@ -81,7 +81,7 @@ public class ValueAnimator extends android.animation.Animator implements android
     public long getCurrentPlayTime() { return 0L; }
     public long getDuration() { return 0L; }
     public android.animation.TimeInterpolator getInterpolator() { return null; }
-    java.lang.String getNameForTrace() { return null; }
+    public java.lang.String getNameForTrace() { return null; }
     public int getRepeatCount() { return 0; }
     public int getRepeatMode() { return 0; }
     public long getStartDelay() { return 0L; }

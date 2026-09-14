@@ -153,32 +153,14 @@ public final class GlobalSettingsProto {
     public static final long ZRAM_ENABLED = 1146756268171L;
     public GlobalSettingsProto() {}
 
-    public final class AirplaneMode {
-        public static final long ON = 1146756268033L;
-        public static final long RADIOS = 1146756268034L;
-        public static final long TOGGLEABLE_RADIOS = 1146756268035L;
-        public AirplaneMode(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Anomaly {
-        public static final long CONFIG = 1146756268035L;
-        public static final long CONFIG_VERSION = 1146756268034L;
-        public static final long DETECTION_CONSTANTS = 1146756268033L;
-        public Anomaly(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class ApnDb {
-        public static final long UPDATE_CONTENT_URL = 1146756268033L;
-        public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public ApnDb(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class App {
-        public static final long AUTO_RESTRICTION_ENABLED = 1146756268035L;
-        public static final long FORCED_APP_STANDBY_ENABLED = 1146756268036L;
-        public static final long FORCED_APP_STANDBY_FOR_SMALL_BATTERY_ENABLED = 1146756268037L;
-        public static final long STANDBY_ENABLED = 1146756268034L;
-        public App(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class InstantApp {
+        public static final long DEXOPT_ENABLED = 1146756268033L;
+        public static final long EPHEMERAL_COOKIE_MAX_SIZE_BYTES = 1146756268034L;
+        public static final long INSTALLED_MAX_CACHE_PERIOD = 1146756268036L;
+        public static final long INSTALLED_MIN_CACHE_PERIOD = 1146756268035L;
+        public static final long UNINSTALLED_MAX_CACHE_PERIOD = 1146756268038L;
+        public static final long UNINSTALLED_MIN_CACHE_PERIOD = 1146756268037L;
+        public InstantApp(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Autofill {
@@ -189,31 +171,115 @@ public final class GlobalSettingsProto {
         public Autofill(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Backup {
-        public static final long BACKUP_AGENT_TIMEOUT_PARAMETERS = 1146756268033L;
-        public Backup(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Private {
+        public static final long DNS_MODE = 1146756268033L;
+        public static final long DNS_SPECIFIER = 1146756268034L;
+        public Private(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Battery {
-        public static final long DISCHARGE_DURATION_THRESHOLD = 1146756268033L;
-        public static final long DISCHARGE_THRESHOLD = 1146756268034L;
-        public static final long SAVER_CONSTANTS = 1146756268035L;
-        public static final long SAVER_DEVICE_SPECIFIC_CONSTANTS = 1146756268036L;
-        public static final long STATS_CONSTANTS = 1146756268037L;
-        public static final long TIP_CONSTANTS = 1146756268038L;
-        public Battery(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class MultiSim {
+        public static final long DATA_CALL_SUBSCRIPTION = 1146756268035L;
+        public static final long SMS_PROMPT = 1146756268037L;
+        public static final long SMS_SUBSCRIPTION = 1146756268036L;
+        public static final long VOICE_CALL_SUBSCRIPTION = 1146756268033L;
+        public static final long VOICE_PROMPT = 1146756268034L;
+        public MultiSim(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class BleScan {
-        public static final long ALWAYS_AVAILABLE = 1146756268033L;
-        public static final long BACKGROUND_MODE = 1146756268040L;
-        public static final long BALANCED_INTERVAL_MS = 1146756268038L;
-        public static final long BALANCED_WINDOW_MS = 1146756268035L;
-        public static final long LOW_LATENCY_INTERVAL_MS = 1146756268039L;
-        public static final long LOW_LATENCY_WINDOW_MS = 1146756268036L;
-        public static final long LOW_POWER_INTERVAL_MS = 1146756268037L;
-        public static final long LOW_POWER_WINDOW_MS = 1146756268034L;
-        public BleScan(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Sms {
+        public static final long ACCESS_RESTRICTION_ENABLED = 1146756268039L;
+        public static final long OUTGOING_CHECK_INTERVAL_MS = 1146756268033L;
+        public static final long OUTGOING_CHECK_MAX_COUNT = 1146756268034L;
+        public static final long SHORT_CODES_UPDATE_CONTENT_URL = 1146756268037L;
+        public static final long SHORT_CODES_UPDATE_METADATA_URL = 1146756268038L;
+        public static final long SHORT_CODE_CONFIRMATION = 1146756268035L;
+        public static final long SHORT_CODE_RULE = 1146756268036L;
+        public Sms(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class TemperatureWarning {
+        public static final long SHOW_TEMPERATURE_WARNING = 1146756268033L;
+        public static final long SHOW_USB_TEMPERATURE_ALARM = 1146756268035L;
+        public static final long WARNING_TEMPERATURE_LEVEL = 1146756268034L;
+        public TemperatureWarning(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Network {
+        public static final long ACCESS_TIMEOUT_MS = 1146756268047L;
+        public static final long AVOID_BAD_WIFI = 1146756268038L;
+        public static final long METERED_MULTIPATH_PREFERENCE = 1146756268039L;
+        public static final long PREFERENCE = 1146756268033L;
+        public static final long PREFERRED_NETWORK_MODE = 1146756268034L;
+        public static final long RECOMMENDATIONS_ENABLED = 1146756268042L;
+        public static final long RECOMMENDATIONS_PACKAGE = 1146756268043L;
+        public static final long RECOMMENDATION_REQUEST_TIMEOUT_MS = 1146756268044L;
+        public static final long RECOMMENDED_NETWORK_EVALUATOR_CACHE_EXPIRY_MS = 1146756268048L;
+        public static final long SCORER_APP = 1146756268035L;
+        public static final long SCORING_PROVISIONED = 1146756268046L;
+        public static final long SCORING_UI_ENABLED = 1146756268041L;
+        public static final long SWITCH_NOTIFICATION_DAILY_LIMIT = 1146756268036L;
+        public static final long SWITCH_NOTIFICATION_RATE_LIMIT_MILLIS = 1146756268037L;
+        public static final long WATCHLIST_ENABLED = 1146756268045L;
+        public static final long WATCHLIST_LAST_REPORT_TIME = 1146756268040L;
+        public Network(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Emergency {
+        public static final long AFFORDANCE_NEEDED = 1146756268034L;
+        public static final long TONE = 1146756268033L;
+        public Emergency(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class App {
+        public static final long AUTO_RESTRICTION_ENABLED = 1146756268035L;
+        public static final long FORCED_APP_STANDBY_ENABLED = 1146756268036L;
+        public static final long FORCED_APP_STANDBY_FOR_SMALL_BATTERY_ENABLED = 1146756268037L;
+        public static final long STANDBY_ENABLED = 1146756268034L;
+        public App(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Connectivity {
+        public static final long CHANGE_DELAY = 1146756268034L;
+        public static final long METRICS_BUFFER_SIZE = 1146756268033L;
+        public static final long SAMPLING_INTERVAL_IN_SECONDS = 1146756268035L;
+        public Connectivity(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Carrier {
+        public static final long APP_NAMES = 1146756268034L;
+        public static final long APP_WHITELIST = 1146756268033L;
+        public static final long INSTALL_CARRIER_APP_NOTIFICATION_PERSISTENT = 1146756268035L;
+        public static final long INSTALL_CARRIER_APP_NOTIFICATION_SLEEP_MILLIS = 1146756268036L;
+        public Carrier(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Device {
+        public static final long DEMO_MODE = 1146756268038L;
+        public static final long NAME = 1146756268033L;
+        public static final long POLICY_CONSTANTS = 1146756268037L;
+        public static final long PROVISIONED = 1146756268034L;
+        public static final long PROVISIONING_MOBILE_DATA_ENABLED = 1146756268035L;
+        public Device(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Anomaly {
+        public static final long CONFIG = 1146756268035L;
+        public static final long CONFIG_VERSION = 1146756268034L;
+        public static final long DETECTION_CONSTANTS = 1146756268033L;
+        public Anomaly(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Default {
+        public static final long DNS_SERVER = 1146756268034L;
+        public static final long INSTALL_LOCATION = 1146756268033L;
+        public Default(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class AirplaneMode {
+        public static final long ON = 1146756268033L;
+        public static final long RADIOS = 1146756268034L;
+        public static final long TOGGLEABLE_RADIOS = 1146756268035L;
+        public AirplaneMode(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Bluetooth {
@@ -236,101 +302,10 @@ public final class GlobalSettingsProto {
         public Bluetooth(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class CaptivePortal {
-        public static final long DETECTION_ENABLED = 1146756268034L;
-        public static final long FALLBACK_URL = 1146756268038L;
-        public static final long HTTPS_URL = 1146756268036L;
-        public static final long HTTP_URL = 1146756268037L;
-        public static final long MODE = 1146756268033L;
-        public static final long OTHER_FALLBACK_URLS = 1146756268039L;
-        public static final long SERVER = 1146756268035L;
-        public static final long USER_AGENT = 1146756268041L;
-        public static final long USE_HTTPS = 1146756268040L;
-        public CaptivePortal(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Carrier {
-        public static final long APP_NAMES = 1146756268034L;
-        public static final long APP_WHITELIST = 1146756268033L;
-        public static final long INSTALL_CARRIER_APP_NOTIFICATION_PERSISTENT = 1146756268035L;
-        public static final long INSTALL_CARRIER_APP_NOTIFICATION_SLEEP_MILLIS = 1146756268036L;
-        public Carrier(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Cdma {
-        public static final long CELL_BROADCAST_SMS = 1146756268033L;
-        public static final long ROAMING_MODE = 1146756268034L;
-        public static final long SUBSCRIPTION_MODE = 1146756268035L;
-        public Cdma(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class CertPin {
+    public final class Tzinfo {
         public static final long UPDATE_CONTENT_URL = 1146756268033L;
         public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public CertPin(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Connectivity {
-        public static final long CHANGE_DELAY = 1146756268034L;
-        public static final long METRICS_BUFFER_SIZE = 1146756268033L;
-        public static final long SAMPLING_INTERVAL_IN_SECONDS = 1146756268035L;
-        public Connectivity(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Data {
-        public static final long ACTIVITY_TIMEOUT_MOBILE = 1146756268033L;
-        public static final long ACTIVITY_TIMEOUT_WIFI = 1146756268034L;
-        public static final long ROAMING = 1146756268035L;
-        public static final long STALL_ALARM_AGGRESSIVE_DELAY_IN_MS = 1146756268037L;
-        public static final long STALL_ALARM_NON_AGGRESSIVE_DELAY_IN_MS = 1146756268036L;
-        public Data(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Database {
-        public static final long CREATION_BUILDID = 1146756268034L;
-        public static final long DOWNGRADE_REASON = 1146756268033L;
-        public Database(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class DateTime {
-        public static final long AUTO_TIME = 1146756268033L;
-        public static final long AUTO_TIME_ZONE = 1146756268034L;
-        public DateTime(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Debug {
-        public static final long APP = 1146756268033L;
-        public static final long VIEW_ATTRIBUTES = 1146756268034L;
-        public static final long VIEW_ATTRIBUTES_APPLICATION_PACKAGE = 1146756268035L;
-        public Debug(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Default {
-        public static final long DNS_SERVER = 1146756268034L;
-        public static final long INSTALL_LOCATION = 1146756268033L;
-        public Default(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Development {
-        public static final long DISABLE_WINDOW_BLURS = 1146756268041L;
-        public static final long EMULATE_DISPLAY_CUTOUT = 1146756268037L;
-        public static final long ENABLE_FREEFORM_WINDOWS_SUPPORT = 1146756268035L;
-        public static final long ENABLE_NON_RESIZABLE_MULTI_WINDOW = 1146756268040L;
-        public static final long ENABLE_SIZECOMPAT_FREEFORM = 1146756268039L;
-        public static final long FORCE_DESKTOP_MODE_ON_EXTERNAL_DISPLAYS = 1146756268038L;
-        public static final long FORCE_RESIZABLE_ACTIVITIES = 1146756268034L;
-        public static final long FORCE_RTL = 1146756268036L;
-        public static final long SETTINGS_ENABLED = 1146756268033L;
-        public Development(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Device {
-        public static final long DEMO_MODE = 1146756268038L;
-        public static final long NAME = 1146756268033L;
-        public static final long POLICY_CONSTANTS = 1146756268037L;
-        public static final long PROVISIONED = 1146756268034L;
-        public static final long PROVISIONING_MOBILE_DATA_ENABLED = 1146756268035L;
-        public Device(android.providers.settings.GlobalSettingsProto p0) {}
+        public Tzinfo(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Display {
@@ -340,67 +315,102 @@ public final class GlobalSettingsProto {
         public Display(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class DnsResolver {
-        public static final long MAX_SAMPLES = 1146756268036L;
-        public static final long MIN_SAMPLES = 1146756268035L;
-        public static final long SAMPLE_VALIDITY_SECONDS = 1146756268033L;
-        public static final long SUCCESS_THRESHOLD_PERCENT = 1146756268034L;
-        public DnsResolver(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class CertPin {
+        public static final long UPDATE_CONTENT_URL = 1146756268033L;
+        public static final long UPDATE_METADATA_URL = 1146756268034L;
+        public CertPin(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Download {
-        public static final long MAX_BYTES_OVER_MOBILE = 1146756268033L;
-        public static final long RECOMMENDED_MAX_BYTES_OVER_MOBILE = 1146756268034L;
-        public Download(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class DateTime {
+        public static final long AUTO_TIME = 1146756268033L;
+        public static final long AUTO_TIME_ZONE = 1146756268034L;
+        public DateTime(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Dropbox {
-        public static final long AGE_SECONDS = 1146756268033L;
-        public static final long MAX_FILES = 1146756268034L;
-        public static final long QUOTA_KB = 1146756268035L;
-        public static final long QUOTA_PERCENT = 1146756268036L;
-        public static final long RESERVE_PERCENT = 1146756268037L;
-        public static final long SETTINGS = 2246267895814L;
-        public Dropbox(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class LowPowerMode {
+        public static final long AUTOMATIC_POWER_SAVER_MODE = 1146756268036L;
+        public static final long ENABLED = 1146756268033L;
+        public static final long STICKY_AUTO_DISABLE_ENABLED = 1146756268038L;
+        public static final long STICKY_AUTO_DISABLE_LEVEL = 1146756268039L;
+        public static final long STICKY_ENABLED = 1146756268037L;
+        public static final long TRIGGER_LEVEL = 1146756268034L;
+        public static final long TRIGGER_LEVEL_MAX = 1146756268035L;
+        public LowPowerMode(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class DynamicPowerSavings {
-        public static final long DISABLE_THRESHOLD = 1146756268033L;
-        public static final long ENABLED = 1146756268034L;
-        public DynamicPowerSavings(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Notification {
+        public static final long BUBBLES = 1146756268038L;
+        public static final long DISABLE_SCREEN_SHARE_PROTECTIONS_FOR_APPS_AND_NOTIFICATIONS = 1146756268039L;
+        public static final long MAX_NOTIFICATION_ENQUEUE_RATE = 1146756268033L;
+        public static final long SHOW_NOTIFICATION_CHANNEL_WARNINGS = 1146756268034L;
+        public static final long SNOOZE_OPTIONS = 1146756268035L;
+        public Notification(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Emergency {
-        public static final long AFFORDANCE_NEEDED = 1146756268034L;
-        public static final long TONE = 1146756268033L;
-        public Emergency(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Tether {
+        public static final long DUN_APN = 1146756268035L;
+        public static final long DUN_REQUIRED = 1146756268034L;
+        public static final long OFFLOAD_DISABLED = 1146756268036L;
+        public static final long SUPPORTED = 1146756268033L;
+        public static final long TIMEOUT_ENABLED = 1146756268144L;
+        public Tether(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Enable {
-        public static final long ACCESSIBILITY_GLOBAL_GESTURE_ENABLED = 1146756268033L;
-        public static final long CACHE_QUOTA_CALCULATION = 1146756268038L;
-        public static final long CELLULAR_ON_BOOT = 1146756268036L;
-        public static final long DELETION_HELPER_NO_THRESHOLD_TOGGLE = 1146756268039L;
-        public static final long DISKSTATS_LOGGING = 1146756268037L;
-        public static final long EPHEMERAL_FEATURE = 1146756268035L;
-        public static final long GNSS_RAW_MEAS_FULL_TRACKING = 1146756268040L;
-        public static final long GPU_DEBUG_LAYERS = 1146756268034L;
-        public Enable(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Debug {
+        public static final long APP = 1146756268033L;
+        public static final long VIEW_ATTRIBUTES = 1146756268034L;
+        public static final long VIEW_ATTRIBUTES_APPLICATION_PACKAGE = 1146756268035L;
+        public Debug(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Euicc {
-        public static final long FACTORY_RESET_TIMEOUT_MILLIS = 1146756268034L;
-        public static final long PROVISIONED = 1146756268033L;
-        public Euicc(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Sounds {
+        public static final long CAR_DOCK = 1146756268033L;
+        public static final long CAR_UNDOCK = 1146756268034L;
+        public static final long CHARGING_STARTED = 1146756268036L;
+        public static final long DESK_DOCK = 1146756268037L;
+        public static final long DESK_UNDOCK = 1146756268038L;
+        public static final long DOCK_SOUNDS_ENABLED = 1146756268039L;
+        public static final long DOCK_SOUNDS_ENABLED_WHEN_ACCESSIBILITY = 1146756268040L;
+        public static final long LOCK = 1146756268041L;
+        public static final long LOW_BATTERY = 1146756268042L;
+        public static final long LOW_BATTERY_SOUNDS_ENABLED = 1146756268044L;
+        public static final long LOW_BATTERY_SOUND_TIMEOUT = 1146756268043L;
+        public static final long TRUSTED = 1146756268045L;
+        public static final long UNLOCK = 1146756268046L;
+        public static final long WIRELESS_CHARGING_STARTED = 1146756268047L;
+        public Sounds(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class GlobalHttpProxy {
-        public static final long EXCLUSION_LIST = 1146756268035L;
-        public static final long HOST = 1146756268033L;
-        public static final long PAC = 1146756268036L;
-        public static final long PORT = 1146756268034L;
-        public static final long SETTING_UI_ENABLED = 1146756268037L;
-        public GlobalHttpProxy(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Hdmi {
+        public static final long CONTROL_AUTO_DEVICE_OFF_ENABLED = 1146756268036L;
+        public static final long CONTROL_AUTO_WAKEUP_ENABLED = 1146756268035L;
+        public static final long CONTROL_ENABLED = 1146756268033L;
+        public static final long SYSTEM_AUDIO_CONTROL_ENABLED = 1146756268034L;
+        public Hdmi(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Storage {
+        public static final long BENCHMARK_INTERVAL = 1146756268033L;
+        public static final long SETTINGS_CLOBBER_THRESHOLD = 1146756268034L;
+        public Storage(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Backup {
+        public static final long BACKUP_AGENT_TIMEOUT_PARAMETERS = 1146756268033L;
+        public Backup(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Nitz {
+        public static final long NETWORK_DISCONNECT_RETENTION = 1146756268035L;
+        public static final long UPDATE_DIFF = 1146756268033L;
+        public static final long UPDATE_SPACING = 1146756268034L;
+        public Nitz(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class UserAbsentSmallBattery {
+        public static final long RADIOS_OFF_ENABLED = 1146756268033L;
+        public static final long TOUCH_OFF_ENABLED = 1146756268034L;
+        public UserAbsentSmallBattery(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Gpu {
@@ -427,40 +437,138 @@ public final class GlobalSettingsProto {
         public Gpu(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Hdmi {
-        public static final long CONTROL_AUTO_DEVICE_OFF_ENABLED = 1146756268036L;
-        public static final long CONTROL_AUTO_WAKEUP_ENABLED = 1146756268035L;
-        public static final long CONTROL_ENABLED = 1146756268033L;
-        public static final long SYSTEM_AUDIO_CONTROL_ENABLED = 1146756268034L;
-        public Hdmi(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class PrepaidSetup {
+        public static final long DATA_SERVICE_URL = 1146756268033L;
+        public static final long DETECTION_REDIR_HOST = 1146756268035L;
+        public static final long DETECTION_TARGET_URL = 1146756268034L;
+        public PrepaidSetup(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class InetCondition {
-        public static final long DEBOUNCE_DOWN_DELAY = 1146756268034L;
-        public static final long DEBOUNCE_UP_DELAY = 1146756268033L;
-        public InetCondition(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Development {
+        public static final long DISABLE_WINDOW_BLURS = 1146756268041L;
+        public static final long EMULATE_DISPLAY_CUTOUT = 1146756268037L;
+        public static final long ENABLE_FREEFORM_WINDOWS_SUPPORT = 1146756268035L;
+        public static final long ENABLE_NON_RESIZABLE_MULTI_WINDOW = 1146756268040L;
+        public static final long ENABLE_SIZECOMPAT_FREEFORM = 1146756268039L;
+        public static final long FORCE_DESKTOP_MODE_ON_EXTERNAL_DISPLAYS = 1146756268038L;
+        public static final long FORCE_RESIZABLE_ACTIVITIES = 1146756268034L;
+        public static final long FORCE_RTL = 1146756268036L;
+        public static final long SETTINGS_ENABLED = 1146756268033L;
+        public Development(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class InstantApp {
-        public static final long DEXOPT_ENABLED = 1146756268033L;
-        public static final long EPHEMERAL_COOKIE_MAX_SIZE_BYTES = 1146756268034L;
-        public static final long INSTALLED_MAX_CACHE_PERIOD = 1146756268036L;
-        public static final long INSTALLED_MIN_CACHE_PERIOD = 1146756268035L;
-        public static final long UNINSTALLED_MAX_CACHE_PERIOD = 1146756268038L;
-        public static final long UNINSTALLED_MIN_CACHE_PERIOD = 1146756268037L;
-        public InstantApp(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Zen {
+        public static final long MODE = 1146756268033L;
+        public static final long MODE_CONFIG_ETAG = 1146756268035L;
+        public static final long MODE_RINGER_LEVEL = 1146756268034L;
+        public Zen(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class IntentFirewall {
+    public final class PdpWatchdog {
+        public static final long ERROR_POLL_COUNT = 1146756268037L;
+        public static final long ERROR_POLL_INTERVAL_MS = 1146756268035L;
+        public static final long LONG_POLL_INTERVAL_MS = 1146756268034L;
+        public static final long MAX_PDP_RESET_FAIL_COUNT = 1146756268038L;
+        public static final long POLL_INTERVAL_MS = 1146756268033L;
+        public static final long TRIGGER_PACKET_COUNT = 1146756268036L;
+        public PdpWatchdog(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class DnsResolver {
+        public static final long MAX_SAMPLES = 1146756268036L;
+        public static final long MIN_SAMPLES = 1146756268035L;
+        public static final long SAMPLE_VALIDITY_SECONDS = 1146756268033L;
+        public static final long SUCCESS_THRESHOLD_PERCENT = 1146756268034L;
+        public DnsResolver(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class GlobalHttpProxy {
+        public static final long EXCLUSION_LIST = 1146756268035L;
+        public static final long HOST = 1146756268033L;
+        public static final long PAC = 1146756268036L;
+        public static final long PORT = 1146756268034L;
+        public static final long SETTING_UI_ENABLED = 1146756268037L;
+        public GlobalHttpProxy(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class BleScan {
+        public static final long ALWAYS_AVAILABLE = 1146756268033L;
+        public static final long BACKGROUND_MODE = 1146756268040L;
+        public static final long BALANCED_INTERVAL_MS = 1146756268038L;
+        public static final long BALANCED_WINDOW_MS = 1146756268035L;
+        public static final long LOW_LATENCY_INTERVAL_MS = 1146756268039L;
+        public static final long LOW_LATENCY_WINDOW_MS = 1146756268036L;
+        public static final long LOW_POWER_INTERVAL_MS = 1146756268037L;
+        public static final long LOW_POWER_WINDOW_MS = 1146756268034L;
+        public BleScan(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Sync {
+        public static final long MANAGER_CONSTANTS = 1146756268034L;
+        public static final long MAX_RETRY_DELAY_IN_SECONDS = 1146756268033L;
+        public Sync(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Battery {
+        public static final long DISCHARGE_DURATION_THRESHOLD = 1146756268033L;
+        public static final long DISCHARGE_THRESHOLD = 1146756268034L;
+        public static final long SAVER_CONSTANTS = 1146756268035L;
+        public static final long SAVER_DEVICE_SPECIFIC_CONSTANTS = 1146756268036L;
+        public static final long STATS_CONSTANTS = 1146756268037L;
+        public static final long TIP_CONSTANTS = 1146756268038L;
+        public Battery(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Data {
+        public static final long ACTIVITY_TIMEOUT_MOBILE = 1146756268033L;
+        public static final long ACTIVITY_TIMEOUT_WIFI = 1146756268034L;
+        public static final long ROAMING = 1146756268035L;
+        public static final long STALL_ALARM_AGGRESSIVE_DELAY_IN_MS = 1146756268037L;
+        public static final long STALL_ALARM_NON_AGGRESSIVE_DELAY_IN_MS = 1146756268036L;
+        public Data(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class CaptivePortal {
+        public static final long DETECTION_ENABLED = 1146756268034L;
+        public static final long FALLBACK_URL = 1146756268038L;
+        public static final long HTTPS_URL = 1146756268036L;
+        public static final long HTTP_URL = 1146756268037L;
+        public static final long MODE = 1146756268033L;
+        public static final long OTHER_FALLBACK_URLS = 1146756268039L;
+        public static final long SERVER = 1146756268035L;
+        public static final long USER_AGENT = 1146756268041L;
+        public static final long USE_HTTPS = 1146756268040L;
+        public CaptivePortal(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Webview {
+        public static final long DATA_REDUCTION_PROXY_KEY = 1146756268033L;
+        public static final long FALLBACK_LOGIC_ENABLED = 1146756268034L;
+        public static final long MULTIPROCESS = 1146756268036L;
+        public static final long PROVIDER = 1146756268035L;
+        public Webview(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class PackageVerifier {
+        public static final long DEFAULT_RESPONSE = 1146756268035L;
+        public static final long ENABLED = 1146756268033L;
+        public static final long INCLUDE_ADB = 1146756268037L;
+        public static final long SETTING_VISIBLE = 1146756268036L;
+        public static final long TIMEOUT = 1146756268034L;
+        public PackageVerifier(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Cdma {
+        public static final long CELL_BROADCAST_SMS = 1146756268033L;
+        public static final long ROAMING_MODE = 1146756268034L;
+        public static final long SUBSCRIPTION_MODE = 1146756268035L;
+        public Cdma(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class ApnDb {
         public static final long UPDATE_CONTENT_URL = 1146756268033L;
         public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public IntentFirewall(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class LangId {
-        public static final long UPDATE_CONTENT_URL = 1146756268033L;
-        public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public LangId(android.providers.settings.GlobalSettingsProto p0) {}
+        public ApnDb(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Location {
@@ -475,197 +583,16 @@ public final class GlobalSettingsProto {
         public Location(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class LowPowerMode {
-        public static final long AUTOMATIC_POWER_SAVER_MODE = 1146756268036L;
-        public static final long ENABLED = 1146756268033L;
-        public static final long STICKY_AUTO_DISABLE_ENABLED = 1146756268038L;
-        public static final long STICKY_AUTO_DISABLE_LEVEL = 1146756268039L;
-        public static final long STICKY_ENABLED = 1146756268037L;
-        public static final long TRIGGER_LEVEL = 1146756268034L;
-        public static final long TRIGGER_LEVEL_MAX = 1146756268035L;
-        public LowPowerMode(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class ManagedDeviceProvisioning {
-        public static final long MANAGED_PROVISIONING_DEFER_PROVISIONING_TO_ROLE_HOLDER = 1146756268033L;
-        public ManagedDeviceProvisioning(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Mhl {
-        public static final long INPUT_SWITCHING_ENABLED = 1146756268033L;
-        public static final long POWER_CHARGE_ENABLED = 1146756268034L;
-        public Mhl(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class MobileData {
-        public static final long ALLOWED = 1146756268033L;
-        public static final long ALWAYS_ON = 1146756268034L;
-        public MobileData(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class MultiSim {
-        public static final long DATA_CALL_SUBSCRIPTION = 1146756268035L;
-        public static final long SMS_PROMPT = 1146756268037L;
-        public static final long SMS_SUBSCRIPTION = 1146756268036L;
-        public static final long VOICE_CALL_SUBSCRIPTION = 1146756268033L;
-        public static final long VOICE_PROMPT = 1146756268034L;
-        public MultiSim(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Netstats {
-        public static final long AUGMENT_ENABLED = 1146756268038L;
-        public static final long DEV_BUCKET_DURATION = 1146756268039L;
-        public static final long DEV_DELETE_AGE = 1146756268042L;
-        public static final long DEV_PERSIST_BYTES = 1146756268040L;
-        public static final long DEV_ROTATE_AGE = 1146756268041L;
-        public static final long ENABLED = 1146756268033L;
-        public static final long GLOBAL_ALERT_BYTES = 1146756268036L;
-        public static final long POLL_INTERVAL = 1146756268034L;
-        public static final long SAMPLE_ENABLED = 1146756268037L;
-        public static final long TIME_CACHE_MAX_AGE = 1146756268035L;
-        public static final long UID_BUCKET_DURATION = 1146756268043L;
-        public static final long UID_DELETE_AGE = 1146756268046L;
-        public static final long UID_PERSIST_BYTES = 1146756268044L;
-        public static final long UID_ROTATE_AGE = 1146756268045L;
-        public static final long UID_TAG_BUCKET_DURATION = 1146756268047L;
-        public static final long UID_TAG_DELETE_AGE = 1146756268050L;
-        public static final long UID_TAG_PERSIST_BYTES = 1146756268048L;
-        public static final long UID_TAG_ROTATE_AGE = 1146756268049L;
-        public Netstats(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Network {
-        public static final long ACCESS_TIMEOUT_MS = 1146756268047L;
-        public static final long AVOID_BAD_WIFI = 1146756268038L;
-        public static final long METERED_MULTIPATH_PREFERENCE = 1146756268039L;
-        public static final long PREFERENCE = 1146756268033L;
-        public static final long PREFERRED_NETWORK_MODE = 1146756268034L;
-        public static final long RECOMMENDATIONS_ENABLED = 1146756268042L;
-        public static final long RECOMMENDATIONS_PACKAGE = 1146756268043L;
-        public static final long RECOMMENDATION_REQUEST_TIMEOUT_MS = 1146756268044L;
-        public static final long RECOMMENDED_NETWORK_EVALUATOR_CACHE_EXPIRY_MS = 1146756268048L;
-        public static final long SCORER_APP = 1146756268035L;
-        public static final long SCORING_PROVISIONED = 1146756268046L;
-        public static final long SCORING_UI_ENABLED = 1146756268041L;
-        public static final long SWITCH_NOTIFICATION_DAILY_LIMIT = 1146756268036L;
-        public static final long SWITCH_NOTIFICATION_RATE_LIMIT_MILLIS = 1146756268037L;
-        public static final long WATCHLIST_ENABLED = 1146756268045L;
-        public static final long WATCHLIST_LAST_REPORT_TIME = 1146756268040L;
-        public Network(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Nitz {
-        public static final long NETWORK_DISCONNECT_RETENTION = 1146756268035L;
-        public static final long UPDATE_DIFF = 1146756268033L;
-        public static final long UPDATE_SPACING = 1146756268034L;
-        public Nitz(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Notification {
-        public static final long BUBBLES = 1146756268038L;
-        public static final long DISABLE_SCREEN_SHARE_PROTECTIONS_FOR_APPS_AND_NOTIFICATIONS = 1146756268039L;
-        public static final long MAX_NOTIFICATION_ENQUEUE_RATE = 1146756268033L;
-        public static final long SHOW_NOTIFICATION_CHANNEL_WARNINGS = 1146756268034L;
-        public static final long SNOOZE_OPTIONS = 1146756268035L;
-        public Notification(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Ntp {
-        public static final long SERVER = 1146756268033L;
-        public static final long TIMEOUT_MS = 1146756268034L;
-        public Ntp(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class PackageVerifier {
-        public static final long DEFAULT_RESPONSE = 1146756268035L;
-        public static final long ENABLED = 1146756268033L;
-        public static final long INCLUDE_ADB = 1146756268037L;
-        public static final long SETTING_VISIBLE = 1146756268036L;
-        public static final long TIMEOUT = 1146756268034L;
-        public PackageVerifier(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class PdpWatchdog {
-        public static final long ERROR_POLL_COUNT = 1146756268037L;
-        public static final long ERROR_POLL_INTERVAL_MS = 1146756268035L;
-        public static final long LONG_POLL_INTERVAL_MS = 1146756268034L;
-        public static final long MAX_PDP_RESET_FAIL_COUNT = 1146756268038L;
-        public static final long POLL_INTERVAL_MS = 1146756268033L;
-        public static final long TRIGGER_PACKET_COUNT = 1146756268036L;
-        public PdpWatchdog(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class PrepaidSetup {
-        public static final long DATA_SERVICE_URL = 1146756268033L;
-        public static final long DETECTION_REDIR_HOST = 1146756268035L;
-        public static final long DETECTION_TARGET_URL = 1146756268034L;
-        public PrepaidSetup(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Private {
-        public static final long DNS_MODE = 1146756268033L;
-        public static final long DNS_SPECIFIER = 1146756268034L;
-        public Private(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Selinux {
-        public static final long STATUS = 1146756268035L;
-        public static final long UPDATE_CONTENT_URL = 1146756268033L;
-        public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public Selinux(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class SmartSelection {
-        public static final long UPDATE_CONTENT_URL = 1146756268033L;
-        public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public SmartSelection(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Sms {
-        public static final long ACCESS_RESTRICTION_ENABLED = 1146756268039L;
-        public static final long OUTGOING_CHECK_INTERVAL_MS = 1146756268033L;
-        public static final long OUTGOING_CHECK_MAX_COUNT = 1146756268034L;
-        public static final long SHORT_CODES_UPDATE_CONTENT_URL = 1146756268037L;
-        public static final long SHORT_CODES_UPDATE_METADATA_URL = 1146756268038L;
-        public static final long SHORT_CODE_CONFIRMATION = 1146756268035L;
-        public static final long SHORT_CODE_RULE = 1146756268036L;
-        public Sms(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Sounds {
-        public static final long CAR_DOCK = 1146756268033L;
-        public static final long CAR_UNDOCK = 1146756268034L;
-        public static final long CHARGING_STARTED = 1146756268036L;
-        public static final long DESK_DOCK = 1146756268037L;
-        public static final long DESK_UNDOCK = 1146756268038L;
-        public static final long DOCK_SOUNDS_ENABLED = 1146756268039L;
-        public static final long DOCK_SOUNDS_ENABLED_WHEN_ACCESSIBILITY = 1146756268040L;
-        public static final long LOCK = 1146756268041L;
-        public static final long LOW_BATTERY = 1146756268042L;
-        public static final long LOW_BATTERY_SOUNDS_ENABLED = 1146756268044L;
-        public static final long LOW_BATTERY_SOUND_TIMEOUT = 1146756268043L;
-        public static final long TRUSTED = 1146756268045L;
-        public static final long UNLOCK = 1146756268046L;
-        public static final long WIRELESS_CHARGING_STARTED = 1146756268047L;
-        public Sounds(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class SoundTrigger {
-        public static final long DETECTION_SERVICE_OP_TIMEOUT_MS = 1146756268034L;
-        public static final long MAX_SOUND_TRIGGER_DETECTION_SERVICE_OPS_PER_DAY = 1146756268033L;
-        public SoundTrigger(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Storage {
-        public static final long BENCHMARK_INTERVAL = 1146756268033L;
-        public static final long SETTINGS_CLOBBER_THRESHOLD = 1146756268034L;
-        public Storage(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Sync {
-        public static final long MANAGER_CONSTANTS = 1146756268034L;
-        public static final long MAX_RETRY_DELAY_IN_SECONDS = 1146756268033L;
-        public Sync(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Enable {
+        public static final long ACCESSIBILITY_GLOBAL_GESTURE_ENABLED = 1146756268033L;
+        public static final long CACHE_QUOTA_CALCULATION = 1146756268038L;
+        public static final long CELLULAR_ON_BOOT = 1146756268036L;
+        public static final long DELETION_HELPER_NO_THRESHOLD_TOGGLE = 1146756268039L;
+        public static final long DISKSTATS_LOGGING = 1146756268037L;
+        public static final long EPHEMERAL_FEATURE = 1146756268035L;
+        public static final long GNSS_RAW_MEAS_FULL_TRACKING = 1146756268040L;
+        public static final long GPU_DEBUG_LAYERS = 1146756268034L;
+        public Enable(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Sys {
@@ -679,48 +606,39 @@ public final class GlobalSettingsProto {
         public Sys(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class TemperatureWarning {
-        public static final long SHOW_TEMPERATURE_WARNING = 1146756268033L;
-        public static final long SHOW_USB_TEMPERATURE_ALARM = 1146756268035L;
-        public static final long WARNING_TEMPERATURE_LEVEL = 1146756268034L;
-        public TemperatureWarning(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class DynamicPowerSavings {
+        public static final long DISABLE_THRESHOLD = 1146756268033L;
+        public static final long ENABLED = 1146756268034L;
+        public DynamicPowerSavings(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Tether {
-        public static final long DUN_APN = 1146756268035L;
-        public static final long DUN_REQUIRED = 1146756268034L;
-        public static final long OFFLOAD_DISABLED = 1146756268036L;
-        public static final long SUPPORTED = 1146756268033L;
-        public static final long TIMEOUT_ENABLED = 1146756268144L;
-        public Tether(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Dropbox {
+        public static final long AGE_SECONDS = 1146756268033L;
+        public static final long MAX_FILES = 1146756268034L;
+        public static final long QUOTA_KB = 1146756268035L;
+        public static final long QUOTA_PERCENT = 1146756268036L;
+        public static final long RESERVE_PERCENT = 1146756268037L;
+        public static final long SETTINGS = 2246267895814L;
+        public Dropbox(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Tzinfo {
+    public final class Download {
+        public static final long MAX_BYTES_OVER_MOBILE = 1146756268033L;
+        public static final long RECOMMENDED_MAX_BYTES_OVER_MOBILE = 1146756268034L;
+        public Download(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class SmartSelection {
         public static final long UPDATE_CONTENT_URL = 1146756268033L;
         public static final long UPDATE_METADATA_URL = 1146756268034L;
-        public Tzinfo(android.providers.settings.GlobalSettingsProto p0) {}
+        public SmartSelection(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class UserAbsentSmallBattery {
-        public static final long RADIOS_OFF_ENABLED = 1146756268033L;
-        public static final long TOUCH_OFF_ENABLED = 1146756268034L;
-        public UserAbsentSmallBattery(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Webview {
-        public static final long DATA_REDUCTION_PROXY_KEY = 1146756268033L;
-        public static final long FALLBACK_LOGIC_ENABLED = 1146756268034L;
-        public static final long MULTIPROCESS = 1146756268036L;
-        public static final long PROVIDER = 1146756268035L;
-        public Webview(android.providers.settings.GlobalSettingsProto p0) {}
-    }
-
-    public final class Wfc {
-        public static final long IMS_ENABLED = 1146756268033L;
-        public static final long IMS_MODE = 1146756268034L;
-        public static final long IMS_ROAMING_ENABLED = 1146756268036L;
-        public static final long IMS_ROAMING_MODE = 1146756268035L;
-        public Wfc(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Selinux {
+        public static final long STATUS = 1146756268035L;
+        public static final long UPDATE_CONTENT_URL = 1146756268033L;
+        public static final long UPDATE_METADATA_URL = 1146756268034L;
+        public Selinux(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
     public final class Wifi {
@@ -758,10 +676,92 @@ public final class GlobalSettingsProto {
         public Wifi(android.providers.settings.GlobalSettingsProto p0) {}
     }
 
-    public final class Zen {
-        public static final long MODE = 1146756268033L;
-        public static final long MODE_CONFIG_ETAG = 1146756268035L;
-        public static final long MODE_RINGER_LEVEL = 1146756268034L;
-        public Zen(android.providers.settings.GlobalSettingsProto p0) {}
+    public final class Euicc {
+        public static final long FACTORY_RESET_TIMEOUT_MILLIS = 1146756268034L;
+        public static final long PROVISIONED = 1146756268033L;
+        public Euicc(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Mhl {
+        public static final long INPUT_SWITCHING_ENABLED = 1146756268033L;
+        public static final long POWER_CHARGE_ENABLED = 1146756268034L;
+        public Mhl(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Ntp {
+        public static final long SERVER = 1146756268033L;
+        public static final long TIMEOUT_MS = 1146756268034L;
+        public Ntp(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Netstats {
+        public static final long AUGMENT_ENABLED = 1146756268038L;
+        public static final long DEV_BUCKET_DURATION = 1146756268039L;
+        public static final long DEV_DELETE_AGE = 1146756268042L;
+        public static final long DEV_PERSIST_BYTES = 1146756268040L;
+        public static final long DEV_ROTATE_AGE = 1146756268041L;
+        public static final long ENABLED = 1146756268033L;
+        public static final long GLOBAL_ALERT_BYTES = 1146756268036L;
+        public static final long POLL_INTERVAL = 1146756268034L;
+        public static final long SAMPLE_ENABLED = 1146756268037L;
+        public static final long TIME_CACHE_MAX_AGE = 1146756268035L;
+        public static final long UID_BUCKET_DURATION = 1146756268043L;
+        public static final long UID_DELETE_AGE = 1146756268046L;
+        public static final long UID_PERSIST_BYTES = 1146756268044L;
+        public static final long UID_ROTATE_AGE = 1146756268045L;
+        public static final long UID_TAG_BUCKET_DURATION = 1146756268047L;
+        public static final long UID_TAG_DELETE_AGE = 1146756268050L;
+        public static final long UID_TAG_PERSIST_BYTES = 1146756268048L;
+        public static final long UID_TAG_ROTATE_AGE = 1146756268049L;
+        public Netstats(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class SoundTrigger {
+        public static final long DETECTION_SERVICE_OP_TIMEOUT_MS = 1146756268034L;
+        public static final long MAX_SOUND_TRIGGER_DETECTION_SERVICE_OPS_PER_DAY = 1146756268033L;
+        public SoundTrigger(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Database {
+        public static final long CREATION_BUILDID = 1146756268034L;
+        public static final long DOWNGRADE_REASON = 1146756268033L;
+        public Database(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class Wfc {
+        public static final long IMS_ENABLED = 1146756268033L;
+        public static final long IMS_MODE = 1146756268034L;
+        public static final long IMS_ROAMING_ENABLED = 1146756268036L;
+        public static final long IMS_ROAMING_MODE = 1146756268035L;
+        public Wfc(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class MobileData {
+        public static final long ALLOWED = 1146756268033L;
+        public static final long ALWAYS_ON = 1146756268034L;
+        public MobileData(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class IntentFirewall {
+        public static final long UPDATE_CONTENT_URL = 1146756268033L;
+        public static final long UPDATE_METADATA_URL = 1146756268034L;
+        public IntentFirewall(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class LangId {
+        public static final long UPDATE_CONTENT_URL = 1146756268033L;
+        public static final long UPDATE_METADATA_URL = 1146756268034L;
+        public LangId(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class ManagedDeviceProvisioning {
+        public static final long MANAGED_PROVISIONING_DEFER_PROVISIONING_TO_ROLE_HOLDER = 1146756268033L;
+        public ManagedDeviceProvisioning(android.providers.settings.GlobalSettingsProto p0) {}
+    }
+
+    public final class InetCondition {
+        public static final long DEBOUNCE_DOWN_DELAY = 1146756268034L;
+        public static final long DEBOUNCE_UP_DELAY = 1146756268033L;
+        public InetCondition(android.providers.settings.GlobalSettingsProto p0) {}
     }
 }

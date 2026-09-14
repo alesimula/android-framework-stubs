@@ -4,12 +4,6 @@ public interface ICompanionMessageService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.ICompanionMessageService";
     public void onMessageReceived(int p0, int p1, byte[] p2) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.ICompanionMessageService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMessageReceived(int p0, int p1, byte[] p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.ICompanionMessageService {
         static final int TRANSACTION_onMessageReceived = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICompanionMessageService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onMessageReceived(int p0, int p1, byte[] p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.ICompanionMessageService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMessageReceived(int p0, int p1, byte[] p2) throws android.os.RemoteException {}
     }
 }

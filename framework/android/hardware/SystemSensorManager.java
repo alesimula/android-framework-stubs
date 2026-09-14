@@ -73,6 +73,38 @@ public class SystemSensorManager extends android.hardware.SensorManager {
     protected void unregisterDynamicSensorCallbackImpl(android.hardware.SensorManager.DynamicSensorCallback p0) {}
     protected void unregisterListenerImpl(android.hardware.SensorEventListener p0, android.hardware.Sensor p1) {}
 
+    final class InjectEventQueue extends android.hardware.SystemSensorManager.BaseEventQueue {
+        private int mMode;
+        public InjectEventQueue(android.hardware.SystemSensorManager p0, android.os.Looper p1, android.hardware.SystemSensorManager p2, int p3, java.lang.String p4) { super(null, null, 0, null); }
+        protected void addSensorEvent(android.hardware.Sensor p0) {}
+        protected void dispatchFlushCompleteEvent(int p0) {}
+        protected void dispatchSensorEvent(int p0, float[] p1, int p2, long p3) {}
+        int getDataInjectionMode() { return 0; }
+        int injectSensorData(int p0, float[] p1, int p2, long p3) { return 0; }
+        protected void removeSensorEvent(android.hardware.Sensor p0) {}
+    }
+
+    static final class TriggerEventQueue extends android.hardware.SystemSensorManager.BaseEventQueue {
+        private final android.hardware.TriggerEventListener mListener = null;
+        private final android.util.SparseArray<android.hardware.TriggerEvent> mTriggerEvents = null;
+        public TriggerEventQueue(android.hardware.TriggerEventListener p0, android.os.Looper p1, android.hardware.SystemSensorManager p2, java.lang.String p3) { super(null, null, 0, null); }
+        public void addSensorEvent(android.hardware.Sensor p0) {}
+        protected void dispatchFlushCompleteEvent(int p0) {}
+        protected void dispatchSensorEvent(int p0, float[] p1, int p2, long p3) {}
+        public void removeSensorEvent(android.hardware.Sensor p0) {}
+    }
+
+    static final class SensorEventQueue extends android.hardware.SystemSensorManager.BaseEventQueue {
+        private final android.hardware.SensorEventListener mListener = null;
+        private final android.util.SparseArray<android.hardware.SensorEvent> mSensorsEvents = null;
+        public SensorEventQueue(android.hardware.SensorEventListener p0, android.os.Looper p1, android.hardware.SystemSensorManager p2, java.lang.String p3) { super(null, null, 0, null); }
+        public void addSensorEvent(android.hardware.Sensor p0) {}
+        protected void dispatchAdditionalInfoEvent(int p0, int p1, int p2, float[] p3, int[] p4) {}
+        protected void dispatchFlushCompleteEvent(int p0) {}
+        protected void dispatchSensorEvent(int p0, float[] p1, int p2, long p3) {}
+        public void removeSensorEvent(android.hardware.Sensor p0) {}
+    }
+
     private static abstract class BaseEventQueue {
         protected static final int OPERATING_MODE_DATA_INJECTION = 1;
         protected static final int OPERATING_MODE_HAL_BYPASS_REPLAY_DATA_INJECTION = 4;
@@ -106,37 +138,5 @@ public class SystemSensorManager extends android.hardware.SensorManager {
         public boolean removeAllSensors() { return false; }
         public boolean removeSensor(android.hardware.Sensor p0, boolean p1) { return false; }
         protected abstract void removeSensorEvent(android.hardware.Sensor p0);
-    }
-
-    final class InjectEventQueue extends android.hardware.SystemSensorManager.BaseEventQueue {
-        private int mMode;
-        public InjectEventQueue(android.hardware.SystemSensorManager p0, android.os.Looper p1, android.hardware.SystemSensorManager p2, int p3, java.lang.String p4) { super(null, null, 0, null); }
-        protected void addSensorEvent(android.hardware.Sensor p0) {}
-        protected void dispatchFlushCompleteEvent(int p0) {}
-        protected void dispatchSensorEvent(int p0, float[] p1, int p2, long p3) {}
-        int getDataInjectionMode() { return 0; }
-        int injectSensorData(int p0, float[] p1, int p2, long p3) { return 0; }
-        protected void removeSensorEvent(android.hardware.Sensor p0) {}
-    }
-
-    static final class SensorEventQueue extends android.hardware.SystemSensorManager.BaseEventQueue {
-        private final android.hardware.SensorEventListener mListener = null;
-        private final android.util.SparseArray<android.hardware.SensorEvent> mSensorsEvents = null;
-        public SensorEventQueue(android.hardware.SensorEventListener p0, android.os.Looper p1, android.hardware.SystemSensorManager p2, java.lang.String p3) { super(null, null, 0, null); }
-        public void addSensorEvent(android.hardware.Sensor p0) {}
-        protected void dispatchAdditionalInfoEvent(int p0, int p1, int p2, float[] p3, int[] p4) {}
-        protected void dispatchFlushCompleteEvent(int p0) {}
-        protected void dispatchSensorEvent(int p0, float[] p1, int p2, long p3) {}
-        public void removeSensorEvent(android.hardware.Sensor p0) {}
-    }
-
-    static final class TriggerEventQueue extends android.hardware.SystemSensorManager.BaseEventQueue {
-        private final android.hardware.TriggerEventListener mListener = null;
-        private final android.util.SparseArray<android.hardware.TriggerEvent> mTriggerEvents = null;
-        public TriggerEventQueue(android.hardware.TriggerEventListener p0, android.os.Looper p1, android.hardware.SystemSensorManager p2, java.lang.String p3) { super(null, null, 0, null); }
-        public void addSensorEvent(android.hardware.Sensor p0) {}
-        protected void dispatchFlushCompleteEvent(int p0) {}
-        protected void dispatchSensorEvent(int p0, float[] p1, int p2, long p3) {}
-        public void removeSensorEvent(android.hardware.Sensor p0) {}
     }
 }

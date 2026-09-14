@@ -5,14 +5,6 @@ public interface IWindowId extends android.os.IInterface {
     public void registerFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException;
     public void unregisterFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IWindowId {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean isFocused() throws android.os.RemoteException { return false; }
-        public void registerFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException {}
-        public void unregisterFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IWindowId {
         public static final java.lang.String DESCRIPTOR = "android.view.IWindowId";
         static final int TRANSACTION_isFocused = 3;
@@ -34,5 +26,13 @@ public interface IWindowId extends android.os.IInterface {
             public void registerFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException {}
             public void unregisterFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IWindowId {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean isFocused() throws android.os.RemoteException { return false; }
+        public void registerFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException {}
+        public void unregisterFocusObserver(android.view.IWindowFocusObserver p0) throws android.os.RemoteException {}
     }
 }

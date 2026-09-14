@@ -91,6 +91,7 @@ public final class DisplayManagerGlobal {
     public android.hardware.display.BrightnessConfiguration getDefaultBrightnessConfiguration() { return null; }
     public float getDefaultDozeBrightness(int p0) { return 0.0f; }
     public android.hardware.graphics.common.DisplayDecorationSupport getDisplayDecorationSupport(int p0) { return null; }
+    public int getDisplayIdForHostToken(android.window.InputTransferToken p0) { return 0; }
     public int[] getDisplayIds() { return null; }
     public int[] getDisplayIds(boolean p0) { return null; }
     public android.view.DisplayInfo getDisplayInfo(int p0) { return null; }
@@ -140,6 +141,7 @@ public final class DisplayManagerGlobal {
     public void setBrightness(int p0, float p1, int p2) {}
     public void setBrightnessConfigurationForDisplay(android.hardware.display.BrightnessConfiguration p0, java.lang.String p1, int p2, java.lang.String p3) {}
     public void setBrightnessConfigurationForUser(android.hardware.display.BrightnessConfiguration p0, int p1, java.lang.String p2) {}
+    public void setBrightnessRangeOverride(int p0, android.hardware.display.BrightnessRangeOverrideRequest p1) {}
     public void setDisplayTopology(android.hardware.display.DisplayTopology p0) {}
     public void setExternalDisplayConnectionPreference(java.lang.String p0, int p1) {}
     public void setHdrConversionMode(android.hardware.display.HdrConversionMode p0) {}
@@ -161,8 +163,52 @@ public final class DisplayManagerGlobal {
     public void unregisterNativeChoreographerForRefreshRateCallbacks() {}
     public void unregisterTopologyListener(java.util.function.Consumer<android.hardware.display.DisplayTopology> p0) {}
 
+    public static final class VirtualDisplayCallback extends android.hardware.display.IVirtualDisplayCallback.Stub {
+        private final android.hardware.display.VirtualDisplay.Callback mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        public VirtualDisplayCallback(android.hardware.display.VirtualDisplay.Callback p0, java.util.concurrent.Executor p1) { super(); }
+        public void onPaused() {}
+        public void onResumed() {}
+        public void onStopped() {}
+    }
+
+    public static final class DisplayListenerDelegate {
+        public volatile long internalEventFlagsMask;
+        private final android.view.DisplayInfo mDisplayInfo = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final java.util.concurrent.atomic.AtomicLong mGenerationId = null;
+        private final boolean mIsEventFilterExplicit = false;
+        private final android.hardware.display.DisplayManager.DisplayListener mListener = null;
+        private final java.lang.String mPackageName = null;
+        DisplayListenerDelegate(android.hardware.display.DisplayManager.DisplayListener p0, java.util.concurrent.Executor p1, long p2, java.lang.String p3, boolean p4) {}
+        private void handleDisplayEventInner(int p0, int p1, android.view.DisplayInfo p2, boolean p3) {}
+        private void handleDisplayEventsInner(int p0, int p1, android.view.DisplayInfo p2, boolean p3) {}
+        private void implicitlyRegisterForRRChanges() {}
+        void clearEvents() {}
+        public boolean isEventFilterExplicit() { return false; }
+        void sendDisplayEvents(int p0, int p1, android.view.DisplayInfo p2, boolean p3) {}
+        void setEventsMask(long p0) {}
+        public java.lang.String toString() { return null; }
+    }
+
+    private static final class DisplayTopologyListenerDelegate {
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final java.util.function.Consumer<android.hardware.display.DisplayTopology> mListener = null;
+        private final java.lang.String mPackageName = null;
+        DisplayTopologyListenerDelegate(java.util.function.Consumer<android.hardware.display.DisplayTopology> p0, java.util.concurrent.Executor p1, java.lang.String p2) {}
+        void onTopologyChanged(android.hardware.display.DisplayTopology p0) {}
+        public java.lang.String toString() { return null; }
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DisplayEvent {
+    }
+
+    private final class DisplayManagerCallback extends android.hardware.display.IDisplayManagerCallback.Stub {
+        private DisplayManagerCallback(android.hardware.display.DisplayManagerGlobal p0) { super(); }
+        public void onDisplayEvent(int p0, int p1) {}
+        public void onDisplaySnapshot(int[] p0, int[] p1) {}
+        public void onTopologyChanged(android.hardware.display.DisplayTopology p0) {}
     }
 
     public static class DisplayIdsCache {
@@ -199,51 +245,7 @@ public final class DisplayManagerGlobal {
         public void updateCacheLocked(int[] p0, int[] p1) {}
     }
 
-    public static final class DisplayListenerDelegate {
-        public volatile long internalEventFlagsMask;
-        private final android.view.DisplayInfo mDisplayInfo = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final java.util.concurrent.atomic.AtomicLong mGenerationId = null;
-        private final boolean mIsEventFilterExplicit = false;
-        private final android.hardware.display.DisplayManager.DisplayListener mListener = null;
-        private final java.lang.String mPackageName = null;
-        DisplayListenerDelegate(android.hardware.display.DisplayManager.DisplayListener p0, java.util.concurrent.Executor p1, long p2, java.lang.String p3, boolean p4) {}
-        private void handleDisplayEventInner(int p0, int p1, android.view.DisplayInfo p2, boolean p3) {}
-        private void handleDisplayEventsInner(int p0, int p1, android.view.DisplayInfo p2, boolean p3) {}
-        private void implicitlyRegisterForRRChanges() {}
-        void clearEvents() {}
-        public boolean isEventFilterExplicit() { return false; }
-        void sendDisplayEvents(int p0, int p1, android.view.DisplayInfo p2, boolean p3) {}
-        void setEventsMask(long p0) {}
-        public java.lang.String toString() { return null; }
-    }
-
-    private final class DisplayManagerCallback extends android.hardware.display.IDisplayManagerCallback.Stub {
-        private DisplayManagerCallback(android.hardware.display.DisplayManagerGlobal p0) { super(); }
-        public void onDisplayEvent(int p0, int p1) {}
-        public void onDisplaySnapshot(int[] p0, int[] p1) {}
-        public void onTopologyChanged(android.hardware.display.DisplayTopology p0) {}
-    }
-
-    private static final class DisplayTopologyListenerDelegate {
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final java.util.function.Consumer<android.hardware.display.DisplayTopology> mListener = null;
-        private final java.lang.String mPackageName = null;
-        DisplayTopologyListenerDelegate(java.util.function.Consumer<android.hardware.display.DisplayTopology> p0, java.util.concurrent.Executor p1, java.lang.String p2) {}
-        void onTopologyChanged(android.hardware.display.DisplayTopology p0) {}
-        public java.lang.String toString() { return null; }
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface InternalEventFlag {
-    }
-
-    public static final class VirtualDisplayCallback extends android.hardware.display.IVirtualDisplayCallback.Stub {
-        private final android.hardware.display.VirtualDisplay.Callback mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        public VirtualDisplayCallback(android.hardware.display.VirtualDisplay.Callback p0, java.util.concurrent.Executor p1) { super(); }
-        public void onPaused() {}
-        public void onResumed() {}
-        public void onStopped() {}
     }
 }

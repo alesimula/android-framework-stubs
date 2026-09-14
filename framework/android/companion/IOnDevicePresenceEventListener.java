@@ -4,12 +4,6 @@ public interface IOnDevicePresenceEventListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.IOnDevicePresenceEventListener";
     public void onDevicePresence(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.IOnDevicePresenceEventListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDevicePresence(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.IOnDevicePresenceEventListener {
         static final int TRANSACTION_onDevicePresence = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IOnDevicePresenceEventListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onDevicePresence(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.IOnDevicePresenceEventListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDevicePresence(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException {}
     }
 }

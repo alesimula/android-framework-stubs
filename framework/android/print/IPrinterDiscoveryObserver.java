@@ -4,13 +4,6 @@ public interface IPrinterDiscoveryObserver extends android.os.IInterface {
     public void onPrintersAdded(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException;
     public void onPrintersRemoved(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException;
 
-    public static class Default implements android.print.IPrinterDiscoveryObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPrintersAdded(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
-        public void onPrintersRemoved(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.print.IPrinterDiscoveryObserver {
         public static final java.lang.String DESCRIPTOR = "android.print.IPrinterDiscoveryObserver";
         static final int TRANSACTION_onPrintersAdded = 1;
@@ -30,5 +23,12 @@ public interface IPrinterDiscoveryObserver extends android.os.IInterface {
             public void onPrintersAdded(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
             public void onPrintersRemoved(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.print.IPrinterDiscoveryObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPrintersAdded(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
+        public void onPrintersRemoved(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
     }
 }

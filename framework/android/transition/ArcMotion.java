@@ -2,7 +2,7 @@ package android.transition;
 
 public class ArcMotion extends android.transition.PathMotion {
     private static final float DEFAULT_MAX_ANGLE_DEGREES = 70.0f;
-    private static final float DEFAULT_MAX_TANGENT = Float.valueOf(0.0f);
+    private static final float DEFAULT_MAX_TANGENT = 0.700207531452179f;
     private static final float DEFAULT_MIN_ANGLE_DEGREES = 0.0f;
     private float mMaximumAngle;
     private float mMaximumTangent;

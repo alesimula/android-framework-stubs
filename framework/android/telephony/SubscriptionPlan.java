@@ -68,6 +68,14 @@ public final class SubscriptionPlan implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SubscriptionStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LimitBehavior {
+    }
+
     public static class Builder {
         private final android.util.RecurrenceRule mCycleRule = null;
         private int mDataLimitBehavior;
@@ -112,14 +120,6 @@ public final class SubscriptionPlan implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LimitBehavior {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PlanType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SubscriptionStatus {
     }
 }

@@ -8,14 +8,6 @@ public interface IGnssBatchingCallback extends android.os.IInterface {
     public int getInterfaceVersion() throws android.os.RemoteException;
     public void gnssLocationBatchCb(android.hardware.gnss.GnssLocation[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.IGnssBatchingCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void gnssLocationBatchCb(android.hardware.gnss.GnssLocation[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.IGnssBatchingCallback {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -38,5 +30,13 @@ public interface IGnssBatchingCallback extends android.os.IInterface {
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
             public void gnssLocationBatchCb(android.hardware.gnss.GnssLocation[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.gnss.IGnssBatchingCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void gnssLocationBatchCb(android.hardware.gnss.GnssLocation[] p0) throws android.os.RemoteException {}
     }
 }

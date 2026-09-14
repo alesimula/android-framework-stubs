@@ -14,22 +14,6 @@ public class HbpcdLookup {
     public static final java.lang.String PATH_USERADD_COUNTRY = "useradd";
     public HbpcdLookup() {}
 
-    public static class ArbitraryMccSidMatch implements android.provider.BaseColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String DEFAULT_SORT_ORDER = "MCC ASC";
-        public static final java.lang.String MCC = "MCC";
-        public static final java.lang.String SID = "SID";
-        public ArbitraryMccSidMatch() {}
-    }
-
-    public static class MccIdd implements android.provider.BaseColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String DEFAULT_SORT_ORDER = "MCC ASC";
-        public static final java.lang.String IDD = "IDD";
-        public static final java.lang.String MCC = "MCC";
-        public MccIdd() {}
-    }
-
     public static class MccLookup implements android.provider.BaseColumns {
         public static final android.net.Uri CONTENT_URI = null;
         public static final java.lang.String COUNTRY_CODE = "Country_Code";
@@ -53,6 +37,29 @@ public class HbpcdLookup {
         public MccSidConflicts() {}
     }
 
+    public static class NanpAreaCode implements android.provider.BaseColumns {
+        public static final java.lang.String AREA_CODE = "Area_Code";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String DEFAULT_SORT_ORDER = "Area_Code ASC";
+        public NanpAreaCode() {}
+    }
+
+    public static class ArbitraryMccSidMatch implements android.provider.BaseColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String DEFAULT_SORT_ORDER = "MCC ASC";
+        public static final java.lang.String MCC = "MCC";
+        public static final java.lang.String SID = "SID";
+        public ArbitraryMccSidMatch() {}
+    }
+
+    public static class MccIdd implements android.provider.BaseColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String DEFAULT_SORT_ORDER = "MCC ASC";
+        public static final java.lang.String IDD = "IDD";
+        public static final java.lang.String MCC = "MCC";
+        public MccIdd() {}
+    }
+
     public static class MccSidRange implements android.provider.BaseColumns {
         public static final android.net.Uri CONTENT_URI = null;
         public static final java.lang.String DEFAULT_SORT_ORDER = "MCC ASC";
@@ -60,12 +67,5 @@ public class HbpcdLookup {
         public static final java.lang.String RANGE_HIGH = "SID_Range_High";
         public static final java.lang.String RANGE_LOW = "SID_Range_Low";
         public MccSidRange() {}
-    }
-
-    public static class NanpAreaCode implements android.provider.BaseColumns {
-        public static final java.lang.String AREA_CODE = "Area_Code";
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String DEFAULT_SORT_ORDER = "Area_Code ASC";
-        public NanpAreaCode() {}
     }
 }

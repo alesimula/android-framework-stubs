@@ -22,7 +22,7 @@ public final class StrictMode {
     private static final int DETECT_THREAD_RESOURCE_MISMATCH = 16;
     private static final int DETECT_THREAD_UNBUFFERED_IO = 32;
     private static final int DETECT_VM_ACTIVITY_LEAKS = 4;
-    private static final int DETECT_VM_ALL = 65535;
+    private static final int DETECT_VM_ALL = 131071;
     private static final int DETECT_VM_BACKGROUND_ACTIVITY_LAUNCH_ABORTED = 16384;
     private static final int DETECT_VM_CLEARTEXT_NETWORK = 64;
     private static final int DETECT_VM_CLOSABLE_LEAKS = 2;
@@ -36,6 +36,7 @@ public final class StrictMode {
     private static final int DETECT_VM_INSTANCE_LEAKS = 8;
     private static final int DETECT_VM_NON_SDK_API_USAGE = 512;
     private static final int DETECT_VM_REGISTRATION_LEAKS = 16;
+    private static final int DETECT_VM_TASK_TRAMPOLINE = 65536;
     private static final int DETECT_VM_UNSAFE_INTENT_LAUNCH = 8192;
     private static final int DETECT_VM_UNTAGGED_SOCKET = 256;
     private static final boolean DISABLE = false;
@@ -53,7 +54,7 @@ public final class StrictMode {
     public static final int NETWORK_POLICY_LOG = 1;
     public static final int NETWORK_POLICY_REJECT = 2;
     private static final android.os.StrictMode.Span NO_OP_SPAN = null;
-    public static final int PENALTY_ALL = -7929856;
+    public static final int PENALTY_ALL = -8388608;
     public static final int PENALTY_DEATH = 268435456;
     public static final int PENALTY_DEATH_ON_CLEARTEXT_NETWORK = 16777216;
     public static final int PENALTY_DEATH_ON_FILE_URI_EXPOSURE = 8388608;
@@ -69,7 +70,7 @@ public final class StrictMode {
     private static final java.lang.ThreadLocal<android.os.Handler> THREAD_HANDLER = null;
     public static final java.lang.String VISUAL_PROPERTY = "persist.sys.strictmode.visual";
     private static final java.lang.ThreadLocal<java.util.ArrayList<android.os.StrictMode.ViolationInfo>> gatheredViolations = null;
-    private static volatile android.os.StrictMode.BackgroundActivityLaunchCallback sBackgroundActivityLaunchCallback;
+    private static volatile android.os.StrictMode.ActivityLaunchStrictModeCallback sActivityLaunchStrictModeCallback;
     private static volatile boolean sCeStorageUnlocked;
     private static final java.util.concurrent.atomic.AtomicInteger sDropboxCallsInFlight = null;
     private static final java.util.HashMap<java.lang.Class, java.lang.Integer> sExpectedActivityInstanceCount = null;
@@ -137,6 +138,7 @@ public final class StrictMode {
     public static void onIntentReceiverLeaked(java.lang.Throwable p0) {}
     public static void onServiceConnectionLeaked(java.lang.Throwable p0) {}
     public static void onSqliteObjectLeaked(java.lang.String p0, java.lang.Throwable p1) {}
+    public static void onTaskTrampolineDetected(java.lang.String p0) {}
     private static void onUnsafeIntentLaunch(int p0, android.content.Intent p1) {}
     public static void onUnsafeIntentLaunch(android.content.Intent p0) {}
     public static void onUntaggedSocket() {}
@@ -144,7 +146,7 @@ public final class StrictMode {
     public static void onVmPolicyViolation(android.os.strictmode.Violation p0, boolean p1) {}
     public static void onWebViewMethodCalledOnWrongThread(java.lang.Throwable p0) {}
     static void readAndHandleBinderCallViolations(android.os.Parcel p0) {}
-    private static void registerBackgroundActivityLaunchCallback() {}
+    private static void registerActivityLaunchStrictModeCallback() {}
     private static void registerIntentMatchingRestrictionCallback() {}
     private static void setBlockGuardPolicy(int p0) {}
     private static void setBlockGuardVmPolicy(int p0) {}
@@ -168,6 +170,7 @@ public final class StrictMode {
     public static boolean vmIncorrectContextUseEnabled() { return false; }
     public static boolean vmRegistrationLeaksEnabled() { return false; }
     public static boolean vmSqliteObjectLeaksEnabled() { return false; }
+    public static boolean vmTaskTrampolineEnabled() { return false; }
     public static boolean vmUnsafeIntentLaunchEnabled() { return false; }
     public static boolean vmUntaggedSocketEnabled() { return false; }
     static void writeGatheredViolationsToParcel(android.os.Parcel p0) {}
@@ -193,42 +196,54 @@ public final class StrictMode {
         public java.lang.String toString() { return null; }
     }
 
-    private static class AndroidCloseGuardReporter {
-        private AndroidCloseGuardReporter() {}
-        public void report(java.lang.String p0) {}
-        public void report(java.lang.String p0, java.lang.Throwable p1) {}
-    }
-
-    private static final class BackgroundActivityLaunchCallback extends android.app.IBackgroundActivityLaunchCallback.Stub {
-        private BackgroundActivityLaunchCallback() { super(); }
-        public void onBackgroundActivityLaunchAborted(java.lang.String p0) {}
-    }
-
-    private static final class InstanceTracker {
-        private static final java.util.HashMap<java.lang.Class<?>, java.lang.Integer> sInstanceCounts = null;
-        private final java.lang.Class<?> mKlass = null;
-        public InstanceTracker(java.lang.Object p0) {}
-        public static int getInstanceCount(java.lang.Class<?> p0) { return 0; }
-        protected void finalize() throws java.lang.Throwable {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VmPolicyMask {
     }
 
     public static interface OnThreadViolationListener {
         public void onThreadViolation(android.os.strictmode.Violation p0);
     }
 
-    public static interface OnVmViolationListener {
-        public void onVmViolation(android.os.strictmode.Violation p0);
+    public static final class ViolationInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.os.StrictMode.ViolationInfo> CREATOR = null;
+        public java.lang.String broadcastIntentAction;
+        public int durationMillis;
+        private final java.util.Deque<java.lang.StackTraceElement[]> mBinderStack = null;
+        private final int mPenaltyMask = 0;
+        private java.lang.String mStackTrace;
+        private final android.os.strictmode.Violation mViolation = null;
+        public int numAnimationsRunning;
+        public long numInstances;
+        public java.lang.String[] tags;
+        public int violationNumThisLoop;
+        public long violationUptimeMillis;
+        public ViolationInfo(android.os.Parcel p0) {}
+        public ViolationInfo(android.os.Parcel p0, boolean p1) {}
+        ViolationInfo(android.os.strictmode.Violation p0, int p1) {}
+        void addLocalStack(java.lang.Throwable p0) {}
+        public int describeContents() { return 0; }
+        public void dump(android.util.Printer p0, java.lang.String p1) {}
+        public java.lang.String getStackTrace() { return null; }
+        public java.lang.Class<? extends android.os.strictmode.Violation> getViolationClass() { return null; }
+        public java.lang.String getViolationDetails() { return null; }
+        public int hashCode() { return 0; }
+        boolean penaltyEnabled(int p0) { return false; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class Span {
-        private final android.os.StrictMode.ThreadSpanState mContainerState = null;
-        private long mCreateMillis;
-        private java.lang.String mName;
-        private android.os.StrictMode.Span mNext;
-        private android.os.StrictMode.Span mPrev;
-        protected Span() {}
-        Span(android.os.StrictMode.ThreadSpanState p0) {}
-        public void finish() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ThreadPolicyMask {
+    }
+
+    private static class AndroidCloseGuardReporter {
+        private AndroidCloseGuardReporter() {}
+        public void report(java.lang.String p0) {}
+        public void report(java.lang.String p0, java.lang.Throwable p1) {}
+    }
+
+    private static final class UnsafeIntentStrictModeCallback extends android.app.IUnsafeIntentStrictModeCallback.Stub {
+        private UnsafeIntentStrictModeCallback() { super(); }
+        public void onUnsafeIntent(int p0, android.content.Intent p1) {}
     }
 
     public static final class ThreadPolicy {
@@ -275,8 +290,12 @@ public final class StrictMode {
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ThreadPolicyMask {
+    public static interface OnVmViolationListener {
+        public void onVmViolation(android.os.strictmode.Violation p0);
+    }
+
+    public static interface ViolationLogger {
+        public void log(android.os.StrictMode.ViolationInfo p0);
     }
 
     private static class ThreadSpanState {
@@ -287,40 +306,29 @@ public final class StrictMode {
         private ThreadSpanState() {}
     }
 
-    private static final class UnsafeIntentStrictModeCallback extends android.app.IUnsafeIntentStrictModeCallback.Stub {
-        private UnsafeIntentStrictModeCallback() { super(); }
-        public void onUnsafeIntent(int p0, android.content.Intent p1) {}
+    private static final class InstanceTracker {
+        private static final java.util.HashMap<java.lang.Class<?>, java.lang.Integer> sInstanceCounts = null;
+        private final java.lang.Class<?> mKlass = null;
+        public InstanceTracker(java.lang.Object p0) {}
+        public static int getInstanceCount(java.lang.Class<?> p0) { return 0; }
+        protected void finalize() throws java.lang.Throwable {}
     }
 
-    public static final class ViolationInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.os.StrictMode.ViolationInfo> CREATOR = null;
-        public java.lang.String broadcastIntentAction;
-        public int durationMillis;
-        private final java.util.Deque<java.lang.StackTraceElement[]> mBinderStack = null;
-        private final int mPenaltyMask = 0;
-        private java.lang.String mStackTrace;
-        private final android.os.strictmode.Violation mViolation = null;
-        public int numAnimationsRunning;
-        public long numInstances;
-        public java.lang.String[] tags;
-        public int violationNumThisLoop;
-        public long violationUptimeMillis;
-        public ViolationInfo(android.os.Parcel p0) {}
-        public ViolationInfo(android.os.Parcel p0, boolean p1) {}
-        ViolationInfo(android.os.strictmode.Violation p0, int p1) {}
-        void addLocalStack(java.lang.Throwable p0) {}
-        public int describeContents() { return 0; }
-        public void dump(android.util.Printer p0, java.lang.String p1) {}
-        public java.lang.String getStackTrace() { return null; }
-        public java.lang.Class<? extends android.os.strictmode.Violation> getViolationClass() { return null; }
-        public java.lang.String getViolationDetails() { return null; }
-        public int hashCode() { return 0; }
-        boolean penaltyEnabled(int p0) { return false; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public static final class ActivityLaunchStrictModeCallback extends android.app.IActivityLaunchStrictModeCallback.Stub {
+        public ActivityLaunchStrictModeCallback() { super(); }
+        public void onBackgroundActivityLaunchViolation(java.lang.String p0) {}
+        public void onTaskTrampolineViolation(java.lang.String p0) {}
     }
 
-    public static interface ViolationLogger {
-        public void log(android.os.StrictMode.ViolationInfo p0);
+    public static class Span {
+        private final android.os.StrictMode.ThreadSpanState mContainerState = null;
+        private long mCreateMillis;
+        private java.lang.String mName;
+        private android.os.StrictMode.Span mNext;
+        private android.os.StrictMode.Span mPrev;
+        protected Span() {}
+        Span(android.os.StrictMode.ThreadSpanState p0) {}
+        public void finish() {}
     }
 
     public static final class VmPolicy {
@@ -356,6 +364,7 @@ public final class StrictMode {
             public android.os.StrictMode.VmPolicy.Builder detectLeakedRegistrationObjects() { return null; }
             public android.os.StrictMode.VmPolicy.Builder detectLeakedSqlLiteObjects() { return null; }
             public android.os.StrictMode.VmPolicy.Builder detectNonSdkApiUsage() { return null; }
+            public android.os.StrictMode.VmPolicy.Builder detectTaskTrampoline() { return null; }
             public android.os.StrictMode.VmPolicy.Builder detectUnsafeIntentLaunch() { return null; }
             public android.os.StrictMode.VmPolicy.Builder detectUntaggedSockets() { return null; }
             android.os.StrictMode.VmPolicy.Builder disable(int p0) { return null; }
@@ -373,13 +382,10 @@ public final class StrictMode {
             public android.os.StrictMode.VmPolicy.Builder permitImplicitUriPermissionGrant() { return null; }
             public android.os.StrictMode.VmPolicy.Builder permitIncorrectContextUse() { return null; }
             public android.os.StrictMode.VmPolicy.Builder permitNonSdkApiUsage() { return null; }
+            public android.os.StrictMode.VmPolicy.Builder permitTaskTrampoline() { return null; }
             public android.os.StrictMode.VmPolicy.Builder permitUnsafeIntentLaunch() { return null; }
             public android.os.StrictMode.VmPolicy.Builder permitUntaggedSockets() { return null; }
             public android.os.StrictMode.VmPolicy.Builder setClassInstanceLimit(java.lang.Class p0, int p1) { return null; }
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VmPolicyMask {
     }
 }

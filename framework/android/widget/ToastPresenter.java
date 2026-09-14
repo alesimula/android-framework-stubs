@@ -4,8 +4,8 @@ public class ToastPresenter {
     private static final long LONG_DURATION_TIMEOUT = 7000L;
     private static final long SHORT_DURATION_TIMEOUT = 4000L;
     private static final java.lang.String TAG = "ToastPresenter";
-    public static final int TEXT_TOAST_LAYOUT = 17367397;
-    public static final int TEXT_TOAST_LAYOUT_WITH_ICON = 17367398;
+    public static final int TEXT_TOAST_LAYOUT = 17367401;
+    public static final int TEXT_TOAST_LAYOUT_WITH_ICON = 17367402;
     private static final java.lang.String WINDOW_TITLE = "Toast";
     private final android.view.accessibility.IAccessibilityManager mAccessibilityManagerService = null;
     private final java.lang.ref.WeakReference<android.content.Context> mContext = null;

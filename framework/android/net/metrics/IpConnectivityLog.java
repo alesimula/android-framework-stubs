@@ -5,7 +5,7 @@ package android.net.metrics;
 public class IpConnectivityLog {
     private static final boolean DBG = false;
     public static final java.lang.String SERVICE_NAME = "connmetrics";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "IpConnectivityLog";
     private android.net.IIpConnectivityMetrics mService;
     @android.annotation.SystemApi
     public IpConnectivityLog() {}

@@ -44,7 +44,7 @@ public interface AndroidPackage {
     public java.lang.String getManifestPackageName();
     public float getMaxAspectRatio();
     public int getMaxSdkVersion();
-    public java.util.List<android.content.pm.MemoryBudget> getMemoryBudgets();
+    public java.util.List<android.content.pm.MemoryBudgetInfo> getMemoryBudgets();
     public int getMemtagMode();
     public android.os.Bundle getMetaData();
     public java.util.Set<java.lang.String> getMimeGroups();
@@ -178,6 +178,7 @@ public interface AndroidPackage {
     public boolean isPersistent();
     public boolean isProfileable();
     public boolean isProfileableByShell();
+    public boolean isRegisteredAppStoreCandidate();
     public boolean isRequestLegacyExternalStorage();
     public boolean isRequiredForAllUsers();
     public boolean isResetEnabledSettingsOnAppDataCleared();

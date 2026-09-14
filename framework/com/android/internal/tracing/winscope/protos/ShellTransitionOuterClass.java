@@ -3,12 +3,6 @@ package com.android.internal.tracing.winscope.protos;
 public final class ShellTransitionOuterClass {
     public ShellTransitionOuterClass() {}
 
-    public final class ShellHandlerMapping {
-        public static final long ID = 1120986464257L;
-        public static final long NAME = 1138166333442L;
-        public ShellHandlerMapping(com.android.internal.tracing.winscope.protos.ShellTransitionOuterClass p0) {}
-    }
-
     public final class ShellHandlerMappings {
         public static final long MAPPING = 2246267895809L;
         public ShellHandlerMappings(com.android.internal.tracing.winscope.protos.ShellTransitionOuterClass p0) {}
@@ -47,5 +41,11 @@ public final class ShellTransitionOuterClass {
             public static final long WINDOW_ID = 1120986464259L;
             public Change(com.android.internal.tracing.winscope.protos.ShellTransitionOuterClass.ShellTransition p0) {}
         }
+    }
+
+    public final class ShellHandlerMapping {
+        public static final long ID = 1120986464257L;
+        public static final long NAME = 1138166333442L;
+        public ShellHandlerMapping(com.android.internal.tracing.winscope.protos.ShellTransitionOuterClass p0) {}
     }
 }

@@ -14,23 +14,7 @@ public interface IAdvancedExtenderImpl extends android.os.IInterface {
     public boolean isCaptureProcessProgressAvailable() throws android.os.RemoteException;
     public boolean isExtensionAvailable(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) throws android.os.RemoteException;
     public boolean isPostviewAvailable() throws android.os.RemoteException;
-
-    public static class Default implements android.hardware.camera2.extension.IAdvancedExtenderImpl {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureRequestKeys(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureResultKeys(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCharacteristicsKeyValues(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.LatencyRange getEstimatedCaptureLatencyRange(java.lang.String p0, android.hardware.camera2.extension.Size p1, int p2) throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.ISessionProcessorImpl getSessionProcessor() throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedCaptureOutputResolutions(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedPostviewResolutions(android.hardware.camera2.extension.Size p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedPreviewOutputResolutions(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public void init(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) throws android.os.RemoteException {}
-        public boolean isCaptureProcessProgressAvailable() throws android.os.RemoteException { return false; }
-        public boolean isExtensionAvailable(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) throws android.os.RemoteException { return false; }
-        public boolean isPostviewAvailable() throws android.os.RemoteException { return false; }
-    }
+    public boolean isStillCaptureAvailable() throws android.os.RemoteException;
 
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.IAdvancedExtenderImpl {
         static final int TRANSACTION_getAvailableCaptureRequestKeys = 8;
@@ -45,6 +29,7 @@ public interface IAdvancedExtenderImpl extends android.os.IInterface {
         static final int TRANSACTION_isCaptureProcessProgressAvailable = 10;
         static final int TRANSACTION_isExtensionAvailable = 1;
         static final int TRANSACTION_isPostviewAvailable = 11;
+        static final int TRANSACTION_isStillCaptureAvailable = 13;
         public Stub() { super(); }
         public static android.hardware.camera2.extension.IAdvancedExtenderImpl asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -69,6 +54,25 @@ public interface IAdvancedExtenderImpl extends android.os.IInterface {
             public boolean isCaptureProcessProgressAvailable() throws android.os.RemoteException { return false; }
             public boolean isExtensionAvailable(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) throws android.os.RemoteException { return false; }
             public boolean isPostviewAvailable() throws android.os.RemoteException { return false; }
+            public boolean isStillCaptureAvailable() throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.IAdvancedExtenderImpl {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureRequestKeys(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureResultKeys(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCharacteristicsKeyValues(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.LatencyRange getEstimatedCaptureLatencyRange(java.lang.String p0, android.hardware.camera2.extension.Size p1, int p2) throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.ISessionProcessorImpl getSessionProcessor() throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedCaptureOutputResolutions(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedPostviewResolutions(android.hardware.camera2.extension.Size p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedPreviewOutputResolutions(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public void init(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) throws android.os.RemoteException {}
+        public boolean isCaptureProcessProgressAvailable() throws android.os.RemoteException { return false; }
+        public boolean isExtensionAvailable(java.lang.String p0, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p1) throws android.os.RemoteException { return false; }
+        public boolean isPostviewAvailable() throws android.os.RemoteException { return false; }
+        public boolean isStillCaptureAvailable() throws android.os.RemoteException { return false; }
     }
 }

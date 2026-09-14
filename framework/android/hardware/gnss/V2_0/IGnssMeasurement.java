@@ -23,6 +23,25 @@ public interface IGnssMeasurement extends android.hardware.gnss.V1_1.IGnssMeasur
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
+    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V2_0.IGnssMeasurement {
+        public Stub() { super(); }
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
+        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
+        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
+        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
+        public final java.lang.String interfaceDescriptor() { return null; }
+        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
+        public final void notifySyspropsChanged() {}
+        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
+        public final void ping() {}
+        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
+        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
+        public final void setHALInstrumentation() {}
+        public java.lang.String toString() { return null; }
+        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    }
+
     public static final class Proxy implements android.hardware.gnss.V2_0.IGnssMeasurement {
         private android.os.IHwBinder mRemote;
         public Proxy(android.os.IHwBinder p0) {}
@@ -44,24 +63,5 @@ public interface IGnssMeasurement extends android.hardware.gnss.V1_1.IGnssMeasur
         public void setHALInstrumentation() throws android.os.RemoteException {}
         public java.lang.String toString() { return null; }
         public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
-    }
-
-    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V2_0.IGnssMeasurement {
-        public Stub() { super(); }
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
-        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
-        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
-        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
-        public final java.lang.String interfaceDescriptor() { return null; }
-        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
-        public final void notifySyspropsChanged() {}
-        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
-        public final void ping() {}
-        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
-        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
-        public final void setHALInstrumentation() {}
-        public java.lang.String toString() { return null; }
-        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
     }
 }

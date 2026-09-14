@@ -72,6 +72,22 @@ public class FingerprintManager implements android.hardware.biometrics.Biometric
     public void setIgnoreDisplayTouches(long p0, int p1, boolean p2) {}
     public void setUdfpsOverlayController(android.hardware.fingerprint.IUdfpsOverlayController p0) {}
 
+    class FingerprintServiceReceiver extends android.hardware.fingerprint.IFingerprintServiceReceiver.Stub {
+        private final android.hardware.fingerprint.FingerprintCallback mFingerprintCallback = null;
+        FingerprintServiceReceiver(android.hardware.fingerprint.FingerprintManager p0, android.hardware.fingerprint.FingerprintCallback p1) { super(); }
+        public void onAcquired(int p0, int p1) {}
+        public void onAuthenticationFailed() {}
+        public void onAuthenticationSucceeded(android.hardware.fingerprint.Fingerprint p0, int p1, boolean p2) {}
+        public void onChallengeGenerated(int p0, int p1, long p2) {}
+        public void onEnrollResult(android.hardware.fingerprint.Fingerprint p0, int p1) {}
+        public void onError(int p0, int p1) {}
+        public void onFingerprintDetected(int p0, int p1, boolean p2) {}
+        public void onRemoved(android.hardware.fingerprint.Fingerprint p0, int p1) {}
+        public void onUdfpsOverlayShown() {}
+        public void onUdfpsPointerDown(int p0) {}
+        public void onUdfpsPointerUp(int p0) {}
+    }
+
     @java.lang.Deprecated
     public static abstract class AuthenticationCallback extends android.hardware.biometrics.BiometricAuthenticator.AuthenticationCallback {
         public AuthenticationCallback() { super(); }
@@ -82,6 +98,27 @@ public class FingerprintManager implements android.hardware.biometrics.Biometric
         public void onAuthenticationSucceeded(android.hardware.fingerprint.FingerprintManager.AuthenticationResult p0) {}
         public void onUdfpsPointerDown(int p0) {}
         public void onUdfpsPointerUp(int p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UdfpsUiEvent {
+    }
+
+    public static abstract class RemovalCallback {
+        public RemovalCallback() {}
+        public void onRemovalError(android.hardware.fingerprint.Fingerprint p0, int p1, java.lang.CharSequence p2) {}
+        public void onRemovalSucceeded(android.hardware.fingerprint.Fingerprint p0, int p1) {}
+    }
+
+    private class OnEnrollCancelListener implements android.os.CancellationSignal.OnCancelListener {
+        private final long mAuthRequestId = 0L;
+        private OnEnrollCancelListener(android.hardware.fingerprint.FingerprintManager p0, long p1) {}
+        public void onCancel() {}
+    }
+
+    public static abstract class LockoutResetCallback {
+        public LockoutResetCallback() {}
+        public void onLockoutReset(int p0) {}
     }
 
     @java.lang.Deprecated
@@ -122,38 +159,9 @@ public class FingerprintManager implements android.hardware.biometrics.Biometric
         public void onUdfpsPointerUp(int p0) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EnrollReason {
-    }
-
     public static interface FingerprintDetectionCallback {
         default public void onDetectionError(int p0) {}
         public void onFingerprintDetected(int p0, int p1, boolean p2);
-    }
-
-    class FingerprintServiceReceiver extends android.hardware.fingerprint.IFingerprintServiceReceiver.Stub {
-        private final android.hardware.fingerprint.FingerprintCallback mFingerprintCallback = null;
-        FingerprintServiceReceiver(android.hardware.fingerprint.FingerprintManager p0, android.hardware.fingerprint.FingerprintCallback p1) { super(); }
-        public void onAcquired(int p0, int p1) {}
-        public void onAuthenticationFailed() {}
-        public void onAuthenticationSucceeded(android.hardware.fingerprint.Fingerprint p0, int p1, boolean p2) {}
-        public void onChallengeGenerated(int p0, int p1, long p2) {}
-        public void onEnrollResult(android.hardware.fingerprint.Fingerprint p0, int p1) {}
-        public void onError(int p0, int p1) {}
-        public void onFingerprintDetected(int p0, int p1, boolean p2) {}
-        public void onRemoved(android.hardware.fingerprint.Fingerprint p0, int p1) {}
-        public void onUdfpsOverlayShown() {}
-        public void onUdfpsPointerDown(int p0) {}
-        public void onUdfpsPointerUp(int p0) {}
-    }
-
-    public static interface GenerateChallengeCallback {
-        public void onChallengeGenerated(int p0, int p1, long p2);
-    }
-
-    public static abstract class LockoutResetCallback {
-        public LockoutResetCallback() {}
-        public void onLockoutReset(int p0) {}
     }
 
     private class OnAuthenticationCancelListener implements android.os.CancellationSignal.OnCancelListener {
@@ -162,10 +170,8 @@ public class FingerprintManager implements android.hardware.biometrics.Biometric
         public void onCancel() {}
     }
 
-    private class OnEnrollCancelListener implements android.os.CancellationSignal.OnCancelListener {
-        private final long mAuthRequestId = 0L;
-        private OnEnrollCancelListener(android.hardware.fingerprint.FingerprintManager p0, long p1) {}
-        public void onCancel() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EnrollReason {
     }
 
     private class OnFingerprintDetectionCancelListener implements android.os.CancellationSignal.OnCancelListener {
@@ -174,13 +180,7 @@ public class FingerprintManager implements android.hardware.biometrics.Biometric
         public void onCancel() {}
     }
 
-    public static abstract class RemovalCallback {
-        public RemovalCallback() {}
-        public void onRemovalError(android.hardware.fingerprint.Fingerprint p0, int p1, java.lang.CharSequence p2) {}
-        public void onRemovalSucceeded(android.hardware.fingerprint.Fingerprint p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UdfpsUiEvent {
+    public static interface GenerateChallengeCallback {
+        public void onChallengeGenerated(int p0, int p1, long p2);
     }
 }

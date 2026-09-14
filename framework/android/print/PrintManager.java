@@ -49,6 +49,40 @@ public final class PrintManager {
     void restartPrintJob(android.print.PrintJobId p0) {}
     public void setPrintServiceEnabled(android.content.ComponentName p0, boolean p1) {}
 
+    public static final class PrintJobStateChangeListenerWrapper extends android.print.IPrintJobStateChangeListener.Stub {
+        private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
+        private final java.lang.ref.WeakReference<android.print.PrintManager.PrintJobStateChangeListener> mWeakListener = null;
+        public PrintJobStateChangeListenerWrapper(android.print.PrintManager.PrintJobStateChangeListener p0, android.os.Handler p1) { super(); }
+        public void destroy() {}
+        public android.print.PrintManager.PrintJobStateChangeListener getListener() { return null; }
+        public void onPrintJobStateChanged(android.print.PrintJobId p0) {}
+    }
+
+    @android.annotation.SystemApi
+    public static interface PrintServicesChangeListener {
+        public void onPrintServicesChanged();
+    }
+
+    public static interface PrintJobStateChangeListener {
+        public void onPrintJobStateChanged(android.print.PrintJobId p0);
+    }
+
+    public static final class PrintServiceRecommendationsChangeListenerWrapper extends android.printservice.recommendation.IRecommendationsChangeListener.Stub {
+        private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
+        private final java.lang.ref.WeakReference<android.print.PrintManager.PrintServiceRecommendationsChangeListener> mWeakListener = null;
+        public PrintServiceRecommendationsChangeListenerWrapper(android.print.PrintManager.PrintServiceRecommendationsChangeListener p0, android.os.Handler p1) { super(); }
+        public void destroy() {}
+        public void onRecommendationsChanged() {}
+    }
+
+    public static final class PrintServicesChangeListenerWrapper extends android.print.IPrintServicesChangeListener.Stub {
+        private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
+        private final java.lang.ref.WeakReference<android.print.PrintManager.PrintServicesChangeListener> mWeakListener = null;
+        public PrintServicesChangeListenerWrapper(android.print.PrintManager.PrintServicesChangeListener p0, android.os.Handler p1) { super(); }
+        public void destroy() {}
+        public void onPrintServicesChanged() {}
+    }
+
     public static final class PrintDocumentAdapterDelegate extends android.print.IPrintDocumentAdapter.Stub implements android.app.Application.ActivityLifecycleCallbacks {
         private android.app.Activity mActivity;
         private android.print.PrintDocumentAdapter mDocumentAdapter;
@@ -72,10 +106,6 @@ public final class PrintManager {
         public void start() {}
         public void write(android.print.PageRange[] p0, android.os.ParcelFileDescriptor p1, android.print.IWriteResultCallback p2, int p3) {}
 
-        private static interface DestroyableCallback {
-            public void destroy();
-        }
-
         private final class MyHandler extends android.os.Handler {
             public static final int MSG_ON_FINISH = 4;
             public static final int MSG_ON_KILL = 5;
@@ -84,6 +114,10 @@ public final class PrintManager {
             public static final int MSG_ON_WRITE = 3;
             public MyHandler(android.print.PrintManager.PrintDocumentAdapterDelegate p0, android.os.Looper p1) { super(); }
             public void handleMessage(android.os.Message p0) {}
+        }
+
+        private static interface DestroyableCallback {
+            public void destroy();
         }
 
         private final class MyLayoutResultCallback extends android.print.PrintDocumentAdapter.LayoutResultCallback implements android.print.PrintManager.PrintDocumentAdapterDelegate.DestroyableCallback {
@@ -108,42 +142,8 @@ public final class PrintManager {
         }
     }
 
-    public static interface PrintJobStateChangeListener {
-        public void onPrintJobStateChanged(android.print.PrintJobId p0);
-    }
-
-    public static final class PrintJobStateChangeListenerWrapper extends android.print.IPrintJobStateChangeListener.Stub {
-        private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
-        private final java.lang.ref.WeakReference<android.print.PrintManager.PrintJobStateChangeListener> mWeakListener = null;
-        public PrintJobStateChangeListenerWrapper(android.print.PrintManager.PrintJobStateChangeListener p0, android.os.Handler p1) { super(); }
-        public void destroy() {}
-        public android.print.PrintManager.PrintJobStateChangeListener getListener() { return null; }
-        public void onPrintJobStateChanged(android.print.PrintJobId p0) {}
-    }
-
     @android.annotation.SystemApi
     public static interface PrintServiceRecommendationsChangeListener {
         public void onPrintServiceRecommendationsChanged();
-    }
-
-    public static final class PrintServiceRecommendationsChangeListenerWrapper extends android.printservice.recommendation.IRecommendationsChangeListener.Stub {
-        private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
-        private final java.lang.ref.WeakReference<android.print.PrintManager.PrintServiceRecommendationsChangeListener> mWeakListener = null;
-        public PrintServiceRecommendationsChangeListenerWrapper(android.print.PrintManager.PrintServiceRecommendationsChangeListener p0, android.os.Handler p1) { super(); }
-        public void destroy() {}
-        public void onRecommendationsChanged() {}
-    }
-
-    @android.annotation.SystemApi
-    public static interface PrintServicesChangeListener {
-        public void onPrintServicesChanged();
-    }
-
-    public static final class PrintServicesChangeListenerWrapper extends android.print.IPrintServicesChangeListener.Stub {
-        private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
-        private final java.lang.ref.WeakReference<android.print.PrintManager.PrintServicesChangeListener> mWeakListener = null;
-        public PrintServicesChangeListenerWrapper(android.print.PrintManager.PrintServicesChangeListener p0, android.os.Handler p1) { super(); }
-        public void destroy() {}
-        public void onPrintServicesChanged() {}
     }
 }

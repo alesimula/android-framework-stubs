@@ -4,7 +4,7 @@ package android.view.contentcapture;
 public final class ContentCaptureEvent implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.view.contentcapture.ContentCaptureEvent> CREATOR = null;
     public static final int MAX_INVALID_VALUE = -1;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureEvent";
     public static final int TYPE_CONTENT_INTERACTION = 12;
     public static final int TYPE_CONTEXT_UPDATED = 6;
     public static final int TYPE_SESSION_FINISHED = -2;

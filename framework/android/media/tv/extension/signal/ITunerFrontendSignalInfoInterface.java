@@ -5,13 +5,6 @@ public interface ITunerFrontendSignalInfoInterface extends android.os.IInterface
     public android.os.Bundle getFrontendSignalInfo(java.lang.String p0) throws android.os.RemoteException;
     public void setFrontendSignalInfoListener(android.media.tv.extension.signal.ITunerFrontendSignalInfoListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.signal.ITunerFrontendSignalInfoInterface {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.Bundle getFrontendSignalInfo(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public void setFrontendSignalInfoListener(android.media.tv.extension.signal.ITunerFrontendSignalInfoListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.signal.ITunerFrontendSignalInfoInterface {
         static final int TRANSACTION_getFrontendSignalInfo = 1;
         static final int TRANSACTION_setFrontendSignalInfoListener = 2;
@@ -30,5 +23,12 @@ public interface ITunerFrontendSignalInfoInterface extends android.os.IInterface
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void setFrontendSignalInfoListener(android.media.tv.extension.signal.ITunerFrontendSignalInfoListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.signal.ITunerFrontendSignalInfoInterface {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.Bundle getFrontendSignalInfo(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public void setFrontendSignalInfoListener(android.media.tv.extension.signal.ITunerFrontendSignalInfoListener p0) throws android.os.RemoteException {}
     }
 }

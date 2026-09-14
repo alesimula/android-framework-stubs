@@ -15,6 +15,7 @@ public final class RemoteFloatingToolbarPopup2 implements com.android.internal.w
     private java.util.List<android.view.MenuItem> mMenuItems;
     private int mNextSequenceNumber;
     private final android.view.View mParent = null;
+    private java.lang.Runnable mPendingSelectCall;
     private java.lang.Runnable mPendingSessionCall;
     private final android.widget.PopupWindow mPopupWindow = null;
     private final android.view.selectiontoolbar.SelectionToolbarProvider mSelectionToolbarProvider = null;
@@ -34,6 +35,7 @@ public final class RemoteFloatingToolbarPopup2 implements com.android.internal.w
     private boolean isLightTheme(android.content.Context p0) { return false; }
     private void updateSurfaceView(android.view.SurfaceControlViewHost.SurfacePackage p0) {}
     private void updateTouchableRegion(android.graphics.Rect p0, android.graphics.Region p1) {}
+    public void clearTextSelection() {}
     public void dismiss() {}
     public void hide() {}
     public boolean isHidden() { return false; }
@@ -43,6 +45,7 @@ public final class RemoteFloatingToolbarPopup2 implements com.android.internal.w
     public void onSessionOpened(android.view.selectiontoolbar.SelectionToolbarSession p0) {}
     public void onUpdated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.graphics.Rect p1, android.graphics.Region p2) {}
     public void onVisibilityChanged(boolean p0) {}
+    public void selectText(java.lang.CharSequence p0, int p1, int p2, android.os.LocaleList p3) {}
     public boolean setOutsideTouchable(boolean p0, android.widget.PopupWindow.OnDismissListener p1) { return false; }
     public void setSuggestedWidth(int p0) {}
     public void setWidthChanged(boolean p0) {}

@@ -42,6 +42,10 @@ public final class BouncyCastleProvider extends java.security.Provider implement
     public boolean hasAlgorithm(java.lang.String p0, java.lang.String p1) { return false; }
     public void setParameter(java.lang.String p0, java.lang.Object p1) {}
 
+    private static final class PrivateProvider extends java.security.Provider {
+        public PrivateProvider() { super((java.lang.String)null, (java.lang.String)null, (java.lang.String)null); }
+    }
+
     private static class JcaCryptoService implements com.android.internal.org.bouncycastle.crypto.CryptoServiceProperties {
         private final int bitsOfSecurity = 0;
         private final java.lang.String name = null;
@@ -50,9 +54,5 @@ public final class BouncyCastleProvider extends java.security.Provider implement
         public java.lang.Object getParams() { return null; }
         public com.android.internal.org.bouncycastle.crypto.CryptoServicePurpose getPurpose() { return null; }
         public java.lang.String getServiceName() { return null; }
-    }
-
-    private static final class PrivateProvider extends java.security.Provider {
-        public PrivateProvider() { super((java.lang.String)null, (java.lang.String)null, (java.lang.String)null); }
     }
 }

@@ -24,19 +24,6 @@ public interface IGnssGeofenceCallback extends android.os.IInterface {
     public void gnssGeofenceStatusCb(int p0, android.hardware.gnss.GnssLocation p1) throws android.os.RemoteException;
     public void gnssGeofenceTransitionCb(int p0, android.hardware.gnss.GnssLocation p1, int p2, long p3) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.IGnssGeofenceCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void gnssGeofenceAddCb(int p0, int p1) throws android.os.RemoteException {}
-        public void gnssGeofencePauseCb(int p0, int p1) throws android.os.RemoteException {}
-        public void gnssGeofenceRemoveCb(int p0, int p1) throws android.os.RemoteException {}
-        public void gnssGeofenceResumeCb(int p0, int p1) throws android.os.RemoteException {}
-        public void gnssGeofenceStatusCb(int p0, android.hardware.gnss.GnssLocation p1) throws android.os.RemoteException {}
-        public void gnssGeofenceTransitionCb(int p0, android.hardware.gnss.GnssLocation p1, int p2, long p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.IGnssGeofenceCallback {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -69,5 +56,18 @@ public interface IGnssGeofenceCallback extends android.os.IInterface {
             public void gnssGeofenceStatusCb(int p0, android.hardware.gnss.GnssLocation p1) throws android.os.RemoteException {}
             public void gnssGeofenceTransitionCb(int p0, android.hardware.gnss.GnssLocation p1, int p2, long p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.gnss.IGnssGeofenceCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void gnssGeofenceAddCb(int p0, int p1) throws android.os.RemoteException {}
+        public void gnssGeofencePauseCb(int p0, int p1) throws android.os.RemoteException {}
+        public void gnssGeofenceRemoveCb(int p0, int p1) throws android.os.RemoteException {}
+        public void gnssGeofenceResumeCb(int p0, int p1) throws android.os.RemoteException {}
+        public void gnssGeofenceStatusCb(int p0, android.hardware.gnss.GnssLocation p1) throws android.os.RemoteException {}
+        public void gnssGeofenceTransitionCb(int p0, android.hardware.gnss.GnssLocation p1, int p2, long p3) throws android.os.RemoteException {}
     }
 }

@@ -6,7 +6,7 @@ public abstract class WearableSensingService extends android.app.Service {
     private static final java.time.Duration OPEN_FILE_TIMEOUT = null;
     public static final java.lang.String SERVICE_INTERFACE = "android.service.wearable.WearableSensingService";
     public static final java.lang.String STATUS_RESPONSE_BUNDLE_KEY = "android.app.wearable.WearableSensingStatusBundleKey";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "WearableSensingService";
     private final android.util.SparseArray<android.service.wearable.WearableSensingDataRequester> mDataRequestObserverIdToRequesterMap = null;
     private android.app.wearable.IWearableSensingCallback mWearableSensingCallback;
     public WearableSensingService() { super(); }

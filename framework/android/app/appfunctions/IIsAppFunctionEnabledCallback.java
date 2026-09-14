@@ -5,13 +5,6 @@ public interface IIsAppFunctionEnabledCallback extends android.os.IInterface {
     public void onError(android.os.ParcelableException p0) throws android.os.RemoteException;
     public void onSuccess(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.appfunctions.IIsAppFunctionEnabledCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
-        public void onSuccess(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.appfunctions.IIsAppFunctionEnabledCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onSuccess = 1;
@@ -30,5 +23,12 @@ public interface IIsAppFunctionEnabledCallback extends android.os.IInterface {
             public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
             public void onSuccess(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.appfunctions.IIsAppFunctionEnabledCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
+        public void onSuccess(boolean p0) throws android.os.RemoteException {}
     }
 }

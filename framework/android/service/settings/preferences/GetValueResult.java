@@ -20,6 +20,10 @@ public final class GetValueResult implements android.os.Parcelable {
     public android.service.settings.preferences.SettingsPreferenceValue getValue() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ResultCode {
+    }
+
     public static final class Builder {
         private android.service.settings.preferences.SettingsPreferenceMetadata mMetadata;
         private final int mResultCode = 0;
@@ -28,9 +32,5 @@ public final class GetValueResult implements android.os.Parcelable {
         public android.service.settings.preferences.GetValueResult build() { return null; }
         public android.service.settings.preferences.GetValueResult.Builder setMetadata(android.service.settings.preferences.SettingsPreferenceMetadata p0) { return null; }
         public android.service.settings.preferences.GetValueResult.Builder setValue(android.service.settings.preferences.SettingsPreferenceValue p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ResultCode {
     }
 }

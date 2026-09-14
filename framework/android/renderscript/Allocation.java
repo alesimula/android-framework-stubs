@@ -165,6 +165,10 @@ public class Allocation extends android.renderscript.BaseObj {
     public void syncAll(int p0) {}
     void updateFromNative() {}
 
+    public static interface OnBufferAvailableListener {
+        public void onBufferAvailable(android.renderscript.Allocation p0);
+    }
+
     public static enum MipmapControl {
         MIPMAP_FULL,
         MIPMAP_NONE,
@@ -172,9 +176,5 @@ public class Allocation extends android.renderscript.BaseObj {
         private static final android.renderscript.Allocation.MipmapControl[] $VALUES = null;
         int mID;
         private MipmapControl() {}
-    }
-
-    public static interface OnBufferAvailableListener {
-        public void onBufferAvailable(android.renderscript.Allocation p0);
     }
 }

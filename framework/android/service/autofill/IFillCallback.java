@@ -5,14 +5,6 @@ public interface IFillCallback extends android.os.IInterface {
     public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException;
     public void onSuccess(android.service.autofill.FillResponse p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.autofill.IFillCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
-        public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
-        public void onSuccess(android.service.autofill.FillResponse p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.autofill.IFillCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.autofill.IFillCallback";
         static final int TRANSACTION_onCancellable = 1;
@@ -34,5 +26,13 @@ public interface IFillCallback extends android.os.IInterface {
             public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
             public void onSuccess(android.service.autofill.FillResponse p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.autofill.IFillCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
+        public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
+        public void onSuccess(android.service.autofill.FillResponse p0) throws android.os.RemoteException {}
     }
 }

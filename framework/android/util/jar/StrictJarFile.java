@@ -29,13 +29,14 @@ public final class StrictJarFile {
     public android.util.jar.StrictJarManifest getManifest() { return null; }
     public java.util.Iterator<java.util.zip.ZipEntry> iterator() throws java.io.IOException { return null; }
 
-    static final class EntryIterator implements java.util.Iterator<java.util.zip.ZipEntry> {
-        private final long iterationHandle = 0L;
-        private java.util.zip.ZipEntry nextEntry;
-        EntryIterator(long p0, java.lang.String p1) throws java.io.IOException {}
-        public boolean hasNext() { return false; }
-        public java.util.zip.ZipEntry next() { return null; }
-        public void remove() {}
+    public static class ZipInflaterInputStream extends java.util.zip.InflaterInputStream {
+        private long bytesRead;
+        private boolean closed;
+        private final java.util.zip.ZipEntry entry = null;
+        public ZipInflaterInputStream(java.io.InputStream p0, java.util.zip.Inflater p1, int p2, java.util.zip.ZipEntry p3) { super((java.io.InputStream)null); }
+        public int available() throws java.io.IOException { return 0; }
+        public void close() throws java.io.IOException {}
+        public int read(byte[] p0, int p1, int p2) throws java.io.IOException { return 0; }
     }
 
     public static class FDStream extends java.io.InputStream {
@@ -49,6 +50,15 @@ public final class StrictJarFile {
         public long skip(long p0) throws java.io.IOException { return 0L; }
     }
 
+    static final class EntryIterator implements java.util.Iterator<java.util.zip.ZipEntry> {
+        private final long iterationHandle = 0L;
+        private java.util.zip.ZipEntry nextEntry;
+        EntryIterator(long p0, java.lang.String p1) throws java.io.IOException {}
+        public boolean hasNext() { return false; }
+        public java.util.zip.ZipEntry next() { return null; }
+        public void remove() {}
+    }
+
     static final class JarFileInputStream extends java.io.FilterInputStream {
         private long count;
         private boolean done;
@@ -58,15 +68,5 @@ public final class StrictJarFile {
         public int read() throws java.io.IOException { return 0; }
         public int read(byte[] p0, int p1, int p2) throws java.io.IOException { return 0; }
         public long skip(long p0) throws java.io.IOException { return 0L; }
-    }
-
-    public static class ZipInflaterInputStream extends java.util.zip.InflaterInputStream {
-        private long bytesRead;
-        private boolean closed;
-        private final java.util.zip.ZipEntry entry = null;
-        public ZipInflaterInputStream(java.io.InputStream p0, java.util.zip.Inflater p1, int p2, java.util.zip.ZipEntry p3) { super((java.io.InputStream)null); }
-        public int available() throws java.io.IOException { return 0; }
-        public void close() throws java.io.IOException {}
-        public int read(byte[] p0, int p1, int p2) throws java.io.IOException { return 0; }
     }
 }

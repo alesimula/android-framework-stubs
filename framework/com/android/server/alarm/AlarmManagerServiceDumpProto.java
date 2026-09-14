@@ -51,17 +51,17 @@ public final class AlarmManagerServiceDumpProto {
         public AlarmStat(com.android.server.alarm.AlarmManagerServiceDumpProto p0) {}
     }
 
-    public final class LastAllowWhileIdleDispatch {
-        public static final long NEXT_ALLOWED_MS = 1112396529667L;
-        public static final long TIME_MS = 1112396529666L;
-        public static final long UID = 1120986464257L;
-        public LastAllowWhileIdleDispatch(com.android.server.alarm.AlarmManagerServiceDumpProto p0) {}
-    }
-
     public final class TopAlarm {
         public static final long FILTER = 1146756268035L;
         public static final long PACKAGE_NAME = 1138166333442L;
         public static final long UID = 1120986464257L;
         public TopAlarm(com.android.server.alarm.AlarmManagerServiceDumpProto p0) {}
+    }
+
+    public final class LastAllowWhileIdleDispatch {
+        public static final long NEXT_ALLOWED_MS = 1112396529667L;
+        public static final long TIME_MS = 1112396529666L;
+        public static final long UID = 1120986464257L;
+        public LastAllowWhileIdleDispatch(com.android.server.alarm.AlarmManagerServiceDumpProto p0) {}
     }
 }

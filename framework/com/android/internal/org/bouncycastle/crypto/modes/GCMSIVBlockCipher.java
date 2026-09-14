@@ -55,12 +55,6 @@ public class GCMSIVBlockCipher implements com.android.internal.org.bouncycastle.
     public int processBytes(byte[] p0, int p1, int p2, byte[] p3, int p4) throws com.android.internal.org.bouncycastle.crypto.DataLengthException { return 0; }
     public void reset() {}
 
-    private static class GCMSIVCache extends java.io.ByteArrayOutputStream {
-        GCMSIVCache() { super(); }
-        void clearBuffer() {}
-        byte[] getBuffer() { return null; }
-    }
-
     private class GCMSIVHasher {
         private int numActive;
         private long numHashed;
@@ -72,5 +66,11 @@ public class GCMSIVBlockCipher implements com.android.internal.org.bouncycastle.
         void reset() {}
         void updateHash(byte p0) {}
         void updateHash(byte[] p0, int p1, int p2) {}
+    }
+
+    private static class GCMSIVCache extends java.io.ByteArrayOutputStream {
+        GCMSIVCache() { super(); }
+        void clearBuffer() {}
+        byte[] getBuffer() { return null; }
     }
 }

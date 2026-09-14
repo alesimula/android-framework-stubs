@@ -5,13 +5,6 @@ public interface ISystemDataTransferCallback extends android.os.IInterface {
     public void onError(java.lang.String p0) throws android.os.RemoteException;
     public void onResult() throws android.os.RemoteException;
 
-    public static class Default implements android.companion.ISystemDataTransferCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(java.lang.String p0) throws android.os.RemoteException {}
-        public void onResult() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.ISystemDataTransferCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onResult = 1;
@@ -30,5 +23,12 @@ public interface ISystemDataTransferCallback extends android.os.IInterface {
             public void onError(java.lang.String p0) throws android.os.RemoteException {}
             public void onResult() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.ISystemDataTransferCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(java.lang.String p0) throws android.os.RemoteException {}
+        public void onResult() throws android.os.RemoteException {}
     }
 }

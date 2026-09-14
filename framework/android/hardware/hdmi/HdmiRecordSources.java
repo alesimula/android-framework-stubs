@@ -50,6 +50,14 @@ public final class HdmiRecordSources {
     private static int shortToByteArray(short p0, byte[] p1, int p2) { return 0; }
     private static int threeFieldsToSixBytes(int p0, int p1, int p2, byte[] p3, int p4) { return 0; }
 
+    public static final class DigitalChannelData implements android.hardware.hdmi.HdmiRecordSources.DigitalServiceIdentification {
+        private final android.hardware.hdmi.HdmiRecordSources.ChannelIdentifier mChannelIdentifier = null;
+        private DigitalChannelData(android.hardware.hdmi.HdmiRecordSources.ChannelIdentifier p0) {}
+        public static android.hardware.hdmi.HdmiRecordSources.DigitalChannelData ofOneNumber(int p0) { return null; }
+        public static android.hardware.hdmi.HdmiRecordSources.DigitalChannelData ofTwoNumbers(int p0, int p1) { return null; }
+        public int toByteArray(byte[] p0, int p1) { return 0; }
+    }
+
     @android.annotation.SystemApi
     public static final class AnalogueServiceSource extends android.hardware.hdmi.HdmiRecordSources.RecordSource {
         static final int EXTRA_DATA_SIZE = 4;
@@ -60,11 +68,11 @@ public final class HdmiRecordSources {
         int extraParamToByteArray(byte[] p0, int p1) { return 0; }
     }
 
-    public static final class AribData implements android.hardware.hdmi.HdmiRecordSources.DigitalServiceIdentification {
+    public static final class DvbData implements android.hardware.hdmi.HdmiRecordSources.DigitalServiceIdentification {
         private final int mOriginalNetworkId = 0;
         private final int mServiceId = 0;
         private final int mTransportStreamId = 0;
-        public AribData(int p0, int p1, int p2) {}
+        public DvbData(int p0, int p1, int p2) {}
         public int toByteArray(byte[] p0, int p1) { return 0; }
     }
 
@@ -75,24 +83,19 @@ public final class HdmiRecordSources {
         public int toByteArray(byte[] p0, int p1) { return 0; }
     }
 
+    @android.annotation.SystemApi
+    public static final class OwnSource extends android.hardware.hdmi.HdmiRecordSources.RecordSource {
+        private static final int EXTRA_DATA_SIZE = 0;
+        private OwnSource() { super(0, 0); }
+        int extraParamToByteArray(byte[] p0, int p1) { return 0; }
+    }
+
     private static final class ChannelIdentifier {
         private final int mChannelNumberFormat = 0;
         private final int mMajorChannelNumber = 0;
         private final int mMinorChannelNumber = 0;
         private ChannelIdentifier(int p0, int p1, int p2) {}
         private int toByteArray(byte[] p0, int p1) { return 0; }
-    }
-
-    public static final class DigitalChannelData implements android.hardware.hdmi.HdmiRecordSources.DigitalServiceIdentification {
-        private final android.hardware.hdmi.HdmiRecordSources.ChannelIdentifier mChannelIdentifier = null;
-        private DigitalChannelData(android.hardware.hdmi.HdmiRecordSources.ChannelIdentifier p0) {}
-        public static android.hardware.hdmi.HdmiRecordSources.DigitalChannelData ofOneNumber(int p0) { return null; }
-        public static android.hardware.hdmi.HdmiRecordSources.DigitalChannelData ofTwoNumbers(int p0, int p1) { return null; }
-        public int toByteArray(byte[] p0, int p1) { return 0; }
-    }
-
-    private static interface DigitalServiceIdentification {
-        public int toByteArray(byte[] p0, int p1);
     }
 
     @android.annotation.SystemApi
@@ -107,11 +110,11 @@ public final class HdmiRecordSources {
         int extraParamToByteArray(byte[] p0, int p1) { return 0; }
     }
 
-    public static final class DvbData implements android.hardware.hdmi.HdmiRecordSources.DigitalServiceIdentification {
+    public static final class AribData implements android.hardware.hdmi.HdmiRecordSources.DigitalServiceIdentification {
         private final int mOriginalNetworkId = 0;
         private final int mServiceId = 0;
         private final int mTransportStreamId = 0;
-        public DvbData(int p0, int p1, int p2) {}
+        public AribData(int p0, int p1, int p2) {}
         public int toByteArray(byte[] p0, int p1) { return 0; }
     }
 
@@ -124,21 +127,6 @@ public final class HdmiRecordSources {
     }
 
     @android.annotation.SystemApi
-    public static final class ExternalPlugData extends android.hardware.hdmi.HdmiRecordSources.RecordSource {
-        static final int EXTRA_DATA_SIZE = 1;
-        private final int mPlugNumber = 0;
-        private ExternalPlugData(int p0) { super(0, 0); }
-        int extraParamToByteArray(byte[] p0, int p1) { return 0; }
-    }
-
-    @android.annotation.SystemApi
-    public static final class OwnSource extends android.hardware.hdmi.HdmiRecordSources.RecordSource {
-        private static final int EXTRA_DATA_SIZE = 0;
-        private OwnSource() { super(0, 0); }
-        int extraParamToByteArray(byte[] p0, int p1) { return 0; }
-    }
-
-    @android.annotation.SystemApi
     public static abstract class RecordSource {
         final int mExtraDataSize = 0;
         final int mSourceType = 0;
@@ -146,5 +134,17 @@ public final class HdmiRecordSources {
         abstract int extraParamToByteArray(byte[] p0, int p1);
         final int getDataSize(boolean p0) { return 0; }
         final int toByteArray(boolean p0, byte[] p1, int p2) { return 0; }
+    }
+
+    private static interface DigitalServiceIdentification {
+        public int toByteArray(byte[] p0, int p1);
+    }
+
+    @android.annotation.SystemApi
+    public static final class ExternalPlugData extends android.hardware.hdmi.HdmiRecordSources.RecordSource {
+        static final int EXTRA_DATA_SIZE = 1;
+        private final int mPlugNumber = 0;
+        private ExternalPlugData(int p0) { super(0, 0); }
+        int extraParamToByteArray(byte[] p0, int p1) { return 0; }
     }
 }

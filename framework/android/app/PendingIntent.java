@@ -87,10 +87,8 @@ public final class PendingIntent implements android.os.Parcelable {
     public void unregisterCancelListener(android.app.PendingIntent.CancelListener p0) {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static class CanceledException extends android.util.AndroidException {
-        public CanceledException() { super(); }
-        public CanceledException(java.lang.Exception p0) { super(); }
-        public CanceledException(java.lang.String p0) { super(); }
+    public static interface OnMarshaledListener {
+        public void onMarshaled(android.app.PendingIntent p0, android.os.Parcel p1, int p2);
     }
 
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
@@ -103,6 +101,12 @@ public final class PendingIntent implements android.os.Parcelable {
         private boolean mCanceled;
         private CancelListerInfo(android.app.PendingIntent p0) { super(); }
         public void send(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+    }
+
+    public static class CanceledException extends android.util.AndroidException {
+        public CanceledException() { super(); }
+        public CanceledException(java.lang.Exception p0) { super(); }
+        public CanceledException(java.lang.String p0) { super(); }
     }
 
     private static class FinishedDispatcher extends android.content.IIntentReceiver.Stub implements java.lang.Runnable {
@@ -125,9 +129,5 @@ public final class PendingIntent implements android.os.Parcelable {
 
     public static interface OnFinished {
         public void onSendFinished(android.app.PendingIntent p0, android.content.Intent p1, int p2, java.lang.String p3, android.os.Bundle p4);
-    }
-
-    public static interface OnMarshaledListener {
-        public void onMarshaled(android.app.PendingIntent p0, android.os.Parcel p1, int p2);
     }
 }

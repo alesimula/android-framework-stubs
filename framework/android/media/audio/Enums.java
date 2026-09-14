@@ -157,6 +157,7 @@ public final class Enums {
     public static final int AUDIO_RECORD_EVENT_UNKNOWN = 0;
     public static final int AUDIO_ROUTING_API_METHOD_SET_BLUETOOTH_SCO_ON = 5;
     public static final int AUDIO_ROUTING_API_METHOD_SET_COMMUNICATION_DEVICE = 3;
+    public static final int AUDIO_ROUTING_API_METHOD_SET_COMMUNICATION_DEVICE_FOR_MODE_SESSION = 6;
     public static final int AUDIO_ROUTING_API_METHOD_SET_DEVICE_AS_NON_DEFAULT_FOR_STRATEGY = 2;
     public static final int AUDIO_ROUTING_API_METHOD_SET_PREFERRED_DEVICES_FOR_STRATEGY = 1;
     public static final int AUDIO_ROUTING_API_METHOD_SET_SPEAKER_PHONE_ON = 4;
@@ -228,6 +229,7 @@ public final class Enums {
     public static final int PERFORMANCE_MODE_LOW_LATENCY = 12;
     public static final int PERFORMANCE_MODE_NONE = 10;
     public static final int PERFORMANCE_MODE_POWER_SAVING = 11;
+    public static final int PERFORMANCE_MODE_POWER_SAVING_OFFLOADED = 13;
     public static final int PERFORMANCE_MODE_UNKNOWN = 0;
     public static final int SHARING_MODE_EXCLUSIVE = 1;
     public static final int SHARING_MODE_SHARED = 2;
@@ -242,6 +244,7 @@ public final class Enums {
     public static final int SPATIALIZER_SETTING_EVENT_NORMAL = 0;
     public static final int STATUS_FAILURE = 2;
     public static final int STATUS_SUCCESS = 1;
+    public static final int STATUS_TIMEOUT = 3;
     public static final int STATUS_UNKNOWN = 0;
     public Enums() {}
 }

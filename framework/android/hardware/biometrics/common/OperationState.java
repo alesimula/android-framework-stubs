@@ -25,6 +25,11 @@ public final class OperationState implements android.os.Parcelable {
     public void setFingerprintOperationState(android.hardware.biometrics.common.OperationState.FingerprintOperationState p0) {}
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static @interface Tag {
+        public static final int faceOperationState = 1;
+        public static final int fingerprintOperationState = 0;
+    }
+
     public static class FaceOperationState implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.biometrics.common.OperationState.FaceOperationState> CREATOR = null;
         public final android.os.ParcelableHolder extension = null;
@@ -46,10 +51,5 @@ public final class OperationState implements android.os.Parcelable {
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static @interface Tag {
-        public static final int faceOperationState = 1;
-        public static final int fingerprintOperationState = 0;
     }
 }

@@ -23,16 +23,16 @@ public class ProtoLogViewerConfigReader {
         public MessageData(java.lang.String p0, java.lang.String p1) {}
     }
 
-    private static class ParsedGroup {
-        long groupId;
-        java.lang.String groupName;
-        private ParsedGroup() {}
-    }
-
     private static class ParsedMessage {
         int groupId;
         java.lang.String message;
         long messageId;
         private ParsedMessage() {}
+    }
+
+    private static class ParsedGroup {
+        long groupId;
+        java.lang.String groupName;
+        private ParsedGroup() {}
     }
 }

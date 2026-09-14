@@ -46,6 +46,10 @@ public final class Font {
     public boolean paramEquals(android.graphics.fonts.Font p0) { return false; }
     public java.lang.String toString() { return null; }
 
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
+    }
+
     public static final class Builder {
         private android.graphics.fonts.FontVariationAxis[] mAxes;
         private java.nio.ByteBuffer mBuffer;
@@ -77,9 +81,5 @@ public final class Font {
         public android.graphics.fonts.Font.Builder setSlant(int p0) { return null; }
         public android.graphics.fonts.Font.Builder setTtcIndex(int p0) { return null; }
         public android.graphics.fonts.Font.Builder setWeight(int p0) { return null; }
-    }
-
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
     }
 }

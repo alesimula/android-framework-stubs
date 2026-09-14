@@ -2,6 +2,8 @@ package com.android.internal.widget;
 
 @android.widget.RemoteViews.RemoteView
 public class NotificationCollapsedMetricContainer extends android.widget.LinearLayout {
+    private android.view.View mDivider1;
+    private android.view.View mDivider2;
     private android.view.View mMetricView0;
     private android.view.View mMetricView1;
     private android.view.View mMetricView2;
@@ -12,5 +14,5 @@ public class NotificationCollapsedMetricContainer extends android.widget.LinearL
     private static int getChildUsedWidth(android.view.View p0) { return 0; }
     protected void onFinishInflate() {}
     protected void onMeasure(int p0, int p1) {}
-    void updateShowing(android.view.View p0, boolean p1) {}
+    void updateShowing(android.view.View p0, android.view.View p1, boolean p2) {}
 }

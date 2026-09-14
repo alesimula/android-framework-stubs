@@ -34,31 +34,6 @@ public final class SystemPropertiesProto {
     public static final long WIFI_INTERFACE = 1138166333471L;
     public SystemPropertiesProto() {}
 
-    public final class AacDrc {
-        public static final long BOOST = 1120986464257L;
-        public static final long CUT = 1120986464258L;
-        public static final long ENC_TARGET_LEVEL = 1120986464259L;
-        public static final long HEAVY = 1120986464260L;
-        public static final long REFERENCE_LEVEL = 1120986464261L;
-        public AacDrc(android.os.SystemPropertiesProto p0) {}
-    }
-
-    public final class Aaudio {
-        public static final long HW_BURST_MIN_USEC = 1120986464257L;
-        public static final long MINIMUM_SLEEP_USEC = 1120986464258L;
-        public static final long MIXER_BURSTS = 1120986464259L;
-        public static final long MMAP_EXCLUSIVE_POLICY = 1120986464260L;
-        public static final long MMAP_POLICY = 1120986464261L;
-        public static final long WAKEUP_DELAY_USEC = 1120986464262L;
-        public Aaudio(android.os.SystemPropertiesProto p0) {}
-    }
-
-    public final class Camera {
-        public static final long DISABLE_ZSL_MODE = 1133871366145L;
-        public static final long FIFO_DISABLE = 1120986464258L;
-        public Camera(android.os.SystemPropertiesProto p0) {}
-    }
-
     public final class DalvikVm {
         public static final long APPIMAGEFORMAT = 1138166333441L;
         public static final long BACKGROUNDGCTYPE = 1138166333442L;
@@ -117,75 +92,6 @@ public final class SystemPropertiesProto {
         public DalvikVm(android.os.SystemPropertiesProto p0) {}
     }
 
-    public final class InitSvc {
-        public static final long ADBD = 1159641169921L;
-        public static final long AUDIOSERVER = 1159641169922L;
-        public static final long BOOTANIM = 1159641169923L;
-        public static final long BUFFERHUBD = 1159641169924L;
-        public static final long CAMERASERVER = 1159641169925L;
-        public static final long CLEAR_BCB = 1159641169926L;
-        public static final long DRM = 1159641169927L;
-        public static final long GATEKEEPERD = 1159641169928L;
-        public static final long HEALTHD = 1159641169929L;
-        public static final long HIDL_MEMORY = 1159641169930L;
-        public static final long HOSTAPD = 1159641169931L;
-        public static final long HWSERVICEMANAGER = 1159641169932L;
-        public static final long INSTALLD = 1159641169933L;
-        public static final long KEYSTORE = 1159641169934L;
-        public static final long LMKD = 1159641169935L;
-        public static final long LOGD = 1159641169936L;
-        public static final long LOGD_REINIT = 1159641169937L;
-        public static final long MEDIA = 1159641169938L;
-        public static final long MEDIADRM = 1159641169939L;
-        public static final long MEDIAEXTRACTOR = 1159641169940L;
-        public static final long MEDIAMETRICS = 1159641169941L;
-        public static final long NETD = 1159641169942L;
-        public static final long PERFORMANCED = 1159641169943L;
-        public static final long RIL_DAEMON = 1159641169944L;
-        public static final long SERVICEMANAGER = 1159641169945L;
-        public static final int STATUS_RUNNING = 1;
-        public static final int STATUS_STOPPED = 2;
-        public static final int STATUS_UNKNOWN = 0;
-        public static final long STORAGED = 1159641169946L;
-        public static final long SURFACEFLINGER = 1159641169947L;
-        public static final long THERMALSERVICE = 1159641169948L;
-        public static final long TOMBSTONED = 1159641169949L;
-        public static final long UEVENTD = 1159641169950L;
-        public static final long UPDATE_ENGINE = 1159641169951L;
-        public static final long UPDATE_VERIFIER = 1159641169952L;
-        public static final long VIRTUAL_TOUCHPAD = 1159641169953L;
-        public static final long VNDSERVICEMANAGER = 1159641169954L;
-        public static final long VOLD = 1159641169955L;
-        public static final long VR_HWC = 1159641169956L;
-        public static final long WEBVIEW_ZYGOTE32 = 1159641169957L;
-        public static final long WIFICOND = 1159641169958L;
-        public static final long WPA_SUPPLICANT = 1159641169959L;
-        public static final long ZYGOTE = 1159641169960L;
-        public static final long ZYGOTE_SECONDARY = 1159641169961L;
-        public InitSvc(android.os.SystemPropertiesProto p0) {}
-    }
-
-    public final class Log {
-        public static final long TAG_STATS_LOG = 1138166333442L;
-        public static final long TAG_WIFI_HAL = 1138166333441L;
-        public Log(android.os.SystemPropertiesProto p0) {}
-    }
-
-    public final class Persist {
-        public static final long CONFIG_CALIBRATION_FAC = 1138166333441L;
-        public static final long DBG_VOLTE_AVAIL_OVR = 1120986464258L;
-        public static final long DBG_VT_AVAIL_OVR = 1120986464259L;
-        public static final long DBG_WFC_AVAIL_OVR = 1120986464260L;
-        public static final long RADIO_AIRPLANE_MODE_ON = 1120986464261L;
-        public static final long RADIO_MULTISIM_CONFIG = 1138166333446L;
-        public static final long RCS_SUPPORTED = 1120986464263L;
-        public static final long SYS_CRASH_RCU = 1133871366152L;
-        public static final long SYS_DALVIK_VM_LIB_2 = 1138166333449L;
-        public static final long SYS_SF_COLOR_SATURATION = 1108101562378L;
-        public static final long SYS_TIMEZONE = 1138166333451L;
-        public Persist(android.os.SystemPropertiesProto p0) {}
-    }
-
     public final class PmDexopt {
         public static final long AB_OTA = 1138166333441L;
         public static final long BG_DEXOPT = 1138166333442L;
@@ -195,10 +101,32 @@ public final class SystemPropertiesProto {
         public PmDexopt(android.os.SystemPropertiesProto p0) {}
     }
 
-    public final class Property {
-        public static final long NAME = 1138166333441L;
-        public static final long VALUE = 1138166333442L;
-        public Property(android.os.SystemPropertiesProto p0) {}
+    public final class Log {
+        public static final long TAG_STATS_LOG = 1138166333442L;
+        public static final long TAG_WIFI_HAL = 1138166333441L;
+        public Log(android.os.SystemPropertiesProto p0) {}
+    }
+
+    public final class Sys {
+        public static final long BOOT_COMPLETED = 1120986464257L;
+        public static final long BOOT_FROM_CHARGER_MODE = 1120986464258L;
+        public static final long RETAILDEMO_ENABLED = 1120986464259L;
+        public static final long SHUTDOWN_REQUESTED = 1138166333444L;
+        public static final long USB = 1146756268037L;
+        public Sys(android.os.SystemPropertiesProto p0) {}
+
+        public final class Usb {
+            public static final long CONFIG = 1138166333441L;
+            public static final long CONFIGFS = 1120986464258L;
+            public static final long CONTROLLER = 1138166333443L;
+            public static final long FFS_MAX_READ = 1120986464260L;
+            public static final long FFS_MAX_WRITE = 1120986464261L;
+            public static final long FFS_MTP_READY = 1120986464262L;
+            public static final long FFS_READY = 1120986464263L;
+            public static final long MTP_DEVICE_TYPE = 1120986464264L;
+            public static final long STATE = 1138166333449L;
+            public Usb(android.os.SystemPropertiesProto.Sys p0) {}
+        }
     }
 
     public final class Ro {
@@ -248,30 +176,6 @@ public final class SystemPropertiesProto {
         public static final long ZYGOTE = 1138166333484L;
         public Ro(android.os.SystemPropertiesProto p0) {}
 
-        public final class Boot {
-            public static final long AVB_VERSION = 1138166333441L;
-            public static final long BASEBAND = 1138166333442L;
-            public static final long BOOTDEVICE = 1138166333443L;
-            public static final long BOOTLOADER = 1138166333444L;
-            public static final long BOOTTIME = 2237677961221L;
-            public static final long CONSOLE = 1138166333446L;
-            public static final long FAKE_BATTERY = 1120986464263L;
-            public static final long HARDWARE = 1138166333448L;
-            public static final long HARDWARE_COLOR = 1138166333449L;
-            public static final long HARDWARE_REVISION = 1138166333450L;
-            public static final long HARDWARE_SKU = 1138166333451L;
-            public static final long KEYMASTER = 1138166333452L;
-            public static final long MODE = 1138166333453L;
-            public static final long REVISION = 1138166333454L;
-            public static final long SLOT_SUFFIX = 1138166333455L;
-            public static final long VBMETA_AVB_VERSION = 1138166333456L;
-            public static final long VENDOR_OVERLAY_THEME = 1138166333457L;
-            public static final long VERIFIEDBOOTSTATE = 1138166333458L;
-            public static final long VERITYMODE = 1138166333459L;
-            public static final long WIFICOUNTRYCODE = 1138166333460L;
-            public Boot(android.os.SystemPropertiesProto.Ro p0) {}
-        }
-
         public final class BootImage {
             public static final long BUILD_DATE = 1138166333441L;
             public static final long BUILD_DATE_UTC = 1112396529666L;
@@ -279,40 +183,11 @@ public final class SystemPropertiesProto {
             public BootImage(android.os.SystemPropertiesProto.Ro p0) {}
         }
 
-        public final class Build {
-            public static final long DATE = 1138166333441L;
-            public static final long DATE_UTC = 1112396529666L;
-            public static final long DESCRIPTION = 1138166333443L;
-            public static final long DISPLAY_ID = 1138166333444L;
-            public static final long HOST = 1138166333445L;
-            public static final long ID = 1138166333446L;
-            public static final long PRODUCT = 1138166333447L;
-            public static final long SYSTEM_ROOT_IMAGE = 1133871366152L;
-            public static final long TAGS = 1138166333449L;
-            public static final long TYPE = 1138166333450L;
-            public static final long USER = 1138166333451L;
-            public static final long VERSION = 1146756268044L;
-            public Build(android.os.SystemPropertiesProto.Ro p0) {}
-
-            public final class Version {
-                public static final long BASE_OS = 1138166333441L;
-                public static final long CODENAME = 1138166333442L;
-                public static final long INCREMENTAL = 1138166333443L;
-                public static final long PREVIEW_SDK = 1120986464260L;
-                public static final long RELEASE = 1138166333445L;
-                public static final long SDK = 1120986464262L;
-                public static final long SECURITY_PATCH = 1138166333447L;
-                public Version(android.os.SystemPropertiesProto.Ro.Build p0) {}
-            }
-        }
-
-        public final class Config {
-            public static final long ALARM_ALERT = 1138166333441L;
-            public static final long MEDIA_VOL_STEPS = 1120986464258L;
-            public static final long NOTIFICATION_SOUND = 1138166333443L;
-            public static final long RINGTONE = 1138166333444L;
-            public static final long VC_CALL_VOL_STEPS = 1120986464261L;
-            public Config(android.os.SystemPropertiesProto.Ro p0) {}
+        public final class Telephony {
+            public static final long CALL_RING_MULTIPLE = 1133871366145L;
+            public static final long DEFAULT_CDMA_SUB = 1120986464258L;
+            public static final long DEFAULT_NETWORK = 1120986464259L;
+            public Telephony(android.os.SystemPropertiesProto.Ro p0) {}
         }
 
         public final class Hardware {
@@ -358,6 +233,46 @@ public final class SystemPropertiesProto {
             public Hardware(android.os.SystemPropertiesProto.Ro p0) {}
         }
 
+        public final class Vendor {
+            public static final long BUILD_DATE = 1138166333441L;
+            public static final long BUILD_DATE_UTC = 1112396529666L;
+            public static final long BUILD_FINGERPRINT = 1138166333443L;
+            public Vendor(android.os.SystemPropertiesProto.Ro p0) {}
+        }
+
+        public final class Config {
+            public static final long ALARM_ALERT = 1138166333441L;
+            public static final long MEDIA_VOL_STEPS = 1120986464258L;
+            public static final long NOTIFICATION_SOUND = 1138166333443L;
+            public static final long RINGTONE = 1138166333444L;
+            public static final long VC_CALL_VOL_STEPS = 1120986464261L;
+            public Config(android.os.SystemPropertiesProto.Ro p0) {}
+        }
+
+        public final class Boot {
+            public static final long AVB_VERSION = 1138166333441L;
+            public static final long BASEBAND = 1138166333442L;
+            public static final long BOOTDEVICE = 1138166333443L;
+            public static final long BOOTLOADER = 1138166333444L;
+            public static final long BOOTTIME = 2237677961221L;
+            public static final long CONSOLE = 1138166333446L;
+            public static final long FAKE_BATTERY = 1120986464263L;
+            public static final long HARDWARE = 1138166333448L;
+            public static final long HARDWARE_COLOR = 1138166333449L;
+            public static final long HARDWARE_REVISION = 1138166333450L;
+            public static final long HARDWARE_SKU = 1138166333451L;
+            public static final long KEYMASTER = 1138166333452L;
+            public static final long MODE = 1138166333453L;
+            public static final long REVISION = 1138166333454L;
+            public static final long SLOT_SUFFIX = 1138166333455L;
+            public static final long VBMETA_AVB_VERSION = 1138166333456L;
+            public static final long VENDOR_OVERLAY_THEME = 1138166333457L;
+            public static final long VERIFIEDBOOTSTATE = 1138166333458L;
+            public static final long VERITYMODE = 1138166333459L;
+            public static final long WIFICOUNTRYCODE = 1138166333460L;
+            public Boot(android.os.SystemPropertiesProto.Ro p0) {}
+        }
+
         public final class Product {
             public static final long BOARD = 1138166333441L;
             public static final long BRAND = 1138166333442L;
@@ -383,40 +298,125 @@ public final class SystemPropertiesProto {
             }
         }
 
-        public final class Telephony {
-            public static final long CALL_RING_MULTIPLE = 1133871366145L;
-            public static final long DEFAULT_CDMA_SUB = 1120986464258L;
-            public static final long DEFAULT_NETWORK = 1120986464259L;
-            public Telephony(android.os.SystemPropertiesProto.Ro p0) {}
-        }
+        public final class Build {
+            public static final long DATE = 1138166333441L;
+            public static final long DATE_UTC = 1112396529666L;
+            public static final long DESCRIPTION = 1138166333443L;
+            public static final long DISPLAY_ID = 1138166333444L;
+            public static final long HOST = 1138166333445L;
+            public static final long ID = 1138166333446L;
+            public static final long PRODUCT = 1138166333447L;
+            public static final long SYSTEM_ROOT_IMAGE = 1133871366152L;
+            public static final long TAGS = 1138166333449L;
+            public static final long TYPE = 1138166333450L;
+            public static final long USER = 1138166333451L;
+            public static final long VERSION = 1146756268044L;
+            public Build(android.os.SystemPropertiesProto.Ro p0) {}
 
-        public final class Vendor {
-            public static final long BUILD_DATE = 1138166333441L;
-            public static final long BUILD_DATE_UTC = 1112396529666L;
-            public static final long BUILD_FINGERPRINT = 1138166333443L;
-            public Vendor(android.os.SystemPropertiesProto.Ro p0) {}
+            public final class Version {
+                public static final long BASE_OS = 1138166333441L;
+                public static final long CODENAME = 1138166333442L;
+                public static final long INCREMENTAL = 1138166333443L;
+                public static final long PREVIEW_SDK = 1120986464260L;
+                public static final long RELEASE = 1138166333445L;
+                public static final long SDK = 1120986464262L;
+                public static final long SECURITY_PATCH = 1138166333447L;
+                public Version(android.os.SystemPropertiesProto.Ro.Build p0) {}
+            }
         }
     }
 
-    public final class Sys {
-        public static final long BOOT_COMPLETED = 1120986464257L;
-        public static final long BOOT_FROM_CHARGER_MODE = 1120986464258L;
-        public static final long RETAILDEMO_ENABLED = 1120986464259L;
-        public static final long SHUTDOWN_REQUESTED = 1138166333444L;
-        public static final long USB = 1146756268037L;
-        public Sys(android.os.SystemPropertiesProto p0) {}
+    public final class Persist {
+        public static final long CONFIG_CALIBRATION_FAC = 1138166333441L;
+        public static final long DBG_VOLTE_AVAIL_OVR = 1120986464258L;
+        public static final long DBG_VT_AVAIL_OVR = 1120986464259L;
+        public static final long DBG_WFC_AVAIL_OVR = 1120986464260L;
+        public static final long RADIO_AIRPLANE_MODE_ON = 1120986464261L;
+        public static final long RADIO_MULTISIM_CONFIG = 1138166333446L;
+        public static final long RCS_SUPPORTED = 1120986464263L;
+        public static final long SYS_CRASH_RCU = 1133871366152L;
+        public static final long SYS_DALVIK_VM_LIB_2 = 1138166333449L;
+        public static final long SYS_SF_COLOR_SATURATION = 1108101562378L;
+        public static final long SYS_TIMEZONE = 1138166333451L;
+        public Persist(android.os.SystemPropertiesProto p0) {}
+    }
 
-        public final class Usb {
-            public static final long CONFIG = 1138166333441L;
-            public static final long CONFIGFS = 1120986464258L;
-            public static final long CONTROLLER = 1138166333443L;
-            public static final long FFS_MAX_READ = 1120986464260L;
-            public static final long FFS_MAX_WRITE = 1120986464261L;
-            public static final long FFS_MTP_READY = 1120986464262L;
-            public static final long FFS_READY = 1120986464263L;
-            public static final long MTP_DEVICE_TYPE = 1120986464264L;
-            public static final long STATE = 1138166333449L;
-            public Usb(android.os.SystemPropertiesProto.Sys p0) {}
-        }
+    public final class InitSvc {
+        public static final long ADBD = 1159641169921L;
+        public static final long AUDIOSERVER = 1159641169922L;
+        public static final long BOOTANIM = 1159641169923L;
+        public static final long BUFFERHUBD = 1159641169924L;
+        public static final long CAMERASERVER = 1159641169925L;
+        public static final long CLEAR_BCB = 1159641169926L;
+        public static final long DRM = 1159641169927L;
+        public static final long GATEKEEPERD = 1159641169928L;
+        public static final long HEALTHD = 1159641169929L;
+        public static final long HIDL_MEMORY = 1159641169930L;
+        public static final long HOSTAPD = 1159641169931L;
+        public static final long HWSERVICEMANAGER = 1159641169932L;
+        public static final long INSTALLD = 1159641169933L;
+        public static final long KEYSTORE = 1159641169934L;
+        public static final long LMKD = 1159641169935L;
+        public static final long LOGD = 1159641169936L;
+        public static final long LOGD_REINIT = 1159641169937L;
+        public static final long MEDIA = 1159641169938L;
+        public static final long MEDIADRM = 1159641169939L;
+        public static final long MEDIAEXTRACTOR = 1159641169940L;
+        public static final long MEDIAMETRICS = 1159641169941L;
+        public static final long NETD = 1159641169942L;
+        public static final long PERFORMANCED = 1159641169943L;
+        public static final long RIL_DAEMON = 1159641169944L;
+        public static final long SERVICEMANAGER = 1159641169945L;
+        public static final int STATUS_RUNNING = 1;
+        public static final int STATUS_STOPPED = 2;
+        public static final int STATUS_UNKNOWN = 0;
+        public static final long STORAGED = 1159641169946L;
+        public static final long SURFACEFLINGER = 1159641169947L;
+        public static final long THERMALSERVICE = 1159641169948L;
+        public static final long TOMBSTONED = 1159641169949L;
+        public static final long UEVENTD = 1159641169950L;
+        public static final long UPDATE_ENGINE = 1159641169951L;
+        public static final long UPDATE_VERIFIER = 1159641169952L;
+        public static final long VIRTUAL_TOUCHPAD = 1159641169953L;
+        public static final long VNDSERVICEMANAGER = 1159641169954L;
+        public static final long VOLD = 1159641169955L;
+        public static final long VR_HWC = 1159641169956L;
+        public static final long WEBVIEW_ZYGOTE32 = 1159641169957L;
+        public static final long WIFICOND = 1159641169958L;
+        public static final long WPA_SUPPLICANT = 1159641169959L;
+        public static final long ZYGOTE = 1159641169960L;
+        public static final long ZYGOTE_SECONDARY = 1159641169961L;
+        public InitSvc(android.os.SystemPropertiesProto p0) {}
+    }
+
+    public final class Camera {
+        public static final long DISABLE_ZSL_MODE = 1133871366145L;
+        public static final long FIFO_DISABLE = 1120986464258L;
+        public Camera(android.os.SystemPropertiesProto p0) {}
+    }
+
+    public final class Property {
+        public static final long NAME = 1138166333441L;
+        public static final long VALUE = 1138166333442L;
+        public Property(android.os.SystemPropertiesProto p0) {}
+    }
+
+    public final class Aaudio {
+        public static final long HW_BURST_MIN_USEC = 1120986464257L;
+        public static final long MINIMUM_SLEEP_USEC = 1120986464258L;
+        public static final long MIXER_BURSTS = 1120986464259L;
+        public static final long MMAP_EXCLUSIVE_POLICY = 1120986464260L;
+        public static final long MMAP_POLICY = 1120986464261L;
+        public static final long WAKEUP_DELAY_USEC = 1120986464262L;
+        public Aaudio(android.os.SystemPropertiesProto p0) {}
+    }
+
+    public final class AacDrc {
+        public static final long BOOST = 1120986464257L;
+        public static final long CUT = 1120986464258L;
+        public static final long ENC_TARGET_LEVEL = 1120986464259L;
+        public static final long HEAVY = 1120986464260L;
+        public static final long REFERENCE_LEVEL = 1120986464261L;
+        public AacDrc(android.os.SystemPropertiesProto p0) {}
     }
 }

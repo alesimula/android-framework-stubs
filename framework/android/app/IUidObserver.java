@@ -8,17 +8,6 @@ public interface IUidObserver extends android.os.IInterface {
     public void onUidProcAdjChanged(int p0, int p1) throws android.os.RemoteException;
     public void onUidStateChanged(int p0, int p1, long p2, int p3) throws android.os.RemoteException;
 
-    public static class Default implements android.app.IUidObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onUidActive(int p0) throws android.os.RemoteException {}
-        public void onUidCachedChanged(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onUidGone(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onUidIdle(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onUidProcAdjChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void onUidStateChanged(int p0, int p1, long p2, int p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.IUidObserver {
         public static final java.lang.String DESCRIPTOR = "android.app.IUidObserver";
         static final int TRANSACTION_onUidActive = 2;
@@ -46,5 +35,16 @@ public interface IUidObserver extends android.os.IInterface {
             public void onUidProcAdjChanged(int p0, int p1) throws android.os.RemoteException {}
             public void onUidStateChanged(int p0, int p1, long p2, int p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.IUidObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onUidActive(int p0) throws android.os.RemoteException {}
+        public void onUidCachedChanged(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onUidGone(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onUidIdle(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onUidProcAdjChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void onUidStateChanged(int p0, int p1, long p2, int p3) throws android.os.RemoteException {}
     }
 }

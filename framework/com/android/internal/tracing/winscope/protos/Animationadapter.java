@@ -16,12 +16,9 @@ public final class Animationadapter {
         public AnimationAdapterProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
     }
 
-    public final class AnimationSpecProto {
-        public static final long ALPHA = 1146756268035L;
-        public static final long MOVE = 1146756268034L;
-        public static final long ROTATE = 1146756268036L;
-        public static final long WINDOW = 1146756268033L;
-        public AnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
+    public final class WindowAnimationSpecProto {
+        public static final long ANIMATION = 1138166333441L;
+        public WindowAnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
     }
 
     public final class LocalAnimationAdapterProto {
@@ -29,11 +26,12 @@ public final class Animationadapter {
         public LocalAnimationAdapterProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
     }
 
-    public final class MoveAnimationSpecProto {
-        public static final long DURATION_MS = 1112396529667L;
-        public static final long FROM = 1146756268033L;
-        public static final long TO = 1146756268034L;
-        public MoveAnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
+    public final class AnimationSpecProto {
+        public static final long ALPHA = 1146756268035L;
+        public static final long MOVE = 1146756268034L;
+        public static final long ROTATE = 1146756268036L;
+        public static final long WINDOW = 1146756268033L;
+        public AnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
     }
 
     public final class RemoteAnimationAdapterWrapperProto {
@@ -48,8 +46,10 @@ public final class Animationadapter {
         public RotationAnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
     }
 
-    public final class WindowAnimationSpecProto {
-        public static final long ANIMATION = 1138166333441L;
-        public WindowAnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
+    public final class MoveAnimationSpecProto {
+        public static final long DURATION_MS = 1112396529667L;
+        public static final long FROM = 1146756268033L;
+        public static final long TO = 1146756268034L;
+        public MoveAnimationSpecProto(com.android.internal.tracing.winscope.protos.Animationadapter p0) {}
     }
 }

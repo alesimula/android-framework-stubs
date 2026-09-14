@@ -6,6 +6,8 @@ public interface IProtoLog {
     public boolean isProtoEnabled();
     public void log(com.android.internal.protolog.common.LogLevel p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object[] p4);
     public void log(com.android.internal.protolog.common.LogLevel p0, com.android.internal.protolog.common.IProtoLogGroup p1, java.lang.String p2, java.lang.Object... p3);
+    public void log(java.lang.Throwable p0, com.android.internal.protolog.common.LogLevel p1, com.android.internal.protolog.common.IProtoLogGroup p2, long p3, long p4, java.lang.Object[] p5);
+    public void log(java.lang.Throwable p0, com.android.internal.protolog.common.LogLevel p1, com.android.internal.protolog.common.IProtoLogGroup p2, java.lang.String p3, java.lang.Object... p4);
     public void registerGroups(com.android.internal.protolog.common.IProtoLogGroup... p0);
     public int startLoggingToLogcat(java.lang.String[] p0, com.android.internal.protolog.common.ILogger p1);
     public int stopLoggingToLogcat(java.lang.String[] p0, com.android.internal.protolog.common.ILogger p1);

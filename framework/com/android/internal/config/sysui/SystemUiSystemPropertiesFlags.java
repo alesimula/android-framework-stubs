@@ -31,16 +31,16 @@ public class SystemUiSystemPropertiesFlags {
         public Flag(java.lang.String p0, boolean p1, com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p2) {}
     }
 
-    public static interface FlagResolver {
-        public int getIntValue(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0);
-        public java.lang.String getStringValue(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0);
-        public boolean isEnabled(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0);
-    }
-
     public static final class ProdResolver implements com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.FlagResolver {
         public ProdResolver() {}
         public int getIntValue(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0) { return 0; }
         public java.lang.String getStringValue(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0) { return null; }
         public boolean isEnabled(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0) { return false; }
+    }
+
+    public static interface FlagResolver {
+        public int getIntValue(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0);
+        public java.lang.String getStringValue(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0);
+        public boolean isEnabled(com.android.internal.config.sysui.SystemUiSystemPropertiesFlags.Flag p0);
     }
 }

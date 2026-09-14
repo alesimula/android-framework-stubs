@@ -20,10 +20,29 @@ public class ProtoLogDataSource extends android.tracing.perfetto.DataSource<com.
     public void unregisterOnStartCallback(com.android.internal.protolog.ProtoLogDataSource.Instance.ProtoLogTracingInstanceStartCallback p0) {}
     public void unregisterOnStopCallback(com.android.internal.protolog.ProtoLogDataSource.Instance.ProtoLogTracingInstanceStopCallback p0) {}
 
+    public static class TlsState {
+        private final com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig mConfig = null;
+        private TlsState(com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig p0) {}
+        private com.android.internal.protolog.ProtoLogDataSource.GroupConfig getConfigFor(java.lang.String p0) { return null; }
+        public com.android.internal.protolog.common.LogLevel getLogFromLevel(java.lang.String p0) { return null; }
+        public boolean getShouldCollectStacktrace(java.lang.String p0) { return false; }
+    }
+
     public static class GroupConfig {
         public final boolean collectStackTrace = false;
         public final com.android.internal.protolog.common.LogLevel logFrom = null;
         public GroupConfig(com.android.internal.protolog.common.LogLevel p0, boolean p1) {}
+    }
+
+    public static class ProtoLogConfig {
+        private static final com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig DEFAULT = null;
+        private final com.android.internal.protolog.common.LogLevel mDefaultLogFromLevel = null;
+        private final java.util.Map<java.lang.String, com.android.internal.protolog.ProtoLogDataSource.GroupConfig> mGroupConfigs = null;
+        private ProtoLogConfig(com.android.internal.protolog.common.LogLevel p0, java.util.Map<java.lang.String, com.android.internal.protolog.ProtoLogDataSource.GroupConfig> p1) {}
+        public static com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig parseFrom(byte[] p0) throws java.io.IOException { return null; }
+        public com.android.internal.protolog.ProtoLogDataSource.GroupConfig getConfigFor(java.lang.String p0) { return null; }
+        public com.android.internal.protolog.ProtoLogDataSource.GroupConfig getDefaultGroupConfig() { return null; }
+        public java.util.Set<java.lang.String> getGroupTagsWithOverriddenConfigs() { return null; }
     }
 
     public static class IncrementalState {
@@ -56,24 +75,5 @@ public class ProtoLogDataSource extends android.tracing.perfetto.DataSource<com.
         public static interface ProtoLogTracingInstanceStopCallback {
             public void onTracingInstanceStop(int p0, com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig p1);
         }
-    }
-
-    public static class ProtoLogConfig {
-        private static final com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig DEFAULT = null;
-        private final com.android.internal.protolog.common.LogLevel mDefaultLogFromLevel = null;
-        private final java.util.Map<java.lang.String, com.android.internal.protolog.ProtoLogDataSource.GroupConfig> mGroupConfigs = null;
-        private ProtoLogConfig(com.android.internal.protolog.common.LogLevel p0, java.util.Map<java.lang.String, com.android.internal.protolog.ProtoLogDataSource.GroupConfig> p1) {}
-        public static com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig parseFrom(byte[] p0) throws java.io.IOException { return null; }
-        public com.android.internal.protolog.ProtoLogDataSource.GroupConfig getConfigFor(java.lang.String p0) { return null; }
-        public com.android.internal.protolog.ProtoLogDataSource.GroupConfig getDefaultGroupConfig() { return null; }
-        public java.util.Set<java.lang.String> getGroupTagsWithOverriddenConfigs() { return null; }
-    }
-
-    public static class TlsState {
-        private final com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig mConfig = null;
-        private TlsState(com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig p0) {}
-        private com.android.internal.protolog.ProtoLogDataSource.GroupConfig getConfigFor(java.lang.String p0) { return null; }
-        public com.android.internal.protolog.common.LogLevel getLogFromLevel(java.lang.String p0) { return null; }
-        public boolean getShouldCollectStacktrace(java.lang.String p0) { return false; }
     }
 }

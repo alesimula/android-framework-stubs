@@ -3,11 +3,6 @@ package android.service.carrier;
 public interface ICarrierMessagingClientService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.carrier.ICarrierMessagingClientService";
 
-    public static class Default implements android.service.carrier.ICarrierMessagingClientService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.carrier.ICarrierMessagingClientService {
         public Stub() { super(); }
         public static android.service.carrier.ICarrierMessagingClientService asInterface(android.os.IBinder p0) { return null; }
@@ -22,5 +17,10 @@ public interface ICarrierMessagingClientService extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.service.carrier.ICarrierMessagingClientService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

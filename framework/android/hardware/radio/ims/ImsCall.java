@@ -15,6 +15,11 @@ public class ImsCall implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static @interface Direction {
+        public static final int INCOMING = 0;
+        public static final int OUTGOING = 1;
+    }
+
     public static @interface CallState {
         public static final int ACTIVE = 0;
         public static final int ALERTING = 3;
@@ -29,10 +34,5 @@ public class ImsCall implements android.os.Parcelable {
     public static @interface CallType {
         public static final int EMERGENCY = 1;
         public static final int NORMAL = 0;
-    }
-
-    public static @interface Direction {
-        public static final int INCOMING = 0;
-        public static final int OUTGOING = 1;
     }
 }

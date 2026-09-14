@@ -234,7 +234,11 @@ public final class MediaFormat {
     public java.lang.String toString() { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ColorRange {
+    public static @interface ColorTransfer {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PictureType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -242,7 +246,27 @@ public final class MediaFormat {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ColorTransfer {
+    public static @interface VideoEncodingStatisticsLevel {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ColorRange {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SecurityModelFlag {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Type {
+    }
+
+    private class UnprefixedKeySet extends android.media.MediaFormat.FilteredMappedKeySet {
+        private java.lang.String mPrefix;
+        public UnprefixedKeySet(android.media.MediaFormat p0, java.lang.String p1) { super(null); }
+        protected boolean keepKey(java.lang.String p0) { return false; }
+        protected java.lang.String mapItemToKey(java.lang.String p0) { return null; }
+        protected java.lang.String mapKeyToItem(java.lang.String p0) { return null; }
     }
 
     private abstract class FilteredMappedKeySet extends java.util.AbstractSet<java.lang.String> {
@@ -266,19 +290,6 @@ public final class MediaFormat {
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PictureType {
-    }
-
-    private class PrefixedKeySetWithPrefixRemoved extends android.media.MediaFormat.FilteredMappedKeySet {
-        private java.lang.String mPrefix;
-        private int mPrefixLength;
-        public PrefixedKeySetWithPrefixRemoved(android.media.MediaFormat p0, java.lang.String p1) { super(null); }
-        protected boolean keepKey(java.lang.String p0) { return false; }
-        protected java.lang.String mapItemToKey(java.lang.String p0) { return null; }
-        protected java.lang.String mapKeyToItem(java.lang.String p0) { return null; }
-    }
-
     public static final class QpOffsetRect {
         private android.graphics.Rect mContour;
         private int mQpOffset;
@@ -288,23 +299,12 @@ public final class MediaFormat {
         public void set(android.graphics.Rect p0, int p1) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SecurityModelFlag {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Type {
-    }
-
-    private class UnprefixedKeySet extends android.media.MediaFormat.FilteredMappedKeySet {
+    private class PrefixedKeySetWithPrefixRemoved extends android.media.MediaFormat.FilteredMappedKeySet {
         private java.lang.String mPrefix;
-        public UnprefixedKeySet(android.media.MediaFormat p0, java.lang.String p1) { super(null); }
+        private int mPrefixLength;
+        public PrefixedKeySetWithPrefixRemoved(android.media.MediaFormat p0, java.lang.String p1) { super(null); }
         protected boolean keepKey(java.lang.String p0) { return false; }
         protected java.lang.String mapItemToKey(java.lang.String p0) { return null; }
         protected java.lang.String mapKeyToItem(java.lang.String p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VideoEncodingStatisticsLevel {
     }
 }

@@ -132,6 +132,8 @@ public final class WearServicesEnums {
     public static final int LATENCY_ACTION_UNKNOWN = 0;
     public static final int NOTIFICATION_ACTION_DISMISS = 2;
     public static final int NOTIFICATION_ACTION_POST = 1;
+    public static final int NOTIFICATION_ACTION_RANKING_UPDATE = 4;
+    public static final int NOTIFICATION_ACTION_REMOTE_RANKING_UPDATE = 5;
     public static final int NOTIFICATION_ACTION_REMOVE = 3;
     public static final int NOTIFICATION_ACTION_TITLE_ARCHIVE = 2;
     public static final int NOTIFICATION_ACTION_TITLE_CALL = 3;
@@ -238,8 +240,11 @@ public final class WearServicesEnums {
     public static final int NOTIFICATION_DISMISS_ACTION_STREAM_DISMISS_MULTIPLE = 3;
     public static final int NOTIFICATION_DISMISS_ACTION_UNKNOWN = 0;
     public static final int NOTIFICATION_FLOW_COMPONENT_ACTION_EXECUTION = 3;
+    public static final int NOTIFICATION_FLOW_COMPONENT_BRIDGED_RANKING_UPDATE = 5;
     public static final int NOTIFICATION_FLOW_COMPONENT_DISMISS_NOTIFICATION = 2;
+    public static final int NOTIFICATION_FLOW_COMPONENT_LOCAL_RANKING_UPDATE = 4;
     public static final int NOTIFICATION_FLOW_COMPONENT_POST_NOTIFICATION = 1;
+    public static final int NOTIFICATION_FLOW_COMPONENT_RMT_RANKING_UPDATE = 6;
     public static final int NOTIFICATION_FLOW_COMPONENT_UNKNOWN = 0;
     public static final int NOTIFICATION_GROUP_ALERT_BEHAVIOR_ALERT_ALLOWED = 1;
     public static final int NOTIFICATION_GROUP_ALERT_BEHAVIOR_DELEGATED_TO_CHILD = 3;
@@ -336,6 +341,11 @@ public final class WearServicesEnums {
     public static final int TETHER_CONFIGURATION_STANDALONE = 1;
     public static final int TETHER_CONFIGURATION_TETHERED = 2;
     public static final int TETHER_CONFIGURATION_UNKNOWN = 0;
+    public static final int TRIGGER_DETACH_STATUS_FAILURE = 3;
+    public static final int TRIGGER_DETACH_STATUS_FAILURE_PREPARE_REQUEST_FAILED = 4;
+    public static final int TRIGGER_DETACH_STATUS_INITIATION = 1;
+    public static final int TRIGGER_DETACH_STATUS_SUCCESS = 2;
+    public static final int TRIGGER_DETACH_STATUS_UNKNOWN = 0;
     public static final int WATCH_FACE_TYPE_ANDROIDX = 2;
     public static final int WATCH_FACE_TYPE_DWF = 3;
     public static final int WATCH_FACE_TYPE_UNKNOWN = 0;

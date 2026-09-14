@@ -22,25 +22,6 @@ public interface IBinaryTransparencyService extends android.os.IInterface {
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class AppInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<com.android.internal.os.IBinaryTransparencyService.AppInfo> CREATOR = null;
-        public byte[] digest;
-        public int digestAlgorithm;
-        public java.lang.String initiator;
-        public java.lang.String[] initiatorSignerDigests;
-        public java.lang.String installer;
-        public long longVersion;
-        public int mbaStatus;
-        public java.lang.String originator;
-        public java.lang.String packageName;
-        public java.lang.String[] signerDigests;
-        public java.lang.String splitName;
-        public AppInfo() {}
-        public int describeContents() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class Default implements com.android.internal.os.IBinaryTransparencyService {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -75,5 +56,24 @@ public interface IBinaryTransparencyService extends android.os.IInterface {
             public java.lang.String getSignedImageInfo() throws android.os.RemoteException { return null; }
             public void recordMeasurementsForAllPackages() throws android.os.RemoteException {}
         }
+    }
+
+    public static class AppInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<com.android.internal.os.IBinaryTransparencyService.AppInfo> CREATOR = null;
+        public byte[] digest;
+        public int digestAlgorithm;
+        public java.lang.String initiator;
+        public java.lang.String[] initiatorSignerDigests;
+        public java.lang.String installer;
+        public long longVersion;
+        public int mbaStatus;
+        public java.lang.String originator;
+        public java.lang.String packageName;
+        public java.lang.String[] signerDigests;
+        public java.lang.String splitName;
+        public AppInfo() {}
+        public int describeContents() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

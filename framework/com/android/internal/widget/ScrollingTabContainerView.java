@@ -38,22 +38,6 @@ public class ScrollingTabContainerView extends android.widget.HorizontalScrollVi
     public void setTabSelected(int p0) {}
     public void updateTab(int p0) {}
 
-    private class TabAdapter extends android.widget.BaseAdapter {
-        private android.content.Context mDropDownContext;
-        public TabAdapter(com.android.internal.widget.ScrollingTabContainerView p0, android.content.Context p1) { super(); }
-        public int getCount() { return 0; }
-        public android.view.View getDropDownView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
-        public java.lang.Object getItem(int p0) { return null; }
-        public long getItemId(int p0) { return 0L; }
-        public android.view.View getView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
-        public void setDropDownViewContext(android.content.Context p0) {}
-    }
-
-    private class TabClickListener implements android.view.View.OnClickListener {
-        private TabClickListener(com.android.internal.widget.ScrollingTabContainerView p0) {}
-        public void onClick(android.view.View p0) {}
-    }
-
     private class TabView extends android.widget.LinearLayout {
         private android.view.View mCustomView;
         private android.widget.ImageView mIconView;
@@ -77,5 +61,21 @@ public class ScrollingTabContainerView extends android.widget.HorizontalScrollVi
         public void onAnimationRepeat(android.animation.Animator p0) {}
         public void onAnimationStart(android.animation.Animator p0) {}
         public com.android.internal.widget.ScrollingTabContainerView.VisibilityAnimListener withFinalVisibility(int p0) { return null; }
+    }
+
+    private class TabClickListener implements android.view.View.OnClickListener {
+        private TabClickListener(com.android.internal.widget.ScrollingTabContainerView p0) {}
+        public void onClick(android.view.View p0) {}
+    }
+
+    private class TabAdapter extends android.widget.BaseAdapter {
+        private android.content.Context mDropDownContext;
+        public TabAdapter(com.android.internal.widget.ScrollingTabContainerView p0, android.content.Context p1) { super(); }
+        public int getCount() { return 0; }
+        public android.view.View getDropDownView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
+        public java.lang.Object getItem(int p0) { return null; }
+        public long getItemId(int p0) { return 0L; }
+        public android.view.View getView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
+        public void setDropDownViewContext(android.content.Context p0) {}
     }
 }

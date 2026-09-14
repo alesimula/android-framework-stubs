@@ -86,14 +86,6 @@ public class PhoneConstants {
     public static final int UNSET_MTU = 0;
     public PhoneConstants() {}
 
-    public static enum CardUnavailableReason {
-        REASON_CARD_REMOVED,
-        REASON_RADIO_UNAVAILABLE,
-        REASON_SIM_REFRESH_RESET;
-        private static final com.android.internal.telephony.PhoneConstants.CardUnavailableReason[] $VALUES = null;
-        private CardUnavailableReason() {}
-    }
-
     public static enum DataState {
         CONNECTED,
         CONNECTING,
@@ -102,6 +94,14 @@ public class PhoneConstants {
         SUSPENDED;
         private static final com.android.internal.telephony.PhoneConstants.DataState[] $VALUES = null;
         private DataState() {}
+    }
+
+    public static enum CardUnavailableReason {
+        REASON_CARD_REMOVED,
+        REASON_RADIO_UNAVAILABLE,
+        REASON_SIM_REFRESH_RESET;
+        private static final com.android.internal.telephony.PhoneConstants.CardUnavailableReason[] $VALUES = null;
+        private CardUnavailableReason() {}
     }
 
     public static enum State {

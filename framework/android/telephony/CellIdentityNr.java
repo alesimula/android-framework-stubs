@@ -17,6 +17,7 @@ public final class CellIdentityNr extends android.telephony.CellIdentity {
     public CellIdentityNr(int p0, int p1, int p2, int[] p3, java.lang.String p4, java.lang.String p5, long p6, java.lang.String p7, java.lang.String p8, java.util.Collection<java.lang.String> p9) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     private CellIdentityNr(android.os.Parcel p0) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     protected static android.telephony.CellIdentityNr createFromParcelBody(android.os.Parcel p0) { return null; }
+    @android.annotation.SystemApi
     public android.telephony.CellLocation asCellLocation() { return null; }
     public boolean equals(java.lang.Object p0) { return false; }
     public java.util.Set<java.lang.String> getAdditionalPlmns() { return null; }
@@ -29,6 +30,7 @@ public final class CellIdentityNr extends android.telephony.CellIdentity {
     public int getPci() { return 0; }
     public int getTac() { return 0; }
     public int hashCode() { return 0; }
+    @android.annotation.SystemApi
     public android.telephony.CellIdentityNr sanitizeLocationInfo() { return null; }
     public java.lang.String toString() { return null; }
     protected void updateGlobalCellId() {}

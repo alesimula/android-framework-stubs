@@ -240,25 +240,27 @@ public class StorageManager {
     public void unregisterStorageVolumeCallback(android.os.storage.StorageManager.StorageVolumeCallback p0) {}
     @android.annotation.SystemApi
     public void updateExternalStorageFileQuotaType(java.io.File p0, int p1) throws java.io.IOException {}
-    public void wipeAdoptableDisks() {}
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AllocateFlags {
-    }
+    public final void wipeAdoptableDisks() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AppIoBlockedReason {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MountMode {
+    public static @interface AllocateFlags {
     }
 
-    private class ObbActionListener extends android.os.storage.IObbActionListener.Stub {
-        private android.util.SparseArray<android.os.storage.StorageManager.ObbListenerDelegate> mListeners;
-        private ObbActionListener(android.os.storage.StorageManager p0) { super(); }
-        public int addListener(android.os.storage.OnObbStateChangeListener p0) { return 0; }
-        public void onObbResult(java.lang.String p0, int p1, int p2) {}
+    static final class VolumeListQuery {
+        private final int mFlags = 0;
+        private final java.lang.String mPackageName = null;
+        private final int mUserId = 0;
+        VolumeListQuery(int p0, java.lang.String p1, int p2) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public int mFlags() { return 0; }
+        public java.lang.String mPackageName() { return null; }
+        public int mUserId() { return 0; }
+        public final java.lang.String toString() { return null; }
     }
 
     private class ObbListenerDelegate {
@@ -274,6 +276,26 @@ public class StorageManager {
     public static @interface QuotaType {
     }
 
+    private class ObbActionListener extends android.os.storage.IObbActionListener.Stub {
+        private android.util.SparseArray<android.os.storage.StorageManager.ObbListenerDelegate> mListeners;
+        private ObbActionListener(android.os.storage.StorageManager p0) { super(); }
+        public int addListener(android.os.storage.OnObbStateChangeListener p0) { return 0; }
+        public void onObbResult(java.lang.String p0, int p1, int p2) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StorageFlags {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MountMode {
+    }
+
+    public static class StorageVolumeCallback {
+        public StorageVolumeCallback() {}
+        public void onStateChanged(android.os.storage.StorageVolume p0) {}
+    }
+
     private class StorageEventListenerDelegate extends android.os.storage.IStorageEventListener.Stub {
         final android.os.storage.StorageManager.StorageVolumeCallback mCallback = null;
         final java.util.concurrent.Executor mExecutor = null;
@@ -286,27 +308,5 @@ public class StorageManager {
         public void onVolumeForgotten(java.lang.String p0) {}
         public void onVolumeRecordChanged(android.os.storage.VolumeRecord p0) {}
         public void onVolumeStateChanged(android.os.storage.VolumeInfo p0, int p1, int p2) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StorageFlags {
-    }
-
-    public static class StorageVolumeCallback {
-        public StorageVolumeCallback() {}
-        public void onStateChanged(android.os.storage.StorageVolume p0) {}
-    }
-
-    static final class VolumeListQuery {
-        private final int mFlags = 0;
-        private final java.lang.String mPackageName = null;
-        private final int mUserId = 0;
-        VolumeListQuery(int p0, java.lang.String p1, int p2) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public int mFlags() { return 0; }
-        public java.lang.String mPackageName() { return null; }
-        public int mUserId() { return 0; }
-        public final java.lang.String toString() { return null; }
     }
 }

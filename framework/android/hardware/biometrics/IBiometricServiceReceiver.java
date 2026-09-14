@@ -7,18 +7,10 @@ public interface IBiometricServiceReceiver extends android.os.IInterface {
     public void onAuthenticationSucceeded(int p0) throws android.os.RemoteException;
     public void onDialogDismissed(int p0) throws android.os.RemoteException;
     public void onError(int p0, int p1, int p2) throws android.os.RemoteException;
+    public void onHostTokenAvailable(int p0, android.os.IBinder p1, int p2, int p3) throws android.os.RemoteException;
+    public void onSessionStarted(long p0) throws android.os.RemoteException;
+    public void onStyleUpdated(android.hardware.biometrics.BiometricPromptStyleSpec p0) throws android.os.RemoteException;
     public void onSystemEvent(int p0) throws android.os.RemoteException;
-
-    public static class Default implements android.hardware.biometrics.IBiometricServiceReceiver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAcquired(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onAuthenticationFailed() throws android.os.RemoteException {}
-        public void onAuthenticationSucceeded(int p0) throws android.os.RemoteException {}
-        public void onDialogDismissed(int p0) throws android.os.RemoteException {}
-        public void onError(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onSystemEvent(int p0) throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.IBiometricServiceReceiver {
         static final int TRANSACTION_onAcquired = 4;
@@ -26,6 +18,9 @@ public interface IBiometricServiceReceiver extends android.os.IInterface {
         static final int TRANSACTION_onAuthenticationSucceeded = 1;
         static final int TRANSACTION_onDialogDismissed = 5;
         static final int TRANSACTION_onError = 3;
+        static final int TRANSACTION_onHostTokenAvailable = 8;
+        static final int TRANSACTION_onSessionStarted = 7;
+        static final int TRANSACTION_onStyleUpdated = 9;
         static final int TRANSACTION_onSystemEvent = 6;
         public Stub() { super(); }
         public static android.hardware.biometrics.IBiometricServiceReceiver asInterface(android.os.IBinder p0) { return null; }
@@ -44,7 +39,24 @@ public interface IBiometricServiceReceiver extends android.os.IInterface {
             public void onAuthenticationSucceeded(int p0) throws android.os.RemoteException {}
             public void onDialogDismissed(int p0) throws android.os.RemoteException {}
             public void onError(int p0, int p1, int p2) throws android.os.RemoteException {}
+            public void onHostTokenAvailable(int p0, android.os.IBinder p1, int p2, int p3) throws android.os.RemoteException {}
+            public void onSessionStarted(long p0) throws android.os.RemoteException {}
+            public void onStyleUpdated(android.hardware.biometrics.BiometricPromptStyleSpec p0) throws android.os.RemoteException {}
             public void onSystemEvent(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.IBiometricServiceReceiver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAcquired(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onAuthenticationFailed() throws android.os.RemoteException {}
+        public void onAuthenticationSucceeded(int p0) throws android.os.RemoteException {}
+        public void onDialogDismissed(int p0) throws android.os.RemoteException {}
+        public void onError(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onHostTokenAvailable(int p0, android.os.IBinder p1, int p2, int p3) throws android.os.RemoteException {}
+        public void onSessionStarted(long p0) throws android.os.RemoteException {}
+        public void onStyleUpdated(android.hardware.biometrics.BiometricPromptStyleSpec p0) throws android.os.RemoteException {}
+        public void onSystemEvent(int p0) throws android.os.RemoteException {}
     }
 }

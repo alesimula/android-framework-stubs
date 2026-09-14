@@ -16,10 +16,6 @@ public abstract class ImsStateCallback {
     public abstract void onError();
     public abstract void onUnavailable(int p0);
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DisconnectedReason {
-    }
-
     private static class IImsStateCallbackStub extends com.android.internal.telephony.IImsStateCallback.Stub {
         private java.util.concurrent.Executor mExecutor;
         private java.lang.ref.WeakReference<android.telephony.ims.ImsStateCallback> mImsStateCallbackWeakRef;
@@ -27,5 +23,9 @@ public abstract class ImsStateCallback {
         java.util.concurrent.Executor getExecutor() { return null; }
         public void onAvailable() {}
         public void onUnavailable(int p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DisconnectedReason {
     }
 }

@@ -43,10 +43,6 @@ public class AnalogFrontendSettings extends android.media.tv.tuner.frontend.Fron
     public int getSignalType() { return 0; }
     public int getType() { return 0; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AftFlag {
-    }
-
     public static class Builder {
         private int mAftFlag;
         private long mFrequency;
@@ -60,6 +56,10 @@ public class AnalogFrontendSettings extends android.media.tv.tuner.frontend.Fron
         public android.media.tv.tuner.frontend.AnalogFrontendSettings.Builder setFrequencyLong(long p0) { return null; }
         public android.media.tv.tuner.frontend.AnalogFrontendSettings.Builder setSifStandard(int p0) { return null; }
         public android.media.tv.tuner.frontend.AnalogFrontendSettings.Builder setSignalType(int p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AftFlag {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

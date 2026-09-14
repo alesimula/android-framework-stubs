@@ -16,22 +16,6 @@ public interface IRadioIms extends android.os.IInterface {
     public void updateImsCallStatus(int p0, android.hardware.radio.ims.ImsCall[] p1) throws android.os.RemoteException;
     public void updateImsRegistrationInfo(int p0, android.hardware.radio.ims.ImsRegistration p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.ims.IRadioIms {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void sendAnbrQuery(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.ims.IRadioImsResponse p0, android.hardware.radio.ims.IRadioImsIndication p1) throws android.os.RemoteException {}
-        public void setSrvccCallInfo(int p0, android.hardware.radio.ims.SrvccCall[] p1) throws android.os.RemoteException {}
-        public void startImsTraffic(int p0, int p1, int p2, int p3, int p4) throws android.os.RemoteException {}
-        public void stopImsTraffic(int p0, int p1) throws android.os.RemoteException {}
-        public void triggerEpsFallback(int p0, int p1) throws android.os.RemoteException {}
-        public void updateAllowedServices(int p0, android.hardware.radio.ims.ImsService[] p1) throws android.os.RemoteException {}
-        public void updateImsCallStatus(int p0, android.hardware.radio.ims.ImsCall[] p1) throws android.os.RemoteException {}
-        public void updateImsRegistrationInfo(int p0, android.hardware.radio.ims.ImsRegistration p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.ims.IRadioIms {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -68,5 +52,21 @@ public interface IRadioIms extends android.os.IInterface {
             public void updateImsCallStatus(int p0, android.hardware.radio.ims.ImsCall[] p1) throws android.os.RemoteException {}
             public void updateImsRegistrationInfo(int p0, android.hardware.radio.ims.ImsRegistration p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.ims.IRadioIms {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void sendAnbrQuery(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.ims.IRadioImsResponse p0, android.hardware.radio.ims.IRadioImsIndication p1) throws android.os.RemoteException {}
+        public void setSrvccCallInfo(int p0, android.hardware.radio.ims.SrvccCall[] p1) throws android.os.RemoteException {}
+        public void startImsTraffic(int p0, int p1, int p2, int p3, int p4) throws android.os.RemoteException {}
+        public void stopImsTraffic(int p0, int p1) throws android.os.RemoteException {}
+        public void triggerEpsFallback(int p0, int p1) throws android.os.RemoteException {}
+        public void updateAllowedServices(int p0, android.hardware.radio.ims.ImsService[] p1) throws android.os.RemoteException {}
+        public void updateImsCallStatus(int p0, android.hardware.radio.ims.ImsCall[] p1) throws android.os.RemoteException {}
+        public void updateImsRegistrationInfo(int p0, android.hardware.radio.ims.ImsRegistration p1) throws android.os.RemoteException {}
     }
 }

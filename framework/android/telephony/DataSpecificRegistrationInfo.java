@@ -31,6 +31,10 @@ public final class DataSpecificRegistrationInfo implements android.os.Parcelable
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LteAttachResultType {
+    }
+
     public static final class Builder {
         private boolean mIsDcNrRestricted;
         private boolean mIsEnDcAvailable;
@@ -51,9 +55,5 @@ public final class DataSpecificRegistrationInfo implements android.os.Parcelable
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface LteAttachExtraInfo {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LteAttachResultType {
     }
 }

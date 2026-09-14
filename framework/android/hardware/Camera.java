@@ -86,7 +86,7 @@ public class Camera {
     private static void postEventFromNative(java.lang.Object p0, int p1, int p2, int p3, java.lang.Object p4) {}
     private void releaseAppOps() {}
     private static void reportDeprecation(android.content.Context p0, int p1, int p2) {}
-    private final native void setHasPreviewCallback(boolean p0, boolean p1);
+    private final native void setHasPreviewCallback(boolean p0, boolean p1, boolean p2);
     private final native void setPreviewCallbackSurface(android.view.Surface p0);
     private boolean shouldForceSlowJpegMode() { return false; }
     private void updateAppOpsPlayAudio() {}
@@ -128,21 +128,8 @@ public class Camera {
     public final native void unlock();
 
     @java.lang.Deprecated
-    public static class Area {
-        public android.graphics.Rect rect;
-        public int weight;
-        public Area(android.graphics.Rect p0, int p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-    }
-
-    @java.lang.Deprecated
-    public static interface AutoFocusCallback {
-        public void onAutoFocus(boolean p0, android.hardware.Camera p1);
-    }
-
-    @java.lang.Deprecated
-    public static interface AutoFocusMoveCallback {
-        public void onAutoFocusMoving(boolean p0, android.hardware.Camera p1);
+    public static interface FaceDetectionListener {
+        public void onFaceDetection(android.hardware.Camera.Face[] p0, android.hardware.Camera p1);
     }
 
     @java.lang.Deprecated
@@ -153,17 +140,6 @@ public class Camera {
         public int facing;
         public int orientation;
         public CameraInfo() {}
-    }
-
-    @java.lang.Deprecated
-    public static interface ErrorCallback {
-        public void onError(int p0, android.hardware.Camera p1);
-    }
-
-    private class EventHandler extends android.os.Handler {
-        private final android.hardware.Camera mCamera = null;
-        public EventHandler(android.hardware.Camera p0, android.hardware.Camera p1, android.os.Looper p2) { super(); }
-        public void handleMessage(android.os.Message p0) {}
     }
 
     @java.lang.Deprecated
@@ -178,14 +154,57 @@ public class Camera {
     }
 
     @java.lang.Deprecated
-    public static interface FaceDetectionListener {
-        public void onFaceDetection(android.hardware.Camera.Face[] p0, android.hardware.Camera p1);
+    public class Size {
+        public int height;
+        public int width;
+        public Size(android.hardware.Camera p0, int p1, int p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.Deprecated
+    public static interface ErrorCallback {
+        public void onError(int p0, android.hardware.Camera p1);
+    }
+
+    @java.lang.Deprecated
+    public static interface AutoFocusCallback {
+        public void onAutoFocus(boolean p0, android.hardware.Camera p1);
+    }
+
+    private class EventHandler extends android.os.Handler {
+        private final android.hardware.Camera mCamera = null;
+        public EventHandler(android.hardware.Camera p0, android.hardware.Camera p1, android.os.Looper p2) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.Deprecated
+    public static interface PictureCallback {
+        public void onPictureTaken(byte[] p0, android.hardware.Camera p1);
+    }
+
+    @java.lang.Deprecated
+    public static interface ShutterCallback {
+        public void onShutter();
+    }
+
+    @java.lang.Deprecated
+    public static class Area {
+        public android.graphics.Rect rect;
+        public int weight;
+        public Area(android.graphics.Rect p0, int p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
     }
 
     private static class IAppOpsCallbackWrapper extends com.android.internal.app.IAppOpsCallback.Stub {
         private final java.lang.ref.WeakReference<android.hardware.Camera> mWeakCamera = null;
         IAppOpsCallbackWrapper(android.hardware.Camera p0) { super(); }
         public void opChanged(int p0, int p1, java.lang.String p2, java.lang.String p3) {}
+    }
+
+    @java.lang.Deprecated
+    public static interface PreviewCallback {
+        public void onPreviewFrame(byte[] p0, android.hardware.Camera p1);
     }
 
     @java.lang.Deprecated
@@ -432,26 +451,7 @@ public class Camera {
     }
 
     @java.lang.Deprecated
-    public static interface PictureCallback {
-        public void onPictureTaken(byte[] p0, android.hardware.Camera p1);
-    }
-
-    @java.lang.Deprecated
-    public static interface PreviewCallback {
-        public void onPreviewFrame(byte[] p0, android.hardware.Camera p1);
-    }
-
-    @java.lang.Deprecated
-    public static interface ShutterCallback {
-        public void onShutter();
-    }
-
-    @java.lang.Deprecated
-    public class Size {
-        public int height;
-        public int width;
-        public Size(android.hardware.Camera p0, int p1, int p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
+    public static interface AutoFocusMoveCallback {
+        public void onAutoFocusMoving(boolean p0, android.hardware.Camera p1);
     }
 }

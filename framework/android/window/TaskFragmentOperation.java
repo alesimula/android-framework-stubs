@@ -51,6 +51,10 @@ public final class TaskFragmentOperation implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OperationType {
+    }
+
     public static final class Builder {
         private android.content.Intent mActivityIntent;
         private android.os.IBinder mActivityToken;
@@ -71,9 +75,5 @@ public final class TaskFragmentOperation implements android.os.Parcelable {
         public android.window.TaskFragmentOperation.Builder setSecondaryFragmentToken(android.os.IBinder p0) { return null; }
         public android.window.TaskFragmentOperation.Builder setSurfaceTransaction(android.view.SurfaceControl.Transaction p0) { return null; }
         public android.window.TaskFragmentOperation.Builder setTaskFragmentCreationParams(android.window.TaskFragmentCreationParams p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OperationType {
     }
 }

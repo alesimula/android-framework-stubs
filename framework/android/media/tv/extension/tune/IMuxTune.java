@@ -1,15 +1,11 @@
 package android.media.tv.extension.tune;
 
+@java.lang.Deprecated
 public interface IMuxTune extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.tune.IMuxTune";
     public android.media.tv.extension.tune.IMuxTuneSession createSession(int p0, java.lang.String p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.tune.IMuxTune {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.media.tv.extension.tune.IMuxTuneSession createSession(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-    }
-
+    @java.lang.Deprecated
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.tune.IMuxTune {
         static final int TRANSACTION_createSession = 1;
         public Stub() { super(); }
@@ -19,6 +15,7 @@ public interface IMuxTune extends android.os.IInterface {
         public java.lang.String getTransactionName(int p0) { return null; }
         public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
 
+        @java.lang.Deprecated
         private static final class Proxy implements android.media.tv.extension.tune.IMuxTune {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
@@ -26,5 +23,12 @@ public interface IMuxTune extends android.os.IInterface {
             public android.media.tv.extension.tune.IMuxTuneSession createSession(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    @java.lang.Deprecated
+    public static class Default implements android.media.tv.extension.tune.IMuxTune {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.media.tv.extension.tune.IMuxTuneSession createSession(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
     }
 }

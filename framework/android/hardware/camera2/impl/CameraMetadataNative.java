@@ -63,6 +63,7 @@ public class CameraMetadataNative implements android.os.Parcelable {
     private android.hardware.camera2.params.SharedSessionConfiguration getSharedSessionConfiguration() { return null; }
     private android.hardware.camera2.params.StreamConfigurationMap getStreamConfigurationMap() { return null; }
     private android.hardware.camera2.params.StreamConfigurationMap getStreamConfigurationMapMaximumResolution() { return null; }
+    private android.graphics.Path getSubjectSegmentationPath() { return null; }
     public static int getTag(java.lang.String p0) { return 0; }
     public static int getTag(java.lang.String p0, long p1) { return 0; }
     private <T extends java.lang.Object> android.hardware.camera2.params.TonemapCurve getTonemapCurve() { return null; }
@@ -107,6 +108,7 @@ public class CameraMetadataNative implements android.os.Parcelable {
     private boolean setLensIntrinsicsSamples(android.hardware.camera2.params.LensIntrinsicsSample[] p0) { return false; }
     private boolean setLensShadingMap(android.hardware.camera2.params.LensShadingMap p0) { return false; }
     private <T extends java.lang.Object> boolean setScalerCropRegion(android.graphics.Rect p0) { return false; }
+    private boolean setSubjectSegmentationPath(android.graphics.Path p0) { return false; }
     private <T extends java.lang.Object> boolean setTonemapCurve(android.hardware.camera2.params.TonemapCurve p0) { return false; }
     public static void setupGlobalVendorTagDescriptor() throws android.os.ServiceSpecificException {}
     private static java.lang.String translateLocationProviderToProcess(java.lang.String p0) { return null; }
@@ -144,6 +146,13 @@ public class CameraMetadataNative implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeValues(int p0, byte[] p1) {}
 
+    private class StreamConfigurationData {
+        android.hardware.camera2.params.StreamConfigurationDuration[] minDurationArray;
+        android.hardware.camera2.params.StreamConfigurationDuration[] stallDurationArray;
+        android.hardware.camera2.params.StreamConfiguration[] streamConfigurationArray;
+        private StreamConfigurationData(android.hardware.camera2.impl.CameraMetadataNative p0) {}
+    }
+
     public static class Key<T extends java.lang.Object> {
         private final java.lang.String mFallbackName = null;
         private boolean mHasTag;
@@ -166,12 +175,5 @@ public class CameraMetadataNative implements android.os.Parcelable {
         public final long getVendorId() { return 0L; }
         public final boolean hasTag() { return false; }
         public final int hashCode() { return 0; }
-    }
-
-    private class StreamConfigurationData {
-        android.hardware.camera2.params.StreamConfigurationDuration[] minDurationArray;
-        android.hardware.camera2.params.StreamConfigurationDuration[] stallDurationArray;
-        android.hardware.camera2.params.StreamConfiguration[] streamConfigurationArray;
-        private StreamConfigurationData(android.hardware.camera2.impl.CameraMetadataNative p0) {}
     }
 }

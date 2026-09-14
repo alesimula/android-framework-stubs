@@ -57,11 +57,7 @@ public interface InputConnection {
     default public android.view.inputmethod.TextSnapshot takeSnapshot() { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CursorUpdateFilter {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CursorUpdateMode {
+    public static @interface HandwritingGestureResult {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -69,6 +65,10 @@ public interface InputConnection {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HandwritingGestureResult {
+    public static @interface CursorUpdateFilter {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CursorUpdateMode {
     }
 }

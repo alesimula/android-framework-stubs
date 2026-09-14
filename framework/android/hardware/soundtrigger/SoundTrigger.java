@@ -37,19 +37,6 @@ public class SoundTrigger {
     @java.lang.Deprecated
     public static int listModulesAsOriginator(java.util.ArrayList<android.hardware.soundtrigger.SoundTrigger.ModuleProperties> p0, android.media.permission.Identity p1) { return 0; }
 
-    public static class ConfidenceLevel implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.ConfidenceLevel> CREATOR = null;
-        public final int confidenceLevel = 0;
-        public final int userId = 0;
-        public ConfidenceLevel(int p0, int p1) {}
-        private static android.hardware.soundtrigger.SoundTrigger.ConfidenceLevel fromParcel(android.os.Parcel p0) { return null; }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class GenericRecognitionEvent extends android.hardware.soundtrigger.SoundTrigger.RecognitionEvent implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent> CREATOR = null;
         public GenericRecognitionEvent(int p0, int p1, boolean p2, int p3, int p4, int p5, boolean p6, android.media.AudioFormat p7, byte[] p8, long p9, android.os.IBinder p10) { super(0, 0, false, 0, 0, 0, false, (android.media.AudioFormat)null, (byte[])null, 0L); }
@@ -57,16 +44,6 @@ public class SoundTrigger {
         private static android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent fromParcelForGeneric(android.os.Parcel p0) { return null; }
         public boolean equals(java.lang.Object p0) { return false; }
         public java.lang.String toString() { return null; }
-    }
-
-    public static final class GenericSoundModel extends android.hardware.soundtrigger.SoundTrigger.SoundModel implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.GenericSoundModel> CREATOR = null;
-        public GenericSoundModel(java.util.UUID p0, java.util.UUID p1, byte[] p2) { super(null, null, 0, null, 0); }
-        public GenericSoundModel(java.util.UUID p0, java.util.UUID p1, byte[] p2, int p3) { super(null, null, 0, null, 0); }
-        private static android.hardware.soundtrigger.SoundTrigger.GenericSoundModel fromParcel(android.os.Parcel p0) { return null; }
-        public int describeContents() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static final class Keyphrase implements android.os.Parcelable {
@@ -90,14 +67,16 @@ public class SoundTrigger {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class KeyphraseRecognitionEvent extends android.hardware.soundtrigger.SoundTrigger.RecognitionEvent implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent> CREATOR = null;
-        public final android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] keyphraseExtras = null;
-        public KeyphraseRecognitionEvent(int p0, int p1, boolean p2, int p3, int p4, int p5, boolean p6, android.media.AudioFormat p7, byte[] p8, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p9, long p10, android.os.IBinder p11) { super(0, 0, false, 0, 0, 0, false, (android.media.AudioFormat)null, (byte[])null, 0L); }
-        public KeyphraseRecognitionEvent(int p0, int p1, boolean p2, int p3, int p4, int p5, boolean p6, android.media.AudioFormat p7, byte[] p8, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p9, boolean p10, long p11, android.os.IBinder p12) { super(0, 0, false, 0, 0, 0, false, (android.media.AudioFormat)null, (byte[])null, 0L); }
-        private static android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent fromParcelForKeyphrase(android.os.Parcel p0) { return null; }
+    public static final class ModelParamRange implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.ModelParamRange> CREATOR = null;
+        private final int mEnd = 0;
+        private final int mStart = 0;
+        public ModelParamRange(int p0, int p1) {}
+        private ModelParamRange(android.os.Parcel p0) {}
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
+        public int getEnd() { return 0; }
+        public int getStart() { return 0; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
@@ -123,6 +102,23 @@ public class SoundTrigger {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecognitionModes {
+    }
+
+    public static class ConfidenceLevel implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.ConfidenceLevel> CREATOR = null;
+        public final int confidenceLevel = 0;
+        public final int userId = 0;
+        public ConfidenceLevel(int p0, int p1) {}
+        private static android.hardware.soundtrigger.SoundTrigger.ConfidenceLevel fromParcel(android.os.Parcel p0) { return null; }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static final class KeyphraseSoundModel extends android.hardware.soundtrigger.SoundTrigger.SoundModel implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.KeyphraseSoundModel> CREATOR = null;
         private final android.hardware.soundtrigger.SoundTrigger.Keyphrase[] mKeyphrases = null;
@@ -137,23 +133,85 @@ public class SoundTrigger {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static final class ModelParamRange implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.ModelParamRange> CREATOR = null;
-        private final int mEnd = 0;
-        private final int mStart = 0;
-        public ModelParamRange(int p0, int p1) {}
-        private ModelParamRange(android.os.Parcel p0) {}
+    public static interface StatusListener {
+        public void onModelUnloaded(int p0);
+        public void onRecognition(android.hardware.soundtrigger.SoundTrigger.RecognitionEvent p0);
+        public void onResourcesAvailable();
+        public void onServiceDied();
+    }
+
+    public static final class RecognitionConfig implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.RecognitionConfig> CREATOR = null;
+        private final int mAudioCapabilities = 0;
+        private final boolean mCaptureRequested = false;
+        private final byte[] mData = null;
+        private final android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] mKeyphrases = null;
+        private final boolean mMultipleTriggersAllowed = false;
+        @java.lang.Deprecated
+        public RecognitionConfig(boolean p0, boolean p1, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p2, byte[] p3) {}
+        private RecognitionConfig(boolean p0, boolean p1, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p2, byte[] p3, int p4) {}
+        private static android.hardware.soundtrigger.SoundTrigger.RecognitionConfig fromParcel(android.os.Parcel p0) { return null; }
+        public int describeContents() { return 0; }
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public int getAudioCapabilities() { return 0; }
+        public byte[] getData() { return null; }
+        public java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> getKeyphrases() { return null; }
+        public final int hashCode() { return 0; }
+        public boolean isCaptureRequested() { return false; }
+        public boolean isMultipleTriggersAllowed() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        public static final class Builder {
+            private int mAudioCapabilities;
+            private boolean mCaptureRequested;
+            private byte[] mData;
+            private android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] mKeyphrases;
+            private boolean mMultipleTriggersAllowed;
+            public Builder() {}
+            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig build() { return null; }
+            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setAudioCapabilities(int p0) { return null; }
+            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setCaptureRequested(boolean p0) { return null; }
+            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setData(byte[] p0) { return null; }
+            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setKeyphrases(java.util.Collection<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p0) { return null; }
+            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setMultipleTriggersAllowed(boolean p0) { return null; }
+        }
+    }
+
+    public static class KeyphraseRecognitionEvent extends android.hardware.soundtrigger.SoundTrigger.RecognitionEvent implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent> CREATOR = null;
+        public final android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] keyphraseExtras = null;
+        public KeyphraseRecognitionEvent(int p0, int p1, boolean p2, int p3, int p4, int p5, boolean p6, android.media.AudioFormat p7, byte[] p8, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p9, long p10, android.os.IBinder p11) { super(0, 0, false, 0, 0, 0, false, (android.media.AudioFormat)null, (byte[])null, 0L); }
+        public KeyphraseRecognitionEvent(int p0, int p1, boolean p2, int p3, int p4, int p5, boolean p6, android.media.AudioFormat p7, byte[] p8, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p9, boolean p10, long p11, android.os.IBinder p12) { super(0, 0, false, 0, 0, 0, false, (android.media.AudioFormat)null, (byte[])null, 0L); }
+        private static android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent fromParcelForKeyphrase(android.os.Parcel p0) { return null; }
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
-        public int getEnd() { return 0; }
-        public int getStart() { return 0; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ModelParamTypes {
+    public static class SoundModel {
+        public static final int TYPE_GENERIC_SOUND = 1;
+        public static final int TYPE_KEYPHRASE = 0;
+        public static final int TYPE_UNKNOWN = -1;
+        private final byte[] mData = null;
+        private final int mType = 0;
+        private final java.util.UUID mUuid = null;
+        private final java.util.UUID mVendorUuid = null;
+        private final int mVersion = 0;
+        public SoundModel(java.util.UUID p0, java.util.UUID p1, int p2, byte[] p3, int p4) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public byte[] getData() { return null; }
+        public int getType() { return 0; }
+        public java.util.UUID getUuid() { return null; }
+        public java.util.UUID getVendorUuid() { return null; }
+        public int getVersion() { return 0; }
+        public int hashCode() { return 0; }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface SoundModelType {
+        }
     }
 
     public static final class ModuleProperties implements android.os.Parcelable {
@@ -205,42 +263,14 @@ public class SoundTrigger {
         }
     }
 
-    public static final class RecognitionConfig implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.RecognitionConfig> CREATOR = null;
-        private final int mAudioCapabilities = 0;
-        private final boolean mCaptureRequested = false;
-        private final byte[] mData = null;
-        private final android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] mKeyphrases = null;
-        private final boolean mMultipleTriggersAllowed = false;
-        @java.lang.Deprecated
-        public RecognitionConfig(boolean p0, boolean p1, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p2, byte[] p3) {}
-        private RecognitionConfig(boolean p0, boolean p1, android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] p2, byte[] p3, int p4) {}
-        private static android.hardware.soundtrigger.SoundTrigger.RecognitionConfig fromParcel(android.os.Parcel p0) { return null; }
+    public static final class GenericSoundModel extends android.hardware.soundtrigger.SoundTrigger.SoundModel implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.soundtrigger.SoundTrigger.GenericSoundModel> CREATOR = null;
+        public GenericSoundModel(java.util.UUID p0, java.util.UUID p1, byte[] p2) { super(null, null, 0, null, 0); }
+        public GenericSoundModel(java.util.UUID p0, java.util.UUID p1, byte[] p2, int p3) { super(null, null, 0, null, 0); }
+        private static android.hardware.soundtrigger.SoundTrigger.GenericSoundModel fromParcel(android.os.Parcel p0) { return null; }
         public int describeContents() { return 0; }
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public int getAudioCapabilities() { return 0; }
-        public byte[] getData() { return null; }
-        public java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> getKeyphrases() { return null; }
-        public final int hashCode() { return 0; }
-        public boolean isCaptureRequested() { return false; }
-        public boolean isMultipleTriggersAllowed() { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        public static final class Builder {
-            private int mAudioCapabilities;
-            private boolean mCaptureRequested;
-            private byte[] mData;
-            private android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra[] mKeyphrases;
-            private boolean mMultipleTriggersAllowed;
-            public Builder() {}
-            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig build() { return null; }
-            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setAudioCapabilities(int p0) { return null; }
-            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setCaptureRequested(boolean p0) { return null; }
-            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setData(byte[] p0) { return null; }
-            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setKeyphrases(java.util.Collection<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p0) { return null; }
-            public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig.Builder setMultipleTriggersAllowed(boolean p0) { return null; }
-        }
     }
 
     public static class RecognitionEvent {
@@ -274,36 +304,6 @@ public class SoundTrigger {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecognitionModes {
-    }
-
-    public static class SoundModel {
-        public static final int TYPE_GENERIC_SOUND = 1;
-        public static final int TYPE_KEYPHRASE = 0;
-        public static final int TYPE_UNKNOWN = -1;
-        private final byte[] mData = null;
-        private final int mType = 0;
-        private final java.util.UUID mUuid = null;
-        private final java.util.UUID mVendorUuid = null;
-        private final int mVersion = 0;
-        public SoundModel(java.util.UUID p0, java.util.UUID p1, int p2, byte[] p3, int p4) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public byte[] getData() { return null; }
-        public int getType() { return 0; }
-        public java.util.UUID getUuid() { return null; }
-        public java.util.UUID getVendorUuid() { return null; }
-        public int getVersion() { return 0; }
-        public int hashCode() { return 0; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface SoundModelType {
-        }
-    }
-
-    public static interface StatusListener {
-        public void onModelUnloaded(int p0);
-        public void onRecognition(android.hardware.soundtrigger.SoundTrigger.RecognitionEvent p0);
-        public void onResourcesAvailable();
-        public void onServiceDied();
+    public static @interface ModelParamTypes {
     }
 }

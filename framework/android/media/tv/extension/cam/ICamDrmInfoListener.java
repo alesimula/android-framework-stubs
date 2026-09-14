@@ -4,12 +4,6 @@ public interface ICamDrmInfoListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.cam.ICamDrmInfoListener";
     public void onCamDrmInfoChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.cam.ICamDrmInfoListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCamDrmInfoChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.cam.ICamDrmInfoListener {
         static final int TRANSACTION_onCamDrmInfoChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICamDrmInfoListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onCamDrmInfoChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.cam.ICamDrmInfoListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCamDrmInfoChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
     }
 }

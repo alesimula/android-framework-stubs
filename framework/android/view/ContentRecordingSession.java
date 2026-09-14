@@ -11,7 +11,7 @@ public final class ContentRecordingSession implements android.os.Parcelable {
     public static final int TASK_ID_UNKNOWN = -1;
     private int mContentToRecord;
     private int mDisplayToRecord;
-    private android.os.IBinder mRecordingOverlayToken;
+    private android.view.IWindowId mLowestExcludedLayer;
     private int mRecordingOwnerUid;
     private int mTargetUid;
     private int mTaskId;
@@ -19,13 +19,13 @@ public final class ContentRecordingSession implements android.os.Parcelable {
     private int mVirtualDisplayId;
     private boolean mWaitingForConsent;
     private ContentRecordingSession() {}
-    ContentRecordingSession(int p0, int p1, int p2, int p3, int p4, android.os.IBinder p5, android.os.IBinder p6, boolean p7, int p8) {}
+    ContentRecordingSession(int p0, int p1, int p2, int p3, int p4, android.os.IBinder p5, android.view.IWindowId p6, boolean p7, int p8) {}
     ContentRecordingSession(android.os.Parcel p0) {}
     @java.lang.Deprecated
     private void __metadata() {}
     public static android.view.ContentRecordingSession createAppContentSession() { return null; }
     public static android.view.ContentRecordingSession createDisplaySession(int p0) { return null; }
-    public static android.view.ContentRecordingSession createOverlaySession(int p0, int p1, android.os.IBinder p2) { return null; }
+    public static android.view.ContentRecordingSession createOverlaySession(int p0, int p1, android.view.IWindowId p2) { return null; }
     public static android.view.ContentRecordingSession createTaskSession(android.os.IBinder p0) { return null; }
     public static android.view.ContentRecordingSession createTaskSession(android.os.IBinder p0, int p1) { return null; }
     public static boolean isProjectionOnSameDisplay(android.view.ContentRecordingSession p0, android.view.ContentRecordingSession p1) { return false; }
@@ -36,7 +36,7 @@ public final class ContentRecordingSession implements android.os.Parcelable {
     public boolean equals(java.lang.Object p0) { return false; }
     public int getContentToRecord() { return 0; }
     public int getDisplayToRecord() { return 0; }
-    public android.os.IBinder getRecordingOverlayToken() { return null; }
+    public android.view.IWindowId getLowestExcludedLayer() { return null; }
     public int getRecordingOwnerUid() { return 0; }
     public int getTargetUid() { return 0; }
     public int getTaskId() { return 0; }
@@ -46,7 +46,7 @@ public final class ContentRecordingSession implements android.os.Parcelable {
     public boolean isWaitingForConsent() { return false; }
     public android.view.ContentRecordingSession setContentToRecord(int p0) { return null; }
     public android.view.ContentRecordingSession setDisplayToRecord(int p0) { return null; }
-    public android.view.ContentRecordingSession setRecordingOverlayToken(android.os.IBinder p0) { return null; }
+    public android.view.ContentRecordingSession setLowestExcludedLayer(android.view.IWindowId p0) { return null; }
     public android.view.ContentRecordingSession setRecordingOwnerUid(int p0) { return null; }
     public android.view.ContentRecordingSession setTargetUid(int p0) { return null; }
     public android.view.ContentRecordingSession setTaskId(int p0) { return null; }
@@ -56,11 +56,19 @@ public final class ContentRecordingSession implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TargetUid {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecordContent {
+    }
+
     public static final class Builder {
         private long mBuilderFieldsSet;
         private int mContentToRecord;
         private int mDisplayToRecord;
-        private android.os.IBinder mRecordingOverlayToken;
+        private android.view.IWindowId mLowestExcludedLayer;
         private int mRecordingOwnerUid;
         private int mTargetUid;
         private int mTaskId;
@@ -72,20 +80,12 @@ public final class ContentRecordingSession implements android.os.Parcelable {
         public android.view.ContentRecordingSession build() { return null; }
         public android.view.ContentRecordingSession.Builder setContentToRecord(int p0) { return null; }
         public android.view.ContentRecordingSession.Builder setDisplayToRecord(int p0) { return null; }
-        public android.view.ContentRecordingSession.Builder setRecordingOverlayToken(android.os.IBinder p0) { return null; }
+        public android.view.ContentRecordingSession.Builder setLowestExcludedLayer(android.view.IWindowId p0) { return null; }
         public android.view.ContentRecordingSession.Builder setRecordingOwnerUid(int p0) { return null; }
         public android.view.ContentRecordingSession.Builder setTargetUid(int p0) { return null; }
         public android.view.ContentRecordingSession.Builder setTaskId(int p0) { return null; }
         public android.view.ContentRecordingSession.Builder setTokenToRecord(android.os.IBinder p0) { return null; }
         public android.view.ContentRecordingSession.Builder setVirtualDisplayId(int p0) { return null; }
         public android.view.ContentRecordingSession.Builder setWaitingForConsent(boolean p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecordContent {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TargetUid {
     }
 }

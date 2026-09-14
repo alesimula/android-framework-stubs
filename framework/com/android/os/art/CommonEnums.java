@@ -26,6 +26,7 @@ public final class CommonEnums {
     public static final int ART_COMPILATION_FILTER_VERIFY = 5;
     public static final int ART_COMPILATION_REASON_ABSENT = 27;
     public static final int ART_COMPILATION_REASON_AB_OTA = 7;
+    public static final int ART_COMPILATION_REASON_AB_OTA_SYNC = 28;
     public static final int ART_COMPILATION_REASON_BG_DEXOPT = 6;
     public static final int ART_COMPILATION_REASON_BOOT = 4;
     public static final int ART_COMPILATION_REASON_BOOT_AFTER_MAINLINE_UPDATE = 21;

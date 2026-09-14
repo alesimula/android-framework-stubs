@@ -3,7 +3,8 @@ package android.telephony.data;
 @android.annotation.SystemApi
 public final class NrQosSessionAttributes implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.telephony.data.NrQosSessionAttributes> CREATOR = null;
-    private static final java.lang.String TAG = null;
+    private static final int MAX_REMOTE_ADDRESSES = 16;
+    private static final java.lang.String TAG = "NrQosSessionAttributes";
     private final int m5Qi = 0;
     private final long mAveragingWindow = 0L;
     private final long mGuaranteedDownlinkBitRate = 0L;

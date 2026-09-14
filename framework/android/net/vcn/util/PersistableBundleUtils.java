@@ -28,10 +28,6 @@ public class PersistableBundleUtils {
     public static <K extends java.lang.Object, V extends java.lang.Object> java.util.LinkedHashMap<K, V> toMap(android.os.PersistableBundle p0, android.net.vcn.util.PersistableBundleUtils.Deserializer<K> p1, android.net.vcn.util.PersistableBundleUtils.Deserializer<V> p2) { return null; }
     public static android.os.ParcelUuid toParcelUuid(android.os.PersistableBundle p0) { return null; }
 
-    public static interface Deserializer<T extends java.lang.Object> {
-        public T fromPersistableBundle(android.os.PersistableBundle p0);
-    }
-
     public static class LockingReadWriteHelper {
         private final java.util.concurrent.locks.ReadWriteLock mDiskLock = null;
         private final java.lang.String mPath = null;
@@ -40,10 +36,15 @@ public class PersistableBundleUtils {
         public void writeToDisk(android.os.PersistableBundle p0) throws java.io.IOException {}
     }
 
+    public static interface Deserializer<T extends java.lang.Object> {
+        public T fromPersistableBundle(android.os.PersistableBundle p0);
+    }
+
     public static class PersistableBundleWrapper {
         private final android.os.PersistableBundle mBundle = null;
         public PersistableBundleWrapper(android.os.PersistableBundle p0) {}
         public boolean equals(java.lang.Object p0) { return false; }
+        public boolean getBoolean(java.lang.String p0, boolean p1) { return false; }
         public int getInt(java.lang.String p0, int p1) { return 0; }
         public int[] getIntArray(java.lang.String p0, int[] p1) { return null; }
         public int hashCode() { return 0; }

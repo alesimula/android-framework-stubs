@@ -8,17 +8,6 @@ public interface IImsServiceController extends android.os.IInterface {
     public void removeFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException;
     public void removeImsFeature(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsServiceController {
-        public Default() {}
-        public void addFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public com.android.ims.internal.IImsMMTelFeature createEmergencyMMTelFeature(int p0) throws android.os.RemoteException { return null; }
-        public com.android.ims.internal.IImsMMTelFeature createMMTelFeature(int p0) throws android.os.RemoteException { return null; }
-        public com.android.ims.internal.IImsRcsFeature createRcsFeature(int p0) throws android.os.RemoteException { return null; }
-        public void removeFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
-        public void removeImsFeature(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsServiceController {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsServiceController";
         static final int TRANSACTION_addFeatureStatusCallback = 5;
@@ -46,5 +35,16 @@ public interface IImsServiceController extends android.os.IInterface {
             public void removeFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
             public void removeImsFeature(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsServiceController {
+        public Default() {}
+        public void addFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public com.android.ims.internal.IImsMMTelFeature createEmergencyMMTelFeature(int p0) throws android.os.RemoteException { return null; }
+        public com.android.ims.internal.IImsMMTelFeature createMMTelFeature(int p0) throws android.os.RemoteException { return null; }
+        public com.android.ims.internal.IImsRcsFeature createRcsFeature(int p0) throws android.os.RemoteException { return null; }
+        public void removeFeatureStatusCallback(int p0, int p1, com.android.ims.internal.IImsFeatureStatusCallback p2) throws android.os.RemoteException {}
+        public void removeImsFeature(int p0, int p1) throws android.os.RemoteException {}
     }
 }

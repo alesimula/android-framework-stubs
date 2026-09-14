@@ -42,52 +42,11 @@ public class TabHost extends android.widget.FrameLayout implements android.view.
     public void setup() {}
     public void setup(android.app.LocalActivityManager p0) {}
 
-    private static interface ContentStrategy {
-        public android.view.View getContentView();
-        public void tabClosed();
-    }
-
-    private class FactoryContentStrategy implements android.widget.TabHost.ContentStrategy {
-        private android.widget.TabHost.TabContentFactory mFactory;
-        private android.view.View mTabContent;
-        private final java.lang.CharSequence mTag = null;
-        public FactoryContentStrategy(android.widget.TabHost p0, java.lang.CharSequence p1, android.widget.TabHost.TabContentFactory p2) {}
-        public android.view.View getContentView() { return null; }
-        public void tabClosed() {}
-    }
-
-    private static interface IndicatorStrategy {
-        public android.view.View createIndicatorView();
-    }
-
-    private class IntentContentStrategy implements android.widget.TabHost.ContentStrategy {
-        private final android.content.Intent mIntent = null;
-        private android.view.View mLaunchedView;
-        private final java.lang.String mTag = null;
-        private IntentContentStrategy(android.widget.TabHost p0, java.lang.String p1, android.content.Intent p2) {}
-        public android.view.View getContentView() { return null; }
-        public void tabClosed() {}
-    }
-
     private class LabelAndIconIndicatorStrategy implements android.widget.TabHost.IndicatorStrategy {
         private final android.graphics.drawable.Drawable mIcon = null;
         private final java.lang.CharSequence mLabel = null;
         private LabelAndIconIndicatorStrategy(android.widget.TabHost p0, java.lang.CharSequence p1, android.graphics.drawable.Drawable p2) {}
         public android.view.View createIndicatorView() { return null; }
-    }
-
-    private class LabelIndicatorStrategy implements android.widget.TabHost.IndicatorStrategy {
-        private final java.lang.CharSequence mLabel = null;
-        private LabelIndicatorStrategy(android.widget.TabHost p0, java.lang.CharSequence p1) {}
-        public android.view.View createIndicatorView() { return null; }
-    }
-
-    public static interface OnTabChangeListener {
-        public void onTabChanged(java.lang.String p0);
-    }
-
-    public static interface TabContentFactory {
-        public android.view.View createTabContent(java.lang.String p0);
     }
 
     public class TabSpec {
@@ -104,6 +63,12 @@ public class TabHost extends android.widget.FrameLayout implements android.view.
         public android.widget.TabHost.TabSpec setIndicator(java.lang.CharSequence p0, android.graphics.drawable.Drawable p1) { return null; }
     }
 
+    private class LabelIndicatorStrategy implements android.widget.TabHost.IndicatorStrategy {
+        private final java.lang.CharSequence mLabel = null;
+        private LabelIndicatorStrategy(android.widget.TabHost p0, java.lang.CharSequence p1) {}
+        public android.view.View createIndicatorView() { return null; }
+    }
+
     private class ViewIdContentStrategy implements android.widget.TabHost.ContentStrategy {
         private final android.view.View mView = null;
         private ViewIdContentStrategy(android.widget.TabHost p0, int p1) {}
@@ -115,5 +80,40 @@ public class TabHost extends android.widget.FrameLayout implements android.view.
         private final android.view.View mView = null;
         private ViewIndicatorStrategy(android.widget.TabHost p0, android.view.View p1) {}
         public android.view.View createIndicatorView() { return null; }
+    }
+
+    public static interface OnTabChangeListener {
+        public void onTabChanged(java.lang.String p0);
+    }
+
+    public static interface TabContentFactory {
+        public android.view.View createTabContent(java.lang.String p0);
+    }
+
+    private static interface ContentStrategy {
+        public android.view.View getContentView();
+        public void tabClosed();
+    }
+
+    private static interface IndicatorStrategy {
+        public android.view.View createIndicatorView();
+    }
+
+    private class IntentContentStrategy implements android.widget.TabHost.ContentStrategy {
+        private final android.content.Intent mIntent = null;
+        private android.view.View mLaunchedView;
+        private final java.lang.String mTag = null;
+        private IntentContentStrategy(android.widget.TabHost p0, java.lang.String p1, android.content.Intent p2) {}
+        public android.view.View getContentView() { return null; }
+        public void tabClosed() {}
+    }
+
+    private class FactoryContentStrategy implements android.widget.TabHost.ContentStrategy {
+        private android.widget.TabHost.TabContentFactory mFactory;
+        private android.view.View mTabContent;
+        private final java.lang.CharSequence mTag = null;
+        public FactoryContentStrategy(android.widget.TabHost p0, java.lang.CharSequence p1, android.widget.TabHost.TabContentFactory p2) {}
+        public android.view.View getContentView() { return null; }
+        public void tabClosed() {}
     }
 }

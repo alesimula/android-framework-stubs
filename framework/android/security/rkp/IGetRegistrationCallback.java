@@ -6,14 +6,6 @@ public interface IGetRegistrationCallback extends android.os.IInterface {
     public void onError(java.lang.String p0) throws android.os.RemoteException;
     public void onSuccess(android.security.rkp.IRegistration p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.rkp.IGetRegistrationCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCancel() throws android.os.RemoteException {}
-        public void onError(java.lang.String p0) throws android.os.RemoteException {}
-        public void onSuccess(android.security.rkp.IRegistration p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.rkp.IGetRegistrationCallback {
         static final int TRANSACTION_onCancel = 2;
         static final int TRANSACTION_onError = 3;
@@ -34,5 +26,13 @@ public interface IGetRegistrationCallback extends android.os.IInterface {
             public void onError(java.lang.String p0) throws android.os.RemoteException {}
             public void onSuccess(android.security.rkp.IRegistration p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.rkp.IGetRegistrationCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCancel() throws android.os.RemoteException {}
+        public void onError(java.lang.String p0) throws android.os.RemoteException {}
+        public void onSuccess(android.security.rkp.IRegistration p0) throws android.os.RemoteException {}
     }
 }

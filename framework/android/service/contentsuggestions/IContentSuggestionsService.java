@@ -7,15 +7,6 @@ public interface IContentSuggestionsService extends android.os.IInterface {
     public void provideContextImage(int p0, android.window.TaskSnapshot p1, android.os.Bundle p2) throws android.os.RemoteException;
     public void suggestContentSelections(android.app.contentsuggestions.SelectionsRequest p0, android.app.contentsuggestions.ISelectionsCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentsuggestions.IContentSuggestionsService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void classifyContentSelections(android.app.contentsuggestions.ClassificationsRequest p0, android.app.contentsuggestions.IClassificationsCallback p1) throws android.os.RemoteException {}
-        public void notifyInteraction(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void provideContextImage(int p0, android.window.TaskSnapshot p1, android.os.Bundle p2) throws android.os.RemoteException {}
-        public void suggestContentSelections(android.app.contentsuggestions.SelectionsRequest p0, android.app.contentsuggestions.ISelectionsCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentsuggestions.IContentSuggestionsService {
         static final int TRANSACTION_classifyContentSelections = 3;
         static final int TRANSACTION_notifyInteraction = 4;
@@ -38,5 +29,14 @@ public interface IContentSuggestionsService extends android.os.IInterface {
             public void provideContextImage(int p0, android.window.TaskSnapshot p1, android.os.Bundle p2) throws android.os.RemoteException {}
             public void suggestContentSelections(android.app.contentsuggestions.SelectionsRequest p0, android.app.contentsuggestions.ISelectionsCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentsuggestions.IContentSuggestionsService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void classifyContentSelections(android.app.contentsuggestions.ClassificationsRequest p0, android.app.contentsuggestions.IClassificationsCallback p1) throws android.os.RemoteException {}
+        public void notifyInteraction(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void provideContextImage(int p0, android.window.TaskSnapshot p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void suggestContentSelections(android.app.contentsuggestions.SelectionsRequest p0, android.app.contentsuggestions.ISelectionsCallback p1) throws android.os.RemoteException {}
     }
 }

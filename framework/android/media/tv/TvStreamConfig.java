@@ -5,7 +5,7 @@ public class TvStreamConfig implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.media.tv.TvStreamConfig> CREATOR = null;
     public static final int STREAM_TYPE_BUFFER_PRODUCER = 2;
     public static final int STREAM_TYPE_INDEPENDENT_VIDEO_SOURCE = 1;
-    static final java.lang.String TAG = null;
+    static final java.lang.String TAG = "TvStreamConfig";
     private int mGeneration;
     private int mMaxHeight;
     private int mMaxWidth;

@@ -43,6 +43,7 @@ public interface ITvInteractiveAppManager extends android.os.IInterface {
     public void releaseSession(android.os.IBinder p0, int p1) throws android.os.RemoteException;
     public void removeMediaView(android.os.IBinder p0, int p1) throws android.os.RemoteException;
     public void removeWebServiceClient(android.os.IBinder p0, int p1, int p2) throws android.os.RemoteException;
+    public void requestOperatorAppIcon(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, android.os.Bundle p2, int p3) throws android.os.RemoteException;
     public void requestOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2) throws android.os.RemoteException;
     public void requestOperatorAppSupportedStatus(android.os.IBinder p0, int p1) throws android.os.RemoteException;
     public void requestWebServiceClients(android.os.IBinder p0, int p1) throws android.os.RemoteException;
@@ -126,6 +127,7 @@ public interface ITvInteractiveAppManager extends android.os.IInterface {
         public void releaseSession(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
         public void removeMediaView(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
         public void removeWebServiceClient(android.os.IBinder p0, int p1, int p2) throws android.os.RemoteException {}
+        public void requestOperatorAppIcon(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, android.os.Bundle p2, int p3) throws android.os.RemoteException {}
         public void requestOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2) throws android.os.RemoteException {}
         public void requestOperatorAppSupportedStatus(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
         public void requestWebServiceClients(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
@@ -203,14 +205,15 @@ public interface ITvInteractiveAppManager extends android.os.IInterface {
         static final int TRANSACTION_notifyVideoFreezeUpdated = 43;
         static final int TRANSACTION_notifyVideoUnavailable = 42;
         static final int TRANSACTION_registerAppLinkInfo = 3;
-        static final int TRANSACTION_registerCallback = 75;
+        static final int TRANSACTION_registerCallback = 76;
         static final int TRANSACTION_relayoutMediaView = 62;
         static final int TRANSACTION_releaseSession = 37;
         static final int TRANSACTION_removeMediaView = 63;
-        static final int TRANSACTION_removeWebServiceClient = 79;
+        static final int TRANSACTION_removeWebServiceClient = 80;
+        static final int TRANSACTION_requestOperatorAppIcon = 71;
         static final int TRANSACTION_requestOperatorAppPackageStatus = 69;
-        static final int TRANSACTION_requestOperatorAppSupportedStatus = 71;
-        static final int TRANSACTION_requestWebServiceClients = 77;
+        static final int TRANSACTION_requestOperatorAppSupportedStatus = 72;
+        static final int TRANSACTION_requestWebServiceClients = 78;
         static final int TRANSACTION_resetInteractiveApp = 10;
         static final int TRANSACTION_searchOperatorApp = 65;
         static final int TRANSACTION_selectInteractiveAppStreamingTrack = 64;
@@ -236,16 +239,16 @@ public interface ITvInteractiveAppManager extends android.os.IInterface {
         static final int TRANSACTION_setTeletextAppEnabled = 13;
         static final int TRANSACTION_startInteractiveApp = 6;
         static final int TRANSACTION_startInteractiveAppWithHandle = 8;
-        static final int TRANSACTION_startOperatorApp = 72;
+        static final int TRANSACTION_startOperatorApp = 73;
         static final int TRANSACTION_stopInteractiveApp = 7;
         static final int TRANSACTION_stopInteractiveAppWithHandle = 9;
-        static final int TRANSACTION_stopOperatorApp = 73;
-        static final int TRANSACTION_switchOperatorAppState = 74;
+        static final int TRANSACTION_stopOperatorApp = 74;
+        static final int TRANSACTION_switchOperatorAppState = 75;
         static final int TRANSACTION_uninstallOperatorApp = 68;
         static final int TRANSACTION_unregisterAppLinkInfo = 4;
-        static final int TRANSACTION_unregisterCallback = 76;
+        static final int TRANSACTION_unregisterCallback = 77;
         static final int TRANSACTION_updateOperatorApp = 66;
-        static final int TRANSACTION_updateWebServiceClientState = 78;
+        static final int TRANSACTION_updateWebServiceClientState = 79;
         public Stub() { super(); }
         public static android.media.tv.interactive.ITvInteractiveAppManager asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -299,6 +302,7 @@ public interface ITvInteractiveAppManager extends android.os.IInterface {
             public void releaseSession(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
             public void removeMediaView(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
             public void removeWebServiceClient(android.os.IBinder p0, int p1, int p2) throws android.os.RemoteException {}
+            public void requestOperatorAppIcon(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, android.os.Bundle p2, int p3) throws android.os.RemoteException {}
             public void requestOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2) throws android.os.RemoteException {}
             public void requestOperatorAppSupportedStatus(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
             public void requestWebServiceClients(android.os.IBinder p0, int p1) throws android.os.RemoteException {}

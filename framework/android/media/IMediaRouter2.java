@@ -11,19 +11,6 @@ public interface IMediaRouter2 extends android.os.IInterface {
     public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException;
     public void requestCreateSessionByManager(long p0, android.media.RoutingSessionInfo p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMediaRouter2 {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyDeviceSuggestionRequested() throws android.os.RemoteException {}
-        public void notifyDeviceSuggestionsUpdated(java.lang.String p0, java.util.List<android.media.SuggestedDeviceInfo> p1) throws android.os.RemoteException {}
-        public void notifyRouterRegistered(java.util.List<android.media.MediaRoute2Info> p0, android.media.RoutingSessionInfo p1) throws android.os.RemoteException {}
-        public void notifyRoutesUpdated(java.util.List<android.media.MediaRoute2Info> p0) throws android.os.RemoteException {}
-        public void notifySessionCreated(int p0, android.media.RoutingSessionInfo p1) throws android.os.RemoteException {}
-        public void notifySessionInfoChanged(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
-        public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
-        public void requestCreateSessionByManager(long p0, android.media.RoutingSessionInfo p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMediaRouter2 {
         static final int TRANSACTION_notifyDeviceSuggestionRequested = 8;
         static final int TRANSACTION_notifyDeviceSuggestionsUpdated = 7;
@@ -54,5 +41,18 @@ public interface IMediaRouter2 extends android.os.IInterface {
             public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
             public void requestCreateSessionByManager(long p0, android.media.RoutingSessionInfo p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IMediaRouter2 {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyDeviceSuggestionRequested() throws android.os.RemoteException {}
+        public void notifyDeviceSuggestionsUpdated(java.lang.String p0, java.util.List<android.media.SuggestedDeviceInfo> p1) throws android.os.RemoteException {}
+        public void notifyRouterRegistered(java.util.List<android.media.MediaRoute2Info> p0, android.media.RoutingSessionInfo p1) throws android.os.RemoteException {}
+        public void notifyRoutesUpdated(java.util.List<android.media.MediaRoute2Info> p0) throws android.os.RemoteException {}
+        public void notifySessionCreated(int p0, android.media.RoutingSessionInfo p1) throws android.os.RemoteException {}
+        public void notifySessionInfoChanged(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
+        public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
+        public void requestCreateSessionByManager(long p0, android.media.RoutingSessionInfo p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
     }
 }

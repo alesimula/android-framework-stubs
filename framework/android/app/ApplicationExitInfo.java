@@ -2,6 +2,7 @@ package android.app;
 
 public final class ApplicationExitInfo implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.ApplicationExitInfo> CREATOR = null;
+    public static final int REASON_ANOMALY = 18;
     public static final int REASON_ANR = 6;
     public static final int REASON_CRASH = 4;
     public static final int REASON_CRASH_NATIVE = 5;
@@ -21,6 +22,7 @@ public final class ApplicationExitInfo implements android.os.Parcelable {
     public static final int REASON_USER_REQUESTED = 10;
     public static final int REASON_USER_STOPPED = 11;
     public static final int SUBREASON_ACTIVITY_LAUNCH_FAILURE = 57;
+    public static final int SUBREASON_ANOMALY_GENERIC = 62;
     public static final int SUBREASON_ANR_TYPE_APP_TRIGGERED = 33;
     public static final int SUBREASON_ANR_TYPE_BIND_APPLICATION = 34;
     public static final int SUBREASON_ANR_TYPE_BROADCAST_OF_INTENT = 35;
@@ -101,6 +103,7 @@ public final class ApplicationExitInfo implements android.os.Parcelable {
     private int mRealUid;
     private int mReason;
     private long mRss;
+    private long mStartSeq;
     private byte[] mState;
     private int mStatus;
     private int mSubReason;
@@ -131,6 +134,7 @@ public final class ApplicationExitInfo implements android.os.Parcelable {
     public int getRealUid() { return 0; }
     public int getReason() { return 0; }
     public long getRss() { return 0L; }
+    public long getStartSeq() { return 0L; }
     public int getStatus() { return 0; }
     public int getSubReason() { return 0; }
     public long getTimestamp() { return 0L; }
@@ -162,6 +166,7 @@ public final class ApplicationExitInfo implements android.os.Parcelable {
     public void setRealUid(int p0) {}
     public void setReason(int p0) {}
     public void setRss(long p0) {}
+    public void setStartSeq(long p0) {}
     public void setStatus(int p0) {}
     public void setSubReason(int p0) {}
     public void setTimestamp(long p0) {}

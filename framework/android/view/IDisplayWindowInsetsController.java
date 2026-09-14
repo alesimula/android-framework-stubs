@@ -10,18 +10,6 @@ public interface IDisplayWindowInsetsController extends android.os.IInterface {
     public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException;
     public void topFocusedWindowChanged(android.content.ComponentName p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IDisplayWindowInsetsController {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void hideInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
-        public void insetsChanged(android.view.InsetsState p0) throws android.os.RemoteException {}
-        public void insetsControlChanged(android.view.InsetsState p0, android.view.InsetsSourceControl[] p1) throws android.os.RemoteException {}
-        public void onSwipeFromTop(int p0) throws android.os.RemoteException {}
-        public void setImeInputTargetRequestedVisibility(boolean p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
-        public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
-        public void topFocusedWindowChanged(android.content.ComponentName p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IDisplayWindowInsetsController {
         static final int TRANSACTION_hideInsets = 5;
         static final int TRANSACTION_insetsChanged = 2;
@@ -50,5 +38,17 @@ public interface IDisplayWindowInsetsController extends android.os.IInterface {
             public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
             public void topFocusedWindowChanged(android.content.ComponentName p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IDisplayWindowInsetsController {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void hideInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
+        public void insetsChanged(android.view.InsetsState p0) throws android.os.RemoteException {}
+        public void insetsControlChanged(android.view.InsetsState p0, android.view.InsetsSourceControl[] p1) throws android.os.RemoteException {}
+        public void onSwipeFromTop(int p0) throws android.os.RemoteException {}
+        public void setImeInputTargetRequestedVisibility(boolean p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
+        public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
+        public void topFocusedWindowChanged(android.content.ComponentName p0, int p1) throws android.os.RemoteException {}
     }
 }

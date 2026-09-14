@@ -8,16 +8,6 @@ public interface IRcsConfigCallback extends android.os.IInterface {
     public void onPreProvisioningReceived(byte[] p0) throws android.os.RemoteException;
     public void onRemoved() throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IRcsConfigCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAutoConfigurationErrorReceived(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onConfigurationChanged(byte[] p0) throws android.os.RemoteException {}
-        public void onConfigurationReset() throws android.os.RemoteException {}
-        public void onPreProvisioningReceived(byte[] p0) throws android.os.RemoteException {}
-        public void onRemoved() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IRcsConfigCallback {
         static final int TRANSACTION_onAutoConfigurationErrorReceived = 2;
         static final int TRANSACTION_onConfigurationChanged = 1;
@@ -42,5 +32,15 @@ public interface IRcsConfigCallback extends android.os.IInterface {
             public void onPreProvisioningReceived(byte[] p0) throws android.os.RemoteException {}
             public void onRemoved() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IRcsConfigCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAutoConfigurationErrorReceived(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onConfigurationChanged(byte[] p0) throws android.os.RemoteException {}
+        public void onConfigurationReset() throws android.os.RemoteException {}
+        public void onPreProvisioningReceived(byte[] p0) throws android.os.RemoteException {}
+        public void onRemoved() throws android.os.RemoteException {}
     }
 }

@@ -43,5 +43,7 @@ public class FlagTable {
         public int getNextOffset() { return 0; }
         public int getPackageId() { return 0; }
         public int hashCode() { return 0; }
+        public boolean isBooleanType() { return false; }
+        public boolean isInt64Type() { return false; }
     }
 }

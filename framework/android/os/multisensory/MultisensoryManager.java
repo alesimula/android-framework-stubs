@@ -29,7 +29,9 @@ public class MultisensoryManager {
     private final android.os.multisensory.IMultisensoryService mService = null;
     public MultisensoryManager() {}
     public static int[] getMultisensoryTokens() { return null; }
+    public static java.lang.String getSoundResourceForToken(android.content.ContentResolver p0, int p1) { return null; }
     public void playToken(int p0) {}
+    public void playToken(int p0, boolean p1, android.os.VibrationAttributes p2) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Token {

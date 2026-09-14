@@ -53,16 +53,16 @@ public final class MediaSync {
     public void setSurface(android.view.Surface p0) {}
     public void setSyncParams(android.media.SyncParams p0) {}
 
+    public static abstract class Callback {
+        public Callback() {}
+        public abstract void onAudioBufferConsumed(android.media.MediaSync p0, java.nio.ByteBuffer p1, int p2);
+    }
+
     private static class AudioBuffer {
         public int mBufferIndex;
         public java.nio.ByteBuffer mByteBuffer;
         long mPresentationTimeUs;
         public AudioBuffer(java.nio.ByteBuffer p0, int p1, long p2) {}
-    }
-
-    public static abstract class Callback {
-        public Callback() {}
-        public abstract void onAudioBufferConsumed(android.media.MediaSync p0, java.nio.ByteBuffer p1, int p2);
     }
 
     public static interface OnErrorListener {

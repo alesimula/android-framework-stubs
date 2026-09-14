@@ -3,6 +3,136 @@ package com.android.internal.tracing.winscope.protos;
 public final class Windowmanagerservice {
     public Windowmanagerservice() {}
 
+    public final class DecorInsetsProto {
+        public static final long DECOR_INSETS_INFO = 2246267895809L;
+        public DecorInsetsProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class DisplayFramesProto {
+        public static final long CURRENT = 1146756268035L;
+        public static final long DOCK = 1146756268034L;
+        public static final long HEIGHT = 1120986464261L;
+        public static final long ROTATION = 1120986464262L;
+        public static final long STABLE_BOUNDS = 1146756268033L;
+        public static final long WIDTH = 1120986464260L;
+        public DisplayFramesProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class TaskProto {
+        public static final long ACTIVITIES = 2246267895819L;
+        public static final long ACTIVITY_TYPE = 1120986464273L;
+        public static final long ADJUSTED_BOUNDS = 1146756268053L;
+        public static final long ADJUSTED_FOR_IME = 1133871366167L;
+        public static final long ADJUST_DIVIDER_AMOUNT = 1108101562393L;
+        public static final long ADJUST_IME_AMOUNT = 1108101562392L;
+        public static final long AFFINITY = 1138166333469L;
+        public static final long ANIMATING_BOUNDS = 1133871366170L;
+        public static final long BOUNDS = 1146756268037L;
+        public static final long CREATED_BY_ORGANIZER = 1133871366172L;
+        public static final long DEFER_REMOVAL = 1133871366151L;
+        public static final long DISPLAYED_BOUNDS = 1146756268038L;
+        public static final long DISPLAY_ID = 1120986464271L;
+        public static final long FILLS_PARENT = 1133871366148L;
+        public static final long HAS_CHILD_PIP_ACTIVITY = 1133871366174L;
+        public static final long ID = 1120986464258L;
+        public static final long LAST_NON_FULLSCREEN_BOUNDS = 1146756268054L;
+        public static final long MINIMIZE_AMOUNT = 1108101562395L;
+        public static final long MIN_HEIGHT = 1120986464276L;
+        public static final long MIN_WIDTH = 1120986464275L;
+        public static final long ORIG_ACTIVITY = 1138166333454L;
+        public static final long REAL_ACTIVITY = 1138166333453L;
+        public static final long RESIZE_MODE = 1120986464274L;
+        public static final long RESUMED_ACTIVITY = 1146756268044L;
+        public static final long ROOT_TASK_ID = 1120986464272L;
+        public static final long SURFACE_HEIGHT = 1120986464265L;
+        public static final long SURFACE_WIDTH = 1120986464264L;
+        public static final long TASKS = 2246267895818L;
+        public static final long TASK_FRAGMENT = 1146756268063L;
+        public static final long TASK_NAME = 1138166333472L;
+        public static final long WINDOW_CONTAINER = 1146756268033L;
+        public TaskProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class DisplayAreaChildProto {
+        public static final long DISPLAY_AREA = 1146756268033L;
+        public static final long UNKNOWN = 2237677961219L;
+        public static final long WINDOW = 1146756268034L;
+        public DisplayAreaChildProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class AppTransitionProto {
+        public static final int APP_STATE_IDLE = 0;
+        public static final int APP_STATE_READY = 1;
+        public static final int APP_STATE_RUNNING = 2;
+        public static final int APP_STATE_TIMEOUT = 3;
+        public static final long APP_TRANSITION_STATE = 1159641169921L;
+        public static final long LAST_USED_APP_TRANSITION = 1159641169922L;
+        public AppTransitionProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowFramesProto {
+        public static final long COMPAT_FRAME = 1146756268048L;
+        public static final long CONTAINING_FRAME = 1146756268033L;
+        public static final long CONTENT_FRAME = 1146756268034L;
+        public static final long CONTENT_INSETS = 1146756268043L;
+        public static final long CUTOUT = 1146756268042L;
+        public static final long DECOR_FRAME = 1146756268035L;
+        public static final long DISPLAY_FRAME = 1146756268036L;
+        public static final long FRAME = 1146756268037L;
+        public static final long OUTSETS = 1146756268047L;
+        public static final long OUTSET_FRAME = 1146756268038L;
+        public static final long OVERSCAN_FRAME = 1146756268039L;
+        public static final long OVERSCAN_INSETS = 1146756268044L;
+        public static final long PARENT_FRAME = 1146756268040L;
+        public static final long STABLE_INSETS = 1146756268046L;
+        public static final long VISIBLE_FRAME = 1146756268041L;
+        public static final long VISIBLE_INSETS = 1146756268045L;
+        public WindowFramesProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class SystemBarVisibilityOverrideProto {
+        public static final long CALLER = 1120986464257L;
+        public static final long HIDE = 1120986464259L;
+        public static final long SHOW = 1120986464258L;
+        public SystemBarVisibilityOverrideProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowTokenProto {
+        public static final long CLIENT_VISIBLE = 1133871366151L;
+        public static final long HASH_CODE = 1120986464258L;
+        public static final long PAUSED = 1133871366150L;
+        public static final long WAITING_TO_SHOW = 1133871366149L;
+        public static final long WINDOWS = 2246267895811L;
+        public static final long WINDOW_CONTAINER = 1146756268033L;
+        public WindowTokenProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class PinnedTaskControllerProto {
+        public static final long DEFAULT_BOUNDS = 1146756268033L;
+        public static final long MOVEMENT_BOUNDS = 1146756268034L;
+        public PinnedTaskControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class KeyguardOccludedProto {
+        public static final long DISPLAY_ID = 1120986464257L;
+        public static final long KEYGUARD_OCCLUDED = 1133871366146L;
+        public KeyguardOccludedProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowManagerServicePatchProto {
+        public static final long CLEAR_INCREMENTAL_STATE_IF_PRESENT = 1146756268034L;
+        public static final long POLICY = 1146756268035L;
+        public static final long REMOVED_WINDOW_CONTAINER_TOKENS = 2220498092038L;
+        public static final long ROOT_WINDOW_CONTAINER = 1146756268036L;
+        public static final long VERSION = 1120986464257L;
+        public static final long WINDOW_CONTAINERS = 2246267895813L;
+        public WindowManagerServicePatchProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+
+        public final class EmptyMessage {
+            public EmptyMessage(com.android.internal.tracing.winscope.protos.Windowmanagerservice.WindowManagerServicePatchProto p0) {}
+        }
+    }
+
     public final class ActivityRecordProto {
         public static final long ALL_DRAWN = 1133871366160L;
         public static final long APP_STOPPED = 1133871366152L;
@@ -54,64 +184,53 @@ public final class Windowmanagerservice {
         public ActivityRecordProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class AppearanceRegionProto {
-        public static final long APPEARANCE = 1120986464257L;
-        public static final long BOUNDS = 1146756268034L;
-        public AppearanceRegionProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class TaskFragmentProto {
+        public static final long ACTIVITY_TYPE = 1120986464259L;
+        public static final long DISPLAY_ID = 1120986464258L;
+        public static final long MIN_HEIGHT = 1120986464261L;
+        public static final long MIN_WIDTH = 1120986464260L;
+        public static final long WINDOW_CONTAINER = 1146756268033L;
+        public TaskFragmentProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class AppTransitionProto {
-        public static final int APP_STATE_IDLE = 0;
-        public static final int APP_STATE_READY = 1;
-        public static final int APP_STATE_RUNNING = 2;
-        public static final int APP_STATE_TIMEOUT = 3;
-        public static final long APP_TRANSITION_STATE = 1159641169921L;
-        public static final long LAST_USED_APP_TRANSITION = 1159641169922L;
-        public AppTransitionProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class WindowSurfaceControllerProto {
+        public static final long LAYER = 1120986464258L;
+        public static final long SHOWN = 1133871366145L;
+        public WindowSurfaceControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class BackNavigationProto {
-        public static final long ANIMATION_IN_PROGRESS = 1133871366145L;
-        public static final long ANIMATION_RUNNING = 1133871366149L;
-        public static final long LAST_BACK_TYPE = 1120986464258L;
-        public static final long MAIN_OPEN_ACTIVITY = 1138166333444L;
-        public static final long SHOW_WALLPAPER = 1133871366147L;
-        public BackNavigationProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class DockedTaskDividerControllerProto {
+        public static final long MINIMIZED_DOCK = 1133871366145L;
+        public DockedTaskDividerControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class BarControllerProto {
-        public static final long STATE = 1159641169921L;
-        public static final long TRANSIENT_STATE = 1159641169922L;
-        public BarControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class IdentifierProto {
+        public static final long HASH_CODE = 1120986464257L;
+        public static final long TITLE = 1138166333443L;
+        public static final long USER_ID = 1120986464258L;
+        public IdentifierProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class ConfigurationContainerProto {
-        public static final long FULL_CONFIGURATION = 1146756268034L;
-        public static final long MERGED_OVERRIDE_CONFIGURATION = 1146756268035L;
-        public static final long OVERRIDE_CONFIGURATION = 1146756268033L;
-        public static final long RESOLVED_OVERRIDE_CONFIGURATION = 1146756268036L;
-        public ConfigurationContainerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class InsetsPolicyProto {
+        public static final long FAKE_NAV_CONTROL_TARGET = 1146756268040L;
+        public static final long FAKE_STATUS_CONTROL_TARGET = 1146756268039L;
+        public static final long FORCIBLY_HIDING_TYPES = 1120986464262L;
+        public static final long FORCIBLY_SHOWING_TYPES = 1120986464261L;
+        public static final long HIDING_TRANSIENT_NAV_CONTROL_TARGET = 1146756268042L;
+        public static final long HIDING_TRANSIENT_STATUS_CONTROL_TARGET = 1146756268041L;
+        public static final long HIDING_TRANSIENT_TYPES = 1120986464260L;
+        public static final long NAV_STATE = 1120986464258L;
+        public static final long SHOWING_TRANSIENT_TYPES = 1120986464259L;
+        public static final long STATUS_STATE = 1120986464257L;
+        public InsetsPolicyProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class DecorInsetsInfoProto {
-        public static final long OVERRIDE_CONFIG_FRAME = 1146756268036L;
-        public static final long OVERRIDE_CONFIG_INSETS = 1146756268034L;
-        public static final long OVERRIDE_NON_DECOR_FRAME = 1146756268037L;
-        public static final long OVERRIDE_NON_DECOR_INSETS = 1146756268035L;
-        public static final long ROTATION = 1120986464257L;
-        public DecorInsetsInfoProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class DecorInsetsProto {
-        public static final long DECOR_INSETS_INFO = 2246267895809L;
-        public DecorInsetsProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class DisplayAreaChildProto {
-        public static final long DISPLAY_AREA = 1146756268033L;
-        public static final long UNKNOWN = 2237677961219L;
-        public static final long WINDOW = 1146756268034L;
-        public DisplayAreaChildProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class ImeInsetsSourceProviderProto {
+        public static final long IME_TARGET_FROM_IME = 1146756268034L;
+        public static final long IME_TARGET_FROM_IME_IDENTIFIER = 1146756268036L;
+        public static final long INSETS_SOURCE_PROVIDER = 1146756268033L;
+        public static final long IS_IME_LAYOUT_DRAWN = 1133871366147L;
+        public ImeInsetsSourceProviderProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
     public final class DisplayAreaProto {
@@ -124,6 +243,19 @@ public final class Windowmanagerservice {
         public static final long NAME = 1138166333442L;
         public static final long WINDOW_CONTAINER = 1146756268033L;
         public DisplayAreaProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowStateAnimatorProto {
+        public static final int COMMIT_DRAW_PENDING = 2;
+        public static final int DRAW_PENDING = 1;
+        public static final long DRAW_STATE = 1159641169923L;
+        public static final int HAS_DRAWN = 4;
+        public static final long LAST_CLIP_RECT = 1146756268033L;
+        public static final int NO_SURFACE = 0;
+        public static final int READY_TO_SHOW = 3;
+        public static final long SURFACE = 1146756268034L;
+        public static final long SYSTEM_DECOR_RECT = 1146756268036L;
+        public WindowStateAnimatorProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
     public final class DisplayContentProto {
@@ -177,365 +309,6 @@ public final class Windowmanagerservice {
         public DisplayContentProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class DisplayFramesProto {
-        public static final long CURRENT = 1146756268035L;
-        public static final long DOCK = 1146756268034L;
-        public static final long HEIGHT = 1120986464261L;
-        public static final long ROTATION = 1120986464262L;
-        public static final long STABLE_BOUNDS = 1146756268033L;
-        public static final long WIDTH = 1120986464260L;
-        public DisplayFramesProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class DisplayPolicyProto {
-        public static final long BOTTOM_GESTURE_HOST_IDENTIFIER = 1146756268041L;
-        public static final long CACHED_DECOR_INSETS = 1146756268034L;
-        public static final long DECOR_INSETS = 1146756268033L;
-        public static final long FORCE_SHOW_NAVIGATION_BAR_ENABLED = 1133871366160L;
-        public static final long IME_INSETS_CONSUMED = 1133871366159L;
-        public static final long LAST_APPEARANCE = 1120986464260L;
-        public static final long LAST_BEHAVIOR = 1120986464261L;
-        public static final long LAST_DISABLE_FLAGS = 1120986464259L;
-        public static final long LAST_STATUS_BAR_APPEARANCE_REGIONS = 2246267895819L;
-        public static final long LEFT_GESTURE_HOST_IDENTIFIER = 1146756268038L;
-        public static final long NAV_BAR_BACKGROUND_WINDOW_CANDIDATE_IDENTIFIER = 1146756268042L;
-        public static final long RIGHT_GESTURE_HOST_IDENTIFIER = 1146756268040L;
-        public static final long SHOWING_TRANSIENT_INSETS_TYPES = 1120986464269L;
-        public static final long STATUS_BAR_BACKGROUND_WINDOWS_IDENTIFIER = 2246267895820L;
-        public static final long SYSTEM_BAR_VISIBILITY_OVERRIDE = 2246267895822L;
-        public static final long TOP_GESTURE_HOST_IDENTIFIER = 1146756268039L;
-        public DisplayPolicyProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class DisplayRotationProto {
-        public static final long FIXED_TO_USER_ROTATION_MODE = 1120986464260L;
-        public static final long FROZEN_TO_USER_ROTATION = 1133871366146L;
-        public static final long IS_FIXED_TO_USER_ROTATION = 1133871366150L;
-        public static final long LAST_ORIENTATION = 1120986464261L;
-        public static final long ROTATION = 1120986464257L;
-        public static final long USER_ROTATION = 1120986464259L;
-        public DisplayRotationProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class DockedTaskDividerControllerProto {
-        public static final long MINIMIZED_DOCK = 1133871366145L;
-        public DockedTaskDividerControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class IdentifierProto {
-        public static final long HASH_CODE = 1120986464257L;
-        public static final long TITLE = 1138166333443L;
-        public static final long USER_ID = 1120986464258L;
-        public IdentifierProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class ImeInsetsSourceProviderProto {
-        public static final long IME_TARGET_FROM_IME = 1146756268034L;
-        public static final long IME_TARGET_FROM_IME_IDENTIFIER = 1146756268036L;
-        public static final long INSETS_SOURCE_PROVIDER = 1146756268033L;
-        public static final long IS_IME_LAYOUT_DRAWN = 1133871366147L;
-        public ImeInsetsSourceProviderProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class InsetsControlTargetProto {
-        public static final long ANIMATING_TYPES = 1120986464259L;
-        public static final long IDENTIFIER = 1146756268033L;
-        public static final long REQUESTED_VISIBLE_TYPES = 1120986464258L;
-        public InsetsControlTargetProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class InsetsPolicyProto {
-        public static final long FAKE_NAV_CONTROL_TARGET = 1146756268040L;
-        public static final long FAKE_STATUS_CONTROL_TARGET = 1146756268039L;
-        public static final long FORCIBLY_HIDING_TYPES = 1120986464262L;
-        public static final long FORCIBLY_SHOWING_TYPES = 1120986464261L;
-        public static final long HIDING_TRANSIENT_NAV_CONTROL_TARGET = 1146756268042L;
-        public static final long HIDING_TRANSIENT_STATUS_CONTROL_TARGET = 1146756268041L;
-        public static final long HIDING_TRANSIENT_TYPES = 1120986464260L;
-        public static final long NAV_STATE = 1120986464258L;
-        public static final long SHOWING_TRANSIENT_TYPES = 1120986464259L;
-        public static final long STATUS_STATE = 1120986464257L;
-        public InsetsPolicyProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class InsetsSourceProviderProto {
-        public static final long CAPTURED_LEASH = 1146756268040L;
-        public static final long CLIENT_VISIBLE = 1133871366155L;
-        public static final long CONTROL = 1146756268036L;
-        public static final long CONTROLLABLE = 1133871366159L;
-        public static final long CONTROL_TARGET = 1146756268037L;
-        public static final long CONTROL_TARGET_IDENTIFIER = 1146756268049L;
-        public static final long FAKE_CONTROL = 1146756268035L;
-        public static final long FAKE_CONTROL_TARGET = 1146756268039L;
-        public static final long FAKE_CONTROL_TARGET_IDENTIFIER = 1146756268051L;
-        public static final long FINISH_SEAMLESS_ROTATE_FRAME_NUMBER = 1112396529678L;
-        public static final long FRAME = 1146756268034L;
-        public static final long IME_OVERRIDDEN_FRAME = 1146756268041L;
-        public static final long INSETS_HINT = 1146756268053L;
-        public static final long IS_LEASH_READY_FOR_DISPATCHING = 1133871366154L;
-        public static final long PENDING_CONTROL_TARGET = 1146756268038L;
-        public static final long PENDING_CONTROL_TARGET_IDENTIFIER = 1146756268050L;
-        public static final long SEAMLESS_ROTATING = 1133871366157L;
-        public static final long SERVER_VISIBLE = 1133871366156L;
-        public static final long SOURCE = 1146756268033L;
-        public static final long SOURCE_WINDOW_STATE = 1146756268048L;
-        public static final long SOURCE_WINDOW_STATE_IDENTIFIER = 1146756268052L;
-        public InsetsSourceProviderProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class InsetsStateControllerProto {
-        public static final long INSETS_SOURCE_PROVIDERS = 2246267895810L;
-        public static final long INSETS_STATE = 1146756268033L;
-        public InsetsStateControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class KeyguardControllerProto {
-        public static final long AOD_SHOWING = 1133871366147L;
-        public static final long KEYGUARD_GOING_AWAY = 1133871366149L;
-        public static final long KEYGUARD_OCCLUDED_STATES = 2246267895810L;
-        public static final long KEYGUARD_PER_DISPLAY = 2246267895812L;
-        public static final long KEYGUARD_SHOWING = 1133871366145L;
-        public KeyguardControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class KeyguardOccludedProto {
-        public static final long DISPLAY_ID = 1120986464257L;
-        public static final long KEYGUARD_OCCLUDED = 1133871366146L;
-        public KeyguardOccludedProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class KeyguardPerDisplayProto {
-        public static final long AOD_SHOWING = 1133871366147L;
-        public static final long DISPLAY_ID = 1120986464257L;
-        public static final long KEYGUARD_GOING_AWAY = 1133871366149L;
-        public static final long KEYGUARD_OCCLUDED = 1133871366148L;
-        public static final long KEYGUARD_SHOWING = 1133871366146L;
-        public KeyguardPerDisplayProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class KeyguardServiceDelegateProto {
-        public static final long INTERACTIVE_STATE = 1159641169925L;
-        public static final int INTERACTIVE_STATE_AWAKE = 2;
-        public static final int INTERACTIVE_STATE_GOING_TO_SLEEP = 3;
-        public static final int INTERACTIVE_STATE_SLEEP = 0;
-        public static final int INTERACTIVE_STATE_WAKING = 1;
-        public static final long OCCLUDED = 1133871366146L;
-        public static final long SCREEN_STATE = 1159641169924L;
-        public static final int SCREEN_STATE_OFF = 0;
-        public static final int SCREEN_STATE_ON = 2;
-        public static final int SCREEN_STATE_TURNING_OFF = 3;
-        public static final int SCREEN_STATE_TURNING_ON = 1;
-        public static final long SECURE = 1133871366147L;
-        public static final long SHOWING = 1133871366145L;
-        public static final long SIM_SECURE = 1133871366150L;
-        public static final long TRUSTED = 1133871366151L;
-        public KeyguardServiceDelegateProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class PinnedTaskControllerProto {
-        public static final long DEFAULT_BOUNDS = 1146756268033L;
-        public static final long MOVEMENT_BOUNDS = 1146756268034L;
-        public PinnedTaskControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class RemoteInsetsControlTargetProto {
-        public static final long ANIMATING_TYPES = 1120986464259L;
-        public static final long IDENTIFIER = 1146756268033L;
-        public static final long REQUESTED_VISIBLE_TYPES = 1120986464258L;
-        public RemoteInsetsControlTargetProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class RootWindowContainerProto {
-        public static final long DEFAULT_MIN_SIZE_RESIZABLE_TASK = 1120986464264L;
-        public static final long DISPLAYS = 2246267895810L;
-        public static final long IS_HOME_RECENTS_COMPONENT = 1133871366150L;
-        public static final long KEYGUARD_CONTROLLER = 1146756268037L;
-        public static final long PENDING_ACTIVITIES = 2246267895815L;
-        public static final long WINDOWS = 2246267895812L;
-        public static final long WINDOW_CONTAINER = 1146756268033L;
-        public RootWindowContainerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class ScreenRotationAnimationProto {
-        public static final long ANIMATION_RUNNING = 1133871366146L;
-        public static final long STARTED = 1133871366145L;
-        public ScreenRotationAnimationProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class SystemBarVisibilityOverrideProto {
-        public static final long CALLER = 1120986464257L;
-        public static final long HIDE = 1120986464259L;
-        public static final long SHOW = 1120986464258L;
-        public SystemBarVisibilityOverrideProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class TaskFragmentProto {
-        public static final long ACTIVITY_TYPE = 1120986464259L;
-        public static final long DISPLAY_ID = 1120986464258L;
-        public static final long MIN_HEIGHT = 1120986464261L;
-        public static final long MIN_WIDTH = 1120986464260L;
-        public static final long WINDOW_CONTAINER = 1146756268033L;
-        public TaskFragmentProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class TaskProto {
-        public static final long ACTIVITIES = 2246267895819L;
-        public static final long ACTIVITY_TYPE = 1120986464273L;
-        public static final long ADJUSTED_BOUNDS = 1146756268053L;
-        public static final long ADJUSTED_FOR_IME = 1133871366167L;
-        public static final long ADJUST_DIVIDER_AMOUNT = 1108101562393L;
-        public static final long ADJUST_IME_AMOUNT = 1108101562392L;
-        public static final long AFFINITY = 1138166333469L;
-        public static final long ANIMATING_BOUNDS = 1133871366170L;
-        public static final long BOUNDS = 1146756268037L;
-        public static final long CREATED_BY_ORGANIZER = 1133871366172L;
-        public static final long DEFER_REMOVAL = 1133871366151L;
-        public static final long DISPLAYED_BOUNDS = 1146756268038L;
-        public static final long DISPLAY_ID = 1120986464271L;
-        public static final long FILLS_PARENT = 1133871366148L;
-        public static final long HAS_CHILD_PIP_ACTIVITY = 1133871366174L;
-        public static final long ID = 1120986464258L;
-        public static final long LAST_NON_FULLSCREEN_BOUNDS = 1146756268054L;
-        public static final long MINIMIZE_AMOUNT = 1108101562395L;
-        public static final long MIN_HEIGHT = 1120986464276L;
-        public static final long MIN_WIDTH = 1120986464275L;
-        public static final long ORIG_ACTIVITY = 1138166333454L;
-        public static final long REAL_ACTIVITY = 1138166333453L;
-        public static final long RESIZE_MODE = 1120986464274L;
-        public static final long RESUMED_ACTIVITY = 1146756268044L;
-        public static final long ROOT_TASK_ID = 1120986464272L;
-        public static final long SURFACE_HEIGHT = 1120986464265L;
-        public static final long SURFACE_WIDTH = 1120986464264L;
-        public static final long TASKS = 2246267895818L;
-        public static final long TASK_FRAGMENT = 1146756268063L;
-        public static final long TASK_NAME = 1138166333472L;
-        public static final long WINDOW_CONTAINER = 1146756268033L;
-        public TaskProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowContainerChildProto {
-        public static final long ACTIVITY = 1146756268038L;
-        public static final long DISPLAY_AREA = 1146756268036L;
-        public static final long DISPLAY_CONTENT = 1146756268035L;
-        public static final long TASK = 1146756268037L;
-        public static final long TASK_FRAGMENT = 1146756268041L;
-        public static final long TOKEN = 1120986464266L;
-        public static final long WINDOW = 1146756268040L;
-        public static final long WINDOW_CONTAINER = 1146756268034L;
-        public static final long WINDOW_TOKEN = 1146756268039L;
-        public WindowContainerChildProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowContainerProto {
-        public static final long CHILDREN = 2246267895813L;
-        public static final long CHILD_TOKENS = 2220498092041L;
-        public static final long CONFIGURATION_CONTAINER = 1146756268033L;
-        public static final long IDENTIFIER = 1146756268038L;
-        public static final long ORIENTATION = 1120986464258L;
-        public static final long SURFACE_ANIMATOR = 1146756268036L;
-        public static final long SURFACE_CONTROL = 1146756268039L;
-        public static final long VISIBLE = 1133871366147L;
-        public static final long VISIBLE_REQUESTED = 1133871366152L;
-        public WindowContainerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowFramesProto {
-        public static final long COMPAT_FRAME = 1146756268048L;
-        public static final long CONTAINING_FRAME = 1146756268033L;
-        public static final long CONTENT_FRAME = 1146756268034L;
-        public static final long CONTENT_INSETS = 1146756268043L;
-        public static final long CUTOUT = 1146756268042L;
-        public static final long DECOR_FRAME = 1146756268035L;
-        public static final long DISPLAY_FRAME = 1146756268036L;
-        public static final long FRAME = 1146756268037L;
-        public static final long OUTSETS = 1146756268047L;
-        public static final long OUTSET_FRAME = 1146756268038L;
-        public static final long OVERSCAN_FRAME = 1146756268039L;
-        public static final long OVERSCAN_INSETS = 1146756268044L;
-        public static final long PARENT_FRAME = 1146756268040L;
-        public static final long STABLE_INSETS = 1146756268046L;
-        public static final long VISIBLE_FRAME = 1146756268041L;
-        public static final long VISIBLE_INSETS = 1146756268045L;
-        public WindowFramesProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowManagerPolicyProto {
-        public static final long FOCUSED_APP_TOKEN = 1138166333448L;
-        public static final long FOCUSED_WINDOW = 1146756268041L;
-        public static final long FORCE_STATUS_BAR = 1133871366159L;
-        public static final long FORCE_STATUS_BAR_FROM_KEYGUARD = 1133871366160L;
-        public static final long KEYGUARD_DELEGATE = 1146756268052L;
-        public static final long KEYGUARD_DRAW_COMPLETE = 1133871366150L;
-        public static final long KEYGUARD_OCCLUDED = 1133871366156L;
-        public static final long KEYGUARD_OCCLUDED_CHANGED = 1133871366157L;
-        public static final long KEYGUARD_OCCLUDED_PENDING = 1133871366158L;
-        public static final long LAST_SYSTEM_UI_FLAGS = 1120986464257L;
-        public static final long NAVIGATION_BAR = 1146756268050L;
-        public static final long ORIENTATION = 1159641169924L;
-        public static final long ORIENTATION_LISTENER = 1146756268051L;
-        public static final long ROTATION = 1159641169923L;
-        public static final long ROTATION_MODE = 1159641169922L;
-        public static final long SCREEN_ON_FULLY = 1133871366149L;
-        public static final long STATUS_BAR = 1146756268049L;
-        public static final long TOP_FULLSCREEN_OPAQUE_OR_DIMMING_WINDOW = 1146756268043L;
-        public static final long TOP_FULLSCREEN_OPAQUE_WINDOW = 1146756268042L;
-        public static final int USER_ROTATION_FREE = 0;
-        public static final int USER_ROTATION_LOCKED = 1;
-        public static final long WINDOW_MANAGER_DRAW_COMPLETE = 1133871366151L;
-        public WindowManagerPolicyProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowManagerServiceDumpProto {
-        public static final long BACK_NAVIGATION = 1146756268044L;
-        public static final long DISPLAY_FROZEN = 1133871366150L;
-        public static final long FOCUSED_APP = 1138166333444L;
-        public static final long FOCUSED_DISPLAY_ID = 1120986464265L;
-        public static final long FOCUSED_WINDOW = 1146756268035L;
-        public static final long HARD_KEYBOARD_AVAILABLE = 1133871366154L;
-        public static final long INPUT_METHOD_WINDOW = 1146756268037L;
-        public static final long LAST_ORIENTATION = 1120986464264L;
-        public static final long POLICY = 1146756268033L;
-        public static final long ROOT_WINDOW_CONTAINER = 1146756268034L;
-        public static final long ROTATION = 1120986464263L;
-        public static final long VERSION = 1120986464269L;
-        public static final long WINDOW_CONTAINERS = 2246267895822L;
-        public static final long WINDOW_FRAMES_VALID = 1133871366155L;
-        public WindowManagerServiceDumpProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowManagerServicePatchProto {
-        public static final long CLEAR_INCREMENTAL_STATE_IF_PRESENT = 1146756268034L;
-        public static final long POLICY = 1146756268035L;
-        public static final long REMOVED_WINDOW_CONTAINER_TOKENS = 2220498092038L;
-        public static final long ROOT_WINDOW_CONTAINER = 1146756268036L;
-        public static final long VERSION = 1120986464257L;
-        public static final long WINDOW_CONTAINERS = 2246267895813L;
-        public WindowManagerServicePatchProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-
-        public final class EmptyMessage {
-            public EmptyMessage(com.android.internal.tracing.winscope.protos.Windowmanagerservice.WindowManagerServicePatchProto p0) {}
-        }
-    }
-
-    public final class WindowOrientationListenerProto {
-        public static final long ENABLED = 1133871366145L;
-        public static final long ROTATION = 1159641169922L;
-        public WindowOrientationListenerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
-    public final class WindowStateAnimatorProto {
-        public static final int COMMIT_DRAW_PENDING = 2;
-        public static final int DRAW_PENDING = 1;
-        public static final long DRAW_STATE = 1159641169923L;
-        public static final int HAS_DRAWN = 4;
-        public static final long LAST_CLIP_RECT = 1146756268033L;
-        public static final int NO_SURFACE = 0;
-        public static final int READY_TO_SHOW = 3;
-        public static final long SURFACE = 1146756268034L;
-        public static final long SYSTEM_DECOR_RECT = 1146756268036L;
-        public WindowStateAnimatorProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
-    }
-
     public final class WindowStateProto {
         public static final long ANIMATING_EXIT = 1133871366158L;
         public static final long ANIMATING_TYPES = 1120986464308L;
@@ -586,24 +359,254 @@ public final class Windowmanagerservice {
         public static final long VIEW_VISIBILITY = 1120986464276L;
         public static final long VISIBLE_FRAME = 1146756268058L;
         public static final long VISIBLE_INSETS = 1146756268062L;
+        public static final long WALLPAPER_OFFSET_X = 1108101562421L;
+        public static final long WALLPAPER_OFFSET_Y = 1108101562422L;
+        public static final long WALLPAPER_ZOOM_OUT = 1108101562423L;
         public static final long WINDOW_CONTAINER = 1146756268033L;
         public static final long WINDOW_FRAMES = 1146756268073L;
         public WindowStateProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class WindowSurfaceControllerProto {
-        public static final long LAYER = 1120986464258L;
-        public static final long SHOWN = 1133871366145L;
-        public WindowSurfaceControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    public final class ScreenRotationAnimationProto {
+        public static final long ANIMATION_RUNNING = 1133871366146L;
+        public static final long STARTED = 1133871366145L;
+        public ScreenRotationAnimationProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 
-    public final class WindowTokenProto {
-        public static final long CLIENT_VISIBLE = 1133871366151L;
-        public static final long HASH_CODE = 1120986464258L;
-        public static final long PAUSED = 1133871366150L;
-        public static final long WAITING_TO_SHOW = 1133871366149L;
-        public static final long WINDOWS = 2246267895811L;
+    public final class KeyguardControllerProto {
+        public static final long AOD_SHOWING = 1133871366147L;
+        public static final long KEYGUARD_GOING_AWAY = 1133871366149L;
+        public static final long KEYGUARD_OCCLUDED_STATES = 2246267895810L;
+        public static final long KEYGUARD_PER_DISPLAY = 2246267895812L;
+        public static final long KEYGUARD_SHOWING = 1133871366145L;
+        public KeyguardControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class RootWindowContainerProto {
+        public static final long DEFAULT_MIN_SIZE_RESIZABLE_TASK = 1120986464264L;
+        public static final long DISPLAYS = 2246267895810L;
+        public static final long IS_HOME_RECENTS_COMPONENT = 1133871366150L;
+        public static final long KEYGUARD_CONTROLLER = 1146756268037L;
+        public static final long PENDING_ACTIVITIES = 2246267895815L;
+        public static final long WINDOWS = 2246267895812L;
         public static final long WINDOW_CONTAINER = 1146756268033L;
-        public WindowTokenProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+        public RootWindowContainerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class DisplayRotationProto {
+        public static final long FIXED_TO_USER_ROTATION_MODE = 1120986464260L;
+        public static final long FROZEN_TO_USER_ROTATION = 1133871366146L;
+        public static final long IS_FIXED_TO_USER_ROTATION = 1133871366150L;
+        public static final long LAST_ORIENTATION = 1120986464261L;
+        public static final long ROTATION = 1120986464257L;
+        public static final long USER_ROTATION = 1120986464259L;
+        public DisplayRotationProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class InsetsStateControllerProto {
+        public static final long INSETS_SOURCE_PROVIDERS = 2246267895810L;
+        public static final long INSETS_STATE = 1146756268033L;
+        public InsetsStateControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowOrientationListenerProto {
+        public static final long ENABLED = 1133871366145L;
+        public static final long ROTATION = 1159641169922L;
+        public WindowOrientationListenerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class AppearanceRegionProto {
+        public static final long APPEARANCE = 1120986464257L;
+        public static final long BOUNDS = 1146756268034L;
+        public AppearanceRegionProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class InsetsControlTargetProto {
+        public static final long ANIMATING_TYPES = 1120986464259L;
+        public static final long IDENTIFIER = 1146756268033L;
+        public static final long REQUESTED_VISIBLE_TYPES = 1120986464258L;
+        public InsetsControlTargetProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class DisplayPolicyProto {
+        public static final long BOTTOM_GESTURE_HOST_IDENTIFIER = 1146756268041L;
+        public static final long CACHED_DECOR_INSETS = 1146756268034L;
+        public static final long DECOR_INSETS = 1146756268033L;
+        public static final long FORCE_SHOW_NAVIGATION_BAR_ENABLED = 1133871366160L;
+        public static final long IME_INSETS_CONSUMED = 1133871366159L;
+        public static final long LAST_APPEARANCE = 1120986464260L;
+        public static final long LAST_BEHAVIOR = 1120986464261L;
+        public static final long LAST_DISABLE_FLAGS = 1120986464259L;
+        public static final long LAST_STATUS_BAR_APPEARANCE_REGIONS = 2246267895819L;
+        public static final long LEFT_GESTURE_HOST_IDENTIFIER = 1146756268038L;
+        public static final long NAV_BAR_BACKGROUND_WINDOW_CANDIDATE_IDENTIFIER = 1146756268042L;
+        public static final long RIGHT_GESTURE_HOST_IDENTIFIER = 1146756268040L;
+        public static final long SHOWING_TRANSIENT_INSETS_TYPES = 1120986464269L;
+        public static final long STATUS_BAR_BACKGROUND_WINDOWS_IDENTIFIER = 2246267895820L;
+        public static final long SYSTEM_BAR_VISIBILITY_OVERRIDE = 2246267895822L;
+        public static final long TOP_GESTURE_HOST_IDENTIFIER = 1146756268039L;
+        public DisplayPolicyProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class ConfigurationContainerProto {
+        public static final long FULL_CONFIGURATION = 1146756268034L;
+        public static final long MERGED_OVERRIDE_CONFIGURATION = 1146756268035L;
+        public static final long OVERRIDE_CONFIGURATION = 1146756268033L;
+        public static final long RESOLVED_OVERRIDE_CONFIGURATION = 1146756268036L;
+        public ConfigurationContainerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class KeyguardServiceDelegateProto {
+        public static final long INTERACTIVE_STATE = 1159641169925L;
+        public static final int INTERACTIVE_STATE_AWAKE = 2;
+        public static final int INTERACTIVE_STATE_GOING_TO_SLEEP = 3;
+        public static final int INTERACTIVE_STATE_SLEEP = 0;
+        public static final int INTERACTIVE_STATE_WAKING = 1;
+        public static final long OCCLUDED = 1133871366146L;
+        public static final long SCREEN_STATE = 1159641169924L;
+        public static final int SCREEN_STATE_OFF = 0;
+        public static final int SCREEN_STATE_ON = 2;
+        public static final int SCREEN_STATE_TURNING_OFF = 3;
+        public static final int SCREEN_STATE_TURNING_ON = 1;
+        public static final long SECURE = 1133871366147L;
+        public static final long SHOWING = 1133871366145L;
+        public static final long SIM_SECURE = 1133871366150L;
+        public static final long TRUSTED = 1133871366151L;
+        public KeyguardServiceDelegateProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowManagerPolicyProto {
+        public static final long FOCUSED_APP_TOKEN = 1138166333448L;
+        public static final long FOCUSED_WINDOW = 1146756268041L;
+        public static final long FORCE_STATUS_BAR = 1133871366159L;
+        public static final long FORCE_STATUS_BAR_FROM_KEYGUARD = 1133871366160L;
+        public static final long KEYGUARD_DELEGATE = 1146756268052L;
+        public static final long KEYGUARD_DRAW_COMPLETE = 1133871366150L;
+        public static final long KEYGUARD_OCCLUDED = 1133871366156L;
+        public static final long KEYGUARD_OCCLUDED_CHANGED = 1133871366157L;
+        public static final long KEYGUARD_OCCLUDED_PENDING = 1133871366158L;
+        public static final long LAST_SYSTEM_UI_FLAGS = 1120986464257L;
+        public static final long NAVIGATION_BAR = 1146756268050L;
+        public static final long ORIENTATION = 1159641169924L;
+        public static final long ORIENTATION_LISTENER = 1146756268051L;
+        public static final long ROTATION = 1159641169923L;
+        public static final long ROTATION_MODE = 1159641169922L;
+        public static final long SCREEN_ON_FULLY = 1133871366149L;
+        public static final long STATUS_BAR = 1146756268049L;
+        public static final long TOP_FULLSCREEN_OPAQUE_OR_DIMMING_WINDOW = 1146756268043L;
+        public static final long TOP_FULLSCREEN_OPAQUE_WINDOW = 1146756268042L;
+        public static final int USER_ROTATION_FREE = 0;
+        public static final int USER_ROTATION_LOCKED = 1;
+        public static final long WINDOW_MANAGER_DRAW_COMPLETE = 1133871366151L;
+        public WindowManagerPolicyProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowContainerProto {
+        public static final long CHILDREN = 2246267895813L;
+        public static final long CHILD_TOKENS = 2220498092041L;
+        public static final long CONFIGURATION_CONTAINER = 1146756268033L;
+        public static final long IDENTIFIER = 1146756268038L;
+        public static final long ORIENTATION = 1120986464258L;
+        public static final long SURFACE_ANIMATOR = 1146756268036L;
+        public static final long SURFACE_CONTROL = 1146756268039L;
+        public static final long VISIBLE = 1133871366147L;
+        public static final long VISIBLE_REQUESTED = 1133871366152L;
+        public WindowContainerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class KeyguardPerDisplayProto {
+        public static final long AOD_SHOWING = 1133871366147L;
+        public static final long DISPLAY_ID = 1120986464257L;
+        public static final long KEYGUARD_GOING_AWAY = 1133871366149L;
+        public static final long KEYGUARD_OCCLUDED = 1133871366148L;
+        public static final long KEYGUARD_SHOWING = 1133871366146L;
+        public KeyguardPerDisplayProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class BackNavigationProto {
+        public static final long ANIMATION_IN_PROGRESS = 1133871366145L;
+        public static final long ANIMATION_RUNNING = 1133871366149L;
+        public static final long LAST_BACK_TYPE = 1120986464258L;
+        public static final long MAIN_OPEN_ACTIVITY = 1138166333444L;
+        public static final long SHOW_WALLPAPER = 1133871366147L;
+        public BackNavigationProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class RemoteInsetsControlTargetProto {
+        public static final long ANIMATING_TYPES = 1120986464259L;
+        public static final long IDENTIFIER = 1146756268033L;
+        public static final long REQUESTED_VISIBLE_TYPES = 1120986464258L;
+        public RemoteInsetsControlTargetProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class DecorInsetsInfoProto {
+        public static final long OVERRIDE_CONFIG_FRAME = 1146756268036L;
+        public static final long OVERRIDE_CONFIG_INSETS = 1146756268034L;
+        public static final long OVERRIDE_NON_DECOR_FRAME = 1146756268037L;
+        public static final long OVERRIDE_NON_DECOR_INSETS = 1146756268035L;
+        public static final long ROTATION = 1120986464257L;
+        public DecorInsetsInfoProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class BarControllerProto {
+        public static final long STATE = 1159641169921L;
+        public static final long TRANSIENT_STATE = 1159641169922L;
+        public BarControllerProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowManagerServiceDumpProto {
+        public static final long BACK_NAVIGATION = 1146756268044L;
+        public static final long DISPLAY_FROZEN = 1133871366150L;
+        public static final long FOCUSED_APP = 1138166333444L;
+        public static final long FOCUSED_DISPLAY_ID = 1120986464265L;
+        public static final long FOCUSED_WINDOW = 1146756268035L;
+        public static final long HARD_KEYBOARD_AVAILABLE = 1133871366154L;
+        public static final long INPUT_METHOD_WINDOW = 1146756268037L;
+        public static final long LAST_ORIENTATION = 1120986464264L;
+        public static final long POLICY = 1146756268033L;
+        public static final long ROOT_WINDOW_CONTAINER = 1146756268034L;
+        public static final long ROTATION = 1120986464263L;
+        public static final long VERSION = 1120986464269L;
+        public static final long WINDOW_CONTAINERS = 2246267895822L;
+        public static final long WINDOW_FRAMES_VALID = 1133871366155L;
+        public WindowManagerServiceDumpProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class WindowContainerChildProto {
+        public static final long ACTIVITY = 1146756268038L;
+        public static final long DISPLAY_AREA = 1146756268036L;
+        public static final long DISPLAY_CONTENT = 1146756268035L;
+        public static final long TASK = 1146756268037L;
+        public static final long TASK_FRAGMENT = 1146756268041L;
+        public static final long TOKEN = 1120986464266L;
+        public static final long WINDOW = 1146756268040L;
+        public static final long WINDOW_CONTAINER = 1146756268034L;
+        public static final long WINDOW_TOKEN = 1146756268039L;
+        public WindowContainerChildProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
+    }
+
+    public final class InsetsSourceProviderProto {
+        public static final long CAPTURED_LEASH = 1146756268040L;
+        public static final long CLIENT_VISIBLE = 1133871366155L;
+        public static final long CONTROL = 1146756268036L;
+        public static final long CONTROLLABLE = 1133871366159L;
+        public static final long CONTROL_TARGET = 1146756268037L;
+        public static final long CONTROL_TARGET_IDENTIFIER = 1146756268049L;
+        public static final long FAKE_CONTROL = 1146756268035L;
+        public static final long FAKE_CONTROL_TARGET = 1146756268039L;
+        public static final long FAKE_CONTROL_TARGET_IDENTIFIER = 1146756268051L;
+        public static final long FINISH_SEAMLESS_ROTATE_FRAME_NUMBER = 1112396529678L;
+        public static final long FRAME = 1146756268034L;
+        public static final long IME_OVERRIDDEN_FRAME = 1146756268041L;
+        public static final long INSETS_HINT = 1146756268053L;
+        public static final long IS_LEASH_READY_FOR_DISPATCHING = 1133871366154L;
+        public static final long PENDING_CONTROL_TARGET = 1146756268038L;
+        public static final long PENDING_CONTROL_TARGET_IDENTIFIER = 1146756268050L;
+        public static final long SEAMLESS_ROTATING = 1133871366157L;
+        public static final long SERVER_VISIBLE = 1133871366156L;
+        public static final long SOURCE = 1146756268033L;
+        public static final long SOURCE_WINDOW_STATE = 1146756268048L;
+        public static final long SOURCE_WINDOW_STATE_IDENTIFIER = 1146756268052L;
+        public InsetsSourceProviderProto(com.android.internal.tracing.winscope.protos.Windowmanagerservice p0) {}
     }
 }

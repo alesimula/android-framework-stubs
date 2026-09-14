@@ -4,12 +4,6 @@ public interface IIrisService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.iris.IIrisService";
     public void registerAuthenticators(java.util.List<android.hardware.biometrics.SensorPropertiesInternal> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.iris.IIrisService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void registerAuthenticators(java.util.List<android.hardware.biometrics.SensorPropertiesInternal> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.iris.IIrisService {
         static final int TRANSACTION_registerAuthenticators = 1;
         private final android.os.PermissionEnforcer mEnforcer = null;
@@ -30,5 +24,11 @@ public interface IIrisService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void registerAuthenticators(java.util.List<android.hardware.biometrics.SensorPropertiesInternal> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.iris.IIrisService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void registerAuthenticators(java.util.List<android.hardware.biometrics.SensorPropertiesInternal> p0) throws android.os.RemoteException {}
     }
 }

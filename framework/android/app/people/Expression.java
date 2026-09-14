@@ -5,8 +5,8 @@ public final class Expression implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.people.Expression> CREATOR = null;
     private final java.util.List<android.app.people.Operand> mOperands = null;
     private final java.util.List<android.app.people.Operator> mOperators = null;
+    public Expression(int p0, android.os.Parcel p1) {}
     private Expression(android.app.people.Expression.Builder p0) {}
-    public Expression(android.os.Parcel p0, int p1) {}
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
     public java.util.List<android.app.people.Operand> getOperands() { return null; }

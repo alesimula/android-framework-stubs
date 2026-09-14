@@ -17,6 +17,10 @@ public class CbGeoUtils {
     public static android.telephony.CbGeoUtils.LatLng parseLatLngFromString(java.lang.String p0) { return null; }
     public static int sign(double p0) { return 0; }
 
+    public static interface Geometry {
+        public boolean contains(android.telephony.CbGeoUtils.LatLng p0);
+    }
+
     public static class Circle implements android.telephony.CbGeoUtils.Geometry {
         private final android.telephony.CbGeoUtils.LatLng mCenter = null;
         private final double mRadiusMeter = 0.0;
@@ -25,20 +29,6 @@ public class CbGeoUtils {
         public boolean equals(java.lang.Object p0) { return false; }
         public android.telephony.CbGeoUtils.LatLng getCenter() { return null; }
         public double getRadius() { return 0.0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static interface Geometry {
-        public boolean contains(android.telephony.CbGeoUtils.LatLng p0);
-    }
-
-    public static class LatLng {
-        public final double lat = 0.0;
-        public final double lng = 0.0;
-        public LatLng(double p0, double p1) {}
-        public double distance(android.telephony.CbGeoUtils.LatLng p0) { return 0.0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.telephony.CbGeoUtils.LatLng subtract(android.telephony.CbGeoUtils.LatLng p0) { return null; }
         public java.lang.String toString() { return null; }
     }
 
@@ -61,5 +51,15 @@ public class CbGeoUtils {
             Point(double p0, double p1) {}
             public android.telephony.CbGeoUtils.Polygon.Point subtract(android.telephony.CbGeoUtils.Polygon.Point p0) { return null; }
         }
+    }
+
+    public static class LatLng {
+        public final double lat = 0.0;
+        public final double lng = 0.0;
+        public LatLng(double p0, double p1) {}
+        public double distance(android.telephony.CbGeoUtils.LatLng p0) { return 0.0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public android.telephony.CbGeoUtils.LatLng subtract(android.telephony.CbGeoUtils.LatLng p0) { return null; }
+        public java.lang.String toString() { return null; }
     }
 }

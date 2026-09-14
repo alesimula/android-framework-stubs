@@ -46,47 +46,6 @@ class Cea608CCParser {
     private void updateDisplay() {}
     public void parse(byte[] p0) {}
 
-    private static class CCData {
-        private static final java.lang.String[] mCtrlCodeMap = null;
-        private static final java.lang.String[] mProtugueseCharMap = null;
-        private static final java.lang.String[] mSpanishCharMap = null;
-        private static final java.lang.String[] mSpecialCharMap = null;
-        private final byte mData1 = 0;
-        private final byte mData2 = 0;
-        private final byte mType = 0;
-        CCData(byte p0, byte p1, byte p2) {}
-        private java.lang.String ctrlCodeToString(int p0) { return null; }
-        static android.media.Cea608CCParser.CCData[] fromByteArray(byte[] p0) { return null; }
-        private char getBasicChar(byte p0) { return 0; }
-        private java.lang.String getBasicChars() { return null; }
-        private java.lang.String getExtendedChar() { return null; }
-        private java.lang.String getSpecialChar() { return null; }
-        private boolean isBasicChar() { return false; }
-        private boolean isExtendedChar() { return false; }
-        private boolean isSpecialChar() { return false; }
-        int getCtrlCode() { return 0; }
-        java.lang.String getDisplayText() { return null; }
-        android.media.Cea608CCParser.StyleCode getMidRow() { return null; }
-        android.media.Cea608CCParser.PAC getPAC() { return null; }
-        int getTabOffset() { return 0; }
-        boolean isDisplayableChar() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
-    private static class CCLineBuilder {
-        private final java.lang.StringBuilder mDisplayChars = null;
-        private final android.media.Cea608CCParser.StyleCode[] mMidRowStyles = null;
-        private final android.media.Cea608CCParser.StyleCode[] mPACStyles = null;
-        CCLineBuilder(java.lang.String p0) {}
-        void applyStyleSpan(android.text.SpannableStringBuilder p0, android.media.Cea608CCParser.StyleCode p1, int p2, int p3) {}
-        char charAt(int p0) { return 0; }
-        android.text.SpannableStringBuilder getStyledText(android.view.accessibility.CaptioningManager.CaptionStyle p0) { return null; }
-        int length() { return 0; }
-        void setCharAt(int p0, char p1) {}
-        void setMidRowAt(int p0, android.media.Cea608CCParser.StyleCode p1) {}
-        void setPACAt(int p0, android.media.Cea608CCParser.PAC p1) {}
-    }
-
     private static class CCMemory {
         private final java.lang.String mBlankLine = null;
         private int mCol;
@@ -111,30 +70,6 @@ class Cea608CCParser {
         void writeText(java.lang.String p0) {}
     }
 
-    static interface DisplayListener {
-        public android.view.accessibility.CaptioningManager.CaptionStyle getCaptionStyle();
-        public void onDisplayChanged(android.text.SpannableStringBuilder[] p0);
-    }
-
-    public static class MutableBackgroundColorSpan extends android.text.style.CharacterStyle implements android.text.style.UpdateAppearance {
-        private int mColor;
-        public MutableBackgroundColorSpan(int p0) { super(); }
-        public int getBackgroundColor() { return 0; }
-        public void setBackgroundColor(int p0) {}
-        public void updateDrawState(android.text.TextPaint p0) {}
-    }
-
-    private static class PAC extends android.media.Cea608CCParser.StyleCode {
-        final int mCol = 0;
-        final int mRow = 0;
-        PAC(int p0, int p1, int p2, int p3) { super(0, 0); }
-        static android.media.Cea608CCParser.PAC fromBytes(byte p0, byte p1) { return null; }
-        int getCol() { return 0; }
-        int getRow() { return 0; }
-        boolean isIndentPAC() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
     private static class StyleCode {
         static final int COLOR_BLUE = 2;
         static final int COLOR_CYAN = 3;
@@ -154,6 +89,71 @@ class Cea608CCParser {
         int getColor() { return 0; }
         boolean isItalics() { return false; }
         boolean isUnderline() { return false; }
+        public java.lang.String toString() { return null; }
+    }
+
+    private static class PAC extends android.media.Cea608CCParser.StyleCode {
+        final int mCol = 0;
+        final int mRow = 0;
+        PAC(int p0, int p1, int p2, int p3) { super(0, 0); }
+        static android.media.Cea608CCParser.PAC fromBytes(byte p0, byte p1) { return null; }
+        int getCol() { return 0; }
+        int getRow() { return 0; }
+        boolean isIndentPAC() { return false; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static class MutableBackgroundColorSpan extends android.text.style.CharacterStyle implements android.text.style.UpdateAppearance {
+        private int mColor;
+        public MutableBackgroundColorSpan(int p0) { super(); }
+        public int getBackgroundColor() { return 0; }
+        public void setBackgroundColor(int p0) {}
+        public void updateDrawState(android.text.TextPaint p0) {}
+    }
+
+    private static class CCLineBuilder {
+        private final java.lang.StringBuilder mDisplayChars = null;
+        private final android.media.Cea608CCParser.StyleCode[] mMidRowStyles = null;
+        private final android.media.Cea608CCParser.StyleCode[] mPACStyles = null;
+        CCLineBuilder(java.lang.String p0) {}
+        void applyStyleSpan(android.text.SpannableStringBuilder p0, android.media.Cea608CCParser.StyleCode p1, int p2, int p3) {}
+        char charAt(int p0) { return 0; }
+        android.text.SpannableStringBuilder getStyledText(android.view.accessibility.CaptioningManager.CaptionStyle p0) { return null; }
+        int length() { return 0; }
+        void setCharAt(int p0, char p1) {}
+        void setMidRowAt(int p0, android.media.Cea608CCParser.StyleCode p1) {}
+        void setPACAt(int p0, android.media.Cea608CCParser.PAC p1) {}
+    }
+
+    static interface DisplayListener {
+        public android.view.accessibility.CaptioningManager.CaptionStyle getCaptionStyle();
+        public void onDisplayChanged(android.text.SpannableStringBuilder[] p0);
+    }
+
+    private static class CCData {
+        private static final java.lang.String[] mCtrlCodeMap = null;
+        private static final java.lang.String[] mProtugueseCharMap = null;
+        private static final java.lang.String[] mSpanishCharMap = null;
+        private static final java.lang.String[] mSpecialCharMap = null;
+        private final byte mData1 = 0;
+        private final byte mData2 = 0;
+        private final byte mType = 0;
+        CCData(byte p0, byte p1, byte p2) {}
+        private java.lang.String ctrlCodeToString(int p0) { return null; }
+        static android.media.Cea608CCParser.CCData[] fromByteArray(byte[] p0) { return null; }
+        private char getBasicChar(byte p0) { return 0; }
+        private java.lang.String getBasicChars() { return null; }
+        private java.lang.String getExtendedChar() { return null; }
+        private java.lang.String getSpecialChar() { return null; }
+        private boolean isBasicChar() { return false; }
+        private boolean isExtendedChar() { return false; }
+        private boolean isSpecialChar() { return false; }
+        int getCtrlCode() { return 0; }
+        java.lang.String getDisplayText() { return null; }
+        android.media.Cea608CCParser.StyleCode getMidRow() { return null; }
+        android.media.Cea608CCParser.PAC getPAC() { return null; }
+        int getTabOffset() { return 0; }
+        boolean isDisplayableChar() { return false; }
         public java.lang.String toString() { return null; }
     }
 }

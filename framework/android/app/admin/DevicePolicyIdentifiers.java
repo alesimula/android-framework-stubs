@@ -15,6 +15,7 @@ public final class DevicePolicyIdentifiers {
     public static final java.lang.String CONTENT_PROTECTION_POLICY = "contentProtection";
     public static final java.lang.String CROSS_PROFILE_INTENT_FILTER_POLICY = "crossProfileIntentFilter";
     public static final java.lang.String CROSS_PROFILE_WIDGET_PROVIDER_POLICY = "crossProfileWidgetProvider";
+    public static final java.lang.String DATA_LEAK_PREVENTION_RULES_POLICY = "dataLeakPreventionRules";
     public static final java.lang.String KEYGUARD_DISABLED_FEATURES_POLICY = "keyguardDisabledFeatures";
     public static final java.lang.String LOCK_TASK_POLICY = "lockTask";
     public static final java.lang.String MANAGED_PROFILE_CALLER_ID_ACCESS_POLICY = "managedProfileCallerIdAccess";

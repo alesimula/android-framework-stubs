@@ -20,6 +20,7 @@ public class Header extends com.android.internal.widget.remotecompose.core.Opera
     public static final short FEATURE_CLICK_VERSION = 26;
     public static final short FEATURE_LT_RESIZE = 24;
     public static final short FEATURE_MEASURE_VERSION = 17;
+    public static final short FEATURE_OPTIMIZATION_LEVEL = 28;
     public static final short FEATURE_PAINT_MEASURE = 15;
     public static final short FEATURE_PRIORITY_FIX = 23;
     public static final short FEATURE_TOUCH_VERSION = 18;
@@ -56,6 +57,7 @@ public class Header extends com.android.internal.widget.remotecompose.core.Opera
     public static com.android.internal.widget.remotecompose.core.operations.Header readDirect(java.io.InputStream p0) throws java.io.IOException { return null; }
     private static void readMap(com.android.internal.widget.remotecompose.core.WireBuffer p0, short[] p1, java.lang.Object[] p2) {}
     private static void readMap(java.io.DataInputStream p0, short[] p1, java.lang.Object[] p2) throws java.io.IOException {}
+    private static int versionToApiLevel(int p0, int p1) { return 0; }
     private static void writeMap(com.android.internal.widget.remotecompose.core.WireBuffer p0, short[] p1, java.lang.Object[] p2) {}
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
@@ -63,6 +65,7 @@ public class Header extends com.android.internal.widget.remotecompose.core.Opera
     public float getDensity() { return 0.0f; }
     public int getInt(int p0, int p1) { return 0; }
     public int getProfiles() { return 0; }
+    public void put(short p0, java.lang.Object p1) {}
     public void setVersion(com.android.internal.widget.remotecompose.core.CoreDocument p0) {}
     public java.lang.String toString() { return null; }
     public void write(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}

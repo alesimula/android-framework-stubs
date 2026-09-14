@@ -68,7 +68,7 @@ public final class ContentSafetyManager {
     public void requestCheckContent(int p0, java.util.Map<java.lang.Integer, java.util.List<android.os.ParcelFileDescriptor>> p1, android.os.CancellationSignal p2, java.util.concurrent.Executor p3, java.util.function.Consumer<java.util.Map<java.lang.Integer, java.util.List<java.lang.Integer>>> p4) {}
     @android.annotation.SystemApi
     public void requestCheckContent(java.util.List<android.app.contentsafety.ClassifiableContent> p0, java.util.concurrent.Executor p1, android.app.contentsafety.CheckContentCallback p2) {}
-    public void requestContentClassification(android.app.contentsafety.ClassifiableContent p0, java.util.concurrent.Executor p1, android.os.OutcomeReceiver<android.app.contentsafety.ContentClassificationResult, java.lang.Exception> p2) {}
+    public void requestContentClassification(android.app.contentsafety.ClassifiableContent p0, java.util.concurrent.Executor p1, android.app.contentsafety.ContentClassificationCallback p2) {}
     @android.annotation.SystemApi
     public void requestIsFeatureEnabled(int p0, android.os.CancellationSignal p1, java.util.concurrent.Executor p2, android.os.OutcomeReceiver<java.lang.Boolean, android.app.contentsafety.FeatureException> p3) {}
     public void setShouldAllowBypassingContentSafetyRoleQualification(boolean p0) {}
@@ -95,10 +95,11 @@ public final class ContentSafetyManager {
     public static @interface CheckContentStatus {
     }
 
-    private static class ContentSafetyCallbackDelegate extends android.app.contentsafety.IContentSafetyCallback.Stub {
-        private final android.os.OutcomeReceiver<android.app.contentsafety.ContentClassificationResult, java.lang.Exception> mCallback = null;
+    private static class ClassificationCallbackDelegate extends android.app.contentsafety.IContentSafetyCallback.Stub {
+        private final android.app.contentsafety.ContentClassificationCallback mCallback = null;
         private final java.util.concurrent.Executor mExecutor = null;
-        ContentSafetyCallbackDelegate(java.util.concurrent.Executor p0, android.os.OutcomeReceiver<android.app.contentsafety.ContentClassificationResult, java.lang.Exception> p1) { super(); }
+        private final android.content.LocusId mLocusId = null;
+        ClassificationCallbackDelegate(java.util.concurrent.Executor p0, android.content.LocusId p1, android.app.contentsafety.ContentClassificationCallback p2) { super(); }
         public void onError(int p0, java.lang.String p1) {}
         public void onResult(android.app.contentsafety.ContentClassificationResult p0) {}
     }

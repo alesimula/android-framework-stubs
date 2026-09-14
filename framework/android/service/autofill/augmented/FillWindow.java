@@ -2,7 +2,7 @@ package android.service.autofill.augmented;
 
 @android.annotation.SystemApi
 public final class FillWindow implements java.lang.AutoCloseable {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "FillWindow";
     private android.graphics.Rect mBounds;
     private boolean mDestroyed;
     private android.view.View mFillView;

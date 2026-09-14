@@ -14,18 +14,6 @@ public interface ISoundDose extends android.os.IInterface {
     public void setOutputRs2UpperBound(float p0) throws android.os.RemoteException;
     public void updateAttenuation(float p0, int p1) throws android.os.RemoteException;
 
-    public static class AudioDeviceCategory implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.ISoundDose.AudioDeviceCategory> CREATOR = null;
-        public java.lang.String address;
-        public boolean csdCompatible;
-        public int internalAudioType;
-        public AudioDeviceCategory() {}
-        public int describeContents() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public java.lang.String toString() { return null; }
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class Default implements android.media.ISoundDose {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -76,5 +64,17 @@ public interface ISoundDose extends android.os.IInterface {
             public void setOutputRs2UpperBound(float p0) throws android.os.RemoteException {}
             public void updateAttenuation(float p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class AudioDeviceCategory implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.ISoundDose.AudioDeviceCategory> CREATOR = null;
+        public java.lang.String address;
+        public boolean csdCompatible;
+        public int internalAudioType;
+        public AudioDeviceCategory() {}
+        public int describeContents() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public java.lang.String toString() { return null; }
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

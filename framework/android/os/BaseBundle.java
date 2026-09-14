@@ -5,16 +5,18 @@ public class BaseBundle implements android.os.Parcel.ClassLoaderProvider {
     private static final int BUNDLE_MAGIC_NATIVE = 1279544900;
     static final boolean DEBUG = false;
     static final int FLAG_DEFUSABLE = 1;
+    static final int FLAG_HAS_INTENT = 8;
+    static final int FLAG_IS_FIRST_RETRIEVED_FROM_A_BUNDLE = 16;
+    static final int FLAG_OWNS_LAZY_VALUES = 4;
+    static final int FLAG_PARCELLED_BY_NATIVE = 2;
     private static final boolean LOG_DEFUSABLE = false;
+    static final int PACKED_FIELDS_MASK = 255;
     protected static final java.lang.String TAG = "Bundle";
     private static volatile boolean sShouldDefuse;
     private java.lang.ClassLoader mClassLoader;
     public int mFlags;
-    private boolean mHasIntent;
     private int mLazyValues;
     android.util.ArrayMap<java.lang.String, java.lang.Object> mMap;
-    boolean mOwnsLazyValues;
-    private boolean mParcelledByNative;
     volatile android.os.Parcel mParcelledData;
     private java.lang.ref.WeakReference<android.os.Parcel> mWeakParcelledData;
     BaseBundle() {}
@@ -88,13 +90,15 @@ public class BaseBundle implements android.os.Parcel.ClassLoaderProvider {
     final <T extends java.lang.Object> T getValue(java.lang.String p0, java.lang.Class<T> p1, java.lang.Class<?>... p2) { return null; }
     final <T extends java.lang.Object> T getValueAt(int p0, java.lang.Class<T> p1, java.lang.Class<?>... p2) { return null; }
     public boolean hasIntent() { return false; }
-    public boolean isDefinitelyEmpty() { return false; }
+    public final boolean isDefinitelyEmpty() { return false; }
     public boolean isEmpty() { return false; }
     public boolean isEmptyParcel() { return false; }
     public boolean isParcelled() { return false; }
-    public boolean isValueParceled(java.lang.String p0) { return false; }
+    final boolean isParcelledByNative() { return false; }
+    public final boolean isValueParceled(java.lang.String p0) { return false; }
     public java.util.Set<java.lang.String> keySet() { return null; }
-    public boolean kindofEquals(android.os.BaseBundle p0) { return false; }
+    public final boolean kindofEquals(android.os.BaseBundle p0) { return false; }
+    final boolean ownsLazyValues() { return false; }
     public void putAll(android.os.PersistableBundle p0) {}
     void putAll(android.util.ArrayMap p0) {}
     public void putBoolean(java.lang.String p0, boolean p1) {}
@@ -125,7 +129,10 @@ public class BaseBundle implements android.os.Parcel.ClassLoaderProvider {
     void readFromParcelInner(android.os.Parcel p0) {}
     public void remove(java.lang.String p0) {}
     void setClassLoader(java.lang.ClassLoader p0) {}
+    void setFlags(int p0, int p1) {}
     public void setHasIntent(boolean p0) {}
+    final void setOwnsLazyValues(boolean p0) {}
+    final void setParcelledByNative(boolean p0) {}
     public int size() { return 0; }
     void typeWarning(java.lang.String p0, java.lang.Object p1, java.lang.String p2, java.lang.Object p3, java.lang.RuntimeException p4) {}
     void typeWarning(java.lang.String p0, java.lang.Object p1, java.lang.String p2, java.lang.RuntimeException p3) {}

@@ -80,10 +80,10 @@ public class InsetsSource implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Flags {
+    public static @interface InternalInsetsSide {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface InternalInsetsSide {
+    public static @interface Flags {
     }
 }

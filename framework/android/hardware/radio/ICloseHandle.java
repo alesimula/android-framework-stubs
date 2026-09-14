@@ -3,12 +3,6 @@ package android.hardware.radio;
 public interface ICloseHandle extends android.os.IInterface {
     public void close() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.ICloseHandle {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.ICloseHandle {
         public static final java.lang.String DESCRIPTOR = "android.hardware.radio.ICloseHandle";
         static final int TRANSACTION_close = 1;
@@ -26,5 +20,11 @@ public interface ICloseHandle extends android.os.IInterface {
             public void close() throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.radio.ICloseHandle {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
     }
 }

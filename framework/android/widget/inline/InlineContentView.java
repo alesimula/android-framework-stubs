@@ -27,13 +27,13 @@ public class InlineContentView extends android.view.ViewGroup {
     public void setSurfaceControlCallback(android.widget.inline.InlineContentView.SurfaceControlCallback p0) {}
     public boolean setZOrderedOnTop(boolean p0) { return false; }
 
-    public static interface SurfaceControlCallback {
-        public void onCreated(android.view.SurfaceControl p0);
-        public void onDestroyed(android.view.SurfaceControl p0);
-    }
-
     public static interface SurfacePackageUpdater {
         public void getSurfacePackage(java.util.function.Consumer<android.view.SurfaceControlViewHost.SurfacePackage> p0);
         public void onSurfacePackageReleased();
+    }
+
+    public static interface SurfaceControlCallback {
+        public void onCreated(android.view.SurfaceControl p0);
+        public void onDestroyed(android.view.SurfaceControl p0);
     }
 }

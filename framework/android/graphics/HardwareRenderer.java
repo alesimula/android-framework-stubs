@@ -7,6 +7,9 @@ public class HardwareRenderer {
     public static final int CACHE_TRIM_ALL = 0;
     public static final int CACHE_TRIM_FONT = 1;
     public static final int CACHE_TRIM_RESOURCES = 2;
+    public static final int CPU_LOAD_RESET_REASON_FIRST_FRAME = 2;
+    public static final int CPU_LOAD_RESET_REASON_OTHER = 0;
+    public static final int CPU_LOAD_RESET_REASON_POINTER_MOVE = 1;
     public static final int FLAG_DUMP_ALL = 1;
     public static final int FLAG_DUMP_FRAMESTATS = 1;
     public static final int FLAG_DUMP_RESET = 2;
@@ -68,10 +71,12 @@ public class HardwareRenderer {
     private static native boolean nIsOoprEnabled();
     private static native boolean nLoadSystemProperties(long p0);
     private static native void nMergeWithNextTransaction(long p0, long p1, long p2);
-    private static native void nNotifyCallbackPending(long p0);
+    private static native void nNotifyCallbackPending(long p0, int p1);
     private static native void nNotifyExpensiveFrame(long p0);
-    private static native void nNotifyFramePending(long p0);
+    private static native void nNotifyFramePending(long p0, int p1);
+    private static native void nNotifyFrameVsyncId(long p0, long p1);
     private static native void nNotifyGpuLoadUp(long p0);
+    private static native void nNotifyNoFrame(long p0);
     private static native void nOverrideProperty(java.lang.String p0, java.lang.String p1);
     private static native boolean nPause(long p0);
     private static native void nPushLayerUpdate(long p0, long p1);
@@ -160,10 +165,13 @@ public class HardwareRenderer {
     public void forceDrawNextFrame() {}
     public boolean isOpaque() { return false; }
     public boolean loadSystemProperties() { return false; }
-    public void notifyCallbackPending() {}
+    public void notifyCallbackPending(int p0) {}
     public void notifyExpensiveFrame() {}
     public int notifyExpensiveFrameWithRateLimit(java.lang.String p0) { return 0; }
     public void notifyFramePending() {}
+    public void notifyFramePending(int p0) {}
+    public void notifyFrameVsyncId(long p0) {}
+    public void notifyNoFrame() {}
     public int notifyRendererForGpuLoadUp(java.lang.String p0) { return 0; }
     public void onLayerDestroyed(android.graphics.TextureLayer p0) {}
     public boolean pause() { return false; }
@@ -204,61 +212,6 @@ public class HardwareRenderer {
     public int syncAndDrawFrame(android.graphics.FrameInfo p0) { return 0; }
     public void updateRenderTargetSize(long p0, long p1) {}
 
-    public static interface ASurfaceTransactionCallback {
-        public boolean onMergeTransaction(long p0, long p1, long p2);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CacheTrimLevel {
-    }
-
-    public static abstract class CopyRequest {
-        protected android.graphics.Bitmap mDestinationBitmap;
-        final android.graphics.Rect mSrcRect = null;
-        protected CopyRequest(android.graphics.Rect p0, android.graphics.Bitmap p1) {}
-        public long getDestinationBitmap(int p0, int p1) { return 0L; }
-        public abstract void onCopyFinished(int p0);
-    }
-
-    public static interface CornerRadiiCallback {
-        public void onCornerRadiiChanged(float[] p0);
-    }
-
-    private static final class DestroyContextRunnable implements java.lang.Runnable {
-        private final long mNativeInstance = 0L;
-        DestroyContextRunnable(long p0) {}
-        public void run() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DumpFlags {
-    }
-
-    public static interface FrameCommitCallback {
-        public void onFrameCommit(boolean p0);
-    }
-
-    public static interface FrameCompleteCallback {
-        public void onFrameComplete();
-    }
-
-    public static interface FrameDrawingCallback {
-        default public android.graphics.HardwareRenderer.FrameCommitCallback onFrameDraw(int p0, long p1) { return null; }
-        public void onFrameDraw(long p0);
-    }
-
-    public final class FrameRenderRequest {
-        private android.graphics.FrameInfo mFrameInfo;
-        private boolean mWaitForPresent;
-        private FrameRenderRequest(android.graphics.HardwareRenderer p0) {}
-        private void reset() {}
-        public android.graphics.HardwareRenderer.FrameRenderRequest setFrameCommitCallback(java.util.concurrent.Executor p0, java.lang.Runnable p1) { return null; }
-        public void setFrameInfo(android.graphics.FrameInfo p0) {}
-        public android.graphics.HardwareRenderer.FrameRenderRequest setVsyncTime(long p0) { return null; }
-        public android.graphics.HardwareRenderer.FrameRenderRequest setWaitForPresent(boolean p0) { return null; }
-        public int syncAndDraw() { return 0; }
-    }
-
     private static class NotifyRendererRateLimiter extends com.android.internal.util.RateLimitingCache<java.lang.Void> {
         private static final long DEFAULT_NOTIFY_PERIOD_MILLIS = 100L;
         private int mNotifyCount;
@@ -271,12 +224,10 @@ public class HardwareRenderer {
         private int notifyIfAllow(java.lang.String p0) { return 0; }
     }
 
-    public static interface PictureCapturedCallback {
-        public void onPictureCaptured(android.graphics.Picture p0);
-    }
-
-    public static interface PrepareSurfaceControlForWebviewCallback {
-        public void prepare();
+    private static final class DestroyContextRunnable implements java.lang.Runnable {
+        private final long mNativeInstance = 0L;
+        DestroyContextRunnable(long p0) {}
+        public void run() {}
     }
 
     private static class ProcessInitializer {
@@ -301,8 +252,8 @@ public class HardwareRenderer {
         void setPackageName(java.lang.String p0) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SyncAndDrawResult {
+    public static interface FrameCompleteCallback {
+        public void onFrameComplete();
     }
 
     public class SyncInterface {
@@ -316,7 +267,68 @@ public class HardwareRenderer {
         public static boolean syncNextTransaction(android.graphics.HardwareRenderer p0, boolean p1, java.util.function.Consumer<android.view.SurfaceControl.Transaction> p2) { return false; }
     }
 
+    public static interface CornerRadiiCallback {
+        public void onCornerRadiiChanged(float[] p0);
+    }
+
     public static interface WaitForBufferReleaseCallback {
         public void onWaitForBufferRelease(long p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SyncAndDrawResult {
+    }
+
+    public static interface FrameDrawingCallback {
+        default public android.graphics.HardwareRenderer.FrameCommitCallback onFrameDraw(int p0, long p1) { return null; }
+        public void onFrameDraw(long p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CacheTrimLevel {
+    }
+
+    public static interface PrepareSurfaceControlForWebviewCallback {
+        public void prepare();
+    }
+
+    public static interface FrameCommitCallback {
+        public void onFrameCommit(boolean p0);
+    }
+
+    public static interface ASurfaceTransactionCallback {
+        public boolean onMergeTransaction(long p0, long p1, long p2);
+    }
+
+    public static interface PictureCapturedCallback {
+        public void onPictureCaptured(android.graphics.Picture p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CpuLoadResetReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DumpFlags {
+    }
+
+    public static abstract class CopyRequest {
+        protected android.graphics.Bitmap mDestinationBitmap;
+        final android.graphics.Rect mSrcRect = null;
+        protected CopyRequest(android.graphics.Rect p0, android.graphics.Bitmap p1) {}
+        public long getDestinationBitmap(int p0, int p1) { return 0L; }
+        public abstract void onCopyFinished(int p0);
+    }
+
+    public final class FrameRenderRequest {
+        private android.graphics.FrameInfo mFrameInfo;
+        private boolean mWaitForPresent;
+        private FrameRenderRequest(android.graphics.HardwareRenderer p0) {}
+        private void reset() {}
+        public android.graphics.HardwareRenderer.FrameRenderRequest setFrameCommitCallback(java.util.concurrent.Executor p0, java.lang.Runnable p1) { return null; }
+        public void setFrameInfo(android.graphics.FrameInfo p0) {}
+        public android.graphics.HardwareRenderer.FrameRenderRequest setVsyncTime(long p0) { return null; }
+        public android.graphics.HardwareRenderer.FrameRenderRequest setWaitForPresent(boolean p0) { return null; }
+        public int syncAndDraw() { return 0; }
     }
 }

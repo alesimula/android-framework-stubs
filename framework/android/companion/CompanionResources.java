@@ -6,12 +6,15 @@ public final class CompanionResources {
     public static final java.lang.String EXTRA_ASSOCIATION = "association";
     public static final java.lang.String EXTRA_ASSOCIATION_ID = "association_id";
     public static final java.lang.String EXTRA_ASSOCIATION_REQUEST = "association_request";
+    public static final java.lang.String EXTRA_DEVICE_PROFILE = "device_profile";
     public static final java.lang.String EXTRA_FORCE_CANCEL_CONFIRMATION = "cancel_confirmation";
     public static final java.lang.String EXTRA_MAC_ADDRESS = "mac_address";
+    public static final java.lang.String EXTRA_PACKAGE_NAME = "package_name";
     public static final java.lang.String EXTRA_PIN_CODE = "pin_code";
     public static final java.lang.String EXTRA_REMOTE_DEVICE_NAME = "remote_device_name";
     public static final java.lang.String EXTRA_RESULT_RECEIVER = "result_receiver";
     public static final java.lang.String EXTRA_TRUST_TYPES = "trust_types";
+    public static final java.lang.String EXTRA_USER_ID = "user_id";
     public static final int PERMISSION_ADD_MIRROR_DISPLAY = 13;
     public static final int PERMISSION_ADD_TRUSTED_DISPLAY = 14;
     public static final int PERMISSION_APP_STREAMING = 17;

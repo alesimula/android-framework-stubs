@@ -7,6 +7,7 @@ public class OverScroller {
     private final java.util.function.LongSupplier mClock = null;
     private final boolean mFlywheel = false;
     private android.view.animation.Interpolator mInterpolator;
+    private boolean mIsTracing;
     private int mMode;
     private final android.widget.OverScroller.SplineOverScroller mScrollerX = null;
     private final android.widget.OverScroller.SplineOverScroller mScrollerY = null;
@@ -18,6 +19,8 @@ public class OverScroller {
     public OverScroller(android.content.Context p0, android.view.animation.Interpolator p1, float p2, float p3, boolean p4) {}
     public OverScroller(android.content.Context p0, android.view.animation.Interpolator p1, boolean p2) {}
     public OverScroller(android.content.Context p0, android.view.animation.Interpolator p1, boolean p2, java.util.function.LongSupplier p3) {}
+    private void beginAnimationTrace() {}
+    private void endAnimationTrace() {}
     public void abortAnimation() {}
     public boolean computeScrollOffset() { return false; }
     public void extendDuration(int p0) {}
@@ -55,6 +58,7 @@ public class OverScroller {
         private static final float GRAVITY = 2000.0f;
         private static final float INFLEXION = 0.3499999940395355f;
         private static final int KINEMATIC_FLING = 3;
+        private static final float MIN_SUBPIXEL_VELOCITY_PX_PER_SEC = 30.0f;
         private static final int NB_SAMPLES = 100;
         private static final float P1 = 0.17499999701976776f;
         private static final float P2 = 0.3500000238418579f;
@@ -66,6 +70,7 @@ public class OverScroller {
         private float mCurrVelocity;
         private int mCurrentPosition;
         private float mDeceleration;
+        private float mDefaultFriction;
         private int mDuration;
         private int mFinal;
         private boolean mFinished;
@@ -84,7 +89,7 @@ public class OverScroller {
         private long mStartTime;
         private int mState;
         private int mVelocity;
-        SplineOverScroller(android.content.Context p0, java.util.function.LongSupplier p1, boolean p2) {}
+        SplineOverScroller(android.content.Context p0, java.util.function.LongSupplier p1, boolean p2, boolean p3) {}
         private void adjustDuration(int p0, int p1, int p2) {}
         private void fitOnBounceCurve(int p0, int p1, int p2) {}
         private static float getDeceleration(int p0) { return 0.0f; }

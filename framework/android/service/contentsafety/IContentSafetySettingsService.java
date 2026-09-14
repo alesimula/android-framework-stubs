@@ -4,12 +4,6 @@ public interface IContentSafetySettingsService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.contentsafety.IContentSafetySettingsService";
     public void requestIsFeatureEnabled(int p0, android.os.UserHandle p1, com.android.internal.infra.AndroidFuture p2, android.app.contentsafety.IIsFeatureEnabledCallback p3) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentsafety.IContentSafetySettingsService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void requestIsFeatureEnabled(int p0, android.os.UserHandle p1, com.android.internal.infra.AndroidFuture p2, android.app.contentsafety.IIsFeatureEnabledCallback p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentsafety.IContentSafetySettingsService {
         static final int TRANSACTION_requestIsFeatureEnabled = 2;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IContentSafetySettingsService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void requestIsFeatureEnabled(int p0, android.os.UserHandle p1, com.android.internal.infra.AndroidFuture p2, android.app.contentsafety.IIsFeatureEnabledCallback p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentsafety.IContentSafetySettingsService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void requestIsFeatureEnabled(int p0, android.os.UserHandle p1, com.android.internal.infra.AndroidFuture p2, android.app.contentsafety.IIsFeatureEnabledCallback p3) throws android.os.RemoteException {}
     }
 }

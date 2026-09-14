@@ -8,12 +8,10 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public CustomFeatureFlags(java.util.function.BiPredicate<java.lang.String, java.util.function.Predicate<com.android.internal.hidden_from_bootclasspath.com.android.server.telecom.flags.FeatureFlags>> p0, java.util.function.BiFunction<java.lang.String, java.util.function.Function<com.android.internal.hidden_from_bootclasspath.com.android.server.telecom.flags.FeatureFlags, ?>, ?> p1) {}
     private boolean isOptimizationEnabled() { return false; }
     public boolean addCallUriForMissedCalls() { return false; }
-    public boolean bulkStateUpdateCall() { return false; }
     public boolean businessCallComposer() { return false; }
     public boolean callDetailsIdChanges() { return false; }
     public boolean callSequencingCallResumeFailed() { return false; }
     public boolean callSequencingMetrics() { return false; }
-    public boolean conferenceModifyMergeFail() { return false; }
     public boolean ensureAudioModeUpdatesOnForegroundCallChange() { return false; }
     public boolean filterVoipCallLogs() { return false; }
     public java.util.List<java.lang.String> getFlagNames() { return null; }

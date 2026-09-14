@@ -61,54 +61,18 @@ public final class ActivityManagerServiceDumpProcessesProto {
     public static final long VR_CONTROLLER = 1146756268061L;
     public ActivityManagerServiceDumpProcessesProto() {}
 
+    public final class Profile {
+        public static final long APP_NAME = 1138166333441L;
+        public static final long INFO = 1146756268035L;
+        public static final long PROC = 1146756268034L;
+        public static final long TYPE = 1120986464260L;
+        public Profile(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
+    }
+
     public final class Controller {
         public static final long CONTROLLER = 1138166333441L;
         public static final long IS_A_MONKEY = 1133871366146L;
         public Controller(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-    }
-
-    public final class DebugApp {
-        public static final long DEBUG_APP = 1138166333441L;
-        public static final long DEBUG_TRANSIENT = 1133871366147L;
-        public static final long ORIG_DEBUG_APP = 1138166333442L;
-        public static final long ORIG_WAIT_FOR_DEBUGGER = 1133871366148L;
-        public DebugApp(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-    }
-
-    public final class LruProcesses {
-        public static final long LIST = 2246267895812L;
-        public static final long NON_ACT_AT = 1120986464258L;
-        public static final long NON_SVC_AT = 1120986464259L;
-        public static final long SIZE = 1120986464257L;
-        public LruProcesses(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-    }
-
-    public final class MemWatchProcess {
-        public static final long DUMP = 1146756268034L;
-        public static final long PROCS = 2246267895809L;
-        public MemWatchProcess(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-
-        public final class Dump {
-            public static final long IS_USER_INITIATED = 1133871366149L;
-            public static final long PID = 1120986464259L;
-            public static final long PROC_NAME = 1138166333441L;
-            public static final long UID = 1120986464260L;
-            public static final long URI = 1138166333446L;
-            public Dump(com.android.server.am.ActivityManagerServiceDumpProcessesProto.MemWatchProcess p0) {}
-        }
-
-        public final class Process {
-            public static final long MEM_STATS = 2246267895810L;
-            public static final long NAME = 1138166333441L;
-            public Process(com.android.server.am.ActivityManagerServiceDumpProcessesProto.MemWatchProcess p0) {}
-
-            public final class MemStats {
-                public static final long REPORT_TO = 1138166333443L;
-                public static final long SIZE = 1138166333442L;
-                public static final long UID = 1120986464257L;
-                public MemStats(com.android.server.am.ActivityManagerServiceDumpProcessesProto.MemWatchProcess.Process p0) {}
-            }
-        }
     }
 
     public final class PendingTempWhitelist {
@@ -119,29 +83,6 @@ public final class ActivityManagerServiceDumpProcessesProto {
         public static final long TARGET_UID = 1120986464257L;
         public static final long TYPE = 1120986464260L;
         public PendingTempWhitelist(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-    }
-
-    public final class Profile {
-        public static final long APP_NAME = 1138166333441L;
-        public static final long INFO = 1146756268035L;
-        public static final long PROC = 1146756268034L;
-        public static final long TYPE = 1120986464260L;
-        public Profile(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-    }
-
-    public final class ScreenCompatPackage {
-        public static final long MODE = 1120986464258L;
-        public static final long PACKAGE = 1138166333441L;
-        public ScreenCompatPackage(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
-    }
-
-    public final class SleepStatus {
-        public static final long SHUTTING_DOWN = 1133871366148L;
-        public static final long SLEEPING = 1133871366147L;
-        public static final long SLEEP_TOKENS = 2237677961218L;
-        public static final long TEST_PSS_MODE = 1133871366149L;
-        public static final long WAKEFULNESS = 1159641169921L;
-        public SleepStatus(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
     }
 
     public final class UidObserverRegistrationProto {
@@ -163,5 +104,64 @@ public final class ActivityManagerServiceDumpProcessesProto {
         public static final long SESSION = 1138166333441L;
         public static final long WAKELOCK = 1146756268034L;
         public Voice(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
+    }
+
+    public final class DebugApp {
+        public static final long DEBUG_APP = 1138166333441L;
+        public static final long DEBUG_TRANSIENT = 1133871366147L;
+        public static final long ORIG_DEBUG_APP = 1138166333442L;
+        public static final long ORIG_WAIT_FOR_DEBUGGER = 1133871366148L;
+        public DebugApp(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
+    }
+
+    public final class MemWatchProcess {
+        public static final long DUMP = 1146756268034L;
+        public static final long PROCS = 2246267895809L;
+        public MemWatchProcess(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
+
+        public final class Process {
+            public static final long MEM_STATS = 2246267895810L;
+            public static final long NAME = 1138166333441L;
+            public Process(com.android.server.am.ActivityManagerServiceDumpProcessesProto.MemWatchProcess p0) {}
+
+            public final class MemStats {
+                public static final long REPORT_TO = 1138166333443L;
+                public static final long SIZE = 1138166333442L;
+                public static final long UID = 1120986464257L;
+                public MemStats(com.android.server.am.ActivityManagerServiceDumpProcessesProto.MemWatchProcess.Process p0) {}
+            }
+        }
+
+        public final class Dump {
+            public static final long IS_USER_INITIATED = 1133871366149L;
+            public static final long PID = 1120986464259L;
+            public static final long PROC_NAME = 1138166333441L;
+            public static final long UID = 1120986464260L;
+            public static final long URI = 1138166333446L;
+            public Dump(com.android.server.am.ActivityManagerServiceDumpProcessesProto.MemWatchProcess p0) {}
+        }
+    }
+
+    public final class ScreenCompatPackage {
+        public static final long MODE = 1120986464258L;
+        public static final long PACKAGE = 1138166333441L;
+        public ScreenCompatPackage(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
+    }
+
+    public final class LruProcesses {
+        public static final long LIST = 2246267895812L;
+        public static final long NON_ACT_AT = 1120986464258L;
+        public static final long NON_SVC_AT = 1120986464259L;
+        public static final long SIZE = 1120986464257L;
+        public LruProcesses(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
+    }
+
+    public final class SleepStatus {
+        public static final long SHUTTING_DOWN = 1133871366148L;
+        public static final long SLEEPING = 1133871366147L;
+        public static final long SLEEP_TOKENS = 2237677961218L;
+        public static final long TEST_PSS_MODE = 1133871366149L;
+        public static final long WAKEFULNESS = 1159641169921L;
+        public SleepStatus(com.android.server.am.ActivityManagerServiceDumpProcessesProto p0) {}
     }
 }

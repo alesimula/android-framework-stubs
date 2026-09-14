@@ -1,24 +1,16 @@
 package com.android.internal.appwidget;
 
 public interface IAppWidgetHost extends android.os.IInterface {
+    public void appWidgetOptionsChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException;
     public void appWidgetRemoved(int p0) throws android.os.RemoteException;
     public void providerChanged(int p0, android.appwidget.AppWidgetProviderInfo p1) throws android.os.RemoteException;
     public void providersChanged() throws android.os.RemoteException;
     public void updateAppWidget(int p0, android.widget.RemoteViews p1) throws android.os.RemoteException;
     public void updateAppWidgetDeferred(int p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.appwidget.IAppWidgetHost {
-        public Default() {}
-        public void appWidgetRemoved(int p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void providerChanged(int p0, android.appwidget.AppWidgetProviderInfo p1) throws android.os.RemoteException {}
-        public void providersChanged() throws android.os.RemoteException {}
-        public void updateAppWidget(int p0, android.widget.RemoteViews p1) throws android.os.RemoteException {}
-        public void updateAppWidgetDeferred(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.appwidget.IAppWidgetHost {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.appwidget.IAppWidgetHost";
+        static final int TRANSACTION_appWidgetOptionsChanged = 6;
         static final int TRANSACTION_appWidgetRemoved = 5;
         static final int TRANSACTION_providerChanged = 3;
         static final int TRANSACTION_providersChanged = 4;
@@ -34,6 +26,7 @@ public interface IAppWidgetHost extends android.os.IInterface {
         private static final class Proxy implements com.android.internal.appwidget.IAppWidgetHost {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
+            public void appWidgetOptionsChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
             public void appWidgetRemoved(int p0) throws android.os.RemoteException {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
@@ -42,5 +35,16 @@ public interface IAppWidgetHost extends android.os.IInterface {
             public void updateAppWidget(int p0, android.widget.RemoteViews p1) throws android.os.RemoteException {}
             public void updateAppWidgetDeferred(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.appwidget.IAppWidgetHost {
+        public Default() {}
+        public void appWidgetOptionsChanged(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void appWidgetRemoved(int p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void providerChanged(int p0, android.appwidget.AppWidgetProviderInfo p1) throws android.os.RemoteException {}
+        public void providersChanged() throws android.os.RemoteException {}
+        public void updateAppWidget(int p0, android.widget.RemoteViews p1) throws android.os.RemoteException {}
+        public void updateAppWidgetDeferred(int p0) throws android.os.RemoteException {}
     }
 }

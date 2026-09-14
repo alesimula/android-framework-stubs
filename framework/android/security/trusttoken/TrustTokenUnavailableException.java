@@ -3,6 +3,7 @@ package android.security.trusttoken;
 public class TrustTokenUnavailableException extends java.lang.IllegalStateException {
     public static final int ERROR_ATTESTATION = 4;
     public static final int ERROR_BOOT_NOT_COMPLETE = 7;
+    public static final int ERROR_DISK_IO = 8;
     public static final int ERROR_INVALID_TOKENS = 3;
     public static final int ERROR_MASTER_KEY = 5;
     public static final int ERROR_NO_PROVIDER = 6;

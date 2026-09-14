@@ -7,12 +7,13 @@ public class Typeface {
     public static final android.graphics.Typeface DEFAULT_BOLD = null;
     public static final java.lang.String DEFAULT_FAMILY = "sans-serif";
     private static final int[] EMPTY_AXES = null;
-    public static final boolean ENABLE_LAZY_TYPEFACE_INITIALIZATION = true;
+    public static final int GENERIC_FAMILY_SANS_SERIF_INDEX = 0;
     public static final int ITALIC = 2;
     public static final android.graphics.Typeface MONOSPACE = null;
     public static final int NORMAL = 0;
     public static final int RESOLVE_BY_FONT_TABLE = -1;
     public static final android.graphics.Typeface SANS_SERIF = null;
+    private static final java.lang.String SANS_SERIF_FAMILY_KEY = "sans-serif";
     public static final android.graphics.Typeface SERIF = null;
     private static final int STYLE_ITALIC = 1;
     public static final int STYLE_MASK = 3;
@@ -69,6 +70,7 @@ public class Typeface {
     private static android.graphics.Typeface createWeightStyle(android.graphics.Typeface p0, int p1, boolean p2) { return null; }
     public static android.graphics.Typeface defaultFromStyle(int p0) { return null; }
     public static long[] deserializeFontMap(java.nio.ByteBuffer p0, java.util.Map<java.lang.String, android.graphics.Typeface> p1) throws java.io.IOException { return null; }
+    public static long[] deserializeFontMap(java.nio.ByteBuffer p0, java.util.Map<java.lang.String, android.graphics.Typeface> p1, java.util.List<java.lang.String> p2) throws java.io.IOException { return null; }
     public static void destroySystemFontMap() {}
     private static void destroyTypefaceCacheLocked(android.util.LongSparseArray<android.util.SparseArray<android.graphics.Typeface>> p0) {}
     public static android.graphics.Typeface findFromCache(android.content.res.AssetManager p0, java.lang.String p1) { return null; }
@@ -100,14 +102,16 @@ public class Typeface {
     private static native boolean nativeSetFontRenderingBackend(int p0);
     private static native void nativeWarmUpCache(java.lang.String p0);
     private static native int nativeWriteTypefaces(java.nio.ByteBuffer p0, int p1, long[] p2);
+    public static void overrideDefaultFontForApp(java.lang.String p0) {}
     private static void preloadFontFile(java.lang.String p0) {}
     private static java.lang.String readString(java.nio.ByteBuffer p0) { return null; }
     private static void registerGenericFamilyNative(java.lang.String p0, android.graphics.Typeface p1) {}
     public static android.os.SharedMemory serializeFontMap(java.util.Map<java.lang.String, android.graphics.Typeface> p0) throws java.io.IOException, android.system.ErrnoException { return null; }
+    public static android.os.SharedMemory serializeFontMap(java.util.Map<java.lang.String, android.graphics.Typeface> p0, java.util.List<java.lang.String> p1) throws java.io.IOException, android.system.ErrnoException { return null; }
     private static void setDefault(android.graphics.Typeface p0) {}
     public static boolean setFontRenderingBackend(int p0) { return false; }
     public static void setSystemFontMap(android.os.SharedMemory p0) throws java.io.IOException, android.system.ErrnoException {}
-    public static void setSystemFontMap(java.util.Map<java.lang.String, android.graphics.Typeface> p0) {}
+    public static void setSystemFontMap(java.util.Map<java.lang.String, android.graphics.Typeface> p0, java.util.List<java.lang.String> p1) {}
     private static void staticInitializer() {}
     private static void staticInitializer$ravenwood() {}
     private static void writeInt(java.io.ByteArrayOutputStream p0, int p1) {}
@@ -123,6 +127,23 @@ public class Typeface {
     public final boolean isItalic() { return false; }
     public boolean isSupportedAxes(int p0) { return false; }
     public void releaseNativeObjectForTest() {}
+
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
+    }
+
+    public static final class CustomFallbackBuilder {
+        private static final int MAX_CUSTOM_FALLBACK = 64;
+        private java.lang.String mFallbackName;
+        private final java.util.ArrayList<android.graphics.fonts.FontFamily> mFamilies = null;
+        private android.graphics.fonts.FontStyle mStyle;
+        public CustomFallbackBuilder(android.graphics.fonts.FontFamily p0) {}
+        public static int getMaxCustomFallbackCount() { return 0; }
+        public android.graphics.Typeface.CustomFallbackBuilder addCustomFallback(android.graphics.fonts.FontFamily p0) { return null; }
+        public android.graphics.Typeface build() { return null; }
+        public android.graphics.Typeface.CustomFallbackBuilder setStyle(android.graphics.fonts.FontStyle p0) { return null; }
+        public android.graphics.Typeface.CustomFallbackBuilder setSystemFallback(java.lang.String p0) { return null; }
+    }
 
     public static final class Builder {
         public static final int BOLD_WEIGHT = 700;
@@ -149,21 +170,10 @@ public class Typeface {
         public android.graphics.Typeface.Builder setWeight(int p0) { return null; }
     }
 
-    public static final class CustomFallbackBuilder {
-        private static final int MAX_CUSTOM_FALLBACK = 64;
-        private java.lang.String mFallbackName;
-        private final java.util.ArrayList<android.graphics.fonts.FontFamily> mFamilies = null;
-        private android.graphics.fonts.FontStyle mStyle;
-        public CustomFallbackBuilder(android.graphics.fonts.FontFamily p0) {}
-        public static int getMaxCustomFallbackCount() { return 0; }
-        public android.graphics.Typeface.CustomFallbackBuilder addCustomFallback(android.graphics.fonts.FontFamily p0) { return null; }
-        public android.graphics.Typeface build() { return null; }
-        public android.graphics.Typeface.CustomFallbackBuilder setStyle(android.graphics.fonts.FontStyle p0) { return null; }
-        public android.graphics.Typeface.CustomFallbackBuilder setSystemFallback(java.lang.String p0) { return null; }
-    }
-
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
+    public static final class FrozenTextFlags {
+        private static final boolean DEFAULT_FONT_CUSTOMIZATION = Boolean.valueOf(false);
+        private FrozenTextFlags() {}
+        public static boolean defaultFontCustomization() { return false; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

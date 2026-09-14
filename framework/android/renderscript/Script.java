@@ -34,42 +34,6 @@ public class Script extends android.renderscript.BaseObj {
     public void setVar(int p0, android.renderscript.FieldPacker p1, android.renderscript.Element p2, int[] p3) {}
     public void setVar(int p0, boolean p1) {}
 
-    public static class Builder {
-        android.renderscript.RenderScript mRS;
-        Builder(android.renderscript.RenderScript p0) {}
-    }
-
-    public static class FieldBase {
-        protected android.renderscript.Allocation mAllocation;
-        protected android.renderscript.Element mElement;
-        protected FieldBase() {}
-        public android.renderscript.Allocation getAllocation() { return null; }
-        public android.renderscript.Element getElement() { return null; }
-        public android.renderscript.Type getType() { return null; }
-        protected void init(android.renderscript.RenderScript p0, int p1) {}
-        protected void init(android.renderscript.RenderScript p0, int p1, int p2) {}
-        public void updateAllocation() {}
-    }
-
-    public static final class FieldID extends android.renderscript.BaseObj {
-        android.renderscript.Script mScript;
-        int mSlot;
-        FieldID(long p0, android.renderscript.RenderScript p1, android.renderscript.Script p2, int p3) { super(0L, null); }
-    }
-
-    public static final class InvokeID extends android.renderscript.BaseObj {
-        android.renderscript.Script mScript;
-        int mSlot;
-        InvokeID(long p0, android.renderscript.RenderScript p1, android.renderscript.Script p2, int p3) { super(0L, null); }
-    }
-
-    public static final class KernelID extends android.renderscript.BaseObj {
-        android.renderscript.Script mScript;
-        int mSig;
-        int mSlot;
-        KernelID(long p0, android.renderscript.RenderScript p1, android.renderscript.Script p2, int p3, int p4) { super(0L, null); }
-    }
-
     public static final class LaunchOptions {
         private int strategy;
         private int xend;
@@ -88,5 +52,41 @@ public class Script extends android.renderscript.BaseObj {
         public android.renderscript.Script.LaunchOptions setX(int p0, int p1) { return null; }
         public android.renderscript.Script.LaunchOptions setY(int p0, int p1) { return null; }
         public android.renderscript.Script.LaunchOptions setZ(int p0, int p1) { return null; }
+    }
+
+    public static class Builder {
+        android.renderscript.RenderScript mRS;
+        Builder(android.renderscript.RenderScript p0) {}
+    }
+
+    public static final class InvokeID extends android.renderscript.BaseObj {
+        android.renderscript.Script mScript;
+        int mSlot;
+        InvokeID(long p0, android.renderscript.RenderScript p1, android.renderscript.Script p2, int p3) { super(0L, null); }
+    }
+
+    public static final class FieldID extends android.renderscript.BaseObj {
+        android.renderscript.Script mScript;
+        int mSlot;
+        FieldID(long p0, android.renderscript.RenderScript p1, android.renderscript.Script p2, int p3) { super(0L, null); }
+    }
+
+    public static class FieldBase {
+        protected android.renderscript.Allocation mAllocation;
+        protected android.renderscript.Element mElement;
+        protected FieldBase() {}
+        public android.renderscript.Allocation getAllocation() { return null; }
+        public android.renderscript.Element getElement() { return null; }
+        public android.renderscript.Type getType() { return null; }
+        protected void init(android.renderscript.RenderScript p0, int p1) {}
+        protected void init(android.renderscript.RenderScript p0, int p1, int p2) {}
+        public void updateAllocation() {}
+    }
+
+    public static final class KernelID extends android.renderscript.BaseObj {
+        android.renderscript.Script mScript;
+        int mSig;
+        int mSlot;
+        KernelID(long p0, android.renderscript.RenderScript p1, android.renderscript.Script p2, int p3, int p4) { super(0L, null); }
     }
 }

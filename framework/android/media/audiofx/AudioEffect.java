@@ -116,6 +116,10 @@ public class AudioEffect {
     public int setParameter(int[] p0, short[] p1) throws java.lang.IllegalStateException { return 0; }
     public void setParameterListener(android.media.audiofx.AudioEffect.OnParameterChangeListener p0) {}
 
+    public static interface OnEnableStatusChangeListener {
+        public void onEnableStatusChange(android.media.audiofx.AudioEffect p0, boolean p1);
+    }
+
     public static class Descriptor {
         public java.lang.String connectMode;
         public java.lang.String implementor;
@@ -138,10 +142,6 @@ public class AudioEffect {
 
     public static interface OnControlStatusChangeListener {
         public void onControlStatusChange(android.media.audiofx.AudioEffect p0, boolean p1);
-    }
-
-    public static interface OnEnableStatusChangeListener {
-        public void onEnableStatusChange(android.media.audiofx.AudioEffect p0, boolean p1);
     }
 
     public static interface OnParameterChangeListener {

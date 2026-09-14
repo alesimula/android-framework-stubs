@@ -21,6 +21,10 @@ public final class HubServiceInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ServiceFormat {
+    }
+
     public static final class Builder {
         private final int mFormat = 0;
         private final int mMajorVersion = 0;
@@ -28,9 +32,5 @@ public final class HubServiceInfo implements android.os.Parcelable {
         private final java.lang.String mServiceDescriptor = null;
         public Builder(java.lang.String p0, int p1, int p2, int p3) {}
         public android.hardware.contexthub.HubServiceInfo build() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ServiceFormat {
     }
 }

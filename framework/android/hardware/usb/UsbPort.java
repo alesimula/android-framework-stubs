@@ -81,6 +81,10 @@ public final class UsbPort {
     public static @interface AltModeType {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface EnableUsbDataStatus {
+    }
+
     public static final class Builder {
         private java.lang.String mId;
         private int mSupportedAltModes;
@@ -108,10 +112,6 @@ public final class UsbPort {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     static @interface EnableLimitPowerTransferStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface EnableUsbDataStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

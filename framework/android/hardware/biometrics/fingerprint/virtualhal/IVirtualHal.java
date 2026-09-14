@@ -36,43 +36,6 @@ public interface IVirtualHal extends android.os.IInterface {
     public void setSensorStrength(byte p0) throws android.os.RemoteException;
     public void setType(byte p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.biometrics.fingerprint.IFingerprint getFingerprintHal() throws android.os.RemoteException { return null; }
-        public void resetConfigurations() throws android.os.RemoteException {}
-        public void setAuthenticatorId(long p0) throws android.os.RemoteException {}
-        public void setChallenge(long p0) throws android.os.RemoteException {}
-        public void setControlIllumination(boolean p0) throws android.os.RemoteException {}
-        public void setDetectInteraction(boolean p0) throws android.os.RemoteException {}
-        public void setDisplayTouch(boolean p0) throws android.os.RemoteException {}
-        public void setEnrollmentHit(int p0) throws android.os.RemoteException {}
-        public void setEnrollments(int[] p0) throws android.os.RemoteException {}
-        public void setLockout(boolean p0) throws android.os.RemoteException {}
-        public void setLockoutEnable(boolean p0) throws android.os.RemoteException {}
-        public void setLockoutPermanentThreshold(int p0) throws android.os.RemoteException {}
-        public void setLockoutTimedDuration(int p0) throws android.os.RemoteException {}
-        public void setLockoutTimedThreshold(int p0) throws android.os.RemoteException {}
-        public void setMaxEnrollmentPerUser(int p0) throws android.os.RemoteException {}
-        public void setNavigationGesture(boolean p0) throws android.os.RemoteException {}
-        public void setNextEnrollment(android.hardware.biometrics.fingerprint.virtualhal.NextEnrollment p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateAcquired(android.hardware.biometrics.fingerprint.virtualhal.AcquiredInfoAndVendorCode[] p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateDuration(int p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateError(int p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateFails(boolean p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateLatency(int[] p0) throws android.os.RemoteException {}
-        public void setOperationDetectInteractionAcquired(android.hardware.biometrics.fingerprint.virtualhal.AcquiredInfoAndVendorCode[] p0) throws android.os.RemoteException {}
-        public void setOperationDetectInteractionDuration(int p0) throws android.os.RemoteException {}
-        public void setOperationDetectInteractionError(int p0) throws android.os.RemoteException {}
-        public void setOperationDetectInteractionLatency(int[] p0) throws android.os.RemoteException {}
-        public void setOperationEnrollError(int p0) throws android.os.RemoteException {}
-        public void setOperationEnrollLatency(int[] p0) throws android.os.RemoteException {}
-        public void setSensorId(int p0) throws android.os.RemoteException {}
-        public void setSensorLocation(android.hardware.biometrics.fingerprint.SensorLocation p0) throws android.os.RemoteException {}
-        public void setSensorStrength(byte p0) throws android.os.RemoteException {}
-        public void setType(byte p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal {
         static final int TRANSACTION_getFingerprintHal = 32;
         static final int TRANSACTION_resetConfigurations = 22;
@@ -151,5 +114,42 @@ public interface IVirtualHal extends android.os.IInterface {
             public void setSensorStrength(byte p0) throws android.os.RemoteException {}
             public void setType(byte p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.fingerprint.virtualhal.IVirtualHal {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.biometrics.fingerprint.IFingerprint getFingerprintHal() throws android.os.RemoteException { return null; }
+        public void resetConfigurations() throws android.os.RemoteException {}
+        public void setAuthenticatorId(long p0) throws android.os.RemoteException {}
+        public void setChallenge(long p0) throws android.os.RemoteException {}
+        public void setControlIllumination(boolean p0) throws android.os.RemoteException {}
+        public void setDetectInteraction(boolean p0) throws android.os.RemoteException {}
+        public void setDisplayTouch(boolean p0) throws android.os.RemoteException {}
+        public void setEnrollmentHit(int p0) throws android.os.RemoteException {}
+        public void setEnrollments(int[] p0) throws android.os.RemoteException {}
+        public void setLockout(boolean p0) throws android.os.RemoteException {}
+        public void setLockoutEnable(boolean p0) throws android.os.RemoteException {}
+        public void setLockoutPermanentThreshold(int p0) throws android.os.RemoteException {}
+        public void setLockoutTimedDuration(int p0) throws android.os.RemoteException {}
+        public void setLockoutTimedThreshold(int p0) throws android.os.RemoteException {}
+        public void setMaxEnrollmentPerUser(int p0) throws android.os.RemoteException {}
+        public void setNavigationGesture(boolean p0) throws android.os.RemoteException {}
+        public void setNextEnrollment(android.hardware.biometrics.fingerprint.virtualhal.NextEnrollment p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateAcquired(android.hardware.biometrics.fingerprint.virtualhal.AcquiredInfoAndVendorCode[] p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateDuration(int p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateError(int p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateFails(boolean p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateLatency(int[] p0) throws android.os.RemoteException {}
+        public void setOperationDetectInteractionAcquired(android.hardware.biometrics.fingerprint.virtualhal.AcquiredInfoAndVendorCode[] p0) throws android.os.RemoteException {}
+        public void setOperationDetectInteractionDuration(int p0) throws android.os.RemoteException {}
+        public void setOperationDetectInteractionError(int p0) throws android.os.RemoteException {}
+        public void setOperationDetectInteractionLatency(int[] p0) throws android.os.RemoteException {}
+        public void setOperationEnrollError(int p0) throws android.os.RemoteException {}
+        public void setOperationEnrollLatency(int[] p0) throws android.os.RemoteException {}
+        public void setSensorId(int p0) throws android.os.RemoteException {}
+        public void setSensorLocation(android.hardware.biometrics.fingerprint.SensorLocation p0) throws android.os.RemoteException {}
+        public void setSensorStrength(byte p0) throws android.os.RemoteException {}
+        public void setType(byte p0) throws android.os.RemoteException {}
     }
 }

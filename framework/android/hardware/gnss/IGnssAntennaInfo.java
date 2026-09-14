@@ -9,15 +9,6 @@ public interface IGnssAntennaInfo extends android.os.IInterface {
     public int getInterfaceVersion() throws android.os.RemoteException;
     public void setCallback(android.hardware.gnss.IGnssAntennaInfoCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.IGnssAntennaInfo {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void setCallback(android.hardware.gnss.IGnssAntennaInfoCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.IGnssAntennaInfo {
         static final int TRANSACTION_close = 2;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -42,5 +33,14 @@ public interface IGnssAntennaInfo extends android.os.IInterface {
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
             public void setCallback(android.hardware.gnss.IGnssAntennaInfoCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.gnss.IGnssAntennaInfo {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void setCallback(android.hardware.gnss.IGnssAntennaInfoCallback p0) throws android.os.RemoteException {}
     }
 }

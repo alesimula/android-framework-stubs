@@ -8,16 +8,6 @@ public interface ISipDelegateConnectionStateCallback extends android.os.IInterfa
     public void onFeatureTagStatusChanged(android.telephony.ims.DelegateRegistrationState p0, java.util.List<android.telephony.ims.FeatureTagState> p1) throws android.os.RemoteException;
     public void onImsConfigurationChanged(android.telephony.ims.SipDelegateImsConfiguration p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.ISipDelegateConnectionStateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConfigurationChanged(android.telephony.ims.SipDelegateConfiguration p0) throws android.os.RemoteException {}
-        public void onCreated(android.telephony.ims.aidl.ISipDelegate p0) throws android.os.RemoteException {}
-        public void onDestroyed(int p0) throws android.os.RemoteException {}
-        public void onFeatureTagStatusChanged(android.telephony.ims.DelegateRegistrationState p0, java.util.List<android.telephony.ims.FeatureTagState> p1) throws android.os.RemoteException {}
-        public void onImsConfigurationChanged(android.telephony.ims.SipDelegateImsConfiguration p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.ISipDelegateConnectionStateCallback {
         static final int TRANSACTION_onConfigurationChanged = 4;
         static final int TRANSACTION_onCreated = 1;
@@ -42,5 +32,15 @@ public interface ISipDelegateConnectionStateCallback extends android.os.IInterfa
             public void onFeatureTagStatusChanged(android.telephony.ims.DelegateRegistrationState p0, java.util.List<android.telephony.ims.FeatureTagState> p1) throws android.os.RemoteException {}
             public void onImsConfigurationChanged(android.telephony.ims.SipDelegateImsConfiguration p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.ISipDelegateConnectionStateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConfigurationChanged(android.telephony.ims.SipDelegateConfiguration p0) throws android.os.RemoteException {}
+        public void onCreated(android.telephony.ims.aidl.ISipDelegate p0) throws android.os.RemoteException {}
+        public void onDestroyed(int p0) throws android.os.RemoteException {}
+        public void onFeatureTagStatusChanged(android.telephony.ims.DelegateRegistrationState p0, java.util.List<android.telephony.ims.FeatureTagState> p1) throws android.os.RemoteException {}
+        public void onImsConfigurationChanged(android.telephony.ims.SipDelegateImsConfiguration p0) throws android.os.RemoteException {}
     }
 }

@@ -56,7 +56,7 @@ public class GradientDrawable extends android.graphics.drawable.Drawable {
     private void updateGradientDrawableSize(android.content.res.TypedArray p0) {}
     private void updateGradientDrawableSolid(android.content.res.TypedArray p0) {}
     private void updateGradientDrawableStroke(android.content.res.TypedArray p0) {}
-    private void updateLocalState(android.content.res.Resources p0) {}
+    private void updateLocalState() {}
     private void updateStateFromTypedArray(android.content.res.TypedArray p0) {}
     public void applyTheme(android.content.res.Resources.Theme p0) {}
     public boolean canApplyTheme() { return false; }
@@ -195,7 +195,19 @@ public class GradientDrawable extends android.graphics.drawable.Drawable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StrokeCap {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Shape {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface GradientType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RadiusType {
     }
 
     public static enum Orientation {
@@ -209,17 +221,5 @@ public class GradientDrawable extends android.graphics.drawable.Drawable {
         TR_BL;
         private static final android.graphics.drawable.GradientDrawable.Orientation[] $VALUES = null;
         private Orientation() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RadiusType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Shape {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StrokeCap {
     }
 }

@@ -1,7 +1,7 @@
 package com.android.net.module.util;
 
 public class DnsSvcbPacket extends com.android.net.module.util.DnsPacket {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DnsSvcbPacket";
     public static final int TYPE_SVCB = 64;
     private DnsSvcbPacket(byte[] p0) throws com.android.net.module.util.DnsPacket.ParseException { super((byte[])null); }
     private com.android.net.module.util.DnsSvcbRecord findSvcbRecord(java.lang.String p0) { return null; }

@@ -10,19 +10,6 @@ public interface IVoiceInteractionService extends android.os.IInterface {
     public void shutdown() throws android.os.RemoteException;
     public void soundModelsChanged() throws android.os.RemoteException;
 
-    public static class Default implements android.service.voice.IVoiceInteractionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void detectorRemoteExceptionOccurred(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
-        public void getActiveServiceSupportedActions(java.util.List<java.lang.String> p0, com.android.internal.app.IVoiceActionCheckCallback p1) throws android.os.RemoteException {}
-        public void launchVoiceAssistFromKeyguard() throws android.os.RemoteException {}
-        public void prepareToShowSession(android.os.Bundle p0, int p1) throws android.os.RemoteException {}
-        public void ready() throws android.os.RemoteException {}
-        public void showSessionFailed(android.os.Bundle p0) throws android.os.RemoteException {}
-        public void shutdown() throws android.os.RemoteException {}
-        public void soundModelsChanged() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.voice.IVoiceInteractionService {
         public static final java.lang.String DESCRIPTOR = "android.service.voice.IVoiceInteractionService";
         static final int TRANSACTION_detectorRemoteExceptionOccurred = 8;
@@ -54,5 +41,18 @@ public interface IVoiceInteractionService extends android.os.IInterface {
             public void shutdown() throws android.os.RemoteException {}
             public void soundModelsChanged() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.voice.IVoiceInteractionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void detectorRemoteExceptionOccurred(android.os.IBinder p0, int p1) throws android.os.RemoteException {}
+        public void getActiveServiceSupportedActions(java.util.List<java.lang.String> p0, com.android.internal.app.IVoiceActionCheckCallback p1) throws android.os.RemoteException {}
+        public void launchVoiceAssistFromKeyguard() throws android.os.RemoteException {}
+        public void prepareToShowSession(android.os.Bundle p0, int p1) throws android.os.RemoteException {}
+        public void ready() throws android.os.RemoteException {}
+        public void showSessionFailed(android.os.Bundle p0) throws android.os.RemoteException {}
+        public void shutdown() throws android.os.RemoteException {}
+        public void soundModelsChanged() throws android.os.RemoteException {}
     }
 }

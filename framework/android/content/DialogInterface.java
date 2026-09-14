@@ -17,10 +17,6 @@ public interface DialogInterface {
         public void onCancel(android.content.DialogInterface p0);
     }
 
-    public static interface OnClickListener {
-        public void onClick(android.content.DialogInterface p0, int p1);
-    }
-
     public static interface OnDismissListener {
         public void onDismiss(android.content.DialogInterface p0);
     }
@@ -29,11 +25,15 @@ public interface DialogInterface {
         public boolean onKey(android.content.DialogInterface p0, int p1, android.view.KeyEvent p2);
     }
 
+    public static interface OnShowListener {
+        public void onShow(android.content.DialogInterface p0);
+    }
+
     public static interface OnMultiChoiceClickListener {
         public void onClick(android.content.DialogInterface p0, int p1, boolean p2);
     }
 
-    public static interface OnShowListener {
-        public void onShow(android.content.DialogInterface p0);
+    public static interface OnClickListener {
+        public void onClick(android.content.DialogInterface p0, int p1);
     }
 }

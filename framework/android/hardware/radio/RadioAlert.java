@@ -50,27 +50,44 @@ public final class RadioAlert implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static final class AlertArea implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioAlert.AlertArea> CREATOR = null;
-        private final java.util.List<android.hardware.radio.RadioAlert.Geocode> mGeocodes = null;
-        private final java.util.List<android.hardware.radio.RadioAlert.Polygon> mPolygons = null;
-        private AlertArea(android.os.Parcel p0) {}
-        public AlertArea(java.util.List<android.hardware.radio.RadioAlert.Polygon> p0, java.util.List<android.hardware.radio.RadioAlert.Geocode> p1) {}
+    public static final class Coordinate implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioAlert.Coordinate> CREATOR = null;
+        private final double mLatitude = 0.0;
+        private final double mLongitude = 0.0;
+        public Coordinate(double p0, double p1) {}
+        private Coordinate(android.os.Parcel p0) {}
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
-        public java.util.List<android.hardware.radio.RadioAlert.Geocode> getGeocodes() { return null; }
-        public java.util.List<android.hardware.radio.RadioAlert.Polygon> getPolygons() { return null; }
+        public double getLatitude() { return 0.0; }
+        public double getLongitude() { return 0.0; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class Polygon implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioAlert.Polygon> CREATOR = null;
+        private final java.util.List<android.hardware.radio.RadioAlert.Coordinate> mCoordinates = null;
+        private Polygon(android.os.Parcel p0) {}
+        public Polygon(java.util.List<android.hardware.radio.RadioAlert.Coordinate> p0) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public java.util.List<android.hardware.radio.RadioAlert.Coordinate> getCoordinates() { return null; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertCategory {
+    public static @interface AlertMessageType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertCertainty {
+    public static @interface AlertSeverity {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AlertStatus {
     }
 
     public static final class AlertInfo implements android.os.Parcelable {
@@ -99,31 +116,19 @@ public final class RadioAlert implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertMessageType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertSeverity {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AlertUrgency {
     }
 
-    public static final class Coordinate implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioAlert.Coordinate> CREATOR = null;
-        private final double mLatitude = 0.0;
-        private final double mLongitude = 0.0;
-        public Coordinate(double p0, double p1) {}
-        private Coordinate(android.os.Parcel p0) {}
+    public static final class AlertArea implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioAlert.AlertArea> CREATOR = null;
+        private final java.util.List<android.hardware.radio.RadioAlert.Geocode> mGeocodes = null;
+        private final java.util.List<android.hardware.radio.RadioAlert.Polygon> mPolygons = null;
+        private AlertArea(android.os.Parcel p0) {}
+        public AlertArea(java.util.List<android.hardware.radio.RadioAlert.Polygon> p0, java.util.List<android.hardware.radio.RadioAlert.Geocode> p1) {}
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
-        public double getLatitude() { return 0.0; }
-        public double getLongitude() { return 0.0; }
+        public java.util.List<android.hardware.radio.RadioAlert.Geocode> getGeocodes() { return null; }
+        public java.util.List<android.hardware.radio.RadioAlert.Polygon> getPolygons() { return null; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
@@ -144,16 +149,11 @@ public final class RadioAlert implements android.os.Parcelable {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static final class Polygon implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioAlert.Polygon> CREATOR = null;
-        private final java.util.List<android.hardware.radio.RadioAlert.Coordinate> mCoordinates = null;
-        private Polygon(android.os.Parcel p0) {}
-        public Polygon(java.util.List<android.hardware.radio.RadioAlert.Coordinate> p0) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public java.util.List<android.hardware.radio.RadioAlert.Coordinate> getCoordinates() { return null; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AlertCertainty {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AlertCategory {
     }
 }

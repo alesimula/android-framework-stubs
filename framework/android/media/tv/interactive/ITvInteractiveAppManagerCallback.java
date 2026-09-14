@@ -5,26 +5,17 @@ public interface ITvInteractiveAppManagerCallback extends android.os.IInterface 
     public void onInteractiveAppServiceAdded(java.lang.String p0) throws android.os.RemoteException;
     public void onInteractiveAppServiceRemoved(java.lang.String p0) throws android.os.RemoteException;
     public void onInteractiveAppServiceUpdated(java.lang.String p0) throws android.os.RemoteException;
-    public void onOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) throws android.os.RemoteException;
+    public void onNotifyOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) throws android.os.RemoteException;
+    public void onSendOperatorAppIcon(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, android.graphics.Bitmap p2) throws android.os.RemoteException;
     public void onStateChanged(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException;
     public void onTvInteractiveAppServiceInfoUpdated(android.media.tv.interactive.TvInteractiveAppServiceInfo p0) throws android.os.RemoteException;
-
-    public static class Default implements android.media.tv.interactive.ITvInteractiveAppManagerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInteractiveAppServiceAdded(java.lang.String p0) throws android.os.RemoteException {}
-        public void onInteractiveAppServiceRemoved(java.lang.String p0) throws android.os.RemoteException {}
-        public void onInteractiveAppServiceUpdated(java.lang.String p0) throws android.os.RemoteException {}
-        public void onOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void onStateChanged(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void onTvInteractiveAppServiceInfoUpdated(android.media.tv.interactive.TvInteractiveAppServiceInfo p0) throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements android.media.tv.interactive.ITvInteractiveAppManagerCallback {
         static final int TRANSACTION_onInteractiveAppServiceAdded = 1;
         static final int TRANSACTION_onInteractiveAppServiceRemoved = 2;
         static final int TRANSACTION_onInteractiveAppServiceUpdated = 3;
-        static final int TRANSACTION_onOperatorAppPackageStatus = 6;
+        static final int TRANSACTION_onNotifyOperatorAppPackageStatus = 6;
+        static final int TRANSACTION_onSendOperatorAppIcon = 7;
         static final int TRANSACTION_onStateChanged = 5;
         static final int TRANSACTION_onTvInteractiveAppServiceInfoUpdated = 4;
         public Stub() { super(); }
@@ -42,9 +33,22 @@ public interface ITvInteractiveAppManagerCallback extends android.os.IInterface 
             public void onInteractiveAppServiceAdded(java.lang.String p0) throws android.os.RemoteException {}
             public void onInteractiveAppServiceRemoved(java.lang.String p0) throws android.os.RemoteException {}
             public void onInteractiveAppServiceUpdated(java.lang.String p0) throws android.os.RemoteException {}
-            public void onOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) throws android.os.RemoteException {}
+            public void onNotifyOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) throws android.os.RemoteException {}
+            public void onSendOperatorAppIcon(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, android.graphics.Bitmap p2) throws android.os.RemoteException {}
             public void onStateChanged(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
             public void onTvInteractiveAppServiceInfoUpdated(android.media.tv.interactive.TvInteractiveAppServiceInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.interactive.ITvInteractiveAppManagerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInteractiveAppServiceAdded(java.lang.String p0) throws android.os.RemoteException {}
+        public void onInteractiveAppServiceRemoved(java.lang.String p0) throws android.os.RemoteException {}
+        public void onInteractiveAppServiceUpdated(java.lang.String p0) throws android.os.RemoteException {}
+        public void onNotifyOperatorAppPackageStatus(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void onSendOperatorAppIcon(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, android.graphics.Bitmap p2) throws android.os.RemoteException {}
+        public void onStateChanged(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void onTvInteractiveAppServiceInfoUpdated(android.media.tv.interactive.TvInteractiveAppServiceInfo p0) throws android.os.RemoteException {}
     }
 }

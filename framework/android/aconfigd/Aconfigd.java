@@ -3,11 +3,35 @@ package android.aconfigd;
 public final class Aconfigd {
     public Aconfigd() {}
 
+    public final class BootLoopMetadata {
+        public static final long BOOT_COUNT = 1155346202625L;
+        public static final long BUILD_FINGERPRINT = 1138166333442L;
+        public BootLoopMetadata(android.aconfigd.Aconfigd p0) {}
+    }
+
     public final class FlagOverride {
         public static final long FLAG_NAME = 1138166333442L;
         public static final long FLAG_VALUE = 1138166333443L;
         public static final long PACKAGE_NAME = 1138166333441L;
         public FlagOverride(android.aconfigd.Aconfigd p0) {}
+    }
+
+    public final class GroupMapping {
+        public static final long GROUPS = 2246267895809L;
+        public GroupMapping(android.aconfigd.Aconfigd p0) {}
+
+        public final class Group {
+            public static final long GROUP_FLAG = 1138166333442L;
+            public static final long GROUP_PACKAGE = 1138166333441L;
+            public static final long PACKAGE_MEMBERS = 2246267895811L;
+            public Group(android.aconfigd.Aconfigd.GroupMapping p0) {}
+        }
+
+        public final class PackageMembers {
+            public static final long FLAG_NAMES = 2237677961218L;
+            public static final long PACKAGE = 1138166333441L;
+            public PackageMembers(android.aconfigd.Aconfigd.GroupMapping p0) {}
+        }
     }
 
     public final class LocalFlagOverrides {
@@ -18,6 +42,7 @@ public final class Aconfigd {
     public final class PersistStorageRecord {
         public static final long CONTAINER = 1138166333442L;
         public static final long DIGEST = 1138166333446L;
+        public static final long FLAGS_PB = 1138166333448L;
         public static final long FLAG_INFO = 1138166333447L;
         public static final long FLAG_MAP = 1138166333444L;
         public static final long FLAG_VAL = 1138166333445L;
@@ -71,6 +96,7 @@ public final class Aconfigd {
 
         public final class NewStorageMessage {
             public static final long CONTAINER = 1138166333441L;
+            public static final long FLAGS_PB = 1138166333446L;
             public static final long FLAG_INFO = 1138166333445L;
             public static final long FLAG_MAP = 1138166333443L;
             public static final long FLAG_VALUE = 1138166333444L;
@@ -124,9 +150,12 @@ public final class Aconfigd {
             public static final long CONTAINER = 1138166333451L;
             public static final long DEFAULT_FLAG_VALUE = 1138166333446L;
             public static final long FLAG_NAME = 1138166333442L;
+            public static final long GROUPED_BY = 1138166333452L;
             public static final long HAS_BOOT_LOCAL_OVERRIDE = 1133871366154L;
+            public static final long HAS_GROUP_OVERRIDE = 1133871366158L;
             public static final long HAS_LOCAL_OVERRIDE = 1133871366153L;
             public static final long HAS_SERVER_OVERRIDE = 1133871366151L;
+            public static final long IS_GROUP_FLAG = 1133871366157L;
             public static final long IS_READWRITE = 1133871366152L;
             public static final long LOCAL_FLAG_VALUE = 1138166333444L;
             public static final long PACKAGE_NAME = 1138166333441L;

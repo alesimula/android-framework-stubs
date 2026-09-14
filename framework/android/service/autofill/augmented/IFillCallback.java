@@ -7,15 +7,6 @@ public interface IFillCallback extends android.os.IInterface {
     public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException;
     public void onSuccess(java.util.List<android.service.autofill.Dataset> p0, android.os.Bundle p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.autofill.augmented.IFillCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancel() throws android.os.RemoteException {}
-        public boolean isCompleted() throws android.os.RemoteException { return false; }
-        public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
-        public void onSuccess(java.util.List<android.service.autofill.Dataset> p0, android.os.Bundle p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.autofill.augmented.IFillCallback {
         static final int TRANSACTION_cancel = 4;
         static final int TRANSACTION_isCompleted = 3;
@@ -38,5 +29,14 @@ public interface IFillCallback extends android.os.IInterface {
             public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
             public void onSuccess(java.util.List<android.service.autofill.Dataset> p0, android.os.Bundle p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.autofill.augmented.IFillCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancel() throws android.os.RemoteException {}
+        public boolean isCompleted() throws android.os.RemoteException { return false; }
+        public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
+        public void onSuccess(java.util.List<android.service.autofill.Dataset> p0, android.os.Bundle p1, boolean p2) throws android.os.RemoteException {}
     }
 }

@@ -2,7 +2,7 @@ package android.app;
 
 final class DisabledWallpaperManager extends android.app.WallpaperManager {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DisabledWallpaperManager";
     private static android.app.DisabledWallpaperManager sInstance;
     private DisabledWallpaperManager() { super(); }
     static android.app.DisabledWallpaperManager getInstance() { return null; }

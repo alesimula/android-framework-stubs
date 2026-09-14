@@ -88,7 +88,7 @@ public abstract class AdapterView<T extends android.widget.Adapter> extends andr
     protected void onLayout(boolean p0, int p1, int p2, int p3, int p4) {}
     public void onProvideAutofillStructure(android.view.ViewStructure p0, int p1) {}
     protected void onProvideStructure(android.view.ViewStructure p0, int p1, int p2) {}
-    public boolean onRequestSendAccessibilityEventInternal(android.view.View p0, android.view.accessibility.AccessibilityEvent p1) { return false; }
+    public final boolean onRequestSendAccessibilityEventInternal(android.view.View p0, android.view.accessibility.AccessibilityEvent p1) { return false; }
     public boolean performItemClick(android.view.View p0, int p1, long p2) { return false; }
     void rememberSyncState() {}
     public void removeAllViews() {}
@@ -108,6 +108,24 @@ public abstract class AdapterView<T extends android.widget.Adapter> extends andr
     void setSelectedPositionInt(int p0) {}
     public abstract void setSelection(int p0);
 
+    private class SelectionNotifier implements java.lang.Runnable {
+        private SelectionNotifier(android.widget.AdapterView p0) {}
+        public void run() {}
+    }
+
+    public static interface OnItemSelectedListener {
+        public void onItemSelected(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3);
+        public void onNothingSelected(android.widget.AdapterView<?> p0);
+    }
+
+    public static interface OnItemClickListener {
+        public void onItemClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3);
+    }
+
+    public static interface OnItemLongClickListener {
+        public boolean onItemLongClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3);
+    }
+
     public static class AdapterContextMenuInfo implements android.view.ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
@@ -121,23 +139,5 @@ public abstract class AdapterView<T extends android.widget.Adapter> extends andr
         public void clearSavedState() {}
         public void onChanged() {}
         public void onInvalidated() {}
-    }
-
-    public static interface OnItemClickListener {
-        public void onItemClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3);
-    }
-
-    public static interface OnItemLongClickListener {
-        public boolean onItemLongClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3);
-    }
-
-    public static interface OnItemSelectedListener {
-        public void onItemSelected(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3);
-        public void onNothingSelected(android.widget.AdapterView<?> p0);
-    }
-
-    private class SelectionNotifier implements java.lang.Runnable {
-        private SelectionNotifier(android.widget.AdapterView p0) {}
-        public void run() {}
     }
 }

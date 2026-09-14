@@ -19,27 +19,6 @@ public interface IDynamicSystemService extends android.os.IInterface {
     public boolean submitFromAshmem(long p0) throws android.os.RemoteException;
     public long suggestScratchSize() throws android.os.RemoteException;
 
-    public static class Default implements android.os.image.IDynamicSystemService {
-        public Default() {}
-        public boolean abort() throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public boolean closePartition() throws android.os.RemoteException { return false; }
-        public int createPartition(java.lang.String p0, long p1, boolean p2) throws android.os.RemoteException { return 0; }
-        public boolean finishInstallation() throws android.os.RemoteException { return false; }
-        public java.lang.String getActiveDsuSlot() throws android.os.RemoteException { return null; }
-        public boolean getAvbPublicKey(android.gsi.AvbPublicKey p0) throws android.os.RemoteException { return false; }
-        public android.gsi.GsiProgress getInstallationProgress() throws android.os.RemoteException { return null; }
-        public boolean isEnabled() throws android.os.RemoteException { return false; }
-        public boolean isInUse() throws android.os.RemoteException { return false; }
-        public boolean isInstalled() throws android.os.RemoteException { return false; }
-        public boolean remove() throws android.os.RemoteException { return false; }
-        public boolean setAshmem(android.os.ParcelFileDescriptor p0, long p1) throws android.os.RemoteException { return false; }
-        public boolean setEnable(boolean p0, boolean p1) throws android.os.RemoteException { return false; }
-        public boolean startInstallation(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean submitFromAshmem(long p0) throws android.os.RemoteException { return false; }
-        public long suggestScratchSize() throws android.os.RemoteException { return 0L; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.image.IDynamicSystemService {
         static final int TRANSACTION_abort = 6;
         static final int TRANSACTION_closePartition = 3;
@@ -103,5 +82,26 @@ public interface IDynamicSystemService extends android.os.IInterface {
             public boolean submitFromAshmem(long p0) throws android.os.RemoteException { return false; }
             public long suggestScratchSize() throws android.os.RemoteException { return 0L; }
         }
+    }
+
+    public static class Default implements android.os.image.IDynamicSystemService {
+        public Default() {}
+        public boolean abort() throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean closePartition() throws android.os.RemoteException { return false; }
+        public int createPartition(java.lang.String p0, long p1, boolean p2) throws android.os.RemoteException { return 0; }
+        public boolean finishInstallation() throws android.os.RemoteException { return false; }
+        public java.lang.String getActiveDsuSlot() throws android.os.RemoteException { return null; }
+        public boolean getAvbPublicKey(android.gsi.AvbPublicKey p0) throws android.os.RemoteException { return false; }
+        public android.gsi.GsiProgress getInstallationProgress() throws android.os.RemoteException { return null; }
+        public boolean isEnabled() throws android.os.RemoteException { return false; }
+        public boolean isInUse() throws android.os.RemoteException { return false; }
+        public boolean isInstalled() throws android.os.RemoteException { return false; }
+        public boolean remove() throws android.os.RemoteException { return false; }
+        public boolean setAshmem(android.os.ParcelFileDescriptor p0, long p1) throws android.os.RemoteException { return false; }
+        public boolean setEnable(boolean p0, boolean p1) throws android.os.RemoteException { return false; }
+        public boolean startInstallation(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean submitFromAshmem(long p0) throws android.os.RemoteException { return false; }
+        public long suggestScratchSize() throws android.os.RemoteException { return 0L; }
     }
 }

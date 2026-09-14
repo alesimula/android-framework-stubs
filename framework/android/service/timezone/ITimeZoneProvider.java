@@ -5,13 +5,6 @@ public interface ITimeZoneProvider extends android.os.IInterface {
     public void startUpdates(android.service.timezone.ITimeZoneProviderManager p0, long p1, long p2) throws android.os.RemoteException;
     public void stopUpdates() throws android.os.RemoteException;
 
-    public static class Default implements android.service.timezone.ITimeZoneProvider {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void startUpdates(android.service.timezone.ITimeZoneProviderManager p0, long p1, long p2) throws android.os.RemoteException {}
-        public void stopUpdates() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.timezone.ITimeZoneProvider {
         static final int TRANSACTION_startUpdates = 1;
         static final int TRANSACTION_stopUpdates = 2;
@@ -30,5 +23,12 @@ public interface ITimeZoneProvider extends android.os.IInterface {
             public void startUpdates(android.service.timezone.ITimeZoneProviderManager p0, long p1, long p2) throws android.os.RemoteException {}
             public void stopUpdates() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.timezone.ITimeZoneProvider {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void startUpdates(android.service.timezone.ITimeZoneProviderManager p0, long p1, long p2) throws android.os.RemoteException {}
+        public void stopUpdates() throws android.os.RemoteException {}
     }
 }

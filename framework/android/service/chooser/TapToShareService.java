@@ -2,7 +2,7 @@ package android.service.chooser;
 
 @android.annotation.SystemApi
 public abstract class TapToShareService extends android.app.Service {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "TapToShareService";
     public static final java.lang.String TAP_TO_SHARE_SERVICE_INTERFACE = "android.service.chooser.TapToShareService";
     private android.service.chooser.ITapToShareCallback mActiveCallback;
     private final android.service.chooser.ITapToShareService.Stub mBinder = null;

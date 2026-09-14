@@ -7,9 +7,8 @@ class RippleBackground extends android.graphics.drawable.RippleComponent {
     private android.animation.ObjectAnimator mAnimator;
     private boolean mFocused;
     private boolean mHovered;
-    private boolean mIsBounded;
     private float mOpacity;
-    public RippleBackground(android.graphics.drawable.RippleDrawable p0, android.graphics.Rect p1, boolean p2) { super(null, null); }
+    RippleBackground(android.graphics.drawable.RippleDrawable p0, android.graphics.Rect p1) { super(null, null); }
     private void onStateChanged() {}
     public void draw(android.graphics.Canvas p0, android.graphics.Paint p1) {}
     public boolean isVisible() { return false; }

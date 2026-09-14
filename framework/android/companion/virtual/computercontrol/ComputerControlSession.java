@@ -23,28 +23,30 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
     public static final java.lang.String EXTRA_PREVIEW_INTENT = "android.companion.virtual.computercontrol.extra.PREVIEW_INTENT";
     public static final int RESULT_STOP_AUTOMATION = 1;
     private static final int SCREENSHOT_TIMEOUT_MS = 5000;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ComputerControlSession";
     private static final int TRACE_COOKIE_REQUEST_SCREENSHOT = 0;
     public static final int UNSTABLE_REASON_CALLER_INTERACTION = 1;
     public static final int UNSTABLE_REASON_INSETS_CHANGE = 2;
     public static final int UNSTABLE_REASON_UNKNOWN = 0;
-    private final android.companion.virtual.computercontrol.ComputerControlSession.InjectedA11yManager mA11yManager = null;
-    private final android.companion.virtual.computercontrol.ComputerControlAccessibilityProxy mAccessibilityProxy = null;
     private final android.util.Size mDisplaySize = null;
     private final android.os.Handler mHandler = null;
     private final android.os.HandlerThread mHandlerThread = null;
     private android.media.ImageReader mImageReader;
     private final java.lang.Object mImageReaderLock = null;
+    private final java.util.concurrent.atomic.AtomicBoolean mIsFirstFrameReceived = null;
     private final android.companion.virtual.computercontrol.LifecycleStateTracker mLifecycle = null;
     private final java.lang.Runnable mOnClosedRunnable = null;
     private android.companion.virtual.computercontrol.ComputerControlSession.ScreenshotCallbackRecord mOneShotPendingScreenshotCallback;
     private android.companion.virtual.computercontrol.ComputerControlSession.LifecycleCallback mRegisteredLifecycleCallback;
     private final android.companion.virtual.computercontrol.IComputerControlLifecycleCallback mRemoteLifecycleCallback = null;
+    private android.companion.virtual.computercontrol.IStabilityListener mRemoteStabilityListener;
     private java.lang.Runnable mScreenshotTimeoutRunnable;
     private final android.companion.virtual.computercontrol.IComputerControlSession mSession = null;
+    private android.companion.virtual.computercontrol.ComputerControlSession.StabilityListener mStabilityListener;
+    private final java.lang.Object mStabilityListenerLock = null;
     private final java.lang.String mTraceTrack = null;
-    public ComputerControlSession(int p0, android.companion.virtual.computercontrol.IComputerControlSession p1, android.companion.virtual.computercontrol.ComputerControlSession.InjectedA11yManager p2, java.lang.Runnable p3) {}
-    public ComputerControlSession(int p0, android.companion.virtual.computercontrol.IComputerControlSession p1, android.companion.virtual.computercontrol.ComputerControlSession.InjectedA11yManager p2, java.lang.Runnable p3, android.hardware.display.DisplayManagerGlobal p4) {}
+    public ComputerControlSession(int p0, int p1, int p2, android.companion.virtual.computercontrol.IComputerControlSession p3, java.lang.Runnable p4) {}
+    public static java.lang.String actionToString(int p0) { return null; }
     private android.companion.virtual.computercontrol.IComputerControlSession.IInteractionResultReceiver createInteractionResultReceiver(java.util.concurrent.Executor p0, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p1) { return null; }
     private void fireScreenshotCallback(java.util.function.Consumer<android.os.OutcomeReceiver<android.media.Image, android.companion.virtual.computercontrol.ComputerControlSession.ScreenshotException>> p0) {}
     private void fireScreenshotCallbackIfReady(android.companion.virtual.computercontrol.ComputerControlSession.ScreenshotCallbackRecord p0) {}
@@ -53,7 +55,11 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
     private void onScreenshotError(android.companion.virtual.computercontrol.ComputerControlSession.ScreenshotCallbackRecord p0, int p1, java.lang.String p2) {}
     private void releaseResources() {}
     private android.media.Image requestScreenshotSync() { return null; }
+    public static java.lang.String sessionBlockReasonToString(int p0) { return null; }
+    public static java.lang.String sessionCloseReasonToString(int p0) { return null; }
+    public static java.lang.String sessionCreationErrorToString(int p0) { return null; }
     private static int translateResultToScreenshotError(int p0) { return 0; }
+    public static java.lang.String unstableReasonToString(int p0) { return null; }
     private void validateTouchCoordinates(int p0, int p1) {}
     public void addPackagesForAutomation(java.util.List<java.lang.String> p0, java.util.concurrent.Executor p1, android.companion.virtual.computercontrol.ComputerControlSession.TargetPackagesAdditionCallback p2) {}
     @java.lang.Deprecated
@@ -66,7 +72,7 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
     public java.util.List<android.view.accessibility.AccessibilityWindowInfo> getAccessibilityWindows() { return null; }
     public android.util.Size getDisplaySize() { return null; }
     public android.media.Image getScreenshot() { return null; }
-    public void handOverApplications() {}
+    public void handOverApplications(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p2) {}
     public void insertText(java.lang.String p0, boolean p1, boolean p2, android.os.CancellationSignal p3, java.util.concurrent.Executor p4, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p5) {}
     @java.lang.Deprecated
     public void launchApplication(android.content.ComponentName p0) {}
@@ -83,7 +89,8 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
     public void setLifecycleCallback(java.util.concurrent.Executor p0, android.companion.virtual.computercontrol.ComputerControlSession.LifecycleCallback p1) {}
     public void setPreviewIntent(android.app.PendingIntent p0) {}
     public void setStabilityListener(java.time.Duration p0, java.util.concurrent.Executor p1, android.companion.virtual.computercontrol.ComputerControlSession.StabilityListener p2) {}
-    public void startActivity(android.content.Intent p0, android.os.Bundle p1) {}
+    public void startActivity(android.content.Intent p0, android.os.Bundle p1, android.os.CancellationSignal p2, java.util.concurrent.Executor p3, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p4) {}
+    public void startShortcut(java.lang.String p0, java.lang.String p1, android.os.Bundle p2, android.os.CancellationSignal p3, java.util.concurrent.Executor p4, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p5) {}
     public void swipe(int p0, int p1, int p2, int p3, android.os.CancellationSignal p4, java.util.concurrent.Executor p5, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p6) {}
     public void tap(int p0, int p1, android.os.CancellationSignal p2, java.util.concurrent.Executor p3, android.os.OutcomeReceiver<java.lang.Void, android.companion.virtual.computercontrol.ComputerControlSession.InteractionException> p4) {}
 
@@ -107,14 +114,9 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
         private android.companion.virtual.computercontrol.ComputerControlSession mSession;
         public CallbackProxy(android.content.Context p0, java.util.concurrent.Executor p1, android.companion.virtual.computercontrol.ComputerControlSession.Callback p2) { super(); }
         private void onSessionClosed() {}
-        public void onSessionCreated(int p0, android.companion.virtual.computercontrol.IComputerControlSession p1) {}
+        public void onSessionCreated(int p0, int p1, int p2, android.companion.virtual.computercontrol.IComputerControlSession p3) {}
         public void onSessionCreationFailed(int p0) {}
-        public void onSessionPending(android.app.PendingIntent p0) {}
-    }
-
-    public static interface InjectedA11yManager {
-        public void registerDisplayProxy(android.view.accessibility.AccessibilityDisplayProxy p0);
-        public void unregisterDisplayProxy(android.view.accessibility.AccessibilityDisplayProxy p0);
+        public void onSessionPending(android.content.IntentSender p0) {}
     }
 
     public static class InteractionException extends java.lang.Exception {
@@ -124,6 +126,7 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
         public static final int ERROR_UNKNOWN = 0;
         private final int mErrorCode = 0;
         public InteractionException(int p0) { super(); }
+        public static java.lang.String errorCodeToString(int p0) { return null; }
         public int getErrorCode() { return 0; }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -169,6 +172,7 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
         public static final int ERROR_UNKNOWN = 0;
         private final int mErrorCode = 0;
         public ScreenshotException(int p0) { super(); }
+        public static java.lang.String errorCodeToString(int p0) { return null; }
         public int getErrorCode() { return 0; }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -199,6 +203,7 @@ public final class ComputerControlSession implements java.lang.AutoCloseable {
     public static interface TargetPackagesAdditionCallback {
         public static final int ERROR_PERMISSION_DENIED = 3;
         public static final int ERROR_UNKNOWN = 0;
+        public static java.lang.String targetPackagesAdditionErrorToString(int p0) { return null; }
         public void onTargetPackagesAdditionFailure(int p0);
         public void onTargetPackagesAdditionPending(android.content.IntentSender p0);
         public void onTargetPackagesAdditionSuccess();

@@ -2,12 +2,15 @@ package android.os;
 
 public final class ParcelDedupHelper extends android.os.Parcel.ReadWriteHelper {
     private final android.os.ParcelDedupHelper.DedupCache<android.os.IBinder> mBinderCache = null;
+    private boolean mDedupActive;
     private final android.os.ParcelDedupHelper.DedupCache<java.lang.String> mString16Cache = null;
     private final android.os.ParcelDedupHelper.DedupCache<java.lang.String> mString8Cache = null;
-    private ParcelDedupHelper(boolean p0, boolean p1, boolean p2) { super(); }
+    private ParcelDedupHelper(boolean p0, boolean p1, boolean p2, boolean p3) { super(); }
+    public boolean isEnabled() { return false; }
     public java.lang.String readString16(android.os.Parcel p0) { return null; }
     public java.lang.String readString8(android.os.Parcel p0) { return null; }
     public android.os.IBinder readStrongBinder(android.os.Parcel p0) { return null; }
+    public boolean setEnabled(boolean p0) { return false; }
     public void writeString16(android.os.Parcel p0, java.lang.String p1) {}
     public void writeString8(android.os.Parcel p0, java.lang.String p1) {}
     public void writeStrongBinder(android.os.Parcel p0, android.os.IBinder p1) {}
@@ -16,11 +19,13 @@ public final class ParcelDedupHelper extends android.os.Parcel.ReadWriteHelper {
         private boolean mDedupBinders;
         private boolean mDedupString16;
         private boolean mDedupString8;
+        private boolean mInitialEnabled;
         public Builder() {}
         public android.os.ParcelDedupHelper build() { return null; }
         public android.os.ParcelDedupHelper.Builder dedupBinders(boolean p0) { return null; }
         public android.os.ParcelDedupHelper.Builder dedupString16(boolean p0) { return null; }
         public android.os.ParcelDedupHelper.Builder dedupString8(boolean p0) { return null; }
+        public android.os.ParcelDedupHelper.Builder setEnabled(boolean p0) { return null; }
     }
 
     private static final class DedupCache<T extends java.lang.Object> {

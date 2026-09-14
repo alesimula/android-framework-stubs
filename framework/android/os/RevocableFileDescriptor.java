@@ -14,8 +14,8 @@ public class RevocableFileDescriptor {
     public RevocableFileDescriptor(android.content.Context p0, java.io.FileDescriptor p1, android.os.Handler p2) throws java.io.IOException {}
     public void addOnCloseListener(android.os.ParcelFileDescriptor.OnCloseListener p0) {}
     public android.os.ParcelFileDescriptor getRevocableFileDescriptor() { return null; }
-    public void init(android.content.Context p0, java.io.FileDescriptor p1) throws java.io.IOException {}
-    public void init(android.content.Context p0, java.io.FileDescriptor p1, android.os.Handler p2) throws java.io.IOException {}
+    public final void init(android.content.Context p0, java.io.FileDescriptor p1) throws java.io.IOException {}
+    public final void init(android.content.Context p0, java.io.FileDescriptor p1, android.os.Handler p2) throws java.io.IOException {}
     public boolean isRevoked() { return false; }
     public void revoke() {}
 }

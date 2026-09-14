@@ -22,6 +22,10 @@ public class MediaScannerConnection implements android.content.ServiceConnection
     public void onServiceDisconnected(android.content.ComponentName p0) {}
     public void scanFile(java.lang.String p0, java.lang.String p1) {}
 
+    public static interface OnScanCompletedListener {
+        public void onScanCompleted(java.lang.String p0, android.net.Uri p1);
+    }
+
     @java.lang.Deprecated
     static class ClientProxy implements android.media.MediaScannerConnection.MediaScannerConnectionClient {
         final android.media.MediaScannerConnection.OnScanCompletedListener mClient = null;
@@ -37,9 +41,5 @@ public class MediaScannerConnection implements android.content.ServiceConnection
 
     public static interface MediaScannerConnectionClient extends android.media.MediaScannerConnection.OnScanCompletedListener {
         public void onMediaScannerConnected();
-    }
-
-    public static interface OnScanCompletedListener {
-        public void onScanCompleted(java.lang.String p0, android.net.Uri p1);
     }
 }

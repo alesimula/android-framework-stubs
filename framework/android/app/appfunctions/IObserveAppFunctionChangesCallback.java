@@ -5,13 +5,6 @@ public interface IObserveAppFunctionChangesCallback extends android.os.IInterfac
     public void onAppFunctionStatesChanged(java.util.List<android.app.appfunctions.AppFunctionName> p0) throws android.os.RemoteException;
     public void onPackagesChanged(java.util.List<java.lang.String> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.appfunctions.IObserveAppFunctionChangesCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAppFunctionStatesChanged(java.util.List<android.app.appfunctions.AppFunctionName> p0) throws android.os.RemoteException {}
-        public void onPackagesChanged(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.appfunctions.IObserveAppFunctionChangesCallback {
         static final int TRANSACTION_onAppFunctionStatesChanged = 2;
         static final int TRANSACTION_onPackagesChanged = 1;
@@ -30,5 +23,12 @@ public interface IObserveAppFunctionChangesCallback extends android.os.IInterfac
             public void onAppFunctionStatesChanged(java.util.List<android.app.appfunctions.AppFunctionName> p0) throws android.os.RemoteException {}
             public void onPackagesChanged(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.appfunctions.IObserveAppFunctionChangesCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAppFunctionStatesChanged(java.util.List<android.app.appfunctions.AppFunctionName> p0) throws android.os.RemoteException {}
+        public void onPackagesChanged(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
     }
 }

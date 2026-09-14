@@ -29,13 +29,17 @@ public class DrawTextOnCircle extends com.android.internal.widget.remotecompose.
         END,
         START;
         private static final com.android.internal.widget.remotecompose.core.operations.DrawTextOnCircle.Alignment[] $VALUES = null;
+        private static final com.android.internal.widget.remotecompose.core.operations.DrawTextOnCircle.Alignment[] VALUES = null;
         private Alignment() {}
+        public static com.android.internal.widget.remotecompose.core.operations.DrawTextOnCircle.Alignment fromInt(int p0) { return null; }
     }
 
     public static enum Placement {
         INSIDE,
         OUTSIDE;
         private static final com.android.internal.widget.remotecompose.core.operations.DrawTextOnCircle.Placement[] $VALUES = null;
+        private static final com.android.internal.widget.remotecompose.core.operations.DrawTextOnCircle.Placement[] VALUES = null;
         private Placement() {}
+        public static com.android.internal.widget.remotecompose.core.operations.DrawTextOnCircle.Placement fromInt(int p0) { return null; }
     }
 }

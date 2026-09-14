@@ -7,15 +7,6 @@ public interface IQualifiedNetworksService extends android.os.IInterface {
     public void reportEmergencyDataNetworkPreferredTransportChanged(int p0, int p1) throws android.os.RemoteException;
     public void reportThrottleStatusChanged(int p0, java.util.List<android.telephony.data.ThrottleStatus> p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.data.IQualifiedNetworksService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void createNetworkAvailabilityProvider(int p0, android.telephony.data.IQualifiedNetworksServiceCallback p1) throws android.os.RemoteException {}
-        public void removeNetworkAvailabilityProvider(int p0) throws android.os.RemoteException {}
-        public void reportEmergencyDataNetworkPreferredTransportChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void reportThrottleStatusChanged(int p0, java.util.List<android.telephony.data.ThrottleStatus> p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.data.IQualifiedNetworksService {
         static final int TRANSACTION_createNetworkAvailabilityProvider = 1;
         static final int TRANSACTION_removeNetworkAvailabilityProvider = 2;
@@ -38,5 +29,14 @@ public interface IQualifiedNetworksService extends android.os.IInterface {
             public void reportEmergencyDataNetworkPreferredTransportChanged(int p0, int p1) throws android.os.RemoteException {}
             public void reportThrottleStatusChanged(int p0, java.util.List<android.telephony.data.ThrottleStatus> p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.data.IQualifiedNetworksService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void createNetworkAvailabilityProvider(int p0, android.telephony.data.IQualifiedNetworksServiceCallback p1) throws android.os.RemoteException {}
+        public void removeNetworkAvailabilityProvider(int p0) throws android.os.RemoteException {}
+        public void reportEmergencyDataNetworkPreferredTransportChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void reportThrottleStatusChanged(int p0, java.util.List<android.telephony.data.ThrottleStatus> p1) throws android.os.RemoteException {}
     }
 }

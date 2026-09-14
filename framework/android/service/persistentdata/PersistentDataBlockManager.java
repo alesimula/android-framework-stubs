@@ -8,7 +8,7 @@ public class PersistentDataBlockManager {
     public static final int FLASH_LOCK_UNKNOWN = -1;
     @android.annotation.SystemApi
     public static final int FLASH_LOCK_UNLOCKED = 0;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "PersistentDataBlockManager";
     private android.service.persistentdata.IPersistentDataBlockService sService;
     public PersistentDataBlockManager(android.service.persistentdata.IPersistentDataBlockService p0) {}
     @android.annotation.SystemApi

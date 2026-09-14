@@ -81,8 +81,8 @@ public final class RenderNode {
     private static native boolean nSetLeftTopRightBottom(long p0, int p1, int p2, int p3, int p4);
     private static native boolean nSetOutlineEmpty(long p0);
     private static native boolean nSetOutlineNone(long p0);
-    private static native boolean nSetOutlinePath(long p0, long p1, float p2);
-    private static native boolean nSetOutlineRoundRect(long p0, int p1, int p2, int p3, int p4, float p5, float p6);
+    private static native boolean nSetOutlinePath(long p0, long p1, float p2, boolean p3);
+    private static native boolean nSetOutlineRoundRect(long p0, int p1, int p2, int p3, int p4, float p5, float p6, boolean p7);
     private static native boolean nSetPivotX(long p0, float p1);
     private static native boolean nSetPivotY(long p0, float p1);
     private static native boolean nSetProjectBackwards(long p0, boolean p1);
@@ -203,10 +203,23 @@ public final class RenderNode {
     public android.graphics.RecordingCanvas start(int p0, int p1) { return null; }
     public boolean stretch(float p0, float p1, float p2, float p3) { return false; }
 
-    public static interface AnimationHost {
-        public boolean isAttached();
-        public void registerAnimatingRenderNode(android.graphics.RenderNode p0, android.animation.Animator p1);
-        public void registerVectorDrawableAnimator(android.view.NativeVectorDrawableAnimator p0);
+    public static interface PositionUpdateListener {
+        public static boolean callApplyStretch(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10, float p11) { return false; }
+        public static boolean callPositionChanged(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1, int p2, int p3, int p4, int p5) { return false; }
+        public static boolean callPositionChanged2(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, boolean p12, boolean p13) { return false; }
+        public static boolean callPositionLost(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1) { return false; }
+        default public void applyStretch(long p0, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10) {}
+        public void positionChanged(long p0, int p1, int p2, int p3, int p4);
+        default public void positionChanged(long p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, boolean p11, boolean p12) {}
+        public void positionLost(long p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UsageHint {
+    }
+
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
     }
 
     private static final class CompositePositionUpdateListener implements android.graphics.RenderNode.PositionUpdateListener {
@@ -221,22 +234,9 @@ public final class RenderNode {
         public android.graphics.RenderNode.CompositePositionUpdateListener without(android.graphics.RenderNode.PositionUpdateListener p0) { return null; }
     }
 
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
-    }
-
-    public static interface PositionUpdateListener {
-        public static boolean callApplyStretch(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10, float p11) { return false; }
-        public static boolean callPositionChanged(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1, int p2, int p3, int p4, int p5) { return false; }
-        public static boolean callPositionChanged2(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, boolean p12, boolean p13) { return false; }
-        public static boolean callPositionLost(java.lang.ref.WeakReference<android.graphics.RenderNode.PositionUpdateListener> p0, long p1) { return false; }
-        default public void applyStretch(long p0, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10) {}
-        public void positionChanged(long p0, int p1, int p2, int p3, int p4);
-        default public void positionChanged(long p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, boolean p11, boolean p12) {}
-        public void positionLost(long p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UsageHint {
+    public static interface AnimationHost {
+        public boolean isAttached();
+        public void registerAnimatingRenderNode(android.graphics.RenderNode p0, android.animation.Animator p1);
+        public void registerVectorDrawableAnimator(android.view.NativeVectorDrawableAnimator p0);
     }
 }

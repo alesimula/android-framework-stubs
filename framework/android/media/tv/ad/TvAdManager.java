@@ -46,8 +46,46 @@ public final class TvAdManager {
     public void sendAppLinkCommand(java.lang.String p0, android.os.Bundle p1) {}
     public void unregisterCallback(android.media.tv.ad.TvAdManager.TvAdServiceCallback p0) {}
 
+    public static abstract class SessionCallback {
+        public SessionCallback() {}
+        public void onLayoutSurface(android.media.tv.ad.TvAdManager.Session p0, int p1, int p2, int p3, int p4) {}
+        public void onRequestCurrentChannelUri(android.media.tv.ad.TvAdManager.Session p0) {}
+        public void onRequestCurrentTvInputId(android.media.tv.ad.TvAdManager.Session p0) {}
+        public void onRequestCurrentVideoBounds(android.media.tv.ad.TvAdManager.Session p0) {}
+        public void onRequestSigning(android.media.tv.ad.TvAdManager.Session p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, byte[] p4) {}
+        public void onRequestTrackInfoList(android.media.tv.ad.TvAdManager.Session p0) {}
+        public void onSessionCreated(android.media.tv.ad.TvAdManager.Session p0) {}
+        public void onSessionReleased(android.media.tv.ad.TvAdManager.Session p0) {}
+    }
+
+    private static final class SessionCallbackRecord {
+        private final android.os.Handler mHandler = null;
+        private android.media.tv.ad.TvAdManager.Session mSession;
+        private final android.media.tv.ad.TvAdManager.SessionCallback mSessionCallback = null;
+        SessionCallbackRecord(android.media.tv.ad.TvAdManager.SessionCallback p0, android.os.Handler p1) {}
+        void postLayoutSurface(int p0, int p1, int p2, int p3) {}
+        void postRequestCurrentChannelUri() {}
+        void postRequestCurrentTvInputId() {}
+        void postRequestCurrentVideoBounds() {}
+        void postRequestSigning(java.lang.String p0, java.lang.String p1, java.lang.String p2, byte[] p3) {}
+        void postRequestTrackInfoList() {}
+        void postSessionCreated(android.media.tv.ad.TvAdManager.Session p0) {}
+        void postSessionReleased() {}
+        void postTvAdSessionData(java.lang.String p0, android.os.Bundle p1) {}
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ErrorCode {
+    public static @interface SessionDataType {
+    }
+
+    private static final class TvAdServiceCallbackRecord {
+        private final android.media.tv.ad.TvAdManager.TvAdServiceCallback mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        TvAdServiceCallbackRecord(android.media.tv.ad.TvAdManager.TvAdServiceCallback p0, java.util.concurrent.Executor p1) {}
+        public android.media.tv.ad.TvAdManager.TvAdServiceCallback getCallback() { return null; }
+        public void postAdServiceAdded(java.lang.String p0) {}
+        public void postAdServiceRemoved(java.lang.String p0) {}
+        public void postAdServiceUpdated(java.lang.String p0) {}
     }
 
     public static final class Session {
@@ -96,18 +134,6 @@ public final class TvAdManager {
         void startAdService() {}
         void stopAdService() {}
 
-        public static interface FinishedInputEventCallback {
-            public void onFinishedInputEvent(java.lang.Object p0, boolean p1);
-        }
-
-        private final class InputEventHandler extends android.os.Handler {
-            public static final int MSG_FLUSH_INPUT_EVENT = 3;
-            public static final int MSG_SEND_INPUT_EVENT = 1;
-            public static final int MSG_TIMEOUT_INPUT_EVENT = 2;
-            InputEventHandler(android.media.tv.ad.TvAdManager.Session p0, android.os.Looper p1) { super(); }
-            public void handleMessage(android.os.Message p0) {}
-        }
-
         private final class PendingEvent implements java.lang.Runnable {
             public android.media.tv.ad.TvAdManager.Session.FinishedInputEventCallback mCallback;
             public android.view.InputEvent mEvent;
@@ -123,46 +149,18 @@ public final class TvAdManager {
             TvInputEventSender(android.media.tv.ad.TvAdManager.Session p0, android.view.InputChannel p1, android.os.Looper p2) { super(null, null); }
             public void onInputEventFinished(int p0, boolean p1) {}
         }
-    }
 
-    public static abstract class SessionCallback {
-        public SessionCallback() {}
-        public void onLayoutSurface(android.media.tv.ad.TvAdManager.Session p0, int p1, int p2, int p3, int p4) {}
-        public void onRequestCurrentChannelUri(android.media.tv.ad.TvAdManager.Session p0) {}
-        public void onRequestCurrentTvInputId(android.media.tv.ad.TvAdManager.Session p0) {}
-        public void onRequestCurrentVideoBounds(android.media.tv.ad.TvAdManager.Session p0) {}
-        public void onRequestSigning(android.media.tv.ad.TvAdManager.Session p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, byte[] p4) {}
-        public void onRequestTrackInfoList(android.media.tv.ad.TvAdManager.Session p0) {}
-        public void onSessionCreated(android.media.tv.ad.TvAdManager.Session p0) {}
-        public void onSessionReleased(android.media.tv.ad.TvAdManager.Session p0) {}
-    }
+        private final class InputEventHandler extends android.os.Handler {
+            public static final int MSG_FLUSH_INPUT_EVENT = 3;
+            public static final int MSG_SEND_INPUT_EVENT = 1;
+            public static final int MSG_TIMEOUT_INPUT_EVENT = 2;
+            InputEventHandler(android.media.tv.ad.TvAdManager.Session p0, android.os.Looper p1) { super(); }
+            public void handleMessage(android.os.Message p0) {}
+        }
 
-    private static final class SessionCallbackRecord {
-        private final android.os.Handler mHandler = null;
-        private android.media.tv.ad.TvAdManager.Session mSession;
-        private final android.media.tv.ad.TvAdManager.SessionCallback mSessionCallback = null;
-        SessionCallbackRecord(android.media.tv.ad.TvAdManager.SessionCallback p0, android.os.Handler p1) {}
-        void postLayoutSurface(int p0, int p1, int p2, int p3) {}
-        void postRequestCurrentChannelUri() {}
-        void postRequestCurrentTvInputId() {}
-        void postRequestCurrentVideoBounds() {}
-        void postRequestSigning(java.lang.String p0, java.lang.String p1, java.lang.String p2, byte[] p3) {}
-        void postRequestTrackInfoList() {}
-        void postSessionCreated(android.media.tv.ad.TvAdManager.Session p0) {}
-        void postSessionReleased() {}
-        void postTvAdSessionData(java.lang.String p0, android.os.Bundle p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionDataKey {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionDataType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionState {
+        public static interface FinishedInputEventCallback {
+            public void onFinishedInputEvent(java.lang.Object p0, boolean p1);
+        }
     }
 
     public static abstract class TvAdServiceCallback {
@@ -172,13 +170,15 @@ public final class TvAdManager {
         public void onAdServiceUpdated(java.lang.String p0) {}
     }
 
-    private static final class TvAdServiceCallbackRecord {
-        private final android.media.tv.ad.TvAdManager.TvAdServiceCallback mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        TvAdServiceCallbackRecord(android.media.tv.ad.TvAdManager.TvAdServiceCallback p0, java.util.concurrent.Executor p1) {}
-        public android.media.tv.ad.TvAdManager.TvAdServiceCallback getCallback() { return null; }
-        public void postAdServiceAdded(java.lang.String p0) {}
-        public void postAdServiceRemoved(java.lang.String p0) {}
-        public void postAdServiceUpdated(java.lang.String p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SessionDataKey {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SessionState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ErrorCode {
     }
 }

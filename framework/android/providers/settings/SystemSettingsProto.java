@@ -41,22 +41,10 @@ public final class SystemSettingsProto {
     public static final long WHEN_TO_MAKE_WIFI_CALLS = 1146756268066L;
     public SystemSettingsProto() {}
 
-    public final class Accessibility {
-        public static final long ACCESSIBILITY_FORCE_INVERT_COLOR_OVERRIDE_PACKAGES_TO_DISABLE = 1146756268034L;
-        public static final long ACCESSIBILITY_FORCE_INVERT_COLOR_OVERRIDE_PACKAGES_TO_ENABLE = 1146756268033L;
-        public Accessibility(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
     public final class Alarm {
         public static final long ALERT_CACHE = 1146756268034L;
         public static final long DEFAULT_URI = 1146756268033L;
         public Alarm(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Bluetooth {
-        public static final long DISCOVERABILITY = 1146756268033L;
-        public static final long DISCOVERABILITY_TIMEOUT_SECS = 1146756268034L;
-        public Bluetooth(android.providers.settings.SystemSettingsProto p0) {}
     }
 
     public final class DevOptions {
@@ -66,121 +54,6 @@ public final class SystemSettingsProto {
         public static final long TOUCHPAD_VISUALIZER = 1146756268037L;
         public static final long WINDOW_ORIENTATION_LISTENER_LOG = 1146756268035L;
         public DevOptions(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Display {
-        public static final long CV_DYNAMIC_ENABLED = 1146756268034L;
-        public static final long CV_ENABLED = 1146756268033L;
-        public static final long CV_PREFERRED_INTENSITY = 1146756268035L;
-        public Display(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class DtmfTone {
-        public static final long PLAY_WHEN_DIALING = 1146756268033L;
-        public static final long TYPE_PLAYED_WHEN_DIALING = 1146756268034L;
-        public DtmfTone(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class HapticFeedback {
-        public static final long ENABLED = 1146756268033L;
-        public static final long INTENSITY = 1146756268034L;
-        public HapticFeedback(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Lockscreen {
-        public static final long DISABLED = 1146756268034L;
-        public static final long SOUNDS_ENABLED = 1146756268033L;
-        public Lockscreen(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Mouse {
-        public static final long POINTER_ACCELERATION_ENABLED = 1146756268036L;
-        public static final long REVERSE_VERTICAL_SCROLLING = 1146756268033L;
-        public static final long SCROLLING_ACCELERATION = 1146756268035L;
-        public static final long SCROLLING_SPEED = 1146756268037L;
-        public static final long SWAP_PRIMARY_BUTTON = 1146756268034L;
-        public Mouse(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Notification {
-        public static final long CAMERA_FLASH_NOTIFICATION = 1146756268037L;
-        public static final long LIGHT_PULSE = 1146756268035L;
-        public static final long SCREEN_FLASH_NOTIFICATION = 1146756268038L;
-        public static final long SCREEN_FLASH_NOTIFICATION_COLOR_GLOBAL = 1146756268039L;
-        public static final long SOUND = 1146756268033L;
-        public static final long SOUND_CACHE = 1146756268034L;
-        public static final long VIBRATION_INTENSITY = 1146756268036L;
-        public Notification(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Pointer {
-        public static final long POINTER_FILL_STYLE = 1146756268033L;
-        public static final long POINTER_SCALE = 1146756268035L;
-        public static final long POINTER_STROKE_STYLE = 1146756268034L;
-        public Pointer(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Ringtone {
-        public static final long CACHE = 1146756268034L;
-        public static final long DEFAULT_URI = 1146756268033L;
-        public Ringtone(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Rotation {
-        public static final long ACCELEROMETER_ROTATION = 1146756268033L;
-        public static final long HIDE_ROTATION_LOCK_TOGGLE_FOR_ACCESSIBILITY = 1146756268035L;
-        public static final long USER_ROTATION = 1146756268034L;
-        public Rotation(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Screen {
-        public static final long AUTO_BRIGHTNESS_ADJ = 1146756268037L;
-        public static final long BRIGHTNESS = 1146756268034L;
-        public static final long BRIGHTNESS_FLOAT = 1146756268038L;
-        public static final long BRIGHTNESS_FOR_VR = 1146756268035L;
-        public static final long BRIGHTNESS_FOR_VR_FLOAT = 1146756268039L;
-        public static final long BRIGHTNESS_MODE = 1146756268036L;
-        public static final long OFF_TIMEOUT = 1146756268033L;
-        public Screen(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Sip {
-        public static final long ADDRESS_ONLY = 1146756268036L;
-        public static final long ALWAYS = 1146756268035L;
-        public static final long CALL_OPTIONS = 1146756268034L;
-        public static final long RECEIVE_CALLS = 1146756268033L;
-        public Sip(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Text {
-        public static final long AUTO_CAPS = 1146756268034L;
-        public static final long AUTO_PUNCTUATE = 1146756268035L;
-        public static final long AUTO_REPLACE = 1146756268033L;
-        public static final long SHOW_PASSWORD = 1146756268036L;
-        public Text(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Touchpad {
-        public static final long ACCELERATION_ENABLED = 1146756268040L;
-        public static final long NATURAL_SCROLLING = 1146756268033L;
-        public static final long POINTER_SPEED = 1146756268034L;
-        public static final long RIGHT_CLICK_ZONE = 1146756268035L;
-        public static final long SYSTEM_GESTURES = 1146756268039L;
-        public static final long TAP_DRAGGING = 1146756268037L;
-        public static final long TAP_TO_CLICK = 1146756268036L;
-        public static final long THREE_FINGER_TAP_CUSTOMIZATION = 1146756268038L;
-        public Touchpad(android.providers.settings.SystemSettingsProto p0) {}
-    }
-
-    public final class Vibrate {
-        public static final long ALARM_INTENSITY = 1146756268037L;
-        public static final long INPUT_DEVICES = 1146756268034L;
-        public static final long IN_SILENT = 1146756268035L;
-        public static final long MEDIA_INTENSITY = 1146756268038L;
-        public static final long ON = 1146756268033L;
-        public static final long RING_INTENSITY = 1146756268039L;
-        public static final long WHEN_RINGING = 1146756268036L;
-        public Vibrate(android.providers.settings.SystemSettingsProto p0) {}
     }
 
     public final class Volume {
@@ -198,5 +71,132 @@ public final class SystemSettingsProto {
         public static final long SYSTEM = 1146756268034L;
         public static final long VOICE = 1146756268035L;
         public Volume(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Mouse {
+        public static final long POINTER_ACCELERATION_ENABLED = 1146756268036L;
+        public static final long REVERSE_VERTICAL_SCROLLING = 1146756268033L;
+        public static final long SCROLLING_ACCELERATION = 1146756268035L;
+        public static final long SCROLLING_SPEED = 1146756268037L;
+        public static final long SWAP_PRIMARY_BUTTON = 1146756268034L;
+        public Mouse(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Accessibility {
+        public static final long ACCESSIBILITY_FORCE_INVERT_COLOR_OVERRIDE_PACKAGES_TO_DISABLE = 1146756268034L;
+        public static final long ACCESSIBILITY_FORCE_INVERT_COLOR_OVERRIDE_PACKAGES_TO_ENABLE = 1146756268033L;
+        public Accessibility(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Pointer {
+        public static final long POINTER_FILL_STYLE = 1146756268033L;
+        public static final long POINTER_SCALE = 1146756268035L;
+        public static final long POINTER_STROKE_STYLE = 1146756268034L;
+        public Pointer(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Ringtone {
+        public static final long CACHE = 1146756268034L;
+        public static final long DEFAULT_URI = 1146756268033L;
+        public Ringtone(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Sip {
+        public static final long ADDRESS_ONLY = 1146756268036L;
+        public static final long ALWAYS = 1146756268035L;
+        public static final long CALL_OPTIONS = 1146756268034L;
+        public static final long RECEIVE_CALLS = 1146756268033L;
+        public Sip(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Notification {
+        public static final long CAMERA_FLASH_NOTIFICATION = 1146756268037L;
+        public static final long LIGHT_PULSE = 1146756268035L;
+        public static final long SCREEN_FLASH_NOTIFICATION = 1146756268038L;
+        public static final long SCREEN_FLASH_NOTIFICATION_COLOR_GLOBAL = 1146756268039L;
+        public static final long SOUND = 1146756268033L;
+        public static final long SOUND_CACHE = 1146756268034L;
+        public static final long VIBRATION_INTENSITY = 1146756268036L;
+        public Notification(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Vibrate {
+        public static final long ALARM_INTENSITY = 1146756268037L;
+        public static final long INPUT_DEVICES = 1146756268034L;
+        public static final long IN_SILENT = 1146756268035L;
+        public static final long MEDIA_INTENSITY = 1146756268038L;
+        public static final long ON = 1146756268033L;
+        public static final long RING_INTENSITY = 1146756268039L;
+        public static final long WHEN_RINGING = 1146756268036L;
+        public Vibrate(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Touchpad {
+        public static final long ACCELERATION_ENABLED = 1146756268040L;
+        public static final long NATURAL_SCROLLING = 1146756268033L;
+        public static final long POINTER_SPEED = 1146756268034L;
+        public static final long RIGHT_CLICK_ZONE = 1146756268035L;
+        public static final long SYSTEM_GESTURES = 1146756268039L;
+        public static final long TAP_DRAGGING = 1146756268037L;
+        public static final long TAP_TO_CLICK = 1146756268036L;
+        public static final long THREE_FINGER_TAP_CUSTOMIZATION = 1146756268038L;
+        public Touchpad(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Text {
+        public static final long AUTO_CAPS = 1146756268034L;
+        public static final long AUTO_PUNCTUATE = 1146756268035L;
+        public static final long AUTO_REPLACE = 1146756268033L;
+        public static final long SHOW_PASSWORD = 1146756268036L;
+        public Text(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class DtmfTone {
+        public static final long PLAY_WHEN_DIALING = 1146756268033L;
+        public static final long TYPE_PLAYED_WHEN_DIALING = 1146756268034L;
+        public DtmfTone(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Rotation {
+        public static final long ACCELEROMETER_ROTATION = 1146756268033L;
+        public static final long HIDE_ROTATION_LOCK_TOGGLE_FOR_ACCESSIBILITY = 1146756268035L;
+        public static final long USER_ROTATION = 1146756268034L;
+        public Rotation(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Bluetooth {
+        public static final long DISCOVERABILITY = 1146756268033L;
+        public static final long DISCOVERABILITY_TIMEOUT_SECS = 1146756268034L;
+        public Bluetooth(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class HapticFeedback {
+        public static final long ENABLED = 1146756268033L;
+        public static final long INTENSITY = 1146756268034L;
+        public HapticFeedback(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Display {
+        public static final long CV_DYNAMIC_ENABLED = 1146756268034L;
+        public static final long CV_ENABLED = 1146756268033L;
+        public static final long CV_PREFERRED_INTENSITY = 1146756268035L;
+        public Display(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Screen {
+        public static final long AUTO_BRIGHTNESS_ADJ = 1146756268037L;
+        public static final long BRIGHTNESS = 1146756268034L;
+        public static final long BRIGHTNESS_FLOAT = 1146756268038L;
+        public static final long BRIGHTNESS_FOR_VR = 1146756268035L;
+        public static final long BRIGHTNESS_FOR_VR_FLOAT = 1146756268039L;
+        public static final long BRIGHTNESS_MODE = 1146756268036L;
+        public static final long OFF_TIMEOUT = 1146756268033L;
+        public Screen(android.providers.settings.SystemSettingsProto p0) {}
+    }
+
+    public final class Lockscreen {
+        public static final long DISABLED = 1146756268034L;
+        public static final long SOUNDS_ENABLED = 1146756268033L;
+        public Lockscreen(android.providers.settings.SystemSettingsProto p0) {}
     }
 }

@@ -18,6 +18,8 @@ public final class TextClassificationConstants {
     private static final boolean SMART_SELECT_ANIMATION_ENABLED_DEFAULT = true;
     private static final java.lang.String SMART_TEXT_SHARE_ENABLED = "smart_text_share_enabled";
     private static final boolean SMART_TEXT_SHARE_ENABLED_DEFAULT = true;
+    private static final java.lang.String STABILITY_COOLDOWN_DURATION_MS = "stability_cooldown_duration_ms";
+    private static final long STABILITY_COOLDOWN_DURATION_MS_DEFAULT = 60000L;
     static final java.lang.String SYSTEM_TEXT_CLASSIFIER_API_TIMEOUT_IN_SECOND = "system_textclassifier_api_timeout_in_second";
     private static final long SYSTEM_TEXT_CLASSIFIER_API_TIMEOUT_IN_SECOND_DEFAULT = 60L;
     static final java.lang.String SYSTEM_TEXT_CLASSIFIER_ENABLED = "system_textclassifier_enabled";
@@ -41,6 +43,7 @@ public final class TextClassificationConstants {
     void dump(com.android.internal.util.IndentingPrintWriter p0) {}
     public int getGenerateLinksMaxTextLength() { return 0; }
     public int getSmartSelectionTrimDelta() { return 0; }
+    public long getStabilityCooldownDurationMs() { return 0L; }
     public long getSystemTextClassifierApiTimeoutInSecond() { return 0L; }
     public java.lang.String getTextClassifierServicePackageOverride() { return null; }
     public boolean isLocalTextClassifierEnabled() { return false; }

@@ -77,7 +77,7 @@ public class PackageImpl implements com.android.internal.pm.parsing.pkg.ParsedPa
     private final java.lang.String manifestPackageName = null;
     private float maxAspectRatio;
     private int maxSdkVersion;
-    private final java.util.List<android.content.pm.MemoryBudget> memoryBudgets = null;
+    private final java.util.List<android.content.pm.MemoryBudgetInfo> memoryBudgets = null;
     private int memtagMode;
     private android.os.Bundle metaData;
     private java.util.Set<java.lang.String> mimeGroups;
@@ -195,7 +195,7 @@ public class PackageImpl implements com.android.internal.pm.parsing.pkg.ParsedPa
     public com.android.internal.pm.parsing.pkg.PackageImpl addInstrumentation(com.android.internal.pm.pkg.component.ParsedInstrumentation p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl addKeySet(java.lang.String p0, java.security.PublicKey p1) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl addLibraryName(java.lang.String p0) { return null; }
-    public com.android.internal.pm.parsing.pkg.PackageImpl addMemoryBudget(android.content.pm.MemoryBudget p0) { return null; }
+    public com.android.internal.pm.parsing.pkg.PackageImpl addMemoryBudget(android.content.pm.MemoryBudgetInfo p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl addOriginalPackage(java.lang.String p0) { return null; }
     public com.android.internal.pm.pkg.parsing.ParsingPackage addOverlayable(java.lang.String p0, java.lang.String p1) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl addPermission(com.android.internal.pm.pkg.component.ParsedPermission p0) { return null; }
@@ -270,7 +270,7 @@ public class PackageImpl implements com.android.internal.pm.parsing.pkg.ParsedPa
     public java.lang.String getManifestPackageName() { return null; }
     public float getMaxAspectRatio() { return 0.0f; }
     public int getMaxSdkVersion() { return 0; }
-    public java.util.List<android.content.pm.MemoryBudget> getMemoryBudgets() { return null; }
+    public java.util.List<android.content.pm.MemoryBudgetInfo> getMemoryBudgets() { return null; }
     public int getMemtagMode() { return 0; }
     public android.os.Bundle getMetaData() { return null; }
     public java.util.Set<java.lang.String> getMimeGroups() { return null; }
@@ -417,6 +417,7 @@ public class PackageImpl implements com.android.internal.pm.parsing.pkg.ParsedPa
     public boolean isProduct() { return false; }
     public boolean isProfileable() { return false; }
     public boolean isProfileableByShell() { return false; }
+    public boolean isRegisteredAppStoreCandidate() { return false; }
     public boolean isRequestLegacyExternalStorage() { return false; }
     public boolean isRequiredForAllUsers() { return false; }
     public boolean isResetEnabledSettingsOnAppDataCleared() { return false; }
@@ -548,6 +549,7 @@ public class PackageImpl implements com.android.internal.pm.parsing.pkg.ParsedPa
     public com.android.internal.pm.parsing.pkg.PackageImpl setProduct(boolean p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl setProfileable(boolean p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl setProfileableByShell(boolean p0) { return null; }
+    public com.android.internal.pm.parsing.pkg.PackageImpl setRegisteredAppStoreCandidate(boolean p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl setRequestForegroundServiceExemption(boolean p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl setRequestLegacyExternalStorage(boolean p0) { return null; }
     public com.android.internal.pm.parsing.pkg.PackageImpl setRequestRawExternalStorageAccess(java.lang.Boolean p0) { return null; }
@@ -687,6 +689,7 @@ public class PackageImpl implements com.android.internal.pm.parsing.pkg.ParsedPa
     private static class Booleans2 {
         private static final long APEX = 2L;
         private static final long HAS_PCC_COMPONENTS = 8L;
+        private static final long REGISTERED_APP_STORE_CANDIDATE = 16L;
         private static final long STUB = 1L;
         private static final long UPDATABLE_SYSTEM = 4L;
         private Booleans2() {}

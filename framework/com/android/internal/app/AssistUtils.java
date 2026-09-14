@@ -17,10 +17,6 @@ public class AssistUtils {
     private final android.content.Context mContext = null;
     private final com.android.internal.app.IVoiceInteractionManagerService mVoiceInteractionManagerService = null;
     public AssistUtils(android.content.Context p0) {}
-    public static boolean allowDisablingAssistDisclosure(android.content.Context p0) { return false; }
-    public static boolean isDisclosureEnabled(android.content.Context p0) { return false; }
-    public static boolean isPreinstalledAssistant(android.content.Context p0, android.content.ComponentName p1) { return false; }
-    public static boolean shouldDisclose(android.content.Context p0, android.content.ComponentName p1) { return false; }
     private boolean showSessionForActiveServiceInternal(android.os.Bundle p0, int p1, java.lang.String p2, com.android.internal.app.IVoiceInteractionSessionShowCallback p3, android.os.IBinder p4) { return false; }
     public boolean activeServiceSupportsAssistGesture() { return false; }
     public boolean activeServiceSupportsLaunchFromKeyguard() { return false; }

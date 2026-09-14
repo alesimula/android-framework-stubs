@@ -22,6 +22,13 @@ public class TBSCertList extends com.android.internal.org.bouncycastle.asn1.ASN1
     public int getVersionNumber() { return 0; }
     public com.android.internal.org.bouncycastle.asn1.ASN1Primitive toASN1Primitive() { return null; }
 
+    private static class RevokedCertificatesEnumeration implements java.util.Enumeration {
+        private final java.util.Enumeration en = null;
+        RevokedCertificatesEnumeration(java.util.Enumeration p0) {}
+        public boolean hasMoreElements() { return false; }
+        public java.lang.Object nextElement() { return null; }
+    }
+
     public static class CRLEntry extends com.android.internal.org.bouncycastle.asn1.ASN1Object {
         com.android.internal.org.bouncycastle.asn1.x509.Extensions crlEntryExtensions;
         com.android.internal.org.bouncycastle.asn1.ASN1Sequence seq;
@@ -36,13 +43,6 @@ public class TBSCertList extends com.android.internal.org.bouncycastle.asn1.ASN1
 
     private static class EmptyEnumeration implements java.util.Enumeration {
         private EmptyEnumeration() {}
-        public boolean hasMoreElements() { return false; }
-        public java.lang.Object nextElement() { return null; }
-    }
-
-    private static class RevokedCertificatesEnumeration implements java.util.Enumeration {
-        private final java.util.Enumeration en = null;
-        RevokedCertificatesEnumeration(java.util.Enumeration p0) {}
         public boolean hasMoreElements() { return false; }
         public java.lang.Object nextElement() { return null; }
     }

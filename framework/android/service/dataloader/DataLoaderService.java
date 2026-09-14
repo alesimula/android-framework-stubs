@@ -15,12 +15,6 @@ public abstract class DataLoaderService extends android.app.Service {
     @android.annotation.SystemApi
     public android.service.dataloader.DataLoaderService.DataLoader onCreateDataLoader(android.content.pm.DataLoaderParams p0) { return null; }
 
-    @android.annotation.SystemApi
-    public static interface DataLoader {
-        public boolean onCreate(android.content.pm.DataLoaderParams p0, android.service.dataloader.DataLoaderService.FileSystemConnector p1);
-        public boolean onPrepareImage(java.util.Collection<android.content.pm.InstallationFile> p0, java.util.Collection<java.lang.String> p1);
-    }
-
     private class DataLoaderBinderService extends android.content.pm.IDataLoader.Stub {
         private DataLoaderBinderService(android.service.dataloader.DataLoaderService p0) { super(); }
         public void create(int p0, android.content.pm.DataLoaderParamsParcel p1, android.content.pm.FileSystemControlParcel p2, android.content.pm.IDataLoaderStatusListener p3) throws java.lang.RuntimeException {}
@@ -28,6 +22,12 @@ public abstract class DataLoaderService extends android.app.Service {
         public void prepareImage(int p0, android.content.pm.InstallationFileParcel[] p1, java.lang.String[] p2) {}
         public void start(int p0) {}
         public void stop(int p0) {}
+    }
+
+    @android.annotation.SystemApi
+    public static interface DataLoader {
+        public boolean onCreate(android.content.pm.DataLoaderParams p0, android.service.dataloader.DataLoaderService.FileSystemConnector p1);
+        public boolean onPrepareImage(java.util.Collection<android.content.pm.InstallationFile> p0, java.util.Collection<java.lang.String> p1);
     }
 
     @android.annotation.SystemApi

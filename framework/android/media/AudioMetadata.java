@@ -19,6 +19,22 @@ public final class AudioMetadata {
     public static android.media.AudioMetadata.BaseMap fromByteBuffer(java.nio.ByteBuffer p0) { return null; }
     public static java.nio.ByteBuffer toByteBuffer(android.media.AudioMetadata.BaseMap p0, java.nio.ByteOrder p1) { return null; }
 
+    public static class BaseMap implements android.media.AudioMetadataMap {
+        private final java.util.HashMap<android.util.Pair<java.lang.String, java.lang.Class<?>>, android.util.Pair<android.media.AudioMetadata.Key<?>, java.lang.Object>> mHashMap = null;
+        public BaseMap() {}
+        private static java.lang.Object getValueFromValuePair(android.util.Pair<android.media.AudioMetadata.Key<?>, java.lang.Object> p0) { return null; }
+        private static <T extends java.lang.Object> android.util.Pair<java.lang.String, java.lang.Class<?>> pairFromKey(android.media.AudioMetadata.Key<T> p0) { return null; }
+        public <T extends java.lang.Object> boolean containsKey(android.media.AudioMetadata.Key<T> p0) { return false; }
+        public android.media.AudioMetadataMap dup() { return null; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public <T extends java.lang.Object> T get(android.media.AudioMetadata.Key<T> p0) { return null; }
+        public int hashCode() { return 0; }
+        public java.util.Set<android.media.AudioMetadata.Key<?>> keySet() { return null; }
+        public <T extends java.lang.Object> T remove(android.media.AudioMetadata.Key<T> p0) { return null; }
+        public <T extends java.lang.Object> T set(android.media.AudioMetadata.Key<T> p0, T p1) { return null; }
+        public int size() { return 0; }
+    }
+
     private static class AutoGrowByteBuffer {
         private static final int DOUBLE_BYTE_COUNT = 8;
         private static final int FLOAT_BYTE_COUNT = 4;
@@ -40,32 +56,10 @@ public final class AudioMetadata {
         public android.media.AudioMetadata.AutoGrowByteBuffer putLong(long p0) { return null; }
     }
 
-    public static class BaseMap implements android.media.AudioMetadataMap {
-        private final java.util.HashMap<android.util.Pair<java.lang.String, java.lang.Class<?>>, android.util.Pair<android.media.AudioMetadata.Key<?>, java.lang.Object>> mHashMap = null;
-        public BaseMap() {}
-        private static java.lang.Object getValueFromValuePair(android.util.Pair<android.media.AudioMetadata.Key<?>, java.lang.Object> p0) { return null; }
-        private static <T extends java.lang.Object> android.util.Pair<java.lang.String, java.lang.Class<?>> pairFromKey(android.media.AudioMetadata.Key<T> p0) { return null; }
-        public <T extends java.lang.Object> boolean containsKey(android.media.AudioMetadata.Key<T> p0) { return false; }
-        public android.media.AudioMetadataMap dup() { return null; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public <T extends java.lang.Object> T get(android.media.AudioMetadata.Key<T> p0) { return null; }
-        public int hashCode() { return 0; }
-        public java.util.Set<android.media.AudioMetadata.Key<?>> keySet() { return null; }
-        public <T extends java.lang.Object> T remove(android.media.AudioMetadata.Key<T> p0) { return null; }
-        public <T extends java.lang.Object> T set(android.media.AudioMetadata.Key<T> p0, T p1) { return null; }
-        public int size() { return 0; }
-    }
-
     private static class BaseMapPackage implements android.media.AudioMetadata.DataPackage<android.media.AudioMetadata.BaseMap> {
         private BaseMapPackage() {}
         public boolean pack(android.media.AudioMetadata.AutoGrowByteBuffer p0, android.media.AudioMetadata.BaseMap p1) { return false; }
         public android.media.AudioMetadata.BaseMap unpack(java.nio.ByteBuffer p0) { return null; }
-    }
-
-    private static interface DataPackage<T extends java.lang.Object> {
-        default public java.lang.Class getMyType() { return null; }
-        public boolean pack(android.media.AudioMetadata.AutoGrowByteBuffer p0, T p1);
-        public T unpack(java.nio.ByteBuffer p0);
     }
 
     public static class Format {
@@ -87,6 +81,12 @@ public final class AudioMetadata {
     public static interface Key<T extends java.lang.Object> {
         public java.lang.String getName();
         public java.lang.Class<T> getValueClass();
+    }
+
+    private static interface DataPackage<T extends java.lang.Object> {
+        default public java.lang.Class getMyType() { return null; }
+        public boolean pack(android.media.AudioMetadata.AutoGrowByteBuffer p0, T p1);
+        public T unpack(java.nio.ByteBuffer p0);
     }
 
     private static class ObjectPackage implements android.media.AudioMetadata.DataPackage<android.util.Pair<java.lang.Class, java.lang.Object>> {

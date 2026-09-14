@@ -10,16 +10,6 @@ public interface ISoundTriggerHwCallback extends android.os.IInterface {
     public void phraseRecognitionCallback(int p0, android.media.soundtrigger.PhraseRecognitionEvent p1) throws android.os.RemoteException;
     public void recognitionCallback(int p0, android.media.soundtrigger.RecognitionEvent p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.soundtrigger3.ISoundTriggerHwCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void modelUnloaded(int p0) throws android.os.RemoteException {}
-        public void phraseRecognitionCallback(int p0, android.media.soundtrigger.PhraseRecognitionEvent p1) throws android.os.RemoteException {}
-        public void recognitionCallback(int p0, android.media.soundtrigger.RecognitionEvent p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.soundtrigger3.ISoundTriggerHwCallback {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -44,5 +34,15 @@ public interface ISoundTriggerHwCallback extends android.os.IInterface {
             public void phraseRecognitionCallback(int p0, android.media.soundtrigger.PhraseRecognitionEvent p1) throws android.os.RemoteException {}
             public void recognitionCallback(int p0, android.media.soundtrigger.RecognitionEvent p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.soundtrigger3.ISoundTriggerHwCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void modelUnloaded(int p0) throws android.os.RemoteException {}
+        public void phraseRecognitionCallback(int p0, android.media.soundtrigger.PhraseRecognitionEvent p1) throws android.os.RemoteException {}
+        public void recognitionCallback(int p0, android.media.soundtrigger.RecognitionEvent p1) throws android.os.RemoteException {}
     }
 }

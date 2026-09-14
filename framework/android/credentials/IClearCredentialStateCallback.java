@@ -5,13 +5,6 @@ public interface IClearCredentialStateCallback extends android.os.IInterface {
     public void onError(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
     public void onSuccess() throws android.os.RemoteException;
 
-    public static class Default implements android.credentials.IClearCredentialStateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onSuccess() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.credentials.IClearCredentialStateCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onSuccess = 1;
@@ -30,5 +23,12 @@ public interface IClearCredentialStateCallback extends android.os.IInterface {
             public void onError(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
             public void onSuccess() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.credentials.IClearCredentialStateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onSuccess() throws android.os.RemoteException {}
     }
 }

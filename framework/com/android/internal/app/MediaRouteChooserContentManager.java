@@ -6,6 +6,7 @@ public class MediaRouteChooserContentManager {
     private final com.android.internal.app.MediaRouteChooserContentManager.MediaRouterCallback mCallback = null;
     android.content.Context mContext;
     com.android.internal.app.MediaRouteChooserContentManager.Delegate mDelegate;
+    private com.android.internal.app.MediaRouteChooserContentManager.DeviceTypeChecker mDeviceTypeChecker;
     private int mRouteTypes;
     private final android.media.MediaRouter mRouter = null;
     private android.widget.Button mShareCastButton;
@@ -31,14 +32,6 @@ public class MediaRouteChooserContentManager {
         default public boolean showShareCastButton() { return false; }
     }
 
-    private final class MediaRouterCallback extends android.media.MediaRouter.SimpleCallback {
-        private MediaRouterCallback(com.android.internal.app.MediaRouteChooserContentManager p0) { super(); }
-        public void onRouteAdded(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
-        public void onRouteChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
-        public void onRouteRemoved(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
-        public void onRouteSelected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
-    }
-
     private final class RouteAdapter extends android.widget.ArrayAdapter<android.media.MediaRouter.RouteInfo> implements android.widget.AdapterView.OnItemClickListener {
         private final android.view.LayoutInflater mInflater = null;
         RouteAdapter(com.android.internal.app.MediaRouteChooserContentManager p0, android.content.Context p1) { super((android.content.Context)null, 0); }
@@ -49,9 +42,28 @@ public class MediaRouteChooserContentManager {
         public void update() {}
     }
 
+    private static final class DeviceTypeChecker {
+        private final android.content.Context context = null;
+        private java.lang.Boolean isSupportedDeviceType;
+        private DeviceTypeChecker(android.content.Context p0) {}
+        private boolean checkIsSupportedDeviceType() { return false; }
+        private boolean isDesktop() { return false; }
+        private boolean isDeviceFoldable() { return false; }
+        private boolean isSupportedDeviceType() { return false; }
+        private boolean isTablet() { return false; }
+    }
+
     private static final class RouteComparator implements java.util.Comparator<android.media.MediaRouter.RouteInfo> {
         public static final com.android.internal.app.MediaRouteChooserContentManager.RouteComparator sInstance = null;
         private RouteComparator() {}
         public int compare(android.media.MediaRouter.RouteInfo p0, android.media.MediaRouter.RouteInfo p1) { return 0; }
+    }
+
+    private final class MediaRouterCallback extends android.media.MediaRouter.SimpleCallback {
+        private MediaRouterCallback(com.android.internal.app.MediaRouteChooserContentManager p0) { super(); }
+        public void onRouteAdded(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+        public void onRouteChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+        public void onRouteRemoved(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+        public void onRouteSelected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
     }
 }

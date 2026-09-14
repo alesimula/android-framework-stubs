@@ -18,6 +18,20 @@ public class FontResourcesParser {
         public android.content.res.FontResourcesParser.FontFileResourceEntry[] getEntries() { return null; }
     }
 
+    public static final class ProviderResourceEntry implements android.content.res.FontResourcesParser.FamilyResourceEntry {
+        private final java.util.List<java.util.List<java.lang.String>> mCerts = null;
+        private final java.lang.String mProviderAuthority = null;
+        private final java.lang.String mProviderPackage = null;
+        private final java.lang.String mQuery = null;
+        private final java.lang.String mSystemFontFamilyName = null;
+        public ProviderResourceEntry(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.util.List<java.util.List<java.lang.String>> p3, java.lang.String p4) {}
+        public java.lang.String getAuthority() { return null; }
+        public java.util.List<java.util.List<java.lang.String>> getCerts() { return null; }
+        public java.lang.String getPackage() { return null; }
+        public java.lang.String getQuery() { return null; }
+        public java.lang.String getSystemFontFamilyName() { return null; }
+    }
+
     public static final class FontFileResourceEntry {
         public static final int ITALIC = 1;
         public static final int RESOLVE_BY_FONT_TABLE = -1;
@@ -34,19 +48,5 @@ public class FontResourcesParser {
         public int getTtcIndex() { return 0; }
         public java.lang.String getVariationSettings() { return null; }
         public int getWeight() { return 0; }
-    }
-
-    public static final class ProviderResourceEntry implements android.content.res.FontResourcesParser.FamilyResourceEntry {
-        private final java.util.List<java.util.List<java.lang.String>> mCerts = null;
-        private final java.lang.String mProviderAuthority = null;
-        private final java.lang.String mProviderPackage = null;
-        private final java.lang.String mQuery = null;
-        private final java.lang.String mSystemFontFamilyName = null;
-        public ProviderResourceEntry(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.util.List<java.util.List<java.lang.String>> p3, java.lang.String p4) {}
-        public java.lang.String getAuthority() { return null; }
-        public java.util.List<java.util.List<java.lang.String>> getCerts() { return null; }
-        public java.lang.String getPackage() { return null; }
-        public java.lang.String getQuery() { return null; }
-        public java.lang.String getSystemFontFamilyName() { return null; }
     }
 }

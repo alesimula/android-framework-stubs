@@ -3,7 +3,7 @@ package android.app.smartspace;
 @android.annotation.SystemApi
 public final class SmartspaceSession implements java.lang.AutoCloseable {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SmartspaceSession";
     private final android.app.smartspace.ISmartspaceManager mInterface = null;
     private final java.util.concurrent.atomic.AtomicBoolean mIsClosed = null;
     private final android.util.ArrayMap<android.app.smartspace.SmartspaceSession.OnTargetsAvailableListener, android.app.smartspace.SmartspaceSession.CallbackWrapper> mRegisteredCallbacks = null;

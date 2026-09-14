@@ -1,7 +1,7 @@
 package android.window;
 
 public abstract class WindowProviderService extends android.app.Service implements android.window.WindowProvider, android.window.ConfigurationDispatcher {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "WindowProviderService";
     private final android.content.ComponentCallbacksController mCallbacksController = null;
     private final android.window.WindowContextController mController = null;
     private boolean mInitialized;

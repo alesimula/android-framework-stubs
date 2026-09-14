@@ -147,17 +147,6 @@ public class KeyboardView extends android.view.View implements android.view.View
     protected void swipeRight() {}
     protected void swipeUp() {}
 
-    public static interface OnKeyboardActionListener {
-        public void onKey(int p0, int[] p1);
-        public void onPress(int p0);
-        public void onRelease(int p0);
-        public void onText(java.lang.CharSequence p0);
-        public void swipeDown();
-        public void swipeLeft();
-        public void swipeRight();
-        public void swipeUp();
-    }
-
     private static class SwipeTracker {
         static final int LONGEST_PAST_TIME = 200;
         static final int NUM_PAST = 4;
@@ -174,5 +163,16 @@ public class KeyboardView extends android.view.View implements android.view.View
         public void computeCurrentVelocity(int p0, float p1) {}
         public float getXVelocity() { return 0.0f; }
         public float getYVelocity() { return 0.0f; }
+    }
+
+    public static interface OnKeyboardActionListener {
+        public void onKey(int p0, int[] p1);
+        public void onPress(int p0);
+        public void onRelease(int p0);
+        public void onText(java.lang.CharSequence p0);
+        public void swipeDown();
+        public void swipeLeft();
+        public void swipeRight();
+        public void swipeUp();
     }
 }

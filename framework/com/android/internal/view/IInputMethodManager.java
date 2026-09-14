@@ -32,7 +32,7 @@ public interface IInputMethodManager extends android.os.IInterface {
     public void setPreventImeStartupBypassedAppsForTest(java.util.List<java.lang.String> p0) throws android.os.RemoteException;
     public void setStylusWindowIdleTimeoutForTest(com.android.internal.inputmethod.IInputMethodClient p0, long p1) throws android.os.RemoteException;
     public boolean shouldShowImeSwitcherButtonForTest() throws android.os.RemoteException;
-    public void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1) throws android.os.RemoteException;
+    public void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1, int p2) throws android.os.RemoteException;
     public void showInputMethodPickerFromSystem(int p0, int p1, int p2) throws android.os.RemoteException;
     public void startConnectionlessStylusHandwriting(com.android.internal.inputmethod.IInputMethodClient p0, int p1, android.view.inputmethod.CursorAnchorInfo p2, java.lang.String p3, java.lang.String p4, com.android.internal.inputmethod.IConnectionlessHandwritingCallback p5) throws android.os.RemoteException;
     public void startImeTrace() throws android.os.RemoteException;
@@ -75,7 +75,7 @@ public interface IInputMethodManager extends android.os.IInterface {
         public void setPreventImeStartupBypassedAppsForTest(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
         public void setStylusWindowIdleTimeoutForTest(com.android.internal.inputmethod.IInputMethodClient p0, long p1) throws android.os.RemoteException {}
         public boolean shouldShowImeSwitcherButtonForTest() throws android.os.RemoteException { return false; }
-        public void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1) throws android.os.RemoteException {}
+        public void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1, int p2) throws android.os.RemoteException {}
         public void showInputMethodPickerFromSystem(int p0, int p1, int p2) throws android.os.RemoteException {}
         public void startConnectionlessStylusHandwriting(com.android.internal.inputmethod.IInputMethodClient p0, int p1, android.view.inputmethod.CursorAnchorInfo p2, java.lang.String p3, java.lang.String p4, com.android.internal.inputmethod.IConnectionlessHandwritingCallback p5) throws android.os.RemoteException {}
         public void startImeTrace() throws android.os.RemoteException {}
@@ -199,7 +199,7 @@ public interface IInputMethodManager extends android.os.IInterface {
             public void setPreventImeStartupBypassedAppsForTest(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
             public void setStylusWindowIdleTimeoutForTest(com.android.internal.inputmethod.IInputMethodClient p0, long p1) throws android.os.RemoteException {}
             public boolean shouldShowImeSwitcherButtonForTest() throws android.os.RemoteException { return false; }
-            public void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1) throws android.os.RemoteException {}
+            public void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1, int p2) throws android.os.RemoteException {}
             public void showInputMethodPickerFromSystem(int p0, int p1, int p2) throws android.os.RemoteException {}
             public void startConnectionlessStylusHandwriting(com.android.internal.inputmethod.IInputMethodClient p0, int p1, android.view.inputmethod.CursorAnchorInfo p2, java.lang.String p3, java.lang.String p4, com.android.internal.inputmethod.IConnectionlessHandwritingCallback p5) throws android.os.RemoteException {}
             public void startImeTrace() throws android.os.RemoteException {}

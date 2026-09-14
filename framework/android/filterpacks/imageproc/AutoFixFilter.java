@@ -24,8 +24,8 @@ public class AutoFixFilter extends android.filterfw.core.Filter {
     public void process(android.filterfw.core.FilterContext p0) {}
     public void setupPorts() {}
     public void tearDown(android.filterfw.core.FilterContext p0) {}
-    private static long[] $d2j$hex$03fa9f61$decode_J(java.lang.String p0) { return null; }
-    private static int[] $d2j$hex$03fa9f61$decode_I(java.lang.String p0) { return null; }
-    private static short[] $d2j$hex$03fa9f61$decode_S(java.lang.String p0) { return null; }
-    private static byte[] $d2j$hex$03fa9f61$decode_B(java.lang.String p0) { return null; }
+    private static long[] $d2j$hex$65b713e6$decode_J(java.lang.String p0) { return null; }
+    private static int[] $d2j$hex$65b713e6$decode_I(java.lang.String p0) { return null; }
+    private static short[] $d2j$hex$65b713e6$decode_S(java.lang.String p0) { return null; }
+    private static byte[] $d2j$hex$65b713e6$decode_B(java.lang.String p0) { return null; }
 }

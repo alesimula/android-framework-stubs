@@ -33,17 +33,17 @@ public class DebugStore {
     public static long recordStopJob(int p0) { return 0L; }
     public static void setDebugStoreNative(com.android.internal.os.DebugStore.DebugStoreNative p0) {}
 
-    public static interface DebugStoreNative {
-        public long beginEvent(java.lang.String p0, java.util.List<java.lang.String> p1);
-        public void endEvent(long p0, java.util.List<java.lang.String> p1);
-        public void recordEvent(java.lang.String p0, java.util.List<java.lang.String> p1);
-    }
-
     private static class DebugStoreNativeImpl implements com.android.internal.os.DebugStore.DebugStoreNative {
         private DebugStoreNativeImpl() {}
         private java.lang.String attributeString(java.util.List<java.lang.String> p0) { return null; }
         public long beginEvent(java.lang.String p0, java.util.List<java.lang.String> p1) { return 0L; }
         public void endEvent(long p0, java.util.List<java.lang.String> p1) {}
         public void recordEvent(java.lang.String p0, java.util.List<java.lang.String> p1) {}
+    }
+
+    public static interface DebugStoreNative {
+        public long beginEvent(java.lang.String p0, java.util.List<java.lang.String> p1);
+        public void endEvent(long p0, java.util.List<java.lang.String> p1);
+        public void recordEvent(java.lang.String p0, java.util.List<java.lang.String> p1);
     }
 }

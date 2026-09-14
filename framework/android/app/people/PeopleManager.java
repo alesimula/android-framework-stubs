@@ -2,7 +2,7 @@ package android.app.people;
 
 @android.annotation.RestrictedForEnvironment(environments="SDK Runtime", from=34)
 public final class PeopleManager {
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "PeopleManager";
     private android.content.Context mContext;
     public java.util.Map<android.app.people.PeopleManager.ConversationListener, android.util.Pair<java.util.concurrent.Executor, android.app.people.IConversationListener>> mConversationListeners;
     private android.app.people.IPeopleManager mService;

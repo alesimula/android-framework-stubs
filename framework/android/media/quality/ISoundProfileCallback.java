@@ -8,16 +8,6 @@ public interface ISoundProfileCallback extends android.os.IInterface {
     public void onSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException;
     public void onSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.quality.ISoundProfileCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) throws android.os.RemoteException {}
-        public void onSoundProfileAdded(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
-        public void onSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
-        public void onSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.quality.ISoundProfileCallback {
         static final int TRANSACTION_onError = 5;
         static final int TRANSACTION_onParameterCapabilitiesChanged = 4;
@@ -40,5 +30,15 @@ public interface ISoundProfileCallback extends android.os.IInterface {
             public void onSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
             public void onSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.quality.ISoundProfileCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) throws android.os.RemoteException {}
+        public void onSoundProfileAdded(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
+        public void onSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
+        public void onSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) throws android.os.RemoteException {}
     }
 }

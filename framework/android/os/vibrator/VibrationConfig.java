@@ -13,10 +13,12 @@ public class VibrationConfig {
     private final float mDefaultVibrationScaleLevelGain = 0.0f;
     private final float[] mExternalVibrationScaleFactors = null;
     private final float mHapticChannelMaxVibrationAmplitude = 0.0f;
+    private final boolean mHapticsFallbackToOnOffDirectly = false;
     private final boolean mIgnoreVibrationsOnWirelessCharger = false;
     private final float[] mKeyboardVibrationScaleFactors = null;
     private final boolean mKeyboardVibrationSettingsIntensitySupported = false;
     private final boolean mKeyboardVibrationSettingsSupported = false;
+    private final int mPrimaryVibratorId = 0;
     private final int mRampDownDurationMs = 0;
     private final int[] mRequestVibrationParamsForUsages = null;
     private final int mRequestVibrationParamsTimeoutMs = 0;
@@ -40,6 +42,7 @@ public class VibrationConfig {
     public float getExternalVibrationScaleFactor(int p0, float p1) { return 0.0f; }
     public float getHapticChannelMaximumAmplitude() { return 0.0f; }
     public float getKeyboardVibrationScaleFactor(int p0, float p1) { return 0.0f; }
+    public int getPrimaryVibratorId() { return 0; }
     public int getRampDownDurationMs() { return 0; }
     public int[] getRequestVibrationParamsForUsages() { return null; }
     public int getRequestVibrationParamsTimeoutMs() { return 0; }
@@ -50,6 +53,7 @@ public class VibrationConfig {
     public boolean ignoreVibrationsOnWirelessCharger() { return false; }
     public boolean isKeyboardVibrationSettingsIntensitySupported() { return false; }
     public boolean isKeyboardVibrationSettingsSupported() { return false; }
+    public boolean shouldFallbackToOnOffDirectly() { return false; }
     public java.lang.String toString() { return null; }
 
     public static final class Builder {
@@ -63,10 +67,12 @@ public class VibrationConfig {
         private float mDefaultVibrationScaleLevelGain;
         private float[] mExternalVibrationScaleFactors;
         private float mHapticChannelMaxVibrationAmplitude;
+        private boolean mHapticsFallbackToOnOffDirectly;
         private boolean mIgnoreVibrationsOnWirelessCharger;
         private float[] mKeyboardVibrationScaleFactors;
         private boolean mKeyboardVibrationSettingsIntensitySupported;
         private boolean mKeyboardVibrationSettingsSupported;
+        private int mPrimaryVibratorId;
         private int mRampDownDurationMs;
         private int[] mRequestVibrationParamsForUsages;
         private int mRequestVibrationParamsTimeoutMs;
@@ -84,10 +90,12 @@ public class VibrationConfig {
         public void setDefaultVibrationScaleLevelGain(float p0) {}
         public void setExternalVibrationScaleFactors(float[] p0) {}
         public void setHapticChannelMaxVibrationAmplitude(float p0) {}
+        public void setHapticsFallbackToOnOffDirectly(boolean p0) {}
         public void setIgnoreVibrationsOnWirelessCharger(boolean p0) {}
         public void setKeyboardVibrationScaleFactors(float[] p0) {}
         public void setKeyboardVibrationSettingsIntensitySupported(boolean p0) {}
         public void setKeyboardVibrationSettingsSupported(boolean p0) {}
+        public void setPrimaryVibratorId(int p0) {}
         public void setRampDownDurationMs(int p0) {}
         public void setRequestVibrationParamsForUsages(int[] p0) {}
         public void setRequestVibrationParamsTimeoutMs(int p0) {}

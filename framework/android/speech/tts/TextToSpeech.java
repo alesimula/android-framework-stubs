@@ -29,7 +29,6 @@ public class TextToSpeech {
     private final android.speech.tts.TtsEngines mEnginesHelper = null;
     private final java.util.concurrent.Executor mInitExecutor = null;
     private android.speech.tts.TextToSpeech.OnInitListener mInitListener;
-    private final boolean mIsSystem = false;
     private final android.os.Bundle mParams = null;
     private java.lang.String mRequestedEngine;
     private android.speech.tts.TextToSpeech.Connection mServiceConnection;
@@ -40,7 +39,7 @@ public class TextToSpeech {
     public TextToSpeech(android.content.Context p0, android.speech.tts.TextToSpeech.OnInitListener p1) {}
     public TextToSpeech(android.content.Context p0, android.speech.tts.TextToSpeech.OnInitListener p1, java.lang.String p2) {}
     public TextToSpeech(android.content.Context p0, android.speech.tts.TextToSpeech.OnInitListener p1, java.lang.String p2, java.lang.String p3, boolean p4) {}
-    private TextToSpeech(android.content.Context p0, java.util.concurrent.Executor p1, android.speech.tts.TextToSpeech.OnInitListener p2, java.lang.String p3, java.lang.String p4, boolean p5, boolean p6) {}
+    private TextToSpeech(android.content.Context p0, java.util.concurrent.Executor p1, android.speech.tts.TextToSpeech.OnInitListener p2, java.lang.String p3, java.lang.String p4, boolean p5) {}
     private static void addDeviceSpecificSessionIdToParams(android.content.Context p0, android.os.Bundle p1) {}
     private boolean connectToEngine(java.lang.String p0) { return false; }
     private android.os.Bundle convertParamsHashMaptoBundle(java.util.HashMap<java.lang.String, java.lang.String> p0) { return null; }
@@ -115,34 +114,23 @@ public class TextToSpeech {
     @java.lang.Deprecated
     public int synthesizeToFile(java.lang.String p0, java.util.HashMap<java.lang.String, java.lang.String> p1, java.lang.String p2) { return 0; }
 
-    private static interface Action<R extends java.lang.Object> {
-        public R run(android.speech.tts.ITextToSpeechService p0) throws android.os.RemoteException;
+    public static class EngineInfo {
+        public int icon;
+        public java.lang.String label;
+        public java.lang.String name;
+        public int priority;
+        public boolean system;
+        public EngineInfo() {}
+        public java.lang.String toString() { return null; }
     }
 
-    private abstract class Connection implements android.content.ServiceConnection {
-        private final android.speech.tts.ITextToSpeechCallback.Stub mCallback = null;
-        private boolean mEstablished;
-        private android.speech.tts.TextToSpeech.Connection.SetupConnectionAsyncTask mOnSetupConnectionAsyncTask;
-        private android.speech.tts.ITextToSpeechService mService;
-        private Connection(android.speech.tts.TextToSpeech p0) {}
-        protected boolean clearServiceConnection() { return false; }
-        abstract boolean connect(java.lang.String p0);
-        abstract void disconnect();
-        public android.os.IBinder getCallerIdentity() { return null; }
-        public boolean isEstablished() { return false; }
-        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
-        public void onServiceDisconnected(android.content.ComponentName p0) {}
-        public <R extends java.lang.Object> R runAction(android.speech.tts.TextToSpeech.Action<R> p0, R p1, java.lang.String p2, boolean p3, boolean p4) { return null; }
-
-        private class SetupConnectionAsyncTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Integer> {
-            private SetupConnectionAsyncTask(android.speech.tts.TextToSpeech.Connection p0) { super(); }
-            protected java.lang.Integer doInBackground(java.lang.Void... p0) { return null; }
-            protected void onPostExecute(java.lang.Integer p0) {}
-        }
+    public static interface OnInitListener {
+        public void onInit(int p0);
     }
 
-    private class DirectConnection extends android.speech.tts.TextToSpeech.Connection {
-        private DirectConnection(android.speech.tts.TextToSpeech p0) { super(null); }
+    private class SystemConnection extends android.speech.tts.TextToSpeech.Connection {
+        private volatile android.speech.tts.ITextToSpeechSession mSession;
+        private SystemConnection(android.speech.tts.TextToSpeech p0) { super(null); }
         boolean connect(java.lang.String p0) { return false; }
         void disconnect() {}
     }
@@ -206,22 +194,8 @@ public class TextToSpeech {
         public Engine(android.speech.tts.TextToSpeech p0) {}
     }
 
-    public static class EngineInfo {
-        public int icon;
-        public java.lang.String label;
-        public java.lang.String name;
-        public int priority;
-        public boolean system;
-        public EngineInfo() {}
-        public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Error {
-    }
-
-    public static interface OnInitListener {
-        public void onInit(int p0);
+    private static interface Action<R extends java.lang.Object> {
+        public R run(android.speech.tts.ITextToSpeechService p0) throws android.os.RemoteException;
     }
 
     @java.lang.Deprecated
@@ -229,10 +203,29 @@ public class TextToSpeech {
         public void onUtteranceCompleted(java.lang.String p0);
     }
 
-    private class SystemConnection extends android.speech.tts.TextToSpeech.Connection {
-        private volatile android.speech.tts.ITextToSpeechSession mSession;
-        private SystemConnection(android.speech.tts.TextToSpeech p0) { super(null); }
-        boolean connect(java.lang.String p0) { return false; }
-        void disconnect() {}
+    private abstract class Connection implements android.content.ServiceConnection {
+        private final android.speech.tts.ITextToSpeechCallback.Stub mCallback = null;
+        private boolean mEstablished;
+        private android.speech.tts.TextToSpeech.Connection.SetupConnectionAsyncTask mOnSetupConnectionAsyncTask;
+        private android.speech.tts.ITextToSpeechService mService;
+        private Connection(android.speech.tts.TextToSpeech p0) {}
+        protected boolean clearServiceConnection() { return false; }
+        abstract boolean connect(java.lang.String p0);
+        abstract void disconnect();
+        public android.os.IBinder getCallerIdentity() { return null; }
+        public boolean isEstablished() { return false; }
+        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
+        public void onServiceDisconnected(android.content.ComponentName p0) {}
+        public <R extends java.lang.Object> R runAction(android.speech.tts.TextToSpeech.Action<R> p0, R p1, java.lang.String p2, boolean p3, boolean p4) { return null; }
+
+        private class SetupConnectionAsyncTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.Integer> {
+            private SetupConnectionAsyncTask(android.speech.tts.TextToSpeech.Connection p0) { super(); }
+            protected java.lang.Integer doInBackground(java.lang.Void... p0) { return null; }
+            protected void onPostExecute(java.lang.Integer p0) {}
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Error {
     }
 }

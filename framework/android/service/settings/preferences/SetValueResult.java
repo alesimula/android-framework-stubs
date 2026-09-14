@@ -19,13 +19,13 @@ public final class SetValueResult implements android.os.Parcelable {
     public int getResultCode() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ResultCode {
+    }
+
     public static final class Builder {
         private final int mResultCode = 0;
         public Builder(int p0) {}
         public android.service.settings.preferences.SetValueResult build() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ResultCode {
     }
 }

@@ -6,7 +6,7 @@ public class WindowLayout {
     static final int MAX_Y = 100000;
     static final int MIN_X = -100000;
     static final int MIN_Y = -100000;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "WindowLayout";
     public static final int UNSPECIFIED_LENGTH = -1;
     private final android.graphics.Rect mTempDisplayCutoutSafeExceptMaybeBarsRect = null;
     private final android.graphics.Rect mTempRect = null;

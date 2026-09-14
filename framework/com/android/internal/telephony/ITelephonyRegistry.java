@@ -53,6 +53,7 @@ public interface ITelephonyRegistry extends android.os.IInterface {
     public void notifyPreciseCallState(int p0, int p1, int[] p2, java.lang.String[] p3, int[] p4, int[] p5) throws android.os.RemoteException;
     public void notifyRadioPowerStateChanged(int p0, int p1, int p2) throws android.os.RemoteException;
     public void notifyRegistrationFailed(int p0, int p1, android.telephony.CellIdentity p2, java.lang.String p3, int p4, int p5, int p6) throws android.os.RemoteException;
+    public void notifySatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) throws android.os.RemoteException;
     public void notifySatellitePurchaseModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException;
     public void notifySatelliteStateChanged(boolean p0) throws android.os.RemoteException;
     public void notifySecurityAlgorithmsChanged(int p0, int p1, android.telephony.SecurityAlgorithmUpdate p2) throws android.os.RemoteException;
@@ -123,6 +124,7 @@ public interface ITelephonyRegistry extends android.os.IInterface {
         public void notifyPreciseCallState(int p0, int p1, int[] p2, java.lang.String[] p3, int[] p4, int[] p5) throws android.os.RemoteException {}
         public void notifyRadioPowerStateChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
         public void notifyRegistrationFailed(int p0, int p1, android.telephony.CellIdentity p2, java.lang.String p3, int p4, int p5, int p6) throws android.os.RemoteException {}
+        public void notifySatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) throws android.os.RemoteException {}
         public void notifySatellitePurchaseModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException {}
         public void notifySatelliteStateChanged(boolean p0) throws android.os.RemoteException {}
         public void notifySecurityAlgorithmsChanged(int p0, int p1, android.telephony.SecurityAlgorithmUpdate p2) throws android.os.RemoteException {}
@@ -193,6 +195,7 @@ public interface ITelephonyRegistry extends android.os.IInterface {
         static final int TRANSACTION_notifyPreciseCallState = 17;
         static final int TRANSACTION_notifyRadioPowerStateChanged = 31;
         static final int TRANSACTION_notifyRegistrationFailed = 38;
+        static final int TRANSACTION_notifySatelliteEntitlementStatusUpdated = 67;
         static final int TRANSACTION_notifySatellitePurchaseModeChanged = 66;
         static final int TRANSACTION_notifySatelliteStateChanged = 61;
         static final int TRANSACTION_notifySecurityAlgorithmsChanged = 62;
@@ -271,6 +274,7 @@ public interface ITelephonyRegistry extends android.os.IInterface {
             public void notifyPreciseCallState(int p0, int p1, int[] p2, java.lang.String[] p3, int[] p4, int[] p5) throws android.os.RemoteException {}
             public void notifyRadioPowerStateChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
             public void notifyRegistrationFailed(int p0, int p1, android.telephony.CellIdentity p2, java.lang.String p3, int p4, int p5, int p6) throws android.os.RemoteException {}
+            public void notifySatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) throws android.os.RemoteException {}
             public void notifySatellitePurchaseModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException {}
             public void notifySatelliteStateChanged(boolean p0) throws android.os.RemoteException {}
             public void notifySecurityAlgorithmsChanged(int p0, int p1, android.telephony.SecurityAlgorithmUpdate p2) throws android.os.RemoteException {}

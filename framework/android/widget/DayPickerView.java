@@ -3,7 +3,7 @@ package android.widget;
 class DayPickerView extends android.view.ViewGroup {
     private static final int[] ATTRS_TEXT_COLOR = null;
     private static final int DEFAULT_END_YEAR = 2100;
-    private static final int DEFAULT_LAYOUT = 17367165;
+    private static final int DEFAULT_LAYOUT = 17367166;
     private static final int DEFAULT_START_YEAR = 1900;
     private final android.view.accessibility.AccessibilityManager mAccessibilityManager = null;
     private final android.widget.DayPickerPagerAdapter mAdapter = null;

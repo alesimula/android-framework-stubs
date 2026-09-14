@@ -1,7 +1,7 @@
 package android.service.remotelockscreenvalidation;
 
 public class RemoteLockscreenValidationClientImpl implements android.service.remotelockscreenvalidation.RemoteLockscreenValidationClient, android.content.ServiceConnection {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "RemoteLockscreenValidationClientImpl";
     private final android.content.Context mContext = null;
     private final android.os.Handler mHandler = null;
     private boolean mIsConnected;

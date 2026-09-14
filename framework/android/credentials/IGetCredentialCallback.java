@@ -6,14 +6,6 @@ public interface IGetCredentialCallback extends android.os.IInterface {
     public void onPendingIntent(android.app.PendingIntent p0) throws android.os.RemoteException;
     public void onResponse(android.credentials.GetCredentialResponse p0) throws android.os.RemoteException;
 
-    public static class Default implements android.credentials.IGetCredentialCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onPendingIntent(android.app.PendingIntent p0) throws android.os.RemoteException {}
-        public void onResponse(android.credentials.GetCredentialResponse p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.credentials.IGetCredentialCallback {
         static final int TRANSACTION_onError = 3;
         static final int TRANSACTION_onPendingIntent = 1;
@@ -34,5 +26,13 @@ public interface IGetCredentialCallback extends android.os.IInterface {
             public void onPendingIntent(android.app.PendingIntent p0) throws android.os.RemoteException {}
             public void onResponse(android.credentials.GetCredentialResponse p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.credentials.IGetCredentialCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onPendingIntent(android.app.PendingIntent p0) throws android.os.RemoteException {}
+        public void onResponse(android.credentials.GetCredentialResponse p0) throws android.os.RemoteException {}
     }
 }

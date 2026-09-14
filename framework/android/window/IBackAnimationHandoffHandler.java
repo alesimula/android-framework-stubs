@@ -4,12 +4,6 @@ public interface IBackAnimationHandoffHandler extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.window.IBackAnimationHandoffHandler";
     public void handOffAnimation(android.view.RemoteAnimationTarget[] p0, android.window.WindowAnimationState[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IBackAnimationHandoffHandler {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void handOffAnimation(android.view.RemoteAnimationTarget[] p0, android.window.WindowAnimationState[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IBackAnimationHandoffHandler {
         static final int TRANSACTION_handOffAnimation = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IBackAnimationHandoffHandler extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void handOffAnimation(android.view.RemoteAnimationTarget[] p0, android.window.WindowAnimationState[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.IBackAnimationHandoffHandler {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void handOffAnimation(android.view.RemoteAnimationTarget[] p0, android.window.WindowAnimationState[] p1) throws android.os.RemoteException {}
     }
 }

@@ -21,11 +21,11 @@ public abstract class CompanionDeviceService extends android.app.Service {
     @java.lang.Deprecated
     public void onDeviceDisappeared(java.lang.String p0) {}
     public void onDevicePresenceEvent(android.companion.DevicePresenceEvent p0) {}
+    public void onDeviceTrustFailure(android.companion.AssociationInfo p0, int p1) {}
     public void onDeviceTrusted(android.companion.AssociationInfo p0) {}
     @java.lang.Deprecated
     public void onMessageDispatchedFromSystem(int p0, int p1, byte[] p2) {}
     public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) {}
-    public void onTrustPairingFailure(android.companion.AssociationInfo p0, int p1) {}
     public void onTrustPairingResponsePending(android.companion.AssociationInfo p0, android.content.IntentSender p1) {}
 
     private class Stub extends android.companion.ICompanionDeviceService.Stub {
@@ -36,9 +36,9 @@ public abstract class CompanionDeviceService extends android.app.Service {
         public void onDeviceAppeared(android.companion.AssociationInfo p0) {}
         public void onDeviceDisappeared(android.companion.AssociationInfo p0) {}
         public void onDevicePresenceEvent(android.companion.DevicePresenceEvent p0) {}
+        public void onDeviceTrustFailure(android.companion.AssociationInfo p0, int p1) {}
         public void onDeviceTrusted(android.companion.AssociationInfo p0) {}
         public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) {}
-        public void onTrustPairingFailure(android.companion.AssociationInfo p0, int p1) {}
         public void onTrustPairingResponsePending(android.companion.AssociationInfo p0, android.content.IntentSender p1) {}
     }
 }

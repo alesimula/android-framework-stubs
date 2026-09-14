@@ -94,6 +94,20 @@ public class DynamicLayout extends android.text.Layout {
     public void setIndexFirstChangedBlock(int p0) {}
     public void updateBlocks(int p0, int p1, int p2) {}
 
+    private static class ChangeWatcher implements android.text.TextWatcher, android.text.SpanWatcher {
+        private java.lang.ref.WeakReference<android.text.DynamicLayout> mLayout;
+        private android.text.method.OffsetMapping.TextUpdate mTransformedTextUpdate;
+        public ChangeWatcher(android.text.DynamicLayout p0) {}
+        private void reflow(java.lang.CharSequence p0, int p1, int p2, int p3) {}
+        private void transformAndReflow(android.text.Spannable p0, int p1, int p2) {}
+        public void afterTextChanged(android.text.Editable p0) {}
+        public void beforeTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
+        public void onSpanAdded(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
+        public void onSpanChanged(android.text.Spannable p0, java.lang.Object p1, int p2, int p3, int p4, int p5) {}
+        public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
+        public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
+    }
+
     public static final class Builder {
         private static final android.util.Pools.SynchronizedPool<android.text.DynamicLayout.Builder> sPool = null;
         private android.text.Layout.Alignment mAlignment;
@@ -135,19 +149,5 @@ public class DynamicLayout extends android.text.Layout {
         public android.text.DynamicLayout.Builder setTextDirection(android.text.TextDirectionHeuristic p0) { return null; }
         public android.text.DynamicLayout.Builder setUseBoundsForWidth(boolean p0) { return null; }
         public android.text.DynamicLayout.Builder setUseLineSpacingFromFallbacks(boolean p0) { return null; }
-    }
-
-    private static class ChangeWatcher implements android.text.TextWatcher, android.text.SpanWatcher {
-        private java.lang.ref.WeakReference<android.text.DynamicLayout> mLayout;
-        private android.text.method.OffsetMapping.TextUpdate mTransformedTextUpdate;
-        public ChangeWatcher(android.text.DynamicLayout p0) {}
-        private void reflow(java.lang.CharSequence p0, int p1, int p2, int p3) {}
-        private void transformAndReflow(android.text.Spannable p0, int p1, int p2) {}
-        public void afterTextChanged(android.text.Editable p0) {}
-        public void beforeTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
-        public void onSpanAdded(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
-        public void onSpanChanged(android.text.Spannable p0, java.lang.Object p1, int p2, int p3, int p4, int p5) {}
-        public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
-        public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
     }
 }

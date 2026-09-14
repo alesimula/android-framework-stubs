@@ -5,13 +5,6 @@ public interface IAgentTaskCallback extends android.os.IInterface {
     public void onError(java.lang.String p0) throws android.os.RemoteException;
     public void onResult(android.agenticon.AgentTaskOutcome p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.statusbar.IAgentTaskCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(java.lang.String p0) throws android.os.RemoteException {}
-        public void onResult(android.agenticon.AgentTaskOutcome p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.statusbar.IAgentTaskCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onResult = 1;
@@ -30,5 +23,12 @@ public interface IAgentTaskCallback extends android.os.IInterface {
             public void onError(java.lang.String p0) throws android.os.RemoteException {}
             public void onResult(android.agenticon.AgentTaskOutcome p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.statusbar.IAgentTaskCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(java.lang.String p0) throws android.os.RemoteException {}
+        public void onResult(android.agenticon.AgentTaskOutcome p0) throws android.os.RemoteException {}
     }
 }

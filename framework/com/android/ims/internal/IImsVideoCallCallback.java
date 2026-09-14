@@ -9,18 +9,6 @@ public interface IImsVideoCallCallback extends android.os.IInterface {
     public void receiveSessionModifyRequest(android.telecom.VideoProfile p0) throws android.os.RemoteException;
     public void receiveSessionModifyResponse(int p0, android.telecom.VideoProfile p1, android.telecom.VideoProfile p2) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsVideoCallCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void changeCallDataUsage(long p0) throws android.os.RemoteException {}
-        public void changeCameraCapabilities(android.telecom.VideoProfile.CameraCapabilities p0) throws android.os.RemoteException {}
-        public void changePeerDimensions(int p0, int p1) throws android.os.RemoteException {}
-        public void changeVideoQuality(int p0) throws android.os.RemoteException {}
-        public void handleCallSessionEvent(int p0) throws android.os.RemoteException {}
-        public void receiveSessionModifyRequest(android.telecom.VideoProfile p0) throws android.os.RemoteException {}
-        public void receiveSessionModifyResponse(int p0, android.telecom.VideoProfile p1, android.telecom.VideoProfile p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsVideoCallCallback {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsVideoCallCallback";
         static final int TRANSACTION_changeCallDataUsage = 5;
@@ -50,5 +38,17 @@ public interface IImsVideoCallCallback extends android.os.IInterface {
             public void receiveSessionModifyRequest(android.telecom.VideoProfile p0) throws android.os.RemoteException {}
             public void receiveSessionModifyResponse(int p0, android.telecom.VideoProfile p1, android.telecom.VideoProfile p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsVideoCallCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void changeCallDataUsage(long p0) throws android.os.RemoteException {}
+        public void changeCameraCapabilities(android.telecom.VideoProfile.CameraCapabilities p0) throws android.os.RemoteException {}
+        public void changePeerDimensions(int p0, int p1) throws android.os.RemoteException {}
+        public void changeVideoQuality(int p0) throws android.os.RemoteException {}
+        public void handleCallSessionEvent(int p0) throws android.os.RemoteException {}
+        public void receiveSessionModifyRequest(android.telecom.VideoProfile p0) throws android.os.RemoteException {}
+        public void receiveSessionModifyResponse(int p0, android.telecom.VideoProfile p1, android.telecom.VideoProfile p2) throws android.os.RemoteException {}
     }
 }

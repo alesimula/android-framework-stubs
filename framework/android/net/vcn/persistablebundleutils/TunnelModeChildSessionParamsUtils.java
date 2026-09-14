@@ -7,7 +7,7 @@ public final class TunnelModeChildSessionParamsUtils {
     private static final java.lang.String OUTBOUND_TS_KEY = "OUTBOUND_TS_KEY";
     private static final java.lang.String SA_PROPOSALS_KEY = "SA_PROPOSALS_KEY";
     private static final java.lang.String SOFT_LIFETIME_SEC_KEY = "SOFT_LIFETIME_SEC_KEY";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "TunnelModeChildSessionParamsUtils";
     public TunnelModeChildSessionParamsUtils() {}
     public static android.net.ipsec.ike.TunnelModeChildSessionParams fromPersistableBundle(android.os.PersistableBundle p0) { return null; }
     private static java.util.List<android.net.ipsec.ike.IkeTrafficSelector> getTsFromPersistableBundle(android.os.PersistableBundle p0, java.lang.String p1) { return null; }

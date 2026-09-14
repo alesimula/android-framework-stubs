@@ -36,81 +36,6 @@ public interface IGnss extends android.os.IInterface {
     public void stopNmea() throws android.os.RemoteException;
     public void stopSvStatus() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.IGnss {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public void deleteAidingData(int p0) throws android.os.RemoteException {}
-        public android.hardware.gnss.IAGnss getExtensionAGnss() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IAGnssRil getExtensionAGnssRil() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssAntennaInfo getExtensionGnssAntennaInfo() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssBatching getExtensionGnssBatching() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssConfiguration getExtensionGnssConfiguration() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssDebug getExtensionGnssDebug() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssGeofence getExtensionGnssGeofence() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssMeasurementInterface getExtensionGnssMeasurement() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssNavigationMessageInterface getExtensionGnssNavigationMessage() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssPowerIndication getExtensionGnssPowerIndication() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.visibility_control.IGnssVisibilityControl getExtensionGnssVisibilityControl() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsInterface getExtensionMeasurementCorrections() throws android.os.RemoteException { return null; }
-        public android.hardware.gnss.IGnssPsds getExtensionPsds() throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void injectBestLocation(android.hardware.gnss.GnssLocation p0) throws android.os.RemoteException {}
-        public void injectLocation(android.hardware.gnss.GnssLocation p0) throws android.os.RemoteException {}
-        public void injectTime(long p0, long p1, int p2) throws android.os.RemoteException {}
-        public void setCallback(android.hardware.gnss.IGnssCallback p0) throws android.os.RemoteException {}
-        public void setPositionMode(android.hardware.gnss.IGnss.PositionModeOptions p0) throws android.os.RemoteException {}
-        public void start() throws android.os.RemoteException {}
-        public void startNmea() throws android.os.RemoteException {}
-        public void startSvStatus() throws android.os.RemoteException {}
-        public void stop() throws android.os.RemoteException {}
-        public void stopNmea() throws android.os.RemoteException {}
-        public void stopSvStatus() throws android.os.RemoteException {}
-    }
-
-    public static @interface GnssAidingData {
-        public static final int ALL = 65535;
-        public static final int ALMANAC = 2;
-        public static final int CELLDB_INFO = 32768;
-        public static final int EPHEMERIS = 1;
-        public static final int HEALTH = 64;
-        public static final int IONO = 16;
-        public static final int POSITION = 4;
-        public static final int RTI = 1024;
-        public static final int SADATA = 512;
-        public static final int SVDIR = 128;
-        public static final int SVSTEER = 256;
-        public static final int TIME = 8;
-        public static final int UTC = 32;
-    }
-
-    public static @interface GnssPositionMode {
-        public static final int MS_ASSISTED = 2;
-        public static final int MS_BASED = 1;
-        public static final int STANDALONE = 0;
-    }
-
-    public static @interface GnssPositionRecurrence {
-        public static final int RECURRENCE_PERIODIC = 0;
-        public static final int RECURRENCE_SINGLE = 1;
-    }
-
-    public static class PositionModeOptions implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.gnss.IGnss.PositionModeOptions> CREATOR = null;
-        public boolean lowPowerMode;
-        public int minIntervalMs;
-        public int mode;
-        public int preferredAccuracyMeters;
-        public int preferredTimeMs;
-        public int recurrence;
-        public PositionModeOptions() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.IGnss {
         static final int TRANSACTION_close = 2;
         static final int TRANSACTION_deleteAidingData = 19;
@@ -183,5 +108,80 @@ public interface IGnss extends android.os.IInterface {
             public void stopNmea() throws android.os.RemoteException {}
             public void stopSvStatus() throws android.os.RemoteException {}
         }
+    }
+
+    public static @interface GnssPositionRecurrence {
+        public static final int RECURRENCE_PERIODIC = 0;
+        public static final int RECURRENCE_SINGLE = 1;
+    }
+
+    public static class PositionModeOptions implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.gnss.IGnss.PositionModeOptions> CREATOR = null;
+        public boolean lowPowerMode;
+        public int minIntervalMs;
+        public int mode;
+        public int preferredAccuracyMeters;
+        public int preferredTimeMs;
+        public int recurrence;
+        public PositionModeOptions() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static @interface GnssAidingData {
+        public static final int ALL = 65535;
+        public static final int ALMANAC = 2;
+        public static final int CELLDB_INFO = 32768;
+        public static final int EPHEMERIS = 1;
+        public static final int HEALTH = 64;
+        public static final int IONO = 16;
+        public static final int POSITION = 4;
+        public static final int RTI = 1024;
+        public static final int SADATA = 512;
+        public static final int SVDIR = 128;
+        public static final int SVSTEER = 256;
+        public static final int TIME = 8;
+        public static final int UTC = 32;
+    }
+
+    public static @interface GnssPositionMode {
+        public static final int MS_ASSISTED = 2;
+        public static final int MS_BASED = 1;
+        public static final int STANDALONE = 0;
+    }
+
+    public static class Default implements android.hardware.gnss.IGnss {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public void deleteAidingData(int p0) throws android.os.RemoteException {}
+        public android.hardware.gnss.IAGnss getExtensionAGnss() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IAGnssRil getExtensionAGnssRil() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssAntennaInfo getExtensionGnssAntennaInfo() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssBatching getExtensionGnssBatching() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssConfiguration getExtensionGnssConfiguration() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssDebug getExtensionGnssDebug() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssGeofence getExtensionGnssGeofence() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssMeasurementInterface getExtensionGnssMeasurement() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssNavigationMessageInterface getExtensionGnssNavigationMessage() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssPowerIndication getExtensionGnssPowerIndication() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.visibility_control.IGnssVisibilityControl getExtensionGnssVisibilityControl() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsInterface getExtensionMeasurementCorrections() throws android.os.RemoteException { return null; }
+        public android.hardware.gnss.IGnssPsds getExtensionPsds() throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void injectBestLocation(android.hardware.gnss.GnssLocation p0) throws android.os.RemoteException {}
+        public void injectLocation(android.hardware.gnss.GnssLocation p0) throws android.os.RemoteException {}
+        public void injectTime(long p0, long p1, int p2) throws android.os.RemoteException {}
+        public void setCallback(android.hardware.gnss.IGnssCallback p0) throws android.os.RemoteException {}
+        public void setPositionMode(android.hardware.gnss.IGnss.PositionModeOptions p0) throws android.os.RemoteException {}
+        public void start() throws android.os.RemoteException {}
+        public void startNmea() throws android.os.RemoteException {}
+        public void startSvStatus() throws android.os.RemoteException {}
+        public void stop() throws android.os.RemoteException {}
+        public void stopNmea() throws android.os.RemoteException {}
+        public void stopSvStatus() throws android.os.RemoteException {}
     }
 }

@@ -31,6 +31,9 @@ public class DeviceFeatures {
     public byte[] toOperand() { return null; }
     public java.lang.String toString() { return null; }
 
+    public static @interface FeatureSupportStatus {
+    }
+
     public static final class Builder {
         private int mArcRxSupport;
         private int mArcTxSupport;
@@ -50,8 +53,5 @@ public class DeviceFeatures {
         public android.hardware.hdmi.DeviceFeatures.Builder setSetAudioVolumeLevelSupport(int p0) { return null; }
         public android.hardware.hdmi.DeviceFeatures.Builder setSetOsdStringSupport(int p0) { return null; }
         public android.hardware.hdmi.DeviceFeatures.Builder update(android.hardware.hdmi.DeviceFeatures p0) { return null; }
-    }
-
-    public static @interface FeatureSupportStatus {
     }
 }

@@ -61,6 +61,18 @@ public final class PictureProfile implements android.os.Parcelable {
     public void setProfileId(java.lang.String p0) {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ProfileName {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ProfileType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ErrorCode {
+    }
+
     public static final class Builder {
         private android.media.quality.PictureProfileHandle mHandle;
         private java.lang.String mId;
@@ -83,17 +95,5 @@ public final class PictureProfile implements android.os.Parcelable {
         public android.media.quality.PictureProfile.Builder setProfileId(java.lang.String p0) { return null; }
         @android.annotation.SystemApi
         public android.media.quality.PictureProfile.Builder setProfileType(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ErrorCode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ProfileName {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ProfileType {
     }
 }

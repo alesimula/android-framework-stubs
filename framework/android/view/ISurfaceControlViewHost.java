@@ -9,17 +9,6 @@ public interface ISurfaceControlViewHost extends android.os.IInterface {
     public void onDispatchDetachedFromWindow() throws android.os.RemoteException;
     public void onInsetsChanged(android.view.InsetsState p0, android.graphics.Rect p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.ISurfaceControlViewHost {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void attachParentInterface(android.view.ISurfaceControlViewHostParent p0) throws android.os.RemoteException {}
-        public android.window.ISurfaceSyncGroup getSurfaceSyncGroup() throws android.os.RemoteException { return null; }
-        public void onConfigurationChanged(android.content.res.Configuration p0) throws android.os.RemoteException {}
-        public void onDispatchAttachedToWindow(android.window.InputTransferToken p0) throws android.os.RemoteException {}
-        public void onDispatchDetachedFromWindow() throws android.os.RemoteException {}
-        public void onInsetsChanged(android.view.InsetsState p0, android.graphics.Rect p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.ISurfaceControlViewHost {
         static final int TRANSACTION_attachParentInterface = 6;
         static final int TRANSACTION_getSurfaceSyncGroup = 5;
@@ -46,5 +35,16 @@ public interface ISurfaceControlViewHost extends android.os.IInterface {
             public void onDispatchDetachedFromWindow() throws android.os.RemoteException {}
             public void onInsetsChanged(android.view.InsetsState p0, android.graphics.Rect p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.ISurfaceControlViewHost {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void attachParentInterface(android.view.ISurfaceControlViewHostParent p0) throws android.os.RemoteException {}
+        public android.window.ISurfaceSyncGroup getSurfaceSyncGroup() throws android.os.RemoteException { return null; }
+        public void onConfigurationChanged(android.content.res.Configuration p0) throws android.os.RemoteException {}
+        public void onDispatchAttachedToWindow(android.window.InputTransferToken p0) throws android.os.RemoteException {}
+        public void onDispatchDetachedFromWindow() throws android.os.RemoteException {}
+        public void onInsetsChanged(android.view.InsetsState p0, android.graphics.Rect p1) throws android.os.RemoteException {}
     }
 }

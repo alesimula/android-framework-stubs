@@ -20,12 +20,15 @@ public class AnimateMeasure {
     public AnimateMeasure(long p0, com.android.internal.widget.remotecompose.core.operations.layout.Component p1, com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure p2, com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure p3, float p4, float p5, com.android.internal.widget.remotecompose.core.operations.layout.animation.AnimationSpec.ANIMATION p6, com.android.internal.widget.remotecompose.core.operations.layout.animation.AnimationSpec.ANIMATION p7, int p8, int p9) {}
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public float getHeight() { return 0.0f; }
+    public com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure getOriginal() { return null; }
+    public com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure getTarget() { return null; }
     public float getVisibility() { return 0.0f; }
     public float getWidth() { return 0.0f; }
     public float getX() { return 0.0f; }
     public float getY() { return 0.0f; }
     public boolean isDone() { return false; }
     public void paint(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
+    public java.lang.String toString() { return null; }
     public void update(long p0) {}
     public void updateTarget(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure p1, long p2) {}
 }

@@ -49,6 +49,32 @@ public final class MediaBrowser {
     public void unsubscribe(java.lang.String p0) {}
     public void unsubscribe(java.lang.String p0, android.media.browse.MediaBrowser.SubscriptionCallback p1) {}
 
+    public static abstract class SubscriptionCallback {
+        android.os.Binder mToken;
+        public SubscriptionCallback() {}
+        public void onChildrenLoaded(java.lang.String p0, java.util.List<android.media.browse.MediaBrowser.MediaItem> p1) {}
+        public void onChildrenLoaded(java.lang.String p0, java.util.List<android.media.browse.MediaBrowser.MediaItem> p1, android.os.Bundle p2) {}
+        public void onError(java.lang.String p0) {}
+        public void onError(java.lang.String p0, android.os.Bundle p1) {}
+    }
+
+    private static class ServiceCallbacks extends android.service.media.IMediaBrowserServiceCallbacks.Stub {
+        private java.lang.ref.WeakReference<android.media.browse.MediaBrowser> mMediaBrowser;
+        ServiceCallbacks(android.media.browse.MediaBrowser p0) { super(); }
+        public void onConnect(java.lang.String p0, android.media.session.MediaSession.Token p1, android.os.Bundle p2) {}
+        public void onConnectFailed() {}
+        public void onDisconnect() {}
+        public void onLoadChildren(java.lang.String p0, android.content.pm.ParceledListSlice p1, android.os.Bundle p2) {}
+    }
+
+    private class MediaServiceConnection implements android.content.ServiceConnection {
+        private MediaServiceConnection(android.media.browse.MediaBrowser p0) {}
+        private boolean isCurrent(java.lang.String p0) { return false; }
+        private void postOrRun(java.lang.Runnable p0) {}
+        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
+        public void onServiceDisconnected(android.content.ComponentName p0) {}
+    }
+
     public static class ConnectionCallback {
         public ConnectionCallback() {}
         public void onConnected() {}
@@ -85,23 +111,6 @@ public final class MediaBrowser {
         }
     }
 
-    private class MediaServiceConnection implements android.content.ServiceConnection {
-        private MediaServiceConnection(android.media.browse.MediaBrowser p0) {}
-        private boolean isCurrent(java.lang.String p0) { return false; }
-        private void postOrRun(java.lang.Runnable p0) {}
-        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
-        public void onServiceDisconnected(android.content.ComponentName p0) {}
-    }
-
-    private static class ServiceCallbacks extends android.service.media.IMediaBrowserServiceCallbacks.Stub {
-        private java.lang.ref.WeakReference<android.media.browse.MediaBrowser> mMediaBrowser;
-        ServiceCallbacks(android.media.browse.MediaBrowser p0) { super(); }
-        public void onConnect(java.lang.String p0, android.media.session.MediaSession.Token p1, android.os.Bundle p2) {}
-        public void onConnectFailed() {}
-        public void onDisconnect() {}
-        public void onLoadChildren(java.lang.String p0, android.content.pm.ParceledListSlice p1, android.os.Bundle p2) {}
-    }
-
     private static class Subscription {
         private final java.util.List<android.media.browse.MediaBrowser.SubscriptionCallback> mCallbacks = null;
         private final java.util.List<android.os.Bundle> mOptionsList = null;
@@ -111,14 +120,5 @@ public final class MediaBrowser {
         public java.util.List<android.os.Bundle> getOptionsList() { return null; }
         public boolean isEmpty() { return false; }
         public void putCallback(android.content.Context p0, android.os.Bundle p1, android.media.browse.MediaBrowser.SubscriptionCallback p2) {}
-    }
-
-    public static abstract class SubscriptionCallback {
-        android.os.Binder mToken;
-        public SubscriptionCallback() {}
-        public void onChildrenLoaded(java.lang.String p0, java.util.List<android.media.browse.MediaBrowser.MediaItem> p1) {}
-        public void onChildrenLoaded(java.lang.String p0, java.util.List<android.media.browse.MediaBrowser.MediaItem> p1, android.os.Bundle p2) {}
-        public void onError(java.lang.String p0) {}
-        public void onError(java.lang.String p0, android.os.Bundle p1) {}
     }
 }

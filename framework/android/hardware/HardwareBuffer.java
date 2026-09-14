@@ -10,6 +10,7 @@ public final class HardwareBuffer implements android.os.Parcelable, java.lang.Au
     public static final int D_16 = 48;
     public static final int D_24 = 49;
     public static final int D_FP32 = 51;
+    public static final int IMPLEMENTATION_DEFINED = 34;
     private static final int MAX_SMPTE2094_50_SIZE = 10240;
     public static final int RGBA_10101010 = 59;
     public static final int RGBA_1010102 = 43;
@@ -82,10 +83,10 @@ public final class HardwareBuffer implements android.os.Parcelable, java.lang.Au
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Format {
+    public static @interface Usage {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Usage {
+    public static @interface Format {
     }
 }

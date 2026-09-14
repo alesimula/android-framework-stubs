@@ -145,24 +145,10 @@ public class VoiceInteractionSession implements android.view.KeyEvent.Callback, 
     public void startVoiceActivity(android.content.Intent p0) {}
     public final void unregisterVisibleActivityCallback(android.service.voice.VoiceInteractionSession.VisibleActivityCallback p0) {}
 
-    public static final class AbortVoiceRequest extends android.service.voice.VoiceInteractionSession.Request {
-        final android.app.VoiceInteractor.Prompt mPrompt = null;
-        AbortVoiceRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
-        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
-        @java.lang.Deprecated
-        public java.lang.CharSequence getMessage() { return null; }
-        public android.app.VoiceInteractor.Prompt getVoicePrompt() { return null; }
-        public void sendAbortResult(android.os.Bundle p0) {}
-    }
-
-    public static class ActivityId {
-        private final android.os.IBinder mAssistToken = null;
-        private final int mTaskId = 0;
-        ActivityId(int p0, android.os.IBinder p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.os.IBinder getAssistToken() { return null; }
-        public int getTaskId() { return 0; }
-        public int hashCode() { return 0; }
+    private static class SafeResultListener implements android.os.RemoteCallback.OnResultListener {
+        private final java.lang.ref.WeakReference<android.service.voice.VoiceInteractionSession> mWeakSession = null;
+        SafeResultListener(java.util.function.Consumer<android.os.Bundle> p0, android.service.voice.VoiceInteractionSession p1) {}
+        public void onResult(android.os.Bundle p0) {}
     }
 
     public static final class AssistState {
@@ -182,26 +168,6 @@ public class VoiceInteractionSession implements android.view.KeyEvent.Callback, 
         public boolean isFocused() { return false; }
     }
 
-    public static final class CommandRequest extends android.service.voice.VoiceInteractionSession.Request {
-        final java.lang.String mCommand = null;
-        CommandRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, java.lang.String p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
-        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
-        public java.lang.String getCommand() { return null; }
-        void sendCommandResult(boolean p0, android.os.Bundle p1) {}
-        public void sendIntermediateResult(android.os.Bundle p0) {}
-        public void sendResult(android.os.Bundle p0) {}
-    }
-
-    public static final class CompleteVoiceRequest extends android.service.voice.VoiceInteractionSession.Request {
-        final android.app.VoiceInteractor.Prompt mPrompt = null;
-        CompleteVoiceRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
-        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
-        @java.lang.Deprecated
-        public java.lang.CharSequence getMessage() { return null; }
-        public android.app.VoiceInteractor.Prompt getVoicePrompt() { return null; }
-        public void sendCompleteResult(android.os.Bundle p0) {}
-    }
-
     public static final class ConfirmationRequest extends android.service.voice.VoiceInteractionSession.Request {
         final android.app.VoiceInteractor.Prompt mPrompt = null;
         ConfirmationRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
@@ -212,34 +178,14 @@ public class VoiceInteractionSession implements android.view.KeyEvent.Callback, 
         public void sendConfirmationResult(boolean p0, android.os.Bundle p1) {}
     }
 
-    public static final class Insets {
-        public static final int TOUCHABLE_INSETS_CONTENT = 1;
-        public static final int TOUCHABLE_INSETS_FRAME = 0;
-        public static final int TOUCHABLE_INSETS_REGION = 3;
-        public final android.graphics.Rect contentInsets = null;
-        public int touchableInsets;
-        public final android.graphics.Region touchableRegion = null;
-        public Insets() {}
-    }
-
-    class MyCallbacks implements com.android.internal.os.HandlerCaller.Callback, android.service.voice.VoiceInteractionWindow.Callback {
-        MyCallbacks(android.service.voice.VoiceInteractionSession p0) {}
-        public void executeMessage(android.os.Message p0) {}
-        public void onBackPressed() {}
-    }
-
-    public static final class PickOptionRequest extends android.service.voice.VoiceInteractionSession.Request {
-        final android.app.VoiceInteractor.PickOptionRequest.Option[] mOptions = null;
-        final android.app.VoiceInteractor.Prompt mPrompt = null;
-        PickOptionRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.app.VoiceInteractor.PickOptionRequest.Option[] p5, android.os.Bundle p6) { super(null, 0, null, null, null); }
-        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
-        public android.app.VoiceInteractor.PickOptionRequest.Option[] getOptions() { return null; }
-        @java.lang.Deprecated
-        public java.lang.CharSequence getPrompt() { return null; }
-        public android.app.VoiceInteractor.Prompt getVoicePrompt() { return null; }
-        public void sendIntermediatePickOptionResult(android.app.VoiceInteractor.PickOptionRequest.Option[] p0, android.os.Bundle p1) {}
-        void sendPickOptionResult(boolean p0, android.app.VoiceInteractor.PickOptionRequest.Option[] p1, android.os.Bundle p2) {}
-        public void sendPickOptionResult(android.app.VoiceInteractor.PickOptionRequest.Option[] p0, android.os.Bundle p1) {}
+    public static class ActivityId {
+        private final android.os.IBinder mAssistToken = null;
+        private final int mTaskId = 0;
+        ActivityId(int p0, android.os.IBinder p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public android.os.IBinder getAssistToken() { return null; }
+        public int getTaskId() { return 0; }
+        public int hashCode() { return 0; }
     }
 
     public static class Request {
@@ -260,15 +206,69 @@ public class VoiceInteractionSession implements android.view.KeyEvent.Callback, 
         public java.lang.String toString() { return null; }
     }
 
-    private static class SafeResultListener implements android.os.RemoteCallback.OnResultListener {
-        private final java.lang.ref.WeakReference<android.service.voice.VoiceInteractionSession> mWeakSession = null;
-        SafeResultListener(java.util.function.Consumer<android.os.Bundle> p0, android.service.voice.VoiceInteractionSession p1) {}
-        public void onResult(android.os.Bundle p0) {}
+    class MyCallbacks implements com.android.internal.os.HandlerCaller.Callback, android.service.voice.VoiceInteractionWindow.Callback {
+        MyCallbacks(android.service.voice.VoiceInteractionSession p0) {}
+        public void executeMessage(android.os.Message p0) {}
+        public void onBackPressed() {}
     }
 
     public static interface VisibleActivityCallback {
         default public void onInvisible(android.service.voice.VoiceInteractionSession.ActivityId p0) {}
         default public void onVisible(android.service.voice.VisibleActivityInfo p0) {}
+    }
+
+    public static final class AbortVoiceRequest extends android.service.voice.VoiceInteractionSession.Request {
+        final android.app.VoiceInteractor.Prompt mPrompt = null;
+        AbortVoiceRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
+        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
+        @java.lang.Deprecated
+        public java.lang.CharSequence getMessage() { return null; }
+        public android.app.VoiceInteractor.Prompt getVoicePrompt() { return null; }
+        public void sendAbortResult(android.os.Bundle p0) {}
+    }
+
+    public static final class PickOptionRequest extends android.service.voice.VoiceInteractionSession.Request {
+        final android.app.VoiceInteractor.PickOptionRequest.Option[] mOptions = null;
+        final android.app.VoiceInteractor.Prompt mPrompt = null;
+        PickOptionRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.app.VoiceInteractor.PickOptionRequest.Option[] p5, android.os.Bundle p6) { super(null, 0, null, null, null); }
+        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
+        public android.app.VoiceInteractor.PickOptionRequest.Option[] getOptions() { return null; }
+        @java.lang.Deprecated
+        public java.lang.CharSequence getPrompt() { return null; }
+        public android.app.VoiceInteractor.Prompt getVoicePrompt() { return null; }
+        public void sendIntermediatePickOptionResult(android.app.VoiceInteractor.PickOptionRequest.Option[] p0, android.os.Bundle p1) {}
+        void sendPickOptionResult(boolean p0, android.app.VoiceInteractor.PickOptionRequest.Option[] p1, android.os.Bundle p2) {}
+        public void sendPickOptionResult(android.app.VoiceInteractor.PickOptionRequest.Option[] p0, android.os.Bundle p1) {}
+    }
+
+    public static final class CompleteVoiceRequest extends android.service.voice.VoiceInteractionSession.Request {
+        final android.app.VoiceInteractor.Prompt mPrompt = null;
+        CompleteVoiceRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, android.app.VoiceInteractor.Prompt p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
+        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
+        @java.lang.Deprecated
+        public java.lang.CharSequence getMessage() { return null; }
+        public android.app.VoiceInteractor.Prompt getVoicePrompt() { return null; }
+        public void sendCompleteResult(android.os.Bundle p0) {}
+    }
+
+    public static final class Insets {
+        public static final int TOUCHABLE_INSETS_CONTENT = 1;
+        public static final int TOUCHABLE_INSETS_FRAME = 0;
+        public static final int TOUCHABLE_INSETS_REGION = 3;
+        public final android.graphics.Rect contentInsets = null;
+        public int touchableInsets;
+        public final android.graphics.Region touchableRegion = null;
+        public Insets() {}
+    }
+
+    public static final class CommandRequest extends android.service.voice.VoiceInteractionSession.Request {
+        final java.lang.String mCommand = null;
+        CommandRequest(java.lang.String p0, int p1, com.android.internal.app.IVoiceInteractorCallback p2, android.service.voice.VoiceInteractionSession p3, java.lang.String p4, android.os.Bundle p5) { super(null, 0, null, null, null); }
+        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
+        public java.lang.String getCommand() { return null; }
+        void sendCommandResult(boolean p0, android.os.Bundle p1) {}
+        public void sendIntermediateResult(android.os.Bundle p0) {}
+        public void sendResult(android.os.Bundle p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

@@ -8,4 +8,5 @@ public interface FeatureFlags {
     public boolean rangingStackUpdates25q4();
     public boolean rangingStackUpdates26Q2();
     public boolean rangingStackUpdates26Q4();
+    public boolean rangingStackUpdates27Q2();
 }

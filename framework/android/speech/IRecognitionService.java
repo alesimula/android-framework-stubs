@@ -7,16 +7,6 @@ public interface IRecognitionService extends android.os.IInterface {
     public void stopListening(android.speech.IRecognitionListener p0) throws android.os.RemoteException;
     public void triggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) throws android.os.RemoteException;
 
-    public static class Default implements android.speech.IRecognitionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancel(android.speech.IRecognitionListener p0, boolean p1) throws android.os.RemoteException {}
-        public void checkRecognitionSupport(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IRecognitionSupportCallback p2) throws android.os.RemoteException {}
-        public void startListening(android.content.Intent p0, android.speech.IRecognitionListener p1, android.content.AttributionSource p2) throws android.os.RemoteException {}
-        public void stopListening(android.speech.IRecognitionListener p0) throws android.os.RemoteException {}
-        public void triggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.speech.IRecognitionService {
         public static final java.lang.String DESCRIPTOR = "android.speech.IRecognitionService";
         static final int TRANSACTION_cancel = 3;
@@ -42,5 +32,15 @@ public interface IRecognitionService extends android.os.IInterface {
             public void stopListening(android.speech.IRecognitionListener p0) throws android.os.RemoteException {}
             public void triggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.speech.IRecognitionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancel(android.speech.IRecognitionListener p0, boolean p1) throws android.os.RemoteException {}
+        public void checkRecognitionSupport(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IRecognitionSupportCallback p2) throws android.os.RemoteException {}
+        public void startListening(android.content.Intent p0, android.speech.IRecognitionListener p1, android.content.AttributionSource p2) throws android.os.RemoteException {}
+        public void stopListening(android.speech.IRecognitionListener p0) throws android.os.RemoteException {}
+        public void triggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) throws android.os.RemoteException {}
     }
 }

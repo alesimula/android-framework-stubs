@@ -8,16 +8,6 @@ public interface ISoundTriggerCallback extends android.os.IInterface {
     public void onRecognition(int p0, android.media.soundtrigger_middleware.RecognitionEventSys p1, int p2) throws android.os.RemoteException;
     public void onResourcesAvailable() throws android.os.RemoteException;
 
-    public static class Default implements android.media.soundtrigger_middleware.ISoundTriggerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onModelUnloaded(int p0) throws android.os.RemoteException {}
-        public void onModuleDied() throws android.os.RemoteException {}
-        public void onPhraseRecognition(int p0, android.media.soundtrigger_middleware.PhraseRecognitionEventSys p1, int p2) throws android.os.RemoteException {}
-        public void onRecognition(int p0, android.media.soundtrigger_middleware.RecognitionEventSys p1, int p2) throws android.os.RemoteException {}
-        public void onResourcesAvailable() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.soundtrigger_middleware.ISoundTriggerCallback {
         static final int TRANSACTION_onModelUnloaded = 4;
         static final int TRANSACTION_onModuleDied = 5;
@@ -40,5 +30,15 @@ public interface ISoundTriggerCallback extends android.os.IInterface {
             public void onRecognition(int p0, android.media.soundtrigger_middleware.RecognitionEventSys p1, int p2) throws android.os.RemoteException {}
             public void onResourcesAvailable() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.soundtrigger_middleware.ISoundTriggerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onModelUnloaded(int p0) throws android.os.RemoteException {}
+        public void onModuleDied() throws android.os.RemoteException {}
+        public void onPhraseRecognition(int p0, android.media.soundtrigger_middleware.PhraseRecognitionEventSys p1, int p2) throws android.os.RemoteException {}
+        public void onRecognition(int p0, android.media.soundtrigger_middleware.RecognitionEventSys p1, int p2) throws android.os.RemoteException {}
+        public void onResourcesAvailable() throws android.os.RemoteException {}
     }
 }

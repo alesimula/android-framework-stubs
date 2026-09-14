@@ -48,6 +48,20 @@ public final class Dataset implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static final class DatasetFieldFilter implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.service.autofill.Dataset.DatasetFieldFilter> CREATOR = null;
+        public final java.util.regex.Pattern pattern = null;
+        DatasetFieldFilter(java.util.regex.Pattern p0) {}
+        public int describeContents() { return 0; }
+        public java.util.regex.Pattern getPattern() { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DatasetEligibleReason {
+    }
+
     public static final class Builder {
         private android.content.IntentSender mAuthentication;
         private java.util.ArrayList<java.lang.String> mAutofillDatatypes;
@@ -110,19 +124,5 @@ public final class Dataset implements android.os.Parcelable {
         public android.service.autofill.Dataset.Builder setValue(android.view.autofill.AutofillId p0, android.view.autofill.AutofillValue p1, java.util.regex.Pattern p2, android.widget.RemoteViews p3, android.service.autofill.InlinePresentation p4) { return null; }
         @java.lang.Deprecated
         public android.service.autofill.Dataset.Builder setValue(android.view.autofill.AutofillId p0, android.view.autofill.AutofillValue p1, java.util.regex.Pattern p2, android.widget.RemoteViews p3, android.service.autofill.InlinePresentation p4, android.service.autofill.InlinePresentation p5) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DatasetEligibleReason {
-    }
-
-    public static final class DatasetFieldFilter implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.service.autofill.Dataset.DatasetFieldFilter> CREATOR = null;
-        public final java.util.regex.Pattern pattern = null;
-        DatasetFieldFilter(java.util.regex.Pattern p0) {}
-        public int describeContents() { return 0; }
-        public java.util.regex.Pattern getPattern() { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

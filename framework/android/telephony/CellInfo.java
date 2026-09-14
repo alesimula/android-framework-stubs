@@ -46,10 +46,10 @@ public abstract class CellInfo implements android.os.Parcelable {
     protected void writeToParcel(android.os.Parcel p0, int p1, int p2) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CellConnectionStatus {
+    public static @interface Type {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Type {
+    public static @interface CellConnectionStatus {
     }
 }

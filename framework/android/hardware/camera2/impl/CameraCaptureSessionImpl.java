@@ -62,13 +62,13 @@ public class CameraCaptureSessionImpl extends android.hardware.camera2.CameraCap
         public void onDrained() {}
     }
 
-    private class IdleDrainListener implements android.hardware.camera2.utils.TaskDrainer.DrainListener {
-        private IdleDrainListener(android.hardware.camera2.impl.CameraCaptureSessionImpl p0) {}
+    private class SequenceDrainListener implements android.hardware.camera2.utils.TaskDrainer.DrainListener {
+        private SequenceDrainListener(android.hardware.camera2.impl.CameraCaptureSessionImpl p0) {}
         public void onDrained() {}
     }
 
-    private class SequenceDrainListener implements android.hardware.camera2.utils.TaskDrainer.DrainListener {
-        private SequenceDrainListener(android.hardware.camera2.impl.CameraCaptureSessionImpl p0) {}
+    private class IdleDrainListener implements android.hardware.camera2.utils.TaskDrainer.DrainListener {
+        private IdleDrainListener(android.hardware.camera2.impl.CameraCaptureSessionImpl p0) {}
         public void onDrained() {}
     }
 }

@@ -3,12 +3,6 @@ package android.media;
 public interface IAudioServerStateDispatcher extends android.os.IInterface {
     public void dispatchAudioServerStateChange(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IAudioServerStateDispatcher {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchAudioServerStateChange(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IAudioServerStateDispatcher {
         public static final java.lang.String DESCRIPTOR = "android.media.IAudioServerStateDispatcher";
         static final int TRANSACTION_dispatchAudioServerStateChange = 1;
@@ -26,5 +20,11 @@ public interface IAudioServerStateDispatcher extends android.os.IInterface {
             public void dispatchAudioServerStateChange(boolean p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.IAudioServerStateDispatcher {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchAudioServerStateChange(boolean p0) throws android.os.RemoteException {}
     }
 }

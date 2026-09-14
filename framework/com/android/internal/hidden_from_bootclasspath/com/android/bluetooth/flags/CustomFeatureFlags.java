@@ -11,18 +11,19 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean a2dpCreateCodecTypeFromIdApi() { return false; }
     public boolean a2dpDisconnectReasonApi() { return false; }
     public boolean a2dpLdacApi() { return false; }
+    public boolean addCarkitRdiMetadataApi() { return false; }
     public boolean addForceDisconnectApi() { return false; }
     public boolean addHearingAidClassOfDevice() { return false; }
     public boolean addNewLocalDisconnectReason() { return false; }
     public boolean apairing26q2PermissionImprovements() { return false; }
-    public boolean autonomousRepairingInitiation() { return false; }
     public boolean bluetoothQualityReportV8() { return false; }
+    public boolean channelSoundingApiEnhancements() { return false; }
     public boolean deprecateConnectAudio() { return false; }
-    public boolean enableGetBondStatus() { return false; }
+    public boolean encryptionUsingTransientApplicationKey() { return false; }
     public boolean enforceBluetoothPrivilegedForHeadset() { return false; }
     public boolean enforceNonNullWorksource() { return false; }
-    public boolean explicitUuidTransportApi() { return false; }
     public boolean gattConnSettings() { return false; }
+    public boolean gattConnectionUpdate() { return false; }
     public boolean gattOffloadApi() { return false; }
     public java.util.List<java.lang.String> getFlagNames() { return null; }
     protected <T extends java.lang.Object> T getGenericValue(java.lang.String p0, java.util.function.Function<com.android.internal.hidden_from_bootclasspath.com.android.bluetooth.flags.FeatureFlags, T> p1) { return null; }
@@ -35,10 +36,11 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean leaudioCodecIdSupport() { return false; }
     public boolean leaudioOverHdtPhyApi() { return false; }
     public boolean leaudioPeripheralFeature() { return false; }
-    public boolean maxAdvertisingPower() { return false; }
     public boolean oppDevicePickerExtraIntentApis() { return false; }
+    public boolean poweredOffFindingCallbacks() { return false; }
+    public boolean preloadGattDatabase() { return false; }
     public boolean providePairingAlgo() { return false; }
     public boolean removeScanFilterBuilderException() { return false; }
-    public boolean reportVendorEventsFromAcl() { return false; }
+    public boolean reportLeAppearanceToApps() { return false; }
     public boolean rssiThresholdForLeConn() { return false; }
 }

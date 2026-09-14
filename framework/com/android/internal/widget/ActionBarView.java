@@ -113,24 +113,6 @@ public class ActionBarView extends com.android.internal.widget.AbsActionBarView 
     public void setWindowTitle(java.lang.CharSequence p0) {}
     public boolean shouldDelayChildPressedState() { return false; }
 
-    private class ExpandedActionViewMenuPresenter implements com.android.internal.view.menu.MenuPresenter {
-        com.android.internal.view.menu.MenuItemImpl mCurrentExpandedItem;
-        com.android.internal.view.menu.MenuBuilder mMenu;
-        private ExpandedActionViewMenuPresenter(com.android.internal.widget.ActionBarView p0) {}
-        public boolean collapseItemActionView(com.android.internal.view.menu.MenuBuilder p0, com.android.internal.view.menu.MenuItemImpl p1) { return false; }
-        public boolean expandItemActionView(com.android.internal.view.menu.MenuBuilder p0, com.android.internal.view.menu.MenuItemImpl p1) { return false; }
-        public boolean flagActionItems() { return false; }
-        public int getId() { return 0; }
-        public com.android.internal.view.menu.MenuView getMenuView(android.view.ViewGroup p0) { return null; }
-        public void initForMenu(android.content.Context p0, com.android.internal.view.menu.MenuBuilder p1) {}
-        public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
-        public void onRestoreInstanceState(android.os.Parcelable p0) {}
-        public android.os.Parcelable onSaveInstanceState() { return null; }
-        public boolean onSubMenuSelected(com.android.internal.view.menu.SubMenuBuilder p0) { return false; }
-        public void setCallback(com.android.internal.view.menu.MenuPresenter.Callback p0) {}
-        public void updateMenuView(boolean p0) {}
-    }
-
     private static class HomeView extends android.widget.FrameLayout {
         private static final long DEFAULT_TRANSITION_DURATION = 150L;
         private android.graphics.drawable.Drawable mDefaultUpIndicator;
@@ -158,6 +140,24 @@ public class ActionBarView extends com.android.internal.widget.AbsActionBarView 
         public void setShowUp(boolean p0) {}
         public void setUpIndicator(int p0) {}
         public void setUpIndicator(android.graphics.drawable.Drawable p0) {}
+    }
+
+    private class ExpandedActionViewMenuPresenter implements com.android.internal.view.menu.MenuPresenter {
+        com.android.internal.view.menu.MenuItemImpl mCurrentExpandedItem;
+        com.android.internal.view.menu.MenuBuilder mMenu;
+        private ExpandedActionViewMenuPresenter(com.android.internal.widget.ActionBarView p0) {}
+        public boolean collapseItemActionView(com.android.internal.view.menu.MenuBuilder p0, com.android.internal.view.menu.MenuItemImpl p1) { return false; }
+        public boolean expandItemActionView(com.android.internal.view.menu.MenuBuilder p0, com.android.internal.view.menu.MenuItemImpl p1) { return false; }
+        public boolean flagActionItems() { return false; }
+        public int getId() { return 0; }
+        public com.android.internal.view.menu.MenuView getMenuView(android.view.ViewGroup p0) { return null; }
+        public void initForMenu(android.content.Context p0, com.android.internal.view.menu.MenuBuilder p1) {}
+        public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
+        public void onRestoreInstanceState(android.os.Parcelable p0) {}
+        public android.os.Parcelable onSaveInstanceState() { return null; }
+        public boolean onSubMenuSelected(com.android.internal.view.menu.SubMenuBuilder p0) { return false; }
+        public void setCallback(com.android.internal.view.menu.MenuPresenter.Callback p0) {}
+        public void updateMenuView(boolean p0) {}
     }
 
     static class SavedState extends android.view.View.BaseSavedState {

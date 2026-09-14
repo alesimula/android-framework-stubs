@@ -38,16 +38,6 @@ public class SurfaceControlViewHost {
     @java.lang.Deprecated
     public boolean transferTouchGestureToHost() { return false; }
 
-    private final class ISurfaceControlViewHostImpl extends android.view.ISurfaceControlViewHost.Stub {
-        private ISurfaceControlViewHostImpl(android.view.SurfaceControlViewHost p0) { super(); }
-        public void attachParentInterface(android.view.ISurfaceControlViewHostParent p0) {}
-        public android.window.ISurfaceSyncGroup getSurfaceSyncGroup() { return null; }
-        public void onConfigurationChanged(android.content.res.Configuration p0) {}
-        public void onDispatchAttachedToWindow(android.window.InputTransferToken p0) {}
-        public void onDispatchDetachedFromWindow() {}
-        public void onInsetsChanged(android.view.InsetsState p0, android.graphics.Rect p1) {}
-    }
-
     public static class LayoutParams {
         private final boolean mFocusable = false;
         private final int mHeight = 0;
@@ -61,6 +51,16 @@ public class SurfaceControlViewHost {
         public boolean isFocusable() { return false; }
         public void setTitle(java.lang.String p0) {}
         public android.view.WindowManager.LayoutParams toWindowManagerLayoutParams() { return null; }
+    }
+
+    private final class ISurfaceControlViewHostImpl extends android.view.ISurfaceControlViewHost.Stub {
+        private ISurfaceControlViewHostImpl(android.view.SurfaceControlViewHost p0) { super(); }
+        public void attachParentInterface(android.view.ISurfaceControlViewHostParent p0) {}
+        public android.window.ISurfaceSyncGroup getSurfaceSyncGroup() { return null; }
+        public void onConfigurationChanged(android.content.res.Configuration p0) {}
+        public void onDispatchAttachedToWindow(android.window.InputTransferToken p0) {}
+        public void onDispatchDetachedFromWindow() {}
+        public void onInsetsChanged(android.view.InsetsState p0, android.graphics.Rect p1) {}
     }
 
     public static final class SurfacePackage implements android.os.Parcelable {

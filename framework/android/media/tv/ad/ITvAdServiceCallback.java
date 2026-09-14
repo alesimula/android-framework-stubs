@@ -3,11 +3,6 @@ package android.media.tv.ad;
 public interface ITvAdServiceCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.ad.ITvAdServiceCallback";
 
-    public static class Default implements android.media.tv.ad.ITvAdServiceCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.ad.ITvAdServiceCallback {
         public Stub() { super(); }
         public static android.media.tv.ad.ITvAdServiceCallback asInterface(android.os.IBinder p0) { return null; }
@@ -22,5 +17,10 @@ public interface ITvAdServiceCallback extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.tv.ad.ITvAdServiceCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

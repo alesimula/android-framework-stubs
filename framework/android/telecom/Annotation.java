@@ -4,10 +4,10 @@ public class Annotation {
     public Annotation() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Presentation {
+    public static @interface VerificationStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VerificationStatus {
+    public static @interface Presentation {
     }
 }

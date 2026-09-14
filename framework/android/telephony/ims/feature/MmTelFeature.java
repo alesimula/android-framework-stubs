@@ -69,6 +69,7 @@ public class MmTelFeature extends android.telephony.ims.feature.ImsFeature {
     public android.telephony.ims.stub.ImsCallSessionImplBase createCallSession(android.telephony.ims.ImsCallProfile p0) { return null; }
     public com.android.ims.internal.IImsCallSession createCallSessionInterface(android.telephony.ims.ImsCallProfile p0) throws android.os.RemoteException { return null; }
     public final android.telephony.ims.aidl.IImsMmTelFeature getBinder() { return null; }
+    protected int getCallingUid() { return 0; }
     @android.annotation.SystemApi
     public android.telephony.ims.stub.ImsEcbmImplBase getEcbm() { return null; }
     protected com.android.ims.internal.IImsEcbm getEcbmInterface() throws android.os.RemoteException { return null; }
@@ -133,59 +134,6 @@ public class MmTelFeature extends android.telephony.ims.feature.ImsFeature {
     @android.annotation.SystemApi
     public final void triggerEpsFallback(int p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EpsFallbackReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ImsAudioHandler {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ImsTrafficDirection {
-    }
-
-    public static class ImsTrafficSessionCallbackWrapper {
-        public static final int INVALID_TOKEN = -1;
-        private static final int MAX_TOKEN = 65536;
-        private static final java.util.concurrent.atomic.AtomicInteger sTokenGenerator = null;
-        private android.telephony.ims.feature.MmTelFeature.ImsTrafficSessionCallbackWrapper.IImsTrafficSessionCallbackStub mCallback;
-        private android.telephony.ims.feature.ImsTrafficSessionCallback mImsTrafficSessionCallback;
-        private int mToken;
-        private ImsTrafficSessionCallbackWrapper(android.telephony.ims.feature.ImsTrafficSessionCallback p0) {}
-        private static int generateToken() { return 0; }
-        final android.telephony.ims.feature.MmTelFeature.ImsTrafficSessionCallbackWrapper.IImsTrafficSessionCallbackStub getCallbackBinder() { return null; }
-        final int getToken() { return 0; }
-        final void reset() {}
-        final void update(java.util.concurrent.Executor p0) {}
-
-        private static class IImsTrafficSessionCallbackStub extends android.telephony.ims.aidl.IImsTrafficSessionCallback.Stub {
-            private java.util.concurrent.Executor mExecutor;
-            private java.lang.ref.WeakReference<android.telephony.ims.feature.ImsTrafficSessionCallback> mImsTrafficSessionCallbackWeakRef;
-            IImsTrafficSessionCallbackStub(android.telephony.ims.feature.ImsTrafficSessionCallback p0, java.util.concurrent.Executor p1) { super(); }
-            public void onError(android.telephony.ims.feature.ConnectionFailureInfo p0) {}
-            public void onReady() {}
-            void update(java.util.concurrent.Executor p0) {}
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ImsTrafficType {
-    }
-
-    public static class Listener extends android.telephony.ims.aidl.IImsMmTelListener.Stub {
-        public Listener() { super(); }
-        public void onAudioModeIsVoipChanged(int p0) {}
-        public android.telephony.ims.aidl.IImsCallSessionListener onIncomingCall(com.android.ims.internal.IImsCallSession p0, java.lang.String p1, android.os.Bundle p2) { return null; }
-        public void onMediaQualityStatusChanged(android.telephony.ims.MediaQualityStatus p0) {}
-        public void onModifyImsTrafficSession(int p0, int p1) {}
-        public void onRejectedCall(android.telephony.ims.ImsCallProfile p0, android.telephony.ims.ImsReasonInfo p1) {}
-        public void onStartImsTrafficSession(int p0, int p1, int p2, int p3, android.telephony.ims.aidl.IImsTrafficSessionCallback p4) {}
-        public void onStopImsTrafficSession(int p0) {}
-        public void onTriggerEpsFallback(int p0) {}
-        public void onVoiceMessageCountUpdate(int p0) {}
-    }
-
     public static class MmTelCapabilities extends android.telephony.ims.feature.ImsFeature.Capabilities {
         public static final int CAPABILITY_TYPE_CALL_COMPOSER = 16;
         public static final int CAPABILITY_TYPE_CALL_COMPOSER_BUSINESS_ONLY = 32;
@@ -215,6 +163,59 @@ public class MmTelFeature extends android.telephony.ims.feature.ImsFeature {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ImsAudioHandler {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ImsTrafficType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EpsFallbackReason {
+    }
+
+    public static class Listener extends android.telephony.ims.aidl.IImsMmTelListener.Stub {
+        public Listener() { super(); }
+        public void onAudioModeIsVoipChanged(int p0) {}
+        public android.telephony.ims.aidl.IImsCallSessionListener onIncomingCall(com.android.ims.internal.IImsCallSession p0, java.lang.String p1, android.os.Bundle p2) { return null; }
+        public void onMediaQualityStatusChanged(android.telephony.ims.MediaQualityStatus p0) {}
+        public void onModifyImsTrafficSession(int p0, int p1) {}
+        public void onRejectedCall(android.telephony.ims.ImsCallProfile p0, android.telephony.ims.ImsReasonInfo p1) {}
+        public void onStartImsTrafficSession(int p0, int p1, int p2, int p3, android.telephony.ims.aidl.IImsTrafficSessionCallback p4) {}
+        public void onStopImsTrafficSession(int p0) {}
+        public void onTriggerEpsFallback(int p0) {}
+        public void onVoiceMessageCountUpdate(int p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ProcessCallResult {
+    }
+
+    public static class ImsTrafficSessionCallbackWrapper {
+        public static final int INVALID_TOKEN = -1;
+        private static final int MAX_TOKEN = 65536;
+        private static final java.util.concurrent.atomic.AtomicInteger sTokenGenerator = null;
+        private android.telephony.ims.feature.MmTelFeature.ImsTrafficSessionCallbackWrapper.IImsTrafficSessionCallbackStub mCallback;
+        private android.telephony.ims.feature.ImsTrafficSessionCallback mImsTrafficSessionCallback;
+        private int mToken;
+        private ImsTrafficSessionCallbackWrapper(android.telephony.ims.feature.ImsTrafficSessionCallback p0) {}
+        private static int generateToken() { return 0; }
+        final android.telephony.ims.feature.MmTelFeature.ImsTrafficSessionCallbackWrapper.IImsTrafficSessionCallbackStub getCallbackBinder() { return null; }
+        final int getToken() { return 0; }
+        final void reset() {}
+        final void update(java.util.concurrent.Executor p0) {}
+
+        private static class IImsTrafficSessionCallbackStub extends android.telephony.ims.aidl.IImsTrafficSessionCallback.Stub {
+            private java.util.concurrent.Executor mExecutor;
+            private java.lang.ref.WeakReference<android.telephony.ims.feature.ImsTrafficSessionCallback> mImsTrafficSessionCallbackWeakRef;
+            IImsTrafficSessionCallbackStub(android.telephony.ims.feature.ImsTrafficSessionCallback p0, java.util.concurrent.Executor p1) { super(); }
+            public void onError(android.telephony.ims.feature.ConnectionFailureInfo p0) {}
+            public void onReady() {}
+            void update(java.util.concurrent.Executor p0) {}
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ImsTrafficDirection {
     }
 }

@@ -1,7 +1,7 @@
 package android.util;
 
 public class PathParser {
-    static final java.lang.String LOGTAG = null;
+    static final java.lang.String LOGTAG = "PathParser";
     public PathParser() {}
     public static boolean canMorph(android.util.PathParser.PathData p0, android.util.PathParser.PathData p1) { return false; }
     public static android.graphics.Path createPathFromPathData(java.lang.String p0) { return null; }

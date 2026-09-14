@@ -5,13 +5,6 @@ public interface IGetAvailableMemoryInBytesCallback extends android.os.IInterfac
     public void onSuccess(long p0) throws android.os.RemoteException;
     public void onUnsupportedOperationException(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.euicc.IGetAvailableMemoryInBytesCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSuccess(long p0) throws android.os.RemoteException {}
-        public void onUnsupportedOperationException(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.euicc.IGetAvailableMemoryInBytesCallback {
         static final int TRANSACTION_onSuccess = 1;
         static final int TRANSACTION_onUnsupportedOperationException = 2;
@@ -30,5 +23,12 @@ public interface IGetAvailableMemoryInBytesCallback extends android.os.IInterfac
             public void onSuccess(long p0) throws android.os.RemoteException {}
             public void onUnsupportedOperationException(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.euicc.IGetAvailableMemoryInBytesCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSuccess(long p0) throws android.os.RemoteException {}
+        public void onUnsupportedOperationException(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

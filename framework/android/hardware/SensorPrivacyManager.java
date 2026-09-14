@@ -5,7 +5,7 @@ public final class SensorPrivacyManager {
     public static final java.lang.String EXTRA_NOTIFICATION_ID = null;
     public static final java.lang.String EXTRA_SENSOR = null;
     public static final java.lang.String EXTRA_TOGGLE_TYPE = null;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "SensorPrivacyManager";
     public static final int TOGGLE_TYPE_HARDWARE = 2;
     public static final int TOGGLE_TYPE_SOFTWARE = 1;
     private static android.hardware.SensorPrivacyManager sInstance;
@@ -79,26 +79,6 @@ public final class SensorPrivacyManager {
         public void onAllSensorPrivacyChanged(boolean p0);
     }
 
-    @android.annotation.SystemApi
-    public static interface OnSensorPrivacyChangedListener {
-        @java.lang.Deprecated
-        public void onSensorPrivacyChanged(int p0, boolean p1);
-        default public void onSensorPrivacyChanged(android.hardware.SensorPrivacyManager.OnSensorPrivacyChangedListener.SensorPrivacyChangedParams p0) {}
-
-        public static class SensorPrivacyChangedParams {
-            private boolean mEnabled;
-            private int mSensor;
-            private int mState;
-            private int mToggleType;
-            private SensorPrivacyChangedParams(int p0, int p1, int p2) {}
-            private SensorPrivacyChangedParams(int p0, int p1, boolean p2) {}
-            public int getSensor() { return 0; }
-            public int getState() { return 0; }
-            public int getToggleType() { return 0; }
-            public boolean isEnabled() { return false; }
-        }
-    }
-
     public static class Sensors {
         public static final int CAMERA = 2;
         public static final int MICROPHONE = 1;
@@ -106,6 +86,18 @@ public final class SensorPrivacyManager {
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface Sensor {
+        }
+    }
+
+    @android.annotation.SystemApi
+    public static class StateTypes {
+        public static final int DISABLED = 2;
+        public static final int ENABLED = 1;
+        public static final int ENABLED_EXCEPT_ALLOWLISTED_APPS = 3;
+        private StateTypes() {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface StateType {
         }
     }
 
@@ -124,14 +116,22 @@ public final class SensorPrivacyManager {
     }
 
     @android.annotation.SystemApi
-    public static class StateTypes {
-        public static final int DISABLED = 2;
-        public static final int ENABLED = 1;
-        public static final int ENABLED_EXCEPT_ALLOWLISTED_APPS = 3;
-        private StateTypes() {}
+    public static interface OnSensorPrivacyChangedListener {
+        @java.lang.Deprecated
+        public void onSensorPrivacyChanged(int p0, boolean p1);
+        default public void onSensorPrivacyChanged(android.hardware.SensorPrivacyManager.OnSensorPrivacyChangedListener.SensorPrivacyChangedParams p0) {}
 
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface StateType {
+        public static class SensorPrivacyChangedParams {
+            private boolean mEnabled;
+            private int mSensor;
+            private int mState;
+            private int mToggleType;
+            private SensorPrivacyChangedParams(int p0, int p1, int p2) {}
+            private SensorPrivacyChangedParams(int p0, int p1, boolean p2) {}
+            public int getSensor() { return 0; }
+            public int getState() { return 0; }
+            public int getToggleType() { return 0; }
+            public boolean isEnabled() { return false; }
         }
     }
 

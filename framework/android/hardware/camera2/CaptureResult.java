@@ -89,6 +89,10 @@ public class CaptureResult extends android.hardware.camera2.CameraMetadata<andro
     public static final android.hardware.camera2.CaptureResult.Key<java.lang.Integer> EXTENSION_NIGHT_MODE_INDICATOR = null;
     @android.hardware.camera2.impl.PublicKey
     public static final android.hardware.camera2.CaptureResult.Key<java.lang.Integer> EXTENSION_STRENGTH = null;
+    @android.annotation.SystemApi
+    @android.hardware.camera2.impl.SyntheticKey
+    public static final android.hardware.camera2.CaptureResult.Key<android.graphics.Path> EXTENSION_SUBJECT_SEGMENTATION_PATH = null;
+    public static final android.hardware.camera2.CaptureResult.Key<float[]> EXTENSION_SUBJECT_SEGMENTATION_PATH_DATA = null;
     @android.hardware.camera2.impl.PublicKey
     public static final android.hardware.camera2.CaptureResult.Key<java.lang.Integer> FLASH_MODE = null;
     @android.hardware.camera2.impl.PublicKey
@@ -263,15 +267,6 @@ public class CaptureResult extends android.hardware.camera2.CameraMetadata<andro
     public android.hardware.camera2.CaptureRequest getRequest() { return null; }
     public int getSequenceId() { return 0; }
 
-    @android.annotation.SystemApi
-    public static final class Builder {
-        private final android.hardware.camera2.impl.CameraMetadataNative mNativeMetadata = null;
-        public Builder() {}
-        public Builder(android.hardware.camera2.CaptureResult p0) {}
-        public android.hardware.camera2.CaptureResult build() { return null; }
-        public <T extends java.lang.Object> android.hardware.camera2.CaptureResult.Builder set(android.hardware.camera2.CaptureResult.Key<T> p0, T p1) { return null; }
-    }
-
     public static final class Key<T extends java.lang.Object> {
         private final android.hardware.camera2.impl.CameraMetadataNative.Key<T> mKey = null;
         Key(android.hardware.camera2.impl.CameraMetadataNative.Key<?> p0) {}
@@ -285,5 +280,14 @@ public class CaptureResult extends android.hardware.camera2.CameraMetadata<andro
         public long getVendorId() { return 0L; }
         public final int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    @android.annotation.SystemApi
+    public static final class Builder {
+        private final android.hardware.camera2.impl.CameraMetadataNative mNativeMetadata = null;
+        public Builder() {}
+        public Builder(android.hardware.camera2.CaptureResult p0) {}
+        public android.hardware.camera2.CaptureResult build() { return null; }
+        public <T extends java.lang.Object> android.hardware.camera2.CaptureResult.Builder set(android.hardware.camera2.CaptureResult.Key<T> p0, T p1) { return null; }
     }
 }

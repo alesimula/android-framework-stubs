@@ -6,16 +6,16 @@ class AppZygoteInit {
     AppZygoteInit() {}
     public static void main(java.lang.String[] p0) {}
 
+    private static class AppZygoteServer extends com.android.internal.os.ZygoteServer {
+        private AppZygoteServer() { super(); }
+        protected com.android.internal.os.ZygoteConnection createNewConnection(android.net.LocalSocket p0, java.lang.String p1) throws java.io.IOException { return null; }
+    }
+
     private static class AppZygoteConnection extends com.android.internal.os.ZygoteConnection {
         AppZygoteConnection(android.net.LocalSocket p0, java.lang.String p1) throws java.io.IOException { super(null, null); }
         protected boolean canPreloadApp() { return false; }
         protected void handlePreloadApp(android.content.pm.ApplicationInfo p0) {}
         protected boolean isPreloadComplete() { return false; }
         protected void preload() {}
-    }
-
-    private static class AppZygoteServer extends com.android.internal.os.ZygoteServer {
-        private AppZygoteServer() { super(); }
-        protected com.android.internal.os.ZygoteConnection createNewConnection(android.net.LocalSocket p0, java.lang.String p1) throws java.io.IOException { return null; }
     }
 }

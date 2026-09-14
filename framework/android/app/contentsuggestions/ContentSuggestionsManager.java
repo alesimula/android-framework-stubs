@@ -4,7 +4,7 @@ package android.app.contentsuggestions;
 public final class ContentSuggestionsManager {
     public static final java.lang.String EXTRA_BITMAP = "android.contentsuggestions.extra.BITMAP";
     private static final int SYNC_CALLS_TIMEOUT_MS = 5000;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentSuggestionsManager";
     private final android.app.contentsuggestions.IContentSuggestionsManager mService = null;
     private final int mUser = 0;
     public ContentSuggestionsManager(int p0, android.app.contentsuggestions.IContentSuggestionsManager p1) {}

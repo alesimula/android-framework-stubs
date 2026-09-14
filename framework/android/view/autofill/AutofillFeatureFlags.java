@@ -55,7 +55,7 @@ public class AutofillFeatureFlags {
     public static final java.lang.String DEVICE_CONFIG_TRIGGER_FILL_REQUEST_ON_FILTERED_IMPORTANT_VIEWS = "trigger_fill_request_on_filtered_important_views";
     public static final java.lang.String DEVICE_CONFIG_TRIGGER_FILL_REQUEST_ON_UNIMPORTANT_VIEW = "trigger_fill_request_on_unimportant_view";
     private static final java.lang.String DIALOG_HINTS_DELIMITER = ":";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AutofillFeatureFlags";
     private AutofillFeatureFlags() {}
     public static boolean enableRelativeLocationForRelayout() { return false; }
     public static boolean enableRelayoutFixes() { return false; }

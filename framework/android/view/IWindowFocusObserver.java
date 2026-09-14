@@ -4,13 +4,6 @@ public interface IWindowFocusObserver extends android.os.IInterface {
     public void focusGained(android.os.IBinder p0) throws android.os.RemoteException;
     public void focusLost(android.os.IBinder p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IWindowFocusObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void focusGained(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void focusLost(android.os.IBinder p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IWindowFocusObserver {
         public static final java.lang.String DESCRIPTOR = "android.view.IWindowFocusObserver";
         static final int TRANSACTION_focusGained = 1;
@@ -30,5 +23,12 @@ public interface IWindowFocusObserver extends android.os.IInterface {
             public void focusLost(android.os.IBinder p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.view.IWindowFocusObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void focusGained(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void focusLost(android.os.IBinder p0) throws android.os.RemoteException {}
     }
 }

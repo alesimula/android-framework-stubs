@@ -6,14 +6,19 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SF_ATTRIBUTE_ANDROID_APK_SIGNED_ID = 2;
     private static final int STRIPPING_PROTECTION_ATTR_ID = -1091571699;
     public ApkSignatureSchemeV2Verifier() {}
+    private static android.util.apk.SignatureInfo findSignature(android.util.apk.ApkChannel p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
     public static android.util.apk.SignatureInfo findSignature(java.io.RandomAccessFile p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
+    public static android.util.apk.SignatureInfo findSignature(java.nio.channels.FileChannel p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException { return null; }
     static byte[] generateApkVerity(java.lang.String p0, android.util.apk.ByteBufferFactory p1) throws java.io.IOException, android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.security.DigestException, java.security.NoSuchAlgorithmException { return null; }
     static byte[] getVerityRootHash(java.lang.String p0) throws java.io.IOException, android.util.apk.SignatureNotFoundException, java.lang.SecurityException { return null; }
     public static boolean hasSignature(java.lang.String p0) throws java.io.IOException { return false; }
     public static java.security.cert.X509Certificate[][] unsafeGetCertsWithoutVerification(java.lang.String p0) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
+    private static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(android.util.apk.ApkChannel p0, android.util.apk.SignatureInfo p1, boolean p2) throws java.lang.SecurityException, java.io.IOException { return null; }
+    static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(android.util.apk.ApkChannel p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     private static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(java.io.RandomAccessFile p0, android.util.apk.SignatureInfo p1, boolean p2) throws java.lang.SecurityException, java.io.IOException { return null; }
-    private static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(java.io.RandomAccessFile p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
+    static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(java.io.RandomAccessFile p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     public static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(java.lang.String p0, boolean p1) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
+    static android.util.apk.ApkSignatureSchemeV2Verifier.VerifiedSigner verify(java.nio.channels.FileChannel p0, java.io.FileDescriptor p1, boolean p2) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     public static java.security.cert.X509Certificate[][] verify(java.lang.String p0) throws android.util.apk.SignatureNotFoundException, java.lang.SecurityException, java.io.IOException { return null; }
     private static void verifyAdditionalAttributes(java.nio.ByteBuffer p0) throws java.lang.SecurityException, java.io.IOException {}
     private static java.security.cert.X509Certificate[] verifySigner(java.nio.ByteBuffer p0, java.util.Map<java.lang.Integer, byte[]> p1, java.security.cert.CertificateFactory p2) throws java.lang.SecurityException, java.io.IOException { return null; }

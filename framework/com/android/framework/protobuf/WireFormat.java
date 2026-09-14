@@ -26,6 +26,30 @@ public final class WireFormat {
     public static int getTagWireType(int p0) { return 0; }
     static int makeTag(int p0, int p1) { return 0; }
 
+    public static enum JavaType {
+        BOOLEAN,
+        BYTE_STRING,
+        DOUBLE,
+        ENUM,
+        FLOAT,
+        INT,
+        LONG,
+        MESSAGE,
+        STRING;
+        private static final com.android.framework.protobuf.WireFormat.JavaType[] $VALUES = null;
+        private final java.lang.Object defaultDefault = null;
+        private JavaType() {}
+        java.lang.Object getDefaultDefault() { return null; }
+    }
+
+    static enum Utf8Validation {
+        LAZY,
+        LOOSE,
+        STRICT;
+        private static final com.android.framework.protobuf.WireFormat.Utf8Validation[] $VALUES = null;
+        private Utf8Validation() {}
+    }
+
     public static enum FieldType {
         BOOL,
         BYTES,
@@ -52,29 +76,5 @@ public final class WireFormat {
         public com.android.framework.protobuf.WireFormat.JavaType getJavaType() { return null; }
         public int getWireType() { return 0; }
         public boolean isPackable() { return false; }
-    }
-
-    public static enum JavaType {
-        BOOLEAN,
-        BYTE_STRING,
-        DOUBLE,
-        ENUM,
-        FLOAT,
-        INT,
-        LONG,
-        MESSAGE,
-        STRING;
-        private static final com.android.framework.protobuf.WireFormat.JavaType[] $VALUES = null;
-        private final java.lang.Object defaultDefault = null;
-        private JavaType() {}
-        java.lang.Object getDefaultDefault() { return null; }
-    }
-
-    static enum Utf8Validation {
-        LAZY,
-        LOOSE,
-        STRICT;
-        private static final com.android.framework.protobuf.WireFormat.Utf8Validation[] $VALUES = null;
-        private Utf8Validation() {}
     }
 }

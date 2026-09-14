@@ -1,7 +1,7 @@
 package com.android.internal.statusbar;
 
 public class AppClipsServiceConnector {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AppClipsServiceConnector";
     private final android.content.Context mContext = null;
     private final android.os.Handler mHandler = null;
     public AppClipsServiceConnector(android.content.Context p0) {}

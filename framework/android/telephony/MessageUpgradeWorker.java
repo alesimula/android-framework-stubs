@@ -5,7 +5,7 @@ public class MessageUpgradeWorker {
     private static final java.lang.String AUTHORITY_SMS = "sms";
     private static final boolean IS_DEBUG = false;
     private static final int MAX_PENDING_INTENTS = 50;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MessageUpgradeWorker";
     private java.lang.String mCachedDefaultSmsPackage;
     private boolean mCachedIsUpgradeSupported;
     private final android.content.Context mContext = null;
@@ -37,6 +37,15 @@ public class MessageUpgradeWorker {
     public boolean isMessageUpgradeSupportedForPackage(java.lang.String p0, boolean p1) { return false; }
     public void upgradeMessage(android.net.Uri p0, java.util.List<android.app.PendingIntent> p1, java.util.List<android.app.PendingIntent> p2, java.util.concurrent.Executor p3, java.util.function.Consumer<java.lang.Integer> p4) {}
 
+    private static class PendingIntentRecord {
+        final long mAddedTimeMs = 0L;
+        final int mIntentType = 0;
+        final java.util.List<android.app.PendingIntent> mIntents = null;
+        final int mOriginalMessageType = 0;
+        final int mSourceType = 0;
+        PendingIntentRecord(java.util.List<android.app.PendingIntent> p0, int p1, int p2, int p3) {}
+    }
+
     private static enum MessageType {
         MMS,
         SMS,
@@ -49,14 +58,5 @@ public class MessageUpgradeWorker {
         private final int mMaxSize = 0;
         PendingIntentCache(int p0) { super(); }
         protected boolean removeEldestEntry(java.util.Map.Entry<java.lang.Long, android.telephony.MessageUpgradeWorker.PendingIntentRecord> p0) { return false; }
-    }
-
-    private static class PendingIntentRecord {
-        final long mAddedTimeMs = 0L;
-        final int mIntentType = 0;
-        final java.util.List<android.app.PendingIntent> mIntents = null;
-        final int mOriginalMessageType = 0;
-        final int mSourceType = 0;
-        PendingIntentRecord(java.util.List<android.app.PendingIntent> p0, int p1, int p2, int p3) {}
     }
 }

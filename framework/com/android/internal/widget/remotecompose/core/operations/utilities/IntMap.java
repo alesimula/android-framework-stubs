@@ -9,6 +9,7 @@ public class IntMap<T extends java.lang.Object> {
     private java.util.ArrayList<T> mValues;
     public IntMap() {}
     private int findKey(int p0) { return 0; }
+    private int getIndex(int p0) { return 0; }
     private int hash(int p0) { return 0; }
     private T insert(int p0, T p1) { return null; }
     private void rehashFrom(int p0) {}

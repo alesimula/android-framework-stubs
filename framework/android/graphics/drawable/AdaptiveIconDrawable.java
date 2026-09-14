@@ -87,16 +87,6 @@ public class AdaptiveIconDrawable extends android.graphics.drawable.Drawable imp
     public boolean setVisible(boolean p0, boolean p1) { return false; }
     public void unscheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1) {}
 
-    static class ChildDrawable {
-        public int mDensity;
-        public android.graphics.drawable.Drawable mDrawable;
-        public int[] mThemeAttrs;
-        ChildDrawable(int p0) {}
-        ChildDrawable(android.graphics.drawable.AdaptiveIconDrawable.ChildDrawable p0, android.graphics.drawable.AdaptiveIconDrawable p1, android.content.res.Resources p2) {}
-        public boolean canApplyTheme() { return false; }
-        public final void setDensity(int p0) {}
-    }
-
     static class LayerState extends android.graphics.drawable.Drawable.ConstantState {
         static final int N_CHILDREN = 3;
         private boolean mAutoMirrored;
@@ -122,6 +112,16 @@ public class AdaptiveIconDrawable extends android.graphics.drawable.Drawable imp
         public final boolean isStateful() { return false; }
         public android.graphics.drawable.Drawable newDrawable() { return null; }
         public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
+        public final void setDensity(int p0) {}
+    }
+
+    static class ChildDrawable {
+        public int mDensity;
+        public android.graphics.drawable.Drawable mDrawable;
+        public int[] mThemeAttrs;
+        ChildDrawable(int p0) {}
+        ChildDrawable(android.graphics.drawable.AdaptiveIconDrawable.ChildDrawable p0, android.graphics.drawable.AdaptiveIconDrawable p1, android.content.res.Resources p2) {}
+        public boolean canApplyTheme() { return false; }
         public final void setDensity(int p0) {}
     }
 }

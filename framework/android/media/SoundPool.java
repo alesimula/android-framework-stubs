@@ -44,6 +44,12 @@ public class SoundPool extends android.media.PlayerBase {
     public final native void stop(int p0);
     public final native boolean unload(int p0);
 
+    private final class EventHandler extends android.os.Handler {
+        private final android.media.SoundPool.OnLoadCompleteListener mOnLoadCompleteListener = null;
+        EventHandler(android.media.SoundPool p0, android.os.Looper p1, android.media.SoundPool.OnLoadCompleteListener p2) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
     public static class Builder {
         private android.media.AudioAttributes mAudioAttributes;
         private android.content.Context mContext;
@@ -55,12 +61,6 @@ public class SoundPool extends android.media.PlayerBase {
         public android.media.SoundPool.Builder setAudioSessionId(int p0) { return null; }
         public android.media.SoundPool.Builder setContext(android.content.Context p0) { return null; }
         public android.media.SoundPool.Builder setMaxStreams(int p0) throws java.lang.IllegalArgumentException { return null; }
-    }
-
-    private final class EventHandler extends android.os.Handler {
-        private final android.media.SoundPool.OnLoadCompleteListener mOnLoadCompleteListener = null;
-        EventHandler(android.media.SoundPool p0, android.os.Looper p1, android.media.SoundPool.OnLoadCompleteListener p2) { super(); }
-        public void handleMessage(android.os.Message p0) {}
     }
 
     public static interface OnLoadCompleteListener {

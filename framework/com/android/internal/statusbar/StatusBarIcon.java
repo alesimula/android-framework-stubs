@@ -22,13 +22,6 @@ public class StatusBarIcon implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static enum Shape {
-        FIXED_SPACE,
-        WRAP_CONTENT;
-        private static final com.android.internal.statusbar.StatusBarIcon.Shape[] $VALUES = null;
-        private Shape() {}
-    }
-
     public static enum Type {
         NotifSmallIcon,
         PeopleAvatar,
@@ -36,5 +29,12 @@ public class StatusBarIcon implements android.os.Parcelable {
         SystemIcon;
         private static final com.android.internal.statusbar.StatusBarIcon.Type[] $VALUES = null;
         private Type() {}
+    }
+
+    public static enum Shape {
+        FIXED_SPACE,
+        WRAP_CONTENT;
+        private static final com.android.internal.statusbar.StatusBarIcon.Shape[] $VALUES = null;
+        private Shape() {}
     }
 }

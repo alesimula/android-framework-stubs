@@ -39,12 +39,12 @@ public final class ServiceManager {
     public static android.os.IBinder waitForService(java.lang.String p0) { return null; }
     private static native android.os.IBinder waitForServiceNative(java.lang.String p0);
 
-    public static class ServiceNotFoundException extends java.lang.Exception {
-        public ServiceNotFoundException(java.lang.String p0) { super(); }
-    }
-
     static interface Stats {
         public static final int COUNT = 1;
         public static final int GET_SERVICE = 0;
+    }
+
+    public static class ServiceNotFoundException extends java.lang.Exception {
+        public ServiceNotFoundException(java.lang.String p0) { super(); }
     }
 }

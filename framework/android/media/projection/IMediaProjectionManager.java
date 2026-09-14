@@ -22,32 +22,8 @@ public interface IMediaProjectionManager extends android.os.IInterface {
     public void requestConsentForInvalidProjection(android.media.projection.IMediaProjection p0) throws android.os.RemoteException;
     public boolean setContentRecordingSession(android.view.ContentRecordingSession p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException;
     public void setUserReviewGrantedConsentResult(int p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException;
+    public void startScreenRecorder(android.media.projection.ScreenRecordingConfig p0) throws android.os.RemoteException;
     public void stopActiveProjection(int p0) throws android.os.RemoteException;
-
-    public static class Default implements android.media.projection.IMediaProjectionManager {
-        public Default() {}
-        public android.media.projection.MediaProjectionInfo addCallback(android.media.projection.IMediaProjectionWatcherCallback p0) throws android.os.RemoteException { return null; }
-        public android.os.IBinder asBinder() { return null; }
-        public android.media.projection.IMediaProjection createProjection(int p0, java.lang.String p1, int p2, boolean p3, int p4) throws android.os.RemoteException { return null; }
-        public android.media.projection.IMediaProjection createProjectionForAppContent(int p0, java.lang.String p1, android.media.projection.IAppContentProjectionSession p2, int p3, boolean p4, android.media.projection.IAppContentProjectionCallback p5) throws android.os.RemoteException { return null; }
-        public android.media.projection.MediaProjectionInfo getActiveProjectionInfo() throws android.os.RemoteException { return null; }
-        public android.media.projection.IMediaProjection getProjection(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public boolean hasProjectionPermission(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public boolean isCurrentProjection(android.media.projection.IMediaProjection p0) throws android.os.RemoteException { return false; }
-        public void notifyActiveProjectionCapturedContentVisibilityChanged(boolean p0) throws android.os.RemoteException {}
-        public void notifyAppSelectorDisplayed(int p0) throws android.os.RemoteException {}
-        public void notifyCaptureBoundsChanged(int p0, int p1, android.graphics.Rect p2) throws android.os.RemoteException {}
-        public void notifyPermissionRequestCancelled(int p0) throws android.os.RemoteException {}
-        public void notifyPermissionRequestDisplayed(int p0) throws android.os.RemoteException {}
-        public void notifyPermissionRequestInitiated(int p0, int p1) throws android.os.RemoteException {}
-        public void notifyShareScreenDisplaySelected(int p0) throws android.os.RemoteException {}
-        public void notifyWindowingModeChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void removeCallback(android.media.projection.IMediaProjectionWatcherCallback p0) throws android.os.RemoteException {}
-        public void requestConsentForInvalidProjection(android.media.projection.IMediaProjection p0) throws android.os.RemoteException {}
-        public boolean setContentRecordingSession(android.view.ContentRecordingSession p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException { return false; }
-        public void setUserReviewGrantedConsentResult(int p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException {}
-        public void stopActiveProjection(int p0) throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements android.media.projection.IMediaProjectionManager {
         public static final java.lang.String DESCRIPTOR = "android.media.projection.IMediaProjectionManager";
@@ -70,6 +46,7 @@ public interface IMediaProjectionManager extends android.os.IInterface {
         static final int TRANSACTION_requestConsentForInvalidProjection = 5;
         static final int TRANSACTION_setContentRecordingSession = 11;
         static final int TRANSACTION_setUserReviewGrantedConsentResult = 13;
+        static final int TRANSACTION_startScreenRecorder = 21;
         static final int TRANSACTION_stopActiveProjection = 7;
         private final android.os.PermissionEnforcer mEnforcer = null;
         @java.lang.Deprecated
@@ -122,7 +99,34 @@ public interface IMediaProjectionManager extends android.os.IInterface {
             public void requestConsentForInvalidProjection(android.media.projection.IMediaProjection p0) throws android.os.RemoteException {}
             public boolean setContentRecordingSession(android.view.ContentRecordingSession p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException { return false; }
             public void setUserReviewGrantedConsentResult(int p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException {}
+            public void startScreenRecorder(android.media.projection.ScreenRecordingConfig p0) throws android.os.RemoteException {}
             public void stopActiveProjection(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.projection.IMediaProjectionManager {
+        public Default() {}
+        public android.media.projection.MediaProjectionInfo addCallback(android.media.projection.IMediaProjectionWatcherCallback p0) throws android.os.RemoteException { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        public android.media.projection.IMediaProjection createProjection(int p0, java.lang.String p1, int p2, boolean p3, int p4) throws android.os.RemoteException { return null; }
+        public android.media.projection.IMediaProjection createProjectionForAppContent(int p0, java.lang.String p1, android.media.projection.IAppContentProjectionSession p2, int p3, boolean p4, android.media.projection.IAppContentProjectionCallback p5) throws android.os.RemoteException { return null; }
+        public android.media.projection.MediaProjectionInfo getActiveProjectionInfo() throws android.os.RemoteException { return null; }
+        public android.media.projection.IMediaProjection getProjection(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public boolean hasProjectionPermission(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public boolean isCurrentProjection(android.media.projection.IMediaProjection p0) throws android.os.RemoteException { return false; }
+        public void notifyActiveProjectionCapturedContentVisibilityChanged(boolean p0) throws android.os.RemoteException {}
+        public void notifyAppSelectorDisplayed(int p0) throws android.os.RemoteException {}
+        public void notifyCaptureBoundsChanged(int p0, int p1, android.graphics.Rect p2) throws android.os.RemoteException {}
+        public void notifyPermissionRequestCancelled(int p0) throws android.os.RemoteException {}
+        public void notifyPermissionRequestDisplayed(int p0) throws android.os.RemoteException {}
+        public void notifyPermissionRequestInitiated(int p0, int p1) throws android.os.RemoteException {}
+        public void notifyShareScreenDisplaySelected(int p0) throws android.os.RemoteException {}
+        public void notifyWindowingModeChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void removeCallback(android.media.projection.IMediaProjectionWatcherCallback p0) throws android.os.RemoteException {}
+        public void requestConsentForInvalidProjection(android.media.projection.IMediaProjection p0) throws android.os.RemoteException {}
+        public boolean setContentRecordingSession(android.view.ContentRecordingSession p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException { return false; }
+        public void setUserReviewGrantedConsentResult(int p0, android.media.projection.IMediaProjection p1) throws android.os.RemoteException {}
+        public void startScreenRecorder(android.media.projection.ScreenRecordingConfig p0) throws android.os.RemoteException {}
+        public void stopActiveProjection(int p0) throws android.os.RemoteException {}
     }
 }

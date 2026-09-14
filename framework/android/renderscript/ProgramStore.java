@@ -26,6 +26,19 @@ public class ProgramStore extends android.renderscript.BaseObj {
     public boolean isDepthMaskEnabled() { return false; }
     public boolean isDitherEnabled() { return false; }
 
+    public static enum DepthFunc {
+        ALWAYS,
+        EQUAL,
+        GREATER,
+        GREATER_OR_EQUAL,
+        LESS,
+        LESS_OR_EQUAL,
+        NOT_EQUAL;
+        private static final android.renderscript.ProgramStore.DepthFunc[] $VALUES = null;
+        int mID;
+        private DepthFunc() {}
+    }
+
     public static enum BlendDstFunc {
         DST_ALPHA,
         ONE,
@@ -38,21 +51,6 @@ public class ProgramStore extends android.renderscript.BaseObj {
         private static final android.renderscript.ProgramStore.BlendDstFunc[] $VALUES = null;
         int mID;
         private BlendDstFunc() {}
-    }
-
-    public static enum BlendSrcFunc {
-        DST_ALPHA,
-        DST_COLOR,
-        ONE,
-        ONE_MINUS_DST_ALPHA,
-        ONE_MINUS_DST_COLOR,
-        ONE_MINUS_SRC_ALPHA,
-        SRC_ALPHA,
-        SRC_ALPHA_SATURATE,
-        ZERO;
-        private static final android.renderscript.ProgramStore.BlendSrcFunc[] $VALUES = null;
-        int mID;
-        private BlendSrcFunc() {}
     }
 
     public static class Builder {
@@ -75,16 +73,18 @@ public class ProgramStore extends android.renderscript.BaseObj {
         public android.renderscript.ProgramStore.Builder setDitherEnabled(boolean p0) { return null; }
     }
 
-    public static enum DepthFunc {
-        ALWAYS,
-        EQUAL,
-        GREATER,
-        GREATER_OR_EQUAL,
-        LESS,
-        LESS_OR_EQUAL,
-        NOT_EQUAL;
-        private static final android.renderscript.ProgramStore.DepthFunc[] $VALUES = null;
+    public static enum BlendSrcFunc {
+        DST_ALPHA,
+        DST_COLOR,
+        ONE,
+        ONE_MINUS_DST_ALPHA,
+        ONE_MINUS_DST_COLOR,
+        ONE_MINUS_SRC_ALPHA,
+        SRC_ALPHA,
+        SRC_ALPHA_SATURATE,
+        ZERO;
+        private static final android.renderscript.ProgramStore.BlendSrcFunc[] $VALUES = null;
         int mID;
-        private DepthFunc() {}
+        private BlendSrcFunc() {}
     }
 }

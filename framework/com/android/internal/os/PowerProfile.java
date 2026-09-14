@@ -121,6 +121,10 @@ public class PowerProfile {
     public void initForTesting(org.xmlpull.v1.XmlPullParser p0) {}
     public void initForTesting(org.xmlpull.v1.XmlPullParser p0, android.content.res.Resources p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Subsystem {
+    }
+
     private static class CpuClusterKey {
         public final java.lang.String clusterPowerKey = null;
         public final java.lang.String corePowerKey = null;
@@ -129,18 +133,14 @@ public class PowerProfile {
         private CpuClusterKey(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PowerGroup {
+    }
+
     private static class CpuScalingPolicyPower {
         public final double policyPower = 0.0;
         public int[] powerBrackets;
         public final double[] stepPower = null;
         private CpuScalingPolicyPower(double p0, double[] p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PowerGroup {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Subsystem {
     }
 }

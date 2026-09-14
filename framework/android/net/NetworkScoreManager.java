@@ -47,11 +47,19 @@ public class NetworkScoreManager {
     public void unregisterNetworkScoreCache(int p0, android.net.INetworkScoreCache p1) {}
     public boolean updateScores(android.net.ScoredNetwork[] p0) throws java.lang.SecurityException { return false; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecommendationsEnabledSetting {
+    }
+
     @android.annotation.SystemApi
     public static abstract class NetworkScoreCallback {
         public NetworkScoreCallback() {}
         public abstract void onScoresInvalidated();
         public abstract void onScoresUpdated(java.util.Collection<android.net.ScoredNetwork> p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScoreUpdateFilter {
     }
 
     private class NetworkScoreCallbackProxy extends android.net.INetworkScoreCache.Stub {
@@ -60,13 +68,5 @@ public class NetworkScoreManager {
         NetworkScoreCallbackProxy(android.net.NetworkScoreManager p0, java.util.concurrent.Executor p1, android.net.NetworkScoreManager.NetworkScoreCallback p2) { super(); }
         public void clearScores() {}
         public void updateScores(java.util.List<android.net.ScoredNetwork> p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecommendationsEnabledSetting {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScoreUpdateFilter {
     }
 }

@@ -21,14 +21,14 @@ public class BiometricTestSession implements java.lang.AutoCloseable {
     public void rejectAuthentication(int p0) {}
     public void startEnroll(int p0) {}
 
+    public static interface TestSessionProvider {
+        public android.hardware.biometrics.ITestSession createTestSession(android.content.Context p0, int p1, android.hardware.biometrics.ITestSessionCallback p2) throws android.os.RemoteException;
+    }
+
     private class TestSessionCallbackIml extends android.hardware.biometrics.ITestSessionCallback.Stub {
         private final int mSensorId = 0;
         private TestSessionCallbackIml(android.hardware.biometrics.BiometricTestSession p0, int p1) { super(); }
         public void onCleanupFinished(int p0) {}
         public void onCleanupStarted(int p0) {}
-    }
-
-    public static interface TestSessionProvider {
-        public android.hardware.biometrics.ITestSession createTestSession(android.content.Context p0, int p1, android.hardware.biometrics.ITestSessionCallback p2) throws android.os.RemoteException;
     }
 }

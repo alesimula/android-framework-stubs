@@ -56,10 +56,6 @@ public class ImsCallSessionImplBase implements java.lang.AutoCloseable {
     public void update(int p0, android.telephony.ims.ImsStreamMediaProfile p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MediaStreamDirection {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface MediaStreamType {
     }
 
@@ -76,5 +72,9 @@ public class ImsCallSessionImplBase implements java.lang.AutoCloseable {
         public static final int TERMINATING = 7;
         private State() {}
         public static java.lang.String toString(int p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MediaStreamDirection {
     }
 }

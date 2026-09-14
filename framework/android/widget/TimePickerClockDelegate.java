@@ -96,16 +96,16 @@ class TimePickerClockDelegate extends android.widget.TimePicker.AbstractTimePick
     private static @interface ChangeSource {
     }
 
-    private static class ClickActionDelegate extends android.view.View.AccessibilityDelegate {
-        private final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction mClickAction = null;
-        public ClickActionDelegate(android.content.Context p0, int p1) { super(); }
-        public void onInitializeAccessibilityNodeInfo(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1) {}
-    }
-
     private static class NearestTouchDelegate implements android.view.View.OnTouchListener {
         private android.view.View mInitialTouchTarget;
         private NearestTouchDelegate() {}
         private android.view.View findNearestChild(android.view.ViewGroup p0, int p1, int p2) { return null; }
         public boolean onTouch(android.view.View p0, android.view.MotionEvent p1) { return false; }
+    }
+
+    private static class ClickActionDelegate extends android.view.View.AccessibilityDelegate {
+        private final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction mClickAction = null;
+        public ClickActionDelegate(android.content.Context p0, int p1) { super(); }
+        public void onInitializeAccessibilityNodeInfo(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1) {}
     }
 }

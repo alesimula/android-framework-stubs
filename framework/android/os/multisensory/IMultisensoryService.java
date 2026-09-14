@@ -4,7 +4,7 @@ public interface IMultisensoryService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.os.multisensory.IMultisensoryService";
     public void modifyContinuousFeedbackForToken(int p0, java.util.List<android.os.multisensory.MultisensoryContinuousEffectModifier> p1) throws android.os.RemoteException;
     public void openContinuousFeedbackForToken(int p0) throws android.os.RemoteException;
-    public void playToken(int p0) throws android.os.RemoteException;
+    public void playToken(int p0, boolean p1, android.os.VibrationAttributes p2) throws android.os.RemoteException;
     public void setPlayer(android.os.multisensory.IMultisensoryPlayer p0) throws android.os.RemoteException;
     public void startContinuousFeedbackForToken(int p0) throws android.os.RemoteException;
     public void stopContinuousFeedbackForToken(int p0) throws android.os.RemoteException;
@@ -14,7 +14,7 @@ public interface IMultisensoryService extends android.os.IInterface {
         public android.os.IBinder asBinder() { return null; }
         public void modifyContinuousFeedbackForToken(int p0, java.util.List<android.os.multisensory.MultisensoryContinuousEffectModifier> p1) throws android.os.RemoteException {}
         public void openContinuousFeedbackForToken(int p0) throws android.os.RemoteException {}
-        public void playToken(int p0) throws android.os.RemoteException {}
+        public void playToken(int p0, boolean p1, android.os.VibrationAttributes p2) throws android.os.RemoteException {}
         public void setPlayer(android.os.multisensory.IMultisensoryPlayer p0) throws android.os.RemoteException {}
         public void startContinuousFeedbackForToken(int p0) throws android.os.RemoteException {}
         public void stopContinuousFeedbackForToken(int p0) throws android.os.RemoteException {}
@@ -45,7 +45,7 @@ public interface IMultisensoryService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void modifyContinuousFeedbackForToken(int p0, java.util.List<android.os.multisensory.MultisensoryContinuousEffectModifier> p1) throws android.os.RemoteException {}
             public void openContinuousFeedbackForToken(int p0) throws android.os.RemoteException {}
-            public void playToken(int p0) throws android.os.RemoteException {}
+            public void playToken(int p0, boolean p1, android.os.VibrationAttributes p2) throws android.os.RemoteException {}
             public void setPlayer(android.os.multisensory.IMultisensoryPlayer p0) throws android.os.RemoteException {}
             public void startContinuousFeedbackForToken(int p0) throws android.os.RemoteException {}
             public void stopContinuousFeedbackForToken(int p0) throws android.os.RemoteException {}

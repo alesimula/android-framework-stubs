@@ -3,12 +3,6 @@ package android.service.carrier;
 public interface ICarrierService extends android.os.IInterface {
     public void getCarrierConfig(int p0, android.service.carrier.CarrierIdentifier p1, android.os.ResultReceiver p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.carrier.ICarrierService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void getCarrierConfig(int p0, android.service.carrier.CarrierIdentifier p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.carrier.ICarrierService {
         public static final java.lang.String DESCRIPTOR = "android.service.carrier.ICarrierService";
         static final int TRANSACTION_getCarrierConfig = 1;
@@ -26,5 +20,11 @@ public interface ICarrierService extends android.os.IInterface {
             public void getCarrierConfig(int p0, android.service.carrier.CarrierIdentifier p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.service.carrier.ICarrierService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void getCarrierConfig(int p0, android.service.carrier.CarrierIdentifier p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
     }
 }

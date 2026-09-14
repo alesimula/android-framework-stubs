@@ -1,19 +1,13 @@
 package android.media.tv.extension.analog;
 
+@java.lang.Deprecated
 public interface IAnalogAttributeInterface extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.analog.IAnalogAttributeInterface";
     public java.lang.String[] getColorSystemCapability() throws android.os.RemoteException;
     public int getVersion() throws android.os.RemoteException;
     public void setColorSystemCapability(java.lang.String[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.analog.IAnalogAttributeInterface {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String[] getColorSystemCapability() throws android.os.RemoteException { return null; }
-        public int getVersion() throws android.os.RemoteException { return 0; }
-        public void setColorSystemCapability(java.lang.String[] p0) throws android.os.RemoteException {}
-    }
-
+    @java.lang.Deprecated
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.analog.IAnalogAttributeInterface {
         static final int TRANSACTION_getColorSystemCapability = 3;
         static final int TRANSACTION_getVersion = 1;
@@ -25,6 +19,7 @@ public interface IAnalogAttributeInterface extends android.os.IInterface {
         public java.lang.String getTransactionName(int p0) { return null; }
         public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
 
+        @java.lang.Deprecated
         private static final class Proxy implements android.media.tv.extension.analog.IAnalogAttributeInterface {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
@@ -34,5 +29,14 @@ public interface IAnalogAttributeInterface extends android.os.IInterface {
             public int getVersion() throws android.os.RemoteException { return 0; }
             public void setColorSystemCapability(java.lang.String[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    @java.lang.Deprecated
+    public static class Default implements android.media.tv.extension.analog.IAnalogAttributeInterface {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String[] getColorSystemCapability() throws android.os.RemoteException { return null; }
+        public int getVersion() throws android.os.RemoteException { return 0; }
+        public void setColorSystemCapability(java.lang.String[] p0) throws android.os.RemoteException {}
     }
 }

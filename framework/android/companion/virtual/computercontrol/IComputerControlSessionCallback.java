@@ -2,17 +2,9 @@ package android.companion.virtual.computercontrol;
 
 public interface IComputerControlSessionCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.virtual.computercontrol.IComputerControlSessionCallback";
-    public void onSessionCreated(int p0, android.companion.virtual.computercontrol.IComputerControlSession p1) throws android.os.RemoteException;
+    public void onSessionCreated(int p0, int p1, int p2, android.companion.virtual.computercontrol.IComputerControlSession p3) throws android.os.RemoteException;
     public void onSessionCreationFailed(int p0) throws android.os.RemoteException;
-    public void onSessionPending(android.app.PendingIntent p0) throws android.os.RemoteException;
-
-    public static class Default implements android.companion.virtual.computercontrol.IComputerControlSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSessionCreated(int p0, android.companion.virtual.computercontrol.IComputerControlSession p1) throws android.os.RemoteException {}
-        public void onSessionCreationFailed(int p0) throws android.os.RemoteException {}
-        public void onSessionPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
-    }
+    public void onSessionPending(android.content.IntentSender p0) throws android.os.RemoteException;
 
     public static abstract class Stub extends android.os.Binder implements android.companion.virtual.computercontrol.IComputerControlSessionCallback {
         static final int TRANSACTION_onSessionCreated = 2;
@@ -30,9 +22,17 @@ public interface IComputerControlSessionCallback extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void onSessionCreated(int p0, android.companion.virtual.computercontrol.IComputerControlSession p1) throws android.os.RemoteException {}
+            public void onSessionCreated(int p0, int p1, int p2, android.companion.virtual.computercontrol.IComputerControlSession p3) throws android.os.RemoteException {}
             public void onSessionCreationFailed(int p0) throws android.os.RemoteException {}
-            public void onSessionPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
+            public void onSessionPending(android.content.IntentSender p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.virtual.computercontrol.IComputerControlSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSessionCreated(int p0, int p1, int p2, android.companion.virtual.computercontrol.IComputerControlSession p3) throws android.os.RemoteException {}
+        public void onSessionCreationFailed(int p0) throws android.os.RemoteException {}
+        public void onSessionPending(android.content.IntentSender p0) throws android.os.RemoteException {}
     }
 }

@@ -56,6 +56,18 @@ public class FuseAppLoop implements android.os.Handler.Callback {
         private Args() {}
     }
 
+    public static class UnmountedException extends java.lang.Exception {
+        public UnmountedException() { super(); }
+    }
+
+    private static class CallbackEntry {
+        final android.os.ProxyFileDescriptorCallback callback = null;
+        final android.os.Handler handler = null;
+        boolean opened;
+        CallbackEntry(android.os.ProxyFileDescriptorCallback p0, android.os.Handler p1) {}
+        long getThreadId() { return 0L; }
+    }
+
     private static class BytesMap {
         final java.util.Map<java.lang.Long, com.android.internal.os.FuseAppLoop.BytesMapEntry> mEntries = null;
         private BytesMap() {}
@@ -68,17 +80,5 @@ public class FuseAppLoop implements android.os.Handler.Callback {
         byte[] bytes;
         int counter;
         private BytesMapEntry() {}
-    }
-
-    private static class CallbackEntry {
-        final android.os.ProxyFileDescriptorCallback callback = null;
-        final android.os.Handler handler = null;
-        boolean opened;
-        CallbackEntry(android.os.ProxyFileDescriptorCallback p0, android.os.Handler p1) {}
-        long getThreadId() { return 0L; }
-    }
-
-    public static class UnmountedException extends java.lang.Exception {
-        public UnmountedException() { super(); }
     }
 }

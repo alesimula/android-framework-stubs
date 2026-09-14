@@ -34,6 +34,7 @@ public class PackageTable {
         private int mBooleanStartIndex;
         private boolean mHasPackageFingerprint;
         private boolean mHasRedactExportedReads;
+        private int mInt64StartIndex;
         private int mNextOffset;
         private long mPackageFingerprint;
         private int mPackageId;
@@ -44,8 +45,10 @@ public class PackageTable {
         private static android.internal.aconfig.storage.PackageTable.Node fromBytesV1(android.internal.aconfig.storage.ByteBufferReader p0) { return null; }
         private static android.internal.aconfig.storage.PackageTable.Node fromBytesV2(android.internal.aconfig.storage.ByteBufferReader p0) { return null; }
         private static android.internal.aconfig.storage.PackageTable.Node fromBytesV3(android.internal.aconfig.storage.ByteBufferReader p0) { return null; }
+        private static android.internal.aconfig.storage.PackageTable.Node fromBytesV4(android.internal.aconfig.storage.ByteBufferReader p0) { return null; }
         public boolean equals(java.lang.Object p0) { return false; }
         public int getBooleanStartIndex() { return 0; }
+        public int getInt64StartIndex() { return 0; }
         public int getNextOffset() { return 0; }
         public long getPackageFingerprint() { return 0L; }
         public int getPackageId() { return 0; }

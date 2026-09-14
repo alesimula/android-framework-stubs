@@ -7,15 +7,6 @@ public interface IAllowlistProviderService extends android.os.IInterface {
     public void queryAllowlist(android.os.allowlist.AllowlistRequest p0, android.os.RemoteCallback p1) throws android.os.RemoteException;
     public void removeRequestForAllowlistChange(android.os.allowlist.AllowlistRequest p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.allowlist.IAllowlistProviderService {
-        public Default() {}
-        public void addRequestForAllowlistChange(android.os.allowlist.AllowlistRequest p0, android.os.allowlist.IProviderOnAllowlistChangedListener p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyAllowlistChangedListenersForTestProvider(java.util.List<android.os.allowlist.AllowlistRequest> p0) throws android.os.RemoteException {}
-        public void queryAllowlist(android.os.allowlist.AllowlistRequest p0, android.os.RemoteCallback p1) throws android.os.RemoteException {}
-        public void removeRequestForAllowlistChange(android.os.allowlist.AllowlistRequest p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.allowlist.IAllowlistProviderService {
         static final int TRANSACTION_addRequestForAllowlistChange = 1;
         static final int TRANSACTION_notifyAllowlistChangedListenersForTestProvider = 4;
@@ -38,5 +29,14 @@ public interface IAllowlistProviderService extends android.os.IInterface {
             public void queryAllowlist(android.os.allowlist.AllowlistRequest p0, android.os.RemoteCallback p1) throws android.os.RemoteException {}
             public void removeRequestForAllowlistChange(android.os.allowlist.AllowlistRequest p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.allowlist.IAllowlistProviderService {
+        public Default() {}
+        public void addRequestForAllowlistChange(android.os.allowlist.AllowlistRequest p0, android.os.allowlist.IProviderOnAllowlistChangedListener p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyAllowlistChangedListenersForTestProvider(java.util.List<android.os.allowlist.AllowlistRequest> p0) throws android.os.RemoteException {}
+        public void queryAllowlist(android.os.allowlist.AllowlistRequest p0, android.os.RemoteCallback p1) throws android.os.RemoteException {}
+        public void removeRequestForAllowlistChange(android.os.allowlist.AllowlistRequest p0) throws android.os.RemoteException {}
     }
 }

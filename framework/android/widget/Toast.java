@@ -29,7 +29,7 @@ public class Toast {
     public int getDuration() { return 0; }
     public int getGravity() { return 0; }
     public float getHorizontalMargin() { return 0.0f; }
-    public android.widget.Toast.TN getTn() { return null; }
+    public final android.widget.Toast.TN getTn() { return null; }
     public float getVerticalMargin() { return 0.0f; }
     @java.lang.Deprecated
     public android.view.View getView() { return null; }
@@ -45,25 +45,6 @@ public class Toast {
     @java.lang.Deprecated
     public void setView(android.view.View p0) {}
     public void show() {}
-
-    public static abstract class Callback {
-        public Callback() {}
-        public void onToastHidden() {}
-        public void onToastShown() {}
-    }
-
-    private static class CallbackBinder extends android.app.ITransientNotificationCallback.Stub {
-        private final java.util.List<android.widget.Toast.Callback> mCallbacks = null;
-        private final android.os.Handler mHandler = null;
-        private CallbackBinder(java.util.List<android.widget.Toast.Callback> p0, android.os.Handler p1) { super(); }
-        private java.util.List<android.widget.Toast.Callback> getCallbacks() { return null; }
-        public void onToastHidden() {}
-        public void onToastShown() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Duration {
-    }
 
     public static class TN extends android.app.ITransientNotification.Stub {
         private static final int CANCEL = 2;
@@ -93,5 +74,24 @@ public class Toast {
         public void handleShow(android.os.IBinder p0) {}
         public void hide() {}
         public void show(android.os.IBinder p0) {}
+    }
+
+    public static abstract class Callback {
+        public Callback() {}
+        public void onToastHidden() {}
+        public void onToastShown() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Duration {
+    }
+
+    private static class CallbackBinder extends android.app.ITransientNotificationCallback.Stub {
+        private final java.util.List<android.widget.Toast.Callback> mCallbacks = null;
+        private final android.os.Handler mHandler = null;
+        private CallbackBinder(java.util.List<android.widget.Toast.Callback> p0, android.os.Handler p1) { super(); }
+        private java.util.List<android.widget.Toast.Callback> getCallbacks() { return null; }
+        public void onToastHidden() {}
+        public void onToastShown() {}
     }
 }

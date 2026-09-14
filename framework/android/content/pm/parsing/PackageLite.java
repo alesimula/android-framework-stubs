@@ -20,6 +20,7 @@ public class PackageLite {
     private final int mPageSizeCompat = 0;
     private final java.lang.String mPath = null;
     private final boolean mProfileableByShell = false;
+    private final boolean mRegisteredAppStoreCandidate = false;
     private final java.util.Set<java.lang.String>[] mRequiredSplitTypes = null;
     private final android.content.pm.SigningDetails mSigningDetails = null;
     private final java.lang.String[] mSplitApkPaths = null;
@@ -82,6 +83,7 @@ public class PackageLite {
     public boolean isIsolatedSplits() { return false; }
     public boolean isMultiArch() { return false; }
     public boolean isProfileableByShell() { return false; }
+    public boolean isRegisteredAppStoreCandidate() { return false; }
     public boolean isSplitRequired() { return false; }
     public boolean isUse32bitAbi() { return false; }
     public boolean isUseEmbeddedDex() { return false; }

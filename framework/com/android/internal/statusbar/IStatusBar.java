@@ -21,17 +21,15 @@ public interface IStatusBar extends android.os.IInterface {
     public void dismissKeyboardShortcutsMenu() throws android.os.RemoteException;
     public void dumpProto(java.lang.String[] p0, android.os.ParcelFileDescriptor p1) throws android.os.RemoteException;
     public void endMotionCuesSession() throws android.os.RemoteException;
+    public void getAgentStateScreenLocation(int p0, com.android.internal.statusbar.IAgentStateScreenLocationCallback p1) throws android.os.RemoteException;
     public void handleSystemKey(android.view.KeyEvent p0) throws android.os.RemoteException;
-    public void hideAuthenticationDialog(long p0) throws android.os.RemoteException;
     public void hideRecentApps(boolean p0, boolean p1) throws android.os.RemoteException;
     public void hideToast(java.lang.String p0, android.os.IBinder p1) throws android.os.RemoteException;
     public void immersiveModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException;
     public void moveFocusedTaskToDesktop(int p0) throws android.os.RemoteException;
     public void moveFocusedTaskToFullscreen(int p0) throws android.os.RemoteException;
     public void moveFocusedTaskToStageSplit(int p0, boolean p1) throws android.os.RemoteException;
-    public void onBiometricAuthenticated(int p0) throws android.os.RemoteException;
-    public void onBiometricError(int p0, int p1, int p2) throws android.os.RemoteException;
-    public void onBiometricHelp(int p0, java.lang.String p1) throws android.os.RemoteException;
+    public void notePccEgressFromApp(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void onCameraLaunchGestureDetected(int p0) throws android.os.RemoteException;
     public void onConfigurationChanged() throws android.os.RemoteException;
     public void onDisplayAddSystemDecorations(int p0) throws android.os.RemoteException;
@@ -61,7 +59,6 @@ public interface IStatusBar extends android.os.IInterface {
     public void setUdfpsRefreshRateCallback(android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback p0) throws android.os.RemoteException;
     public void setWindowState(int p0, int p1, int p2) throws android.os.RemoteException;
     public void showAssistDisclosure() throws android.os.RemoteException;
-    public void showAuthenticationDialog(android.hardware.biometrics.PromptInfo p0, android.hardware.biometrics.IBiometricSysuiReceiver p1, int[] p2, boolean p3, boolean p4, int p5, long p6, java.lang.String p7, long p8) throws android.os.RemoteException;
     public void showGlobalActionsMenu() throws android.os.RemoteException;
     public void showInattentiveSleepWarning() throws android.os.RemoteException;
     public void showMediaOutputSwitcher(java.lang.String p0, android.os.UserHandle p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException;
@@ -113,17 +110,15 @@ public interface IStatusBar extends android.os.IInterface {
         public void dismissKeyboardShortcutsMenu() throws android.os.RemoteException {}
         public void dumpProto(java.lang.String[] p0, android.os.ParcelFileDescriptor p1) throws android.os.RemoteException {}
         public void endMotionCuesSession() throws android.os.RemoteException {}
+        public void getAgentStateScreenLocation(int p0, com.android.internal.statusbar.IAgentStateScreenLocationCallback p1) throws android.os.RemoteException {}
         public void handleSystemKey(android.view.KeyEvent p0) throws android.os.RemoteException {}
-        public void hideAuthenticationDialog(long p0) throws android.os.RemoteException {}
         public void hideRecentApps(boolean p0, boolean p1) throws android.os.RemoteException {}
         public void hideToast(java.lang.String p0, android.os.IBinder p1) throws android.os.RemoteException {}
         public void immersiveModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException {}
         public void moveFocusedTaskToDesktop(int p0) throws android.os.RemoteException {}
         public void moveFocusedTaskToFullscreen(int p0) throws android.os.RemoteException {}
         public void moveFocusedTaskToStageSplit(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onBiometricAuthenticated(int p0) throws android.os.RemoteException {}
-        public void onBiometricError(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onBiometricHelp(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void notePccEgressFromApp(java.lang.String p0, int p1) throws android.os.RemoteException {}
         public void onCameraLaunchGestureDetected(int p0) throws android.os.RemoteException {}
         public void onConfigurationChanged() throws android.os.RemoteException {}
         public void onDisplayAddSystemDecorations(int p0) throws android.os.RemoteException {}
@@ -153,7 +148,6 @@ public interface IStatusBar extends android.os.IInterface {
         public void setUdfpsRefreshRateCallback(android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback p0) throws android.os.RemoteException {}
         public void setWindowState(int p0, int p1, int p2) throws android.os.RemoteException {}
         public void showAssistDisclosure() throws android.os.RemoteException {}
-        public void showAuthenticationDialog(android.hardware.biometrics.PromptInfo p0, android.hardware.biometrics.IBiometricSysuiReceiver p1, int[] p2, boolean p3, boolean p4, int p5, long p6, java.lang.String p7, long p8) throws android.os.RemoteException {}
         public void showGlobalActionsMenu() throws android.os.RemoteException {}
         public void showInattentiveSleepWarning() throws android.os.RemoteException {}
         public void showMediaOutputSwitcher(java.lang.String p0, android.os.UserHandle p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException {}
@@ -185,7 +179,7 @@ public interface IStatusBar extends android.os.IInterface {
 
     public static abstract class Stub extends android.os.Binder implements com.android.internal.statusbar.IStatusBar {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.statusbar.IStatusBar";
-        static final int TRANSACTION_abortTransient = 58;
+        static final int TRANSACTION_abortTransient = 53;
         static final int TRANSACTION_addQsTile = 38;
         static final int TRANSACTION_addQsTileToFrontOrEnd = 39;
         static final int TRANSACTION_animateCollapsePanels = 7;
@@ -196,83 +190,80 @@ public interface IStatusBar extends android.os.IInterface {
         static final int TRANSACTION_appTransitionPending = 24;
         static final int TRANSACTION_appTransitionStarting = 26;
         static final int TRANSACTION_cancelPreloadRecentApps = 18;
-        static final int TRANSACTION_cancelRequestAddTile = 72;
+        static final int TRANSACTION_cancelRequestAddTile = 67;
         static final int TRANSACTION_clickQsTile = 42;
         static final int TRANSACTION_confirmImmersivePrompt = 20;
         static final int TRANSACTION_disable = 3;
         static final int TRANSACTION_disableForAllDisplays = 4;
-        static final int TRANSACTION_dismissInattentiveSleepWarning = 60;
+        static final int TRANSACTION_dismissInattentiveSleepWarning = 55;
         static final int TRANSACTION_dismissKeyboardShortcutsMenu = 22;
-        static final int TRANSACTION_dumpProto = 77;
-        static final int TRANSACTION_endMotionCuesSession = 85;
+        static final int TRANSACTION_dumpProto = 72;
+        static final int TRANSACTION_endMotionCuesSession = 80;
+        static final int TRANSACTION_getAgentStateScreenLocation = 84;
         static final int TRANSACTION_handleSystemKey = 43;
-        static final int TRANSACTION_hideAuthenticationDialog = 51;
         static final int TRANSACTION_hideRecentApps = 13;
-        static final int TRANSACTION_hideToast = 62;
+        static final int TRANSACTION_hideToast = 57;
         static final int TRANSACTION_immersiveModeChanged = 21;
-        static final int TRANSACTION_moveFocusedTaskToDesktop = 83;
-        static final int TRANSACTION_moveFocusedTaskToFullscreen = 79;
-        static final int TRANSACTION_moveFocusedTaskToStageSplit = 80;
-        static final int TRANSACTION_onBiometricAuthenticated = 48;
-        static final int TRANSACTION_onBiometricError = 50;
-        static final int TRANSACTION_onBiometricHelp = 49;
+        static final int TRANSACTION_moveFocusedTaskToDesktop = 78;
+        static final int TRANSACTION_moveFocusedTaskToFullscreen = 74;
+        static final int TRANSACTION_moveFocusedTaskToStageSplit = 75;
+        static final int TRANSACTION_notePccEgressFromApp = 85;
         static final int TRANSACTION_onCameraLaunchGestureDetected = 30;
-        static final int TRANSACTION_onConfigurationChanged = 87;
-        static final int TRANSACTION_onDisplayAddSystemDecorations = 54;
-        static final int TRANSACTION_onDisplayInfoChanged = 86;
-        static final int TRANSACTION_onDisplayRemoveSystemDecorations = 55;
+        static final int TRANSACTION_onConfigurationChanged = 82;
+        static final int TRANSACTION_onDisplayAddSystemDecorations = 49;
+        static final int TRANSACTION_onDisplayInfoChanged = 81;
+        static final int TRANSACTION_onDisplayRemoveSystemDecorations = 50;
         static final int TRANSACTION_onEmergencyActionLaunchGestureDetected = 32;
         static final int TRANSACTION_onProposedRotationChanged = 36;
-        static final int TRANSACTION_onSystemBarAttributesChanged = 56;
+        static final int TRANSACTION_onSystemBarAttributesChanged = 51;
         static final int TRANSACTION_onWalletLaunchGestureDetected = 31;
-        static final int TRANSACTION_passThroughShellCommand = 67;
+        static final int TRANSACTION_passThroughShellCommand = 62;
         static final int TRANSACTION_preloadRecentApps = 17;
-        static final int TRANSACTION_registerNearbyMediaDevicesProvider = 75;
+        static final int TRANSACTION_registerNearbyMediaDevicesProvider = 70;
         static final int TRANSACTION_remQsTile = 40;
         static final int TRANSACTION_removeIcon = 2;
-        static final int TRANSACTION_requestAddTile = 71;
-        static final int TRANSACTION_requestMagnificationConnection = 66;
-        static final int TRANSACTION_requestTileServiceListeningState = 70;
-        static final int TRANSACTION_runGcForTest = 69;
-        static final int TRANSACTION_setAgentTask = 88;
-        static final int TRANSACTION_setBiometicContextListener = 52;
+        static final int TRANSACTION_requestAddTile = 66;
+        static final int TRANSACTION_requestMagnificationConnection = 61;
+        static final int TRANSACTION_requestTileServiceListeningState = 65;
+        static final int TRANSACTION_runGcForTest = 64;
+        static final int TRANSACTION_setAgentTask = 83;
+        static final int TRANSACTION_setBiometicContextListener = 47;
         static final int TRANSACTION_setIcon = 1;
         static final int TRANSACTION_setImeWindowStatus = 10;
-        static final int TRANSACTION_setNavigationBarLumaSamplingEnabled = 68;
+        static final int TRANSACTION_setNavigationBarLumaSamplingEnabled = 63;
         static final int TRANSACTION_setQsTiles = 41;
-        static final int TRANSACTION_setSplitscreenFocus = 81;
+        static final int TRANSACTION_setSplitscreenFocus = 76;
         static final int TRANSACTION_setTopAppHidesStatusBar = 37;
-        static final int TRANSACTION_setUdfpsRefreshRateCallback = 53;
+        static final int TRANSACTION_setUdfpsRefreshRateCallback = 48;
         static final int TRANSACTION_setWindowState = 11;
         static final int TRANSACTION_showAssistDisclosure = 28;
-        static final int TRANSACTION_showAuthenticationDialog = 47;
         static final int TRANSACTION_showGlobalActionsMenu = 34;
-        static final int TRANSACTION_showInattentiveSleepWarning = 59;
-        static final int TRANSACTION_showMediaOutputSwitcher = 82;
+        static final int TRANSACTION_showInattentiveSleepWarning = 54;
+        static final int TRANSACTION_showMediaOutputSwitcher = 77;
         static final int TRANSACTION_showOrHideGlobalActionsMenu = 35;
         static final int TRANSACTION_showPictureInPictureMenu = 33;
         static final int TRANSACTION_showPinningEnterExitToast = 44;
         static final int TRANSACTION_showPinningEscapeToast = 45;
-        static final int TRANSACTION_showRearDisplayDialog = 78;
+        static final int TRANSACTION_showRearDisplayDialog = 73;
         static final int TRANSACTION_showRecentApps = 12;
         static final int TRANSACTION_showScreenPinningRequest = 19;
         static final int TRANSACTION_showShutdownUi = 46;
-        static final int TRANSACTION_showToast = 61;
-        static final int TRANSACTION_showTransient = 57;
+        static final int TRANSACTION_showToast = 56;
+        static final int TRANSACTION_showTransient = 52;
         static final int TRANSACTION_showWirelessChargingAnimation = 9;
         static final int TRANSACTION_startAssist = 29;
-        static final int TRANSACTION_startMotionCuesSession = 84;
-        static final int TRANSACTION_startTracing = 63;
-        static final int TRANSACTION_stopTracing = 64;
-        static final int TRANSACTION_suppressAmbientDisplay = 65;
+        static final int TRANSACTION_startMotionCuesSession = 79;
+        static final int TRANSACTION_startTracing = 58;
+        static final int TRANSACTION_stopTracing = 59;
+        static final int TRANSACTION_suppressAmbientDisplay = 60;
         static final int TRANSACTION_toggleKeyboardShortcutsMenu = 23;
         static final int TRANSACTION_toggleNotificationsPanel = 8;
         static final int TRANSACTION_toggleRecentApps = 14;
         static final int TRANSACTION_toggleSplitScreen = 16;
         static final int TRANSACTION_toggleTaskbar = 15;
-        static final int TRANSACTION_unregisterNearbyMediaDevicesProvider = 76;
-        static final int TRANSACTION_updateMediaTapToTransferReceiverDisplay = 74;
-        static final int TRANSACTION_updateMediaTapToTransferSenderDisplay = 73;
+        static final int TRANSACTION_unregisterNearbyMediaDevicesProvider = 71;
+        static final int TRANSACTION_updateMediaTapToTransferReceiverDisplay = 69;
+        static final int TRANSACTION_updateMediaTapToTransferSenderDisplay = 68;
         public Stub() { super(); }
         public static com.android.internal.statusbar.IStatusBar asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -304,18 +295,16 @@ public interface IStatusBar extends android.os.IInterface {
             public void dismissKeyboardShortcutsMenu() throws android.os.RemoteException {}
             public void dumpProto(java.lang.String[] p0, android.os.ParcelFileDescriptor p1) throws android.os.RemoteException {}
             public void endMotionCuesSession() throws android.os.RemoteException {}
+            public void getAgentStateScreenLocation(int p0, com.android.internal.statusbar.IAgentStateScreenLocationCallback p1) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void handleSystemKey(android.view.KeyEvent p0) throws android.os.RemoteException {}
-            public void hideAuthenticationDialog(long p0) throws android.os.RemoteException {}
             public void hideRecentApps(boolean p0, boolean p1) throws android.os.RemoteException {}
             public void hideToast(java.lang.String p0, android.os.IBinder p1) throws android.os.RemoteException {}
             public void immersiveModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException {}
             public void moveFocusedTaskToDesktop(int p0) throws android.os.RemoteException {}
             public void moveFocusedTaskToFullscreen(int p0) throws android.os.RemoteException {}
             public void moveFocusedTaskToStageSplit(int p0, boolean p1) throws android.os.RemoteException {}
-            public void onBiometricAuthenticated(int p0) throws android.os.RemoteException {}
-            public void onBiometricError(int p0, int p1, int p2) throws android.os.RemoteException {}
-            public void onBiometricHelp(int p0, java.lang.String p1) throws android.os.RemoteException {}
+            public void notePccEgressFromApp(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void onCameraLaunchGestureDetected(int p0) throws android.os.RemoteException {}
             public void onConfigurationChanged() throws android.os.RemoteException {}
             public void onDisplayAddSystemDecorations(int p0) throws android.os.RemoteException {}
@@ -345,7 +334,6 @@ public interface IStatusBar extends android.os.IInterface {
             public void setUdfpsRefreshRateCallback(android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback p0) throws android.os.RemoteException {}
             public void setWindowState(int p0, int p1, int p2) throws android.os.RemoteException {}
             public void showAssistDisclosure() throws android.os.RemoteException {}
-            public void showAuthenticationDialog(android.hardware.biometrics.PromptInfo p0, android.hardware.biometrics.IBiometricSysuiReceiver p1, int[] p2, boolean p3, boolean p4, int p5, long p6, java.lang.String p7, long p8) throws android.os.RemoteException {}
             public void showGlobalActionsMenu() throws android.os.RemoteException {}
             public void showInattentiveSleepWarning() throws android.os.RemoteException {}
             public void showMediaOutputSwitcher(java.lang.String p0, android.os.UserHandle p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException {}

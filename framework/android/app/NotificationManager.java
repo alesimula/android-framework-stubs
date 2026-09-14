@@ -278,6 +278,19 @@ public class NotificationManager {
         public android.os.UserHandle user() { return null; }
     }
 
+    private class RateLimiter {
+        private static final java.time.Duration RATE_LIMITER_LOG_INTERVAL = null;
+        private final android.service.notification.RateEstimator mInputRateEstimator = null;
+        private final float mLimitRate = 0.0f;
+        private java.time.Instant mLogSilencedUntil;
+        private final java.lang.String mName = null;
+        private final android.service.notification.RateEstimator mOutputRateEstimator = null;
+        private RateLimiter(android.app.NotificationManager p0, java.lang.String p1, float p2) {}
+        boolean eventExceedsRate() { return false; }
+        void recordAccepted() {}
+        void recordRejected(android.app.NotificationManager.NotificationKey p0) {}
+    }
+
     public static class Policy implements android.os.Parcelable {
         public static final int ALLOWED_INTERRUPTION_TYPE_UNSET = -1;
         public static final int[] ALL_PRIORITY_CATEGORIES = null;
@@ -374,24 +387,11 @@ public class NotificationManager {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ConversationSenders {
+        public static @interface PrioritySenders {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface PrioritySenders {
+        public static @interface ConversationSenders {
         }
-    }
-
-    private class RateLimiter {
-        private static final java.time.Duration RATE_LIMITER_LOG_INTERVAL = null;
-        private final android.service.notification.RateEstimator mInputRateEstimator = null;
-        private final float mLimitRate = 0.0f;
-        private java.time.Instant mLogSilencedUntil;
-        private final java.lang.String mName = null;
-        private final android.service.notification.RateEstimator mOutputRateEstimator = null;
-        private RateLimiter(android.app.NotificationManager p0, java.lang.String p1, float p2) {}
-        boolean eventExceedsRate() { return false; }
-        void recordAccepted() {}
-        void recordRejected(android.app.NotificationManager.NotificationKey p0) {}
     }
 }

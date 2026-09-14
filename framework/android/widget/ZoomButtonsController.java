@@ -51,13 +51,13 @@ public class ZoomButtonsController implements android.view.View.OnTouchListener 
     public void setZoomOutEnabled(boolean p0) {}
     public void setZoomSpeed(long p0) {}
 
-    private class Container extends android.widget.FrameLayout {
-        public Container(android.widget.ZoomButtonsController p0, android.content.Context p1) { super((android.content.Context)null); }
-        public boolean dispatchKeyEvent(android.view.KeyEvent p0) { return false; }
-    }
-
     public static interface OnZoomListener {
         public void onVisibilityChanged(boolean p0);
         public void onZoom(boolean p0);
+    }
+
+    private class Container extends android.widget.FrameLayout {
+        public Container(android.widget.ZoomButtonsController p0, android.content.Context p1) { super((android.content.Context)null); }
+        public boolean dispatchKeyEvent(android.view.KeyEvent p0) { return false; }
     }
 }

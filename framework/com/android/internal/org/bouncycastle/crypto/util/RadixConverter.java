@@ -2,7 +2,7 @@ package com.android.internal.org.bouncycastle.crypto.util;
 
 public class RadixConverter {
     private static final int DEFAULT_POWERS_TO_CACHE = 10;
-    private static final double LOG_LONG_MAX_VALUE = Double.valueOf(0.0);
+    private static final double LOG_LONG_MAX_VALUE = 43.66827237527655;
     private final int digitsGroupLength = 0;
     private final java.math.BigInteger[] digitsGroupSpacePowers = null;
     private final java.math.BigInteger digitsGroupSpaceSize = null;

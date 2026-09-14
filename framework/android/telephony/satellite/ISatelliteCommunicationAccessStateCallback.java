@@ -5,13 +5,6 @@ public interface ISatelliteCommunicationAccessStateCallback extends android.os.I
     public void onAccessAllowedStateChanged(boolean p0) throws android.os.RemoteException;
     public void onAccessConfigurationChanged(android.telephony.satellite.SatelliteAccessConfiguration p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.satellite.ISatelliteCommunicationAccessStateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAccessAllowedStateChanged(boolean p0) throws android.os.RemoteException {}
-        public void onAccessConfigurationChanged(android.telephony.satellite.SatelliteAccessConfiguration p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.satellite.ISatelliteCommunicationAccessStateCallback {
         static final int TRANSACTION_onAccessAllowedStateChanged = 1;
         static final int TRANSACTION_onAccessConfigurationChanged = 2;
@@ -30,5 +23,12 @@ public interface ISatelliteCommunicationAccessStateCallback extends android.os.I
             public void onAccessAllowedStateChanged(boolean p0) throws android.os.RemoteException {}
             public void onAccessConfigurationChanged(android.telephony.satellite.SatelliteAccessConfiguration p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.satellite.ISatelliteCommunicationAccessStateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAccessAllowedStateChanged(boolean p0) throws android.os.RemoteException {}
+        public void onAccessConfigurationChanged(android.telephony.satellite.SatelliteAccessConfiguration p0) throws android.os.RemoteException {}
     }
 }

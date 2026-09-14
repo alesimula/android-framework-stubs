@@ -70,76 +70,6 @@ public interface IRadioNetwork extends android.os.IInterface {
     public void supplyNetworkDepersonalization(int p0, java.lang.String p1) throws android.os.RemoteException;
     public void triggerEmergencyNetworkScan(int p0, android.hardware.radio.network.EmergencyNetworkScanTrigger p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.network.IRadioNetwork {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelEmergencyNetworkScan(int p0, boolean p1) throws android.os.RemoteException {}
-        public void disablePrioritizedNetworkScan(int p0) throws android.os.RemoteException {}
-        public void enablePrioritizedNetworkScan(int p0, android.hardware.radio.network.PrioritizedNetworkScanRequest p1) throws android.os.RemoteException {}
-        public void exitEmergencyMode(int p0) throws android.os.RemoteException {}
-        public void getAllowedNetworkTypesBitmap(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getAvailableBandModes(int p0) throws android.os.RemoteException {}
-        public void getAvailableNetworks(int p0) throws android.os.RemoteException {}
-        public void getBarringInfo(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getCdmaRoamingPreference(int p0) throws android.os.RemoteException {}
-        public void getCellInfoList(int p0) throws android.os.RemoteException {}
-        public void getDataRegistrationState(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getImsRegistrationState(int p0) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getNetworkSelectionMode(int p0) throws android.os.RemoteException {}
-        public void getOperator(int p0) throws android.os.RemoteException {}
-        public void getSignalStrength(int p0) throws android.os.RemoteException {}
-        public void getSupportedNetworkAlertCategories(int p0) throws android.os.RemoteException {}
-        public void getSystemSelectionChannels(int p0) throws android.os.RemoteException {}
-        public void getUsageSetting(int p0) throws android.os.RemoteException {}
-        public void getVoiceRadioTechnology(int p0) throws android.os.RemoteException {}
-        public void getVoiceRegistrationState(int p0) throws android.os.RemoteException {}
-        public void isCellularIdentifierTransparencyEnabled(int p0) throws android.os.RemoteException {}
-        public void isN1ModeEnabled(int p0) throws android.os.RemoteException {}
-        public void isNrDualConnectivityEnabled(int p0) throws android.os.RemoteException {}
-        public void isNullCipherAndIntegrityEnabled(int p0) throws android.os.RemoteException {}
-        public void isSatelliteEnabledForCarrier(int p0) throws android.os.RemoteException {}
-        public void isSecurityAlgorithmsUpdatedEnabled(int p0) throws android.os.RemoteException {}
-        public void responseAcknowledgement() throws android.os.RemoteException {}
-        public void setAllowedNetworkTypesBitmap(int p0, int p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setBandMode(int p0, int p1) throws android.os.RemoteException {}
-        public void setBarringPassword(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setCdmaRoamingPreference(int p0, int p1) throws android.os.RemoteException {}
-        public void setCellInfoListRate(int p0, int p1) throws android.os.RemoteException {}
-        public void setCellularIdentifierTransparencyEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setEmergencyMode(int p0, int p1) throws android.os.RemoteException {}
-        public void setIndicationFilter(int p0, int p1) throws android.os.RemoteException {}
-        public void setLinkCapacityReportingCriteria(int p0, int p1, int p2, int p3, int[] p4, int[] p5, int p6) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setLocationUpdates(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setN1ModeEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setNetworkSelectionModeAutomatic(int p0) throws android.os.RemoteException {}
-        public void setNetworkSelectionModeManual(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void setNrDualConnectivityState(int p0, byte p1) throws android.os.RemoteException {}
-        public void setNullCipherAndIntegrityEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.network.IRadioNetworkResponse p0, android.hardware.radio.network.IRadioNetworkIndication p1) throws android.os.RemoteException {}
-        public void setSatelliteEnabledForCarrier(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setSatelliteNetworkInfo(int p0, android.hardware.radio.network.SatelliteNetworkInfo p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setSatellitePlmn(int p0, java.lang.String[] p1, java.lang.String[] p2) throws android.os.RemoteException {}
-        public void setSecurityAlgorithmsUpdatedEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setSignalStrengthReportingCriteria(int p0, android.hardware.radio.network.SignalThresholdInfo[] p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setSuppServiceNotifications(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setSystemSelectionChannels(int p0, boolean p1, android.hardware.radio.network.RadioAccessSpecifier[] p2) throws android.os.RemoteException {}
-        public void setUsageSetting(int p0, int p1) throws android.os.RemoteException {}
-        public void startNetworkScan(int p0, android.hardware.radio.network.NetworkScanRequest p1) throws android.os.RemoteException {}
-        public void stopNetworkScan(int p0) throws android.os.RemoteException {}
-        public void supplyNetworkDepersonalization(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void triggerEmergencyNetworkScan(int p0, android.hardware.radio.network.EmergencyNetworkScanTrigger p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.network.IRadioNetwork {
         static final int TRANSACTION_cancelEmergencyNetworkScan = 39;
         static final int TRANSACTION_disablePrioritizedNetworkScan = 54;
@@ -276,5 +206,75 @@ public interface IRadioNetwork extends android.os.IInterface {
             public void supplyNetworkDepersonalization(int p0, java.lang.String p1) throws android.os.RemoteException {}
             public void triggerEmergencyNetworkScan(int p0, android.hardware.radio.network.EmergencyNetworkScanTrigger p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.network.IRadioNetwork {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelEmergencyNetworkScan(int p0, boolean p1) throws android.os.RemoteException {}
+        public void disablePrioritizedNetworkScan(int p0) throws android.os.RemoteException {}
+        public void enablePrioritizedNetworkScan(int p0, android.hardware.radio.network.PrioritizedNetworkScanRequest p1) throws android.os.RemoteException {}
+        public void exitEmergencyMode(int p0) throws android.os.RemoteException {}
+        public void getAllowedNetworkTypesBitmap(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getAvailableBandModes(int p0) throws android.os.RemoteException {}
+        public void getAvailableNetworks(int p0) throws android.os.RemoteException {}
+        public void getBarringInfo(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getCdmaRoamingPreference(int p0) throws android.os.RemoteException {}
+        public void getCellInfoList(int p0) throws android.os.RemoteException {}
+        public void getDataRegistrationState(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getImsRegistrationState(int p0) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getNetworkSelectionMode(int p0) throws android.os.RemoteException {}
+        public void getOperator(int p0) throws android.os.RemoteException {}
+        public void getSignalStrength(int p0) throws android.os.RemoteException {}
+        public void getSupportedNetworkAlertCategories(int p0) throws android.os.RemoteException {}
+        public void getSystemSelectionChannels(int p0) throws android.os.RemoteException {}
+        public void getUsageSetting(int p0) throws android.os.RemoteException {}
+        public void getVoiceRadioTechnology(int p0) throws android.os.RemoteException {}
+        public void getVoiceRegistrationState(int p0) throws android.os.RemoteException {}
+        public void isCellularIdentifierTransparencyEnabled(int p0) throws android.os.RemoteException {}
+        public void isN1ModeEnabled(int p0) throws android.os.RemoteException {}
+        public void isNrDualConnectivityEnabled(int p0) throws android.os.RemoteException {}
+        public void isNullCipherAndIntegrityEnabled(int p0) throws android.os.RemoteException {}
+        public void isSatelliteEnabledForCarrier(int p0) throws android.os.RemoteException {}
+        public void isSecurityAlgorithmsUpdatedEnabled(int p0) throws android.os.RemoteException {}
+        public void responseAcknowledgement() throws android.os.RemoteException {}
+        public void setAllowedNetworkTypesBitmap(int p0, int p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setBandMode(int p0, int p1) throws android.os.RemoteException {}
+        public void setBarringPassword(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setCdmaRoamingPreference(int p0, int p1) throws android.os.RemoteException {}
+        public void setCellInfoListRate(int p0, int p1) throws android.os.RemoteException {}
+        public void setCellularIdentifierTransparencyEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setEmergencyMode(int p0, int p1) throws android.os.RemoteException {}
+        public void setIndicationFilter(int p0, int p1) throws android.os.RemoteException {}
+        public void setLinkCapacityReportingCriteria(int p0, int p1, int p2, int p3, int[] p4, int[] p5, int p6) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setLocationUpdates(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setN1ModeEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setNetworkSelectionModeAutomatic(int p0) throws android.os.RemoteException {}
+        public void setNetworkSelectionModeManual(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void setNrDualConnectivityState(int p0, byte p1) throws android.os.RemoteException {}
+        public void setNullCipherAndIntegrityEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.network.IRadioNetworkResponse p0, android.hardware.radio.network.IRadioNetworkIndication p1) throws android.os.RemoteException {}
+        public void setSatelliteEnabledForCarrier(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setSatelliteNetworkInfo(int p0, android.hardware.radio.network.SatelliteNetworkInfo p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setSatellitePlmn(int p0, java.lang.String[] p1, java.lang.String[] p2) throws android.os.RemoteException {}
+        public void setSecurityAlgorithmsUpdatedEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setSignalStrengthReportingCriteria(int p0, android.hardware.radio.network.SignalThresholdInfo[] p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setSuppServiceNotifications(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setSystemSelectionChannels(int p0, boolean p1, android.hardware.radio.network.RadioAccessSpecifier[] p2) throws android.os.RemoteException {}
+        public void setUsageSetting(int p0, int p1) throws android.os.RemoteException {}
+        public void startNetworkScan(int p0, android.hardware.radio.network.NetworkScanRequest p1) throws android.os.RemoteException {}
+        public void stopNetworkScan(int p0) throws android.os.RemoteException {}
+        public void supplyNetworkDepersonalization(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void triggerEmergencyNetworkScan(int p0, android.hardware.radio.network.EmergencyNetworkScanTrigger p1) throws android.os.RemoteException {}
     }
 }

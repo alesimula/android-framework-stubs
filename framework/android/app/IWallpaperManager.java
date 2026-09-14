@@ -40,7 +40,6 @@ public interface IWallpaperManager extends android.os.IInterface {
     public void setWallpaperComponentChecked(android.app.wallpaper.WallpaperDescription p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException;
     public void setWallpaperDescriptionId(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
     public void setWallpaperDimAmount(float p0, int p1, boolean p2) throws android.os.RemoteException;
-    public void settingsRestored() throws android.os.RemoteException;
     public void unregisterWallpaperColorsCallback(android.app.IWallpaperManagerCallback p0, int p1, int p2) throws android.os.RemoteException;
 
     public static class Default implements android.app.IWallpaperManager {
@@ -85,13 +84,12 @@ public interface IWallpaperManager extends android.os.IInterface {
         public void setWallpaperComponentChecked(android.app.wallpaper.WallpaperDescription p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException {}
         public void setWallpaperDescriptionId(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
         public void setWallpaperDimAmount(float p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void settingsRestored() throws android.os.RemoteException {}
         public void unregisterWallpaperColorsCallback(android.app.IWallpaperManagerCallback p0, int p1, int p2) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.app.IWallpaperManager {
         public static final java.lang.String DESCRIPTOR = "android.app.IWallpaperManager";
-        static final int TRANSACTION_addOnLocalColorsChangedListener = 30;
+        static final int TRANSACTION_addOnLocalColorsChangedListener = 29;
         static final int TRANSACTION_clearWallpaper = 17;
         static final int TRANSACTION_getBitmapCrop = 11;
         static final int TRANSACTION_getBitmapCrops = 8;
@@ -101,8 +99,8 @@ public interface IWallpaperManager extends android.os.IInterface {
         static final int TRANSACTION_getHeightHint = 21;
         static final int TRANSACTION_getName = 23;
         static final int TRANSACTION_getWallpaper = 5;
-        static final int TRANSACTION_getWallpaperColors = 28;
-        static final int TRANSACTION_getWallpaperDimAmount = 37;
+        static final int TRANSACTION_getWallpaperColors = 27;
+        static final int TRANSACTION_getWallpaperDimAmount = 36;
         static final int TRANSACTION_getWallpaperIdForUser = 12;
         static final int TRANSACTION_getWallpaperInfo = 13;
         static final int TRANSACTION_getWallpaperInfoFile = 16;
@@ -111,26 +109,25 @@ public interface IWallpaperManager extends android.os.IInterface {
         static final int TRANSACTION_getWallpaperWithFeature = 6;
         static final int TRANSACTION_getWidthHint = 20;
         static final int TRANSACTION_hasNamedWallpaper = 18;
-        static final int TRANSACTION_hasSetWallpaper = 40;
-        static final int TRANSACTION_isSetWallpaperAllowed = 26;
-        static final int TRANSACTION_isStaticWallpaper = 39;
-        static final int TRANSACTION_isWallpaperBackupEligible = 27;
-        static final int TRANSACTION_isWallpaperSupported = 25;
-        static final int TRANSACTION_lockScreenWallpaperExists = 38;
-        static final int TRANSACTION_notifyGoingToSleep = 35;
-        static final int TRANSACTION_notifyWakingUp = 34;
-        static final int TRANSACTION_registerWallpaperColorsCallback = 31;
-        static final int TRANSACTION_removeOnLocalColorsChangedListener = 29;
+        static final int TRANSACTION_hasSetWallpaper = 39;
+        static final int TRANSACTION_isSetWallpaperAllowed = 25;
+        static final int TRANSACTION_isStaticWallpaper = 38;
+        static final int TRANSACTION_isWallpaperBackupEligible = 26;
+        static final int TRANSACTION_isWallpaperSupported = 24;
+        static final int TRANSACTION_lockScreenWallpaperExists = 37;
+        static final int TRANSACTION_notifyGoingToSleep = 34;
+        static final int TRANSACTION_notifyWakingUp = 33;
+        static final int TRANSACTION_registerWallpaperColorsCallback = 30;
+        static final int TRANSACTION_removeOnLocalColorsChangedListener = 28;
         static final int TRANSACTION_setDimensionHints = 19;
         static final int TRANSACTION_setDisplayPadding = 22;
-        static final int TRANSACTION_setInAmbientMode = 33;
+        static final int TRANSACTION_setInAmbientMode = 32;
         static final int TRANSACTION_setWallpaper = 1;
         static final int TRANSACTION_setWallpaperComponent = 3;
         static final int TRANSACTION_setWallpaperComponentChecked = 2;
         static final int TRANSACTION_setWallpaperDescriptionId = 4;
-        static final int TRANSACTION_setWallpaperDimAmount = 36;
-        static final int TRANSACTION_settingsRestored = 24;
-        static final int TRANSACTION_unregisterWallpaperColorsCallback = 32;
+        static final int TRANSACTION_setWallpaperDimAmount = 35;
+        static final int TRANSACTION_unregisterWallpaperColorsCallback = 31;
         public Stub() { super(); }
         public static android.app.IWallpaperManager asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -182,7 +179,6 @@ public interface IWallpaperManager extends android.os.IInterface {
             public void setWallpaperComponentChecked(android.app.wallpaper.WallpaperDescription p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException {}
             public void setWallpaperDescriptionId(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
             public void setWallpaperDimAmount(float p0, int p1, boolean p2) throws android.os.RemoteException {}
-            public void settingsRestored() throws android.os.RemoteException {}
             public void unregisterWallpaperColorsCallback(android.app.IWallpaperManagerCallback p0, int p1, int p2) throws android.os.RemoteException {}
         }
     }

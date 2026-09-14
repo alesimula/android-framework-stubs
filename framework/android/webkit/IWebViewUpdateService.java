@@ -10,19 +10,6 @@ public interface IWebViewUpdateService extends android.os.IInterface {
     public void notifyRelroCreationCompleted() throws android.os.RemoteException;
     public android.webkit.WebViewProviderResponse waitForAndGetProvider() throws android.os.RemoteException;
 
-    public static class Default implements android.webkit.IWebViewUpdateService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String changeProviderAndSetting(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public android.webkit.WebViewProviderInfo[] getAllWebViewPackages() throws android.os.RemoteException { return null; }
-        public android.content.pm.PackageInfo getCurrentWebViewPackage() throws android.os.RemoteException { return null; }
-        public java.lang.String getCurrentWebViewPackageName() throws android.os.RemoteException { return null; }
-        public android.webkit.WebViewProviderInfo getDefaultWebViewPackage() throws android.os.RemoteException { return null; }
-        public android.webkit.WebViewProviderInfo[] getValidWebViewPackages() throws android.os.RemoteException { return null; }
-        public void notifyRelroCreationCompleted() throws android.os.RemoteException {}
-        public android.webkit.WebViewProviderResponse waitForAndGetProvider() throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.webkit.IWebViewUpdateService {
         public static final java.lang.String DESCRIPTOR = "android.webkit.IWebViewUpdateService";
         static final int TRANSACTION_changeProviderAndSetting = 3;
@@ -54,5 +41,18 @@ public interface IWebViewUpdateService extends android.os.IInterface {
             public void notifyRelroCreationCompleted() throws android.os.RemoteException {}
             public android.webkit.WebViewProviderResponse waitForAndGetProvider() throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.webkit.IWebViewUpdateService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String changeProviderAndSetting(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.webkit.WebViewProviderInfo[] getAllWebViewPackages() throws android.os.RemoteException { return null; }
+        public android.content.pm.PackageInfo getCurrentWebViewPackage() throws android.os.RemoteException { return null; }
+        public java.lang.String getCurrentWebViewPackageName() throws android.os.RemoteException { return null; }
+        public android.webkit.WebViewProviderInfo getDefaultWebViewPackage() throws android.os.RemoteException { return null; }
+        public android.webkit.WebViewProviderInfo[] getValidWebViewPackages() throws android.os.RemoteException { return null; }
+        public void notifyRelroCreationCompleted() throws android.os.RemoteException {}
+        public android.webkit.WebViewProviderResponse waitForAndGetProvider() throws android.os.RemoteException { return null; }
     }
 }

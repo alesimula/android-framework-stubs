@@ -5,13 +5,6 @@ public interface IResourceManagerClient extends android.os.IInterface {
     public java.lang.String getName() throws android.os.RemoteException;
     public boolean reclaimResource() throws android.os.RemoteException;
 
-    public static class Default implements android.media.IResourceManagerClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getName() throws android.os.RemoteException { return null; }
-        public boolean reclaimResource() throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IResourceManagerClient {
         static final int TRANSACTION_getName = 2;
         static final int TRANSACTION_reclaimResource = 1;
@@ -30,5 +23,12 @@ public interface IResourceManagerClient extends android.os.IInterface {
             public java.lang.String getName() throws android.os.RemoteException { return null; }
             public boolean reclaimResource() throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.media.IResourceManagerClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getName() throws android.os.RemoteException { return null; }
+        public boolean reclaimResource() throws android.os.RemoteException { return false; }
     }
 }

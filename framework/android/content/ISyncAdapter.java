@@ -5,14 +5,6 @@ public interface ISyncAdapter extends android.os.IInterface {
     public void onUnsyncableAccount(android.content.ISyncAdapterUnsyncableAccountCallback p0) throws android.os.RemoteException;
     public void startSync(android.content.ISyncContext p0, java.lang.String p1, android.accounts.Account p2, android.os.Bundle p3) throws android.os.RemoteException;
 
-    public static class Default implements android.content.ISyncAdapter {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelSync(android.content.ISyncContext p0) throws android.os.RemoteException {}
-        public void onUnsyncableAccount(android.content.ISyncAdapterUnsyncableAccountCallback p0) throws android.os.RemoteException {}
-        public void startSync(android.content.ISyncContext p0, java.lang.String p1, android.accounts.Account p2, android.os.Bundle p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.ISyncAdapter {
         public static final java.lang.String DESCRIPTOR = "android.content.ISyncAdapter";
         static final int TRANSACTION_cancelSync = 3;
@@ -34,5 +26,13 @@ public interface ISyncAdapter extends android.os.IInterface {
             public void onUnsyncableAccount(android.content.ISyncAdapterUnsyncableAccountCallback p0) throws android.os.RemoteException {}
             public void startSync(android.content.ISyncContext p0, java.lang.String p1, android.accounts.Account p2, android.os.Bundle p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.ISyncAdapter {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelSync(android.content.ISyncContext p0) throws android.os.RemoteException {}
+        public void onUnsyncableAccount(android.content.ISyncAdapterUnsyncableAccountCallback p0) throws android.os.RemoteException {}
+        public void startSync(android.content.ISyncContext p0, java.lang.String p1, android.accounts.Account p2, android.os.Bundle p3) throws android.os.RemoteException {}
     }
 }

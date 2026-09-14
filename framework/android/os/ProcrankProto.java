@@ -25,14 +25,14 @@ public final class ProcrankProto {
         public static final long ZRAM = 1146756268034L;
         public Summary(android.os.ProcrankProto p0) {}
 
-        public final class Ram {
-            public static final long RAW_TEXT = 1138166333441L;
-            public Ram(android.os.ProcrankProto.Summary p0) {}
-        }
-
         public final class Zram {
             public static final long RAW_TEXT = 1138166333441L;
             public Zram(android.os.ProcrankProto.Summary p0) {}
+        }
+
+        public final class Ram {
+            public static final long RAW_TEXT = 1138166333441L;
+            public Ram(android.os.ProcrankProto.Summary p0) {}
         }
     }
 }

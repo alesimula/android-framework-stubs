@@ -1,7 +1,7 @@
 package android.database.sqlite;
 
 public abstract class SQLiteOpenHelper implements java.lang.AutoCloseable {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SQLiteOpenHelper";
     private static final java.util.concurrent.ConcurrentHashMap<java.lang.String, java.lang.Object> sDbLock = null;
     private final android.content.Context mContext = null;
     private android.database.sqlite.SQLiteDatabase mDatabase;

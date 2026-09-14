@@ -9,17 +9,6 @@ public interface IGateKeeperService extends android.os.IInterface {
     public android.service.gatekeeper.GateKeeperResponse verify(int p0, byte[] p1, byte[] p2) throws android.os.RemoteException;
     public android.service.gatekeeper.GateKeeperResponse verifyChallenge(int p0, long p1, byte[] p2, byte[] p3) throws android.os.RemoteException;
 
-    public static class Default implements android.service.gatekeeper.IGateKeeperService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void clearSecureUserId(int p0) throws android.os.RemoteException {}
-        public android.service.gatekeeper.GateKeeperResponse enroll(int p0, byte[] p1, byte[] p2, byte[] p3) throws android.os.RemoteException { return null; }
-        public long getSecureUserId(int p0) throws android.os.RemoteException { return 0L; }
-        public void reportDeviceSetupComplete() throws android.os.RemoteException {}
-        public android.service.gatekeeper.GateKeeperResponse verify(int p0, byte[] p1, byte[] p2) throws android.os.RemoteException { return null; }
-        public android.service.gatekeeper.GateKeeperResponse verifyChallenge(int p0, long p1, byte[] p2, byte[] p3) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.gatekeeper.IGateKeeperService {
         static final int TRANSACTION_clearSecureUserId = 5;
         static final int TRANSACTION_enroll = 1;
@@ -46,5 +35,16 @@ public interface IGateKeeperService extends android.os.IInterface {
             public android.service.gatekeeper.GateKeeperResponse verify(int p0, byte[] p1, byte[] p2) throws android.os.RemoteException { return null; }
             public android.service.gatekeeper.GateKeeperResponse verifyChallenge(int p0, long p1, byte[] p2, byte[] p3) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.service.gatekeeper.IGateKeeperService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void clearSecureUserId(int p0) throws android.os.RemoteException {}
+        public android.service.gatekeeper.GateKeeperResponse enroll(int p0, byte[] p1, byte[] p2, byte[] p3) throws android.os.RemoteException { return null; }
+        public long getSecureUserId(int p0) throws android.os.RemoteException { return 0L; }
+        public void reportDeviceSetupComplete() throws android.os.RemoteException {}
+        public android.service.gatekeeper.GateKeeperResponse verify(int p0, byte[] p1, byte[] p2) throws android.os.RemoteException { return null; }
+        public android.service.gatekeeper.GateKeeperResponse verifyChallenge(int p0, long p1, byte[] p2, byte[] p3) throws android.os.RemoteException { return null; }
     }
 }

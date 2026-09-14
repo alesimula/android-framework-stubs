@@ -50,24 +50,24 @@ public class DynamicSystemClient {
     @android.annotation.SystemApi
     public void unbind() {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface InstallationStatus {
+    }
+
     private class DynSystemServiceConnection implements android.content.ServiceConnection {
         private DynSystemServiceConnection(android.os.image.DynamicSystemClient p0) {}
         public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
         public void onServiceDisconnected(android.content.ComponentName p0) {}
     }
 
+    public static interface OnStatusChangedListener {
+        public void onStatusChanged(int p0, int p1, long p2, java.lang.Throwable p3);
+    }
+
     private static class IncomingHandler extends android.os.Handler {
         private final java.lang.ref.WeakReference<android.os.image.DynamicSystemClient> mWeakClient = null;
         IncomingHandler(android.os.image.DynamicSystemClient p0) { super(); }
         public void handleMessage(android.os.Message p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface InstallationStatus {
-    }
-
-    public static interface OnStatusChangedListener {
-        public void onStatusChanged(int p0, int p1, long p2, java.lang.Throwable p3);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

@@ -35,29 +35,6 @@ public class LineBreaker {
     public boolean getUseBoundsForWidth() { return false; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BreakStrategy {
-    }
-
-    public static final class Builder {
-        private int mBreakStrategy;
-        private int mHyphenationFrequency;
-        private int[] mIndents;
-        private int mJustificationMode;
-        private boolean mUseBoundsForWidth;
-        public Builder() {}
-        public android.graphics.text.LineBreaker build() { return null; }
-        public android.graphics.text.LineBreaker.Builder setBreakStrategy(int p0) { return null; }
-        public android.graphics.text.LineBreaker.Builder setHyphenationFrequency(int p0) { return null; }
-        public android.graphics.text.LineBreaker.Builder setIndents(int[] p0) { return null; }
-        public android.graphics.text.LineBreaker.Builder setJustificationMode(int p0) { return null; }
-        public android.graphics.text.LineBreaker.Builder setUseBoundsForWidth(boolean p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HyphenationFrequency {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface JustificationMode {
     }
 
@@ -65,21 +42,12 @@ public class LineBreaker {
         private NoImagePreloadHolder() {}
     }
 
-    public static class ParagraphConstraints {
-        private float mDefaultTabStop;
-        private float mFirstWidth;
-        private int mFirstWidthLineCount;
-        private float[] mVariableTabStops;
-        private float mWidth;
-        public ParagraphConstraints() {}
-        public float getDefaultTabStop() { return 0.0f; }
-        public float getFirstWidth() { return 0.0f; }
-        public int getFirstWidthLineCount() { return 0; }
-        public float[] getTabStops() { return null; }
-        public float getWidth() { return 0.0f; }
-        public void setIndent(float p0, int p1) {}
-        public void setTabStops(float[] p0, float p1) {}
-        public void setWidth(float p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HyphenationFrequency {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BreakStrategy {
     }
 
     public static class Result {
@@ -98,5 +66,37 @@ public class LineBreaker {
         public float getLineWidth(int p0) { return 0.0f; }
         public int getStartLineHyphenEdit(int p0) { return 0; }
         public boolean hasLineTab(int p0) { return false; }
+    }
+
+    public static final class Builder {
+        private int mBreakStrategy;
+        private int mHyphenationFrequency;
+        private int[] mIndents;
+        private int mJustificationMode;
+        private boolean mUseBoundsForWidth;
+        public Builder() {}
+        public android.graphics.text.LineBreaker build() { return null; }
+        public android.graphics.text.LineBreaker.Builder setBreakStrategy(int p0) { return null; }
+        public android.graphics.text.LineBreaker.Builder setHyphenationFrequency(int p0) { return null; }
+        public android.graphics.text.LineBreaker.Builder setIndents(int[] p0) { return null; }
+        public android.graphics.text.LineBreaker.Builder setJustificationMode(int p0) { return null; }
+        public android.graphics.text.LineBreaker.Builder setUseBoundsForWidth(boolean p0) { return null; }
+    }
+
+    public static class ParagraphConstraints {
+        private float mDefaultTabStop;
+        private float mFirstWidth;
+        private int mFirstWidthLineCount;
+        private float[] mVariableTabStops;
+        private float mWidth;
+        public ParagraphConstraints() {}
+        public float getDefaultTabStop() { return 0.0f; }
+        public float getFirstWidth() { return 0.0f; }
+        public int getFirstWidthLineCount() { return 0; }
+        public float[] getTabStops() { return null; }
+        public float getWidth() { return 0.0f; }
+        public void setIndent(float p0, int p1) {}
+        public void setTabStops(float[] p0, float p1) {}
+        public void setWidth(float p0) {}
     }
 }

@@ -11,17 +11,6 @@ public interface IUsbGadgetCallback extends android.os.IInterface {
     public void resetCb(int p0, long p1) throws android.os.RemoteException;
     public void setCurrentUsbFunctionsCb(long p0, int p1, long p2) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.usb.gadget.IUsbGadgetCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void getCurrentUsbFunctionsCb(long p0, int p1, long p2) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getUsbSpeedCb(int p0, long p1) throws android.os.RemoteException {}
-        public void resetCb(int p0, long p1) throws android.os.RemoteException {}
-        public void setCurrentUsbFunctionsCb(long p0, int p1, long p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.usb.gadget.IUsbGadgetCallback {
         static final int TRANSACTION_getCurrentUsbFunctionsCb = 2;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -48,5 +37,16 @@ public interface IUsbGadgetCallback extends android.os.IInterface {
             public void resetCb(int p0, long p1) throws android.os.RemoteException {}
             public void setCurrentUsbFunctionsCb(long p0, int p1, long p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.usb.gadget.IUsbGadgetCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void getCurrentUsbFunctionsCb(long p0, int p1, long p2) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getUsbSpeedCb(int p0, long p1) throws android.os.RemoteException {}
+        public void resetCb(int p0, long p1) throws android.os.RemoteException {}
+        public void setCurrentUsbFunctionsCb(long p0, int p1, long p2) throws android.os.RemoteException {}
     }
 }

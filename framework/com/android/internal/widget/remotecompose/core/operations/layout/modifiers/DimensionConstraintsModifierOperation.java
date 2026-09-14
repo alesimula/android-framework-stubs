@@ -9,7 +9,7 @@ public class DimensionConstraintsModifierOperation extends com.android.internal.
     public static final int VERTICAL_CONSTRAINTS = 1;
     private final int mType = 0;
     public DimensionConstraintsModifierOperation(int p0, float p1, float p2) { super(0, 0.0f, 0.0f); }
-    public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, int p1, float p2, float p3) {}
+    public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, byte p1, float p2, float p3) {}
     public static void documentation(com.android.internal.widget.remotecompose.core.documentation.DocumentationBuilder p0) {}
     public static int id() { return 0; }
     public static java.lang.String name() { return null; }

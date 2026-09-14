@@ -8,7 +8,7 @@ public final class InputMethodSubtype implements android.os.Parcelable {
     private static final java.lang.String LANGUAGE_TAG_NONE = "";
     public static final int SUBTYPE_ID_NONE = 0;
     private static final java.lang.String SUBTYPE_MODE_KEYBOARD = "keyboard";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "InputMethodSubtype";
     private static final java.lang.String UNDEFINED_LANGUAGE_TAG = "und";
     private volatile java.lang.String mCachedCanonicalizedLanguageTag;
     private volatile java.util.Locale mCachedLocaleObj;

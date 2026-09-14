@@ -46,11 +46,6 @@ public interface IInputConstants extends android.os.IInterface {
     public static final int VELOCITY_TRACKER_STRATEGY_WLSQ2_DELTA = 4;
     public static final int VELOCITY_TRACKER_STRATEGY_WLSQ2_RECENT = 6;
 
-    public static class Default implements android.os.IInputConstants {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IInputConstants {
         public Stub() { super(); }
         public static android.os.IInputConstants asInterface(android.os.IBinder p0) { return null; }
@@ -65,5 +60,10 @@ public interface IInputConstants extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.os.IInputConstants {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

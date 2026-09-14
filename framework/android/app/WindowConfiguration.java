@@ -63,6 +63,7 @@ public class WindowConfiguration implements android.os.Parcelable, java.lang.Com
     public boolean hasMovementAnimations() { return false; }
     public int hashCode() { return 0; }
     public boolean isAlwaysOnTop() { return false; }
+    public boolean isAlwaysOnTopRequested() { return false; }
     public void readFromParcel(android.os.Parcel p0) {}
     public void readFromProto(android.util.proto.ProtoInputStream p0, long p1) throws java.io.IOException, android.util.proto.WireTypeMismatchException {}
     public void scale(float p0) {}

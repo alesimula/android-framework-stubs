@@ -4,9 +4,10 @@ public class CursorWindow extends android.database.sqlite.SQLiteClosable impleme
     public static final android.os.Parcelable.Creator<android.database.CursorWindow> CREATOR = null;
     private static final java.lang.String STATS_TAG = "CursorWindowStats";
     private static int sCursorWindowSize;
+    private static final java.lang.invoke.VarHandle sWindowPtr = null;
     private final java.lang.String mName = null;
     private int mStartPos;
-    public long mWindowPtr;
+    public volatile long mWindowPtr;
     private CursorWindow(android.os.Parcel p0) { super(); }
     public CursorWindow(java.lang.String p0) { super(); }
     public CursorWindow(java.lang.String p0, long p1) { super(); }

@@ -2,6 +2,9 @@ package android.hardware.biometrics;
 
 @android.annotation.RestrictedForEnvironment(environments="SDK Runtime", from=34)
 public class BiometricManager {
+    public static final int AUTHENTICATION_PURPOSE_LOGIN = 2;
+    public static final int AUTHENTICATION_PURPOSE_PAYMENT = 1;
+    public static final int AUTHENTICATION_PURPOSE_UNKNOWN = 0;
     public static final int BIOMETRIC_ERROR_HW_UNAVAILABLE = 1;
     public static final int BIOMETRIC_ERROR_IDENTITY_CHECK_NOT_ACTIVE = 20;
     public static final int BIOMETRIC_ERROR_LOCKOUT = 7;
@@ -59,6 +62,25 @@ public class BiometricManager {
     public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) {}
     public void unregisterIdentityCheckStateListener(android.hardware.biometrics.IIdentityCheckStateListener p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+    static @interface BiometricModality {
+    }
+
+    public static class Strings {
+        int mAuthenticators;
+        private final android.content.Context mContext = null;
+        private final android.hardware.biometrics.IAuthService mService = null;
+        private Strings(android.content.Context p0, android.hardware.biometrics.IAuthService p1, int p2) {}
+        public java.lang.CharSequence getButtonLabel() { return null; }
+        public java.lang.CharSequence getPromptMessage() { return null; }
+        public java.lang.CharSequence getSettingName() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IconType {
+    }
+
     public static interface Authenticators {
         @android.annotation.SystemApi
         public static final int BIOMETRIC_CONVENIENCE = 4095;
@@ -74,12 +96,12 @@ public class BiometricManager {
         public static final int LESS_THAN_STRONG = 0;
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-        public static @interface StrongTypes {
+        public static @interface Types {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Types {
+        @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+        public static @interface StrongTypes {
         }
     }
 
@@ -88,21 +110,6 @@ public class BiometricManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-    static @interface BiometricModality {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IconType {
-    }
-
-    public static class Strings {
-        int mAuthenticators;
-        private final android.content.Context mContext = null;
-        private final android.hardware.biometrics.IAuthService mService = null;
-        private Strings(android.content.Context p0, android.hardware.biometrics.IAuthService p1, int p2) {}
-        public java.lang.CharSequence getButtonLabel() { return null; }
-        public java.lang.CharSequence getPromptMessage() { return null; }
-        public java.lang.CharSequence getSettingName() { return null; }
+    public static @interface AuthenticationPurpose {
     }
 }

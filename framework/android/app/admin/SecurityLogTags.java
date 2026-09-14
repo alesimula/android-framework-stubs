@@ -14,6 +14,7 @@ public class SecurityLogTags {
     public static final int SECURITY_CERT_AUTHORITY_REMOVED = 210030;
     public static final int SECURITY_CERT_VALIDATION_FAILURE = 210033;
     public static final int SECURITY_CRYPTO_SELF_TEST_COMPLETED = 210031;
+    public static final int SECURITY_DATA_LEAK_PREVENTION_EVENT = 210048;
     public static final int SECURITY_KEYGUARD_DISABLED_FEATURES_SET = 210021;
     public static final int SECURITY_KEYGUARD_DISMISSED = 210006;
     public static final int SECURITY_KEYGUARD_DISMISS_AUTH_ATTEMPT = 210007;
@@ -34,7 +35,9 @@ public class SecurityLogTags {
     public static final int SECURITY_OS_SHUTDOWN = 210010;
     public static final int SECURITY_OS_STARTUP = 210009;
     public static final int SECURITY_PACKAGE_INSTALLED = 210041;
+    public static final int SECURITY_PACKAGE_INSTALL_FAILED = 210050;
     public static final int SECURITY_PACKAGE_UNINSTALLED = 210043;
+    public static final int SECURITY_PACKAGE_UNINSTALL_FAILED = 210051;
     public static final int SECURITY_PACKAGE_UPDATED = 210042;
     public static final int SECURITY_PASSWORD_CHANGED = 210036;
     public static final int SECURITY_PASSWORD_COMPLEXITY_REQUIRED = 210035;
@@ -42,6 +45,8 @@ public class SecurityLogTags {
     public static final int SECURITY_PASSWORD_EXPIRATION_SET = 210016;
     public static final int SECURITY_PASSWORD_HISTORY_LENGTH_SET = 210018;
     public static final int SECURITY_REMOTE_LOCK = 210022;
+    public static final int SECURITY_USER_LOGIN_ATTEMPT = 210049;
+    public static final int SECURITY_USER_LOGOUT = 210047;
     public static final int SECURITY_USER_RESTRICTION_ADDED = 210027;
     public static final int SECURITY_USER_RESTRICTION_REMOVED = 210028;
     public static final int SECURITY_WIFI_CONNECTION = 210037;
@@ -61,6 +66,7 @@ public class SecurityLogTags {
     public static void writeSecurityCertAuthorityRemoved(int p0, java.lang.String p1, int p2) {}
     public static void writeSecurityCertValidationFailure(java.lang.String p0) {}
     public static void writeSecurityCryptoSelfTestCompleted(int p0) {}
+    public static void writeSecurityDataLeakPreventionEvent(java.lang.String p0) {}
     public static void writeSecurityKeyDestroyed(int p0, java.lang.String p1, int p2) {}
     public static void writeSecurityKeyGenerated(int p0, java.lang.String p1, int p2) {}
     public static void writeSecurityKeyImported(int p0, java.lang.String p1, int p2) {}
@@ -80,7 +86,9 @@ public class SecurityLogTags {
     public static void writeSecurityNfcEnabled() {}
     public static void writeSecurityOsShutdown() {}
     public static void writeSecurityOsStartup(java.lang.String p0, java.lang.String p1) {}
+    public static void writeSecurityPackageInstallFailed(int p0, java.lang.String p1) {}
     public static void writeSecurityPackageInstalled(java.lang.String p0, long p1, int p2) {}
+    public static void writeSecurityPackageUninstallFailed(int p0, java.lang.String p1) {}
     public static void writeSecurityPackageUninstalled(java.lang.String p0, long p1, int p2) {}
     public static void writeSecurityPackageUpdated(java.lang.String p0, long p1, int p2) {}
     public static void writeSecurityPasswordChanged(int p0, int p1) {}
@@ -89,6 +97,8 @@ public class SecurityLogTags {
     public static void writeSecurityPasswordExpirationSet(java.lang.String p0, int p1, int p2, long p3) {}
     public static void writeSecurityPasswordHistoryLengthSet(java.lang.String p0, int p1, int p2, int p3) {}
     public static void writeSecurityRemoteLock(java.lang.String p0, int p1, int p2) {}
+    public static void writeSecurityUserLoginAttempt(int p0, int p1) {}
+    public static void writeSecurityUserLogout(int p0) {}
     public static void writeSecurityUserRestrictionAdded(java.lang.String p0, int p1, java.lang.String p2) {}
     public static void writeSecurityUserRestrictionRemoved(java.lang.String p0, int p1, java.lang.String p2) {}
     public static void writeSecurityWifiConnection(java.lang.String p0, java.lang.String p1, java.lang.String p2) {}

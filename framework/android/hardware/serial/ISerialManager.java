@@ -10,18 +10,6 @@ public interface ISerialManager extends android.os.IInterface {
     public void revokeSerialPortAccess(java.lang.String p0, int p1, boolean p2, android.os.IBinder p3) throws android.os.RemoteException;
     public void unregisterSerialPortListener(android.hardware.serial.ISerialPortListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.serial.ISerialManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.util.List<android.hardware.serial.SerialPortInfo> getSerialPorts() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getSerialPortsInConfig() throws android.os.RemoteException { return null; }
-        public void grantSerialPortAccess(java.lang.String p0, int p1, boolean p2, android.os.IBinder p3) throws android.os.RemoteException {}
-        public void registerSerialPortListener(android.hardware.serial.ISerialPortListener p0) throws android.os.RemoteException {}
-        public void requestOpen(java.lang.String p0, int p1, boolean p2, java.lang.String p3, android.hardware.serial.ISerialPortResponseCallback p4) throws android.os.RemoteException {}
-        public void revokeSerialPortAccess(java.lang.String p0, int p1, boolean p2, android.os.IBinder p3) throws android.os.RemoteException {}
-        public void unregisterSerialPortListener(android.hardware.serial.ISerialPortListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.serial.ISerialManager {
         static final int TRANSACTION_getSerialPorts = 1;
         static final int TRANSACTION_getSerialPortsInConfig = 2;
@@ -50,5 +38,17 @@ public interface ISerialManager extends android.os.IInterface {
             public void revokeSerialPortAccess(java.lang.String p0, int p1, boolean p2, android.os.IBinder p3) throws android.os.RemoteException {}
             public void unregisterSerialPortListener(android.hardware.serial.ISerialPortListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.serial.ISerialManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.util.List<android.hardware.serial.SerialPortInfo> getSerialPorts() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getSerialPortsInConfig() throws android.os.RemoteException { return null; }
+        public void grantSerialPortAccess(java.lang.String p0, int p1, boolean p2, android.os.IBinder p3) throws android.os.RemoteException {}
+        public void registerSerialPortListener(android.hardware.serial.ISerialPortListener p0) throws android.os.RemoteException {}
+        public void requestOpen(java.lang.String p0, int p1, boolean p2, java.lang.String p3, android.hardware.serial.ISerialPortResponseCallback p4) throws android.os.RemoteException {}
+        public void revokeSerialPortAccess(java.lang.String p0, int p1, boolean p2, android.os.IBinder p3) throws android.os.RemoteException {}
+        public void unregisterSerialPortListener(android.hardware.serial.ISerialPortListener p0) throws android.os.RemoteException {}
     }
 }

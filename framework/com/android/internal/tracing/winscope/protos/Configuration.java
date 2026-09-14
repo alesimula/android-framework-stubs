@@ -3,6 +3,14 @@ package com.android.internal.tracing.winscope.protos;
 public final class Configuration {
     public Configuration() {}
 
+    public final class ResourcesConfigurationProto {
+        public static final long CONFIGURATION = 1146756268033L;
+        public static final long SCREEN_HEIGHT_PX = 1155346202628L;
+        public static final long SCREEN_WIDTH_PX = 1155346202627L;
+        public static final long SDK_VERSION = 1155346202626L;
+        public ResourcesConfigurationProto(com.android.internal.tracing.winscope.protos.Configuration p0) {}
+    }
+
     public final class ConfigurationProto {
         public static final long COLOR_MODE = 1155346202630L;
         public static final long DENSITY_DPI = 1155346202642L;
@@ -29,6 +37,12 @@ public final class Configuration {
         public ConfigurationProto(com.android.internal.tracing.winscope.protos.Configuration p0) {}
     }
 
+    public final class GlobalConfigurationProto {
+        public static final long DEVICE = 1146756268034L;
+        public static final long RESOURCES = 1146756268033L;
+        public GlobalConfigurationProto(com.android.internal.tracing.winscope.protos.Configuration p0) {}
+    }
+
     public final class DeviceConfigurationProto {
         public static final long CPU_ARCHITECTURES = 2237677961228L;
         public static final long FEATURES = 2237677961227L;
@@ -43,19 +57,5 @@ public final class Configuration {
         public static final long STABLE_SCREEN_WIDTH_PX = 1155346202625L;
         public static final long TOTAL_RAM = 1116691496964L;
         public DeviceConfigurationProto(com.android.internal.tracing.winscope.protos.Configuration p0) {}
-    }
-
-    public final class GlobalConfigurationProto {
-        public static final long DEVICE = 1146756268034L;
-        public static final long RESOURCES = 1146756268033L;
-        public GlobalConfigurationProto(com.android.internal.tracing.winscope.protos.Configuration p0) {}
-    }
-
-    public final class ResourcesConfigurationProto {
-        public static final long CONFIGURATION = 1146756268033L;
-        public static final long SCREEN_HEIGHT_PX = 1155346202628L;
-        public static final long SCREEN_WIDTH_PX = 1155346202627L;
-        public static final long SDK_VERSION = 1155346202626L;
-        public ResourcesConfigurationProto(com.android.internal.tracing.winscope.protos.Configuration p0) {}
     }
 }

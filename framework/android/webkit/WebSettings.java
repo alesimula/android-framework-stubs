@@ -194,10 +194,6 @@ public abstract class WebSettings {
     public static @interface CacheMode {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ForceDark {
-    }
-
     public static enum LayoutAlgorithm {
         NARROW_COLUMNS,
         NORMAL,
@@ -208,8 +204,7 @@ public abstract class WebSettings {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.PARAMETER, java.lang.annotation.ElementType.METHOD})
-    private static @interface MenuItemFlags {
+    public static @interface ForceDark {
     }
 
     public static enum PluginState {
@@ -220,12 +215,14 @@ public abstract class WebSettings {
         private PluginState() {}
     }
 
-    public static enum RenderPriority {
-        HIGH,
-        LOW,
-        NORMAL;
-        private static final android.webkit.WebSettings.RenderPriority[] $VALUES = null;
-        private RenderPriority() {}
+    public static enum ZoomDensity {
+        CLOSE,
+        FAR,
+        MEDIUM;
+        private static final android.webkit.WebSettings.ZoomDensity[] $VALUES = null;
+        int value;
+        private ZoomDensity() {}
+        public int getValue() { return 0; }
     }
 
     @java.lang.Deprecated
@@ -240,13 +237,16 @@ public abstract class WebSettings {
         private TextSize() {}
     }
 
-    public static enum ZoomDensity {
-        CLOSE,
-        FAR,
-        MEDIUM;
-        private static final android.webkit.WebSettings.ZoomDensity[] $VALUES = null;
-        int value;
-        private ZoomDensity() {}
-        public int getValue() { return 0; }
+    public static enum RenderPriority {
+        HIGH,
+        LOW,
+        NORMAL;
+        private static final android.webkit.WebSettings.RenderPriority[] $VALUES = null;
+        private RenderPriority() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.PARAMETER, java.lang.annotation.ElementType.METHOD})
+    private static @interface MenuItemFlags {
     }
 }

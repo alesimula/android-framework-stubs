@@ -45,25 +45,10 @@ public class FaceManager implements android.hardware.biometrics.BiometricAuthent
     public void scheduleWatchdog() {}
     public void setFeature(int p0, int p1, boolean p2, byte[] p3, android.hardware.face.FaceManager.SetFeatureCallback p4) {}
 
-    public static abstract class AuthenticationCallback extends android.hardware.biometrics.BiometricAuthenticator.AuthenticationCallback {
-        public AuthenticationCallback() { super(); }
-        public void onAuthenticationAcquired(int p0) {}
-        public void onAuthenticationError(int p0, java.lang.CharSequence p1) {}
-        public void onAuthenticationFailed() {}
-        public void onAuthenticationHelp(int p0, java.lang.CharSequence p1) {}
-        public void onAuthenticationSucceeded(android.hardware.face.FaceManager.AuthenticationResult p0) {}
-    }
-
-    public static class AuthenticationResult {
-        private final android.hardware.biometrics.CryptoObject mCryptoObject = null;
-        private final android.hardware.face.Face mFace = null;
-        private final boolean mIsStrongBiometric = false;
-        private final int mUserId = 0;
-        public AuthenticationResult(android.hardware.biometrics.CryptoObject p0, android.hardware.face.Face p1, int p2, boolean p3) {}
-        public android.hardware.biometrics.CryptoObject getCryptoObject() { return null; }
-        public android.hardware.face.Face getFace() { return null; }
-        public int getUserId() { return 0; }
-        public boolean isStrongBiometric() { return false; }
+    private class OnEnrollCancelListener implements android.os.CancellationSignal.OnCancelListener {
+        private final long mAuthRequestId = 0L;
+        private OnEnrollCancelListener(android.hardware.face.FaceManager p0, long p1) {}
+        public void onCancel() {}
     }
 
     public static abstract class EnrollmentCallback {
@@ -74,9 +59,55 @@ public class FaceManager implements android.hardware.biometrics.BiometricAuthent
         public void onEnrollmentProgress(int p0) {}
     }
 
+    public static abstract class AuthenticationCallback extends android.hardware.biometrics.BiometricAuthenticator.AuthenticationCallback {
+        public AuthenticationCallback() { super(); }
+        public void onAuthenticationAcquired(int p0) {}
+        public void onAuthenticationError(int p0, java.lang.CharSequence p1) {}
+        public void onAuthenticationFailed() {}
+        public void onAuthenticationHelp(int p0, java.lang.CharSequence p1) {}
+        public void onAuthenticationSucceeded(android.hardware.face.FaceManager.AuthenticationResult p0) {}
+    }
+
+    private class OnFaceDetectionCancelListener implements android.os.CancellationSignal.OnCancelListener {
+        private final long mAuthRequestId = 0L;
+        OnFaceDetectionCancelListener(android.hardware.face.FaceManager p0, long p1) {}
+        public void onCancel() {}
+    }
+
+    public static interface GenerateChallengeCallback {
+        public void onGenerateChallengeResult(int p0, int p1, long p2);
+    }
+
     public static interface FaceDetectionCallback {
         default public void onDetectionError(int p0) {}
         public void onFaceDetected(int p0, int p1, boolean p2);
+    }
+
+    public static abstract class RemovalCallback {
+        public RemovalCallback() {}
+        public void onRemovalError(android.hardware.face.Face p0, int p1, java.lang.CharSequence p2) {}
+        public void onRemovalSucceeded(android.hardware.face.Face p0, int p1) {}
+    }
+
+    private class OnAuthenticationCancelListener implements android.os.CancellationSignal.OnCancelListener {
+        private final long mAuthRequestId = 0L;
+        OnAuthenticationCancelListener(android.hardware.face.FaceManager p0, long p1) {}
+        public void onCancel() {}
+    }
+
+    public static abstract class SetFeatureCallback {
+        public SetFeatureCallback() {}
+        public abstract void onCompleted(boolean p0, int p1);
+    }
+
+    public static abstract class LockoutResetCallback {
+        public LockoutResetCallback() {}
+        public void onLockoutReset(int p0) {}
+    }
+
+    public static abstract class GetFeatureCallback {
+        public GetFeatureCallback() {}
+        public abstract void onCompleted(boolean p0, int[] p1, boolean[] p2);
     }
 
     private class FaceServiceReceiver extends android.hardware.face.IFaceServiceReceiver.Stub {
@@ -96,46 +127,15 @@ public class FaceManager implements android.hardware.biometrics.BiometricAuthent
         public void onRemoved(android.hardware.face.Face p0, int p1) {}
     }
 
-    public static interface GenerateChallengeCallback {
-        public void onGenerateChallengeResult(int p0, int p1, long p2);
-    }
-
-    public static abstract class GetFeatureCallback {
-        public GetFeatureCallback() {}
-        public abstract void onCompleted(boolean p0, int[] p1, boolean[] p2);
-    }
-
-    public static abstract class LockoutResetCallback {
-        public LockoutResetCallback() {}
-        public void onLockoutReset(int p0) {}
-    }
-
-    private class OnAuthenticationCancelListener implements android.os.CancellationSignal.OnCancelListener {
-        private final long mAuthRequestId = 0L;
-        OnAuthenticationCancelListener(android.hardware.face.FaceManager p0, long p1) {}
-        public void onCancel() {}
-    }
-
-    private class OnEnrollCancelListener implements android.os.CancellationSignal.OnCancelListener {
-        private final long mAuthRequestId = 0L;
-        private OnEnrollCancelListener(android.hardware.face.FaceManager p0, long p1) {}
-        public void onCancel() {}
-    }
-
-    private class OnFaceDetectionCancelListener implements android.os.CancellationSignal.OnCancelListener {
-        private final long mAuthRequestId = 0L;
-        OnFaceDetectionCancelListener(android.hardware.face.FaceManager p0, long p1) {}
-        public void onCancel() {}
-    }
-
-    public static abstract class RemovalCallback {
-        public RemovalCallback() {}
-        public void onRemovalError(android.hardware.face.Face p0, int p1, java.lang.CharSequence p2) {}
-        public void onRemovalSucceeded(android.hardware.face.Face p0, int p1) {}
-    }
-
-    public static abstract class SetFeatureCallback {
-        public SetFeatureCallback() {}
-        public abstract void onCompleted(boolean p0, int p1);
+    public static class AuthenticationResult {
+        private final android.hardware.biometrics.CryptoObject mCryptoObject = null;
+        private final android.hardware.face.Face mFace = null;
+        private final boolean mIsStrongBiometric = false;
+        private final int mUserId = 0;
+        public AuthenticationResult(android.hardware.biometrics.CryptoObject p0, android.hardware.face.Face p1, int p2, boolean p3) {}
+        public android.hardware.biometrics.CryptoObject getCryptoObject() { return null; }
+        public android.hardware.face.Face getFace() { return null; }
+        public int getUserId() { return 0; }
+        public boolean isStrongBiometric() { return false; }
     }
 }

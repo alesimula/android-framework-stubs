@@ -132,26 +132,6 @@ public class TextUtils {
     public static void writeToParcel(java.lang.CharSequence p0, android.os.Parcel p1, int p2) {}
     private static void writeWhere(android.os.Parcel p0, android.text.Spanned p1, java.lang.Object p2) {}
 
-    public static interface EllipsizeCallback {
-        public void ellipsized(int p0, int p1);
-    }
-
-    private static class Reverser implements java.lang.CharSequence, android.text.GetChars {
-        private int mEnd;
-        private java.lang.CharSequence mSource;
-        private int mStart;
-        public Reverser(java.lang.CharSequence p0, int p1, int p2) {}
-        public char charAt(int p0) { return 0; }
-        public void getChars(int p0, int p1, char[] p2, int p3) {}
-        public int length() { return 0; }
-        public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
-        public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SafeStringFlags {
-    }
-
     public static class SimpleStringSplitter implements android.text.TextUtils.StringSplitter, java.util.Iterator<java.lang.String> {
         private char mDelimiter;
         private int mLength;
@@ -169,6 +149,36 @@ public class TextUtils {
         public void setString(java.lang.String p0);
     }
 
+    public static enum TruncateAt {
+        END,
+        END_SMALL,
+        MARQUEE,
+        MIDDLE,
+        START;
+        private static final android.text.TextUtils.TruncateAt[] $VALUES = null;
+        private TruncateAt() {}
+    }
+
+    private static class Reverser implements java.lang.CharSequence, android.text.GetChars {
+        private int mEnd;
+        private java.lang.CharSequence mSource;
+        private int mStart;
+        public Reverser(java.lang.CharSequence p0, int p1, int p2) {}
+        public char charAt(int p0) { return 0; }
+        public void getChars(int p0, int p1, char[] p2, int p3) {}
+        public int length() { return 0; }
+        public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static interface EllipsizeCallback {
+        public void ellipsized(int p0, int p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SafeStringFlags {
+    }
+
     private static class StringWithRemovedChars {
         private final java.lang.String mOriginal = null;
         private java.util.BitSet mRemovedChars;
@@ -179,15 +189,5 @@ public class TextUtils {
         void removeAllCharBefore(int p0) {}
         void removeRange(int p0, int p1) {}
         public java.lang.String toString() { return null; }
-    }
-
-    public static enum TruncateAt {
-        END,
-        END_SMALL,
-        MARQUEE,
-        MIDDLE,
-        START;
-        private static final android.text.TextUtils.TruncateAt[] $VALUES = null;
-        private TruncateAt() {}
     }
 }

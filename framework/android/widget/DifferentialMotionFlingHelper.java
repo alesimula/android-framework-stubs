@@ -20,14 +20,14 @@ public class DifferentialMotionFlingHelper {
     private void recycleVelocityTracker() {}
     public void onMotionEvent(android.view.MotionEvent p0, int p1) {}
 
+    public static interface DifferentialVelocityProvider {
+        public float getCurrentVelocity(android.view.VelocityTracker p0, android.view.MotionEvent p1, int p2);
+    }
+
     public static interface DifferentialMotionFlingTarget {
         public float getScaledScrollFactor();
         public boolean startDifferentialMotionFling(float p0);
         public void stopDifferentialMotionFling();
-    }
-
-    public static interface DifferentialVelocityProvider {
-        public float getCurrentVelocity(android.view.VelocityTracker p0, android.view.MotionEvent p1, int p2);
     }
 
     public static interface FlingVelocityThresholdCalculator {

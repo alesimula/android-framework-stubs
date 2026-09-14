@@ -281,30 +281,53 @@ public class Editor {
     void undo() {}
     void updateCursorPosition() {}
 
-    private static final class AccessibilitySmartActions {
-        private final android.util.SparseArray<android.util.Pair<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction, android.app.RemoteAction>> mActions = null;
-        private final android.widget.TextView mTextView = null;
-        private AccessibilitySmartActions(android.widget.TextView p0) {}
-        private void addAction(android.app.RemoteAction p0) {}
-        private void reset() {}
-        void onInitializeAccessibilityNodeInfo(android.view.accessibility.AccessibilityNodeInfo p0) {}
-        boolean performAccessibilityAction(int p0) { return false; }
+    private static interface EasyEditDeleteListener {
+        public void onDeleteClick(android.text.style.EasyEditSpan p0);
     }
 
-    public class AssistantCallbackHelper {
-        private final java.util.Map<android.view.MenuItem, android.view.View.OnClickListener> mAssistClickHandlers = null;
-        private final android.widget.SelectionActionModeHelper mHelper = null;
-        private android.view.textclassifier.TextClassification mPrevTextClassification;
-        public AssistantCallbackHelper(android.widget.Editor p0, android.widget.SelectionActionModeHelper p1) {}
-        private android.view.MenuItem addAssistMenuItem(android.view.Menu p0, android.app.RemoteAction p1, int p2, int p3, int p4, android.view.MenuItem.OnMenuItemClickListener p5) { return null; }
-        private void clearAssistMenuItems(android.view.Menu p0) {}
-        private int createAssistMenuItemPendingIntentRequestCode() { return 0; }
-        private boolean hasLegacyAssistItem(android.view.textclassifier.TextClassification p0) { return false; }
-        private boolean shouldEnableAssistMenuItems() { return false; }
-        public void clearCallbackHandlers() {}
-        public android.view.View.OnClickListener getOnClickListener(android.view.MenuItem p0) { return null; }
-        public boolean onAssistMenuItemClicked(android.view.MenuItem p0) { return false; }
-        public void updateAssistMenuItems(android.view.Menu p0, android.view.MenuItem.OnMenuItemClickListener p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    private static @interface MagnifierHandleTrigger {
+        public static final int INSERTION = 0;
+        public static final int SELECTION_END = 2;
+        public static final int SELECTION_START = 1;
+    }
+
+    private class SuggestionHelper {
+        private final java.util.HashMap<android.text.style.SuggestionSpan, java.lang.Integer> mSpansLengths = null;
+        private final java.util.Comparator<android.text.style.SuggestionSpan> mSuggestionSpanComparator = null;
+        private SuggestionHelper(android.widget.Editor p0) {}
+        private android.text.style.SuggestionSpan[] getSortedSuggestionSpans() { return null; }
+        public int getSuggestionInfo(android.widget.Editor.SuggestionInfo[] p0, android.widget.Editor.SuggestionSpanInfo p1) { return 0; }
+
+        private class SuggestionSpanComparator implements java.util.Comparator<android.text.style.SuggestionSpan> {
+            private SuggestionSpanComparator(android.widget.Editor.SuggestionHelper p0) {}
+            private int compareFlag(int p0, int p1, int p2) { return 0; }
+            public int compare(android.text.style.SuggestionSpan p0, android.text.style.SuggestionSpan p1) { return 0; }
+        }
+    }
+
+    private class PositionListener implements android.view.ViewTreeObserver.OnPreDrawListener {
+        private static final int MAXIMUM_NUMBER_OF_LISTENERS = 7;
+        private boolean[] mCanMove;
+        private int mNumberOfListeners;
+        private boolean mPositionHasChanged;
+        private android.widget.Editor.TextViewPositionListener[] mPositionListeners;
+        private int mPositionX;
+        private int mPositionXOnScreen;
+        private int mPositionY;
+        private int mPositionYOnScreen;
+        private boolean mScrollHasChanged;
+        final int[] mTempCoords = null;
+        private PositionListener(android.widget.Editor p0) {}
+        private void updatePosition() {}
+        public void addSubscriber(android.widget.Editor.TextViewPositionListener p0, boolean p1) {}
+        public int getPositionX() { return 0; }
+        public int getPositionXOnScreen() { return 0; }
+        public int getPositionY() { return 0; }
+        public int getPositionYOnScreen() { return 0; }
+        public boolean onPreDraw() { return false; }
+        public void onScrollChanged() {}
+        public void removeSubscriber(android.widget.Editor.TextViewPositionListener p0) {}
     }
 
     private class Blink implements java.lang.Runnable {
@@ -315,110 +338,76 @@ public class Editor {
         void uncancel() {}
     }
 
-    private class CorrectionHighlighter {
-        private static final int FADE_OUT_DURATION = 400;
-        private int mEnd;
-        private long mFadingStartTime;
-        private final android.graphics.Paint mPaint = null;
-        private final android.graphics.Path mPath = null;
-        private int mStart;
-        private android.graphics.RectF mTempRectF;
-        public CorrectionHighlighter(android.widget.Editor p0) {}
-        private void invalidate(boolean p0) {}
-        private void stopAnimation() {}
-        private boolean updatePaint() { return false; }
-        private boolean updatePath() { return false; }
-        public void draw(android.graphics.Canvas p0, int p1) {}
-        public void highlight(android.view.inputmethod.CorrectionInfo p0) {}
-    }
-
-    private final class CursorAnchorInfoNotifier implements android.widget.Editor.TextViewPositionListener {
-        final android.view.inputmethod.CursorAnchorInfo.Builder mCursorAnchorInfoBuilder = null;
-        final android.graphics.Matrix mViewToScreenMatrix = null;
-        private CursorAnchorInfoNotifier(android.widget.Editor p0) {}
-        public void updatePosition(int p0, int p1, boolean p2, boolean p3) {}
-    }
-
-    private static interface CursorController extends android.view.ViewTreeObserver.OnTouchModeChangeListener {
-        public void hide();
-        public boolean isActive();
-        public boolean isCursorBeingModified();
-        public void onDetached();
-        public void show();
-    }
-
-    private static class DragLocalState {
-        public int end;
-        public android.widget.TextView sourceTextView;
-        public int start;
-        public DragLocalState(android.widget.TextView p0, int p1, int p2) {}
-    }
-
-    private static interface EasyEditDeleteListener {
-        public void onDeleteClick(android.text.style.EasyEditSpan p0);
-    }
-
-    private class EasyEditPopupWindow extends android.widget.Editor.PinnedPopupWindow implements android.view.View.OnClickListener {
-        private static final int POPUP_TEXT_LAYOUT = 17367378;
-        private android.widget.TextView mDeleteTextView;
-        private android.text.style.EasyEditSpan mEasyEditSpan;
-        private android.widget.Editor.EasyEditDeleteListener mOnDeleteListener;
-        private EasyEditPopupWindow(android.widget.Editor p0) { super(null); }
-        private void setOnDeleteListener(android.widget.Editor.EasyEditDeleteListener p0) {}
-        protected int clipVertically(int p0) { return 0; }
-        protected void createPopupWindow() {}
-        protected int getTextOffset() { return 0; }
-        protected int getVerticalLocalPosition(int p0) { return 0; }
+    public class SelectionModifierCursorController implements android.widget.Editor.CursorController {
+        private static final int DRAG_ACCELERATOR_MODE_CHARACTER = 1;
+        private static final int DRAG_ACCELERATOR_MODE_INACTIVE = 0;
+        private static final int DRAG_ACCELERATOR_MODE_PARAGRAPH = 3;
+        private static final int DRAG_ACCELERATOR_MODE_WORD = 2;
+        private int mDragAcceleratorMode;
+        private android.widget.Editor.SelectionHandleView mEndHandle;
+        private boolean mGestureStayedInTapRegion;
+        private boolean mHaventMovedEnoughToStartDrag;
+        private int mLineSelectionIsOn;
+        private int mMaxTouchOffset;
+        private int mMinTouchOffset;
+        private android.widget.Editor.SelectionHandleView mStartHandle;
+        private int mStartOffset;
+        private boolean mSwitchedLines;
+        SelectionModifierCursorController(android.widget.Editor p0) {}
+        private void initHandles() {}
+        private void reloadHandleDrawables() {}
+        private void resetDragAcceleratorState() {}
+        private boolean selectCurrentParagraphAndStartDrag() { return false; }
+        private void updateCharacterBasedSelection(android.view.MotionEvent p0) {}
+        private void updateMinAndMaxOffsets(android.view.MotionEvent p0) {}
+        private void updateParagraphBasedSelection(android.view.MotionEvent p0) {}
+        private void updateSelection(android.view.MotionEvent p0) {}
+        private void updateSelectionInternal(int p0, int p1, boolean p2) {}
+        private void updateWordBasedSelection(android.view.MotionEvent p0) {}
+        public void enterDrag(int p0) {}
+        public int getMaxTouchOffset() { return 0; }
+        public int getMinTouchOffset() { return 0; }
         public void hide() {}
-        protected void initContentView() {}
-        public void onClick(android.view.View p0) {}
-        public void setEasyEditSpan(android.text.style.EasyEditSpan p0) {}
+        public void invalidateHandles() {}
+        public boolean isActive() { return false; }
+        public boolean isCursorBeingModified() { return false; }
+        public boolean isDragAcceleratorActive() { return false; }
+        public boolean isSelectionStartDragged() { return false; }
+        public void onDetached() {}
+        public void onTouchEvent(android.view.MotionEvent p0) {}
+        public void onTouchModeChanged(boolean p0) {}
+        public void resetTouchOffsets() {}
+        public void show() {}
     }
 
-    public static class EditOperation extends android.content.UndoOperation<android.widget.Editor> {
-        public static final android.os.Parcelable.ClassLoaderCreator<android.widget.Editor.EditOperation> CREATOR = null;
-        private static final int TYPE_DELETE = 1;
-        private static final int TYPE_INSERT = 0;
-        private static final int TYPE_REPLACE = 2;
-        private boolean mFrozen;
-        private boolean mIsComposition;
-        private int mNewCursorPos;
-        private java.lang.String mNewText;
-        private int mOldCursorPos;
-        private java.lang.String mOldText;
-        private int mStart;
-        private int mType;
-        public EditOperation(android.os.Parcel p0, java.lang.ClassLoader p1) { super((android.content.UndoOwner)null); }
-        public EditOperation(android.widget.Editor p0, java.lang.String p1, int p2, java.lang.String p3, boolean p4) { super((android.content.UndoOwner)null); }
-        private int getNewTextEnd() { return 0; }
-        private int getOldTextEnd() { return 0; }
-        private java.lang.String getTypeString() { return null; }
-        private boolean mergeDeleteWith(android.widget.Editor.EditOperation p0) { return false; }
-        private boolean mergeInsertWith(android.widget.Editor.EditOperation p0) { return false; }
-        private boolean mergeReplaceWith(android.widget.Editor.EditOperation p0) { return false; }
-        private boolean mergeWith(android.widget.Editor.EditOperation p0) { return false; }
-        private static void modifyText(android.text.Editable p0, int p1, int p2, java.lang.CharSequence p3, int p4, int p5) {}
-        public void commit() {}
-        public void forceMergeWith(android.widget.Editor.EditOperation p0) {}
-        public void redo() {}
-        public java.lang.String toString() { return null; }
-        public void undo() {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    private class SpanController implements android.text.SpanWatcher {
+        private static final int DISPLAY_TIMEOUT_MS = 3000;
+        private java.lang.Runnable mHidePopup;
+        private android.widget.Editor.EasyEditPopupWindow mPopupWindow;
+        private SpanController(android.widget.Editor p0) {}
+        private boolean isNonIntermediateSelectionSpan(android.text.Spannable p0, java.lang.Object p1) { return false; }
+        private void sendEasySpanNotification(int p0, android.text.style.EasyEditSpan p1) {}
+        public void hide() {}
+        public void onSpanAdded(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
+        public void onSpanChanged(android.text.Spannable p0, java.lang.Object p1, int p2, int p3, int p4, int p5) {}
+        public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
     }
 
-    private static class ErrorPopup extends android.widget.PopupWindow {
-        private boolean mAbove;
-        private int mPopupInlineErrorAboveBackgroundId;
-        private int mPopupInlineErrorBackgroundId;
-        private final android.widget.TextView mView = null;
-        ErrorPopup(android.widget.TextView p0, int p1, int p2) { super(); }
-        private int getResourceId(int p0, int p1) { return 0; }
-        void fixDirection(boolean p0) {}
-        public void update(int p0, int p1, int p2, int p3, boolean p4) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HandleType {
+    private static class MagnifierMotionAnimator {
+        private static final long DURATION = 100L;
+        private float mAnimationCurrentX;
+        private float mAnimationCurrentY;
+        private float mAnimationStartX;
+        private float mAnimationStartY;
+        private final android.animation.ValueAnimator mAnimator = null;
+        private float mLastX;
+        private float mLastY;
+        private final android.widget.Magnifier mMagnifier = null;
+        private boolean mMagnifierIsShowing;
+        private MagnifierMotionAnimator(android.widget.Magnifier p0) {}
+        private void dismiss() {}
+        private void show(float p0, float p1) {}
+        private void update() {}
     }
 
     public abstract class HandleView extends android.view.View implements android.widget.Editor.TextViewPositionListener {
@@ -505,33 +494,60 @@ public class Editor {
         protected abstract void updateSelection(int p0);
     }
 
-    static class InputContentType {
-        boolean enterDown;
-        android.os.Bundle extras;
-        int imeActionId;
-        java.lang.CharSequence imeActionLabel;
-        android.os.LocaleList imeHintLocales;
-        int imeOptions;
-        android.widget.TextView.OnEditorActionListener onEditorActionListener;
-        java.lang.String privateImeOptions;
-        InputContentType() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HandleType {
     }
 
-    static class InputMethodState {
-        int mBatchEditNesting;
-        int mChangedDelta;
-        int mChangedEnd;
-        int mChangedStart;
-        boolean mContentChanged;
-        boolean mCursorChanged;
-        final android.view.inputmethod.ExtractedText mExtractedText = null;
-        android.view.inputmethod.ExtractedTextRequest mExtractedTextRequest;
-        boolean mIsCommittingText;
-        boolean mIsConversionSuggestionSelected;
-        boolean mSelectionModeChanged;
-        int mUpdateCursorAnchorInfoFilter;
-        int mUpdateCursorAnchorInfoMode;
-        InputMethodState() {}
+    public class InsertionPointCursorController implements android.widget.Editor.CursorController {
+        private android.widget.Editor.InsertionHandleView mHandle;
+        private boolean mIsDraggingCursor;
+        private boolean mIsTouchSnappedToHandleDuringDrag;
+        private int mPrevLineDuringDrag;
+        public InsertionPointCursorController(android.widget.Editor p0) {}
+        private void endCursorDrag(android.view.MotionEvent p0) {}
+        private int getLineDuringDrag(android.view.MotionEvent p0) { return 0; }
+        private boolean isFromStylus(android.view.MotionEvent p0) { return false; }
+        private void performCursorDrag(android.view.MotionEvent p0) {}
+        private void positionCursorDuringDrag(android.view.MotionEvent p0) {}
+        private void reloadHandleDrawable() {}
+        private void startCursorDrag(android.view.MotionEvent p0) {}
+        public android.widget.Editor.InsertionHandleView getHandle() { return null; }
+        public void hide() {}
+        public void invalidateHandle() {}
+        public boolean isActive() { return false; }
+        public boolean isCursorBeingModified() { return false; }
+        public void onDetached() {}
+        public void onTouchEvent(android.view.MotionEvent p0) {}
+        public void onTouchModeChanged(boolean p0) {}
+        public void show() {}
+    }
+
+    private static final class AccessibilitySmartActions {
+        private final android.util.SparseArray<android.util.Pair<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction, android.app.RemoteAction>> mActions = null;
+        private final android.widget.TextView mTextView = null;
+        private AccessibilitySmartActions(android.widget.TextView p0) {}
+        private void addAction(android.app.RemoteAction p0) {}
+        private void reset() {}
+        void onInitializeAccessibilityNodeInfo(android.view.accessibility.AccessibilityNodeInfo p0) {}
+        boolean performAccessibilityAction(int p0) { return false; }
+    }
+
+    private class TextActionModeCallback extends android.view.ActionMode.Callback2 {
+        private final int mHandleHeight = 0;
+        private final boolean mHasSelection = false;
+        private final android.widget.Editor.AssistantCallbackHelper mHelper = null;
+        private final android.graphics.RectF mSelectionBounds = null;
+        private final android.graphics.Path mSelectionPath = null;
+        TextActionModeCallback(android.widget.Editor p0, int p1) { super(); }
+        private android.view.ActionMode.Callback getCustomCallback() { return null; }
+        private void populateMenuWithItems(android.view.Menu p0) {}
+        private void updateReplaceItem(android.view.Menu p0) {}
+        private void updateSelectAllItem(android.view.Menu p0) {}
+        public boolean onActionItemClicked(android.view.ActionMode p0, android.view.MenuItem p1) { return false; }
+        public boolean onCreateActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
+        public void onDestroyActionMode(android.view.ActionMode p0) {}
+        public void onGetContentRect(android.view.ActionMode p0, android.view.View p1, android.graphics.Rect p2) {}
+        public boolean onPrepareActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
     }
 
     private class InsertionHandleView extends android.widget.Editor.HandleView {
@@ -571,69 +587,141 @@ public class Editor {
         public void updateSelection(int p0) {}
     }
 
-    public class InsertionPointCursorController implements android.widget.Editor.CursorController {
-        private android.widget.Editor.InsertionHandleView mHandle;
-        private boolean mIsDraggingCursor;
-        private boolean mIsTouchSnappedToHandleDuringDrag;
-        private int mPrevLineDuringDrag;
-        public InsertionPointCursorController(android.widget.Editor p0) {}
-        private void endCursorDrag(android.view.MotionEvent p0) {}
-        private int getLineDuringDrag(android.view.MotionEvent p0) { return 0; }
-        private boolean isFromStylus(android.view.MotionEvent p0) { return false; }
-        private void performCursorDrag(android.view.MotionEvent p0) {}
-        private void positionCursorDuringDrag(android.view.MotionEvent p0) {}
-        private void reloadHandleDrawable() {}
-        private void startCursorDrag(android.view.MotionEvent p0) {}
-        public android.widget.Editor.InsertionHandleView getHandle() { return null; }
-        public void hide() {}
-        public void invalidateHandle() {}
-        public boolean isActive() { return false; }
-        public boolean isCursorBeingModified() { return false; }
-        public void onDetached() {}
-        public void onTouchEvent(android.view.MotionEvent p0) {}
-        public void onTouchModeChanged(boolean p0) {}
-        public void show() {}
+    static class InputMethodState {
+        int mBatchEditNesting;
+        int mChangedDelta;
+        int mChangedEnd;
+        int mChangedStart;
+        boolean mContentChanged;
+        boolean mCursorChanged;
+        final android.view.inputmethod.ExtractedText mExtractedText = null;
+        android.view.inputmethod.ExtractedTextRequest mExtractedTextRequest;
+        boolean mIsCommittingText;
+        boolean mIsConversionSuggestionSelected;
+        boolean mSelectionModeChanged;
+        int mUpdateCursorAnchorInfoFilter;
+        int mUpdateCursorAnchorInfoMode;
+        InputMethodState() {}
     }
 
-    private static final class InsertModeController {
-        private final android.graphics.Paint mHighlightPaint = null;
-        private final android.graphics.Path mHighlightPath = null;
-        private android.text.method.InsertModeTransformationMethod mInsertModeTransformationMethod;
-        private boolean mIsInsertModeActive;
-        private final android.widget.TextView mTextView = null;
-        private boolean mUpdatingTransformationMethod;
-        InsertModeController(android.widget.TextView p0) {}
-        private void setTransformationMethod(android.text.method.TransformationMethod p0, boolean p1) {}
-        void beforeSetText() {}
-        boolean enterInsertMode(int p0) { return false; }
-        void exitInsertMode() {}
-        void exitInsertMode(boolean p0) {}
-        void onDraw(android.graphics.Canvas p0) {}
-        void updateTransformationMethod(android.text.method.TransformationMethod p0) {}
+    private static final class SuggestionSpanInfo {
+        int mSpanEnd;
+        int mSpanStart;
+        android.text.style.SuggestionSpan mSuggestionSpan;
+        private SuggestionSpanInfo() {}
+        void clear() {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    private static @interface MagnifierHandleTrigger {
-        public static final int INSERTION = 0;
-        public static final int SELECTION_END = 2;
-        public static final int SELECTION_START = 1;
+    private class CorrectionHighlighter {
+        private static final int FADE_OUT_DURATION = 400;
+        private int mEnd;
+        private long mFadingStartTime;
+        private final android.graphics.Paint mPaint = null;
+        private final android.graphics.Path mPath = null;
+        private int mStart;
+        private android.graphics.RectF mTempRectF;
+        public CorrectionHighlighter(android.widget.Editor p0) {}
+        private void invalidate(boolean p0) {}
+        private void stopAnimation() {}
+        private boolean updatePaint() { return false; }
+        private boolean updatePath() { return false; }
+        public void draw(android.graphics.Canvas p0, int p1) {}
+        public void highlight(android.view.inputmethod.CorrectionInfo p0) {}
     }
 
-    private static class MagnifierMotionAnimator {
-        private static final long DURATION = 100L;
-        private float mAnimationCurrentX;
-        private float mAnimationCurrentY;
-        private float mAnimationStartX;
-        private float mAnimationStartY;
-        private final android.animation.ValueAnimator mAnimator = null;
-        private float mLastX;
-        private float mLastY;
-        private final android.widget.Magnifier mMagnifier = null;
-        private boolean mMagnifierIsShowing;
-        private MagnifierMotionAnimator(android.widget.Magnifier p0) {}
-        private void dismiss() {}
-        private void show(float p0, float p1) {}
-        private void update() {}
+    private final class CursorAnchorInfoNotifier implements android.widget.Editor.TextViewPositionListener {
+        final android.view.inputmethod.CursorAnchorInfo.Builder mCursorAnchorInfoBuilder = null;
+        final android.graphics.Matrix mViewToScreenMatrix = null;
+        private CursorAnchorInfoNotifier(android.widget.Editor p0) {}
+        public void updatePosition(int p0, int p1, boolean p2, boolean p3) {}
+    }
+
+    private static final class SuggestionInfo {
+        int mSuggestionEnd;
+        int mSuggestionIndex;
+        final android.widget.Editor.SuggestionSpanInfo mSuggestionSpanInfo = null;
+        int mSuggestionStart;
+        final android.text.SpannableStringBuilder mText = null;
+        private SuggestionInfo() {}
+        void clear() {}
+        void setSpanInfo(android.text.style.SuggestionSpan p0, int p1, int p2) {}
+    }
+
+    private static interface CursorController extends android.view.ViewTreeObserver.OnTouchModeChangeListener {
+        public void hide();
+        public boolean isActive();
+        public boolean isCursorBeingModified();
+        public void onDetached();
+        public void show();
+    }
+
+    private static class DragLocalState {
+        public int end;
+        public android.widget.TextView sourceTextView;
+        public int start;
+        public DragLocalState(android.widget.TextView p0, int p1, int p2) {}
+    }
+
+    public static class EditOperation extends android.content.UndoOperation<android.widget.Editor> {
+        public static final android.os.Parcelable.ClassLoaderCreator<android.widget.Editor.EditOperation> CREATOR = null;
+        private static final int TYPE_DELETE = 1;
+        private static final int TYPE_INSERT = 0;
+        private static final int TYPE_REPLACE = 2;
+        private boolean mFrozen;
+        private boolean mIsComposition;
+        private int mNewCursorPos;
+        private java.lang.String mNewText;
+        private int mOldCursorPos;
+        private java.lang.String mOldText;
+        private int mStart;
+        private int mType;
+        public EditOperation(android.os.Parcel p0, java.lang.ClassLoader p1) { super((android.content.UndoOwner)null); }
+        public EditOperation(android.widget.Editor p0, java.lang.String p1, int p2, java.lang.String p3, boolean p4) { super((android.content.UndoOwner)null); }
+        private int getNewTextEnd() { return 0; }
+        private int getOldTextEnd() { return 0; }
+        private java.lang.String getTypeString() { return null; }
+        private boolean mergeDeleteWith(android.widget.Editor.EditOperation p0) { return false; }
+        private boolean mergeInsertWith(android.widget.Editor.EditOperation p0) { return false; }
+        private boolean mergeReplaceWith(android.widget.Editor.EditOperation p0) { return false; }
+        private boolean mergeWith(android.widget.Editor.EditOperation p0) { return false; }
+        private static void modifyText(android.text.Editable p0, int p1, int p2, java.lang.CharSequence p3, int p4, int p5) {}
+        public void commit() {}
+        public void forceMergeWith(android.widget.Editor.EditOperation p0) {}
+        public void redo() {}
+        public java.lang.String toString() { return null; }
+        public void undo() {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public class AssistantCallbackHelper {
+        private final java.util.Map<android.view.MenuItem, android.view.View.OnClickListener> mAssistClickHandlers = null;
+        private final android.widget.SelectionActionModeHelper mHelper = null;
+        private android.view.textclassifier.TextClassification mPrevTextClassification;
+        public AssistantCallbackHelper(android.widget.Editor p0, android.widget.SelectionActionModeHelper p1) {}
+        private android.view.MenuItem addAssistMenuItem(android.view.Menu p0, android.app.RemoteAction p1, int p2, int p3, int p4, android.view.MenuItem.OnMenuItemClickListener p5) { return null; }
+        private void clearAssistMenuItems(android.view.Menu p0) {}
+        private int createAssistMenuItemPendingIntentRequestCode() { return 0; }
+        private boolean hasLegacyAssistItem(android.view.textclassifier.TextClassification p0) { return false; }
+        private boolean shouldEnableAssistMenuItems() { return false; }
+        public void clearCallbackHandlers() {}
+        public android.view.View.OnClickListener getOnClickListener(android.view.MenuItem p0) { return null; }
+        public boolean onAssistMenuItemClicked(android.view.MenuItem p0) { return false; }
+        public void updateAssistMenuItems(android.view.Menu p0, android.view.MenuItem.OnMenuItemClickListener p1) {}
+    }
+
+    private static class ErrorPopup extends android.widget.PopupWindow {
+        private boolean mAbove;
+        private int mPopupInlineErrorAboveBackgroundId;
+        private int mPopupInlineErrorBackgroundId;
+        private final android.widget.TextView mView = null;
+        ErrorPopup(android.widget.TextView p0, int p1, int p2) { super(); }
+        private int getResourceId(int p0, int p1) { return 0; }
+        void fixDirection(boolean p0) {}
+        public void update(int p0, int p1, int p2, int p3, boolean p4) {}
+    }
+
+    private static interface TextViewPositionListener {
+        public void updatePosition(int p0, int p1, boolean p2, boolean p3);
     }
 
     private abstract class PinnedPopupWindow implements android.widget.Editor.TextViewPositionListener {
@@ -659,30 +747,6 @@ public class Editor {
         public void updatePosition(int p0, int p1, boolean p2, boolean p3) {}
     }
 
-    private class PositionListener implements android.view.ViewTreeObserver.OnPreDrawListener {
-        private static final int MAXIMUM_NUMBER_OF_LISTENERS = 7;
-        private boolean[] mCanMove;
-        private int mNumberOfListeners;
-        private boolean mPositionHasChanged;
-        private android.widget.Editor.TextViewPositionListener[] mPositionListeners;
-        private int mPositionX;
-        private int mPositionXOnScreen;
-        private int mPositionY;
-        private int mPositionYOnScreen;
-        private boolean mScrollHasChanged;
-        final int[] mTempCoords = null;
-        private PositionListener(android.widget.Editor p0) {}
-        private void updatePosition() {}
-        public void addSubscriber(android.widget.Editor.TextViewPositionListener p0, boolean p1) {}
-        public int getPositionX() { return 0; }
-        public int getPositionXOnScreen() { return 0; }
-        public int getPositionY() { return 0; }
-        public int getPositionYOnScreen() { return 0; }
-        public boolean onPreDraw() { return false; }
-        public void onScrollChanged() {}
-        public void removeSubscriber(android.widget.Editor.TextViewPositionListener p0) {}
-    }
-
     static final class ProcessTextIntentActionsHandler {
         private final android.util.SparseArray<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction> mAccessibilityActions = null;
         private final android.util.SparseArray<android.content.Intent> mAccessibilityIntents = null;
@@ -706,118 +770,64 @@ public class Editor {
         public boolean performMenuItemAction(android.view.MenuItem p0) { return false; }
     }
 
-    public final class SelectionHandleView extends android.widget.Editor.HandleView {
-        private final int mHandleType = 0;
-        private boolean mInWord;
-        private boolean mLanguageDirectionChanged;
-        private float mPrevX;
-        private final float mTextViewEdgeSlop = 0.0f;
-        private final int[] mTextViewLocation = null;
-        private float mTouchWordDelta;
-        public SelectionHandleView(android.widget.Editor p0, android.graphics.drawable.Drawable p1, android.graphics.drawable.Drawable p2, int p3, int p4) { super(null, null, null, 0); }
-        private float getHorizontal(android.text.Layout p0, int p1, boolean p2) { return 0.0f; }
-        private boolean isStartHandle() { return false; }
-        private void positionAndAdjustForCrossingHandles(int p0, boolean p1) {}
-        private boolean positionNearEdgeOfScrollingView(float p0, boolean p1) { return false; }
-        public int getCurrentCursorOffset() { return 0; }
-        public float getHorizontal(android.text.Layout p0, int p1) { return 0.0f; }
-        protected int getHorizontalGravity(boolean p0) { return 0; }
-        protected int getHotspotX(android.graphics.drawable.Drawable p0, boolean p1) { return 0; }
-        protected int getMagnifierHandleTrigger() { return 0; }
-        protected int getOffsetAtCoordinate(android.text.Layout p0, int p1, float p2) { return 0; }
-        protected boolean isAtRtlRun(android.text.Layout p0, int p1) { return false; }
-        public boolean onTouchEvent(android.view.MotionEvent p0) { return false; }
-        protected void positionAtCursorOffset(int p0, boolean p1, boolean p2) {}
-        protected void updatePosition(float p0, float p1, boolean p2) {}
-        protected void updateSelection(int p0) {}
-    }
-
-    public class SelectionModifierCursorController implements android.widget.Editor.CursorController {
-        private static final int DRAG_ACCELERATOR_MODE_CHARACTER = 1;
-        private static final int DRAG_ACCELERATOR_MODE_INACTIVE = 0;
-        private static final int DRAG_ACCELERATOR_MODE_PARAGRAPH = 3;
-        private static final int DRAG_ACCELERATOR_MODE_WORD = 2;
-        private int mDragAcceleratorMode;
-        private android.widget.Editor.SelectionHandleView mEndHandle;
-        private boolean mGestureStayedInTapRegion;
-        private boolean mHaventMovedEnoughToStartDrag;
-        private int mLineSelectionIsOn;
-        private int mMaxTouchOffset;
-        private int mMinTouchOffset;
-        private android.widget.Editor.SelectionHandleView mStartHandle;
-        private int mStartOffset;
-        private boolean mSwitchedLines;
-        SelectionModifierCursorController(android.widget.Editor p0) {}
-        private void initHandles() {}
-        private void reloadHandleDrawables() {}
-        private void resetDragAcceleratorState() {}
-        private boolean selectCurrentParagraphAndStartDrag() { return false; }
-        private void updateCharacterBasedSelection(android.view.MotionEvent p0) {}
-        private void updateMinAndMaxOffsets(android.view.MotionEvent p0) {}
-        private void updateParagraphBasedSelection(android.view.MotionEvent p0) {}
-        private void updateSelection(android.view.MotionEvent p0) {}
-        private void updateSelectionInternal(int p0, int p1, boolean p2) {}
-        private void updateWordBasedSelection(android.view.MotionEvent p0) {}
-        public void enterDrag(int p0) {}
-        public int getMaxTouchOffset() { return 0; }
-        public int getMinTouchOffset() { return 0; }
+    private class EasyEditPopupWindow extends android.widget.Editor.PinnedPopupWindow implements android.view.View.OnClickListener {
+        private static final int POPUP_TEXT_LAYOUT = 17367382;
+        private android.widget.TextView mDeleteTextView;
+        private android.text.style.EasyEditSpan mEasyEditSpan;
+        private android.widget.Editor.EasyEditDeleteListener mOnDeleteListener;
+        private EasyEditPopupWindow(android.widget.Editor p0) { super(null); }
+        private void setOnDeleteListener(android.widget.Editor.EasyEditDeleteListener p0) {}
+        protected int clipVertically(int p0) { return 0; }
+        protected void createPopupWindow() {}
+        protected int getTextOffset() { return 0; }
+        protected int getVerticalLocalPosition(int p0) { return 0; }
         public void hide() {}
-        public void invalidateHandles() {}
-        public boolean isActive() { return false; }
-        public boolean isCursorBeingModified() { return false; }
-        public boolean isDragAcceleratorActive() { return false; }
-        public boolean isSelectionStartDragged() { return false; }
-        public void onDetached() {}
-        public void onTouchEvent(android.view.MotionEvent p0) {}
-        public void onTouchModeChanged(boolean p0) {}
-        public void resetTouchOffsets() {}
-        public void show() {}
+        protected void initContentView() {}
+        public void onClick(android.view.View p0) {}
+        public void setEasyEditSpan(android.text.style.EasyEditSpan p0) {}
     }
 
-    private class SpanController implements android.text.SpanWatcher {
-        private static final int DISPLAY_TIMEOUT_MS = 3000;
-        private java.lang.Runnable mHidePopup;
-        private android.widget.Editor.EasyEditPopupWindow mPopupWindow;
-        private SpanController(android.widget.Editor p0) {}
-        private boolean isNonIntermediateSelectionSpan(android.text.Spannable p0, java.lang.Object p1) { return false; }
-        private void sendEasySpanNotification(int p0, android.text.style.EasyEditSpan p1) {}
-        public void hide() {}
-        public void onSpanAdded(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
-        public void onSpanChanged(android.text.Spannable p0, java.lang.Object p1, int p2, int p3, int p4, int p5) {}
-        public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
+    static @interface TextActionMode {
+        public static final int INSERTION = 1;
+        public static final int SELECTION = 0;
+        public static final int TEXT_LINK = 2;
     }
 
-    private class SuggestionHelper {
-        private final java.util.HashMap<android.text.style.SuggestionSpan, java.lang.Integer> mSpansLengths = null;
-        private final java.util.Comparator<android.text.style.SuggestionSpan> mSuggestionSpanComparator = null;
-        private SuggestionHelper(android.widget.Editor p0) {}
-        private android.text.style.SuggestionSpan[] getSortedSuggestionSpans() { return null; }
-        public int getSuggestionInfo(android.widget.Editor.SuggestionInfo[] p0, android.widget.Editor.SuggestionSpanInfo p1) { return 0; }
-
-        private class SuggestionSpanComparator implements java.util.Comparator<android.text.style.SuggestionSpan> {
-            private SuggestionSpanComparator(android.widget.Editor.SuggestionHelper p0) {}
-            private int compareFlag(int p0, int p1, int p2) { return 0; }
-            public int compare(android.text.style.SuggestionSpan p0, android.text.style.SuggestionSpan p1) { return 0; }
-        }
+    static class InputContentType {
+        boolean enterDown;
+        android.os.Bundle extras;
+        int imeActionId;
+        java.lang.CharSequence imeActionLabel;
+        android.os.LocaleList imeHintLocales;
+        int imeOptions;
+        android.widget.TextView.OnEditorActionListener onEditorActionListener;
+        java.lang.String privateImeOptions;
+        InputContentType() {}
     }
 
-    private static final class SuggestionInfo {
-        int mSuggestionEnd;
-        int mSuggestionIndex;
-        final android.widget.Editor.SuggestionSpanInfo mSuggestionSpanInfo = null;
-        int mSuggestionStart;
-        final android.text.SpannableStringBuilder mText = null;
-        private SuggestionInfo() {}
-        void clear() {}
-        void setSpanInfo(android.text.style.SuggestionSpan p0, int p1, int p2) {}
+    private static class TextRenderNode {
+        boolean isDirty;
+        boolean needsToBeShifted;
+        android.graphics.RenderNode renderNode;
+        public TextRenderNode(java.lang.String p0) {}
+        boolean needsRecord() { return false; }
     }
 
-    private static final class SuggestionSpanInfo {
-        int mSpanEnd;
-        int mSpanStart;
-        android.text.style.SuggestionSpan mSuggestionSpan;
-        private SuggestionSpanInfo() {}
-        void clear() {}
+    private static final class InsertModeController {
+        private final android.graphics.Paint mHighlightPaint = null;
+        private final android.graphics.Path mHighlightPath = null;
+        private android.text.method.InsertModeTransformationMethod mInsertModeTransformationMethod;
+        private boolean mIsInsertModeActive;
+        private final android.widget.TextView mTextView = null;
+        private boolean mUpdatingTransformationMethod;
+        InsertModeController(android.widget.TextView p0) {}
+        private void setTransformationMethod(android.text.method.TransformationMethod p0, boolean p1) {}
+        void beforeSetText() {}
+        boolean enterInsertMode(int p0) { return false; }
+        void exitInsertMode() {}
+        void exitInsertMode(boolean p0) {}
+        void onDraw(android.graphics.Canvas p0) {}
+        void updateTransformationMethod(android.text.method.TransformationMethod p0) {}
     }
 
     private final class SuggestionsPopupWindow extends android.widget.Editor.PinnedPopupWindow implements android.widget.AdapterView.OnItemClickListener {
@@ -855,11 +865,6 @@ public class Editor {
         protected void setUp() {}
         public void show() {}
 
-        private class CustomPopupWindow extends android.widget.PopupWindow {
-            private CustomPopupWindow(android.widget.Editor.SuggestionsPopupWindow p0) { super(); }
-            public void dismiss() {}
-        }
-
         private class SuggestionAdapter extends android.widget.BaseAdapter {
             private android.view.LayoutInflater mInflater;
             private SuggestionAdapter(android.widget.Editor.SuggestionsPopupWindow p0) { super(); }
@@ -868,42 +873,37 @@ public class Editor {
             public long getItemId(int p0) { return 0L; }
             public android.view.View getView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
         }
+
+        private class CustomPopupWindow extends android.widget.PopupWindow {
+            private CustomPopupWindow(android.widget.Editor.SuggestionsPopupWindow p0) { super(); }
+            public void dismiss() {}
+        }
     }
 
-    static @interface TextActionMode {
-        public static final int INSERTION = 1;
-        public static final int SELECTION = 0;
-        public static final int TEXT_LINK = 2;
-    }
-
-    private class TextActionModeCallback extends android.view.ActionMode.Callback2 {
-        private final int mHandleHeight = 0;
-        private final boolean mHasSelection = false;
-        private final android.widget.Editor.AssistantCallbackHelper mHelper = null;
-        private final android.graphics.RectF mSelectionBounds = null;
-        private final android.graphics.Path mSelectionPath = null;
-        TextActionModeCallback(android.widget.Editor p0, int p1) { super(); }
-        private android.view.ActionMode.Callback getCustomCallback() { return null; }
-        private void populateMenuWithItems(android.view.Menu p0) {}
-        private void updateReplaceItem(android.view.Menu p0) {}
-        private void updateSelectAllItem(android.view.Menu p0) {}
-        public boolean onActionItemClicked(android.view.ActionMode p0, android.view.MenuItem p1) { return false; }
-        public boolean onCreateActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
-        public void onDestroyActionMode(android.view.ActionMode p0) {}
-        public void onGetContentRect(android.view.ActionMode p0, android.view.View p1, android.graphics.Rect p2) {}
-        public boolean onPrepareActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
-    }
-
-    private static class TextRenderNode {
-        boolean isDirty;
-        boolean needsToBeShifted;
-        android.graphics.RenderNode renderNode;
-        public TextRenderNode(java.lang.String p0) {}
-        boolean needsRecord() { return false; }
-    }
-
-    private static interface TextViewPositionListener {
-        public void updatePosition(int p0, int p1, boolean p2, boolean p3);
+    public final class SelectionHandleView extends android.widget.Editor.HandleView {
+        private final int mHandleType = 0;
+        private boolean mInWord;
+        private boolean mLanguageDirectionChanged;
+        private float mPrevX;
+        private final float mTextViewEdgeSlop = 0.0f;
+        private final int[] mTextViewLocation = null;
+        private float mTouchWordDelta;
+        public SelectionHandleView(android.widget.Editor p0, android.graphics.drawable.Drawable p1, android.graphics.drawable.Drawable p2, int p3, int p4) { super(null, null, null, 0); }
+        private float getHorizontal(android.text.Layout p0, int p1, boolean p2) { return 0.0f; }
+        private boolean isStartHandle() { return false; }
+        private void positionAndAdjustForCrossingHandles(int p0, boolean p1) {}
+        private boolean positionNearEdgeOfScrollingView(float p0, boolean p1) { return false; }
+        public int getCurrentCursorOffset() { return 0; }
+        public float getHorizontal(android.text.Layout p0, int p1) { return 0.0f; }
+        protected int getHorizontalGravity(boolean p0) { return 0; }
+        protected int getHotspotX(android.graphics.drawable.Drawable p0, boolean p1) { return 0; }
+        protected int getMagnifierHandleTrigger() { return 0; }
+        protected int getOffsetAtCoordinate(android.text.Layout p0, int p1, float p2) { return 0; }
+        protected boolean isAtRtlRun(android.text.Layout p0, int p1) { return false; }
+        public boolean onTouchEvent(android.view.MotionEvent p0) { return false; }
+        protected void positionAtCursorOffset(int p0, boolean p1, boolean p2) {}
+        protected void updatePosition(float p0, float p1, boolean p2) {}
+        protected void updateSelection(int p0) {}
     }
 
     public static class UndoInputFilter implements android.text.InputFilter {

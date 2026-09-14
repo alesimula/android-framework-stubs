@@ -24,15 +24,8 @@ public final class MediaProjectionManager {
     public android.media.projection.MediaProjectionInfo getActiveProjectionInfo() { return null; }
     public android.media.projection.MediaProjection getMediaProjection(int p0, android.content.Intent p1) { return null; }
     public void removeCallback(android.media.projection.MediaProjectionManager.Callback p0) {}
+    public void startScreenRecorder(android.media.projection.ScreenRecordingConfig p0) {}
     public void stopActiveProjection(int p0) {}
-
-    public static abstract class Callback {
-        public Callback() {}
-        public void onMediaProjectionEvent(android.media.projection.MediaProjectionEvent p0, android.media.projection.MediaProjectionInfo p1, android.view.ContentRecordingSession p2) {}
-        public void onRecordingSessionSet(android.media.projection.MediaProjectionInfo p0, android.view.ContentRecordingSession p1) {}
-        public abstract void onStart(android.media.projection.MediaProjectionInfo p0);
-        public abstract void onStop(android.media.projection.MediaProjectionInfo p0);
-    }
 
     private static final class CallbackDelegate extends android.media.projection.IMediaProjectionWatcherCallback.Stub {
         private android.media.projection.MediaProjectionManager.Callback mCallback;
@@ -42,5 +35,13 @@ public final class MediaProjectionManager {
         public void onRecordingSessionSet(android.media.projection.MediaProjectionInfo p0, android.view.ContentRecordingSession p1) {}
         public void onStart(android.media.projection.MediaProjectionInfo p0) {}
         public void onStop(android.media.projection.MediaProjectionInfo p0) {}
+    }
+
+    public static abstract class Callback {
+        public Callback() {}
+        public void onMediaProjectionEvent(android.media.projection.MediaProjectionEvent p0, android.media.projection.MediaProjectionInfo p1, android.view.ContentRecordingSession p2) {}
+        public void onRecordingSessionSet(android.media.projection.MediaProjectionInfo p0, android.view.ContentRecordingSession p1) {}
+        public abstract void onStart(android.media.projection.MediaProjectionInfo p0);
+        public abstract void onStop(android.media.projection.MediaProjectionInfo p0);
     }
 }

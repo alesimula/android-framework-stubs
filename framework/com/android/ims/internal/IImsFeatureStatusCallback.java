@@ -3,12 +3,6 @@ package com.android.ims.internal;
 public interface IImsFeatureStatusCallback extends android.os.IInterface {
     public void notifyImsFeatureStatus(int p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsFeatureStatusCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyImsFeatureStatus(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsFeatureStatusCallback {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsFeatureStatusCallback";
         static final int TRANSACTION_notifyImsFeatureStatus = 1;
@@ -26,5 +20,11 @@ public interface IImsFeatureStatusCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void notifyImsFeatureStatus(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsFeatureStatusCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyImsFeatureStatus(int p0) throws android.os.RemoteException {}
     }
 }

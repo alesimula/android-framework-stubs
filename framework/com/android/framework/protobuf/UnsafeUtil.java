@@ -115,51 +115,6 @@ final class UnsafeUtil {
         public boolean supportsUnsafeByteBufferOperations() { return false; }
     }
 
-    private static final class Android64MemoryAccessor extends com.android.framework.protobuf.UnsafeUtil.MemoryAccessor {
-        Android64MemoryAccessor(sun.misc.Unsafe p0) { super(null); }
-        public void copyMemory(long p0, byte[] p1, long p2, long p3) {}
-        public void copyMemory(byte[] p0, long p1, long p2, long p3) {}
-        public boolean getBoolean(java.lang.Object p0, long p1) { return false; }
-        public byte getByte(long p0) { return 0; }
-        public byte getByte(java.lang.Object p0, long p1) { return 0; }
-        public double getDouble(java.lang.Object p0, long p1) { return 0.0; }
-        public float getFloat(java.lang.Object p0, long p1) { return 0.0f; }
-        public int getInt(long p0) { return 0; }
-        public long getLong(long p0) { return 0L; }
-        public java.lang.Object getStaticObject(java.lang.reflect.Field p0) { return null; }
-        public void putBoolean(java.lang.Object p0, long p1, boolean p2) {}
-        public void putByte(long p0, byte p1) {}
-        public void putByte(java.lang.Object p0, long p1, byte p2) {}
-        public void putDouble(java.lang.Object p0, long p1, double p2) {}
-        public void putFloat(java.lang.Object p0, long p1, float p2) {}
-        public void putInt(long p0, int p1) {}
-        public void putLong(long p0, long p1) {}
-        public boolean supportsUnsafeByteBufferOperations() { return false; }
-    }
-
-    private static final class JvmMemoryAccessor extends com.android.framework.protobuf.UnsafeUtil.MemoryAccessor {
-        JvmMemoryAccessor(sun.misc.Unsafe p0) { super(null); }
-        public void copyMemory(long p0, byte[] p1, long p2, long p3) {}
-        public void copyMemory(byte[] p0, long p1, long p2, long p3) {}
-        public boolean getBoolean(java.lang.Object p0, long p1) { return false; }
-        public byte getByte(long p0) { return 0; }
-        public byte getByte(java.lang.Object p0, long p1) { return 0; }
-        public double getDouble(java.lang.Object p0, long p1) { return 0.0; }
-        public float getFloat(java.lang.Object p0, long p1) { return 0.0f; }
-        public int getInt(long p0) { return 0; }
-        public long getLong(long p0) { return 0L; }
-        public java.lang.Object getStaticObject(java.lang.reflect.Field p0) { return null; }
-        public void putBoolean(java.lang.Object p0, long p1, boolean p2) {}
-        public void putByte(long p0, byte p1) {}
-        public void putByte(java.lang.Object p0, long p1, byte p2) {}
-        public void putDouble(java.lang.Object p0, long p1, double p2) {}
-        public void putFloat(java.lang.Object p0, long p1, float p2) {}
-        public void putInt(long p0, int p1) {}
-        public void putLong(long p0, long p1) {}
-        public boolean supportsUnsafeArrayOperations() { return false; }
-        public boolean supportsUnsafeByteBufferOperations() { return false; }
-    }
-
     private static abstract class MemoryAccessor {
         MemoryAccessor(sun.misc.Unsafe p0) {}
         public final int arrayBaseOffset(java.lang.Class<?> p0) { return 0; }
@@ -189,6 +144,51 @@ final class UnsafeUtil {
         public final void putLong(java.lang.Object p0, long p1, long p2) {}
         public final void putObject(java.lang.Object p0, long p1, java.lang.Object p2) {}
         public boolean supportsUnsafeArrayOperations() { return false; }
+        public boolean supportsUnsafeByteBufferOperations() { return false; }
+    }
+
+    private static final class JvmMemoryAccessor extends com.android.framework.protobuf.UnsafeUtil.MemoryAccessor {
+        JvmMemoryAccessor(sun.misc.Unsafe p0) { super(null); }
+        public void copyMemory(long p0, byte[] p1, long p2, long p3) {}
+        public void copyMemory(byte[] p0, long p1, long p2, long p3) {}
+        public boolean getBoolean(java.lang.Object p0, long p1) { return false; }
+        public byte getByte(long p0) { return 0; }
+        public byte getByte(java.lang.Object p0, long p1) { return 0; }
+        public double getDouble(java.lang.Object p0, long p1) { return 0.0; }
+        public float getFloat(java.lang.Object p0, long p1) { return 0.0f; }
+        public int getInt(long p0) { return 0; }
+        public long getLong(long p0) { return 0L; }
+        public java.lang.Object getStaticObject(java.lang.reflect.Field p0) { return null; }
+        public void putBoolean(java.lang.Object p0, long p1, boolean p2) {}
+        public void putByte(long p0, byte p1) {}
+        public void putByte(java.lang.Object p0, long p1, byte p2) {}
+        public void putDouble(java.lang.Object p0, long p1, double p2) {}
+        public void putFloat(java.lang.Object p0, long p1, float p2) {}
+        public void putInt(long p0, int p1) {}
+        public void putLong(long p0, long p1) {}
+        public boolean supportsUnsafeArrayOperations() { return false; }
+        public boolean supportsUnsafeByteBufferOperations() { return false; }
+    }
+
+    private static final class Android64MemoryAccessor extends com.android.framework.protobuf.UnsafeUtil.MemoryAccessor {
+        Android64MemoryAccessor(sun.misc.Unsafe p0) { super(null); }
+        public void copyMemory(long p0, byte[] p1, long p2, long p3) {}
+        public void copyMemory(byte[] p0, long p1, long p2, long p3) {}
+        public boolean getBoolean(java.lang.Object p0, long p1) { return false; }
+        public byte getByte(long p0) { return 0; }
+        public byte getByte(java.lang.Object p0, long p1) { return 0; }
+        public double getDouble(java.lang.Object p0, long p1) { return 0.0; }
+        public float getFloat(java.lang.Object p0, long p1) { return 0.0f; }
+        public int getInt(long p0) { return 0; }
+        public long getLong(long p0) { return 0L; }
+        public java.lang.Object getStaticObject(java.lang.reflect.Field p0) { return null; }
+        public void putBoolean(java.lang.Object p0, long p1, boolean p2) {}
+        public void putByte(long p0, byte p1) {}
+        public void putByte(java.lang.Object p0, long p1, byte p2) {}
+        public void putDouble(java.lang.Object p0, long p1, double p2) {}
+        public void putFloat(java.lang.Object p0, long p1, float p2) {}
+        public void putInt(long p0, int p1) {}
+        public void putLong(long p0, long p1) {}
         public boolean supportsUnsafeByteBufferOperations() { return false; }
     }
 }

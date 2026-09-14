@@ -5,7 +5,7 @@ public class MtpStorageManager {
     private static final int IN_ISDIR = 1073741824;
     private static final int IN_ONLYDIR = 16777216;
     private static final int IN_Q_OVERFLOW = 16384;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MtpStorageManager";
     public static boolean sDebug;
     private volatile boolean mCheckConsistency;
     private java.lang.Thread mConsistencyThread;
@@ -55,11 +55,14 @@ public class MtpStorageManager {
     public void removeMtpStorage(android.mtp.MtpStorage p0) {}
     public void setSubdirectories(java.util.Set<java.lang.String> p0) {}
 
-    public static abstract class MtpNotifier {
-        public MtpNotifier() {}
-        public abstract void sendObjectAdded(int p0);
-        public abstract void sendObjectInfoChanged(int p0);
-        public abstract void sendObjectRemoved(int p0);
+    private static enum MtpOperation {
+        ADD,
+        COPY,
+        DELETE,
+        NONE,
+        RENAME;
+        private static final android.mtp.MtpStorageManager.MtpOperation[] $VALUES = null;
+        private MtpOperation() {}
     }
 
     public static class MtpObject {
@@ -109,11 +112,11 @@ public class MtpStorageManager {
         public boolean isRoot() { return false; }
     }
 
-    private class MtpObjectObserver extends android.os.FileObserver {
-        android.mtp.MtpStorageManager.MtpObject mObject;
-        MtpObjectObserver(android.mtp.MtpStorageManager p0, android.mtp.MtpStorageManager.MtpObject p1) { super((java.io.File)null); }
-        public void finalize() {}
-        public void onEvent(int p0, java.lang.String p1) {}
+    public static abstract class MtpNotifier {
+        public MtpNotifier() {}
+        public abstract void sendObjectAdded(int p0);
+        public abstract void sendObjectInfoChanged(int p0);
+        public abstract void sendObjectRemoved(int p0);
     }
 
     private static enum MtpObjectState {
@@ -127,13 +130,10 @@ public class MtpStorageManager {
         private MtpObjectState() {}
     }
 
-    private static enum MtpOperation {
-        ADD,
-        COPY,
-        DELETE,
-        NONE,
-        RENAME;
-        private static final android.mtp.MtpStorageManager.MtpOperation[] $VALUES = null;
-        private MtpOperation() {}
+    private class MtpObjectObserver extends android.os.FileObserver {
+        android.mtp.MtpStorageManager.MtpObject mObject;
+        MtpObjectObserver(android.mtp.MtpStorageManager p0, android.mtp.MtpStorageManager.MtpObject p1) { super((java.io.File)null); }
+        public void finalize() {}
+        public void onEvent(int p0, java.lang.String p1) {}
     }
 }

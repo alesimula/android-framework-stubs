@@ -170,6 +170,20 @@ public class ProgressBar extends android.view.View {
     void stopAnimation() {}
     protected boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
 
+    private class RefreshProgressRunnable implements java.lang.Runnable {
+        private RefreshProgressRunnable(android.widget.ProgressBar p0) {}
+        public void run() {}
+    }
+
+    static class SavedState extends android.view.View.BaseSavedState {
+        public static final android.os.Parcelable.Creator<android.widget.ProgressBar.SavedState> CREATOR = null;
+        int progress;
+        int secondaryProgress;
+        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     private static class ProgressTintInfo {
         boolean mHasIndeterminateTint;
         boolean mHasIndeterminateTintMode;
@@ -200,20 +214,6 @@ public class ProgressBar extends android.view.View {
         private RefreshData() {}
         public static android.widget.ProgressBar.RefreshData obtain(int p0, int p1, boolean p2, boolean p3) { return null; }
         public void recycle() {}
-    }
-
-    private class RefreshProgressRunnable implements java.lang.Runnable {
-        private RefreshProgressRunnable(android.widget.ProgressBar p0) {}
-        public void run() {}
-    }
-
-    static class SavedState extends android.view.View.BaseSavedState {
-        public static final android.os.Parcelable.Creator<android.widget.ProgressBar.SavedState> CREATOR = null;
-        int progress;
-        int secondaryProgress;
-        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.ProgressBar> {

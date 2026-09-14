@@ -23,6 +23,10 @@ public class LocalePicker extends android.app.ListFragment {
     public void onResume() {}
     public void setLocaleSelectionListener(com.android.internal.app.LocalePicker.LocaleSelectionListener p0) {}
 
+    public static interface LocaleSelectionListener {
+        public void onLocaleSelected(java.util.Locale p0);
+    }
+
     public static class LocaleInfo implements java.lang.Comparable<com.android.internal.app.LocalePicker.LocaleInfo> {
         static final java.text.Collator sCollator = null;
         java.lang.String label;
@@ -32,9 +36,5 @@ public class LocalePicker extends android.app.ListFragment {
         public java.lang.String getLabel() { return null; }
         public java.util.Locale getLocale() { return null; }
         public java.lang.String toString() { return null; }
-    }
-
-    public static interface LocaleSelectionListener {
-        public void onLocaleSelected(java.util.Locale p0);
     }
 }

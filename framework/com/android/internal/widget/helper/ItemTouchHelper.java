@@ -84,6 +84,16 @@ public class ItemTouchHelper extends com.android.internal.widget.RecyclerView.It
     public void startSwipe(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
     void updateDxDy(android.view.MotionEvent p0, int p1, int p2) {}
 
+    private class ItemTouchHelperGestureListener extends android.view.GestureDetector.SimpleOnGestureListener {
+        ItemTouchHelperGestureListener(com.android.internal.widget.helper.ItemTouchHelper p0) { super(); }
+        public boolean onDown(android.view.MotionEvent p0) { return false; }
+        public void onLongPress(android.view.MotionEvent p0) {}
+    }
+
+    public static interface ViewDropHandler {
+        public void prepareForDrop(android.view.View p0, android.view.View p1, int p2, int p3);
+    }
+
     public static abstract class Callback {
         private static final int ABS_HORIZONTAL_DIR_FLAGS = 789516;
         public static final int DEFAULT_DRAG_ANIMATION_DURATION = 200;
@@ -127,12 +137,6 @@ public class ItemTouchHelper extends com.android.internal.widget.RecyclerView.It
         public abstract void onSwiped(com.android.internal.widget.RecyclerView.ViewHolder p0, int p1);
     }
 
-    private class ItemTouchHelperGestureListener extends android.view.GestureDetector.SimpleOnGestureListener {
-        ItemTouchHelperGestureListener(com.android.internal.widget.helper.ItemTouchHelper p0) { super(); }
-        public boolean onDown(android.view.MotionEvent p0) { return false; }
-        public void onLongPress(android.view.MotionEvent p0) {}
-    }
-
     private class RecoverAnimation implements android.animation.Animator.AnimatorListener {
         final int mActionState = 0;
         final int mAnimationType = 0;
@@ -169,9 +173,5 @@ public class ItemTouchHelper extends com.android.internal.widget.RecyclerView.It
         public int getSwipeDirs(com.android.internal.widget.RecyclerView p0, com.android.internal.widget.RecyclerView.ViewHolder p1) { return 0; }
         public void setDefaultDragDirs(int p0) {}
         public void setDefaultSwipeDirs(int p0) {}
-    }
-
-    public static interface ViewDropHandler {
-        public void prepareForDrop(android.view.View p0, android.view.View p1, int p2, int p3);
     }
 }

@@ -41,10 +41,6 @@ public final class BinderProxy implements android.os.IBinder {
     public boolean unlinkToDeath(android.os.IBinder.DeathRecipient p0, int p1) { return false; }
     public void updateStrictModeBinderHintsIfNeeded() {}
 
-    private static class BinderProxyMapSizeException extends java.lang.AssertionError {
-        BinderProxyMapSizeException(java.lang.String p0) { super(); }
-    }
-
     public static final class InterfaceCount {
         private final int mCount = 0;
         private final java.lang.String mInterfaceName = null;
@@ -52,10 +48,10 @@ public final class BinderProxy implements android.os.IBinder {
         public java.lang.String toString() { return null; }
     }
 
-    private static class NoImagePreloadHolder {
-        public static final long sNativeFinalizer = Long.valueOf(0L);
-        public static final boolean sUseExecutorForFrozenStateChangeCallback = Boolean.valueOf(false);
-        private NoImagePreloadHolder() {}
+    private static class CrashInfo {
+        final int totalSize = 0;
+        final int totalUnclearedSize = 0;
+        CrashInfo(int p0, int p1) {}
     }
 
     private static final class ProxyMap {
@@ -78,6 +74,16 @@ public final class BinderProxy implements android.os.IBinder {
         private int size() { return 0; }
         private int unclearedSize() { return 0; }
         android.os.BinderProxy get(long p0) { return null; }
-        void set(long p0, android.os.BinderProxy p1) {}
+        android.os.BinderProxy.CrashInfo set(long p0, android.os.BinderProxy p1) { return null; }
+    }
+
+    private static class BinderProxyMapSizeException extends java.lang.AssertionError {
+        BinderProxyMapSizeException(java.lang.String p0) { super(); }
+    }
+
+    private static class NoImagePreloadHolder {
+        public static final long sNativeFinalizer = Long.valueOf(0L);
+        public static final boolean sUseExecutorForFrozenStateChangeCallback = Boolean.valueOf(false);
+        private NoImagePreloadHolder() {}
     }
 }

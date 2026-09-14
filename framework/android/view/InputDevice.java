@@ -132,6 +132,45 @@ public final class InputDevice implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface Source {
+    }
+
+    public static final class ViewBehavior {
+        public static final boolean DEFAULT_SHOULD_SMOOTH_SCROLL = false;
+        private final android.view.InputDevice mInputDevice = null;
+        private int mPrimaryDirectionalMotionAxis;
+        private boolean mShouldSmoothScroll;
+        public ViewBehavior(android.view.InputDevice p0) {}
+        public int getPrimaryDirectionalMotionAxis() { return 0; }
+        public boolean hasPrimaryDirectionalMotionAxis() { return false; }
+        public boolean shouldSmoothScroll(int p0, int p1) { return false; }
+    }
+
+    public static final class MotionRange {
+        private int mAxis;
+        private float mFlat;
+        private float mFuzz;
+        private float mMax;
+        private float mMin;
+        private float mResolution;
+        private int mSource;
+        private MotionRange(int p0, int p1, float p2, float p3, float p4, float p5, float p6) {}
+        public int getAxis() { return 0; }
+        public float getFlat() { return 0.0f; }
+        public float getFuzz() { return 0.0f; }
+        public float getMax() { return 0.0f; }
+        public float getMin() { return 0.0f; }
+        public float getRange() { return 0.0f; }
+        public float getResolution() { return 0.0f; }
+        public int getSource() { return 0; }
+        public boolean isFromSource(int p0) { return false; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface InputSourceClass {
+    }
+
     public static class Builder {
         private int mAssociatedDisplayId;
         private int mControllerNumber;
@@ -186,44 +225,5 @@ public final class InputDevice implements android.os.Parcelable {
         public android.view.InputDevice.Builder setSources(int p0) { return null; }
         public android.view.InputDevice.Builder setUsiVersion(android.hardware.input.HostUsiVersion p0) { return null; }
         public android.view.InputDevice.Builder setVendorId(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface InputSourceClass {
-    }
-
-    public static final class MotionRange {
-        private int mAxis;
-        private float mFlat;
-        private float mFuzz;
-        private float mMax;
-        private float mMin;
-        private float mResolution;
-        private int mSource;
-        private MotionRange(int p0, int p1, float p2, float p3, float p4, float p5, float p6) {}
-        public int getAxis() { return 0; }
-        public float getFlat() { return 0.0f; }
-        public float getFuzz() { return 0.0f; }
-        public float getMax() { return 0.0f; }
-        public float getMin() { return 0.0f; }
-        public float getRange() { return 0.0f; }
-        public float getResolution() { return 0.0f; }
-        public int getSource() { return 0; }
-        public boolean isFromSource(int p0) { return false; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface Source {
-    }
-
-    public static final class ViewBehavior {
-        public static final boolean DEFAULT_SHOULD_SMOOTH_SCROLL = false;
-        private final android.view.InputDevice mInputDevice = null;
-        private int mPrimaryDirectionalMotionAxis;
-        private boolean mShouldSmoothScroll;
-        public ViewBehavior(android.view.InputDevice p0) {}
-        public int getPrimaryDirectionalMotionAxis() { return 0; }
-        public boolean hasPrimaryDirectionalMotionAxis() { return false; }
-        public boolean shouldSmoothScroll(int p0, int p1) { return false; }
     }
 }

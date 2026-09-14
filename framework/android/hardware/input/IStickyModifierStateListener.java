@@ -4,12 +4,6 @@ public interface IStickyModifierStateListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.input.IStickyModifierStateListener";
     public void onStickyModifierStateChanged(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.input.IStickyModifierStateListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onStickyModifierStateChanged(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.input.IStickyModifierStateListener {
         static final int TRANSACTION_onStickyModifierStateChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IStickyModifierStateListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onStickyModifierStateChanged(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.input.IStickyModifierStateListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onStickyModifierStateChanged(int p0, int p1) throws android.os.RemoteException {}
     }
 }

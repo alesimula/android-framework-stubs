@@ -6,7 +6,7 @@ public class NetworkPolicy implements android.os.Parcelable, java.lang.Comparabl
     private static final long DEFAULT_MTU = 1500L;
     public static final long LIMIT_DISABLED = -1L;
     public static final long SNOOZE_NEVER = -1L;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "NetworkPolicy";
     private static final int TEMPLATE_BACKUP_VERSION_1_INIT = 1;
     private static final int TEMPLATE_BACKUP_VERSION_2_UNSUPPORTED = 2;
     private static final int TEMPLATE_BACKUP_VERSION_3_SUPPORT_CARRIER_TEMPLATE = 3;

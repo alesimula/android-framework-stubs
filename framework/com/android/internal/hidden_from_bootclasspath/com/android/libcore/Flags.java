@@ -16,6 +16,7 @@ public final class Flags {
     public static final java.lang.String FLAG_OPENJDK_21_V2_APIS = "com.android.libcore.openjdk_21_v2_apis";
     public static final java.lang.String FLAG_OPENJDK_25_V1_APIS = "com.android.libcore.openjdk_25_v1_apis";
     public static final java.lang.String FLAG_OPENJDK_25_V2_APIS = "com.android.libcore.openjdk_25_v2_apis";
+    public static final java.lang.String FLAG_OPENJDK_25_V3_APIS = "com.android.libcore.openjdk_25_v3_apis";
     public static final java.lang.String FLAG_OS_NO_THROW_APIS = "com.android.libcore.os_no_throw_apis";
     public static final java.lang.String FLAG_POST_CLEANUP_APIS = "com.android.libcore.post_cleanup_apis";
     public static final java.lang.String FLAG_READ_ONLY_DYNAMIC_CODE_LOAD = "com.android.libcore.read_only_dynamic_code_load";
@@ -36,6 +37,7 @@ public final class Flags {
     public static boolean openjdk21V2Apis() { return false; }
     public static boolean openjdk25V1Apis() { return false; }
     public static boolean openjdk25V2Apis() { return false; }
+    public static boolean openjdk25V3Apis() { return false; }
     public static boolean osNoThrowApis() { return false; }
     public static boolean postCleanupApis() { return false; }
     public static boolean readOnlyDynamicCodeLoad() { return false; }

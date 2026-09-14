@@ -25,7 +25,6 @@ public final class NfcProperties {
     public static void snoop_log_mode(android.sysprop.NfcProperties.snoop_log_mode_values p0) {}
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -42,8 +41,10 @@ public final class NfcProperties {
         FILTERED,
         FULL;
         private static final android.sysprop.NfcProperties.snoop_log_mode_values[] $VALUES = null;
+        private static final android.sysprop.NfcProperties.snoop_log_mode_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private snoop_log_mode_values() {}
+        public static android.sysprop.NfcProperties.snoop_log_mode_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 }

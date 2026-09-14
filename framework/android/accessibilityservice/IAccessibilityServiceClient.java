@@ -23,32 +23,6 @@ public interface IAccessibilityServiceClient extends android.os.IInterface {
     public void startInput(com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1, boolean p2) throws android.os.RemoteException;
     public void unbindInput() throws android.os.RemoteException;
 
-    public static class Default implements android.accessibilityservice.IAccessibilityServiceClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void bindInput() throws android.os.RemoteException {}
-        public void clearAccessibilityCache() throws android.os.RemoteException {}
-        public void createImeSession(com.android.internal.inputmethod.IAccessibilityInputMethodSessionCallback p0) throws android.os.RemoteException {}
-        public void init(android.accessibilityservice.IAccessibilityServiceConnection p0, int p1, android.os.IBinder p2) throws android.os.RemoteException {}
-        public void onAccessibilityButtonAvailabilityChanged(boolean p0) throws android.os.RemoteException {}
-        public void onAccessibilityButtonClicked(int p0) throws android.os.RemoteException {}
-        public void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, boolean p1) throws android.os.RemoteException {}
-        public void onFingerprintCapturingGesturesChanged(boolean p0) throws android.os.RemoteException {}
-        public void onFingerprintGesture(int p0) throws android.os.RemoteException {}
-        public void onGesture(android.accessibilityservice.AccessibilityGestureEvent p0) throws android.os.RemoteException {}
-        public void onInterrupt() throws android.os.RemoteException {}
-        public void onKeyEvent(android.view.KeyEvent p0, int p1) throws android.os.RemoteException {}
-        public void onMagnificationChanged(int p0, android.graphics.Region p1, android.accessibilityservice.MagnificationConfig p2) throws android.os.RemoteException {}
-        public void onMotionEvent(android.view.MotionEvent p0) throws android.os.RemoteException {}
-        public void onPerformGestureResult(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onSoftKeyboardShowModeChanged(int p0) throws android.os.RemoteException {}
-        public void onSystemActionsChanged() throws android.os.RemoteException {}
-        public void onTouchStateChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void setImeSessionEnabled(com.android.internal.inputmethod.IAccessibilityInputMethodSession p0, boolean p1) throws android.os.RemoteException {}
-        public void startInput(com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1, boolean p2) throws android.os.RemoteException {}
-        public void unbindInput() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.accessibilityservice.IAccessibilityServiceClient {
         public static final java.lang.String DESCRIPTOR = "android.accessibilityservice.IAccessibilityServiceClient";
         static final int TRANSACTION_bindInput = 19;
@@ -106,5 +80,31 @@ public interface IAccessibilityServiceClient extends android.os.IInterface {
             public void startInput(com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1, boolean p2) throws android.os.RemoteException {}
             public void unbindInput() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.accessibilityservice.IAccessibilityServiceClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void bindInput() throws android.os.RemoteException {}
+        public void clearAccessibilityCache() throws android.os.RemoteException {}
+        public void createImeSession(com.android.internal.inputmethod.IAccessibilityInputMethodSessionCallback p0) throws android.os.RemoteException {}
+        public void init(android.accessibilityservice.IAccessibilityServiceConnection p0, int p1, android.os.IBinder p2) throws android.os.RemoteException {}
+        public void onAccessibilityButtonAvailabilityChanged(boolean p0) throws android.os.RemoteException {}
+        public void onAccessibilityButtonClicked(int p0) throws android.os.RemoteException {}
+        public void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, boolean p1) throws android.os.RemoteException {}
+        public void onFingerprintCapturingGesturesChanged(boolean p0) throws android.os.RemoteException {}
+        public void onFingerprintGesture(int p0) throws android.os.RemoteException {}
+        public void onGesture(android.accessibilityservice.AccessibilityGestureEvent p0) throws android.os.RemoteException {}
+        public void onInterrupt() throws android.os.RemoteException {}
+        public void onKeyEvent(android.view.KeyEvent p0, int p1) throws android.os.RemoteException {}
+        public void onMagnificationChanged(int p0, android.graphics.Region p1, android.accessibilityservice.MagnificationConfig p2) throws android.os.RemoteException {}
+        public void onMotionEvent(android.view.MotionEvent p0) throws android.os.RemoteException {}
+        public void onPerformGestureResult(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onSoftKeyboardShowModeChanged(int p0) throws android.os.RemoteException {}
+        public void onSystemActionsChanged() throws android.os.RemoteException {}
+        public void onTouchStateChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void setImeSessionEnabled(com.android.internal.inputmethod.IAccessibilityInputMethodSession p0, boolean p1) throws android.os.RemoteException {}
+        public void startInput(com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1, boolean p2) throws android.os.RemoteException {}
+        public void unbindInput() throws android.os.RemoteException {}
     }
 }

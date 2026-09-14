@@ -8,13 +8,6 @@ public interface IHapticChannelStream extends android.os.IInterface {
     public boolean close() throws android.os.RemoteException;
     public int read(byte[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.vibrator.IHapticChannelStream {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean close() throws android.os.RemoteException { return false; }
-        public int read(byte[] p0) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.vibrator.IHapticChannelStream {
         static final int TRANSACTION_close = 2;
         static final int TRANSACTION_read = 1;
@@ -38,5 +31,12 @@ public interface IHapticChannelStream extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public int read(byte[] p0) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.os.vibrator.IHapticChannelStream {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean close() throws android.os.RemoteException { return false; }
+        public int read(byte[] p0) throws android.os.RemoteException { return 0; }
     }
 }

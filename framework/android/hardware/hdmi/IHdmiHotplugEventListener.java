@@ -3,12 +3,6 @@ package android.hardware.hdmi;
 public interface IHdmiHotplugEventListener extends android.os.IInterface {
     public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hdmi.IHdmiHotplugEventListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hdmi.IHdmiHotplugEventListener {
         public static final java.lang.String DESCRIPTOR = "android.hardware.hdmi.IHdmiHotplugEventListener";
         static final int TRANSACTION_onReceived = 1;
@@ -26,5 +20,11 @@ public interface IHdmiHotplugEventListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hdmi.IHdmiHotplugEventListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0) throws android.os.RemoteException {}
     }
 }

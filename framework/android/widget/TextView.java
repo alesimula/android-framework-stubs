@@ -7,7 +7,6 @@ public class TextView extends android.view.View implements android.view.ViewTree
     private static final int ACCESSIBILITY_ACTION_SHARE = 268435456;
     static final int ACCESSIBILITY_ACTION_SMART_START_ID = 268439552;
     private static final java.util.List<java.lang.String> ACCESSIBILITY_EXTRA_DATA_KEYS = null;
-    private static final java.util.List<java.lang.String> ACCESSIBILITY_EXTRA_DATA_KEYS_FLAGGED = null;
     private static final int ANIMATED_SCROLL_GAP = 250;
     public static final int AUTO_SIZE_TEXT_TYPE_NONE = 0;
     public static final int AUTO_SIZE_TEXT_TYPE_UNIFORM = 1;
@@ -43,7 +42,7 @@ public class TextView extends android.view.View implements android.view.ViewTree
     static final int ID_AUTOFILL = 16908355;
     static final int ID_COPY = 16908321;
     static final int ID_CUT = 16908320;
-    static final int ID_LOOK_UP = Integer.valueOf(0);
+    static final int ID_LOOK_UP = 16908384;
     static final int ID_PASTE = 16908322;
     static final int ID_PASTE_AS_PLAIN_TEXT = 16908337;
     static final int ID_REDO = 16908339;
@@ -313,7 +312,6 @@ public class TextView extends android.view.View implements android.view.ViewTree
     private int performHandwritingSelectGesture(android.view.inputmethod.SelectGesture p0, boolean p1) { return 0; }
     private int performHandwritingSelectGesture(int[] p0, boolean p1) { return 0; }
     private int performHandwritingSelectRangeGesture(android.view.inputmethod.SelectRangeGesture p0, boolean p1) { return 0; }
-    public static void preloadFontCache() {}
     private void prepareDrawableForDisplay(android.graphics.drawable.Drawable p0) {}
     private void readTextAppearance(android.content.Context p0, android.content.res.TypedArray p1, android.widget.TextView.TextAppearanceAttributes p2, boolean p3) {}
     private void registerForPreDraw() {}
@@ -487,6 +485,7 @@ public class TextView extends android.view.View implements android.view.ViewTree
     public float getLineSpacingMultiplier() { return 0.0f; }
     public final android.content.res.ColorStateList getLinkTextColors() { return null; }
     public final boolean getLinksClickable() { return false; }
+    android.graphics.drawable.Drawable getLookUpTextIcon(android.content.pm.ResolveInfo p0) { return null; }
     public int getMarqueeRepeatLimit() { return 0; }
     public int getMaxEms() { return 0; }
     public int getMaxHeight() { return 0; }
@@ -503,6 +502,7 @@ public class TextView extends android.view.View implements android.view.ViewTree
     public android.text.TextPaint getPaint() { return null; }
     public int getPaintFlags() { return 0; }
     public java.lang.String getPrivateImeOptions() { return null; }
+    android.content.pm.ResolveInfo getResolveInfoForLookUpText() { return null; }
     protected float getRightFadingEdgeStrength() { return 0.0f; }
     protected int getRightPaddingOffset() { return 0; }
     @android.view.ViewDebug.ExportedProperty(category="text")
@@ -649,6 +649,7 @@ public class TextView extends android.view.View implements android.view.ViewTree
     public void onPopulateAccessibilityEventInternal(android.view.accessibility.AccessibilityEvent p0) {}
     public boolean onPreDraw() { return false; }
     public boolean onPrivateIMECommand(java.lang.String p0, android.os.Bundle p1) { return false; }
+    public void onProvideContentCaptureNodeProperties(android.view.contentcapture.ContentCaptureNodeProperties p0) {}
     protected void onProvideStructure(android.view.ViewStructure p0, int p1, int p2) {}
     public android.view.ContentInfo onReceiveContent(android.view.ContentInfo p0) { return null; }
     public void onRequestCursorUpdatesInternal(int p0, int p1) {}
@@ -903,6 +904,7 @@ public class TextView extends android.view.View implements android.view.ViewTree
     public int transformedToOriginal(int p0, int p1) { return 0; }
     void updateAfterEdit() {}
     public boolean useDynamicLayout() { return false; }
+    boolean usesCustomLocalTextClassifier() { return false; }
     boolean usesNoOpTextClassifier() { return false; }
     protected boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
     protected void viewClicked(android.view.inputmethod.InputMethodManager p0) {}
@@ -921,34 +923,8 @@ public class TextView extends android.view.View implements android.view.ViewTree
         private BufferType() {}
     }
 
-    private class ChangeWatcher implements android.text.TextWatcher, android.text.SpanWatcher {
-        private java.lang.CharSequence mBeforeText;
-        private ChangeWatcher(android.widget.TextView p0) {}
-        public void afterTextChanged(android.text.Editable p0) {}
-        public void beforeTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
-        public void onSpanAdded(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
-        public void onSpanChanged(android.text.Spannable p0, java.lang.Object p1, int p2, int p3, int p4, int p5) {}
-        public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
-        public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
-    }
-
-    private static class CharWrapper implements java.lang.CharSequence, android.text.GetChars, android.text.GraphicsOperations {
-        private char[] mChars;
-        private int mLength;
-        private int mStart;
-        CharWrapper(char[] p0, int p1, int p2) {}
-        public char charAt(int p0) { return 0; }
-        public void drawText(android.graphics.BaseCanvas p0, int p1, int p2, float p3, float p4, android.graphics.Paint p5) {}
-        public void drawTextRun(android.graphics.BaseCanvas p0, int p1, int p2, int p3, int p4, float p5, float p6, boolean p7, android.graphics.Paint p8) {}
-        public void getChars(int p0, int p1, char[] p2, int p3) {}
-        public float getTextRunAdvances(int p0, int p1, int p2, int p3, boolean p4, float[] p5, int p6, android.graphics.Paint p7) { return 0.0f; }
-        public int getTextRunCursor(int p0, int p1, boolean p2, int p3, int p4, android.graphics.Paint p5) { return 0; }
-        public int getTextWidths(int p0, int p1, float[] p2, android.graphics.Paint p3) { return 0; }
-        public int length() { return 0; }
-        public float measureText(int p0, int p1, android.graphics.Paint p2) { return 0.0f; }
-        void set(char[] p0, int p1, int p2) {}
-        public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface XMLTypefaceAttr {
     }
 
     static class Drawables {
@@ -996,46 +972,6 @@ public class TextView extends android.view.View implements android.view.ViewTree
         public boolean hasMetadata() { return false; }
         public boolean resolveWithLayoutDirection(int p0) { return false; }
         public void setErrorDrawable(android.graphics.drawable.Drawable p0, android.widget.TextView p1) {}
-    }
-
-    private static final class Marquee {
-        private static final int MARQUEE_DELAY = 1200;
-        private static final float MARQUEE_DELTA_MAX = 0.07000000029802322f;
-        private static final int MARQUEE_DP_PER_SECOND = 30;
-        private static final byte MARQUEE_RUNNING = 2;
-        private static final byte MARQUEE_STARTING = 1;
-        private static final byte MARQUEE_STOPPED = 0;
-        private final android.view.Choreographer mChoreographer = null;
-        private float mFadeStop;
-        private float mGhostOffset;
-        private float mGhostStart;
-        private long mLastAnimationMs;
-        private float mMaxFadeScroll;
-        private float mMaxScroll;
-        private final float mPixelsPerMs = 0.0f;
-        private int mRepeatLimit;
-        private android.view.Choreographer.FrameCallback mRestartCallback;
-        private float mScroll;
-        private android.view.Choreographer.FrameCallback mStartCallback;
-        private byte mStatus;
-        private android.view.Choreographer.FrameCallback mTickCallback;
-        private final java.lang.ref.WeakReference<android.widget.TextView> mView = null;
-        Marquee(android.widget.TextView p0) {}
-        private void resetScroll() {}
-        float getGhostOffset() { return 0.0f; }
-        float getMaxFadeScroll() { return 0.0f; }
-        float getScroll() { return 0.0f; }
-        boolean isRunning() { return false; }
-        boolean isStopped() { return false; }
-        boolean shouldDrawGhost() { return false; }
-        boolean shouldDrawLeftFade() { return false; }
-        void start(int p0) {}
-        void stop() {}
-        void tick(long p0) {}
-    }
-
-    public static interface OnEditorActionListener {
-        public boolean onEditorAction(android.widget.TextView p0, int p1, android.view.KeyEvent p2);
     }
 
     public static class SavedState extends android.view.View.BaseSavedState {
@@ -1089,8 +1025,74 @@ public class TextView extends android.view.View implements android.view.ViewTree
         public java.lang.String toString() { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface XMLTypefaceAttr {
+    private static final class Marquee {
+        private static final int MARQUEE_DELAY = 1200;
+        private static final float MARQUEE_DELTA_MAX = 0.07000000029802322f;
+        private static final int MARQUEE_DP_PER_SECOND = 30;
+        private static final byte MARQUEE_RUNNING = 2;
+        private static final byte MARQUEE_STARTING = 1;
+        private static final byte MARQUEE_STOPPED = 0;
+        private final android.view.Choreographer mChoreographer = null;
+        private float mFadeStop;
+        private float mGhostOffset;
+        private float mGhostStart;
+        private long mLastAnimationMs;
+        private float mMaxFadeScroll;
+        private float mMaxScroll;
+        private final float mPixelsPerMs = 0.0f;
+        private int mRepeatLimit;
+        private android.view.Choreographer.FrameCallback mRestartCallback;
+        private float mScroll;
+        private android.view.Choreographer.VsyncCallback mStartCallback;
+        private byte mStatus;
+        private android.view.Choreographer.VsyncCallback mTickCallback;
+        private final java.lang.ref.WeakReference<android.widget.TextView> mView = null;
+        Marquee(android.widget.TextView p0) {}
+        private void resetScroll() {}
+        float getGhostOffset() { return 0.0f; }
+        float getMaxFadeScroll() { return 0.0f; }
+        float getScroll() { return 0.0f; }
+        boolean isRunning() { return false; }
+        boolean isStopped() { return false; }
+        boolean shouldDrawGhost() { return false; }
+        boolean shouldDrawLeftFade() { return false; }
+        void start(int p0) {}
+        void stop() {}
+        void tick(long p0) {}
+    }
+
+    private static class CharWrapper implements java.lang.CharSequence, android.text.GetChars, android.text.GraphicsOperations {
+        private char[] mChars;
+        private int mLength;
+        private int mStart;
+        CharWrapper(char[] p0, int p1, int p2) {}
+        public char charAt(int p0) { return 0; }
+        public void drawText(android.graphics.BaseCanvas p0, int p1, int p2, float p3, float p4, android.graphics.Paint p5) {}
+        public void drawTextRun(android.graphics.BaseCanvas p0, int p1, int p2, int p3, int p4, float p5, float p6, boolean p7, android.graphics.Paint p8) {}
+        public void getChars(int p0, int p1, char[] p2, int p3) {}
+        public float getTextRunAdvances(int p0, int p1, int p2, int p3, boolean p4, float[] p5, int p6, android.graphics.Paint p7) { return 0.0f; }
+        public int getTextRunCursor(int p0, int p1, boolean p2, int p3, int p4, android.graphics.Paint p5) { return 0; }
+        public int getTextWidths(int p0, int p1, float[] p2, android.graphics.Paint p3) { return 0; }
+        public int length() { return 0; }
+        public float measureText(int p0, int p1, android.graphics.Paint p2) { return 0.0f; }
+        void set(char[] p0, int p1, int p2) {}
+        public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
+    private class ChangeWatcher implements android.text.TextWatcher, android.text.SpanWatcher {
+        private java.lang.CharSequence mBeforeText;
+        private ChangeWatcher(android.widget.TextView p0) {}
+        public void afterTextChanged(android.text.Editable p0) {}
+        public void beforeTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
+        public void onSpanAdded(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
+        public void onSpanChanged(android.text.Spannable p0, java.lang.Object p1, int p2, int p3, int p4, int p5) {}
+        public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
+        public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
+    }
+
+    public static interface OnEditorActionListener {
+        public boolean onEditorAction(android.widget.TextView p0, int p1, android.view.KeyEvent p2);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.TextView> {

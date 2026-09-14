@@ -41,12 +41,6 @@ public interface ICameraDeviceUser extends android.os.IInterface {
     public void updateOutputConfigurations(int[] p0, android.hardware.camera2.params.OutputConfiguration[] p1) throws android.os.RemoteException;
     public void waitUntilIdle() throws android.os.RemoteException;
 
-    public static @interface AudioRestriction {
-        public static final int NONE = 0;
-        public static final int VIBRATION = 1;
-        public static final int VIBRATION_SOUND = 3;
-    }
-
     public static class Default implements android.hardware.camera2.ICameraDeviceUser {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -151,5 +145,11 @@ public interface ICameraDeviceUser extends android.os.IInterface {
             public void updateOutputConfigurations(int[] p0, android.hardware.camera2.params.OutputConfiguration[] p1) throws android.os.RemoteException {}
             public void waitUntilIdle() throws android.os.RemoteException {}
         }
+    }
+
+    public static @interface AudioRestriction {
+        public static final int NONE = 0;
+        public static final int VIBRATION = 1;
+        public static final int VIBRATION_SOUND = 3;
     }
 }

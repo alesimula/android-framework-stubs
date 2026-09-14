@@ -16,7 +16,7 @@ public final class BlockedNumbersManager {
     public static final java.lang.String ENHANCED_SETTING_KEY_BLOCK_UNREGISTERED = "block_numbers_not_in_contacts_setting";
     @android.annotation.SystemApi
     public static final java.lang.String ENHANCED_SETTING_KEY_SHOW_EMERGENCY_CALL_NOTIFICATION = "show_emergency_call_notification";
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "BlockedNumbersManager";
     private static final int NUM_DIALABLE_DIGITS_TO_LOG = Integer.valueOf(0);
     private android.content.Context mContext;
     public BlockedNumbersManager(android.content.Context p0) {}

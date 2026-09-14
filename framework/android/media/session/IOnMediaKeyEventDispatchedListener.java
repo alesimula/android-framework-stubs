@@ -4,12 +4,6 @@ public interface IOnMediaKeyEventDispatchedListener extends android.os.IInterfac
     public static final java.lang.String DESCRIPTOR = "android.media.session.IOnMediaKeyEventDispatchedListener";
     public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException;
 
-    public static class Default implements android.media.session.IOnMediaKeyEventDispatchedListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.session.IOnMediaKeyEventDispatchedListener {
         static final int TRANSACTION_onMediaKeyEventDispatched = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IOnMediaKeyEventDispatchedListener extends android.os.IInterfac
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.session.IOnMediaKeyEventDispatchedListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException {}
     }
 }

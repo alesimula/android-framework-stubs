@@ -1267,6 +1267,10 @@ public final class TelephonyStatsLog {
     public static final int UCE_EVENT_STATS__TYPE__OUTGOING_OPTION = 4;
     public static final int UCE_EVENT_STATS__TYPE__PUBLISH = 1;
     public static final int UCE_EVENT_STATS__TYPE__SUBSCRIBE = 2;
+    public static final int USSD_REQUEST_REPORTED = 1406;
+    public static final int USSD_REQUEST_REPORTED__OUTCOME__OUTCOME_ALLOWED = 1;
+    public static final int USSD_REQUEST_REPORTED__OUTCOME__OUTCOME_ERROR_NOT_ALLOWED = 2;
+    public static final int USSD_REQUEST_REPORTED__OUTCOME__OUTCOME_UNKNOWN = 0;
     public static final int VOICE_CALL_RAT_USAGE = 10077;
     public static final int VOICE_CALL_RAT_USAGE__RAT__NETWORK_TYPE_1XRTT = 7;
     public static final int VOICE_CALL_RAT_USAGE__RAT__NETWORK_TYPE_CDMA = 4;

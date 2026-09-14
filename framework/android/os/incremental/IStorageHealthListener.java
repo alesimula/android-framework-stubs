@@ -8,12 +8,6 @@ public interface IStorageHealthListener extends android.os.IInterface {
     public static final int HEALTH_STATUS_UNHEALTHY = 3;
     public void onHealthStatus(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.os.incremental.IStorageHealthListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onHealthStatus(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.incremental.IStorageHealthListener {
         static final int TRANSACTION_onHealthStatus = 1;
         public Stub() { super(); }
@@ -30,5 +24,11 @@ public interface IStorageHealthListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onHealthStatus(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.incremental.IStorageHealthListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onHealthStatus(int p0, int p1) throws android.os.RemoteException {}
     }
 }

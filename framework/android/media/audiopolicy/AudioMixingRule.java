@@ -60,6 +60,10 @@ public class AudioMixingRule implements android.os.Parcelable {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MixRole {
+    }
+
     public static class Builder {
         private boolean mAllowPrivilegedMediaPlaybackCapture;
         private final java.util.Set<android.media.audiopolicy.AudioMixingRule.AudioMixMatchCriterion> mCriteria = null;
@@ -78,9 +82,5 @@ public class AudioMixingRule implements android.os.Parcelable {
         public android.media.audiopolicy.AudioMixingRule.Builder excludeRule(android.media.AudioAttributes p0, int p1) throws java.lang.IllegalArgumentException { return null; }
         public android.media.audiopolicy.AudioMixingRule.Builder setTargetMixRole(int p0) { return null; }
         public android.media.audiopolicy.AudioMixingRule.Builder voiceCommunicationCaptureAllowed(boolean p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MixRole {
     }
 }

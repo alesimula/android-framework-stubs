@@ -12,14 +12,6 @@ public interface IIntrusionDetectionServiceCommandCallback extends android.os.II
         public void onSuccess() throws android.os.RemoteException {}
     }
 
-    public static @interface ErrorCode {
-        public static final int DATA_SOURCE_UNAVAILABLE = 4;
-        public static final int INVALID_STATE_TRANSITION = 2;
-        public static final int PERMISSION_DENIED = 1;
-        public static final int TRANSPORT_UNAVAILABLE = 3;
-        public static final int UNKNOWN = 0;
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.intrusiondetection.IIntrusionDetectionServiceCommandCallback {
         static final int TRANSACTION_onFailure = 2;
         static final int TRANSACTION_onSuccess = 1;
@@ -38,5 +30,13 @@ public interface IIntrusionDetectionServiceCommandCallback extends android.os.II
             public void onFailure(int p0) throws android.os.RemoteException {}
             public void onSuccess() throws android.os.RemoteException {}
         }
+    }
+
+    public static @interface ErrorCode {
+        public static final int DATA_SOURCE_UNAVAILABLE = 4;
+        public static final int INVALID_STATE_TRANSITION = 2;
+        public static final int PERMISSION_DENIED = 1;
+        public static final int TRANSPORT_UNAVAILABLE = 3;
+        public static final int UNKNOWN = 0;
     }
 }

@@ -24,8 +24,13 @@ public final class PixelCopy {
     public static @interface CopyResultStatus {
     }
 
-    public static interface OnPixelCopyFinishedListener {
-        public void onPixelCopyFinished(int p0);
+    public static final class Result {
+        private android.graphics.Bitmap mBitmap;
+        private int mStatus;
+        private Result(int p0, android.graphics.Bitmap p1) {}
+        private void validateStatus() {}
+        public android.graphics.Bitmap getBitmap() { return null; }
+        public int getStatus() { return 0; }
     }
 
     public static final class Request {
@@ -55,12 +60,7 @@ public final class PixelCopy {
         }
     }
 
-    public static final class Result {
-        private android.graphics.Bitmap mBitmap;
-        private int mStatus;
-        private Result(int p0, android.graphics.Bitmap p1) {}
-        private void validateStatus() {}
-        public android.graphics.Bitmap getBitmap() { return null; }
-        public int getStatus() { return 0; }
+    public static interface OnPixelCopyFinishedListener {
+        public void onPixelCopyFinished(int p0);
     }
 }

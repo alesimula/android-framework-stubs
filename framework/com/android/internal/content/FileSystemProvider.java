@@ -57,11 +57,13 @@ public abstract class FileSystemProvider extends android.provider.DocumentsProvi
     public java.lang.String getDocumentType(java.lang.String p0) throws java.io.FileNotFoundException { return null; }
     protected final java.io.File getFileForDocId(java.lang.String p0) throws java.io.FileNotFoundException { return null; }
     protected abstract java.io.File getFileForDocId(java.lang.String p0, boolean p1) throws java.io.FileNotFoundException;
+    protected final java.lang.String[] getHandledQueryArguments(android.os.Bundle p0) { return null; }
     protected java.lang.String getRelativePathFromRoot(java.lang.String p0) throws java.io.FileNotFoundException { return null; }
     protected android.database.MatrixCursor.RowBuilder includeFile(android.database.MatrixCursor p0, java.lang.String p1, java.io.File p2) throws java.io.FileNotFoundException { return null; }
     public boolean isChildDocument(java.lang.String p0, java.lang.String p1) { return false; }
     protected boolean isSubtreeSearchSupported() { return false; }
     protected boolean isTrashSupported(java.io.File p0) throws java.io.FileNotFoundException { return false; }
+    protected final boolean matchSearchQueryArguments(android.os.Bundle p0, java.lang.String p1, java.lang.String p2, long p3, long p4) { return false; }
     public java.lang.String moveDocument(java.lang.String p0, java.lang.String p1, java.lang.String p2) throws java.io.FileNotFoundException { return null; }
     protected void onCreate(java.lang.String[] p0) {}
     public boolean onCreate() { return false; }
@@ -69,6 +71,7 @@ public abstract class FileSystemProvider extends android.provider.DocumentsProvi
     protected void onDocIdDeleted(java.lang.String p0, boolean p1) {}
     public android.os.ParcelFileDescriptor openDocument(java.lang.String p0, java.lang.String p1, android.os.CancellationSignal p2) throws java.io.FileNotFoundException { return null; }
     public android.content.res.AssetFileDescriptor openDocumentThumbnail(java.lang.String p0, android.graphics.Point p1, android.os.CancellationSignal p2) throws java.io.FileNotFoundException { return null; }
+    protected final android.content.res.AssetFileDescriptor openImageThumbnail(java.io.File p0) throws java.io.FileNotFoundException { return null; }
     public android.database.Cursor queryChildDocuments(java.lang.String p0, java.lang.String[] p1, android.os.Bundle p2) throws java.io.FileNotFoundException { return null; }
     public android.database.Cursor queryChildDocuments(java.lang.String p0, java.lang.String[] p1, java.lang.String p2) throws java.io.FileNotFoundException { return null; }
     protected android.database.Cursor queryChildDocuments(java.lang.String p0, java.lang.String[] p1, java.lang.String p2, boolean p3) throws java.io.FileNotFoundException { return null; }
@@ -84,6 +87,14 @@ public abstract class FileSystemProvider extends android.provider.DocumentsProvi
     public void shutdown() {}
     public java.lang.String trashDocument(java.lang.String p0) throws java.io.FileNotFoundException { return null; }
     protected boolean typeSupportsMetadata(java.lang.String p0) { return false; }
+
+    private static class LoadingCursor extends android.database.MatrixCursor {
+        private java.util.concurrent.Future<?> mJob;
+        LoadingCursor(java.lang.String[] p0) { super((java.lang.String[])null); }
+        public void close() {}
+        public void notifyChanged() {}
+        public void setJob(java.util.concurrent.Future<?> p0) {}
+    }
 
     private class DirectoryCursor extends android.database.MatrixCursor {
         private final java.io.File mFile = null;
@@ -101,13 +112,5 @@ public abstract class FileSystemProvider extends android.provider.DocumentsProvi
         DirectoryObserver(java.io.File p0, android.content.ContentResolver p1, android.net.Uri p2) { super((java.io.File)null); }
         public void onEvent(int p0, java.lang.String p1) {}
         public java.lang.String toString() { return null; }
-    }
-
-    private static class LoadingCursor extends android.database.MatrixCursor {
-        private java.util.concurrent.Future<?> mJob;
-        LoadingCursor(java.lang.String[] p0) { super((java.lang.String[])null); }
-        public void close() {}
-        public void notifyChanged() {}
-        public void setJob(java.util.concurrent.Future<?> p0) {}
     }
 }

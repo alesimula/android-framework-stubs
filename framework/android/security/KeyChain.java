@@ -26,11 +26,7 @@ public final class KeyChain {
     public static final java.lang.String GRANT_ALIAS_PREFIX = "ks2_keychain_grant_id:";
     private static final java.lang.String KEYCHAIN_PACKAGE = "com.android.keychain";
     public static final java.lang.String KEY_ALIAS_SELECTION_DENIED = "android:alias-selection-denied";
-    public static final int KEY_ATTESTATION_CANNOT_ATTEST_IDS = 3;
-    public static final int KEY_ATTESTATION_CANNOT_COLLECT_DATA = 2;
-    public static final int KEY_ATTESTATION_FAILURE = 4;
-    public static final int KEY_ATTESTATION_MISSING_CHALLENGE = 1;
-    public static final int KEY_ATTESTATION_SUCCESS = 0;
+    public static final int KEY_GEN_CANNOT_ATTEST_IDS = 8;
     public static final int KEY_GEN_FAILURE = 7;
     public static final int KEY_GEN_INVALID_ALGORITHM_PARAMETERS = 4;
     public static final int KEY_GEN_MISSING_ALIAS = 1;
@@ -56,10 +52,11 @@ public final class KeyChain {
     private static void ensureNotOnMainThread(android.content.Context p0) {}
     public static java.security.cert.X509Certificate[] getCertificateChain(android.content.Context p0, java.lang.String p1) throws android.security.KeyChainException, java.lang.InterruptedException { return null; }
     public static android.security.AppUriAuthenticationPolicy getCredentialManagementAppPolicy(android.content.Context p0) throws java.lang.SecurityException { return null; }
-    private static android.system.keystore2.KeyDescriptor getGrantDescriptor(java.lang.String p0) { return null; }
+    static android.system.keystore2.KeyDescriptor getGrantDescriptor(java.lang.String p0) { return null; }
     public static java.lang.String getGrantString(android.system.keystore2.KeyDescriptor p0) { return null; }
     public static java.security.KeyPair getKeyPair(android.content.Context p0, java.lang.String p1) throws android.security.KeyChainException, java.lang.InterruptedException { return null; }
     public static java.security.PrivateKey getPrivateKey(android.content.Context p0, java.lang.String p1) throws android.security.KeyChainException, java.lang.InterruptedException { return null; }
+    private static java.security.cert.X509Certificate[] getUserCertificateChain(android.content.Context p0, java.lang.String p1) throws android.security.KeyChainException, java.lang.InterruptedException { return null; }
     @android.annotation.SystemApi
     public static java.lang.String getWifiKeyGrantAsUser(android.content.Context p0, android.os.UserHandle p1, java.lang.String p2) { return null; }
     @android.annotation.SystemApi
@@ -68,6 +65,7 @@ public final class KeyChain {
     public static boolean isBoundKeyAlgorithm(java.lang.String p0) { return false; }
     public static boolean isCredentialManagementApp(android.content.Context p0) { return false; }
     public static boolean isKeyAlgorithmSupported(java.lang.String p0) { return false; }
+    static java.util.List<java.security.cert.X509Certificate> parseCertificateChain(byte[] p0, byte[] p1) throws android.security.KeyChainException { return null; }
     public static boolean removeCredentialManagementApp(android.content.Context p0) { return false; }
     public static boolean setCredentialManagementApp(android.content.Context p0, java.lang.String p1, android.security.AppUriAuthenticationPolicy p2) { return false; }
     public static java.security.cert.X509Certificate toCertificate(byte[] p0) { return null; }
@@ -81,6 +79,10 @@ public final class KeyChain {
         public void onError(int p0) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SelectionError {
+    }
+
     public static class KeyChainConnection implements java.io.Closeable {
         private final android.content.Context mContext = null;
         private final android.security.IKeyChainService mService = null;
@@ -88,9 +90,5 @@ public final class KeyChain {
         protected KeyChainConnection(android.content.Context p0, android.content.ServiceConnection p1, android.security.IKeyChainService p2) {}
         public void close() {}
         public android.security.IKeyChainService getService() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SelectionError {
     }
 }

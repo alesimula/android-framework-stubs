@@ -112,13 +112,26 @@ public interface Aconfig {
         public void writeTo(android.internal.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
+    public static final class group_info extends android.internal.framework.protobuf.nano.MessageNano {
+        private static volatile android.aconfig.nano.Aconfig.group_info[] _emptyArray;
+        public android.aconfig.nano.Aconfig.FlagReference group;
+        public boolean isGroupActivated;
+        public group_info() { super(); }
+        public static android.aconfig.nano.Aconfig.group_info[] emptyArray() { return null; }
+        public static android.aconfig.nano.Aconfig.group_info parseFrom(android.internal.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static android.aconfig.nano.Aconfig.group_info parseFrom(byte[] p0) throws android.internal.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public android.aconfig.nano.Aconfig.group_info clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public android.aconfig.nano.Aconfig.group_info mergeFrom(android.internal.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(android.internal.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
     public static final class parsed_flag extends android.internal.framework.protobuf.nano.MessageNano {
         private static volatile android.aconfig.nano.Aconfig.parsed_flag[] _emptyArray;
         public java.lang.String[] bug;
         public java.lang.String container;
         public java.lang.String description;
-        public android.aconfig.nano.Aconfig.FlagReference group;
-        public android.aconfig.nano.Aconfig.FlagReference groupedBy;
+        public android.aconfig.nano.Aconfig.group_info groupInfo;
         public boolean isExported;
         public boolean isFixedReadOnly;
         public android.aconfig.nano.Aconfig.flag_metadata metadata;

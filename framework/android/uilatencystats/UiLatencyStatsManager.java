@@ -6,8 +6,8 @@ public class UiLatencyStatsManager {
     private final android.uilatencystats.IUiLatencyStats mService = null;
     public UiLatencyStatsManager(android.content.Context p0, android.uilatencystats.IUiLatencyStats p1) {}
     public static android.uilatencystats.EventType getEventType(int p0) { return null; }
-    public void reportEvent(int p0) {}
-    public void reportEvent(int p0, long p1) {}
+    public final void reportEvent(int p0) {}
+    public final void reportEvent(int p0, long p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Event {

@@ -6,14 +6,6 @@ public interface IServiceListImportSession extends android.os.IInterface {
     public int preload(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException;
     public int release() throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.servicedb.IServiceListImportSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int importServiceList(android.os.ParcelFileDescriptor p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
-        public int preload(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException { return 0; }
-        public int release() throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.servicedb.IServiceListImportSession {
         static final int TRANSACTION_importServiceList = 1;
         static final int TRANSACTION_preload = 2;
@@ -34,5 +26,13 @@ public interface IServiceListImportSession extends android.os.IInterface {
             public int preload(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException { return 0; }
             public int release() throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.servicedb.IServiceListImportSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int importServiceList(android.os.ParcelFileDescriptor p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
+        public int preload(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException { return 0; }
+        public int release() throws android.os.RemoteException { return 0; }
     }
 }

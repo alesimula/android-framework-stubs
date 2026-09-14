@@ -1,7 +1,7 @@
 package android.service.chooser;
 
 public final class TapToShareClient {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "TapToShareClient";
     private final android.service.chooser.ITapToShareCallback mCallback = null;
     private final android.content.ServiceConnection mConnection = null;
     private final android.content.Context mContext = null;

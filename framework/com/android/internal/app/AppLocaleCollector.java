@@ -3,7 +3,7 @@ package com.android.internal.app;
 public class AppLocaleCollector implements com.android.internal.app.LocaleCollectorBase {
     private static final boolean ENABLED = true;
     private static final java.lang.String PROP_APP_LANGUAGE_SUGGESTION = "android.app.language.suggestion.enhanced";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AppLocaleCollector";
     private java.util.Set<com.android.internal.app.LocaleStore.LocaleInfo> mAllAppActiveLocales;
     private com.android.internal.app.LocaleStore.LocaleInfo mAppCurrentLocale;
     private final java.lang.String mAppPackageName = null;

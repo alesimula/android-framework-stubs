@@ -22,18 +22,18 @@ public final class SignalConstant {
     public SignalConstant() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioSignalInfoKeys {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DolbyAudioIcon {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendSignalInfoKeys {
+    public static @interface AudioSignalInfoKeys {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FrontendStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrontendSignalInfoKeys {
     }
 }

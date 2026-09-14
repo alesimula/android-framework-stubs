@@ -2,8 +2,8 @@ package android.view;
 
 public interface IWindowSession extends android.os.IInterface {
     public void addSharedAnimationProvider(android.view.IWindow p0, android.window.sharedsurface.ISharedAnimationProvider p1, android.window.sharedsurface.SharedAnimationParams p2, java.util.List<android.window.sharedsurface.SharedAnimationFilter> p3) throws android.os.RemoteException;
-    public int addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, android.view.InputChannel p5, android.view.WindowRelayoutResult p6) throws android.os.RemoteException;
-    public int addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5, android.view.InputChannel p6, android.view.WindowRelayoutResult p7) throws android.os.RemoteException;
+    public android.view.AddWindowResult addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4) throws android.os.RemoteException;
+    public android.view.AddWindowResult addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException;
     public void cancelDragAndDrop(android.os.IBinder p0, boolean p1) throws android.os.RemoteException;
     public boolean cancelDraw(android.view.IWindow p0, int p1) throws android.os.RemoteException;
     public void clearTouchableRegion(android.view.IWindow p0) throws android.os.RemoteException;
@@ -50,8 +50,8 @@ public interface IWindowSession extends android.os.IInterface {
     public static class Default implements android.view.IWindowSession {
         public Default() {}
         public void addSharedAnimationProvider(android.view.IWindow p0, android.window.sharedsurface.ISharedAnimationProvider p1, android.window.sharedsurface.SharedAnimationParams p2, java.util.List<android.window.sharedsurface.SharedAnimationFilter> p3) throws android.os.RemoteException {}
-        public int addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, android.view.InputChannel p5, android.view.WindowRelayoutResult p6) throws android.os.RemoteException { return 0; }
-        public int addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5, android.view.InputChannel p6, android.view.WindowRelayoutResult p7) throws android.os.RemoteException { return 0; }
+        public android.view.AddWindowResult addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4) throws android.os.RemoteException { return null; }
+        public android.view.AddWindowResult addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException { return null; }
         public android.os.IBinder asBinder() { return null; }
         public void cancelDragAndDrop(android.os.IBinder p0, boolean p1) throws android.os.RemoteException {}
         public boolean cancelDraw(android.view.IWindow p0, int p1) throws android.os.RemoteException { return false; }
@@ -155,8 +155,8 @@ public interface IWindowSession extends android.os.IInterface {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
             public void addSharedAnimationProvider(android.view.IWindow p0, android.window.sharedsurface.ISharedAnimationProvider p1, android.window.sharedsurface.SharedAnimationParams p2, java.util.List<android.window.sharedsurface.SharedAnimationFilter> p3) throws android.os.RemoteException {}
-            public int addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, android.view.InputChannel p5, android.view.WindowRelayoutResult p6) throws android.os.RemoteException { return 0; }
-            public int addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5, android.view.InputChannel p6, android.view.WindowRelayoutResult p7) throws android.os.RemoteException { return 0; }
+            public android.view.AddWindowResult addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4) throws android.os.RemoteException { return null; }
+            public android.view.AddWindowResult addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException { return null; }
             public android.os.IBinder asBinder() { return null; }
             public void cancelDragAndDrop(android.os.IBinder p0, boolean p1) throws android.os.RemoteException {}
             public boolean cancelDraw(android.view.IWindow p0, int p1) throws android.os.RemoteException { return false; }

@@ -16,6 +16,8 @@ public class Utils {
     public static java.lang.String idString(int p0) { return null; }
     public static java.lang.String idStringFromNan(float p0) { return null; }
     public static int interpolateColor(int p0, int p1, float p2) { return 0; }
+    public static boolean isMacroLocal(int p0) { return false; }
+    public static boolean isSystemGlobal(int p0) { return false; }
     public static boolean isVariable(float p0) { return false; }
     public static void log(java.lang.String p0) {}
     public static void logStack(java.lang.String p0, int p1) {}

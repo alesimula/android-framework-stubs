@@ -21,6 +21,17 @@ public final class TestEventOuterClass {
             public ProtoVmIncrementalState(android.internal.perfetto.protos.TestEventOuterClass.TestEvent p0) {}
         }
 
+        public final class TestPayload {
+            public static final long DEBUG_ANNOTATIONS = 2246267895815L;
+            public static final long NESTED = 2246267895810L;
+            public static final long REMAINING_NESTING_DEPTH = 1155346202627L;
+            public static final long REPEATED_INTS = 2220498092038L;
+            public static final long SINGLE_INT = 1120986464261L;
+            public static final long SINGLE_STRING = 1138166333444L;
+            public static final long STR = 2237677961217L;
+            public TestPayload(android.internal.perfetto.protos.TestEventOuterClass.TestEvent p0) {}
+        }
+
         public final class ProtoVmMessage {
             public static final long ID = 1155346202625L;
             public static final long SUBMESSAGE = 1146756268034L;
@@ -39,17 +50,6 @@ public final class TestEventOuterClass {
             public static final long SINGLE_MESSAGE = 1146756268035L;
             public static final long STRING_TO_MERGE = 1138166333441L;
             public ProtoVmPatch(android.internal.perfetto.protos.TestEventOuterClass.TestEvent p0) {}
-        }
-
-        public final class TestPayload {
-            public static final long DEBUG_ANNOTATIONS = 2246267895815L;
-            public static final long NESTED = 2246267895810L;
-            public static final long REMAINING_NESTING_DEPTH = 1155346202627L;
-            public static final long REPEATED_INTS = 2220498092038L;
-            public static final long SINGLE_INT = 1120986464261L;
-            public static final long SINGLE_STRING = 1138166333444L;
-            public static final long STR = 2237677961217L;
-            public TestPayload(android.internal.perfetto.protos.TestEventOuterClass.TestEvent p0) {}
         }
     }
 }

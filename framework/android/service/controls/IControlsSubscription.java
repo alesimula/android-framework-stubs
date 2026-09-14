@@ -5,13 +5,6 @@ public interface IControlsSubscription extends android.os.IInterface {
     public void cancel() throws android.os.RemoteException;
     public void request(long p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.controls.IControlsSubscription {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancel() throws android.os.RemoteException {}
-        public void request(long p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.controls.IControlsSubscription {
         static final int TRANSACTION_cancel = 2;
         static final int TRANSACTION_request = 1;
@@ -30,5 +23,12 @@ public interface IControlsSubscription extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void request(long p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.controls.IControlsSubscription {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancel() throws android.os.RemoteException {}
+        public void request(long p0) throws android.os.RemoteException {}
     }
 }

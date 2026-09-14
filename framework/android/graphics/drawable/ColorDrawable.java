@@ -9,7 +9,7 @@ public class ColorDrawable extends android.graphics.drawable.Drawable {
     public ColorDrawable() { super(); }
     public ColorDrawable(int p0) { super(); }
     private ColorDrawable(android.graphics.drawable.ColorDrawable.ColorState p0, android.content.res.Resources p1) { super(); }
-    private void updateLocalState(android.content.res.Resources p0) {}
+    private void updateLocalState() {}
     private void updateStateFromTypedArray(android.content.res.TypedArray p0) {}
     public void applyTheme(android.content.res.Resources.Theme p0) {}
     public boolean canApplyTheme() { return false; }

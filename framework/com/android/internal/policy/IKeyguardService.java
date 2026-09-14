@@ -8,7 +8,7 @@ public interface IKeyguardService extends android.os.IInterface {
     public void dismissKeyguardToLaunch(android.content.Intent p0) throws android.os.RemoteException;
     public void doKeyguardTimeout(android.os.Bundle p0) throws android.os.RemoteException;
     public void onBootCompleted() throws android.os.RemoteException;
-    public void onDreamingStarted() throws android.os.RemoteException;
+    public void onDreamingStarted(int p0) throws android.os.RemoteException;
     public void onDreamingStopped() throws android.os.RemoteException;
     public void onFinishedGoingToSleep(int p0, boolean p1) throws android.os.RemoteException;
     public void onFinishedWakingUp() throws android.os.RemoteException;
@@ -37,7 +37,7 @@ public interface IKeyguardService extends android.os.IInterface {
         public void dismissKeyguardToLaunch(android.content.Intent p0) throws android.os.RemoteException {}
         public void doKeyguardTimeout(android.os.Bundle p0) throws android.os.RemoteException {}
         public void onBootCompleted() throws android.os.RemoteException {}
-        public void onDreamingStarted() throws android.os.RemoteException {}
+        public void onDreamingStarted(int p0) throws android.os.RemoteException {}
         public void onDreamingStopped() throws android.os.RemoteException {}
         public void onFinishedGoingToSleep(int p0, boolean p1) throws android.os.RemoteException {}
         public void onFinishedWakingUp() throws android.os.RemoteException {}
@@ -103,7 +103,7 @@ public interface IKeyguardService extends android.os.IInterface {
             public void doKeyguardTimeout(android.os.Bundle p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onBootCompleted() throws android.os.RemoteException {}
-            public void onDreamingStarted() throws android.os.RemoteException {}
+            public void onDreamingStarted(int p0) throws android.os.RemoteException {}
             public void onDreamingStopped() throws android.os.RemoteException {}
             public void onFinishedGoingToSleep(int p0, boolean p1) throws android.os.RemoteException {}
             public void onFinishedWakingUp() throws android.os.RemoteException {}

@@ -7,6 +7,7 @@ public final class FillContext implements android.os.Parcelable {
     private final android.app.assist.AssistStructure mStructure = null;
     private transient android.util.ArrayMap<android.view.autofill.AutofillId, android.app.assist.AssistStructure.ViewNode> mViewNodeLookupTable;
     public FillContext(int p0, android.app.assist.AssistStructure p1, android.view.autofill.AutofillId p2) {}
+    FillContext(android.os.Parcel p0) {}
     @java.lang.Deprecated
     private void __metadata() {}
     public int describeContents() { return 0; }

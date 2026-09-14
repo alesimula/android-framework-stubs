@@ -72,7 +72,7 @@ public abstract class Transition implements java.lang.Cloneable {
     public android.transition.Transition addTarget(android.view.View p0) { return null; }
     public android.transition.Transition addTarget(java.lang.Class p0) { return null; }
     public android.transition.Transition addTarget(java.lang.String p0) { return null; }
-    protected void animate(android.animation.Animator p0) {}
+    protected final void animate(android.animation.Animator p0) {}
     public boolean canRemoveViews() { return false; }
     protected void cancel() {}
     public abstract void captureEndValues(android.transition.TransitionValues p0);
@@ -105,12 +105,12 @@ public abstract class Transition implements java.lang.Cloneable {
     public java.util.List<java.lang.Integer> getTargetIds() { return null; }
     public java.util.List<java.lang.String> getTargetNames() { return null; }
     public java.util.List<java.lang.Class> getTargetTypes() { return null; }
-    public java.util.List<java.lang.String> getTargetViewNames() { return null; }
+    public final java.util.List<java.lang.String> getTargetViewNames() { return null; }
     public java.util.List<android.view.View> getTargets() { return null; }
     public java.lang.String[] getTransitionProperties() { return null; }
     public android.transition.TransitionValues getTransitionValues(android.view.View p0, boolean p1) { return null; }
     public boolean isTransitionRequired(android.transition.TransitionValues p0, android.transition.TransitionValues p1) { return false; }
-    public boolean isValidTarget(android.view.View p0) { return false; }
+    public final boolean isValidTarget(android.view.View p0) { return false; }
     public void pause(android.view.View p0) {}
     void playTransition(android.view.ViewGroup p0) {}
     public android.transition.Transition removeListener(android.transition.Transition.TransitionListener p0) { return null; }
@@ -143,12 +143,6 @@ public abstract class Transition implements java.lang.Cloneable {
         AnimationInfo(android.view.View p0, java.lang.String p1, android.transition.Transition p2, android.view.WindowId p3, android.transition.TransitionValues p4) {}
     }
 
-    private static class ArrayListManager {
-        private ArrayListManager() {}
-        static <T extends java.lang.Object> java.util.ArrayList<T> add(java.util.ArrayList<T> p0, T p1) { return null; }
-        static <T extends java.lang.Object> java.util.ArrayList<T> remove(java.util.ArrayList<T> p0, T p1) { return null; }
-    }
-
     public static abstract class EpicenterCallback {
         public EpicenterCallback() {}
         public abstract android.graphics.Rect onGetEpicenter(android.transition.Transition p0);
@@ -160,5 +154,11 @@ public abstract class Transition implements java.lang.Cloneable {
         public void onTransitionPause(android.transition.Transition p0);
         public void onTransitionResume(android.transition.Transition p0);
         public void onTransitionStart(android.transition.Transition p0);
+    }
+
+    private static class ArrayListManager {
+        private ArrayListManager() {}
+        static <T extends java.lang.Object> java.util.ArrayList<T> add(java.util.ArrayList<T> p0, T p1) { return null; }
+        static <T extends java.lang.Object> java.util.ArrayList<T> remove(java.util.ArrayList<T> p0, T p1) { return null; }
     }
 }

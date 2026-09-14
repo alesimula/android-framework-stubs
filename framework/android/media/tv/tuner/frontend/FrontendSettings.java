@@ -72,7 +72,7 @@ public abstract class FrontendSettings {
     public void setSpectralInversion(int p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendSpectralInversion {
+    public static @interface Type {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -80,6 +80,6 @@ public abstract class FrontendSettings {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Type {
+    public static @interface FrontendSpectralInversion {
     }
 }

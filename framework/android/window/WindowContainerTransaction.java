@@ -30,6 +30,7 @@ public final class WindowContainerTransaction implements android.os.Parcelable {
     public android.window.WindowContainerTransaction deleteTaskFragment(android.os.IBinder p0) { return null; }
     public int describeContents() { return 0; }
     public android.window.WindowContainerTransaction finishActivity(android.os.IBinder p0) { return null; }
+    public android.window.WindowContainerTransaction focusTopTask(int p0) { return null; }
     public java.util.Map<android.os.IBinder, android.window.WindowContainerTransaction.Change> getChanges() { return null; }
     public android.os.IBinder getErrorCallbackToken() { return null; }
     public int getFlags() { return 0; }
@@ -83,7 +84,6 @@ public final class WindowContainerTransaction implements android.os.Parcelable {
     public android.window.WindowContainerTransaction setInterceptBackPressedOnTaskRoot(android.window.WindowContainerToken p0, boolean p1) { return null; }
     public android.window.WindowContainerTransaction setIsTaskMoveAllowed(android.window.WindowContainerToken p0, boolean p1) { return null; }
     public android.window.WindowContainerTransaction setLaunchAdjacentFlagRoot(android.window.WindowContainerToken p0) { return null; }
-    public android.window.WindowContainerTransaction setLaunchNextToBubble(android.window.WindowContainerToken p0, boolean p1) { return null; }
     public android.window.WindowContainerTransaction setLaunchRoot(android.window.WindowContainerToken p0, int[] p1, int[] p2) { return null; }
     public android.window.WindowContainerTransaction setPreserveLeafTaskIfRelaunch(android.window.WindowContainerToken p0, boolean p1) { return null; }
     public android.window.WindowContainerTransaction setReachabilityOffset(android.window.WindowContainerToken p0, int p1, int p2, int p3) { return null; }
@@ -105,6 +105,212 @@ public final class WindowContainerTransaction implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static final class HierarchyOp implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.WindowContainerTransaction.HierarchyOp> CREATOR = null;
+        public static final int HIERARCHY_OP_TYPE_ADD_INSETS_FRAME_PROVIDER = 10;
+        public static final int HIERARCHY_OP_TYPE_ADD_TASK_FRAGMENT_OPERATION = 17;
+        public static final int HIERARCHY_OP_TYPE_APP_COMPAT_REACHABILITY = 24;
+        public static final int HIERARCHY_OP_TYPE_CHILDREN_TASKS_REPARENT = 2;
+        public static final int HIERARCHY_OP_TYPE_CLEAR_ADJACENT_ROOTS = 15;
+        public static final int HIERARCHY_OP_TYPE_CONTINUE_PACKAGE_UPDATE = 28;
+        public static final int HIERARCHY_OP_TYPE_FINISH_ACTIVITY = 14;
+        public static final int HIERARCHY_OP_TYPE_FOCUS_TOP_TASK = 30;
+        public static final int HIERARCHY_OP_TYPE_LAUNCH_TASK = 5;
+        public static final int HIERARCHY_OP_TYPE_MOVE_PIP_ACTIVITY_TO_PINNED_TASK = 18;
+        public static final int HIERARCHY_OP_TYPE_PENDING_INTENT = 7;
+        public static final int HIERARCHY_OP_TYPE_REMOVE_INSETS_FRAME_PROVIDER = 11;
+        public static final int HIERARCHY_OP_TYPE_REMOVE_ROOT_TASK = 23;
+        public static final int HIERARCHY_OP_TYPE_REMOVE_TASK = 13;
+        public static final int HIERARCHY_OP_TYPE_REORDER = 1;
+        public static final int HIERARCHY_OP_TYPE_REPARENT = 0;
+        public static final int HIERARCHY_OP_TYPE_RESTORE_BACK_NAVIGATION = 20;
+        public static final int HIERARCHY_OP_TYPE_RESTORE_TRANSIENT_ORDER = 9;
+        public static final int HIERARCHY_OP_TYPE_SET_ADJACENT_ROOTS = 4;
+        public static final int HIERARCHY_OP_TYPE_SET_ALWAYS_ON_TOP = 12;
+        public static final int HIERARCHY_OP_TYPE_SET_ANIMATION_DELEGATE = 27;
+        public static final int HIERARCHY_OP_TYPE_SET_EXCLUDE_INSETS_TYPES = 21;
+        public static final int HIERARCHY_OP_TYPE_SET_IS_TRIMMABLE = 19;
+        public static final int HIERARCHY_OP_TYPE_SET_KEYGUARD_STATE = 22;
+        public static final int HIERARCHY_OP_TYPE_SET_LAUNCH_ADJACENT_FLAG_ROOT = 6;
+        public static final int HIERARCHY_OP_TYPE_SET_LAUNCH_ROOT = 3;
+        public static final int HIERARCHY_OP_TYPE_SET_PRESERVE_LEAF_TASK_IF_RELAUNCH = 29;
+        public static final int HIERARCHY_OP_TYPE_SET_REPARENT_LEAF_TASK_IF_RELAUNCH = 16;
+        public static final int HIERARCHY_OP_TYPE_SET_SAFE_REGION_BOUNDS = 25;
+        public static final int HIERARCHY_OP_TYPE_SET_SYSTEM_BAR_VISIBILITY_OVERRIDE = 26;
+        public static final int HIERARCHY_OP_TYPE_START_SHORTCUT = 8;
+        public static final java.lang.String LAUNCH_KEY_SHORTCUT_CALLING_PACKAGE = "android:transaction.hop.shortcut_calling_package";
+        public static final java.lang.String LAUNCH_KEY_TASK_ID = "android:transaction.hop.taskId";
+        public static final java.lang.String REACHABILITY_EVENT_X = "android:transaction.reachability_x";
+        public static final java.lang.String REACHABILITY_EVENT_Y = "android:transaction.reachability_y";
+        private android.content.Intent mActivityIntent;
+        private int[] mActivityTypes;
+        private boolean mAlwaysOnTop;
+        private android.os.Bundle mAppCompatOptions;
+        private android.graphics.Rect mBounds;
+        private android.os.IBinder mCaller;
+        private boolean mClearWindowingMode;
+        private android.os.IBinder mContainer;
+        private android.os.IBinder[] mContainers;
+        private int mDisplayId;
+        private int mExcludeInsetsTypes;
+        private int mForciblyHidingInsetsTypes;
+        private int mForciblyShowingInsetsTypes;
+        private boolean mIncludingParents;
+        private android.view.InsetsFrameProvider mInsetsFrameProvider;
+        private boolean mIsTrimmableFromRecents;
+        private android.window.KeyguardState mKeyguardState;
+        private boolean mKillProcess;
+        private android.os.Bundle mLaunchOptions;
+        private android.app.PendingIntent mPendingIntent;
+        private boolean mPreserveLeafTaskIfRelaunch;
+        private boolean mRemoveFromRecents;
+        private android.os.IBinder mReparent;
+        private boolean mReparentLeafTaskIfRelaunch;
+        private boolean mReparentTopOnly;
+        private android.graphics.Rect mSafeRegionBounds;
+        private android.content.pm.ShortcutInfo mShortcutInfo;
+        private android.window.TaskFragmentOperation mTaskFragmentOperation;
+        private boolean mToTop;
+        private final int mType = 0;
+        private int[] mWindowingModes;
+        private HierarchyOp(int p0) {}
+        private HierarchyOp(android.os.Parcel p0) {}
+        public HierarchyOp(android.window.WindowContainerTransaction.HierarchyOp p0) {}
+        public static android.window.WindowContainerTransaction.HierarchyOp createForAdjacentRoots(android.os.IBinder p0, android.os.IBinder p1) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForChildrenTasksReparent(android.os.IBinder p0, android.os.IBinder p1, int[] p2, int[] p3, boolean p4, boolean p5, boolean p6) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForClearAdjacentRoots(android.os.IBinder p0) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForReachability(android.os.IBinder p0, int p1, int p2, int p3) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForRemoveRootTask(android.os.IBinder p0) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForRemoveTask(android.os.IBinder p0, boolean p1, boolean p2) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForReorder(android.os.IBinder p0, boolean p1, boolean p2) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForReparent(android.os.IBinder p0, android.os.IBinder p1, boolean p2) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForSetLaunchAdjacentFlagRoot(android.os.IBinder p0, boolean p1) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForSetLaunchRoot(android.os.IBinder p0, int[] p1, int[] p2) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForSetSafeRegionBounds(android.os.IBinder p0, android.graphics.Rect p1) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForSetTaskTrimmableFromRecents(android.os.IBinder p0, boolean p1) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForStartShortcut(java.lang.String p0, android.content.pm.ShortcutInfo p1, android.os.Bundle p2) { return null; }
+        public static android.window.WindowContainerTransaction.HierarchyOp createForTaskLaunch(int p0, android.os.Bundle p1) { return null; }
+        public static java.lang.String hopToString(int p0) { return null; }
+        public int describeContents() { return 0; }
+        public android.content.Intent getActivityIntent() { return null; }
+        public int[] getActivityTypes() { return null; }
+        public android.os.Bundle getAppCompatOptions() { return null; }
+        public android.graphics.Rect getBounds() { return null; }
+        public android.os.IBinder getCaller() { return null; }
+        public boolean getClearWindowingMode() { return false; }
+        public android.os.IBinder getContainer() { return null; }
+        public android.os.IBinder[] getContainers() { return null; }
+        public int getDisplayId() { return 0; }
+        public int getExcludeInsetsTypes() { return 0; }
+        public int getForciblyHidingInsetsTypes() { return 0; }
+        public int getForciblyShowingInsetsTypes() { return 0; }
+        public android.view.InsetsFrameProvider getInsetsFrameProvider() { return null; }
+        public android.window.KeyguardState getKeyguardState() { return null; }
+        public boolean getKillProcess() { return false; }
+        public android.os.Bundle getLaunchOptions() { return null; }
+        public android.os.IBinder getNewParent() { return null; }
+        public android.app.PendingIntent getPendingIntent() { return null; }
+        public boolean getRemoveFromRecents() { return false; }
+        public boolean getReparentTopOnly() { return false; }
+        public android.graphics.Rect getSafeRegionBounds() { return null; }
+        public android.content.pm.ShortcutInfo getShortcutInfo() { return null; }
+        public android.window.TaskFragmentOperation getTaskFragmentOperation() { return null; }
+        public boolean getToTop() { return false; }
+        public int getType() { return 0; }
+        public int[] getWindowingModes() { return null; }
+        public boolean includingParents() { return false; }
+        public boolean isAlwaysOnTop() { return false; }
+        public boolean isPreserveLeafTaskIfRelaunch() { return false; }
+        public boolean isReparent() { return false; }
+        public boolean isReparentLeafTaskIfRelaunch() { return false; }
+        public boolean isTrimmableFromRecents() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        private static class Builder {
+            private android.content.Intent mActivityIntent;
+            private int[] mActivityTypes;
+            private boolean mAlwaysOnTop;
+            private android.os.Bundle mAppCompatOptions;
+            private android.graphics.Rect mBounds;
+            private android.os.IBinder mCaller;
+            private boolean mClearWindowingMode;
+            private android.os.IBinder mContainer;
+            private android.os.IBinder[] mContainers;
+            private int mDisplayId;
+            private int mExcludeInsetsTypes;
+            private int mForciblyHidingInsetsTypes;
+            private int mForciblyShowingInsetsTypes;
+            private boolean mIncludingParents;
+            private android.view.InsetsFrameProvider mInsetsFrameProvider;
+            private boolean mIsTrimmableFromRecents;
+            private android.window.KeyguardState mKeyguardState;
+            private boolean mKillProcess;
+            private android.os.Bundle mLaunchOptions;
+            private android.app.PendingIntent mPendingIntent;
+            private boolean mPreserveLeafTaskIfRelaunch;
+            private boolean mRemoveFromRecents;
+            private android.os.IBinder mReparent;
+            private boolean mReparentLeafTaskIfRelaunch;
+            private boolean mReparentTopOnly;
+            private android.graphics.Rect mSafeRegionBounds;
+            private android.content.pm.ShortcutInfo mShortcutInfo;
+            private android.window.TaskFragmentOperation mTaskFragmentOperation;
+            private boolean mToTop;
+            private final int mType = 0;
+            private int[] mWindowingModes;
+            Builder(int p0) {}
+            android.window.WindowContainerTransaction.HierarchyOp build() { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setActivityIntent(android.content.Intent p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setActivityTypes(int[] p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setAlwaysOnTop(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setAppCompatOptions(android.os.Bundle p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setBounds(android.graphics.Rect p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setCaller(android.os.IBinder p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setClearWindowingMode(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setContainer(android.os.IBinder p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setContainers(android.os.IBinder[] p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setDisplayId(int p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setExcludeInsetsTypes(int p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setIncludingParents(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setInsetsFrameProvider(android.view.InsetsFrameProvider p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setIsTrimmableFromRecents(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setKeyguardState(android.window.KeyguardState p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setKillProcess(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setLaunchOptions(android.os.Bundle p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setPendingIntent(android.app.PendingIntent p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setPreserveLeafTaskIfRelaunch(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setRemoveFromRecents(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setReparentContainer(android.os.IBinder p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setReparentLeafTaskIfRelaunch(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setReparentTopOnly(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setSafeRegionBounds(android.graphics.Rect p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setShortcutInfo(android.content.pm.ShortcutInfo p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setSystemBarVisibilityOverride(int p0, int p1) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setTaskFragmentOperation(android.window.TaskFragmentOperation p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setToTop(boolean p0) { return null; }
+            android.window.WindowContainerTransaction.HierarchyOp.Builder setWindowingModes(int[] p0) { return null; }
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface HierarchyOpType {
+        }
+    }
+
+    public static class TaskFragmentAdjacentParams {
+        private static final java.lang.String DELAY_PRIMARY_LAST_ACTIVITY_REMOVAL = "android:transaction.adjacent.option.delay_primary_removal";
+        private static final java.lang.String DELAY_SECONDARY_LAST_ACTIVITY_REMOVAL = "android:transaction.adjacent.option.delay_secondary_removal";
+        private boolean mDelayPrimaryLastActivityRemoval;
+        private boolean mDelaySecondaryLastActivityRemoval;
+        public TaskFragmentAdjacentParams() {}
+        public TaskFragmentAdjacentParams(android.os.Bundle p0) {}
+        public void setShouldDelayPrimaryLastActivityRemoval(boolean p0) {}
+        public void setShouldDelaySecondaryLastActivityRemoval(boolean p0) {}
+        public boolean shouldDelayPrimaryLastActivityRemoval() { return false; }
+        public boolean shouldDelaySecondaryLastActivityRemoval() { return false; }
+        android.os.Bundle toBundle() { return null; }
+    }
+
     public static class Change implements android.os.Parcelable {
         public static final int CHANGE_BOUNDS_TRANSACTION = 2;
         public static final int CHANGE_DISABLE_LAUNCH_ADJACENT = 4096;
@@ -122,7 +328,6 @@ public final class WindowContainerTransaction implements android.os.Parcelable {
         public static final int CHANGE_IGNORE_ORIENTATION_REQUEST = 16;
         public static final int CHANGE_INTERCEPT_BACK_PRESSED = 16384;
         public static final int CHANGE_IS_TASK_MOVE_ALLOWED = 8192;
-        public static final int CHANGE_LAUNCH_NEXT_TO_BUBBLE = 1024;
         public static final int CHANGE_PIP_CALLBACK = 4;
         public static final int CHANGE_RELATIVE_BOUNDS = 256;
         public static final int CHANGE_WINDOW_DECORATION_TRANSACTION = 524288;
@@ -177,7 +382,6 @@ public final class WindowContainerTransaction implements android.os.Parcelable {
         public boolean getIgnoreOrientationRequest() { return false; }
         public boolean getInterceptBackPressed() { return false; }
         public boolean getIsTaskMoveAllowed() { return false; }
-        public boolean getLaunchNextToBubble() { return false; }
         public android.graphics.Rect getRelativeBounds() { return null; }
         public int getSelfMovable() { return 0; }
         public int getSeqId() { return 0; }
@@ -191,207 +395,6 @@ public final class WindowContainerTransaction implements android.os.Parcelable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ChangeMask {
         }
-    }
-
-    public static final class HierarchyOp implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.WindowContainerTransaction.HierarchyOp> CREATOR = null;
-        public static final int HIERARCHY_OP_TYPE_ADD_INSETS_FRAME_PROVIDER = 10;
-        public static final int HIERARCHY_OP_TYPE_ADD_TASK_FRAGMENT_OPERATION = 17;
-        public static final int HIERARCHY_OP_TYPE_APP_COMPAT_REACHABILITY = 24;
-        public static final int HIERARCHY_OP_TYPE_CHILDREN_TASKS_REPARENT = 2;
-        public static final int HIERARCHY_OP_TYPE_CLEAR_ADJACENT_ROOTS = 15;
-        public static final int HIERARCHY_OP_TYPE_CONTINUE_PACKAGE_UPDATE = 28;
-        public static final int HIERARCHY_OP_TYPE_FINISH_ACTIVITY = 14;
-        public static final int HIERARCHY_OP_TYPE_LAUNCH_TASK = 5;
-        public static final int HIERARCHY_OP_TYPE_MOVE_PIP_ACTIVITY_TO_PINNED_TASK = 18;
-        public static final int HIERARCHY_OP_TYPE_PENDING_INTENT = 7;
-        public static final int HIERARCHY_OP_TYPE_REMOVE_INSETS_FRAME_PROVIDER = 11;
-        public static final int HIERARCHY_OP_TYPE_REMOVE_ROOT_TASK = 23;
-        public static final int HIERARCHY_OP_TYPE_REMOVE_TASK = 13;
-        public static final int HIERARCHY_OP_TYPE_REORDER = 1;
-        public static final int HIERARCHY_OP_TYPE_REPARENT = 0;
-        public static final int HIERARCHY_OP_TYPE_RESTORE_BACK_NAVIGATION = 20;
-        public static final int HIERARCHY_OP_TYPE_RESTORE_TRANSIENT_ORDER = 9;
-        public static final int HIERARCHY_OP_TYPE_SET_ADJACENT_ROOTS = 4;
-        public static final int HIERARCHY_OP_TYPE_SET_ALWAYS_ON_TOP = 12;
-        public static final int HIERARCHY_OP_TYPE_SET_ANIMATION_DELEGATE = 27;
-        public static final int HIERARCHY_OP_TYPE_SET_EXCLUDE_INSETS_TYPES = 21;
-        public static final int HIERARCHY_OP_TYPE_SET_IS_TRIMMABLE = 19;
-        public static final int HIERARCHY_OP_TYPE_SET_KEYGUARD_STATE = 22;
-        public static final int HIERARCHY_OP_TYPE_SET_LAUNCH_ADJACENT_FLAG_ROOT = 6;
-        public static final int HIERARCHY_OP_TYPE_SET_LAUNCH_ROOT = 3;
-        public static final int HIERARCHY_OP_TYPE_SET_PRESERVE_LEAF_TASK_IF_RELAUNCH = 29;
-        public static final int HIERARCHY_OP_TYPE_SET_REPARENT_LEAF_TASK_IF_RELAUNCH = 16;
-        public static final int HIERARCHY_OP_TYPE_SET_SAFE_REGION_BOUNDS = 25;
-        public static final int HIERARCHY_OP_TYPE_SET_SYSTEM_BAR_VISIBILITY_OVERRIDE = 26;
-        public static final int HIERARCHY_OP_TYPE_START_SHORTCUT = 8;
-        public static final java.lang.String LAUNCH_KEY_SHORTCUT_CALLING_PACKAGE = "android:transaction.hop.shortcut_calling_package";
-        public static final java.lang.String LAUNCH_KEY_TASK_ID = "android:transaction.hop.taskId";
-        public static final java.lang.String REACHABILITY_EVENT_X = "android:transaction.reachability_x";
-        public static final java.lang.String REACHABILITY_EVENT_Y = "android:transaction.reachability_y";
-        private android.content.Intent mActivityIntent;
-        private int[] mActivityTypes;
-        private boolean mAlwaysOnTop;
-        private android.os.Bundle mAppCompatOptions;
-        private android.graphics.Rect mBounds;
-        private android.os.IBinder mCaller;
-        private boolean mClearWindowingMode;
-        private android.os.IBinder mContainer;
-        private android.os.IBinder[] mContainers;
-        private int mExcludeInsetsTypes;
-        private int mForciblyHidingInsetsTypes;
-        private int mForciblyShowingInsetsTypes;
-        private boolean mIncludingParents;
-        private android.view.InsetsFrameProvider mInsetsFrameProvider;
-        private boolean mIsTrimmableFromRecents;
-        private android.window.KeyguardState mKeyguardState;
-        private boolean mKillProcess;
-        private android.os.Bundle mLaunchOptions;
-        private android.app.PendingIntent mPendingIntent;
-        private boolean mPreserveLeafTaskIfRelaunch;
-        private boolean mRemoveFromRecents;
-        private android.os.IBinder mReparent;
-        private boolean mReparentLeafTaskIfRelaunch;
-        private boolean mReparentTopOnly;
-        private android.graphics.Rect mSafeRegionBounds;
-        private android.content.pm.ShortcutInfo mShortcutInfo;
-        private android.window.TaskFragmentOperation mTaskFragmentOperation;
-        private boolean mToTop;
-        private final int mType = 0;
-        private int[] mWindowingModes;
-        private HierarchyOp(int p0) {}
-        private HierarchyOp(android.os.Parcel p0) {}
-        public HierarchyOp(android.window.WindowContainerTransaction.HierarchyOp p0) {}
-        public static android.window.WindowContainerTransaction.HierarchyOp createForAdjacentRoots(android.os.IBinder p0, android.os.IBinder p1) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForChildrenTasksReparent(android.os.IBinder p0, android.os.IBinder p1, int[] p2, int[] p3, boolean p4, boolean p5, boolean p6) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForClearAdjacentRoots(android.os.IBinder p0) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForReachability(android.os.IBinder p0, int p1, int p2, int p3) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForRemoveRootTask(android.os.IBinder p0) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForRemoveTask(android.os.IBinder p0, boolean p1, boolean p2) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForReorder(android.os.IBinder p0, boolean p1, boolean p2) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForReparent(android.os.IBinder p0, android.os.IBinder p1, boolean p2) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForSetLaunchAdjacentFlagRoot(android.os.IBinder p0, boolean p1) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForSetLaunchRoot(android.os.IBinder p0, int[] p1, int[] p2) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForSetSafeRegionBounds(android.os.IBinder p0, android.graphics.Rect p1) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForSetTaskTrimmableFromRecents(android.os.IBinder p0, boolean p1) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForStartShortcut(java.lang.String p0, android.content.pm.ShortcutInfo p1, android.os.Bundle p2) { return null; }
-        public static android.window.WindowContainerTransaction.HierarchyOp createForTaskLaunch(int p0, android.os.Bundle p1) { return null; }
-        public static java.lang.String hopToString(int p0) { return null; }
-        public int describeContents() { return 0; }
-        public android.content.Intent getActivityIntent() { return null; }
-        public int[] getActivityTypes() { return null; }
-        public android.os.Bundle getAppCompatOptions() { return null; }
-        public android.graphics.Rect getBounds() { return null; }
-        public android.os.IBinder getCaller() { return null; }
-        public boolean getClearWindowingMode() { return false; }
-        public android.os.IBinder getContainer() { return null; }
-        public android.os.IBinder[] getContainers() { return null; }
-        public int getExcludeInsetsTypes() { return 0; }
-        public int getForciblyHidingInsetsTypes() { return 0; }
-        public int getForciblyShowingInsetsTypes() { return 0; }
-        public android.view.InsetsFrameProvider getInsetsFrameProvider() { return null; }
-        public android.window.KeyguardState getKeyguardState() { return null; }
-        public boolean getKillProcess() { return false; }
-        public android.os.Bundle getLaunchOptions() { return null; }
-        public android.os.IBinder getNewParent() { return null; }
-        public android.app.PendingIntent getPendingIntent() { return null; }
-        public boolean getRemoveFromRecents() { return false; }
-        public boolean getReparentTopOnly() { return false; }
-        public android.graphics.Rect getSafeRegionBounds() { return null; }
-        public android.content.pm.ShortcutInfo getShortcutInfo() { return null; }
-        public android.window.TaskFragmentOperation getTaskFragmentOperation() { return null; }
-        public boolean getToTop() { return false; }
-        public int getType() { return 0; }
-        public int[] getWindowingModes() { return null; }
-        public boolean includingParents() { return false; }
-        public boolean isAlwaysOnTop() { return false; }
-        public boolean isPreserveLeafTaskIfRelaunch() { return false; }
-        public boolean isReparent() { return false; }
-        public boolean isReparentLeafTaskIfRelaunch() { return false; }
-        public boolean isTrimmableFromRecents() { return false; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        private static class Builder {
-            private android.content.Intent mActivityIntent;
-            private int[] mActivityTypes;
-            private boolean mAlwaysOnTop;
-            private android.os.Bundle mAppCompatOptions;
-            private android.graphics.Rect mBounds;
-            private android.os.IBinder mCaller;
-            private boolean mClearWindowingMode;
-            private android.os.IBinder mContainer;
-            private android.os.IBinder[] mContainers;
-            private int mExcludeInsetsTypes;
-            private int mForciblyHidingInsetsTypes;
-            private int mForciblyShowingInsetsTypes;
-            private boolean mIncludingParents;
-            private android.view.InsetsFrameProvider mInsetsFrameProvider;
-            private boolean mIsTrimmableFromRecents;
-            private android.window.KeyguardState mKeyguardState;
-            private boolean mKillProcess;
-            private android.os.Bundle mLaunchOptions;
-            private android.app.PendingIntent mPendingIntent;
-            private boolean mPreserveLeafTaskIfRelaunch;
-            private boolean mRemoveFromRecents;
-            private android.os.IBinder mReparent;
-            private boolean mReparentLeafTaskIfRelaunch;
-            private boolean mReparentTopOnly;
-            private android.graphics.Rect mSafeRegionBounds;
-            private android.content.pm.ShortcutInfo mShortcutInfo;
-            private android.window.TaskFragmentOperation mTaskFragmentOperation;
-            private boolean mToTop;
-            private final int mType = 0;
-            private int[] mWindowingModes;
-            Builder(int p0) {}
-            android.window.WindowContainerTransaction.HierarchyOp build() { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setActivityIntent(android.content.Intent p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setActivityTypes(int[] p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setAlwaysOnTop(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setAppCompatOptions(android.os.Bundle p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setBounds(android.graphics.Rect p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setCaller(android.os.IBinder p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setClearWindowingMode(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setContainer(android.os.IBinder p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setContainers(android.os.IBinder[] p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setExcludeInsetsTypes(int p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setIncludingParents(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setInsetsFrameProvider(android.view.InsetsFrameProvider p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setIsTrimmableFromRecents(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setKeyguardState(android.window.KeyguardState p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setKillProcess(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setLaunchOptions(android.os.Bundle p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setPendingIntent(android.app.PendingIntent p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setPreserveLeafTaskIfRelaunch(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setRemoveFromRecents(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setReparentContainer(android.os.IBinder p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setReparentLeafTaskIfRelaunch(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setReparentTopOnly(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setSafeRegionBounds(android.graphics.Rect p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setShortcutInfo(android.content.pm.ShortcutInfo p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setSystemBarVisibilityOverride(int p0, int p1) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setTaskFragmentOperation(android.window.TaskFragmentOperation p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setToTop(boolean p0) { return null; }
-            android.window.WindowContainerTransaction.HierarchyOp.Builder setWindowingModes(int[] p0) { return null; }
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface HierarchyOpType {
-        }
-    }
-
-    public static class TaskFragmentAdjacentParams {
-        private static final java.lang.String DELAY_PRIMARY_LAST_ACTIVITY_REMOVAL = "android:transaction.adjacent.option.delay_primary_removal";
-        private static final java.lang.String DELAY_SECONDARY_LAST_ACTIVITY_REMOVAL = "android:transaction.adjacent.option.delay_secondary_removal";
-        private boolean mDelayPrimaryLastActivityRemoval;
-        private boolean mDelaySecondaryLastActivityRemoval;
-        public TaskFragmentAdjacentParams() {}
-        public TaskFragmentAdjacentParams(android.os.Bundle p0) {}
-        public void setShouldDelayPrimaryLastActivityRemoval(boolean p0) {}
-        public void setShouldDelaySecondaryLastActivityRemoval(boolean p0) {}
-        public boolean shouldDelayPrimaryLastActivityRemoval() { return false; }
-        public boolean shouldDelaySecondaryLastActivityRemoval() { return false; }
-        android.os.Bundle toBundle() { return null; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

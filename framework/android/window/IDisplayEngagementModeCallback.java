@@ -4,12 +4,6 @@ public interface IDisplayEngagementModeCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.window.IDisplayEngagementModeCallback";
     public void onEngagementModeChanged(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IDisplayEngagementModeCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onEngagementModeChanged(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IDisplayEngagementModeCallback {
         static final int TRANSACTION_onEngagementModeChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IDisplayEngagementModeCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onEngagementModeChanged(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.IDisplayEngagementModeCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onEngagementModeChanged(int p0, int p1) throws android.os.RemoteException {}
     }
 }

@@ -10,16 +10,6 @@ public interface ICasListener extends android.os.IInterface {
     public void onSessionEvent(byte[] p0, int p1, int p2, byte[] p3) throws android.os.RemoteException;
     public void onStatusUpdate(byte p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.cas.ICasListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void onEvent(int p0, int p1, byte[] p2) throws android.os.RemoteException {}
-        public void onSessionEvent(byte[] p0, int p1, int p2, byte[] p3) throws android.os.RemoteException {}
-        public void onStatusUpdate(byte p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.cas.ICasListener {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -44,5 +34,15 @@ public interface ICasListener extends android.os.IInterface {
             public void onSessionEvent(byte[] p0, int p1, int p2, byte[] p3) throws android.os.RemoteException {}
             public void onStatusUpdate(byte p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.cas.ICasListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void onEvent(int p0, int p1, byte[] p2) throws android.os.RemoteException {}
+        public void onSessionEvent(byte[] p0, int p1, int p2, byte[] p3) throws android.os.RemoteException {}
+        public void onStatusUpdate(byte p0, int p1) throws android.os.RemoteException {}
     }
 }

@@ -54,16 +54,6 @@ public final class MediaExtractor {
     public final void setMediaCas(android.media.MediaCas p0) {}
     public native void unselectTrack(int p0);
 
-    public static final class CasInfo {
-        private final byte[] mPrivateData = null;
-        private final android.media.MediaCas.Session mSession = null;
-        private final int mSystemId = 0;
-        CasInfo(int p0, android.media.MediaCas.Session p1, byte[] p2) {}
-        public byte[] getPrivateData() { return null; }
-        public android.media.MediaCas.Session getSession() { return null; }
-        public int getSystemId() { return 0; }
-    }
-
     public static final class MetricsConstants {
         public static final java.lang.String FORMAT = "android.media.mediaextractor.fmt";
         public static final java.lang.String MIME_TYPE = "android.media.mediaextractor.mime";
@@ -72,10 +62,20 @@ public final class MediaExtractor {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SampleFlag {
+    public static @interface SeekMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SeekMode {
+    public static @interface SampleFlag {
+    }
+
+    public static final class CasInfo {
+        private final byte[] mPrivateData = null;
+        private final android.media.MediaCas.Session mSession = null;
+        private final int mSystemId = 0;
+        CasInfo(int p0, android.media.MediaCas.Session p1, byte[] p2) {}
+        public byte[] getPrivateData() { return null; }
+        public android.media.MediaCas.Session getSession() { return null; }
+        public int getSystemId() { return 0; }
     }
 }

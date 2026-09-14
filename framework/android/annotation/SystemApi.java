@@ -12,10 +12,4 @@ public @interface SystemApi {
         private static final android.annotation.SystemApi.Client[] $VALUES = null;
         private Client() {}
     }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
-    public static @interface Container {
-        public android.annotation.SystemApi[] value();
-    }
 }

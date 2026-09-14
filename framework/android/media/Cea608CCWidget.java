@@ -11,18 +11,6 @@ class Cea608CCWidget extends android.media.ClosedCaptionWidget implements androi
     public android.view.accessibility.CaptioningManager.CaptionStyle getCaptionStyle() { return null; }
     public void onDisplayChanged(android.text.SpannableStringBuilder[] p0) {}
 
-    private static class CCLayout extends android.widget.LinearLayout implements android.media.ClosedCaptionWidget.ClosedCaptionLayout {
-        private static final int MAX_ROWS = 15;
-        private static final float SAFE_AREA_RATIO = 0.8999999761581421f;
-        private final android.media.Cea608CCWidget.CCLineBox[] mLineBoxes = null;
-        CCLayout(android.content.Context p0) { super((android.content.Context)null); }
-        protected void onLayout(boolean p0, int p1, int p2, int p3, int p4) {}
-        protected void onMeasure(int p0, int p1) {}
-        public void setCaptionStyle(android.view.accessibility.CaptioningManager.CaptionStyle p0) {}
-        public void setFontScale(float p0) {}
-        void update(android.text.SpannableStringBuilder[] p0) {}
-    }
-
     private static class CCLineBox extends android.widget.TextView {
         private static final float EDGE_OUTLINE_RATIO = 0.10000000149011612f;
         private static final float EDGE_SHADOW_RATIO = 0.05000000074505806f;
@@ -41,5 +29,17 @@ class Cea608CCWidget extends android.media.ClosedCaptionWidget implements androi
         protected void onDraw(android.graphics.Canvas p0) {}
         protected void onMeasure(int p0, int p1) {}
         void setCaptionStyle(android.view.accessibility.CaptioningManager.CaptionStyle p0) {}
+    }
+
+    private static class CCLayout extends android.widget.LinearLayout implements android.media.ClosedCaptionWidget.ClosedCaptionLayout {
+        private static final int MAX_ROWS = 15;
+        private static final float SAFE_AREA_RATIO = 0.8999999761581421f;
+        private final android.media.Cea608CCWidget.CCLineBox[] mLineBoxes = null;
+        CCLayout(android.content.Context p0) { super((android.content.Context)null); }
+        protected void onLayout(boolean p0, int p1, int p2, int p3, int p4) {}
+        protected void onMeasure(int p0, int p1) {}
+        public void setCaptionStyle(android.view.accessibility.CaptioningManager.CaptionStyle p0) {}
+        public void setFontScale(float p0) {}
+        void update(android.text.SpannableStringBuilder[] p0) {}
     }
 }

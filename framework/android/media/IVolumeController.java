@@ -9,18 +9,6 @@ public interface IVolumeController extends android.os.IInterface {
     public void setLayoutDirection(int p0) throws android.os.RemoteException;
     public void volumeChanged(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IVolumeController {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dismiss() throws android.os.RemoteException {}
-        public void displayCsdWarning(int p0, int p1) throws android.os.RemoteException {}
-        public void displaySafeVolumeWarning(int p0) throws android.os.RemoteException {}
-        public void masterMuteChanged(int p0) throws android.os.RemoteException {}
-        public void setA11yMode(int p0) throws android.os.RemoteException {}
-        public void setLayoutDirection(int p0) throws android.os.RemoteException {}
-        public void volumeChanged(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IVolumeController {
         public static final java.lang.String DESCRIPTOR = "android.media.IVolumeController";
         static final int TRANSACTION_dismiss = 5;
@@ -50,5 +38,17 @@ public interface IVolumeController extends android.os.IInterface {
             public void setLayoutDirection(int p0) throws android.os.RemoteException {}
             public void volumeChanged(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IVolumeController {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dismiss() throws android.os.RemoteException {}
+        public void displayCsdWarning(int p0, int p1) throws android.os.RemoteException {}
+        public void displaySafeVolumeWarning(int p0) throws android.os.RemoteException {}
+        public void masterMuteChanged(int p0) throws android.os.RemoteException {}
+        public void setA11yMode(int p0) throws android.os.RemoteException {}
+        public void setLayoutDirection(int p0) throws android.os.RemoteException {}
+        public void volumeChanged(int p0, int p1) throws android.os.RemoteException {}
     }
 }

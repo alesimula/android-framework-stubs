@@ -70,6 +70,11 @@ public abstract class AutoScrollHelper implements android.view.View.OnTouchListe
         public void scrollTargetBy(int p0, int p1) {}
     }
 
+    private class ScrollAnimationRunnable implements java.lang.Runnable {
+        private ScrollAnimationRunnable(com.android.internal.widget.AutoScrollHelper p0) {}
+        public void run() {}
+    }
+
     private static class ClampedScroller {
         private long mDeltaTime;
         private int mDeltaX;
@@ -96,10 +101,5 @@ public abstract class AutoScrollHelper implements android.view.View.OnTouchListe
         public void setRampUpDuration(int p0) {}
         public void setTargetVelocity(float p0, float p1) {}
         public void start() {}
-    }
-
-    private class ScrollAnimationRunnable implements java.lang.Runnable {
-        private ScrollAnimationRunnable(com.android.internal.widget.AutoScrollHelper p0) {}
-        public void run() {}
     }
 }

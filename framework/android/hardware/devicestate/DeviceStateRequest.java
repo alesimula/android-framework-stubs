@@ -9,18 +9,18 @@ public final class DeviceStateRequest {
     public int getFlags() { return 0; }
     public int getState() { return 0; }
 
+    public static interface Callback {
+        default public void onRequestActivated(android.hardware.devicestate.DeviceStateRequest p0) {}
+        default public void onRequestCanceled(android.hardware.devicestate.DeviceStateRequest p0) {}
+        default public void onRequestSuspended(android.hardware.devicestate.DeviceStateRequest p0) {}
+    }
+
     public static final class Builder {
         private int mFlags;
         private final int mRequestedState = 0;
         private Builder(int p0) {}
         public android.hardware.devicestate.DeviceStateRequest build() { return null; }
         public android.hardware.devicestate.DeviceStateRequest.Builder setFlags(int p0) { return null; }
-    }
-
-    public static interface Callback {
-        default public void onRequestActivated(android.hardware.devicestate.DeviceStateRequest p0) {}
-        default public void onRequestCanceled(android.hardware.devicestate.DeviceStateRequest p0) {}
-        default public void onRequestSuspended(android.hardware.devicestate.DeviceStateRequest p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

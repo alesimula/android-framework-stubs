@@ -4,13 +4,6 @@ public interface IContentObserver extends android.os.IInterface {
     public void onChange(boolean p0, android.net.Uri p1, int p2) throws android.os.RemoteException;
     public void onChangeEtc(boolean p0, android.net.Uri[] p1, int p2, int p3) throws android.os.RemoteException;
 
-    public static class Default implements android.database.IContentObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onChange(boolean p0, android.net.Uri p1, int p2) throws android.os.RemoteException {}
-        public void onChangeEtc(boolean p0, android.net.Uri[] p1, int p2, int p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.database.IContentObserver {
         public static final java.lang.String DESCRIPTOR = "android.database.IContentObserver";
         static final int TRANSACTION_onChange = 1;
@@ -30,5 +23,12 @@ public interface IContentObserver extends android.os.IInterface {
             public void onChange(boolean p0, android.net.Uri p1, int p2) throws android.os.RemoteException {}
             public void onChangeEtc(boolean p0, android.net.Uri[] p1, int p2, int p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.database.IContentObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onChange(boolean p0, android.net.Uri p1, int p2) throws android.os.RemoteException {}
+        public void onChangeEtc(boolean p0, android.net.Uri[] p1, int p2, int p3) throws android.os.RemoteException {}
     }
 }

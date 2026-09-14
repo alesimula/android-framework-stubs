@@ -41,16 +41,16 @@ public class ActivityRecognitionHardware extends android.hardware.location.IActi
     public boolean registerSink(android.hardware.location.IActivityRecognitionHardwareSink p0) { return false; }
     public boolean unregisterSink(android.hardware.location.IActivityRecognitionHardwareSink p0) { return false; }
 
+    private class SinkList extends android.os.RemoteCallbackList<android.hardware.location.IActivityRecognitionHardwareSink> {
+        private SinkList(android.hardware.location.ActivityRecognitionHardware p0) { super(); }
+        private void disableActivityEventIfEnabled(int p0, int p1) {}
+        public void onCallbackDied(android.hardware.location.IActivityRecognitionHardwareSink p0) {}
+    }
+
     private static class Event {
         public int activity;
         public long timestamp;
         public int type;
         private Event() {}
-    }
-
-    private class SinkList extends android.os.RemoteCallbackList<android.hardware.location.IActivityRecognitionHardwareSink> {
-        private SinkList(android.hardware.location.ActivityRecognitionHardware p0) { super(); }
-        private void disableActivityEventIfEnabled(int p0, int p1) {}
-        public void onCallbackDied(android.hardware.location.IActivityRecognitionHardwareSink p0) {}
     }
 }

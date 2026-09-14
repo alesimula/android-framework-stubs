@@ -100,12 +100,12 @@ public class ExpandableListView extends android.widget.ListView {
         public ExpandableListContextMenuInfo(android.view.View p0, long p1, long p2) {}
     }
 
-    public static interface OnChildClickListener {
-        public boolean onChildClick(android.widget.ExpandableListView p0, android.view.View p1, int p2, int p3, long p4);
-    }
-
-    public static interface OnGroupClickListener {
-        public boolean onGroupClick(android.widget.ExpandableListView p0, android.view.View p1, int p2, long p3);
+    static class SavedState extends android.view.View.BaseSavedState {
+        public static final android.os.Parcelable.Creator<android.widget.ExpandableListView.SavedState> CREATOR = null;
+        java.util.ArrayList<android.widget.ExpandableListConnector.GroupMetadata> expandedGroupMetadataList;
+        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        SavedState(android.os.Parcelable p0, java.util.ArrayList<android.widget.ExpandableListConnector.GroupMetadata> p1) { super((android.os.Parcel)null); }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static interface OnGroupCollapseListener {
@@ -116,11 +116,11 @@ public class ExpandableListView extends android.widget.ListView {
         public void onGroupExpand(int p0);
     }
 
-    static class SavedState extends android.view.View.BaseSavedState {
-        public static final android.os.Parcelable.Creator<android.widget.ExpandableListView.SavedState> CREATOR = null;
-        java.util.ArrayList<android.widget.ExpandableListConnector.GroupMetadata> expandedGroupMetadataList;
-        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        SavedState(android.os.Parcelable p0, java.util.ArrayList<android.widget.ExpandableListConnector.GroupMetadata> p1) { super((android.os.Parcel)null); }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public static interface OnChildClickListener {
+        public boolean onChildClick(android.widget.ExpandableListView p0, android.view.View p1, int p2, int p3, long p4);
+    }
+
+    public static interface OnGroupClickListener {
+        public boolean onGroupClick(android.widget.ExpandableListView p0, android.view.View p1, int p2, long p3);
     }
 }

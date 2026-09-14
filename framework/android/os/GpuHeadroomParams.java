@@ -13,6 +13,10 @@ public final class GpuHeadroomParams {
     public int hashCode() { return 0; }
     public java.lang.String toString() { return null; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface GpuHeadroomCalculationType {
+    }
+
     public static final class Builder {
         private int mCalculationType;
         private int mCalculationWindowMillis;
@@ -21,9 +25,5 @@ public final class GpuHeadroomParams {
         public android.os.GpuHeadroomParams build() { return null; }
         public android.os.GpuHeadroomParams.Builder setCalculationType(int p0) { return null; }
         public android.os.GpuHeadroomParams.Builder setCalculationWindowMillis(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GpuHeadroomCalculationType {
     }
 }

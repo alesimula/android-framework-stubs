@@ -3,12 +3,6 @@ package android.os;
 public interface IRemoteCallback extends android.os.IInterface {
     public void sendResult(android.os.Bundle p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IRemoteCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void sendResult(android.os.Bundle p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IRemoteCallback {
         public static final java.lang.String DESCRIPTOR = "android.os.IRemoteCallback";
         static final int TRANSACTION_sendResult = 1;
@@ -26,5 +20,11 @@ public interface IRemoteCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void sendResult(android.os.Bundle p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IRemoteCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void sendResult(android.os.Bundle p0) throws android.os.RemoteException {}
     }
 }

@@ -279,6 +279,10 @@ public final class ScriptIntrinsicBLAS extends android.renderscript.ScriptIntrin
     public void ZTRSV(int p0, int p1, int p2, android.renderscript.Allocation p3, android.renderscript.Allocation p4, int p5) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Uplo {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Diag {
     }
 
@@ -288,9 +292,5 @@ public final class ScriptIntrinsicBLAS extends android.renderscript.ScriptIntrin
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Transpose {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Uplo {
     }
 }

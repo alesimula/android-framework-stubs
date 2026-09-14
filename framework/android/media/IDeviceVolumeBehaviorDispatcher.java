@@ -4,12 +4,6 @@ public interface IDeviceVolumeBehaviorDispatcher extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.IDeviceVolumeBehaviorDispatcher";
     public void dispatchDeviceVolumeBehaviorChanged(android.media.AudioDeviceAttributes p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IDeviceVolumeBehaviorDispatcher {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchDeviceVolumeBehaviorChanged(android.media.AudioDeviceAttributes p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IDeviceVolumeBehaviorDispatcher {
         static final int TRANSACTION_dispatchDeviceVolumeBehaviorChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IDeviceVolumeBehaviorDispatcher extends android.os.IInterface {
             public void dispatchDeviceVolumeBehaviorChanged(android.media.AudioDeviceAttributes p0, int p1) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.IDeviceVolumeBehaviorDispatcher {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchDeviceVolumeBehaviorChanged(android.media.AudioDeviceAttributes p0, int p1) throws android.os.RemoteException {}
     }
 }

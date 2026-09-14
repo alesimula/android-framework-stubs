@@ -8,8 +8,8 @@ public final class Operand implements android.os.Parcelable {
     public static final int TYPE_KEY = 1;
     private final int mType = 0;
     private final java.lang.Object mValue = null;
+    public Operand(int p0, android.os.Parcel p1) {}
     private Operand(int p0, java.lang.Object p1) {}
-    public Operand(android.os.Parcel p0, int p1) {}
     public static android.app.people.Operand constant(android.app.people.Feature p0) { return null; }
     public static android.app.people.Operand expression(android.app.people.Expression p0) { return null; }
     public static android.app.people.Operand key(int p0) { return null; }

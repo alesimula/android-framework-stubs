@@ -5,14 +5,6 @@ public interface IBackupObserver extends android.os.IInterface {
     public void onResult(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void onUpdate(java.lang.String p0, android.app.backup.BackupProgress p1) throws android.os.RemoteException;
 
-    public static class Default implements android.app.backup.IBackupObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void backupFinished(int p0) throws android.os.RemoteException {}
-        public void onResult(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onUpdate(java.lang.String p0, android.app.backup.BackupProgress p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.backup.IBackupObserver {
         public static final java.lang.String DESCRIPTOR = "android.app.backup.IBackupObserver";
         static final int TRANSACTION_backupFinished = 3;
@@ -34,5 +26,13 @@ public interface IBackupObserver extends android.os.IInterface {
             public void onResult(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void onUpdate(java.lang.String p0, android.app.backup.BackupProgress p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.backup.IBackupObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void backupFinished(int p0) throws android.os.RemoteException {}
+        public void onResult(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onUpdate(java.lang.String p0, android.app.backup.BackupProgress p1) throws android.os.RemoteException {}
     }
 }

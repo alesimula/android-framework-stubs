@@ -4,12 +4,6 @@ public interface IServiceListSetChannelListListener extends android.os.IInterfac
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.servicedb.IServiceListSetChannelListListener";
     public void onCompleted(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.servicedb.IServiceListSetChannelListListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCompleted(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.servicedb.IServiceListSetChannelListListener {
         static final int TRANSACTION_onCompleted = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IServiceListSetChannelListListener extends android.os.IInterfac
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onCompleted(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.servicedb.IServiceListSetChannelListListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCompleted(int p0) throws android.os.RemoteException {}
     }
 }

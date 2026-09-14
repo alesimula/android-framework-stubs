@@ -4,12 +4,6 @@ public interface IInlineSuggestionsResponseCallback extends android.os.IInterfac
     public static final java.lang.String DESCRIPTOR = "com.android.internal.inputmethod.IInlineSuggestionsResponseCallback";
     public void onInlineSuggestionsResponse(android.view.autofill.AutofillId p0, android.view.inputmethod.InlineSuggestionsResponse p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IInlineSuggestionsResponseCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInlineSuggestionsResponse(android.view.autofill.AutofillId p0, android.view.inputmethod.InlineSuggestionsResponse p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IInlineSuggestionsResponseCallback {
         static final int TRANSACTION_onInlineSuggestionsResponse = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IInlineSuggestionsResponseCallback extends android.os.IInterfac
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onInlineSuggestionsResponse(android.view.autofill.AutofillId p0, android.view.inputmethod.InlineSuggestionsResponse p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IInlineSuggestionsResponseCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInlineSuggestionsResponse(android.view.autofill.AutofillId p0, android.view.inputmethod.InlineSuggestionsResponse p1) throws android.os.RemoteException {}
     }
 }

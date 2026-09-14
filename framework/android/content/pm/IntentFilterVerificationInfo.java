@@ -6,7 +6,7 @@ public final class IntentFilterVerificationInfo implements android.os.Parcelable
     private static final java.lang.String ATTR_PACKAGE_NAME = "packageName";
     private static final java.lang.String ATTR_STATUS = "status";
     public static final android.os.Parcelable.Creator<android.content.pm.IntentFilterVerificationInfo> CREATOR = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "android.content.pm.IntentFilterVerificationInfo";
     private static final java.lang.String TAG_DOMAIN = "domain";
     private android.util.ArraySet<java.lang.String> mDomains;
     private java.lang.String mPackageName;

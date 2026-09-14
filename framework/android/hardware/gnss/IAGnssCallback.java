@@ -8,29 +8,6 @@ public interface IAGnssCallback extends android.os.IInterface {
     public java.lang.String getInterfaceHash() throws android.os.RemoteException;
     public int getInterfaceVersion() throws android.os.RemoteException;
 
-    public static @interface AGnssStatusValue {
-        public static final int AGNSS_DATA_CONNECTED = 3;
-        public static final int AGNSS_DATA_CONN_DONE = 4;
-        public static final int AGNSS_DATA_CONN_FAILED = 5;
-        public static final int RELEASE_AGNSS_DATA_CONN = 2;
-        public static final int REQUEST_AGNSS_DATA_CONN = 1;
-    }
-
-    public static @interface AGnssType {
-        public static final int C2K = 2;
-        public static final int SUPL = 1;
-        public static final int SUPL_EIMS = 3;
-        public static final int SUPL_IMS = 4;
-    }
-
-    public static class Default implements android.hardware.gnss.IAGnssCallback {
-        public Default() {}
-        public void agnssStatusCb(int p0, int p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.IAGnssCallback {
         static final int TRANSACTION_agnssStatusCb = 1;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -53,5 +30,28 @@ public interface IAGnssCallback extends android.os.IInterface {
             public java.lang.String getInterfaceHash() throws android.os.RemoteException { return null; }
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.hardware.gnss.IAGnssCallback {
+        public Default() {}
+        public void agnssStatusCb(int p0, int p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+    }
+
+    public static @interface AGnssType {
+        public static final int C2K = 2;
+        public static final int SUPL = 1;
+        public static final int SUPL_EIMS = 3;
+        public static final int SUPL_IMS = 4;
+    }
+
+    public static @interface AGnssStatusValue {
+        public static final int AGNSS_DATA_CONNECTED = 3;
+        public static final int AGNSS_DATA_CONN_DONE = 4;
+        public static final int AGNSS_DATA_CONN_FAILED = 5;
+        public static final int RELEASE_AGNSS_DATA_CONN = 2;
+        public static final int REQUEST_AGNSS_DATA_CONN = 1;
     }
 }

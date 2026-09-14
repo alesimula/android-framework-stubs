@@ -2,7 +2,7 @@ package android.hardware.camera2.marshal.impl;
 
 public class MarshalQueryableEnum<T extends java.lang.Enum<T>> implements android.hardware.camera2.marshal.MarshalQueryable<T> {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MarshalQueryableEnum";
     private static final int UINT8_MASK = 255;
     private static final int UINT8_MAX = 255;
     private static final int UINT8_MIN = 0;

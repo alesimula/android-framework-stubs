@@ -27,13 +27,10 @@ public final class CarrierMessagingServiceWrapper implements java.lang.AutoClose
     @android.annotation.SystemApi
     public void sendTextSms(java.lang.String p0, int p1, java.lang.String p2, int p3, java.util.concurrent.Executor p4, android.service.carrier.CarrierMessagingServiceWrapper.CarrierMessagingCallback p5) {}
 
-    @android.annotation.SystemApi
-    public static interface CarrierMessagingCallback {
-        default public void onDownloadMmsComplete(int p0) {}
-        default public void onReceiveSmsComplete(int p0) {}
-        default public void onSendMmsComplete(int p0, byte[] p1) {}
-        default public void onSendMultipartSmsComplete(int p0, int[] p1) {}
-        default public void onSendSmsComplete(int p0, int p1) {}
+    private final class CarrierMessagingServiceConnection implements android.content.ServiceConnection {
+        private CarrierMessagingServiceConnection(android.service.carrier.CarrierMessagingServiceWrapper p0) {}
+        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
+        public void onServiceDisconnected(android.content.ComponentName p0) {}
     }
 
     private final class CarrierMessagingCallbackInternal extends android.service.carrier.ICarrierMessagingCallback.Stub {
@@ -47,9 +44,12 @@ public final class CarrierMessagingServiceWrapper implements java.lang.AutoClose
         public void onSendSmsComplete(int p0, int p1) throws android.os.RemoteException {}
     }
 
-    private final class CarrierMessagingServiceConnection implements android.content.ServiceConnection {
-        private CarrierMessagingServiceConnection(android.service.carrier.CarrierMessagingServiceWrapper p0) {}
-        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
-        public void onServiceDisconnected(android.content.ComponentName p0) {}
+    @android.annotation.SystemApi
+    public static interface CarrierMessagingCallback {
+        default public void onDownloadMmsComplete(int p0) {}
+        default public void onReceiveSmsComplete(int p0) {}
+        default public void onSendMmsComplete(int p0, byte[] p1) {}
+        default public void onSendMultipartSmsComplete(int p0, int[] p1) {}
+        default public void onSendSmsComplete(int p0, int p1) {}
     }
 }

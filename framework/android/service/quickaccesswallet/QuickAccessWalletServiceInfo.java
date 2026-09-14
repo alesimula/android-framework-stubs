@@ -25,6 +25,11 @@ class QuickAccessWalletServiceInfo {
     java.lang.String getWalletActivity() { return null; }
     android.graphics.drawable.Drawable getWalletLogo(android.content.Context p0) { return null; }
 
+    private static class TileServiceMetadata {
+        private final android.graphics.drawable.Drawable mTileIcon = null;
+        private TileServiceMetadata(android.graphics.drawable.Drawable p0) {}
+    }
+
     static class ServiceMetadata {
         private final java.lang.String mSettingsActivity = null;
         private final java.lang.CharSequence mShortcutLongLabel = null;
@@ -32,10 +37,5 @@ class QuickAccessWalletServiceInfo {
         private final java.lang.String mTargetActivity = null;
         private ServiceMetadata(java.lang.String p0, java.lang.String p1, java.lang.CharSequence p2, java.lang.CharSequence p3) {}
         private static android.service.quickaccesswallet.QuickAccessWalletServiceInfo.ServiceMetadata empty() { return null; }
-    }
-
-    private static class TileServiceMetadata {
-        private final android.graphics.drawable.Drawable mTileIcon = null;
-        private TileServiceMetadata(android.graphics.drawable.Drawable p0) {}
     }
 }

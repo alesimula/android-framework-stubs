@@ -38,6 +38,11 @@ public class TextKeyListener extends android.text.method.BaseKeyListener impleme
     public void onSpanRemoved(android.text.Spannable p0, java.lang.Object p1, int p2, int p3) {}
     public void release() {}
 
+    private class SettingsObserver extends android.database.ContentObserver {
+        public SettingsObserver(android.text.method.TextKeyListener p0) { super((android.os.Handler)null); }
+        public void onChange(boolean p0) {}
+    }
+
     public static enum Capitalize {
         CHARACTERS,
         NONE,
@@ -56,10 +61,5 @@ public class TextKeyListener extends android.text.method.BaseKeyListener impleme
         public boolean onKeyDown(android.view.View p0, android.text.Editable p1, int p2, android.view.KeyEvent p3) { return false; }
         public boolean onKeyOther(android.view.View p0, android.text.Editable p1, android.view.KeyEvent p2) { return false; }
         public boolean onKeyUp(android.view.View p0, android.text.Editable p1, int p2, android.view.KeyEvent p3) { return false; }
-    }
-
-    private class SettingsObserver extends android.database.ContentObserver {
-        public SettingsObserver(android.text.method.TextKeyListener p0) { super((android.os.Handler)null); }
-        public void onChange(boolean p0) {}
     }
 }

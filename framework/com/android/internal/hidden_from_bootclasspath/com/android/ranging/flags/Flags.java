@@ -9,6 +9,7 @@ public final class Flags {
     public static final java.lang.String FLAG_RANGING_STACK_UPDATES_25Q4 = "com.android.ranging.flags.ranging_stack_updates_25q4";
     public static final java.lang.String FLAG_RANGING_STACK_UPDATES_26_Q_2 = "com.android.ranging.flags.ranging_stack_updates_26_q_2";
     public static final java.lang.String FLAG_RANGING_STACK_UPDATES_26_Q_4 = "com.android.ranging.flags.ranging_stack_updates_26_q_4";
+    public static final java.lang.String FLAG_RANGING_STACK_UPDATES_27_Q_2 = "com.android.ranging.flags.ranging_stack_updates_27_q_2";
     public Flags() {}
     public static boolean rangingCsEnabled() { return false; }
     public static boolean rangingLocationEnabled() { return false; }
@@ -17,4 +18,5 @@ public final class Flags {
     public static boolean rangingStackUpdates25q4() { return false; }
     public static boolean rangingStackUpdates26Q2() { return false; }
     public static boolean rangingStackUpdates26Q4() { return false; }
+    public static boolean rangingStackUpdates27Q2() { return false; }
 }

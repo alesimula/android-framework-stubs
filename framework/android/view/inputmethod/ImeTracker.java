@@ -1,9 +1,9 @@
 package android.view.inputmethod;
 
-public interface ImeTracker {
+public final class ImeTracker {
     public static final boolean DEBUG_IME_VISIBILITY = Boolean.valueOf(false);
-    public static final android.view.inputmethod.ImeTracker.ImeJankTracker JANK_TRACKER = null;
-    public static final android.view.inputmethod.ImeTracker.ImeLatencyTracker LATENCY_TRACKER = null;
+    private static final android.view.inputmethod.ImeTracker.ImeJankTracker JANK_TRACKER = null;
+    private static final android.view.inputmethod.ImeTracker.ImeLatencyTracker LATENCY_TRACKER = null;
     public static final int ORIGIN_CLIENT = 5;
     public static final int ORIGIN_IME = 7;
     public static final int ORIGIN_NOT_SET = 0;
@@ -78,7 +78,7 @@ public interface ImeTracker {
     public static final int PHASE_SHELL_DISPLAY_IME_CONTROLLER_SET_IME_REQUESTED_VISIBLE = 68;
     public static final int PHASE_SHELL_REMOTE_INSETS_CONTROLLER = 25;
     public static final int PHASE_SHELL_REMOTE_INSETS_CONTROL_TARGET_HIDE_INSETS = 24;
-    public static final android.view.inputmethod.ImeTracker.ImeShowTracker SHOW_TRACKER = null;
+    private static final android.view.inputmethod.ImeTracker.ImeShowTracker SHOW_TRACKER = null;
     public static final int STATUS_CANCEL = 2;
     public static final int STATUS_FAIL = 3;
     public static final int STATUS_RUN = 1;
@@ -90,40 +90,14 @@ public interface ImeTracker {
     public static final int TYPE_NOT_SET = 0;
     public static final int TYPE_SHOW = 1;
     public static final int TYPE_USER = 3;
+    private ImeTracker() {}
     public static android.view.inputmethod.ImeTracker.ImeJankTracker forJank() { return null; }
     public static android.view.inputmethod.ImeTracker.ImeLatencyTracker forLatency() { return null; }
     public static android.view.inputmethod.ImeTracker.ImeShowTracker forLogging() { return null; }
     public static boolean isFromUser(android.view.View p0) { return false; }
-    public void onCancelled(android.view.inputmethod.ImeTracker.Token p0, int p1);
-    public void onDispatched(android.view.inputmethod.ImeTracker.Token p0);
-    public void onFailed(android.view.inputmethod.ImeTracker.Token p0, int p1);
-    public void onHidden(android.view.inputmethod.ImeTracker.Token p0);
-    public void onProgress(android.view.inputmethod.ImeTracker.Token p0, int p1);
-    public void onShown(android.view.inputmethod.ImeTracker.Token p0);
-    default public android.view.inputmethod.ImeTracker.Token onStart(int p0, int p1, int p2, boolean p3, int p4, int p5) { return null; }
-    public android.view.inputmethod.ImeTracker.Token onStart(java.lang.String p0, int p1, int p2, int p3, int p4, boolean p5, int p6, int p7);
-    public void onUserFinished(android.view.inputmethod.ImeTracker.Token p0, boolean p1);
 
-    public static final class Debug {
-        private static final java.util.Map<java.lang.Integer, java.lang.String> sOrigins = null;
-        private static final java.util.Map<java.lang.Integer, java.lang.String> sPhases = null;
-        private static final java.util.Map<java.lang.Integer, java.lang.String> sStatus = null;
-        private static final java.util.Map<java.lang.Integer, java.lang.String> sTypes = null;
-        public Debug() {}
-        private static java.util.Map<java.lang.Integer, java.lang.String> getFieldMapping(java.lang.Class<?> p0, java.lang.String p1) { return null; }
-        private static int getFieldValue(java.lang.reflect.Field p0) { return 0; }
-        public static java.lang.String originToString(int p0) { return null; }
-        public static java.lang.String phaseToString(int p0) { return null; }
-        public static java.lang.String statusToString(int p0) { return null; }
-        public static java.lang.String typeToString(int p0) { return null; }
-    }
-
-    public static final class ImeJankTracker {
-        private ImeJankTracker() {}
-        private static int getImeInsetsCujFromAnimation(int p0) { return 0; }
-        public void onCancelAnimation(int p0) {}
-        public void onFinishAnimation(int p0) {}
-        public void onRequestAnimation(android.view.inputmethod.ImeTracker.InputMethodJankContext p0, int p1, boolean p2) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Phase {
     }
 
     public static final class ImeLatencyTracker {
@@ -139,30 +113,8 @@ public interface ImeTracker {
         public void onShown(android.view.inputmethod.ImeTracker.Token p0, android.view.inputmethod.ImeTracker.InputMethodLatencyContext p1) {}
     }
 
-    public static final class ImeShowTracker implements android.view.inputmethod.ImeTracker, java.lang.AutoCloseable {
-        private java.util.concurrent.atomic.AtomicBoolean mLogProgress;
-        private java.util.concurrent.atomic.AtomicBoolean mLogStackTrace;
-        private com.android.internal.inputmethod.ImeTrackerServiceWrapper mService;
-        private java.util.concurrent.atomic.AtomicBoolean mSystemPropertiesInitialized;
-        private final java.lang.Runnable mUpdateSystemPropertiesRunnable = null;
-        public ImeShowTracker() {}
-        private static java.lang.String getOnStartPrefix(int p0) { return null; }
-        private void initializeSystemPropertiesIfNeeded() {}
-        private boolean shouldLogProgress() { return false; }
-        private boolean shouldLogStackTrace() { return false; }
-        public void close() {}
-        public com.android.internal.inputmethod.ImeTrackerServiceWrapper getService() { return null; }
-        public void log(java.lang.String p0, java.lang.Object... p1) {}
-        public void onCancelled(android.view.inputmethod.ImeTracker.Token p0, int p1) {}
-        public void onDispatched(android.view.inputmethod.ImeTracker.Token p0) {}
-        public void onFailed(android.view.inputmethod.ImeTracker.Token p0, int p1) {}
-        public void onHidden(android.view.inputmethod.ImeTracker.Token p0) {}
-        public void onProgress(android.view.inputmethod.ImeTracker.Token p0, int p1) {}
-        public void onShown(android.view.inputmethod.ImeTracker.Token p0) {}
-        public android.view.inputmethod.ImeTracker.Token onStart(java.lang.String p0, int p1, int p2, int p3, int p4, boolean p5, int p6, int p7) { return null; }
-        public void onStart(android.view.inputmethod.ImeTracker.Token p0, int p1, int p2, int p3, int p4, boolean p5, int p6, int p7) {}
-        public void onUserFinished(android.view.inputmethod.ImeTracker.Token p0, boolean p1) {}
-        public void updateSystemProperties() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Type {
     }
 
     public static interface InputMethodJankContext {
@@ -173,14 +125,6 @@ public interface ImeTracker {
 
     public static interface InputMethodLatencyContext {
         public android.content.Context getAppContext();
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Origin {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Phase {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -206,6 +150,55 @@ public interface ImeTracker {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Type {
+    public static @interface Origin {
+    }
+
+    public static final class Debug {
+        private static final java.util.Map<java.lang.Integer, java.lang.String> sOrigins = null;
+        private static final java.util.Map<java.lang.Integer, java.lang.String> sPhases = null;
+        private static final java.util.Map<java.lang.Integer, java.lang.String> sStatus = null;
+        private static final java.util.Map<java.lang.Integer, java.lang.String> sTypes = null;
+        public Debug() {}
+        private static java.util.Map<java.lang.Integer, java.lang.String> getFieldMapping(java.lang.Class<?> p0, java.lang.String p1) { return null; }
+        private static int getFieldValue(java.lang.reflect.Field p0) { return 0; }
+        public static java.lang.String originToString(int p0) { return null; }
+        public static java.lang.String phaseToString(int p0) { return null; }
+        public static java.lang.String statusToString(int p0) { return null; }
+        public static java.lang.String typeToString(int p0) { return null; }
+    }
+
+    public static final class ImeJankTracker {
+        private ImeJankTracker() {}
+        private static int getImeInsetsCujFromAnimation(int p0) { return 0; }
+        public void onCancelAnimation(int p0) {}
+        public void onFinishAnimation(int p0) {}
+        public void onRequestAnimation(android.view.inputmethod.ImeTracker.InputMethodJankContext p0, int p1, boolean p2) {}
+    }
+
+    public static final class ImeShowTracker implements java.lang.AutoCloseable {
+        private java.util.concurrent.atomic.AtomicBoolean mLogProgress;
+        private java.util.concurrent.atomic.AtomicBoolean mLogStackTrace;
+        private com.android.internal.inputmethod.ImeTrackerServiceWrapper mService;
+        private java.util.concurrent.atomic.AtomicBoolean mSystemPropertiesInitialized;
+        private final java.lang.Runnable mUpdateSystemPropertiesRunnable = null;
+        public ImeShowTracker() {}
+        private static java.lang.String getOnStartPrefix(int p0) { return null; }
+        private void initializeSystemPropertiesIfNeeded() {}
+        private boolean shouldLogProgress() { return false; }
+        private boolean shouldLogStackTrace() { return false; }
+        public void close() {}
+        public com.android.internal.inputmethod.ImeTrackerServiceWrapper getService() { return null; }
+        public void log(java.lang.String p0, java.lang.Object... p1) {}
+        public void onCancelled(android.view.inputmethod.ImeTracker.Token p0, int p1) {}
+        public void onDispatched(android.view.inputmethod.ImeTracker.Token p0) {}
+        public void onFailed(android.view.inputmethod.ImeTracker.Token p0, int p1) {}
+        public void onHidden(android.view.inputmethod.ImeTracker.Token p0) {}
+        public void onProgress(android.view.inputmethod.ImeTracker.Token p0, int p1) {}
+        public void onShown(android.view.inputmethod.ImeTracker.Token p0) {}
+        public android.view.inputmethod.ImeTracker.Token onStart(int p0, int p1, int p2, boolean p3, int p4, int p5) { return null; }
+        public android.view.inputmethod.ImeTracker.Token onStart(java.lang.String p0, int p1, int p2, int p3, int p4, boolean p5, int p6, int p7) { return null; }
+        public void onStart(android.view.inputmethod.ImeTracker.Token p0, int p1, int p2, int p3, int p4, boolean p5, int p6, int p7) {}
+        public void onUserFinished(android.view.inputmethod.ImeTracker.Token p0, boolean p1) {}
+        public void updateSystemProperties() {}
     }
 }

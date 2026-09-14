@@ -51,6 +51,8 @@ public class TextLayout extends com.android.internal.widget.remotecompose.core.o
     public void computeSize(com.android.internal.widget.remotecompose.core.PaintContext p0, float p1, float p2, float p3, float p4, com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass p5) {}
     public void computeWrapSize(com.android.internal.widget.remotecompose.core.PaintContext p0, float p1, float p2, float p3, float p4, boolean p5, boolean p6, com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass p7, com.android.internal.widget.remotecompose.core.operations.layout.measure.Size p8) {}
     public float getAlignValue(com.android.internal.widget.remotecompose.core.PaintContext p0, float p1) { return 0.0f; }
+    public float getFontSize() { return 0.0f; }
+    public float getFontSizeValue() { return 0.0f; }
     protected java.lang.String getSerializedName() { return null; }
     public java.lang.Integer getTextId() { return null; }
     public float minIntrinsicHeight(com.android.internal.widget.remotecompose.core.RemoteContext p0) { return 0.0f; }

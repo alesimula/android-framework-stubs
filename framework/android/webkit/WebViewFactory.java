@@ -48,11 +48,6 @@ public final class WebViewFactory {
     private static boolean signaturesEquals(android.content.pm.Signature[] p0, android.content.pm.Signature[] p1) { return false; }
     private static void verifyPackageInfo(android.content.pm.PackageInfo p0, android.content.pm.PackageInfo p1) throws android.webkit.WebViewFactory.MissingWebViewPackageException {}
 
-    static class MissingWebViewPackageException extends java.lang.Exception {
-        public MissingWebViewPackageException(java.lang.Exception p0) { super(); }
-        public MissingWebViewPackageException(java.lang.String p0) { super(); }
-    }
-
     public static class StartupTimestamps {
         long mAddAssetsEnd;
         long mAddAssetsStart;
@@ -77,5 +72,10 @@ public final class WebViewFactory {
         public long getProviderClassForNameEnd() { return 0L; }
         public long getProviderClassForNameStart() { return 0L; }
         public long getWebViewLoadStart() { return 0L; }
+    }
+
+    static class MissingWebViewPackageException extends java.lang.Exception {
+        public MissingWebViewPackageException(java.lang.Exception p0) { super(); }
+        public MissingWebViewPackageException(java.lang.String p0) { super(); }
     }
 }

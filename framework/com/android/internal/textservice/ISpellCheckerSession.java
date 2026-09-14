@@ -6,15 +6,6 @@ public interface ISpellCheckerSession extends android.os.IInterface {
     public void onGetSentenceSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1) throws android.os.RemoteException;
     public void onGetSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.textservice.ISpellCheckerSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCancel() throws android.os.RemoteException {}
-        public void onClose() throws android.os.RemoteException {}
-        public void onGetSentenceSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1) throws android.os.RemoteException {}
-        public void onGetSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.textservice.ISpellCheckerSession {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.textservice.ISpellCheckerSession";
         static final int TRANSACTION_onCancel = 3;
@@ -38,5 +29,14 @@ public interface ISpellCheckerSession extends android.os.IInterface {
             public void onGetSentenceSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1) throws android.os.RemoteException {}
             public void onGetSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.textservice.ISpellCheckerSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCancel() throws android.os.RemoteException {}
+        public void onClose() throws android.os.RemoteException {}
+        public void onGetSentenceSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1) throws android.os.RemoteException {}
+        public void onGetSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1, boolean p2) throws android.os.RemoteException {}
     }
 }

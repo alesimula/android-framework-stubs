@@ -1,8 +1,7 @@
 package android.view;
 
 public final class CrossWindowBlurListeners {
-    private static final java.lang.String BLUR_PROPERTY = "ro.surface_flinger.supports_background_blur";
-    public static final boolean CROSS_WINDOW_BLUR_SUPPORTED = Boolean.valueOf(false);
+    public static final boolean CROSS_WINDOW_BLUR_SUPPORTED = true;
     private static final java.lang.String TAG = "CrossWindowBlurListeners";
     private static volatile android.view.CrossWindowBlurListeners sInstance;
     private static final java.lang.Object sLock = null;

@@ -2,7 +2,7 @@ package android.window;
 
 public final class SplashScreenView extends android.widget.FrameLayout {
     private static final boolean DEBUG = Boolean.valueOf(false);
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SplashScreenView";
     private android.view.View mBrandingImageView;
     private android.os.RemoteCallback mClientCallback;
     private boolean mHasRemoved;
@@ -78,12 +78,6 @@ public final class SplashScreenView extends android.widget.FrameLayout {
         public android.window.SplashScreenView.Builder setUiThreadInitConsumer(java.util.function.Consumer<java.lang.Runnable> p0) { return null; }
     }
 
-    public static interface IconAnimateListener {
-        public void prepareAnimate(java.util.function.LongConsumer p0);
-        default public void setAnimationJankMonitoring(android.animation.AnimatorListenerAdapter p0) {}
-        public void stopAnimation();
-    }
-
     public static class SplashScreenViewParcelable implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.SplashScreenView.SplashScreenViewParcelable> CREATOR = null;
         private int mBackgroundColor;
@@ -108,5 +102,11 @@ public final class SplashScreenView extends android.widget.FrameLayout {
         int getIconSize() { return 0; }
         public void setClientCallback(android.os.RemoteCallback p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static interface IconAnimateListener {
+        public void prepareAnimate(java.util.function.LongConsumer p0);
+        default public void setAnimationJankMonitoring(android.animation.AnimatorListenerAdapter p0) {}
+        public void stopAnimation();
     }
 }

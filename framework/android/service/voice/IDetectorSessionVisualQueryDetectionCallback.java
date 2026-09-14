@@ -9,17 +9,6 @@ public interface IDetectorSessionVisualQueryDetectionCallback extends android.os
     public void onQueryRejected() throws android.os.RemoteException;
     public void onResultDetected(android.service.voice.VisualQueryDetectedResult p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.voice.IDetectorSessionVisualQueryDetectionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAttentionGained(android.service.voice.VisualQueryAttentionResult p0) throws android.os.RemoteException {}
-        public void onAttentionLost(int p0) throws android.os.RemoteException {}
-        public void onQueryDetected(java.lang.String p0) throws android.os.RemoteException {}
-        public void onQueryFinished() throws android.os.RemoteException {}
-        public void onQueryRejected() throws android.os.RemoteException {}
-        public void onResultDetected(android.service.voice.VisualQueryDetectedResult p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.voice.IDetectorSessionVisualQueryDetectionCallback {
         static final int TRANSACTION_onAttentionGained = 1;
         static final int TRANSACTION_onAttentionLost = 2;
@@ -46,5 +35,16 @@ public interface IDetectorSessionVisualQueryDetectionCallback extends android.os
             public void onQueryRejected() throws android.os.RemoteException {}
             public void onResultDetected(android.service.voice.VisualQueryDetectedResult p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.voice.IDetectorSessionVisualQueryDetectionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAttentionGained(android.service.voice.VisualQueryAttentionResult p0) throws android.os.RemoteException {}
+        public void onAttentionLost(int p0) throws android.os.RemoteException {}
+        public void onQueryDetected(java.lang.String p0) throws android.os.RemoteException {}
+        public void onQueryFinished() throws android.os.RemoteException {}
+        public void onQueryRejected() throws android.os.RemoteException {}
+        public void onResultDetected(android.service.voice.VisualQueryDetectedResult p0) throws android.os.RemoteException {}
     }
 }

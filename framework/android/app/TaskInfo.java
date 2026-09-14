@@ -19,8 +19,6 @@ public class TaskInfo {
     public int displayId;
     public int effectiveUid;
     public boolean isActivityStackTransparent;
-    @java.lang.Deprecated
-    public boolean isAppBubble;
     public boolean isFocused;
     public boolean isInteractive;
     public boolean isRealActivityAppLockEnabled;
@@ -42,6 +40,8 @@ public class TaskInfo {
     public int minWidth;
     public int numActivities;
     public android.content.ComponentName origActivity;
+    @java.lang.Deprecated
+    public boolean parentTaskHasNoContent;
     public int parentTaskId;
     public android.app.PictureInPictureParams pictureInPictureParams;
     public android.graphics.Point positionInParent;

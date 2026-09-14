@@ -38,20 +38,19 @@ public class IncidentManager {
     public void requestAuthorization(int p0, java.lang.String p1, int p2, java.util.concurrent.Executor p3, android.os.IncidentManager.AuthListener p4) {}
     public void unregisterSection(int p0) {}
 
-    public static class AuthListener {
-        android.os.IIncidentAuthListener.Stub mBinder;
-        java.util.concurrent.Executor mExecutor;
-        public AuthListener() {}
-        public void onReportApproved() {}
-        public void onReportDenied() {}
-    }
-
-    public static class DumpCallback {
-        android.os.IIncidentDumpCallback.Stub mBinder;
-        private java.util.concurrent.Executor mExecutor;
-        private int mId;
-        public DumpCallback() {}
-        public void onDumpSection(int p0, java.io.OutputStream p1) {}
+    @android.annotation.SystemApi
+    public static class PendingReport {
+        private final int mFlags = 0;
+        private final java.lang.String mRequestingPackage = null;
+        private final long mTimestamp = 0L;
+        private final android.net.Uri mUri = null;
+        public PendingReport(android.net.Uri p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getFlags() { return 0; }
+        public java.lang.String getRequestingPackage() { return null; }
+        public long getTimestamp() { return 0L; }
+        public android.net.Uri getUri() { return null; }
+        public java.lang.String toString() { return null; }
     }
 
     @android.annotation.SystemApi
@@ -69,23 +68,24 @@ public class IncidentManager {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    @android.annotation.SystemApi
-    public static class PendingReport {
-        private final int mFlags = 0;
-        private final java.lang.String mRequestingPackage = null;
-        private final long mTimestamp = 0L;
-        private final android.net.Uri mUri = null;
-        public PendingReport(android.net.Uri p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getFlags() { return 0; }
-        public java.lang.String getRequestingPackage() { return null; }
-        public long getTimestamp() { return 0L; }
-        public android.net.Uri getUri() { return null; }
-        public java.lang.String toString() { return null; }
+    public static class DumpCallback {
+        android.os.IIncidentDumpCallback.Stub mBinder;
+        private java.util.concurrent.Executor mExecutor;
+        private int mId;
+        public DumpCallback() {}
+        public void onDumpSection(int p0, java.io.OutputStream p1) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PendingReportFlags {
+    }
+
+    public static class AuthListener {
+        android.os.IIncidentAuthListener.Stub mBinder;
+        java.util.concurrent.Executor mExecutor;
+        public AuthListener() {}
+        public void onReportApproved() {}
+        public void onReportDenied() {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

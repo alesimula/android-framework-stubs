@@ -9,13 +9,19 @@ public interface ServiceConnector<I extends android.os.IInterface> {
     public void setServiceLifecycleCallbacks(com.android.internal.infra.ServiceConnector.ServiceLifecycleCallbacks<I> p0);
     public void unbind();
 
+    public static interface ServiceLifecycleCallbacks<II extends android.os.IInterface> {
+        default public void onBinderDied() {}
+        default public void onConnected(II p0) {}
+        default public void onDisconnected(II p0) {}
+    }
+
     public static class Impl<I extends android.os.IInterface> extends java.util.ArrayDeque<com.android.internal.infra.ServiceConnector.Job<I, ?>> implements com.android.internal.infra.ServiceConnector<I>, android.content.ServiceConnection, android.os.IBinder.DeathRecipient, java.lang.Runnable {
         static final boolean DEBUG = false;
         private static final long DEFAULT_DISCONNECT_TIMEOUT_MS = 15000L;
         private static final long DEFAULT_REQUEST_TIMEOUT_MS = 30000L;
         final java.lang.String LOG_TAG = null;
         private final java.util.function.Function<android.os.IBinder, I> mBinderAsInterface = null;
-        private boolean mBinding;
+        private volatile boolean mBinding;
         private final int mBindingFlags = 0;
         protected final android.content.Context mContext = null;
         protected final java.util.concurrent.Executor mExecutor = null;
@@ -28,7 +34,7 @@ public interface ServiceConnector<I extends android.os.IInterface> {
         private com.android.internal.infra.ServiceConnector.Impl<I>.CompletionAwareJob<I, I> mServiceConnectionFutureCache;
         private volatile com.android.internal.infra.ServiceConnector.ServiceLifecycleCallbacks<I> mServiceLifecycleCallbacks;
         private final java.lang.Runnable mTimeoutDisconnect = null;
-        private boolean mUnbinding;
+        private volatile boolean mUnbinding;
         private final java.util.List<com.android.internal.infra.ServiceConnector.Impl<I>.CompletionAwareJob<I, ?>> mUnfinishedJobs = null;
         public Impl(android.content.Context p0, android.content.Intent p1, int p2, int p3, java.util.function.Function<android.os.IBinder, I> p4) { super(); }
         static <BASE extends java.lang.Object, T extends BASE> T castOrNull(BASE p0, java.lang.Class<T> p1) { return null; }
@@ -66,6 +72,8 @@ public interface ServiceConnector<I extends android.os.IInterface> {
         public void run() {}
         public boolean run(com.android.internal.infra.ServiceConnector.VoidJob<I> p0) { return false; }
         public void setServiceLifecycleCallbacks(com.android.internal.infra.ServiceConnector.ServiceLifecycleCallbacks<I> p0) {}
+        protected boolean shouldDeferUnbindOnCrash() { return false; }
+        protected boolean shouldRejectNewRequests() { return false; }
         public java.lang.String toString() { return null; }
         public void unbind() {}
         void unbindJobThread() {}
@@ -84,8 +92,9 @@ public interface ServiceConnector<I extends android.os.IInterface> {
     }
 
     @java.lang.FunctionalInterface
-    public static interface Job<II extends java.lang.Object, R extends java.lang.Object> {
-        public R run(II p0) throws java.lang.Exception;
+    public static interface VoidJob<II extends java.lang.Object> extends com.android.internal.infra.ServiceConnector.Job<II, java.lang.Void> {
+        default public java.lang.Void run(II p0) throws java.lang.Exception { return null; }
+        public void runNoResult(II p0) throws java.lang.Exception;
     }
 
     public static class NoOp<T extends android.os.IInterface> extends com.android.internal.infra.AndroidFuture<java.lang.Object> implements com.android.internal.infra.ServiceConnector<T> {
@@ -99,15 +108,8 @@ public interface ServiceConnector<I extends android.os.IInterface> {
         public void unbind() {}
     }
 
-    public static interface ServiceLifecycleCallbacks<II extends android.os.IInterface> {
-        default public void onBinderDied() {}
-        default public void onConnected(II p0) {}
-        default public void onDisconnected(II p0) {}
-    }
-
     @java.lang.FunctionalInterface
-    public static interface VoidJob<II extends java.lang.Object> extends com.android.internal.infra.ServiceConnector.Job<II, java.lang.Void> {
-        default public java.lang.Void run(II p0) throws java.lang.Exception { return null; }
-        public void runNoResult(II p0) throws java.lang.Exception;
+    public static interface Job<II extends java.lang.Object, R extends java.lang.Object> {
+        public R run(II p0) throws java.lang.Exception;
     }
 }

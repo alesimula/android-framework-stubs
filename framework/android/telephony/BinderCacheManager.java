@@ -9,6 +9,10 @@ public class BinderCacheManager<T extends android.os.IInterface> {
     public T listenOnBinder(java.lang.Object p0, java.lang.Runnable p1) { return null; }
     public T removeRunnable(java.lang.Object p0) { return null; }
 
+    public static interface BinderInterfaceFactory<T extends java.lang.Object> {
+        public T create();
+    }
+
     private class BinderDeathTracker implements android.os.IBinder.DeathRecipient {
         private final T mConnection = null;
         private final java.util.HashMap<java.lang.Object, java.lang.Runnable> mListeners = null;
@@ -18,9 +22,5 @@ public class BinderCacheManager<T extends android.os.IInterface> {
         public T getConnection() { return null; }
         public boolean isAlive() { return false; }
         public void removeListener(java.lang.Object p0) {}
-    }
-
-    public static interface BinderInterfaceFactory<T extends java.lang.Object> {
-        public T create();
     }
 }

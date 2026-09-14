@@ -34,6 +34,23 @@ public final class VirtualCameraConfig implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    private static class VirtualCameraCallbackInternal extends android.companion.virtual.camera.IVirtualCameraCallback.Stub {
+        private final android.companion.virtual.camera.VirtualCameraCallback mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final boolean mPerFrameCameraMetadataEnabled = false;
+        private VirtualCameraCallbackInternal(android.companion.virtual.camera.VirtualCameraCallback p0, java.util.concurrent.Executor p1, boolean p2) { super(); }
+        private java.util.function.ObjLongConsumer<android.hardware.camera2.CaptureResult> convertToFrameworkCaptureResultConsumer(android.companion.virtual.camera.ICaptureResultConsumer p0) { return null; }
+        public void onConfigureSession(android.hardware.camera2.CaptureRequest p0, android.companion.virtual.camera.ICaptureResultConsumer p1) {}
+        public void onOpenCamera() {}
+        public void onProcessCaptureRequest(int p0, long p1, android.hardware.camera2.CaptureRequest p2) {}
+        public void onStreamClosed(int p0) {}
+        public void onStreamConfigured(int p0, android.view.Surface p1, int p2, int p3, int p4) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SensorOrientation {
+    }
+
     public static final class Builder {
         private android.companion.virtual.camera.VirtualCameraCallback mCallback;
         private java.util.concurrent.Executor mCallbackExecutor;
@@ -54,22 +71,5 @@ public final class VirtualCameraConfig implements android.os.Parcelable {
         public android.companion.virtual.camera.VirtualCameraConfig.Builder setPerFrameCameraMetadataEnabled(boolean p0) { return null; }
         public android.companion.virtual.camera.VirtualCameraConfig.Builder setSensorOrientation(int p0) { return null; }
         public android.companion.virtual.camera.VirtualCameraConfig.Builder setVirtualCameraCallback(java.util.concurrent.Executor p0, android.companion.virtual.camera.VirtualCameraCallback p1) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SensorOrientation {
-    }
-
-    private static class VirtualCameraCallbackInternal extends android.companion.virtual.camera.IVirtualCameraCallback.Stub {
-        private final android.companion.virtual.camera.VirtualCameraCallback mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final boolean mPerFrameCameraMetadataEnabled = false;
-        private VirtualCameraCallbackInternal(android.companion.virtual.camera.VirtualCameraCallback p0, java.util.concurrent.Executor p1, boolean p2) { super(); }
-        private java.util.function.ObjLongConsumer<android.hardware.camera2.CaptureResult> convertToFrameworkCaptureResultConsumer(android.companion.virtual.camera.ICaptureResultConsumer p0) { return null; }
-        public void onConfigureSession(android.hardware.camera2.CaptureRequest p0, android.companion.virtual.camera.ICaptureResultConsumer p1) {}
-        public void onOpenCamera() {}
-        public void onProcessCaptureRequest(int p0, long p1, android.hardware.camera2.CaptureRequest p2) {}
-        public void onStreamClosed(int p0) {}
-        public void onStreamConfigured(int p0, android.view.Surface p1, int p2, int p3, int p4) {}
     }
 }

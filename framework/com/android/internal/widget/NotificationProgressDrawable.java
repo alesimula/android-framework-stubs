@@ -42,28 +42,13 @@ public final class NotificationProgressDrawable extends android.graphics.drawabl
     public void setSegmentHeight(float p0) {}
     public void updateEndDotColor(int p0) {}
 
-    public static interface BoundsChangeListener {
-        public void onDrawableBoundsChanged();
-    }
-
-    public static abstract class DrawablePart {
-        protected final int mColor = 0;
-        protected float mEnd;
-        protected float mStart;
-        protected DrawablePart(float p0, float p1, int p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getColor() { return 0; }
-        public float getEnd() { return 0.0f; }
-        public float getStart() { return 0.0f; }
-        public float getWidth() { return 0.0f; }
-        public int hashCode() { return 0; }
-        public void setEnd(float p0) {}
-        public void setStart(float p0) {}
-    }
-
     public static final class DrawablePoint extends com.android.internal.widget.NotificationProgressDrawable.DrawablePart {
         public DrawablePoint(float p0, float p1, int p2) { super(0.0f, 0.0f, 0); }
         public java.lang.String toString() { return null; }
+    }
+
+    public static interface BoundsChangeListener {
+        public void onDrawableBoundsChanged();
     }
 
     public static final class DrawableSegment extends com.android.internal.widget.NotificationProgressDrawable.DrawablePart {
@@ -95,5 +80,20 @@ public final class NotificationProgressDrawable extends android.graphics.drawabl
         public android.graphics.drawable.Drawable newDrawable() { return null; }
         public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
         public void setDensity(int p0) {}
+    }
+
+    public static abstract class DrawablePart {
+        protected final int mColor = 0;
+        protected float mEnd;
+        protected float mStart;
+        protected DrawablePart(float p0, float p1, int p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getColor() { return 0; }
+        public float getEnd() { return 0.0f; }
+        public float getStart() { return 0.0f; }
+        public float getWidth() { return 0.0f; }
+        public int hashCode() { return 0; }
+        public void setEnd(float p0) {}
+        public void setStart(float p0) {}
     }
 }

@@ -19,6 +19,15 @@ public class InputMethod {
     final void restartInput(com.android.internal.inputmethod.RemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1) {}
     final void startInput(com.android.internal.inputmethod.RemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1) {}
 
+    private final class SessionImpl implements android.accessibilityservice.AccessibilityInputMethodSession {
+        boolean mEnabled;
+        private SessionImpl(android.accessibilityservice.InputMethod p0) {}
+        public void finishInput() {}
+        public void invalidateInput(android.view.inputmethod.EditorInfo p0, com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p1, int p2) {}
+        public void setEnabled(boolean p0) {}
+        public void updateSelection(int p0, int p1, int p2, int p3, int p4, int p5) {}
+    }
+
     public final class AccessibilityInputConnection {
         private final com.android.internal.inputmethod.RemoteAccessibilityInputConnection mIc = null;
         AccessibilityInputConnection(android.accessibilityservice.InputMethod p0, com.android.internal.inputmethod.RemoteAccessibilityInputConnection p1) {}
@@ -31,14 +40,5 @@ public class InputMethod {
         public void performEditorAction(int p0) {}
         public void sendKeyEvent(android.view.KeyEvent p0) {}
         public void setSelection(int p0, int p1) {}
-    }
-
-    private final class SessionImpl implements android.accessibilityservice.AccessibilityInputMethodSession {
-        boolean mEnabled;
-        private SessionImpl(android.accessibilityservice.InputMethod p0) {}
-        public void finishInput() {}
-        public void invalidateInput(android.view.inputmethod.EditorInfo p0, com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p1, int p2) {}
-        public void setEnabled(boolean p0) {}
-        public void updateSelection(int p0, int p1, int p2, int p3, int p4, int p5) {}
     }
 }

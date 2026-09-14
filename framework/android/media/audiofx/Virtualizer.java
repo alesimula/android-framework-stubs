@@ -32,24 +32,24 @@ public class Virtualizer extends android.media.audiofx.AudioEffect {
     public void setProperties(android.media.audiofx.Virtualizer.Settings p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
     public void setStrength(short p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
 
+    public static class Settings {
+        public short strength;
+        public Settings() {}
+        public Settings(java.lang.String p0) {}
+        public java.lang.String toString() { return null; }
+    }
+
     private class BaseParameterListener implements android.media.audiofx.AudioEffect.OnParameterChangeListener {
         private BaseParameterListener(android.media.audiofx.Virtualizer p0) {}
         public void onParameterChange(android.media.audiofx.AudioEffect p0, int p1, byte[] p2, byte[] p3) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ForceVirtualizationMode {
     }
 
     public static interface OnParameterChangeListener {
         public void onParameterChange(android.media.audiofx.Virtualizer p0, int p1, int p2, short p3);
     }
 
-    public static class Settings {
-        public short strength;
-        public Settings() {}
-        public Settings(java.lang.String p0) {}
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ForceVirtualizationMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

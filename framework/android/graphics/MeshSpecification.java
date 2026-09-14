@@ -24,6 +24,10 @@ public class MeshSpecification {
     private static @interface AlphaType {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    private static @interface Type {
+    }
+
     public static class Attribute {
         private final java.lang.String mName = null;
         private final int mOffset = 0;
@@ -37,10 +41,6 @@ public class MeshSpecification {
 
     private static class MeshSpecificationHolder {
         private MeshSpecificationHolder() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    private static @interface Type {
     }
 
     public static class Varying {

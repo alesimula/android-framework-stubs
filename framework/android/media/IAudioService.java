@@ -77,6 +77,7 @@ public interface IAudioService extends android.os.IInterface {
     public int getMaxInputGainIndex() throws android.os.RemoteException;
     public int getMinInputGainIndex() throws android.os.RemoteException;
     public int getMode() throws android.os.RemoteException;
+    public int getModeSessionSupport() throws android.os.RemoteException;
     public android.media.AudioDeviceAttributes getMutingExpectedDevice() throws android.os.RemoteException;
     public android.media.IAudioManagerNative getNativeInterface() throws android.os.RemoteException;
     public java.util.List<android.media.AudioDeviceAttributes> getNonDefaultDevicesForStrategy(int p0) throws android.os.RemoteException;
@@ -212,7 +213,7 @@ public interface IAudioService extends android.os.IInterface {
     public boolean setAdditionalOutputDeviceDelay(android.media.AudioDeviceAttributes p0, long p1) throws android.os.RemoteException;
     public int setAllowedCapturePolicy(int p0) throws android.os.RemoteException;
     public void setBluetoothA2dpOn(boolean p0) throws android.os.RemoteException;
-    public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1) throws android.os.RemoteException;
+    public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException;
     public void setBluetoothScoOn(boolean p0) throws android.os.RemoteException;
     public void setBluetoothVariableLatencyEnabled(boolean p0) throws android.os.RemoteException;
     public boolean setCommunicationDevice(android.os.IBinder p0, android.media.AudioDeviceAttributes p1, android.content.AttributionSource p2) throws android.os.RemoteException;
@@ -267,7 +268,7 @@ public interface IAudioService extends android.os.IInterface {
     public void setVolumeGroupVolumeIndex(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException;
     public void setVolumePolicy(android.media.VolumePolicy p0) throws android.os.RemoteException;
     public void setWiredDeviceConnectionState(android.media.AudioDeviceAttributes p0, int p1, java.lang.String p2) throws android.os.RemoteException;
-    public boolean shouldNotificationSoundPlay(android.media.AudioAttributes p0) throws android.os.RemoteException;
+    public boolean shouldSonificationPlay(android.media.AudioAttributes p0) throws android.os.RemoteException;
     public boolean shouldVibrate(int p0) throws android.os.RemoteException;
     public void startBluetoothSco(android.os.IBinder p0, int p1, android.content.AttributionSource p2) throws android.os.RemoteException;
     public void startBluetoothScoVirtualCall(android.os.IBinder p0, android.content.AttributionSource p1) throws android.os.RemoteException;
@@ -379,6 +380,7 @@ public interface IAudioService extends android.os.IInterface {
         public int getMaxInputGainIndex() throws android.os.RemoteException { return 0; }
         public int getMinInputGainIndex() throws android.os.RemoteException { return 0; }
         public int getMode() throws android.os.RemoteException { return 0; }
+        public int getModeSessionSupport() throws android.os.RemoteException { return 0; }
         public android.media.AudioDeviceAttributes getMutingExpectedDevice() throws android.os.RemoteException { return null; }
         public android.media.IAudioManagerNative getNativeInterface() throws android.os.RemoteException { return null; }
         public java.util.List<android.media.AudioDeviceAttributes> getNonDefaultDevicesForStrategy(int p0) throws android.os.RemoteException { return null; }
@@ -514,7 +516,7 @@ public interface IAudioService extends android.os.IInterface {
         public boolean setAdditionalOutputDeviceDelay(android.media.AudioDeviceAttributes p0, long p1) throws android.os.RemoteException { return false; }
         public int setAllowedCapturePolicy(int p0) throws android.os.RemoteException { return 0; }
         public void setBluetoothA2dpOn(boolean p0) throws android.os.RemoteException {}
-        public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return false; }
         public void setBluetoothScoOn(boolean p0) throws android.os.RemoteException {}
         public void setBluetoothVariableLatencyEnabled(boolean p0) throws android.os.RemoteException {}
         public boolean setCommunicationDevice(android.os.IBinder p0, android.media.AudioDeviceAttributes p1, android.content.AttributionSource p2) throws android.os.RemoteException { return false; }
@@ -569,7 +571,7 @@ public interface IAudioService extends android.os.IInterface {
         public void setVolumeGroupVolumeIndex(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
         public void setVolumePolicy(android.media.VolumePolicy p0) throws android.os.RemoteException {}
         public void setWiredDeviceConnectionState(android.media.AudioDeviceAttributes p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-        public boolean shouldNotificationSoundPlay(android.media.AudioAttributes p0) throws android.os.RemoteException { return false; }
+        public boolean shouldSonificationPlay(android.media.AudioAttributes p0) throws android.os.RemoteException { return false; }
         public boolean shouldVibrate(int p0) throws android.os.RemoteException { return false; }
         public void startBluetoothSco(android.os.IBinder p0, int p1, android.content.AttributionSource p2) throws android.os.RemoteException {}
         public void startBluetoothScoVirtualCall(android.os.IBinder p0, android.content.AttributionSource p1) throws android.os.RemoteException {}
@@ -628,6 +630,7 @@ public interface IAudioService extends android.os.IInterface {
         static final java.lang.String[] PERMISSIONS_setProductStrategiesZoneIdForUser = null;
         static final java.lang.String[] PERMISSIONS_setVolumeForDevice = null;
         static final java.lang.String[] PERMISSIONS_setVolumeGroupVolumeIndex = null;
+        static final java.lang.String[] PERMISSIONS_shouldSonificationPlay = null;
         static final int TRANSACTION_abandonAudioFocus = 83;
         static final int TRANSACTION_abandonAudioFocusForTest = 207;
         static final int TRANSACTION_addAssistantServicesUids = 265;
@@ -704,6 +707,7 @@ public interface IAudioService extends android.os.IInterface {
         static final int TRANSACTION_getMaxInputGainIndex = 49;
         static final int TRANSACTION_getMinInputGainIndex = 50;
         static final int TRANSACTION_getMode = 62;
+        static final int TRANSACTION_getModeSessionSupport = 299;
         static final int TRANSACTION_getMutingExpectedDevice = 257;
         static final int TRANSACTION_getNativeInterface = 1;
         static final int TRANSACTION_getNonDefaultDevicesForStrategy = 165;
@@ -894,7 +898,7 @@ public interface IAudioService extends android.os.IInterface {
         static final int TRANSACTION_setVolumeGroupVolumeIndex = 32;
         static final int TRANSACTION_setVolumePolicy = 133;
         static final int TRANSACTION_setWiredDeviceConnectionState = 98;
-        static final int TRANSACTION_shouldNotificationSoundPlay = 290;
+        static final int TRANSACTION_shouldSonificationPlay = 290;
         static final int TRANSACTION_shouldVibrate = 60;
         static final int TRANSACTION_startBluetoothSco = 86;
         static final int TRANSACTION_startBluetoothScoVirtualCall = 87;
@@ -949,6 +953,7 @@ public interface IAudioService extends android.os.IInterface {
         private boolean onTransact$requestAudioFocusForTest$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setMasterMute$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setMicrophoneMute$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setPreferredMixerAttributes$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setStreamVolume$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setStreamVolumeForUid$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setStreamVolumeWithAttribution$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -995,6 +1000,7 @@ public interface IAudioService extends android.os.IInterface {
         protected void getLastAudibleVolumeForVolumeGroup_enforcePermission() throws java.lang.SecurityException {}
         protected void getMaxInputGainIndex_enforcePermission() throws java.lang.SecurityException {}
         protected void getMinInputGainIndex_enforcePermission() throws java.lang.SecurityException {}
+        protected void getModeSessionSupport_enforcePermission() throws java.lang.SecurityException {}
         protected void getMutingExpectedDevice_enforcePermission() throws java.lang.SecurityException {}
         protected void getNonDefaultDevicesForStrategy_enforcePermission() throws java.lang.SecurityException {}
         protected void getOutputRs2UpperBound_enforcePermission() throws java.lang.SecurityException {}
@@ -1077,7 +1083,7 @@ public interface IAudioService extends android.os.IInterface {
         protected void setVolumeForDevice_enforcePermission() throws java.lang.SecurityException {}
         protected void setVolumeGroupVolumeIndex_enforcePermission() throws java.lang.SecurityException {}
         protected void setWiredDeviceConnectionState_enforcePermission() throws java.lang.SecurityException {}
-        protected void shouldNotificationSoundPlay_enforcePermission() throws java.lang.SecurityException {}
+        protected void shouldSonificationPlay_enforcePermission() throws java.lang.SecurityException {}
         protected void supportsBluetoothVariableLatency_enforcePermission() throws java.lang.SecurityException {}
         protected void unregisterHeadToSoundstagePoseCallback_enforcePermission() throws java.lang.SecurityException {}
         protected void unregisterSpatializerHeadTrackingCallback_enforcePermission() throws java.lang.SecurityException {}
@@ -1165,6 +1171,7 @@ public interface IAudioService extends android.os.IInterface {
             public int getMaxInputGainIndex() throws android.os.RemoteException { return 0; }
             public int getMinInputGainIndex() throws android.os.RemoteException { return 0; }
             public int getMode() throws android.os.RemoteException { return 0; }
+            public int getModeSessionSupport() throws android.os.RemoteException { return 0; }
             public android.media.AudioDeviceAttributes getMutingExpectedDevice() throws android.os.RemoteException { return null; }
             public android.media.IAudioManagerNative getNativeInterface() throws android.os.RemoteException { return null; }
             public java.util.List<android.media.AudioDeviceAttributes> getNonDefaultDevicesForStrategy(int p0) throws android.os.RemoteException { return null; }
@@ -1300,7 +1307,7 @@ public interface IAudioService extends android.os.IInterface {
             public boolean setAdditionalOutputDeviceDelay(android.media.AudioDeviceAttributes p0, long p1) throws android.os.RemoteException { return false; }
             public int setAllowedCapturePolicy(int p0) throws android.os.RemoteException { return 0; }
             public void setBluetoothA2dpOn(boolean p0) throws android.os.RemoteException {}
-            public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+            public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return false; }
             public void setBluetoothScoOn(boolean p0) throws android.os.RemoteException {}
             public void setBluetoothVariableLatencyEnabled(boolean p0) throws android.os.RemoteException {}
             public boolean setCommunicationDevice(android.os.IBinder p0, android.media.AudioDeviceAttributes p1, android.content.AttributionSource p2) throws android.os.RemoteException { return false; }
@@ -1355,7 +1362,7 @@ public interface IAudioService extends android.os.IInterface {
             public void setVolumeGroupVolumeIndex(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
             public void setVolumePolicy(android.media.VolumePolicy p0) throws android.os.RemoteException {}
             public void setWiredDeviceConnectionState(android.media.AudioDeviceAttributes p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-            public boolean shouldNotificationSoundPlay(android.media.AudioAttributes p0) throws android.os.RemoteException { return false; }
+            public boolean shouldSonificationPlay(android.media.AudioAttributes p0) throws android.os.RemoteException { return false; }
             public boolean shouldVibrate(int p0) throws android.os.RemoteException { return false; }
             public void startBluetoothSco(android.os.IBinder p0, int p1, android.content.AttributionSource p2) throws android.os.RemoteException {}
             public void startBluetoothScoVirtualCall(android.os.IBinder p0, android.content.AttributionSource p1) throws android.os.RemoteException {}

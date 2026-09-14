@@ -15,7 +15,6 @@ public class DrawableContainer extends android.graphics.drawable.Drawable implem
     private boolean mHasAlpha;
     private android.graphics.Rect mHotspotBounds;
     private android.graphics.drawable.Drawable mLastDrawable;
-    private int mLastIndex;
     private boolean mMutated;
     public DrawableContainer() { super(); }
     private void initializeDrawableForDisplay(android.graphics.drawable.Drawable p0) {}
@@ -67,16 +66,6 @@ public class DrawableContainer extends android.graphics.drawable.Drawable implem
     public boolean setVisible(boolean p0, boolean p1) { return false; }
     public void unscheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1) {}
     protected final void updateDensity(android.content.res.Resources p0) {}
-
-    private static class BlockInvalidateCallback implements android.graphics.drawable.Drawable.Callback {
-        private android.graphics.drawable.Drawable.Callback mCallback;
-        private BlockInvalidateCallback() {}
-        public void invalidateDrawable(android.graphics.drawable.Drawable p0) {}
-        public void scheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1, long p2) {}
-        public void unscheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1) {}
-        public android.graphics.drawable.Drawable.Callback unwrap() { return null; }
-        public android.graphics.drawable.DrawableContainer.BlockInvalidateCallback wrap(android.graphics.drawable.Drawable.Callback p0) { return null; }
-    }
 
     public static abstract class DrawableContainerState extends android.graphics.drawable.Drawable.ConstantState {
         boolean mAutoMirrored;
@@ -147,5 +136,15 @@ public class DrawableContainer extends android.graphics.drawable.Drawable implem
         final boolean setLayoutDirection(int p0, int p1) { return false; }
         public final void setVariablePadding(boolean p0) {}
         final void updateDensity(android.content.res.Resources p0) {}
+    }
+
+    private static class BlockInvalidateCallback implements android.graphics.drawable.Drawable.Callback {
+        private android.graphics.drawable.Drawable.Callback mCallback;
+        private BlockInvalidateCallback() {}
+        public void invalidateDrawable(android.graphics.drawable.Drawable p0) {}
+        public void scheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1, long p2) {}
+        public void unscheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1) {}
+        public android.graphics.drawable.Drawable.Callback unwrap() { return null; }
+        public android.graphics.drawable.DrawableContainer.BlockInvalidateCallback wrap(android.graphics.drawable.Drawable.Callback p0) { return null; }
     }
 }

@@ -5,13 +5,6 @@ public interface ISecureLockDeviceStatusListener extends android.os.IInterface {
     public void onSecureLockDeviceAvailableStatusChanged(int p0) throws android.os.RemoteException;
     public void onSecureLockDeviceEnabledStatusChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.authenticationpolicy.ISecureLockDeviceStatusListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSecureLockDeviceAvailableStatusChanged(int p0) throws android.os.RemoteException {}
-        public void onSecureLockDeviceEnabledStatusChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.authenticationpolicy.ISecureLockDeviceStatusListener {
         static final int TRANSACTION_onSecureLockDeviceAvailableStatusChanged = 2;
         static final int TRANSACTION_onSecureLockDeviceEnabledStatusChanged = 1;
@@ -30,5 +23,12 @@ public interface ISecureLockDeviceStatusListener extends android.os.IInterface {
             public void onSecureLockDeviceAvailableStatusChanged(int p0) throws android.os.RemoteException {}
             public void onSecureLockDeviceEnabledStatusChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.authenticationpolicy.ISecureLockDeviceStatusListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSecureLockDeviceAvailableStatusChanged(int p0) throws android.os.RemoteException {}
+        public void onSecureLockDeviceEnabledStatusChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

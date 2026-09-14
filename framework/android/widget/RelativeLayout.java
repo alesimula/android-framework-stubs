@@ -85,6 +85,11 @@ public class RelativeLayout extends android.view.ViewGroup {
     public void setVerticalGravity(int p0) {}
     public boolean shouldDelayChildPressedState() { return false; }
 
+    private class TopToBottomLeftToRightComparator implements java.util.Comparator<android.view.View> {
+        private TopToBottomLeftToRightComparator(android.widget.RelativeLayout p0) {}
+        public int compare(android.view.View p0, android.view.View p1) { return 0; }
+    }
+
     private static class DependencyGraph {
         private android.util.SparseArray<android.widget.RelativeLayout.DependencyGraph.Node> mKeyNodes;
         private java.util.ArrayList<android.widget.RelativeLayout.DependencyGraph.Node> mNodes;
@@ -132,7 +137,7 @@ public class RelativeLayout extends android.view.ViewGroup {
         public void addRule(int p0) {}
         public void addRule(int p0, int p1) {}
         public java.lang.String debug(java.lang.String p0) { return null; }
-        protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
+        protected final void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
         public int getRule(int p0) { return 0; }
         public int[] getRules() { return null; }
         public int[] getRules(int p0) { return null; }
@@ -168,11 +173,6 @@ public class RelativeLayout extends android.view.ViewGroup {
             public void mapProperties(android.view.inspector.PropertyMapper p0) {}
             public void readProperties(android.widget.RelativeLayout.LayoutParams p0, android.view.inspector.PropertyReader p1) {}
         }
-    }
-
-    private class TopToBottomLeftToRightComparator implements java.util.Comparator<android.view.View> {
-        private TopToBottomLeftToRightComparator(android.widget.RelativeLayout p0) {}
-        public int compare(android.view.View p0, android.view.View p1) { return 0; }
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.RelativeLayout> {

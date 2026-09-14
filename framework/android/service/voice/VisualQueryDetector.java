@@ -5,7 +5,7 @@ public class VisualQueryDetector {
     private static final boolean DEBUG = false;
     private static final int SETTINGS_DISABLE_BIT = 0;
     private static final int SETTINGS_ENABLE_BIT = 1;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "VisualQueryDetector";
     private android.service.voice.VisualQueryDetector.AccessibilityDetectionEnabledListenerWrapper mActiveAccessibilityListenerWrapper;
     private final java.lang.String mAttributionTag = null;
     private final android.service.voice.VisualQueryDetector.Callback mCallback = null;
@@ -28,6 +28,26 @@ public class VisualQueryDetector {
     public boolean startRecognition() { return false; }
     public boolean stopRecognition() { return false; }
     public void updateState(android.os.PersistableBundle p0, android.os.SharedMemory p1) {}
+
+    private static class InitializationStateListener extends com.android.internal.app.IHotwordRecognitionStatusCallback.Stub {
+        private final android.service.voice.VisualQueryDetector.Callback mCallback = null;
+        private final android.content.Context mContext = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        InitializationStateListener(java.util.concurrent.Executor p0, android.service.voice.VisualQueryDetector.Callback p1, android.content.Context p2) { super(); }
+        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) throws android.os.RemoteException {}
+        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) throws android.os.RemoteException {}
+        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) {}
+        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) {}
+        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
+        public void onProcessRestarted() throws android.os.RemoteException {}
+        public void onRecognitionPaused() throws android.os.RemoteException {}
+        public void onRecognitionResumed() throws android.os.RemoteException {}
+        public void onRejected(android.service.voice.HotwordRejectedResult p0) throws android.os.RemoteException {}
+        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) {}
+        public void onStatusReported(int p0) {}
+        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
+    }
 
     private final class AccessibilityDetectionEnabledListenerWrapper extends com.android.internal.app.IVoiceInteractionAccessibilitySettingsListener.Stub {
         private java.util.function.Consumer<java.lang.Boolean> mListener;
@@ -56,26 +76,6 @@ public class VisualQueryDetector {
         public void onUnknownFailure(java.lang.String p0);
         public void onVisualQueryDetectionServiceInitialized(int p0);
         public void onVisualQueryDetectionServiceRestarted();
-    }
-
-    private static class InitializationStateListener extends com.android.internal.app.IHotwordRecognitionStatusCallback.Stub {
-        private final android.service.voice.VisualQueryDetector.Callback mCallback = null;
-        private final android.content.Context mContext = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        InitializationStateListener(java.util.concurrent.Executor p0, android.service.voice.VisualQueryDetector.Callback p1, android.content.Context p2) { super(); }
-        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) throws android.os.RemoteException {}
-        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) throws android.os.RemoteException {}
-        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) {}
-        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) {}
-        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
-        public void onProcessRestarted() throws android.os.RemoteException {}
-        public void onRecognitionPaused() throws android.os.RemoteException {}
-        public void onRecognitionResumed() throws android.os.RemoteException {}
-        public void onRejected(android.service.voice.HotwordRejectedResult p0) throws android.os.RemoteException {}
-        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) {}
-        public void onStatusReported(int p0) {}
-        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
     }
 
     private class VisualQueryDetectorInitializationDelegate extends android.service.voice.AbstractDetector {

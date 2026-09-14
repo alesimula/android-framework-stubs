@@ -43,27 +43,6 @@ public abstract class CameraDevice implements java.lang.AutoCloseable {
     public boolean isSessionConfigurationSupported(android.hardware.camera2.params.SessionConfiguration p0) throws android.hardware.camera2.CameraAccessException { return false; }
     public void setCameraAudioRestriction(int p0) throws android.hardware.camera2.CameraAccessException {}
 
-    public static abstract class CameraDeviceSetup {
-        public CameraDeviceSetup() {}
-        public abstract android.hardware.camera2.CaptureRequest.Builder createCaptureRequest(int p0) throws android.hardware.camera2.CameraAccessException;
-        public abstract java.lang.String getId();
-        public abstract android.hardware.camera2.CameraCharacteristics getSessionCharacteristics(android.hardware.camera2.params.SessionConfiguration p0) throws android.hardware.camera2.CameraAccessException;
-        public abstract boolean isSessionConfigurationSupported(android.hardware.camera2.params.SessionConfiguration p0) throws android.hardware.camera2.CameraAccessException;
-        public abstract void openCamera(java.util.concurrent.Executor p0, android.hardware.camera2.CameraDevice.StateCallback p1) throws android.hardware.camera2.CameraAccessException;
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CAMERA_AUDIO_RESTRICTION {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RequestTemplate {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionOperatingMode {
-    }
-
     public static abstract class StateCallback {
         public static final int ERROR_CAMERA_DEVICE = 4;
         public static final int ERROR_CAMERA_DISABLED = 3;
@@ -83,5 +62,26 @@ public abstract class CameraDevice implements java.lang.AutoCloseable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ErrorCode {
         }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RequestTemplate {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CAMERA_AUDIO_RESTRICTION {
+    }
+
+    public static abstract class CameraDeviceSetup {
+        public CameraDeviceSetup() {}
+        public abstract android.hardware.camera2.CaptureRequest.Builder createCaptureRequest(int p0) throws android.hardware.camera2.CameraAccessException;
+        public abstract java.lang.String getId();
+        public abstract android.hardware.camera2.CameraCharacteristics getSessionCharacteristics(android.hardware.camera2.params.SessionConfiguration p0) throws android.hardware.camera2.CameraAccessException;
+        public abstract boolean isSessionConfigurationSupported(android.hardware.camera2.params.SessionConfiguration p0) throws android.hardware.camera2.CameraAccessException;
+        public abstract void openCamera(java.util.concurrent.Executor p0, android.hardware.camera2.CameraDevice.StateCallback p1) throws android.hardware.camera2.CameraAccessException;
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SessionOperatingMode {
     }
 }

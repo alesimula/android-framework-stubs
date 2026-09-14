@@ -12,20 +12,6 @@ public interface IRemoteAccessibilityInputConnection extends android.os.IInterfa
     public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException;
     public void setSelection(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IRemoteAccessibilityInputConnection {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void clearMetaKeyStates(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
-        public void commitText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, java.lang.CharSequence p1, int p2, android.view.inputmethod.TextAttribute p3) throws android.os.RemoteException {}
-        public void deleteSurroundingText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2) throws android.os.RemoteException {}
-        public void getCursorCapsMode(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, com.android.internal.infra.AndroidFuture p2) throws android.os.RemoteException {}
-        public void getSurroundingText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2, int p3, com.android.internal.infra.AndroidFuture p4) throws android.os.RemoteException {}
-        public void performContextMenuAction(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
-        public void performEditorAction(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
-        public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException {}
-        public void setSelection(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IRemoteAccessibilityInputConnection {
         static final int TRANSACTION_clearMetaKeyStates = 9;
         static final int TRANSACTION_commitText = 1;
@@ -58,5 +44,19 @@ public interface IRemoteAccessibilityInputConnection extends android.os.IInterfa
             public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException {}
             public void setSelection(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IRemoteAccessibilityInputConnection {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void clearMetaKeyStates(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
+        public void commitText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, java.lang.CharSequence p1, int p2, android.view.inputmethod.TextAttribute p3) throws android.os.RemoteException {}
+        public void deleteSurroundingText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2) throws android.os.RemoteException {}
+        public void getCursorCapsMode(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, com.android.internal.infra.AndroidFuture p2) throws android.os.RemoteException {}
+        public void getSurroundingText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2, int p3, com.android.internal.infra.AndroidFuture p4) throws android.os.RemoteException {}
+        public void performContextMenuAction(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
+        public void performEditorAction(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
+        public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException {}
+        public void setSelection(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

@@ -4,12 +4,6 @@ public interface IProviderOnAllowlistChangedListener extends android.os.IInterfa
     public static final java.lang.String DESCRIPTOR = "android.os.allowlist.IProviderOnAllowlistChangedListener";
     public void onAllowlistChanged(java.util.List<android.os.allowlist.AllowlistRequest> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.allowlist.IProviderOnAllowlistChangedListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAllowlistChanged(java.util.List<android.os.allowlist.AllowlistRequest> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.allowlist.IProviderOnAllowlistChangedListener {
         static final int TRANSACTION_onAllowlistChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IProviderOnAllowlistChangedListener extends android.os.IInterfa
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAllowlistChanged(java.util.List<android.os.allowlist.AllowlistRequest> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.allowlist.IProviderOnAllowlistChangedListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAllowlistChanged(java.util.List<android.os.allowlist.AllowlistRequest> p0) throws android.os.RemoteException {}
     }
 }

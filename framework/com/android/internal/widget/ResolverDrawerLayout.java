@@ -121,10 +121,6 @@ public class ResolverDrawerLayout extends android.view.ViewGroup implements com.
         public LayoutParams(com.android.internal.widget.ResolverDrawerLayout.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
     }
 
-    public static interface OnCollapsedChangedListener {
-        public void onCollapsedChanged(boolean p0);
-    }
-
     private class RunOnDismissedListener implements java.lang.Runnable {
         private RunOnDismissedListener(com.android.internal.widget.ResolverDrawerLayout p0) {}
         public void run() {}
@@ -137,5 +133,9 @@ public class ResolverDrawerLayout extends android.view.ViewGroup implements com.
         private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
         SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static interface OnCollapsedChangedListener {
+        public void onCollapsedChanged(boolean p0);
     }
 }

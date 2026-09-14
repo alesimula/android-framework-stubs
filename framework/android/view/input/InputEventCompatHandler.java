@@ -1,7 +1,7 @@
 package android.view.input;
 
 public class InputEventCompatHandler {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "InputEventCompatHandler";
     private final android.view.input.InputEventCompatHandler mNext = null;
     private final android.view.InputEventCompatProcessor mProcessor = null;
     public InputEventCompatHandler(android.view.InputEventCompatProcessor p0, android.view.input.InputEventCompatHandler p1) {}

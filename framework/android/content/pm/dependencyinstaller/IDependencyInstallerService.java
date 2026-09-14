@@ -4,12 +4,6 @@ public interface IDependencyInstallerService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.content.pm.dependencyinstaller.IDependencyInstallerService";
     public void onDependenciesRequired(java.util.List<android.content.pm.SharedLibraryInfo> p0, android.content.pm.dependencyinstaller.DependencyInstallerCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.dependencyinstaller.IDependencyInstallerService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDependenciesRequired(java.util.List<android.content.pm.SharedLibraryInfo> p0, android.content.pm.dependencyinstaller.DependencyInstallerCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.dependencyinstaller.IDependencyInstallerService {
         static final int TRANSACTION_onDependenciesRequired = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IDependencyInstallerService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onDependenciesRequired(java.util.List<android.content.pm.SharedLibraryInfo> p0, android.content.pm.dependencyinstaller.DependencyInstallerCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.dependencyinstaller.IDependencyInstallerService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDependenciesRequired(java.util.List<android.content.pm.SharedLibraryInfo> p0, android.content.pm.dependencyinstaller.DependencyInstallerCallback p1) throws android.os.RemoteException {}
     }
 }

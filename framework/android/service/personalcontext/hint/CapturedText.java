@@ -11,15 +11,19 @@ public final class CapturedText implements android.os.Parcelable {
     private final java.time.Instant mViewNodeLastUpdated = null;
     private final java.lang.String mViewNodeText = null;
     private CapturedText(android.os.Parcel p0) {}
-    private CapturedText(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.graphics.Rect p3, java.lang.String p4, java.time.Instant p5, java.time.Instant p6) {}
+    public CapturedText(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.graphics.Rect p3, java.lang.String p4, java.time.Instant p5, java.time.Instant p6) {}
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
     public java.lang.String getResourceId() { return null; }
     public java.lang.String getViewId() { return null; }
     public android.graphics.Rect getViewNodeBoundingBox() { return null; }
     public java.lang.String getViewNodeDescription() { return null; }
+    @java.lang.Deprecated
     public java.time.Instant getViewNodeLastSeen() { return null; }
+    public long getViewNodeLastSeenMillis() { return 0L; }
+    @java.lang.Deprecated
     public java.time.Instant getViewNodeLastUpdated() { return null; }
+    public long getViewNodeLastUpdatedMillis() { return 0L; }
     public java.lang.String getViewNodeText() { return null; }
     public int hashCode() { return 0; }
     public java.lang.String toString() { return null; }

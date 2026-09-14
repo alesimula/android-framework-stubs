@@ -32,21 +32,23 @@ public interface IGnssCallback extends android.os.IInterface {
     public void gnssStatusCb(int p0) throws android.os.RemoteException;
     public void gnssSvStatusCb(android.hardware.gnss.IGnssCallback.GnssSvInfo[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.IGnssCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void gnssAcquireWakelockCb() throws android.os.RemoteException {}
-        public void gnssLocationCb(android.hardware.gnss.GnssLocation p0) throws android.os.RemoteException {}
-        public void gnssNmeaCb(long p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void gnssReleaseWakelockCb() throws android.os.RemoteException {}
-        public void gnssRequestLocationCb(boolean p0, boolean p1) throws android.os.RemoteException {}
-        public void gnssRequestTimeCb() throws android.os.RemoteException {}
-        public void gnssSetCapabilitiesCb(int p0) throws android.os.RemoteException {}
-        public void gnssSetSystemInfoCb(android.hardware.gnss.IGnssCallback.GnssSystemInfo p0) throws android.os.RemoteException {}
-        public void gnssStatusCb(int p0) throws android.os.RemoteException {}
-        public void gnssSvStatusCb(android.hardware.gnss.IGnssCallback.GnssSvInfo[] p0) throws android.os.RemoteException {}
+    public static @interface GnssSvFlags {
+        public static final int HAS_ALMANAC_DATA = 2;
+        public static final int HAS_CARRIER_FREQUENCY = 8;
+        public static final int HAS_EPHEMERIS_DATA = 1;
+        public static final int NONE = 0;
+        public static final int USED_IN_FIX = 4;
+    }
+
+    public static class GnssSystemInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.gnss.IGnssCallback.GnssSystemInfo> CREATOR = null;
+        public java.lang.String name;
+        public int yearOfHw;
+        public GnssSystemInfo() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static @interface GnssStatusValue {
@@ -55,14 +57,6 @@ public interface IGnssCallback extends android.os.IInterface {
         public static final int NONE = 0;
         public static final int SESSION_BEGIN = 1;
         public static final int SESSION_END = 2;
-    }
-
-    public static @interface GnssSvFlags {
-        public static final int HAS_ALMANAC_DATA = 2;
-        public static final int HAS_CARRIER_FREQUENCY = 8;
-        public static final int HAS_EPHEMERIS_DATA = 1;
-        public static final int NONE = 0;
-        public static final int USED_IN_FIX = 4;
     }
 
     public static class GnssSvInfo implements android.os.Parcelable {
@@ -76,17 +70,6 @@ public interface IGnssCallback extends android.os.IInterface {
         public int svFlag;
         public int svid;
         public GnssSvInfo() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class GnssSystemInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.gnss.IGnssCallback.GnssSystemInfo> CREATOR = null;
-        public java.lang.String name;
-        public int yearOfHw;
-        public GnssSystemInfo() {}
         public int describeContents() { return 0; }
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
@@ -133,5 +116,22 @@ public interface IGnssCallback extends android.os.IInterface {
             public void gnssStatusCb(int p0) throws android.os.RemoteException {}
             public void gnssSvStatusCb(android.hardware.gnss.IGnssCallback.GnssSvInfo[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.gnss.IGnssCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void gnssAcquireWakelockCb() throws android.os.RemoteException {}
+        public void gnssLocationCb(android.hardware.gnss.GnssLocation p0) throws android.os.RemoteException {}
+        public void gnssNmeaCb(long p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void gnssReleaseWakelockCb() throws android.os.RemoteException {}
+        public void gnssRequestLocationCb(boolean p0, boolean p1) throws android.os.RemoteException {}
+        public void gnssRequestTimeCb() throws android.os.RemoteException {}
+        public void gnssSetCapabilitiesCb(int p0) throws android.os.RemoteException {}
+        public void gnssSetSystemInfoCb(android.hardware.gnss.IGnssCallback.GnssSystemInfo p0) throws android.os.RemoteException {}
+        public void gnssStatusCb(int p0) throws android.os.RemoteException {}
+        public void gnssSvStatusCb(android.hardware.gnss.IGnssCallback.GnssSvInfo[] p0) throws android.os.RemoteException {}
     }
 }

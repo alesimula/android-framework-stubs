@@ -201,36 +201,16 @@ public class ResolverActivity extends android.app.Activity implements com.androi
         SEND_MULTIPLE(0, 0),
         VIEW(0, 0);
         private static final com.android.internal.app.ResolverActivity.ActionTitle[] $VALUES = null;
-        public static final int BROWSABLE_APP_TITLE_RES = 17042335;
-        public static final int BROWSABLE_HOST_APP_TITLE_RES = 17042333;
-        public static final int BROWSABLE_HOST_TITLE_RES = 17042332;
-        public static final int BROWSABLE_TITLE_RES = 17042334;
+        public static final int BROWSABLE_APP_TITLE_RES = 17042393;
+        public static final int BROWSABLE_HOST_APP_TITLE_RES = 17042391;
+        public static final int BROWSABLE_HOST_TITLE_RES = 17042390;
+        public static final int BROWSABLE_TITLE_RES = 17042392;
         public final java.lang.String action = null;
         public final int labelRes = 0;
         public final int namedTitleRes = 0;
         public final int titleRes = 0;
         private ActionTitle(int p0, int p1) {}
         public static com.android.internal.app.ResolverActivity.ActionTitle forAction(java.lang.String p0) { return null; }
-    }
-
-    public static class AppListAccessibilityDelegate extends android.view.View.AccessibilityDelegate {
-        private final android.view.View mBottomBar = null;
-        private final com.android.internal.widget.ResolverDrawerLayout mDrawer = null;
-        private final android.graphics.Rect mRect = null;
-        public AppListAccessibilityDelegate(com.android.internal.widget.ResolverDrawerLayout p0) { super(); }
-        public boolean onRequestSendAccessibilityEvent(android.view.ViewGroup p0, android.view.View p1, android.view.accessibility.AccessibilityEvent p2) { return false; }
-    }
-
-    class ItemClickListener implements android.widget.AdapterView.OnItemClickListener, android.widget.AdapterView.OnItemLongClickListener {
-        ItemClickListener(com.android.internal.app.ResolverActivity p0) {}
-        public void onItemClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3) {}
-        public boolean onItemLongClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3) { return false; }
-    }
-
-    static class PickTargetOptionRequest extends android.app.VoiceInteractor.PickOptionRequest {
-        public PickTargetOptionRequest(android.app.VoiceInteractor.Prompt p0, android.app.VoiceInteractor.PickOptionRequest.Option[] p1, android.os.Bundle p2) { super((android.app.VoiceInteractor.Prompt)null, (android.app.VoiceInteractor.PickOptionRequest.Option[])null, (android.os.Bundle)null); }
-        public void onCancel() {}
-        public void onPickOptionResult(boolean p0, android.app.VoiceInteractor.PickOptionRequest.Option[] p1, android.os.Bundle p2) {}
     }
 
     public static final class ResolvedComponentInfo {
@@ -253,5 +233,25 @@ public class ResolverActivity extends android.app.Activity implements com.androi
         public void setFixedAtTop(boolean p0) {}
         public void setPinned(boolean p0) {}
         public void setPreferredActivity(boolean p0) {}
+    }
+
+    class ItemClickListener implements android.widget.AdapterView.OnItemClickListener, android.widget.AdapterView.OnItemLongClickListener {
+        ItemClickListener(com.android.internal.app.ResolverActivity p0) {}
+        public void onItemClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3) {}
+        public boolean onItemLongClick(android.widget.AdapterView<?> p0, android.view.View p1, int p2, long p3) { return false; }
+    }
+
+    static class PickTargetOptionRequest extends android.app.VoiceInteractor.PickOptionRequest {
+        public PickTargetOptionRequest(android.app.VoiceInteractor.Prompt p0, android.app.VoiceInteractor.PickOptionRequest.Option[] p1, android.os.Bundle p2) { super((android.app.VoiceInteractor.Prompt)null, (android.app.VoiceInteractor.PickOptionRequest.Option[])null, (android.os.Bundle)null); }
+        public void onCancel() {}
+        public void onPickOptionResult(boolean p0, android.app.VoiceInteractor.PickOptionRequest.Option[] p1, android.os.Bundle p2) {}
+    }
+
+    public static class AppListAccessibilityDelegate extends android.view.View.AccessibilityDelegate {
+        private final android.view.View mBottomBar = null;
+        private final com.android.internal.widget.ResolverDrawerLayout mDrawer = null;
+        private final android.graphics.Rect mRect = null;
+        public AppListAccessibilityDelegate(com.android.internal.widget.ResolverDrawerLayout p0) { super(); }
+        public boolean onRequestSendAccessibilityEvent(android.view.ViewGroup p0, android.view.View p1, android.view.accessibility.AccessibilityEvent p2) { return false; }
     }
 }

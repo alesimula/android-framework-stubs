@@ -5,14 +5,6 @@ public interface IDisplayManagerCallback extends android.os.IInterface {
     public void onDisplaySnapshot(int[] p0, int[] p1) throws android.os.RemoteException;
     public void onTopologyChanged(android.hardware.display.DisplayTopology p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.display.IDisplayManagerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDisplayEvent(int p0, int p1) throws android.os.RemoteException {}
-        public void onDisplaySnapshot(int[] p0, int[] p1) throws android.os.RemoteException {}
-        public void onTopologyChanged(android.hardware.display.DisplayTopology p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.display.IDisplayManagerCallback {
         public static final java.lang.String DESCRIPTOR = "android.hardware.display.IDisplayManagerCallback";
         static final int TRANSACTION_onDisplayEvent = 1;
@@ -34,5 +26,13 @@ public interface IDisplayManagerCallback extends android.os.IInterface {
             public void onDisplaySnapshot(int[] p0, int[] p1) throws android.os.RemoteException {}
             public void onTopologyChanged(android.hardware.display.DisplayTopology p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.display.IDisplayManagerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDisplayEvent(int p0, int p1) throws android.os.RemoteException {}
+        public void onDisplaySnapshot(int[] p0, int[] p1) throws android.os.RemoteException {}
+        public void onTopologyChanged(android.hardware.display.DisplayTopology p0) throws android.os.RemoteException {}
     }
 }

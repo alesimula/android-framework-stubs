@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations.layout;
 
-public class Component extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.operations.layout.Container, com.android.internal.widget.remotecompose.core.operations.layout.measure.Measurable, com.android.internal.widget.remotecompose.core.SerializableToString, com.android.internal.widget.remotecompose.core.serialize.Serializable {
+public class Component extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.operations.layout.Container, com.android.internal.widget.remotecompose.core.operations.layout.measure.Measurable, com.android.internal.widget.remotecompose.core.SerializableToString, com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.VariableProvider {
     private static final boolean DEBUG = false;
     public com.android.internal.widget.remotecompose.core.operations.layout.animation.AnimateMeasure mAnimateMeasure;
     protected int mAnimationId;
@@ -9,6 +9,7 @@ public class Component extends com.android.internal.widget.remotecompose.core.Pa
     protected java.util.HashSet<com.android.internal.widget.remotecompose.core.operations.ComponentValue> mComponentValues;
     public boolean mFirstLayout;
     protected float mHeight;
+    public int mInternalLayoutIndex;
     public java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> mList;
     protected float[] mLocation;
     private boolean mNeedsBoundsAnimation;
@@ -39,6 +40,7 @@ public class Component extends com.android.internal.widget.remotecompose.core.Pa
     public java.lang.String deepToString(java.lang.String p0) { return null; }
     public boolean doesNeedsRepaint() { return false; }
     public void finalizeCreation() {}
+    public <T extends com.android.internal.widget.remotecompose.core.operations.layout.Component> T findAncestor(java.lang.Class<T> p0) { return null; }
     public float getAlignValue(com.android.internal.widget.remotecompose.core.PaintContext p0, float p1) { return 0.0f; }
     public int getAnimationId() { return 0; }
     protected com.android.internal.widget.remotecompose.core.operations.layout.animation.AnimationSpec getAnimationSpec() { return null; }
@@ -50,6 +52,7 @@ public class Component extends com.android.internal.widget.remotecompose.core.Pa
     public void getData(java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p0) {}
     public void getData(java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p0, boolean p1) {}
     public float getHeight() { return 0.0f; }
+    public int getId() { return 0; }
     public java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> getList() { return null; }
     public void getLocationInWindow(com.android.internal.widget.remotecompose.core.RemoteContext p0, float[] p1) {}
     public void getLocationInWindow(com.android.internal.widget.remotecompose.core.RemoteContext p0, float[] p1, boolean p2) {}
@@ -65,11 +68,17 @@ public class Component extends com.android.internal.widget.remotecompose.core.Pa
     public float getX() { return 0.0f; }
     public float getY() { return 0.0f; }
     public float getZIndex() { return 0.0f; }
+    public boolean hasChildWithComputedLayout() { return false; }
     public boolean hasComputedLayout() { return false; }
+    public boolean hasDynamicComputes() { return false; }
+    public boolean hasDynamicPosition() { return false; }
+    public boolean hasDynamicSize() { return false; }
     public void inflate() {}
     public void invalidateMeasure() {}
     public boolean isGone() { return false; }
     public boolean isInvisible() { return false; }
+    public boolean isRelayoutBoundary() { return false; }
+    public boolean isRelayoutBoundary(com.android.internal.widget.remotecompose.core.CoreDocument p0) { return false; }
     public boolean isVisible() { return false; }
     public void layout(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass p1) {}
     public void markNeedsBoundsAnimation() {}
@@ -98,6 +107,7 @@ public class Component extends com.android.internal.widget.remotecompose.core.Pa
     protected void setAnimationSpec(com.android.internal.widget.remotecompose.core.operations.layout.animation.AnimationSpec p0) {}
     public void setComponentId(int p0) {}
     public void setHeight(float p0) {}
+    public void setId(int p0) {}
     public void setLayoutPosition(float p0, float p1) {}
     public void setParent(com.android.internal.widget.remotecompose.core.operations.layout.Component p0) {}
     public void setVisibility(int p0) {}

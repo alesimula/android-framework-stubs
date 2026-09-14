@@ -7,7 +7,7 @@ public final class CellIdentityWcdma extends android.telephony.CellIdentity {
     private static final int MAX_LAC = 65535;
     private static final int MAX_PSC = 511;
     private static final int MAX_UARFCN = 16383;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "CellIdentityWcdma";
     private final android.util.ArraySet<java.lang.String> mAdditionalPlmns = null;
     private final int mCid = 0;
     private final android.telephony.ClosedSubscriberGroupInfo mCsgInfo = null;
@@ -19,6 +19,7 @@ public final class CellIdentityWcdma extends android.telephony.CellIdentity {
     private CellIdentityWcdma(android.os.Parcel p0) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     private CellIdentityWcdma(android.telephony.CellIdentityWcdma p0) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     protected static android.telephony.CellIdentityWcdma createFromParcelBody(android.os.Parcel p0) { return null; }
+    @android.annotation.SystemApi
     public android.telephony.gsm.GsmCellLocation asCellLocation() { return null; }
     android.telephony.CellIdentityWcdma copy() { return null; }
     public boolean equals(java.lang.Object p0) { return false; }
@@ -37,6 +38,7 @@ public final class CellIdentityWcdma extends android.telephony.CellIdentity {
     public int getPsc() { return 0; }
     public int getUarfcn() { return 0; }
     public int hashCode() { return 0; }
+    @android.annotation.SystemApi
     public android.telephony.CellIdentityWcdma sanitizeLocationInfo() { return null; }
     public java.lang.String toString() { return null; }
     protected void updateGlobalCellId() {}

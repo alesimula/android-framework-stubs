@@ -11,6 +11,8 @@ public class ZygoteArguments {
     boolean mBindMountSyspropOverrides;
     boolean mBootCompleted;
     private boolean mCapabilitiesSpecified;
+    int mCgroupUid;
+    boolean mCgroupUidSpecified;
     long[] mDisabledCompatChanges;
     long mEffectiveCapabilities;
     long[] mEnabledCompatChanges;

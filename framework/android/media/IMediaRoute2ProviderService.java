@@ -12,20 +12,6 @@ public interface IMediaRoute2ProviderService extends android.os.IInterface {
     public void transferToRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
     public void updateDiscoveryPreference(android.media.RouteDiscoveryPreference p0, java.util.Map<java.lang.String, android.media.RouteDiscoveryPreference> p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMediaRoute2ProviderService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void deselectRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void releaseSession(long p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
-        public void requestCreateSession(long p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void selectRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void setCallback(android.media.IMediaRoute2ProviderServiceCallback p0) throws android.os.RemoteException {}
-        public void setRouteVolume(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void setSessionVolume(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void transferToRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void updateDiscoveryPreference(android.media.RouteDiscoveryPreference p0, java.util.Map<java.lang.String, android.media.RouteDiscoveryPreference> p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMediaRoute2ProviderService {
         static final int TRANSACTION_deselectRoute = 6;
         static final int TRANSACTION_releaseSession = 9;
@@ -58,5 +44,19 @@ public interface IMediaRoute2ProviderService extends android.os.IInterface {
             public void transferToRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
             public void updateDiscoveryPreference(android.media.RouteDiscoveryPreference p0, java.util.Map<java.lang.String, android.media.RouteDiscoveryPreference> p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IMediaRoute2ProviderService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void deselectRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void releaseSession(long p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
+        public void requestCreateSession(long p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void selectRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void setCallback(android.media.IMediaRoute2ProviderServiceCallback p0) throws android.os.RemoteException {}
+        public void setRouteVolume(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void setSessionVolume(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void transferToRoute(long p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void updateDiscoveryPreference(android.media.RouteDiscoveryPreference p0, java.util.Map<java.lang.String, android.media.RouteDiscoveryPreference> p1) throws android.os.RemoteException {}
     }
 }

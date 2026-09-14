@@ -4,13 +4,6 @@ public interface ISerialManager extends android.os.IInterface {
     public java.lang.String[] getSerialPorts() throws android.os.RemoteException;
     public android.os.ParcelFileDescriptor openSerialPort(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.ISerialManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String[] getSerialPorts() throws android.os.RemoteException { return null; }
-        public android.os.ParcelFileDescriptor openSerialPort(java.lang.String p0) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.ISerialManager {
         public static final java.lang.String DESCRIPTOR = "android.hardware.ISerialManager";
         static final int TRANSACTION_getSerialPorts = 1;
@@ -35,5 +28,12 @@ public interface ISerialManager extends android.os.IInterface {
             public java.lang.String[] getSerialPorts() throws android.os.RemoteException { return null; }
             public android.os.ParcelFileDescriptor openSerialPort(java.lang.String p0) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.ISerialManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String[] getSerialPorts() throws android.os.RemoteException { return null; }
+        public android.os.ParcelFileDescriptor openSerialPort(java.lang.String p0) throws android.os.RemoteException { return null; }
     }
 }

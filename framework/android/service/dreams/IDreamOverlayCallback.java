@@ -5,13 +5,6 @@ public interface IDreamOverlayCallback extends android.os.IInterface {
     public void onExitRequested() throws android.os.RemoteException;
     public void onRedirectWake(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.dreams.IDreamOverlayCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onExitRequested() throws android.os.RemoteException {}
-        public void onRedirectWake(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.dreams.IDreamOverlayCallback {
         static final int TRANSACTION_onExitRequested = 1;
         static final int TRANSACTION_onRedirectWake = 2;
@@ -30,5 +23,12 @@ public interface IDreamOverlayCallback extends android.os.IInterface {
             public void onExitRequested() throws android.os.RemoteException {}
             public void onRedirectWake(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.dreams.IDreamOverlayCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onExitRequested() throws android.os.RemoteException {}
+        public void onRedirectWake(boolean p0) throws android.os.RemoteException {}
     }
 }

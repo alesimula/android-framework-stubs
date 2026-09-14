@@ -12,6 +12,10 @@ public class AtscFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     public int getModulation() { return 0; }
     public int getType() { return 0; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Modulation {
+    }
+
     public static class Builder {
         private long mFrequency;
         private int mModulation;
@@ -21,9 +25,5 @@ public class AtscFrontendSettings extends android.media.tv.tuner.frontend.Fronte
         public android.media.tv.tuner.frontend.AtscFrontendSettings.Builder setFrequency(int p0) { return null; }
         public android.media.tv.tuner.frontend.AtscFrontendSettings.Builder setFrequencyLong(long p0) { return null; }
         public android.media.tv.tuner.frontend.AtscFrontendSettings.Builder setModulation(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Modulation {
     }
 }

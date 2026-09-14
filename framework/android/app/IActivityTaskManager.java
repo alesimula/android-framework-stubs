@@ -45,7 +45,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
     public void onSplashScreenViewCopyFinished(int p0, android.window.SplashScreenView.SplashScreenViewParcelable p1) throws android.os.RemoteException;
     public void preloadRecentsActivity(android.content.Intent p0) throws android.os.RemoteException;
     public void rebuildSystemLockTaskPinnedMode() throws android.os.RemoteException;
-    public boolean registerBackgroundActivityStartCallback(android.os.IBinder p0) throws android.os.RemoteException;
+    public boolean registerActivityLaunchStrictModeCallback(android.app.IActivityLaunchStrictModeCallback p0) throws android.os.RemoteException;
     public void registerRemoteAnimationForNextActivityStart(java.lang.String p0, android.view.RemoteAnimationAdapter p1, android.os.IBinder p2) throws android.os.RemoteException;
     public void registerRemoteAnimationsForDisplay(int p0, android.view.RemoteAnimationDefinition p1) throws android.os.RemoteException;
     public void registerScreenCaptureObserver(android.os.IBinder p0, android.app.IScreenCaptureObserver p1) throws android.os.RemoteException;
@@ -71,7 +71,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
     public void setPackageAskScreenCompat(java.lang.String p0, boolean p1) throws android.os.RemoteException;
     public void setPackageScreenCompatMode(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void setPersistentVrThread(int p0) throws android.os.RemoteException;
-    public void setRunningRemoteTransitionDelegate(android.os.IBinder p0) throws android.os.RemoteException;
+    public void setRunningRemoteTransitionDelegate(android.os.IBinder p0, android.app.IApplicationThread p1) throws android.os.RemoteException;
     public boolean setTaskIsPerceptible(int p0, boolean p1) throws android.os.RemoteException;
     public void setTaskResizeable(int p0, int p1) throws android.os.RemoteException;
     public void setVoiceKeepAwake(android.service.voice.IVoiceInteractionSession p0, boolean p1) throws android.os.RemoteException;
@@ -96,7 +96,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
     public boolean supportsLocalVoiceInteraction() throws android.os.RemoteException;
     public void suppressResizeConfigChanges(boolean p0) throws android.os.RemoteException;
     public void unhandledBack() throws android.os.RemoteException;
-    public void unregisterBackgroundActivityStartCallback(android.os.IBinder p0) throws android.os.RemoteException;
+    public void unregisterActivityLaunchStrictModeCallback(android.app.IActivityLaunchStrictModeCallback p0) throws android.os.RemoteException;
     public void unregisterScreenCaptureObserver(android.os.IBinder p0, android.app.IScreenCaptureObserver p1) throws android.os.RemoteException;
     public void unregisterTaskStackListener(android.app.ITaskStackListener p0) throws android.os.RemoteException;
     public boolean updateConfiguration(android.content.res.Configuration p0) throws android.os.RemoteException;
@@ -149,7 +149,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
         public void onSplashScreenViewCopyFinished(int p0, android.window.SplashScreenView.SplashScreenViewParcelable p1) throws android.os.RemoteException {}
         public void preloadRecentsActivity(android.content.Intent p0) throws android.os.RemoteException {}
         public void rebuildSystemLockTaskPinnedMode() throws android.os.RemoteException {}
-        public boolean registerBackgroundActivityStartCallback(android.os.IBinder p0) throws android.os.RemoteException { return false; }
+        public boolean registerActivityLaunchStrictModeCallback(android.app.IActivityLaunchStrictModeCallback p0) throws android.os.RemoteException { return false; }
         public void registerRemoteAnimationForNextActivityStart(java.lang.String p0, android.view.RemoteAnimationAdapter p1, android.os.IBinder p2) throws android.os.RemoteException {}
         public void registerRemoteAnimationsForDisplay(int p0, android.view.RemoteAnimationDefinition p1) throws android.os.RemoteException {}
         public void registerScreenCaptureObserver(android.os.IBinder p0, android.app.IScreenCaptureObserver p1) throws android.os.RemoteException {}
@@ -175,7 +175,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
         public void setPackageAskScreenCompat(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
         public void setPackageScreenCompatMode(java.lang.String p0, int p1) throws android.os.RemoteException {}
         public void setPersistentVrThread(int p0) throws android.os.RemoteException {}
-        public void setRunningRemoteTransitionDelegate(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void setRunningRemoteTransitionDelegate(android.os.IBinder p0, android.app.IApplicationThread p1) throws android.os.RemoteException {}
         public boolean setTaskIsPerceptible(int p0, boolean p1) throws android.os.RemoteException { return false; }
         public void setTaskResizeable(int p0, int p1) throws android.os.RemoteException {}
         public void setVoiceKeepAwake(android.service.voice.IVoiceInteractionSession p0, boolean p1) throws android.os.RemoteException {}
@@ -200,7 +200,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
         public boolean supportsLocalVoiceInteraction() throws android.os.RemoteException { return false; }
         public void suppressResizeConfigChanges(boolean p0) throws android.os.RemoteException {}
         public void unhandledBack() throws android.os.RemoteException {}
-        public void unregisterBackgroundActivityStartCallback(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void unregisterActivityLaunchStrictModeCallback(android.app.IActivityLaunchStrictModeCallback p0) throws android.os.RemoteException {}
         public void unregisterScreenCaptureObserver(android.os.IBinder p0, android.app.IScreenCaptureObserver p1) throws android.os.RemoteException {}
         public void unregisterTaskStackListener(android.app.ITaskStackListener p0) throws android.os.RemoteException {}
         public boolean updateConfiguration(android.content.res.Configuration p0) throws android.os.RemoteException { return false; }
@@ -253,7 +253,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
         static final int TRANSACTION_onSplashScreenViewCopyFinished = 87;
         static final int TRANSACTION_preloadRecentsActivity = 13;
         static final int TRANSACTION_rebuildSystemLockTaskPinnedMode = 39;
-        static final int TRANSACTION_registerBackgroundActivityStartCallback = 94;
+        static final int TRANSACTION_registerActivityLaunchStrictModeCallback = 94;
         static final int TRANSACTION_registerRemoteAnimationForNextActivityStart = 73;
         static final int TRANSACTION_registerRemoteAnimationsForDisplay = 74;
         static final int TRANSACTION_registerScreenCaptureObserver = 96;
@@ -304,7 +304,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
         static final int TRANSACTION_supportsLocalVoiceInteraction = 66;
         static final int TRANSACTION_suppressResizeConfigChanges = 63;
         static final int TRANSACTION_unhandledBack = 15;
-        static final int TRANSACTION_unregisterBackgroundActivityStartCallback = 95;
+        static final int TRANSACTION_unregisterActivityLaunchStrictModeCallback = 95;
         static final int TRANSACTION_unregisterScreenCaptureObserver = 97;
         static final int TRANSACTION_unregisterTaskStackListener = 46;
         static final int TRANSACTION_updateConfiguration = 71;
@@ -369,7 +369,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
             public void onSplashScreenViewCopyFinished(int p0, android.window.SplashScreenView.SplashScreenViewParcelable p1) throws android.os.RemoteException {}
             public void preloadRecentsActivity(android.content.Intent p0) throws android.os.RemoteException {}
             public void rebuildSystemLockTaskPinnedMode() throws android.os.RemoteException {}
-            public boolean registerBackgroundActivityStartCallback(android.os.IBinder p0) throws android.os.RemoteException { return false; }
+            public boolean registerActivityLaunchStrictModeCallback(android.app.IActivityLaunchStrictModeCallback p0) throws android.os.RemoteException { return false; }
             public void registerRemoteAnimationForNextActivityStart(java.lang.String p0, android.view.RemoteAnimationAdapter p1, android.os.IBinder p2) throws android.os.RemoteException {}
             public void registerRemoteAnimationsForDisplay(int p0, android.view.RemoteAnimationDefinition p1) throws android.os.RemoteException {}
             public void registerScreenCaptureObserver(android.os.IBinder p0, android.app.IScreenCaptureObserver p1) throws android.os.RemoteException {}
@@ -395,7 +395,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
             public void setPackageAskScreenCompat(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
             public void setPackageScreenCompatMode(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void setPersistentVrThread(int p0) throws android.os.RemoteException {}
-            public void setRunningRemoteTransitionDelegate(android.os.IBinder p0) throws android.os.RemoteException {}
+            public void setRunningRemoteTransitionDelegate(android.os.IBinder p0, android.app.IApplicationThread p1) throws android.os.RemoteException {}
             public boolean setTaskIsPerceptible(int p0, boolean p1) throws android.os.RemoteException { return false; }
             public void setTaskResizeable(int p0, int p1) throws android.os.RemoteException {}
             public void setVoiceKeepAwake(android.service.voice.IVoiceInteractionSession p0, boolean p1) throws android.os.RemoteException {}
@@ -420,7 +420,7 @@ public interface IActivityTaskManager extends android.os.IInterface {
             public boolean supportsLocalVoiceInteraction() throws android.os.RemoteException { return false; }
             public void suppressResizeConfigChanges(boolean p0) throws android.os.RemoteException {}
             public void unhandledBack() throws android.os.RemoteException {}
-            public void unregisterBackgroundActivityStartCallback(android.os.IBinder p0) throws android.os.RemoteException {}
+            public void unregisterActivityLaunchStrictModeCallback(android.app.IActivityLaunchStrictModeCallback p0) throws android.os.RemoteException {}
             public void unregisterScreenCaptureObserver(android.os.IBinder p0, android.app.IScreenCaptureObserver p1) throws android.os.RemoteException {}
             public void unregisterTaskStackListener(android.app.ITaskStackListener p0) throws android.os.RemoteException {}
             public boolean updateConfiguration(android.content.res.Configuration p0) throws android.os.RemoteException { return false; }

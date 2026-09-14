@@ -2,14 +2,14 @@ package android.service.personalcontext.refiner;
 
 public interface IRefiner extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.refiner.IRefiner";
-    public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException;
-    public void refine(android.os.ParcelUuid p0, java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallback p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException;
+    public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException;
+    public void refine(android.os.ParcelUuid p0, java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallback p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException;
 
     public static class Default implements android.service.personalcontext.refiner.IRefiner {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
-        public void refine(android.os.ParcelUuid p0, java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallback p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+        public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+        public void refine(android.os.ParcelUuid p0, java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallback p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.refiner.IRefiner {
@@ -26,9 +26,9 @@ public interface IRefiner extends android.os.IInterface {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
-            public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+            public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void refine(android.os.ParcelUuid p0, java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallback p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+            public void refine(android.os.ParcelUuid p0, java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallback p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
         }
     }
 }

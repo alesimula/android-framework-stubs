@@ -63,7 +63,7 @@ public class ImageView extends android.view.View {
     public final void clearColorFilter() {}
     public void drawableHotspotChanged(float p0, float p1) {}
     protected void drawableStateChanged() {}
-    protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
+    protected final void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
     public java.lang.CharSequence getAccessibilityClassName() { return null; }
     public boolean getAdjustViewBounds() { return false; }
     @android.view.ViewDebug.ExportedProperty(category="layout")
@@ -89,7 +89,7 @@ public class ImageView extends android.view.View {
     public int[] onCreateDrawableState(int p0) { return null; }
     protected void onDetachedFromWindow() {}
     protected void onDraw(android.graphics.Canvas p0) {}
-    public void onFrameRateHint(android.graphics.drawable.Drawable p0, float p1) {}
+    public final void onFrameRateHint(android.graphics.drawable.Drawable p0, float p1) {}
     protected void onMeasure(int p0, int p1) {}
     public void onPopulateAccessibilityEventInternal(android.view.accessibility.AccessibilityEvent p0) {}
     public void onRtlPropertiesChanged(int p0) {}
@@ -141,14 +141,6 @@ public class ImageView extends android.view.View {
     public final void setXfermode(android.graphics.Xfermode p0) {}
     protected boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
 
-    private class ImageDrawableCallback implements java.lang.Runnable {
-        private final android.graphics.drawable.Drawable drawable = null;
-        private final int resource = 0;
-        private final android.net.Uri uri = null;
-        ImageDrawableCallback(android.widget.ImageView p0, android.graphics.drawable.Drawable p1, android.net.Uri p2, int p3) {}
-        public void run() {}
-    }
-
     public static enum ScaleType {
         CENTER,
         CENTER_CROP,
@@ -161,6 +153,14 @@ public class ImageView extends android.view.View {
         private static final android.widget.ImageView.ScaleType[] $VALUES = null;
         final int nativeInt = 0;
         private ScaleType() {}
+    }
+
+    private class ImageDrawableCallback implements java.lang.Runnable {
+        private final android.graphics.drawable.Drawable drawable = null;
+        private final int resource = 0;
+        private final android.net.Uri uri = null;
+        ImageDrawableCallback(android.widget.ImageView p0, android.graphics.drawable.Drawable p1, android.net.Uri p2, int p3) {}
+        public void run() {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.ImageView> {

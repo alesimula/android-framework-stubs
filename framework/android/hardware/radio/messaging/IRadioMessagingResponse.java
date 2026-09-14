@@ -37,43 +37,6 @@ public interface IRadioMessagingResponse extends android.os.IInterface {
     public void writeSmsToRuimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException;
     public void writeSmsToSimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.messaging.IRadioMessagingResponse {
-        public Default() {}
-        public void acknowledgeIncomingGsmSmsWithPduResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void acknowledgeLastIncomingCdmaSmsResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void acknowledgeLastIncomingGsmSmsResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void acknowledgeRequest(int p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        @java.lang.Deprecated
-        public void deleteSmsOnRuimResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void deleteSmsOnSimResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getCdmaBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.CdmaBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
-        public void getGsmBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.GsmBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getSmscAddressResponse(android.hardware.radio.RadioResponseInfo p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void reportSmsMemoryStatusResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void sendCdmaSmsExpectMoreResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void sendCdmaSmsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
-        public void sendImsSmsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
-        public void sendSmsExpectMoreResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
-        public void sendSmsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setCdmaBroadcastActivationResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setCdmaBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setGsmBroadcastActivationResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setGsmBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setSmscAddressResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void writeSmsToRuimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
-        public void writeSmsToSimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.messaging.IRadioMessagingResponse {
         static final int TRANSACTION_acknowledgeIncomingGsmSmsWithPduResponse = 1;
         static final int TRANSACTION_acknowledgeLastIncomingCdmaSmsResponse = 2;
@@ -144,5 +107,42 @@ public interface IRadioMessagingResponse extends android.os.IInterface {
             public void writeSmsToRuimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
             public void writeSmsToSimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.messaging.IRadioMessagingResponse {
+        public Default() {}
+        public void acknowledgeIncomingGsmSmsWithPduResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void acknowledgeLastIncomingCdmaSmsResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void acknowledgeLastIncomingGsmSmsResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void acknowledgeRequest(int p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        @java.lang.Deprecated
+        public void deleteSmsOnRuimResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void deleteSmsOnSimResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getCdmaBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.CdmaBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
+        public void getGsmBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.GsmBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getSmscAddressResponse(android.hardware.radio.RadioResponseInfo p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void reportSmsMemoryStatusResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void sendCdmaSmsExpectMoreResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void sendCdmaSmsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
+        public void sendImsSmsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
+        public void sendSmsExpectMoreResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
+        public void sendSmsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.messaging.SendSmsResult p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setCdmaBroadcastActivationResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setCdmaBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setGsmBroadcastActivationResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setGsmBroadcastConfigResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setSmscAddressResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void writeSmsToRuimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
+        public void writeSmsToSimResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
     }
 }

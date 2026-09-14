@@ -4,12 +4,6 @@ public interface IAdvancedProtectionFeatureCallback extends android.os.IInterfac
     public static final java.lang.String DESCRIPTOR = "android.security.advancedprotection.IAdvancedProtectionFeatureCallback";
     public void onFeatureEnabledChanged(java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.advancedprotection.IAdvancedProtectionFeatureCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFeatureEnabledChanged(java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.advancedprotection.IAdvancedProtectionFeatureCallback {
         static final int TRANSACTION_onFeatureEnabledChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IAdvancedProtectionFeatureCallback extends android.os.IInterfac
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onFeatureEnabledChanged(java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.advancedprotection.IAdvancedProtectionFeatureCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFeatureEnabledChanged(java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> p0) throws android.os.RemoteException {}
     }
 }

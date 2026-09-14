@@ -3,12 +3,6 @@ package android.app.usage;
 public interface ICacheQuotaService extends android.os.IInterface {
     public void computeCacheQuotaHints(android.os.RemoteCallback p0, java.util.List<android.app.usage.CacheQuotaHint> p1) throws android.os.RemoteException;
 
-    public static class Default implements android.app.usage.ICacheQuotaService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void computeCacheQuotaHints(android.os.RemoteCallback p0, java.util.List<android.app.usage.CacheQuotaHint> p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.usage.ICacheQuotaService {
         public static final java.lang.String DESCRIPTOR = "android.app.usage.ICacheQuotaService";
         static final int TRANSACTION_computeCacheQuotaHints = 1;
@@ -26,5 +20,11 @@ public interface ICacheQuotaService extends android.os.IInterface {
             public void computeCacheQuotaHints(android.os.RemoteCallback p0, java.util.List<android.app.usage.CacheQuotaHint> p1) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.app.usage.ICacheQuotaService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void computeCacheQuotaHints(android.os.RemoteCallback p0, java.util.List<android.app.usage.CacheQuotaHint> p1) throws android.os.RemoteException {}
     }
 }

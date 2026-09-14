@@ -52,6 +52,63 @@ public final class CriticalEventProto extends com.android.framework.protobuf.nan
     public com.android.server.criticalevents.nano.CriticalEventProto setWatchdog(com.android.server.criticalevents.nano.CriticalEventProto.Watchdog p0) { return null; }
     public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
 
+    public static final class NativeCrash extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash[] _emptyArray;
+        public int pid;
+        public java.lang.String process;
+        public int processClass;
+        public int uid;
+        public NativeCrash() { super(); }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash[] emptyArray() { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class Watchdog extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.Watchdog[] _emptyArray;
+        public java.lang.String subject;
+        public java.lang.String uuid;
+        public Watchdog() { super(); }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.Watchdog[] emptyArray() { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.Watchdog parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.Watchdog parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.Watchdog clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.Watchdog mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class InstallPackages extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages[] _emptyArray;
+        public InstallPackages() { super(); }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages[] emptyArray() { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages clear() { return null; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+    }
+
+    public static final class JavaCrash extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash[] _emptyArray;
+        public java.lang.String exceptionClass;
+        public int pid;
+        public java.lang.String process;
+        public int processClass;
+        public int uid;
+        public JavaCrash() { super(); }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash[] emptyArray() { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
     public static final class AppNotResponding extends com.android.framework.protobuf.nano.MessageNano {
         private static volatile com.android.server.criticalevents.nano.CriticalEventProto.AppNotResponding[] _emptyArray;
         public int pid;
@@ -95,49 +152,6 @@ public final class CriticalEventProto extends com.android.framework.protobuf.nan
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
-    public static final class InstallPackages extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages[] _emptyArray;
-        public InstallPackages() { super(); }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages[] emptyArray() { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages clear() { return null; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.InstallPackages mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-    }
-
-    public static final class JavaCrash extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash[] _emptyArray;
-        public java.lang.String exceptionClass;
-        public int pid;
-        public java.lang.String process;
-        public int processClass;
-        public int uid;
-        public JavaCrash() { super(); }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash[] emptyArray() { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.JavaCrash mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class NativeCrash extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash[] _emptyArray;
-        public int pid;
-        public java.lang.String process;
-        public int processClass;
-        public int uid;
-        public NativeCrash() { super(); }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash[] emptyArray() { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.NativeCrash mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
     public static final class SystemServerStarted extends com.android.framework.protobuf.nano.MessageNano {
         private static volatile com.android.server.criticalevents.nano.CriticalEventProto.SystemServerStarted[] _emptyArray;
         public int startCount;
@@ -148,20 +162,6 @@ public final class CriticalEventProto extends com.android.framework.protobuf.nan
         public com.android.server.criticalevents.nano.CriticalEventProto.SystemServerStarted clear() { return null; }
         protected int computeSerializedSize() { return 0; }
         public com.android.server.criticalevents.nano.CriticalEventProto.SystemServerStarted mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class Watchdog extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.criticalevents.nano.CriticalEventProto.Watchdog[] _emptyArray;
-        public java.lang.String subject;
-        public java.lang.String uuid;
-        public Watchdog() { super(); }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.Watchdog[] emptyArray() { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.Watchdog parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.criticalevents.nano.CriticalEventProto.Watchdog parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.Watchdog clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.criticalevents.nano.CriticalEventProto.Watchdog mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 }

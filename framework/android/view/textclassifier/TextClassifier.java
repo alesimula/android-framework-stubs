@@ -8,6 +8,7 @@ public interface TextClassifier {
     @android.annotation.SystemApi
     public static final int CLASSIFIER_TYPE_SELF_PROVIDED = 0;
     public static final int DEFAULT_SYSTEM = 2;
+    public static final java.lang.String EXTRA_CLASSIFICATION_TIMEOUT_MS = "android.view.textclassifier.extra.CLASSIFICATION_TIMEOUT_MS";
     public static final java.lang.String EXTRA_FROM_TEXT_CLASSIFIER = "android.view.textclassifier.extra.FROM_TEXT_CLASSIFIER";
     public static final java.lang.String EXTRA_OTP_TRUSTED_PACKAGES = "android.view.textclassifier.extra.OTP_TRUSTED_PACKAGES";
     public static final java.lang.String EXTRA_SMS_RETRIEVER_HASH_MATCHED_PACKAGE = "sms-retriever-hash-matched-package";
@@ -18,6 +19,7 @@ public interface TextClassifier {
     public static final java.lang.String LOG_TAG = "androidtc";
     public static final android.view.textclassifier.TextClassifier NO_OP = null;
     public static final int SYSTEM = 1;
+    public static final long TIMEOUT_NO_TIMEOUT = 0L;
     public static final java.lang.String TYPE_ADDRESS = "address";
     public static final java.lang.String TYPE_DATE = "date";
     public static final java.lang.String TYPE_DATE_TIME = "datetime";
@@ -57,6 +59,10 @@ public interface TextClassifier {
     default public android.view.textclassifier.TextSelection suggestSelection(android.view.textclassifier.TextSelection.Request p0) { return null; }
     default public android.view.textclassifier.TextSelection suggestSelection(java.lang.CharSequence p0, int p1, int p2, android.os.LocaleList p3) { return null; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TextClassifierType {
+    }
+
     public static final class EntityConfig implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifier.EntityConfig> CREATOR = null;
         private final java.util.List<java.lang.String> mExcludedTypes = null;
@@ -95,14 +101,6 @@ public interface TextClassifier {
     public static @interface EntityType {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Hints {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TextClassifierType {
-    }
-
     public static final class Utils {
         private static final java.text.BreakIterator WORD_ITERATOR = null;
         public Utils() {}
@@ -118,5 +116,9 @@ public interface TextClassifier {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface WidgetType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Hints {
     }
 }

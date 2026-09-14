@@ -4,12 +4,6 @@ public interface ISurfacePackageResultCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.autofill.ISurfacePackageResultCallback";
     public void onResult(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.autofill.ISurfacePackageResultCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onResult(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.autofill.ISurfacePackageResultCallback {
         static final int TRANSACTION_onResult = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISurfacePackageResultCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onResult(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.autofill.ISurfacePackageResultCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onResult(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException {}
     }
 }

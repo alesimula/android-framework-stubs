@@ -19,10 +19,10 @@ public class SoundEffectConstants {
     public static int nextNavigationRepeatSoundEffectId() { return 0; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NavigationSoundEffect {
+    public static @interface SoundEffect {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SoundEffect {
+    public static @interface NavigationSoundEffect {
     }
 }

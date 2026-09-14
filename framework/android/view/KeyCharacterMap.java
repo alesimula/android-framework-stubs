@@ -96,17 +96,8 @@ public class KeyCharacterMap implements android.os.Parcelable {
     public boolean isPrintingKey(int p0) { return false; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static final class FallbackAction {
-        private static final int MAX_RECYCLED = 10;
-        private static android.view.KeyCharacterMap.FallbackAction sRecycleBin;
-        private static final java.lang.Object sRecycleLock = null;
-        private static int sRecycledCount;
-        public int keyCode;
-        public int metaState;
-        private android.view.KeyCharacterMap.FallbackAction next;
-        private FallbackAction() {}
-        public static android.view.KeyCharacterMap.FallbackAction obtain() { return null; }
-        public void recycle() {}
+    public static class UnavailableException extends android.util.AndroidRuntimeException {
+        public UnavailableException(java.lang.String p0) { super(); }
     }
 
     @java.lang.Deprecated
@@ -118,7 +109,16 @@ public class KeyCharacterMap implements android.os.Parcelable {
         public KeyData() {}
     }
 
-    public static class UnavailableException extends android.util.AndroidRuntimeException {
-        public UnavailableException(java.lang.String p0) { super(); }
+    public static final class FallbackAction {
+        private static final int MAX_RECYCLED = 10;
+        private static android.view.KeyCharacterMap.FallbackAction sRecycleBin;
+        private static final java.lang.Object sRecycleLock = null;
+        private static int sRecycledCount;
+        public int keyCode;
+        public int metaState;
+        private android.view.KeyCharacterMap.FallbackAction next;
+        private FallbackAction() {}
+        public static android.view.KeyCharacterMap.FallbackAction obtain() { return null; }
+        public void recycle() {}
     }
 }

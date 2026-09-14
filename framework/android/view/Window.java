@@ -282,6 +282,40 @@ public abstract class Window {
     public abstract void togglePanel(int p0, android.view.KeyEvent p1);
     public void unregisterScrollCaptureCallback(android.view.ScrollCaptureCallback p0) {}
 
+    public static interface OnWindowDismissedCallback {
+        public void onWindowDismissed(boolean p0, boolean p1);
+    }
+
+    public static interface OnWindowSwipeDismissedCallback {
+        public void onWindowSwipeDismissed();
+    }
+
+    public static interface DecorCallback {
+        public boolean onDrawLegacyNavigationBarBackgroundChanged(boolean p0);
+        public void onSystemBarAppearanceChanged(int p0);
+    }
+
+    public static interface OnRestrictedCaptionAreaChangedListener {
+        public void onRestrictedCaptionAreaChanged(android.graphics.Rect p0);
+    }
+
+    public static interface OnContentApplyWindowInsetsListener {
+        public android.util.Pair<android.graphics.Insets, android.view.WindowInsets> onContentApplyWindowInsets(android.view.View p0, android.view.WindowInsets p1);
+    }
+
+    public static interface WindowControllerCallback {
+        public void enterPictureInPictureModeIfPossible();
+        public boolean isTaskRoot();
+        public void toggleFreeformWindowingMode();
+        public void updateNavigationBarColor(int p0);
+        public void updateStatusBarColor(int p0);
+        public void updateSystemBarsAppearance(int p0);
+    }
+
+    public static interface OnFrameMetricsAvailableListener {
+        public void onFrameMetricsAvailable(android.view.Window p0, android.view.FrameMetrics p1, int p2);
+    }
+
     public static interface Callback {
         public boolean dispatchGenericMotionEvent(android.view.MotionEvent p0);
         public boolean dispatchKeyEvent(android.view.KeyEvent p0);
@@ -308,39 +342,5 @@ public abstract class Window {
         public void onWindowFocusChanged(boolean p0);
         public android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback p0);
         public android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback p0, int p1);
-    }
-
-    public static interface DecorCallback {
-        public boolean onDrawLegacyNavigationBarBackgroundChanged(boolean p0);
-        public void onSystemBarAppearanceChanged(int p0);
-    }
-
-    public static interface OnContentApplyWindowInsetsListener {
-        public android.util.Pair<android.graphics.Insets, android.view.WindowInsets> onContentApplyWindowInsets(android.view.View p0, android.view.WindowInsets p1);
-    }
-
-    public static interface OnFrameMetricsAvailableListener {
-        public void onFrameMetricsAvailable(android.view.Window p0, android.view.FrameMetrics p1, int p2);
-    }
-
-    public static interface OnRestrictedCaptionAreaChangedListener {
-        public void onRestrictedCaptionAreaChanged(android.graphics.Rect p0);
-    }
-
-    public static interface OnWindowDismissedCallback {
-        public void onWindowDismissed(boolean p0, boolean p1);
-    }
-
-    public static interface OnWindowSwipeDismissedCallback {
-        public void onWindowSwipeDismissed();
-    }
-
-    public static interface WindowControllerCallback {
-        public void enterPictureInPictureModeIfPossible();
-        public boolean isTaskRoot();
-        public void toggleFreeformWindowingMode();
-        public void updateNavigationBarColor(int p0);
-        public void updateStatusBarColor(int p0);
-        public void updateSystemBarsAppearance(int p0);
     }
 }

@@ -54,10 +54,10 @@ public class BiometricFaceConstants {
     public static int reasonToMetric(int p0) { return 0; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FaceAcquired {
+    public static @interface FaceError {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FaceError {
+    public static @interface FaceAcquired {
     }
 }

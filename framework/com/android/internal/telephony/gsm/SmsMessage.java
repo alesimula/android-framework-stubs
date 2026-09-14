@@ -59,6 +59,10 @@ public class SmsMessage extends com.android.internal.telephony.SmsMessageBase {
     public boolean isTypeZero() { return false; }
     boolean isUsimDataDownload() { return false; }
 
+    public static class SubmitPdu extends com.android.internal.telephony.SmsMessageBase.SubmitPduBase {
+        public SubmitPdu() { super(); }
+    }
+
     private static class PduParser {
         int mCur;
         byte[] mPdu;
@@ -78,9 +82,5 @@ public class SmsMessage extends com.android.internal.telephony.SmsMessageBase {
         java.lang.String getUserDataKSC5601(int p0) { return null; }
         java.lang.String getUserDataUCS2(int p0) { return null; }
         boolean moreDataPresent() { return false; }
-    }
-
-    public static class SubmitPdu extends com.android.internal.telephony.SmsMessageBase.SubmitPduBase {
-        public SubmitPdu() { super(); }
     }
 }

@@ -2,6 +2,7 @@ package android.appwidget;
 
 public class AppWidgetProviderInfo implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.appwidget.AppWidgetProviderInfo> CREATOR = null;
+    private static final int MAX_SAFE_DESCRIPTION_LENGTH = 1000;
     public static final int RESIZE_BOTH = 3;
     public static final int RESIZE_HORIZONTAL = 1;
     public static final int RESIZE_NONE = 0;

@@ -28,6 +28,10 @@ public interface RegistrationManager {
     public static @interface ImsRegistrationState {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SuggestedAction {
+    }
+
     public static class RegistrationCallback {
         private final android.telephony.ims.RegistrationManager.RegistrationCallback.RegistrationBinder mBinder = null;
         public RegistrationCallback() {}
@@ -60,9 +64,5 @@ public interface RegistrationManager {
             public void onSubscriberAssociatedUriChanged(android.net.Uri[] p0) {}
             public void onTechnologyChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) {}
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SuggestedAction {
     }
 }

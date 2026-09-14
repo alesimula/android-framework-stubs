@@ -93,14 +93,6 @@ public class ResolverListAdapter extends android.widget.BaseAdapter {
         android.graphics.drawable.Drawable getIconSubstituteInternal() { return null; }
     }
 
-    class LoadIconTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, android.graphics.drawable.Drawable> {
-        protected final com.android.internal.app.chooser.DisplayResolveInfo mDisplayResolveInfo = null;
-        private final android.content.pm.ResolveInfo mResolveInfo = null;
-        LoadIconTask(com.android.internal.app.ResolverListAdapter p0, com.android.internal.app.chooser.DisplayResolveInfo p1) { super(); }
-        protected android.graphics.drawable.Drawable doInBackground(java.lang.Void... p0) { return null; }
-        protected void onPostExecute(android.graphics.drawable.Drawable p0) {}
-    }
-
     protected class LoadLabelTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, java.lang.CharSequence[]> {
         private final com.android.internal.app.chooser.DisplayResolveInfo mDisplayResolveInfo = null;
         protected LoadLabelTask(com.android.internal.app.ResolverListAdapter p0, com.android.internal.app.chooser.DisplayResolveInfo p1) { super(); }
@@ -108,12 +100,16 @@ public class ResolverListAdapter extends android.widget.BaseAdapter {
         protected void onPostExecute(java.lang.CharSequence[] p0) {}
     }
 
-    public static class ResolveInfoPresentationGetter extends com.android.internal.app.ResolverListAdapter.ActivityInfoPresentationGetter {
-        private final android.content.pm.ResolveInfo mRi = null;
-        public ResolveInfoPresentationGetter(android.content.Context p0, int p1, android.content.pm.ResolveInfo p2) { super(null, 0, null); }
-        java.lang.String getAppLabelForSubstitutePermission() { return null; }
-        java.lang.String getAppSubLabelInternal() { return null; }
-        android.graphics.drawable.Drawable getIconSubstituteInternal() { return null; }
+    public static class ViewHolder {
+        public android.graphics.drawable.Drawable defaultItemViewBackground;
+        public android.widget.ImageView icon;
+        public android.view.View itemView;
+        public android.widget.TextView text;
+        public android.widget.TextView text2;
+        public ViewHolder(android.view.View p0) {}
+        public void bindIcon(com.android.internal.app.chooser.TargetInfo p0) {}
+        public void bindLabel(java.lang.CharSequence p0, java.lang.CharSequence p1, boolean p2) {}
+        public void updateContentDescription(java.lang.String p0) {}
     }
 
     static interface ResolverListCommunicator {
@@ -127,6 +123,22 @@ public class ResolverListAdapter extends android.widget.BaseAdapter {
         default public boolean shouldGetOnlyDefaultActivities() { return false; }
         public void updateProfileViewButton();
         public boolean useLayoutWithDefault();
+    }
+
+    class LoadIconTask extends android.os.AsyncTask<java.lang.Void, java.lang.Void, android.graphics.drawable.Drawable> {
+        protected final com.android.internal.app.chooser.DisplayResolveInfo mDisplayResolveInfo = null;
+        private final android.content.pm.ResolveInfo mResolveInfo = null;
+        LoadIconTask(com.android.internal.app.ResolverListAdapter p0, com.android.internal.app.chooser.DisplayResolveInfo p1) { super(); }
+        protected android.graphics.drawable.Drawable doInBackground(java.lang.Void... p0) { return null; }
+        protected void onPostExecute(android.graphics.drawable.Drawable p0) {}
+    }
+
+    public static class ResolveInfoPresentationGetter extends com.android.internal.app.ResolverListAdapter.ActivityInfoPresentationGetter {
+        private final android.content.pm.ResolveInfo mRi = null;
+        public ResolveInfoPresentationGetter(android.content.Context p0, int p1, android.content.pm.ResolveInfo p2) { super(null, 0, null); }
+        java.lang.String getAppLabelForSubstitutePermission() { return null; }
+        java.lang.String getAppSubLabelInternal() { return null; }
+        android.graphics.drawable.Drawable getIconSubstituteInternal() { return null; }
     }
 
     private static abstract class TargetPresentationGetter {
@@ -145,17 +157,5 @@ public class ResolverListAdapter extends android.widget.BaseAdapter {
         public java.lang.String getSubLabel() { return null; }
         protected android.graphics.drawable.Drawable loadIconFromResource(android.content.res.Resources p0, int p1) { return null; }
         protected java.lang.String loadLabelFromResource(android.content.res.Resources p0, int p1) { return null; }
-    }
-
-    public static class ViewHolder {
-        public android.graphics.drawable.Drawable defaultItemViewBackground;
-        public android.widget.ImageView icon;
-        public android.view.View itemView;
-        public android.widget.TextView text;
-        public android.widget.TextView text2;
-        public ViewHolder(android.view.View p0) {}
-        public void bindIcon(com.android.internal.app.chooser.TargetInfo p0) {}
-        public void bindLabel(java.lang.CharSequence p0, java.lang.CharSequence p1, boolean p2) {}
-        public void updateContentDescription(java.lang.String p0) {}
     }
 }

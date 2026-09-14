@@ -11,7 +11,6 @@ public final class ThermalDynamicProperties {
     public static void reload_thermal_dynamic_config_profile(android.sysprop.ThermalDynamicProperties.reload_thermal_dynamic_config_profile_values p0) {}
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -26,8 +25,10 @@ public final class ThermalDynamicProperties {
         KIDS_SETUP,
         SETUP;
         private static final android.sysprop.ThermalDynamicProperties.reload_thermal_dynamic_config_profile_values[] $VALUES = null;
+        private static final android.sysprop.ThermalDynamicProperties.reload_thermal_dynamic_config_profile_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private reload_thermal_dynamic_config_profile_values() {}
+        public static android.sysprop.ThermalDynamicProperties.reload_thermal_dynamic_config_profile_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 }

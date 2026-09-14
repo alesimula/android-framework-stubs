@@ -10,10 +10,10 @@ public final class PackageServiceDumpProto {
     public static final long VERIFIER_PACKAGE = 1146756268034L;
     public PackageServiceDumpProto() {}
 
-    public final class PackageShortProto {
-        public static final long NAME = 1138166333441L;
-        public static final long UID = 1120986464258L;
-        public PackageShortProto(android.service.pm.PackageServiceDumpProto p0) {}
+    public final class SharedUserProto {
+        public static final long NAME = 1138166333442L;
+        public static final long UID = 1120986464257L;
+        public SharedUserProto(android.service.pm.PackageServiceDumpProto p0) {}
     }
 
     public final class SharedLibraryProto {
@@ -24,9 +24,9 @@ public final class PackageServiceDumpProto {
         public SharedLibraryProto(android.service.pm.PackageServiceDumpProto p0) {}
     }
 
-    public final class SharedUserProto {
-        public static final long NAME = 1138166333442L;
-        public static final long UID = 1120986464257L;
-        public SharedUserProto(android.service.pm.PackageServiceDumpProto p0) {}
+    public final class PackageShortProto {
+        public static final long NAME = 1138166333441L;
+        public static final long UID = 1120986464258L;
+        public PackageShortProto(android.service.pm.PackageServiceDumpProto p0) {}
     }
 }

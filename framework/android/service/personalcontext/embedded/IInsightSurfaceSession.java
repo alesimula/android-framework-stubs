@@ -4,12 +4,12 @@ public interface IInsightSurfaceSession extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.embedded.IInsightSurfaceSession";
     public static final int UPDATE_DECLINED = 1;
     public static final int UPDATE_OK = 0;
-    public void onClientUpdated(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.os.ResultReceiver p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException;
+    public void onClientUpdated(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.os.ResultReceiver p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException;
 
     public static class Default implements android.service.personalcontext.embedded.IInsightSurfaceSession {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void onClientUpdated(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.os.ResultReceiver p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+        public void onClientUpdated(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.os.ResultReceiver p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.embedded.IInsightSurfaceSession {
@@ -26,7 +26,7 @@ public interface IInsightSurfaceSession extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void onClientUpdated(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.os.ResultReceiver p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+            public void onClientUpdated(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.os.ResultReceiver p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
         }
     }
 }

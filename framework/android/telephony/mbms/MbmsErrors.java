@@ -8,12 +8,22 @@ public class MbmsErrors {
     public static final int UNKNOWN = -1;
     private MbmsErrors() {}
 
-    public static class DownloadErrors {
-        public static final int ERROR_CANNOT_CHANGE_TEMP_FILE_ROOT = 401;
-        public static final int ERROR_MALFORMED_SERVICE_ANNOUNCEMENT = 404;
-        public static final int ERROR_UNKNOWN_DOWNLOAD_REQUEST = 402;
-        public static final int ERROR_UNKNOWN_FILE_INFO = 403;
-        private DownloadErrors() {}
+    public static class InitializationErrors {
+        public static final int ERROR_APP_PERMISSIONS_NOT_GRANTED = 102;
+        public static final int ERROR_DUPLICATE_INITIALIZE = 101;
+        public static final int ERROR_UNABLE_TO_INITIALIZE = 103;
+        private InitializationErrors() {}
+    }
+
+    public static class StreamingErrors {
+        public static final int ERROR_CONCURRENT_SERVICE_LIMIT_REACHED = 301;
+        public static final int ERROR_DUPLICATE_START_STREAM = 303;
+        public static final int ERROR_UNABLE_TO_START_SERVICE = 302;
+        private StreamingErrors() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MbmsError {
     }
 
     public static class GeneralErrors {
@@ -33,21 +43,11 @@ public class MbmsErrors {
         private GroupCallErrors() {}
     }
 
-    public static class InitializationErrors {
-        public static final int ERROR_APP_PERMISSIONS_NOT_GRANTED = 102;
-        public static final int ERROR_DUPLICATE_INITIALIZE = 101;
-        public static final int ERROR_UNABLE_TO_INITIALIZE = 103;
-        private InitializationErrors() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MbmsError {
-    }
-
-    public static class StreamingErrors {
-        public static final int ERROR_CONCURRENT_SERVICE_LIMIT_REACHED = 301;
-        public static final int ERROR_DUPLICATE_START_STREAM = 303;
-        public static final int ERROR_UNABLE_TO_START_SERVICE = 302;
-        private StreamingErrors() {}
+    public static class DownloadErrors {
+        public static final int ERROR_CANNOT_CHANGE_TEMP_FILE_ROOT = 401;
+        public static final int ERROR_MALFORMED_SERVICE_ANNOUNCEMENT = 404;
+        public static final int ERROR_UNKNOWN_DOWNLOAD_REQUEST = 402;
+        public static final int ERROR_UNKNOWN_FILE_INFO = 403;
+        private DownloadErrors() {}
     }
 }

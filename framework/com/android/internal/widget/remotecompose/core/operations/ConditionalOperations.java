@@ -3,6 +3,7 @@ package com.android.internal.widget.remotecompose.core.operations;
 public class ConditionalOperations extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.operations.layout.Container, com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.serialize.Serializable {
     private static final java.lang.String CLASS_NAME = "ConditionalOperations";
     private static final int OP_CODE = 178;
+    public static final byte TYPE_CHANGED = 6;
     public static final byte TYPE_EQ = 0;
     public static final byte TYPE_GT = 4;
     public static final byte TYPE_GTE = 5;
@@ -10,12 +11,15 @@ public class ConditionalOperations extends com.android.internal.widget.remotecom
     public static final byte TYPE_LTE = 3;
     public static final byte TYPE_NEQ = 1;
     private static final java.lang.String[] TYPE_STR = null;
+    boolean mDirty;
     int mIndexVariableId;
     public java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> mList;
     byte mType;
     float mVarA;
+    float mVarAOld;
     float mVarAOut;
     float mVarB;
+    float mVarBOld;
     float mVarBOut;
     public ConditionalOperations(byte p0, float p1, float p2) { super(); }
     public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, byte p1, float p2, float p3) {}

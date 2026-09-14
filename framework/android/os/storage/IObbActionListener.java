@@ -3,12 +3,6 @@ package android.os.storage;
 public interface IObbActionListener extends android.os.IInterface {
     public void onObbResult(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.os.storage.IObbActionListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onObbResult(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.storage.IObbActionListener {
         public static final java.lang.String DESCRIPTOR = "android.os.storage.IObbActionListener";
         static final int TRANSACTION_onObbResult = 1;
@@ -26,5 +20,11 @@ public interface IObbActionListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onObbResult(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.storage.IObbActionListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onObbResult(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

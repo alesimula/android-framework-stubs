@@ -26,6 +26,8 @@ public final class ColorDisplayManager {
     private com.android.internal.logging.MetricsLogger mMetricsLogger;
     public ColorDisplayManager() {}
     public static boolean areAccessibilityTransformsEnabled(android.content.Context p0) { return false; }
+    public static int getDefaultColorFilterColor(android.content.Context p0) { return 0; }
+    public static int getDefaultColorFilterIntensity(android.content.Context p0) { return 0; }
     public static int getMaximumColorTemperature(android.content.Context p0) { return 0; }
     public static int getMaximumReduceBrightColorsStrength(android.content.Context p0) { return 0; }
     private com.android.internal.logging.MetricsLogger getMetricsLogger() { return null; }
@@ -69,14 +71,6 @@ public final class ColorDisplayManager {
     @android.annotation.SystemApi
     public boolean setSaturationLevel(int p0) { return false; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AutoMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CapabilityType {
-    }
-
     private static class ColorDisplayManagerInternal {
         private static android.hardware.display.ColorDisplayManager.ColorDisplayManagerInternal sInstance;
         private final android.hardware.display.IColorDisplayManager mCdm = null;
@@ -111,5 +105,13 @@ public final class ColorDisplayManager {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ColorMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AutoMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CapabilityType {
     }
 }

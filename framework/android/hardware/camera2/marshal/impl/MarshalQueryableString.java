@@ -3,7 +3,7 @@ package android.hardware.camera2.marshal.impl;
 public class MarshalQueryableString implements android.hardware.camera2.marshal.MarshalQueryable<java.lang.String> {
     private static final boolean DEBUG = false;
     private static final byte NUL = 0;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MarshalQueryableString";
     public MarshalQueryableString() {}
     public android.hardware.camera2.marshal.Marshaler<java.lang.String> createMarshaler(android.hardware.camera2.utils.TypeReference<java.lang.String> p0, int p1) { return null; }
     public boolean isTypeMappingSupported(android.hardware.camera2.utils.TypeReference<java.lang.String> p0, int p1) { return false; }

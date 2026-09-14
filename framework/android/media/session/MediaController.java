@@ -50,6 +50,31 @@ public final class MediaController {
     public void setVolumeTo(int p0, int p1) {}
     public void unregisterCallback(android.media.session.MediaController.Callback p0) {}
 
+    public final class TransportControls {
+        private static final java.lang.String TAG = "TransportController";
+        private TransportControls(android.media.session.MediaController p0) {}
+        public void fastForward() {}
+        public void pause() {}
+        public void play() {}
+        public void playFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
+        public void playFromSearch(java.lang.String p0, android.os.Bundle p1) {}
+        public void playFromUri(android.net.Uri p0, android.os.Bundle p1) {}
+        public void prepare() {}
+        public void prepareFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
+        public void prepareFromSearch(java.lang.String p0, android.os.Bundle p1) {}
+        public void prepareFromUri(android.net.Uri p0, android.os.Bundle p1) {}
+        public void rewind() {}
+        public void seekTo(long p0) {}
+        public void sendCustomAction(android.media.session.PlaybackState.CustomAction p0, android.os.Bundle p1) {}
+        public void sendCustomAction(java.lang.String p0, android.os.Bundle p1) {}
+        public void setPlaybackSpeed(float p0) {}
+        public void setRating(android.media.Rating p0) {}
+        public void skipToNext() {}
+        public void skipToPrevious() {}
+        public void skipToQueueItem(long p0) {}
+        public void stop() {}
+    }
+
     public static abstract class Callback {
         public Callback() {}
         public void onAudioInfoChanged(android.media.session.MediaController.PlaybackInfo p0) {}
@@ -60,27 +85,6 @@ public final class MediaController {
         public void onQueueTitleChanged(java.lang.CharSequence p0) {}
         public void onSessionDestroyed() {}
         public void onSessionEvent(java.lang.String p0, android.os.Bundle p1) {}
-    }
-
-    private static final class CallbackStub extends android.media.session.ISessionControllerCallback.Stub {
-        private final java.lang.ref.WeakReference<android.media.session.MediaController> mController = null;
-        CallbackStub(android.media.session.MediaController p0) { super(); }
-        public void onEvent(java.lang.String p0, android.os.Bundle p1) {}
-        public void onExtrasChanged(android.os.Bundle p0) {}
-        public void onMetadataChanged(android.media.MediaMetadata p0) {}
-        public void onPlaybackStateChanged(android.media.session.PlaybackState p0) {}
-        public void onQueueChanged(android.content.pm.ParceledListSlice p0) {}
-        public void onQueueTitleChanged(java.lang.CharSequence p0) {}
-        public void onSessionDestroyed() {}
-        public void onVolumeInfoChanged(android.media.session.MediaController.PlaybackInfo p0) {}
-    }
-
-    private static final class MessageHandler extends android.os.Handler {
-        private final android.media.session.MediaController.Callback mCallback = null;
-        private boolean mRegistered;
-        MessageHandler(android.os.Looper p0, android.media.session.MediaController.Callback p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-        public void post(int p0, java.lang.Object p1, android.os.Bundle p2) {}
     }
 
     public static final class PlaybackInfo implements android.os.Parcelable {
@@ -111,28 +115,24 @@ public final class MediaController {
         }
     }
 
-    public final class TransportControls {
-        private static final java.lang.String TAG = "TransportController";
-        private TransportControls(android.media.session.MediaController p0) {}
-        public void fastForward() {}
-        public void pause() {}
-        public void play() {}
-        public void playFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
-        public void playFromSearch(java.lang.String p0, android.os.Bundle p1) {}
-        public void playFromUri(android.net.Uri p0, android.os.Bundle p1) {}
-        public void prepare() {}
-        public void prepareFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
-        public void prepareFromSearch(java.lang.String p0, android.os.Bundle p1) {}
-        public void prepareFromUri(android.net.Uri p0, android.os.Bundle p1) {}
-        public void rewind() {}
-        public void seekTo(long p0) {}
-        public void sendCustomAction(android.media.session.PlaybackState.CustomAction p0, android.os.Bundle p1) {}
-        public void sendCustomAction(java.lang.String p0, android.os.Bundle p1) {}
-        public void setPlaybackSpeed(float p0) {}
-        public void setRating(android.media.Rating p0) {}
-        public void skipToNext() {}
-        public void skipToPrevious() {}
-        public void skipToQueueItem(long p0) {}
-        public void stop() {}
+    private static final class MessageHandler extends android.os.Handler {
+        private final android.media.session.MediaController.Callback mCallback = null;
+        private boolean mRegistered;
+        MessageHandler(android.os.Looper p0, android.media.session.MediaController.Callback p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+        public void post(int p0, java.lang.Object p1, android.os.Bundle p2) {}
+    }
+
+    private static final class CallbackStub extends android.media.session.ISessionControllerCallback.Stub {
+        private final java.lang.ref.WeakReference<android.media.session.MediaController> mController = null;
+        CallbackStub(android.media.session.MediaController p0) { super(); }
+        public void onEvent(java.lang.String p0, android.os.Bundle p1) {}
+        public void onExtrasChanged(android.os.Bundle p0) {}
+        public void onMetadataChanged(android.media.MediaMetadata p0) {}
+        public void onPlaybackStateChanged(android.media.session.PlaybackState p0) {}
+        public void onQueueChanged(android.content.pm.ParceledListSlice p0) {}
+        public void onQueueTitleChanged(java.lang.CharSequence p0) {}
+        public void onSessionDestroyed() {}
+        public void onVolumeInfoChanged(android.media.session.MediaController.PlaybackInfo p0) {}
     }
 }

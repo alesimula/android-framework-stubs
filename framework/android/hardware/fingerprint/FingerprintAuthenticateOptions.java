@@ -17,6 +17,7 @@ public final class FingerprintAuthenticateOptions implements android.hardware.bi
     private static java.lang.String defaultAttributionTag() { return null; }
     private static int defaultDisplayState() { return 0; }
     private static boolean defaultIgnoreEnrollmentState() { return false; }
+    private static boolean defaultIsMandatoryBiometrics() { return false; }
     private static java.lang.String defaultOpPackageName() { return null; }
     private static int defaultSensorId() { return 0; }
     private static int defaultUserId() { return 0; }
@@ -31,6 +32,7 @@ public final class FingerprintAuthenticateOptions implements android.hardware.bi
     public android.hardware.biometrics.common.AuthenticateReason.Vendor getVendorReason() { return null; }
     public int hashCode() { return 0; }
     public boolean isIgnoreEnrollmentState() { return false; }
+    public boolean isIsMandatoryBiometrics() { return false; }
     public boolean isMandatoryBiometrics() { return false; }
     public android.hardware.fingerprint.FingerprintAuthenticateOptions setAttributionTag(java.lang.String p0) { return null; }
     public android.hardware.fingerprint.FingerprintAuthenticateOptions setIsMandatoryBiometrics(boolean p0) { return null; }

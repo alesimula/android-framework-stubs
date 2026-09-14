@@ -57,7 +57,7 @@ public class IsdbtFrontendSettings extends android.media.tv.tuner.frontend.Front
     public int getType() { return 0; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Bandwidth {
+    public static @interface PartialReceptionFlag {
     }
 
     public static class Builder {
@@ -85,6 +85,22 @@ public class IsdbtFrontendSettings extends android.media.tv.tuner.frontend.Front
         public android.media.tv.tuner.frontend.IsdbtFrontendSettings.Builder setServiceAreaId(int p0) { return null; }
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Bandwidth {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Mode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Modulation {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TimeInterleaveMode {
+    }
+
     public static final class IsdbtLayerSettings {
         private final int mCodeRate = 0;
         private final int mModulation = 0;
@@ -109,21 +125,5 @@ public class IsdbtFrontendSettings extends android.media.tv.tuner.frontend.Front
             public android.media.tv.tuner.frontend.IsdbtFrontendSettings.IsdbtLayerSettings.Builder setNumberOfSegments(int p0) { return null; }
             public android.media.tv.tuner.frontend.IsdbtFrontendSettings.IsdbtLayerSettings.Builder setTimeInterleaveMode(int p0) { return null; }
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Mode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Modulation {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PartialReceptionFlag {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TimeInterleaveMode {
     }
 }

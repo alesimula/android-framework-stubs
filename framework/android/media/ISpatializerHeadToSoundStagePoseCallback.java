@@ -4,12 +4,6 @@ public interface ISpatializerHeadToSoundStagePoseCallback extends android.os.IIn
     public static final java.lang.String DESCRIPTOR = "android.media.ISpatializerHeadToSoundStagePoseCallback";
     public void dispatchPoseChanged(float[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ISpatializerHeadToSoundStagePoseCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchPoseChanged(float[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ISpatializerHeadToSoundStagePoseCallback {
         static final int TRANSACTION_dispatchPoseChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISpatializerHeadToSoundStagePoseCallback extends android.os.IIn
             public void dispatchPoseChanged(float[] p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.ISpatializerHeadToSoundStagePoseCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchPoseChanged(float[] p0) throws android.os.RemoteException {}
     }
 }

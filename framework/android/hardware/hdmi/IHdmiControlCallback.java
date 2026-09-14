@@ -3,12 +3,6 @@ package android.hardware.hdmi;
 public interface IHdmiControlCallback extends android.os.IInterface {
     public void onComplete(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hdmi.IHdmiControlCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onComplete(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hdmi.IHdmiControlCallback {
         public static final java.lang.String DESCRIPTOR = "android.hardware.hdmi.IHdmiControlCallback";
         static final int TRANSACTION_onComplete = 1;
@@ -26,5 +20,11 @@ public interface IHdmiControlCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onComplete(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hdmi.IHdmiControlCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onComplete(int p0) throws android.os.RemoteException {}
     }
 }

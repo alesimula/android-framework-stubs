@@ -9,17 +9,6 @@ public interface IScanInterface extends android.os.IInterface {
     public void showScanSettings() throws android.os.RemoteException;
     public void unregisterScanGlobalListener(android.media.tv.extension.scan.IScanGlobalListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.scan.IScanInterface {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.IBinder createSession(int p0, java.lang.String p1, java.lang.String p2, android.media.tv.extension.scan.IScanListener p3, android.os.Bundle p4) throws android.os.RemoteException { return null; }
-        public android.os.Bundle getParameters(int p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException { return null; }
-        public void launchScanAction(int p0) throws android.os.RemoteException {}
-        public void registerScanGlobalListener(android.media.tv.extension.scan.IScanGlobalListener p0) throws android.os.RemoteException {}
-        public void showScanSettings() throws android.os.RemoteException {}
-        public void unregisterScanGlobalListener(android.media.tv.extension.scan.IScanGlobalListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.scan.IScanInterface {
         static final int TRANSACTION_createSession = 1;
         static final int TRANSACTION_getParameters = 2;
@@ -46,5 +35,16 @@ public interface IScanInterface extends android.os.IInterface {
             public void showScanSettings() throws android.os.RemoteException {}
             public void unregisterScanGlobalListener(android.media.tv.extension.scan.IScanGlobalListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.scan.IScanInterface {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.IBinder createSession(int p0, java.lang.String p1, java.lang.String p2, android.media.tv.extension.scan.IScanListener p3, android.os.Bundle p4) throws android.os.RemoteException { return null; }
+        public android.os.Bundle getParameters(int p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException { return null; }
+        public void launchScanAction(int p0) throws android.os.RemoteException {}
+        public void registerScanGlobalListener(android.media.tv.extension.scan.IScanGlobalListener p0) throws android.os.RemoteException {}
+        public void showScanSettings() throws android.os.RemoteException {}
+        public void unregisterScanGlobalListener(android.media.tv.extension.scan.IScanGlobalListener p0) throws android.os.RemoteException {}
     }
 }

@@ -36,12 +36,13 @@ public interface BiometricConstants {
     public static final int BIOMETRIC_LOCKOUT_TIMED = 1;
     public static final long BIOMETRIC_NO_AUTHENTICATION = -1L;
     public static final int BIOMETRIC_PAUSED_REJECTED = 100;
+    public static final long BIOMETRIC_REQUEST_ID_UNSET = -1L;
     public static final int BIOMETRIC_SUCCESS = 0;
+    public static final int BIOMETRIC_SYSTEM_EVENT_AUTHENTICATION_PAUSED = 3;
+    public static final int BIOMETRIC_SYSTEM_EVENT_AUTHENTICATION_RESUMED = 2;
+    public static final int BIOMETRIC_SYSTEM_EVENT_BACK_PRESSED = 5;
     public static final int BIOMETRIC_SYSTEM_EVENT_EARLY_USER_CANCEL = 1;
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Acquired {
-    }
+    public static final int BIOMETRIC_SYSTEM_EVENT_TAPOUT = 4;
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Errors {
@@ -49,5 +50,9 @@ public interface BiometricConstants {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface LockoutMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Acquired {
     }
 }

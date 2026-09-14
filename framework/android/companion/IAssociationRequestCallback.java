@@ -6,14 +6,6 @@ public interface IAssociationRequestCallback extends android.os.IInterface {
     public void onAssociationPending(android.app.PendingIntent p0) throws android.os.RemoteException;
     public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.IAssociationRequestCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAssociationCreated(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
-        public void onAssociationPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
-        public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.IAssociationRequestCallback {
         static final int TRANSACTION_onAssociationCreated = 2;
         static final int TRANSACTION_onAssociationPending = 1;
@@ -34,5 +26,13 @@ public interface IAssociationRequestCallback extends android.os.IInterface {
             public void onAssociationPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
             public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.IAssociationRequestCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAssociationCreated(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
+        public void onAssociationPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
+        public void onFailure(int p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
     }
 }

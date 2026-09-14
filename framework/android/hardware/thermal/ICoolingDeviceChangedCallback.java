@@ -8,14 +8,6 @@ public interface ICoolingDeviceChangedCallback extends android.os.IInterface {
     public int getInterfaceVersion() throws android.os.RemoteException;
     public void notifyCoolingDeviceChanged(android.hardware.thermal.CoolingDevice p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.thermal.ICoolingDeviceChangedCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void notifyCoolingDeviceChanged(android.hardware.thermal.CoolingDevice p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.thermal.ICoolingDeviceChangedCallback {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -38,5 +30,13 @@ public interface ICoolingDeviceChangedCallback extends android.os.IInterface {
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
             public void notifyCoolingDeviceChanged(android.hardware.thermal.CoolingDevice p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.thermal.ICoolingDeviceChangedCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void notifyCoolingDeviceChanged(android.hardware.thermal.CoolingDevice p0) throws android.os.RemoteException {}
     }
 }

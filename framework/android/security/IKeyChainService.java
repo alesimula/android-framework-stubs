@@ -11,6 +11,7 @@ public interface IKeyChainService extends android.os.IInterface {
     public java.lang.String getCredentialManagementAppPackageName() throws android.os.RemoteException;
     public android.security.AppUriAuthenticationPolicy getCredentialManagementAppPolicy() throws android.os.RemoteException;
     public byte[] getEncodedCaCertificate(java.lang.String p0, boolean p1) throws android.os.RemoteException;
+    public android.content.pm.ParceledListSlice<android.security.GrantedKeyInfo> getGrantedKeyPairs(int p0) throws android.os.RemoteException;
     public int[] getGrants(java.lang.String p0) throws android.os.RemoteException;
     public java.lang.String getPredefinedAliasForPackageAndUri(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException;
     public android.content.pm.StringParceledListSlice getSystemCaAliases() throws android.os.RemoteException;
@@ -44,6 +45,7 @@ public interface IKeyChainService extends android.os.IInterface {
         public java.lang.String getCredentialManagementAppPackageName() throws android.os.RemoteException { return null; }
         public android.security.AppUriAuthenticationPolicy getCredentialManagementAppPolicy() throws android.os.RemoteException { return null; }
         public byte[] getEncodedCaCertificate(java.lang.String p0, boolean p1) throws android.os.RemoteException { return null; }
+        public android.content.pm.ParceledListSlice<android.security.GrantedKeyInfo> getGrantedKeyPairs(int p0) throws android.os.RemoteException { return null; }
         public int[] getGrants(java.lang.String p0) throws android.os.RemoteException { return null; }
         public java.lang.String getPredefinedAliasForPackageAndUri(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException { return null; }
         public android.content.pm.StringParceledListSlice getSystemCaAliases() throws android.os.RemoteException { return null; }
@@ -77,11 +79,12 @@ public interface IKeyChainService extends android.os.IInterface {
         static final int TRANSACTION_getCredentialManagementAppPackageName = 22;
         static final int TRANSACTION_getCredentialManagementAppPolicy = 23;
         static final int TRANSACTION_getEncodedCaCertificate = 18;
+        static final int TRANSACTION_getGrantedKeyPairs = 29;
         static final int TRANSACTION_getGrants = 12;
         static final int TRANSACTION_getPredefinedAliasForPackageAndUri = 24;
         static final int TRANSACTION_getSystemCaAliases = 16;
         static final int TRANSACTION_getUserCaAliases = 15;
-        static final int TRANSACTION_getWifiKeyGrantAsUser = 29;
+        static final int TRANSACTION_getWifiKeyGrantAsUser = 30;
         static final int TRANSACTION_hasCredentialManagementApp = 21;
         static final int TRANSACTION_hasGrant = 28;
         static final int TRANSACTION_installCaCertificate = 8;
@@ -117,6 +120,7 @@ public interface IKeyChainService extends android.os.IInterface {
             public java.lang.String getCredentialManagementAppPackageName() throws android.os.RemoteException { return null; }
             public android.security.AppUriAuthenticationPolicy getCredentialManagementAppPolicy() throws android.os.RemoteException { return null; }
             public byte[] getEncodedCaCertificate(java.lang.String p0, boolean p1) throws android.os.RemoteException { return null; }
+            public android.content.pm.ParceledListSlice<android.security.GrantedKeyInfo> getGrantedKeyPairs(int p0) throws android.os.RemoteException { return null; }
             public int[] getGrants(java.lang.String p0) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public java.lang.String getPredefinedAliasForPackageAndUri(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException { return null; }

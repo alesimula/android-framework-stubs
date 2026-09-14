@@ -9,15 +9,6 @@ public interface IFingerprint extends android.os.IInterface {
     public int getInterfaceVersion() throws android.os.RemoteException;
     public android.hardware.biometrics.fingerprint.SensorProps[] getSensorProps() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.fingerprint.IFingerprint {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.biometrics.fingerprint.ISession createSession(int p0, int p1, android.hardware.biometrics.fingerprint.ISessionCallback p2) throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public android.hardware.biometrics.fingerprint.SensorProps[] getSensorProps() throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.fingerprint.IFingerprint {
         static final int TRANSACTION_createSession = 2;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -42,5 +33,14 @@ public interface IFingerprint extends android.os.IInterface {
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
             public android.hardware.biometrics.fingerprint.SensorProps[] getSensorProps() throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.fingerprint.IFingerprint {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.biometrics.fingerprint.ISession createSession(int p0, int p1, android.hardware.biometrics.fingerprint.ISessionCallback p2) throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public android.hardware.biometrics.fingerprint.SensorProps[] getSensorProps() throws android.os.RemoteException { return null; }
     }
 }

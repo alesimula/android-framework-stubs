@@ -65,32 +65,6 @@ public abstract class DisplayManagerInternal {
     public abstract void unregisterMultiDisplayListener(android.hardware.display.DisplayManagerInternal.MultiDisplayListener p0);
     public abstract android.window.ScreenCaptureInternal.ScreenshotHardwareBuffer userScreenshot(int p0);
 
-    public static final class AmbientLightSensorData {
-        public java.lang.String sensorName;
-        public java.lang.String sensorType;
-        public AmbientLightSensorData(java.lang.String p0, java.lang.String p1) {}
-        public java.lang.String toString() { return null; }
-    }
-
-    public static final class DisplayBrightnessOverrideRequest {
-        private final float brightness = 0.0f;
-        private final int brightnessUnit = 0;
-        private final java.lang.CharSequence tag = null;
-        public DisplayBrightnessOverrideRequest(float p0, java.lang.CharSequence p1, int p2) {}
-        public float brightness() { return 0.0f; }
-        public int brightnessUnit() { return 0; }
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public java.lang.CharSequence tag() { return null; }
-        public final java.lang.String toString() { return null; }
-    }
-
-    public static interface DisplayGroupListener {
-        public void onDisplayGroupAdded(int p0);
-        public void onDisplayGroupChanged(int p0);
-        public void onDisplayGroupRemoved(int p0);
-    }
-
     public static final class DisplayInfos {
         private final android.util.SparseArray<android.view.DisplayInfo> displayInfos = null;
         public DisplayInfos(android.util.SparseArray<android.view.DisplayInfo> p0) {}
@@ -100,12 +74,25 @@ public abstract class DisplayManagerInternal {
         public final java.lang.String toString() { return null; }
     }
 
-    public static interface DisplayOffloader {
-        public boolean allowAutoBrightnessInDoze();
-        public void cancelBlockScreenOn();
-        public void onBlockingScreenOn(java.lang.Runnable p0);
-        public boolean startOffload(int p0);
-        public void stopOffload(int p0);
+    public static final class DisplayBrightnessOverrideRequest {
+        private final float brightness = 0.0f;
+        private final int brightnessUnit = 0;
+        private final int pid = 0;
+        private final java.lang.CharSequence tag = null;
+        private final int uid = 0;
+        public DisplayBrightnessOverrideRequest(float p0, java.lang.CharSequence p1, int p2, int p3, int p4) {}
+        public float brightness() { return 0.0f; }
+        public int brightnessUnit() { return 0; }
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public int pid() { return 0; }
+        public java.lang.CharSequence tag() { return null; }
+        public final java.lang.String toString() { return null; }
+        public int uid() { return 0; }
+    }
+
+    public static interface MultiDisplayListener {
+        public void onDisplaysChanged(android.hardware.display.DisplayManagerInternal.DisplayInfos p0, android.view.SurfaceControl.Transaction p1);
     }
 
     public static interface DisplayOffloadSession {
@@ -116,19 +103,27 @@ public abstract class DisplayManagerInternal {
         public float[] getAutoBrightnessLevels(int p0);
         public float[] getAutoBrightnessLuxLevels(int p0);
         public float getBrightness();
-        public float getDozeBrightness();
+        public float getBrightnessSetting();
+        public float getDozeBrightnessSetting();
         public boolean isActive();
         public void setDozeStateOverride(int p0);
         public void updateBrightness(float p0);
     }
 
-    public static interface DisplayPowerCallbacks {
-        public void acquireSuspendBlocker(java.lang.String p0);
-        public void onDisplayStateChange(boolean p0, boolean p1);
-        public void onProximityNegative();
-        public void onProximityPositive();
-        public void onStateChanged();
-        public void releaseSuspendBlocker(java.lang.String p0);
+    public static final class RefreshRateLimitation {
+        public android.view.SurfaceControl.RefreshRateRange range;
+        public int type;
+        public RefreshRateLimitation(int p0, float p1, float p2) {}
+        public RefreshRateLimitation(int p0, android.view.SurfaceControl.RefreshRateRange p1) {}
+        public java.lang.String toString() { return null; }
+    }
+
+    public static interface DisplayOffloader {
+        public boolean allowAutoBrightnessInDoze();
+        public void cancelBlockScreenOn();
+        public void onBlockingScreenOn(java.lang.Runnable p0);
+        public boolean startOffload(int p0);
+        public void stopOffload(int p0);
     }
 
     public static class DisplayPowerRequest {
@@ -163,23 +158,33 @@ public abstract class DisplayManagerInternal {
         public java.lang.String toString() { return null; }
     }
 
-    public static interface DisplayTransactionListener {
-        public void onDisplayTransaction(android.view.SurfaceControl.Transaction p0);
-    }
-
-    public static interface MultiDisplayListener {
-        public void onDisplaysChanged(android.hardware.display.DisplayManagerInternal.DisplayInfos p0, android.view.SurfaceControl.Transaction p1);
-    }
-
-    public static final class RefreshRateLimitation {
-        public android.view.SurfaceControl.RefreshRateRange range;
-        public int type;
-        public RefreshRateLimitation(int p0, float p1, float p2) {}
-        public RefreshRateLimitation(int p0, android.view.SurfaceControl.RefreshRateRange p1) {}
-        public java.lang.String toString() { return null; }
+    public static interface DisplayGroupListener {
+        public void onDisplayGroupAdded(int p0);
+        public void onDisplayGroupChanged(int p0);
+        public void onDisplayGroupRemoved(int p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface RefreshRateLimitType {
+    }
+
+    public static interface DisplayTransactionListener {
+        public void onDisplayTransaction(android.view.SurfaceControl.Transaction p0);
+    }
+
+    public static interface DisplayPowerCallbacks {
+        public void acquireSuspendBlocker(java.lang.String p0);
+        public void onDisplayStateChange(boolean p0, boolean p1);
+        public void onProximityNegative();
+        public void onProximityPositive();
+        public void onStateChanged();
+        public void releaseSuspendBlocker(java.lang.String p0);
+    }
+
+    public static final class AmbientLightSensorData {
+        public java.lang.String sensorName;
+        public java.lang.String sensorType;
+        public AmbientLightSensorData(java.lang.String p0, java.lang.String p1) {}
+        public java.lang.String toString() { return null; }
     }
 }

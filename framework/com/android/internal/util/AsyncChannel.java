@@ -65,11 +65,6 @@ public class AsyncChannel {
         public void onServiceDisconnected(android.content.ComponentName p0) {}
     }
 
-    private final class DeathMonitor implements android.os.IBinder.DeathRecipient {
-        DeathMonitor(com.android.internal.util.AsyncChannel p0) {}
-        public void binderDied() {}
-    }
-
     private static class SyncMessenger {
         private static int sCount;
         private static java.util.Stack<com.android.internal.util.AsyncChannel.SyncMessenger> sStack;
@@ -87,5 +82,10 @@ public class AsyncChannel {
             private SyncHandler(com.android.internal.util.AsyncChannel.SyncMessenger p0, android.os.Looper p1) { super(); }
             public void handleMessage(android.os.Message p0) {}
         }
+    }
+
+    private final class DeathMonitor implements android.os.IBinder.DeathRecipient {
+        DeathMonitor(com.android.internal.util.AsyncChannel p0) {}
+        public void binderDied() {}
     }
 }

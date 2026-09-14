@@ -28,36 +28,6 @@ public interface IColorDisplayManager extends android.os.IInterface {
     public boolean setReduceBrightColorsStrength(int p0) throws android.os.RemoteException;
     public boolean setSaturationLevel(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.display.IColorDisplayManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int getColorMode() throws android.os.RemoteException { return 0; }
-        public int getNightDisplayAutoMode() throws android.os.RemoteException { return 0; }
-        public int getNightDisplayAutoModeRaw() throws android.os.RemoteException { return 0; }
-        public int getNightDisplayColorTemperature() throws android.os.RemoteException { return 0; }
-        public android.hardware.display.Time getNightDisplayCustomEndTime() throws android.os.RemoteException { return null; }
-        public android.hardware.display.Time getNightDisplayCustomStartTime() throws android.os.RemoteException { return null; }
-        public float getReduceBrightColorsOffsetFactor() throws android.os.RemoteException { return 0.0f; }
-        public int getReduceBrightColorsStrength() throws android.os.RemoteException { return 0; }
-        public int getTransformCapabilities() throws android.os.RemoteException { return 0; }
-        public boolean isDeviceColorManaged() throws android.os.RemoteException { return false; }
-        public boolean isDisplayWhiteBalanceEnabled() throws android.os.RemoteException { return false; }
-        public boolean isNightDisplayActivated() throws android.os.RemoteException { return false; }
-        public boolean isReduceBrightColorsActivated() throws android.os.RemoteException { return false; }
-        public boolean isSaturationActivated() throws android.os.RemoteException { return false; }
-        public boolean setAppSaturationLevel(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
-        public void setColorMode(int p0) throws android.os.RemoteException {}
-        public boolean setDisplayWhiteBalanceEnabled(boolean p0) throws android.os.RemoteException { return false; }
-        public boolean setNightDisplayActivated(boolean p0) throws android.os.RemoteException { return false; }
-        public boolean setNightDisplayAutoMode(int p0) throws android.os.RemoteException { return false; }
-        public boolean setNightDisplayColorTemperature(int p0) throws android.os.RemoteException { return false; }
-        public boolean setNightDisplayCustomEndTime(android.hardware.display.Time p0) throws android.os.RemoteException { return false; }
-        public boolean setNightDisplayCustomStartTime(android.hardware.display.Time p0) throws android.os.RemoteException { return false; }
-        public boolean setReduceBrightColorsActivated(boolean p0) throws android.os.RemoteException { return false; }
-        public boolean setReduceBrightColorsStrength(int p0) throws android.os.RemoteException { return false; }
-        public boolean setSaturationLevel(int p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.display.IColorDisplayManager {
         static final int TRANSACTION_getColorMode = 17;
         static final int TRANSACTION_getNightDisplayAutoMode = 10;
@@ -138,5 +108,35 @@ public interface IColorDisplayManager extends android.os.IInterface {
             public boolean setReduceBrightColorsStrength(int p0) throws android.os.RemoteException { return false; }
             public boolean setSaturationLevel(int p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.hardware.display.IColorDisplayManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int getColorMode() throws android.os.RemoteException { return 0; }
+        public int getNightDisplayAutoMode() throws android.os.RemoteException { return 0; }
+        public int getNightDisplayAutoModeRaw() throws android.os.RemoteException { return 0; }
+        public int getNightDisplayColorTemperature() throws android.os.RemoteException { return 0; }
+        public android.hardware.display.Time getNightDisplayCustomEndTime() throws android.os.RemoteException { return null; }
+        public android.hardware.display.Time getNightDisplayCustomStartTime() throws android.os.RemoteException { return null; }
+        public float getReduceBrightColorsOffsetFactor() throws android.os.RemoteException { return 0.0f; }
+        public int getReduceBrightColorsStrength() throws android.os.RemoteException { return 0; }
+        public int getTransformCapabilities() throws android.os.RemoteException { return 0; }
+        public boolean isDeviceColorManaged() throws android.os.RemoteException { return false; }
+        public boolean isDisplayWhiteBalanceEnabled() throws android.os.RemoteException { return false; }
+        public boolean isNightDisplayActivated() throws android.os.RemoteException { return false; }
+        public boolean isReduceBrightColorsActivated() throws android.os.RemoteException { return false; }
+        public boolean isSaturationActivated() throws android.os.RemoteException { return false; }
+        public boolean setAppSaturationLevel(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public void setColorMode(int p0) throws android.os.RemoteException {}
+        public boolean setDisplayWhiteBalanceEnabled(boolean p0) throws android.os.RemoteException { return false; }
+        public boolean setNightDisplayActivated(boolean p0) throws android.os.RemoteException { return false; }
+        public boolean setNightDisplayAutoMode(int p0) throws android.os.RemoteException { return false; }
+        public boolean setNightDisplayColorTemperature(int p0) throws android.os.RemoteException { return false; }
+        public boolean setNightDisplayCustomEndTime(android.hardware.display.Time p0) throws android.os.RemoteException { return false; }
+        public boolean setNightDisplayCustomStartTime(android.hardware.display.Time p0) throws android.os.RemoteException { return false; }
+        public boolean setReduceBrightColorsActivated(boolean p0) throws android.os.RemoteException { return false; }
+        public boolean setReduceBrightColorsStrength(int p0) throws android.os.RemoteException { return false; }
+        public boolean setSaturationLevel(int p0) throws android.os.RemoteException { return false; }
     }
 }

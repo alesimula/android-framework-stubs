@@ -7,11 +7,16 @@ public final class Flags {
     public static final java.lang.String FLAG_CAMERA_MULTIPLE_INPUT_STREAMS = "android.companion.virtualdevice.flags.camera_multiple_input_streams";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_ACCESS = "android.companion.virtualdevice.flags.computer_control_access";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_ALLOWLIST_FROM_ALLOWLIST_MANAGER = "android.companion.virtualdevice.flags.computer_control_allowlist_from_allowlist_manager";
+    public static final java.lang.String FLAG_COMPUTER_CONTROL_CONSENT_MIGRATION = "android.companion.virtualdevice.flags.computer_control_consent_migration";
+    public static final java.lang.String FLAG_COMPUTER_CONTROL_CROSS_DEVICE_AUTHENTICATION = "android.companion.virtualdevice.flags.computer_control_cross_device_authentication";
+    public static final java.lang.String FLAG_COMPUTER_CONTROL_CROSS_DEVICE_NOTIFICATIONS = "android.companion.virtualdevice.flags.computer_control_cross_device_notifications";
+    public static final java.lang.String FLAG_COMPUTER_CONTROL_DEFAULT_DEVICE_ID = "android.companion.virtualdevice.flags.computer_control_default_device_id";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_DISABLE_DEVICE_CONFIG = "android.companion.virtualdevice.flags.computer_control_disable_device_config";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_FROM_SERVICE_BINDINGS = "android.companion.virtualdevice.flags.computer_control_from_service_bindings";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_FROM_VIRTUAL_DEVICES = "android.companion.virtualdevice.flags.computer_control_from_virtual_devices";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_PER_APP_CONSENT_V2 = "android.companion.virtualdevice.flags.computer_control_per_app_consent_v2";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_REQUIRE_V5 = "android.companion.virtualdevice.flags.computer_control_require_v5";
+    public static final java.lang.String FLAG_COMPUTER_CONTROL_START_SHORTCUT = "android.companion.virtualdevice.flags.computer_control_start_shortcut";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_SUPPORT_V5 = "android.companion.virtualdevice.flags.computer_control_support_v5";
     public static final java.lang.String FLAG_COMPUTER_CONTROL_V6 = "android.companion.virtualdevice.flags.computer_control_v6";
     public static final java.lang.String FLAG_DEFAULT_DEVICE_CAMERA_ACCESS_POLICY = "android.companion.virtualdevice.flags.default_device_camera_access_policy";
@@ -30,6 +35,7 @@ public final class Flags {
     public static final java.lang.String FLAG_REMOVE_START_MODE_FROM_BLOCKED_INTENTS = "android.companion.virtualdevice.flags.remove_start_mode_from_blocked_intents";
     public static final java.lang.String FLAG_STATUS_BAR_AND_INSETS = "android.companion.virtualdevice.flags.status_bar_and_insets";
     public static final java.lang.String FLAG_SUPPORT_SINGLE_APP_MIRRORING = "android.companion.virtualdevice.flags.support_single_app_mirroring";
+    public static final java.lang.String FLAG_VDM_APP_OPS = "android.companion.virtualdevice.flags.vdm_app_ops";
     public static final java.lang.String FLAG_VDM_MIRROR_DISPLAY_PERMISSION = "android.companion.virtualdevice.flags.vdm_mirror_display_permission";
     public static final java.lang.String FLAG_VDM_PROPAGATE_DEVICE_ID_TO_ATTRIBUTION_CONTEXT = "android.companion.virtualdevice.flags.vdm_propagate_device_id_to_attribution_context";
     public static final java.lang.String FLAG_VIEWCONFIGURATION_APIS = "android.companion.virtualdevice.flags.viewconfiguration_apis";
@@ -55,11 +61,16 @@ public final class Flags {
     public static boolean cameraMultipleInputStreams() { return false; }
     public static boolean computerControlAccess() { return false; }
     public static boolean computerControlAllowlistFromAllowlistManager() { return false; }
+    public static boolean computerControlConsentMigration() { return false; }
+    public static boolean computerControlCrossDeviceAuthentication() { return false; }
+    public static boolean computerControlCrossDeviceNotifications() { return false; }
+    public static boolean computerControlDefaultDeviceId() { return false; }
     public static boolean computerControlDisableDeviceConfig() { return false; }
     public static boolean computerControlFromServiceBindings() { return false; }
     public static boolean computerControlFromVirtualDevices() { return false; }
     public static boolean computerControlPerAppConsentV2() { return false; }
     public static boolean computerControlRequireV5() { return false; }
+    public static boolean computerControlStartShortcut() { return false; }
     public static boolean computerControlSupportV5() { return false; }
     public static boolean computerControlV6() { return false; }
     public static boolean defaultDeviceCameraAccessPolicy() { return false; }
@@ -78,6 +89,7 @@ public final class Flags {
     public static boolean removeStartModeFromBlockedIntents() { return false; }
     public static boolean statusBarAndInsets() { return false; }
     public static boolean supportSingleAppMirroring() { return false; }
+    public static boolean vdmAppOps() { return false; }
     public static boolean vdmMirrorDisplayPermission() { return false; }
     public static boolean vdmPropagateDeviceIdToAttributionContext() { return false; }
     public static boolean viewconfigurationApis() { return false; }

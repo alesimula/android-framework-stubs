@@ -4,7 +4,7 @@ package android.telephony.ims;
 public class ImsService extends android.app.Service {
     private static final java.util.Map<java.lang.Long, java.lang.String> CAPABILITIES_LOG_MAP = null;
     public static final long CAPABILITY_EMERGENCY_OVER_MMTEL = 1L;
-    public static final long CAPABILITY_MAX_INDEX = Long.valueOf(0L);
+    public static final long CAPABILITY_MAX_INDEX = 3L;
     public static final long CAPABILITY_SIP_DELEGATE_CREATION = 2L;
     public static final long CAPABILITY_SUPPORTS_SIMULTANEOUS_CALLING = 8L;
     public static final long CAPABILITY_TERMINAL_BASED_CALL_WAITING = 4L;

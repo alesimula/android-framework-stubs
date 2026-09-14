@@ -20,26 +20,6 @@ public interface IFrontend extends android.os.IInterface {
     public void tune(android.hardware.tv.tuner.FrontendSettings p0) throws android.os.RemoteException;
     public void unlinkCiCam(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.IFrontend {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public int[] getFrontendStatusReadiness(int[] p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getHardwareInfo() throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public android.hardware.tv.tuner.FrontendStatus[] getStatus(int[] p0) throws android.os.RemoteException { return null; }
-        public int linkCiCam(int p0) throws android.os.RemoteException { return 0; }
-        public void removeOutputPid(int p0) throws android.os.RemoteException {}
-        public void scan(android.hardware.tv.tuner.FrontendSettings p0, int p1) throws android.os.RemoteException {}
-        public void setCallback(android.hardware.tv.tuner.IFrontendCallback p0) throws android.os.RemoteException {}
-        public void setLnb(int p0) throws android.os.RemoteException {}
-        public void stopScan() throws android.os.RemoteException {}
-        public void stopTune() throws android.os.RemoteException {}
-        public void tune(android.hardware.tv.tuner.FrontendSettings p0) throws android.os.RemoteException {}
-        public void unlinkCiCam(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.IFrontend {
         static final int TRANSACTION_close = 4;
         static final int TRANSACTION_getFrontendStatusReadiness = 13;
@@ -84,5 +64,25 @@ public interface IFrontend extends android.os.IInterface {
             public void tune(android.hardware.tv.tuner.FrontendSettings p0) throws android.os.RemoteException {}
             public void unlinkCiCam(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.IFrontend {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public int[] getFrontendStatusReadiness(int[] p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getHardwareInfo() throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public android.hardware.tv.tuner.FrontendStatus[] getStatus(int[] p0) throws android.os.RemoteException { return null; }
+        public int linkCiCam(int p0) throws android.os.RemoteException { return 0; }
+        public void removeOutputPid(int p0) throws android.os.RemoteException {}
+        public void scan(android.hardware.tv.tuner.FrontendSettings p0, int p1) throws android.os.RemoteException {}
+        public void setCallback(android.hardware.tv.tuner.IFrontendCallback p0) throws android.os.RemoteException {}
+        public void setLnb(int p0) throws android.os.RemoteException {}
+        public void stopScan() throws android.os.RemoteException {}
+        public void stopTune() throws android.os.RemoteException {}
+        public void tune(android.hardware.tv.tuner.FrontendSettings p0) throws android.os.RemoteException {}
+        public void unlinkCiCam(int p0) throws android.os.RemoteException {}
     }
 }

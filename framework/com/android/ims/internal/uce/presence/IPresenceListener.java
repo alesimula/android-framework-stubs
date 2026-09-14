@@ -11,20 +11,6 @@ public interface IPresenceListener extends android.os.IInterface {
     public void sipResponseReceived(com.android.ims.internal.uce.presence.PresSipResponse p0) throws android.os.RemoteException;
     public void unpublishMessageSent() throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.uce.presence.IPresenceListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void capInfoReceived(java.lang.String p0, com.android.ims.internal.uce.presence.PresTupleInfo[] p1) throws android.os.RemoteException {}
-        public void cmdStatus(com.android.ims.internal.uce.presence.PresCmdStatus p0) throws android.os.RemoteException {}
-        public void getVersionCb(java.lang.String p0) throws android.os.RemoteException {}
-        public void listCapInfoReceived(com.android.ims.internal.uce.presence.PresRlmiInfo p0, com.android.ims.internal.uce.presence.PresResInfo[] p1) throws android.os.RemoteException {}
-        public void publishTriggering(com.android.ims.internal.uce.presence.PresPublishTriggerType p0) throws android.os.RemoteException {}
-        public void serviceAvailable(com.android.ims.internal.uce.common.StatusCode p0) throws android.os.RemoteException {}
-        public void serviceUnAvailable(com.android.ims.internal.uce.common.StatusCode p0) throws android.os.RemoteException {}
-        public void sipResponseReceived(com.android.ims.internal.uce.presence.PresSipResponse p0) throws android.os.RemoteException {}
-        public void unpublishMessageSent() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.uce.presence.IPresenceListener {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.uce.presence.IPresenceListener";
         static final int TRANSACTION_capInfoReceived = 7;
@@ -58,5 +44,19 @@ public interface IPresenceListener extends android.os.IInterface {
             public void sipResponseReceived(com.android.ims.internal.uce.presence.PresSipResponse p0) throws android.os.RemoteException {}
             public void unpublishMessageSent() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.uce.presence.IPresenceListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void capInfoReceived(java.lang.String p0, com.android.ims.internal.uce.presence.PresTupleInfo[] p1) throws android.os.RemoteException {}
+        public void cmdStatus(com.android.ims.internal.uce.presence.PresCmdStatus p0) throws android.os.RemoteException {}
+        public void getVersionCb(java.lang.String p0) throws android.os.RemoteException {}
+        public void listCapInfoReceived(com.android.ims.internal.uce.presence.PresRlmiInfo p0, com.android.ims.internal.uce.presence.PresResInfo[] p1) throws android.os.RemoteException {}
+        public void publishTriggering(com.android.ims.internal.uce.presence.PresPublishTriggerType p0) throws android.os.RemoteException {}
+        public void serviceAvailable(com.android.ims.internal.uce.common.StatusCode p0) throws android.os.RemoteException {}
+        public void serviceUnAvailable(com.android.ims.internal.uce.common.StatusCode p0) throws android.os.RemoteException {}
+        public void sipResponseReceived(com.android.ims.internal.uce.presence.PresSipResponse p0) throws android.os.RemoteException {}
+        public void unpublishMessageSent() throws android.os.RemoteException {}
     }
 }

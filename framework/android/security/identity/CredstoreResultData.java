@@ -20,6 +20,12 @@ class CredstoreResultData extends android.security.identity.ResultData {
     public byte[] getStaticAuthenticationData() { return null; }
     public int getStatus(java.lang.String p0, java.lang.String p1) { return 0; }
 
+    private static class EntryData {
+        int mStatus;
+        byte[] mValue;
+        EntryData(byte[] p0, int p1) {}
+    }
+
     static class Builder {
         private android.security.identity.CredstoreResultData mResultData;
         Builder(int p0, byte[] p1, byte[] p2, byte[] p3, byte[] p4) {}
@@ -27,11 +33,5 @@ class CredstoreResultData extends android.security.identity.ResultData {
         android.security.identity.CredstoreResultData.Builder addEntry(java.lang.String p0, java.lang.String p1, byte[] p2) { return null; }
         android.security.identity.CredstoreResultData.Builder addErrorStatus(java.lang.String p0, java.lang.String p1, int p2) { return null; }
         android.security.identity.CredstoreResultData build() { return null; }
-    }
-
-    private static class EntryData {
-        int mStatus;
-        byte[] mValue;
-        EntryData(byte[] p0, int p1) {}
     }
 }

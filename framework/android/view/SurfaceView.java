@@ -154,6 +154,7 @@ public class SurfaceView extends android.view.View implements android.view.ViewR
     protected void onSetSurfacePositionAndScale(android.view.SurfaceControl.Transaction p0, android.view.SurfaceControl p1, int p2, int p3, float p4, float p5) {}
     protected void onWindowVisibilityChanged(int p0) {}
     void performCollectViewAttributes(android.view.View.AttachInfo p0, int p1) {}
+    public android.view.SurfaceControl.OnJankDataListenerRegistration registerOnJankDataListener(java.util.concurrent.Executor p0, android.view.SurfaceControl.OnJankDataListener p1) { return null; }
     public void requestUpdateSurfacePositionAndScale() {}
     public void sendPictureProfileHandle(android.media.quality.PictureProfileHandle p0) {}
     public void setAccessibilityHierarchyEmbeddingEnabled(boolean p0) {}
@@ -188,14 +189,12 @@ public class SurfaceView extends android.view.View implements android.view.ViewR
     protected void updateSurface() {}
     public void vriDrawStarted(boolean p0) {}
 
-    private static class SurfaceControlViewHostParent extends android.view.ISurfaceControlViewHostParent.Stub {
-        private android.view.SurfaceView mSurfaceView;
-        private SurfaceControlViewHostParent() { super(); }
-        void attach(android.view.SurfaceView p0) {}
-        void detach() {}
-        public void forwardBackKeyToParent(android.view.KeyEvent p0) {}
-        public void transferFocusToParent(int p0) {}
-        public void updateParams(android.view.WindowManager.LayoutParams[] p0) {}
+    private static class SyncBufferTransactionCallback extends android.gui.ITransactionReadyCallback.Stub {
+        private final java.util.concurrent.CountDownLatch mCountDownLatch = null;
+        private android.view.SurfaceControl.Transaction mTransaction;
+        private SyncBufferTransactionCallback() { super(); }
+        public void onTransactionReady(android.view.SurfaceControl.Transaction p0) {}
+        android.view.SurfaceControl.Transaction waitForTransaction() { return null; }
     }
 
     static class SurfaceForPixelCopy {
@@ -224,11 +223,14 @@ public class SurfaceView extends android.view.View implements android.view.ViewR
         public void positionLost(long p0) {}
     }
 
-    private static class SyncBufferTransactionCallback extends android.gui.ITransactionReadyCallback.Stub {
-        private final java.util.concurrent.CountDownLatch mCountDownLatch = null;
-        private android.view.SurfaceControl.Transaction mTransaction;
-        private SyncBufferTransactionCallback() { super(); }
-        public void onTransactionReady(android.view.SurfaceControl.Transaction p0) {}
-        android.view.SurfaceControl.Transaction waitForTransaction() { return null; }
+    private static class SurfaceControlViewHostParent extends android.view.ISurfaceControlViewHostParent.Stub {
+        private android.view.SurfaceView mSurfaceView;
+        private SurfaceControlViewHostParent() { super(); }
+        void attach(android.view.SurfaceView p0) {}
+        void detach() {}
+        public void forwardBackKeyToParent(android.view.KeyEvent p0) {}
+        public void requestRectangleOnScreen(android.graphics.Rect p0, int p1) {}
+        public void transferFocusToParent(int p0) {}
+        public void updateParams(android.view.WindowManager.LayoutParams[] p0) {}
     }
 }

@@ -20,22 +20,30 @@ public class AutofillInlineRequestHint extends android.service.personalcontext.h
     private final java.time.Instant mRequestTimestamp = null;
     private final int mSessionId = 0;
     private final int mTaskId = 0;
-    private AutofillInlineRequestHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, int p1, int p2, java.time.Instant p3, android.content.ComponentName p4, android.view.autofill.AutofillId p5, android.view.autofill.AutofillValue p6, android.view.inputmethod.InlineSuggestionsRequest p7, android.service.personalcontext.hint.autofill.AugmentedAutofillProxy p8, android.service.autofill.FillEventHistory p9) { super(null); }
+    public AutofillInlineRequestHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, int p1, int p2, java.time.Instant p3, android.content.ComponentName p4, android.view.autofill.AutofillId p5, android.view.autofill.AutofillValue p6, android.view.inputmethod.InlineSuggestionsRequest p7, android.service.personalcontext.hint.autofill.AugmentedAutofillProxy p8, android.service.autofill.FillEventHistory p9) { super(null); }
     AutofillInlineRequestHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.os.Bundle p1) { super(null); }
+    AutofillInlineRequestHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.os.Parcel p1) { super(null); }
+    public static android.service.personalcontext.hint.autofill.AugmentedAutofillProxy createAugmentedAutofillProxy(android.os.IBinder p0) { return null; }
+    public static android.service.autofill.FillEventHistory getFillEventHistoryFromCompatBundle(android.os.Bundle p0) { return null; }
+    public android.os.Bundle createCompatBundle() { return null; }
     public boolean equals(java.lang.Object p0) { return false; }
     public android.content.ComponentName getActivityComponent() { return null; }
     public android.service.personalcontext.hint.autofill.AugmentedAutofillProxy getAugmentedAutofillProxy() { return null; }
     public android.view.autofill.AutofillValue getAutofillValue() { return null; }
+    @java.lang.Deprecated
     public android.service.autofill.FillEventHistory getFillEventHistory() { return null; }
     public android.view.autofill.AutofillId getFocusedId() { return null; }
     int getHintType() { return 0; }
     public android.view.inputmethod.InlineSuggestionsRequest getInlineSuggestionsRequest() { return null; }
+    @java.lang.Deprecated
     public java.time.Instant getRequestTimestamp() { return null; }
+    public long getRequestTimestampMillis() { return 0L; }
     public int getSessionId() { return 0; }
     public int getTaskId() { return 0; }
     public int hashCode() { return 0; }
     android.os.Bundle toBundleImpl() { return null; }
     public java.lang.String toString() { return null; }
+    void writeImplementationDataToParcel(android.os.Parcel p0, int p1) {}
     public void writeToSignatureParcel(android.os.Parcel p0) {}
 
     private static final class AugmentedAutofillProxyImpl implements android.service.personalcontext.hint.autofill.AugmentedAutofillProxy {
@@ -59,6 +67,7 @@ public class AutofillInlineRequestHint extends android.service.personalcontext.h
         private int mTaskId;
         public Builder(int p0, int p1, java.time.Instant p2, android.content.ComponentName p3, android.view.autofill.AutofillId p4, android.view.autofill.AutofillValue p5, android.view.inputmethod.InlineSuggestionsRequest p6, android.os.IBinder p7) {}
         public Builder(int p0, int p1, java.time.Instant p2, android.content.ComponentName p3, android.view.autofill.AutofillId p4, android.view.autofill.AutofillValue p5, android.view.inputmethod.InlineSuggestionsRequest p6, android.service.personalcontext.hint.autofill.AugmentedAutofillProxy p7) {}
+        @java.lang.Deprecated
         public android.service.personalcontext.hint.AutofillInlineRequestHint.Builder addToken(android.service.personalcontext.Token p0) { return null; }
         public android.service.personalcontext.hint.AutofillInlineRequestHint build() { return null; }
         public android.service.personalcontext.hint.AutofillInlineRequestHint.Builder setFillEventHistory(android.service.autofill.FillEventHistory p0) { return null; }

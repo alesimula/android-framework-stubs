@@ -313,6 +313,80 @@ public class MediaPlayer extends android.media.PlayerBase implements android.med
     public void start() throws java.lang.IllegalStateException {}
     public void stop() throws java.lang.IllegalStateException {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SeekMode {
+    }
+
+    public static class TrackInfo implements android.os.Parcelable {
+        static final android.os.Parcelable.Creator<android.media.MediaPlayer.TrackInfo> CREATOR = null;
+        public static final int MEDIA_TRACK_TYPE_AUDIO = 2;
+        public static final int MEDIA_TRACK_TYPE_METADATA = 5;
+        public static final int MEDIA_TRACK_TYPE_SUBTITLE = 4;
+        public static final int MEDIA_TRACK_TYPE_TIMEDTEXT = 3;
+        public static final int MEDIA_TRACK_TYPE_UNKNOWN = 0;
+        public static final int MEDIA_TRACK_TYPE_VIDEO = 1;
+        final android.media.MediaFormat mFormat = null;
+        final int mTrackType = 0;
+        TrackInfo(int p0, android.media.MediaFormat p1) {}
+        TrackInfo(android.os.Parcel p0) {}
+        public int describeContents() { return 0; }
+        public android.media.MediaFormat getFormat() { return null; }
+        public java.lang.String getLanguage() { return null; }
+        public int getTrackType() { return 0; }
+        public boolean hasHapticChannels() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface TrackType {
+        }
+    }
+
+    public static interface OnDrmConfigHelper {
+        public void onDrmConfig(android.media.MediaPlayer p0);
+    }
+
+    public static interface OnPreparedListener {
+        public void onPrepared(android.media.MediaPlayer p0);
+    }
+
+    public static interface OnBufferingUpdateListener {
+        public void onBufferingUpdate(android.media.MediaPlayer p0, int p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlaybackRateAudioMode {
+    }
+
+    private class ProvisioningThread extends java.lang.Thread {
+        public static final int TIMEOUT_MS = 60000;
+        private java.lang.Object drmLock;
+        private boolean finished;
+        private android.media.MediaPlayer mediaPlayer;
+        private android.media.MediaPlayer.OnDrmPreparedHandlerDelegate onDrmPreparedHandlerDelegate;
+        private int status;
+        private java.lang.String urlStr;
+        private java.util.UUID uuid;
+        private ProvisioningThread(android.media.MediaPlayer p0) { super(); }
+        public android.media.MediaPlayer.ProvisioningThread initialize(android.media.MediaDrm.ProvisionRequest p0, java.util.UUID p1, android.media.MediaPlayer p2) { return null; }
+        public void run() {}
+        public int status() { return 0; }
+    }
+
+    private class EventHandler extends android.os.Handler {
+        private android.media.MediaPlayer mMediaPlayer;
+        public EventHandler(android.media.MediaPlayer p0, android.media.MediaPlayer p1, android.os.Looper p2) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    public static interface OnSubtitleDataListener {
+        public void onSubtitleData(android.media.MediaPlayer p0, android.media.SubtitleData p1);
+    }
+
+    public static interface OnDrmPreparedListener {
+        public void onDrmPrepared(android.media.MediaPlayer p0, int p1);
+    }
+
     public static final class DrmInfo {
         private java.util.Map<java.util.UUID, byte[]> mapPssh;
         private java.util.UUID[] supportedSchemes;
@@ -326,10 +400,12 @@ public class MediaPlayer extends android.media.PlayerBase implements android.med
         public java.util.UUID[] getSupportedSchemes() { return null; }
     }
 
-    private class EventHandler extends android.os.Handler {
-        private android.media.MediaPlayer mMediaPlayer;
-        public EventHandler(android.media.MediaPlayer p0, android.media.MediaPlayer p1, android.os.Looper p2) { super(); }
-        public void handleMessage(android.os.Message p0) {}
+    public static interface OnTimedTextListener {
+        public void onTimedText(android.media.MediaPlayer p0, android.media.TimedText p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PrepareDrmStatusCode {
     }
 
     public static final class MetricsConstants {
@@ -348,20 +424,8 @@ public class MediaPlayer extends android.media.PlayerBase implements android.med
         private MetricsConstants() {}
     }
 
-    public static final class NoDrmSchemeException extends android.media.MediaDrmException {
-        public NoDrmSchemeException(java.lang.String p0) { super((java.lang.String)null); }
-    }
-
-    public static interface OnBufferingUpdateListener {
-        public void onBufferingUpdate(android.media.MediaPlayer p0, int p1);
-    }
-
-    public static interface OnCompletionListener {
-        public void onCompletion(android.media.MediaPlayer p0);
-    }
-
-    public static interface OnDrmConfigHelper {
-        public void onDrmConfig(android.media.MediaPlayer p0);
+    public static interface OnDrmInfoListener {
+        public void onDrmInfo(android.media.MediaPlayer p0, android.media.MediaPlayer.DrmInfo p1);
     }
 
     private class OnDrmInfoHandlerDelegate {
@@ -372,96 +436,25 @@ public class MediaPlayer extends android.media.PlayerBase implements android.med
         void notifyClient(android.media.MediaPlayer.DrmInfo p0) {}
     }
 
-    public static interface OnDrmInfoListener {
-        public void onDrmInfo(android.media.MediaPlayer p0, android.media.MediaPlayer.DrmInfo p1);
-    }
-
-    private class OnDrmPreparedHandlerDelegate {
-        private android.os.Handler mHandler;
-        private android.media.MediaPlayer mMediaPlayer;
-        private android.media.MediaPlayer.OnDrmPreparedListener mOnDrmPreparedListener;
-        OnDrmPreparedHandlerDelegate(android.media.MediaPlayer p0, android.media.MediaPlayer p1, android.media.MediaPlayer.OnDrmPreparedListener p2, android.os.Handler p3) {}
-        void notifyClient(int p0) {}
-    }
-
-    public static interface OnDrmPreparedListener {
-        public void onDrmPrepared(android.media.MediaPlayer p0, int p1);
-    }
-
-    public static interface OnErrorListener {
-        public boolean onError(android.media.MediaPlayer p0, int p1, int p2);
-    }
-
-    public static interface OnInfoListener {
-        public boolean onInfo(android.media.MediaPlayer p0, int p1, int p2);
-    }
-
-    public static interface OnMediaTimeDiscontinuityListener {
-        public void onMediaTimeDiscontinuity(android.media.MediaPlayer p0, android.media.MediaTimestamp p1);
-    }
-
-    public static interface OnPreparedListener {
-        public void onPrepared(android.media.MediaPlayer p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnRtpRxNoticeListener {
-        public void onRtpRxNotice(android.media.MediaPlayer p0, int p1, int[] p2);
-    }
-
-    public static interface OnSeekCompleteListener {
-        public void onSeekComplete(android.media.MediaPlayer p0);
-    }
-
-    public static interface OnSubtitleDataListener {
-        public void onSubtitleData(android.media.MediaPlayer p0, android.media.SubtitleData p1);
-    }
-
-    public static interface OnTimedMetaDataAvailableListener {
-        public void onTimedMetaDataAvailable(android.media.MediaPlayer p0, android.media.TimedMetaData p1);
-    }
-
-    public static interface OnTimedTextListener {
-        public void onTimedText(android.media.MediaPlayer p0, android.media.TimedText p1);
-    }
-
-    public static interface OnVideoSizeChangedListener {
-        public void onVideoSizeChanged(android.media.MediaPlayer p0, int p1, int p2);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PlaybackRateAudioMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PrepareDrmStatusCode {
+    public static final class ProvisioningServerErrorException extends android.media.MediaDrmException {
+        public ProvisioningServerErrorException(java.lang.String p0) { super((java.lang.String)null); }
     }
 
     public static final class ProvisioningNetworkErrorException extends android.media.MediaDrmException {
         public ProvisioningNetworkErrorException(java.lang.String p0) { super((java.lang.String)null); }
     }
 
-    public static final class ProvisioningServerErrorException extends android.media.MediaDrmException {
-        public ProvisioningServerErrorException(java.lang.String p0) { super((java.lang.String)null); }
+    public static final class NoDrmSchemeException extends android.media.MediaDrmException {
+        public NoDrmSchemeException(java.lang.String p0) { super((java.lang.String)null); }
     }
 
-    private class ProvisioningThread extends java.lang.Thread {
-        public static final int TIMEOUT_MS = 60000;
-        private java.lang.Object drmLock;
-        private boolean finished;
-        private android.media.MediaPlayer mediaPlayer;
-        private android.media.MediaPlayer.OnDrmPreparedHandlerDelegate onDrmPreparedHandlerDelegate;
-        private int status;
-        private java.lang.String urlStr;
-        private java.util.UUID uuid;
-        private ProvisioningThread(android.media.MediaPlayer p0) { super(); }
-        public android.media.MediaPlayer.ProvisioningThread initialize(android.media.MediaDrm.ProvisionRequest p0, java.util.UUID p1, android.media.MediaPlayer p2) { return null; }
-        public void run() {}
-        public int status() { return 0; }
+    public static interface OnTimedMetaDataAvailableListener {
+        public void onTimedMetaDataAvailable(android.media.MediaPlayer p0, android.media.TimedMetaData p1);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SeekMode {
+    @android.annotation.SystemApi
+    public static interface OnRtpRxNoticeListener {
+        public void onRtpRxNotice(android.media.MediaPlayer p0, int p1, int[] p2);
     }
 
     static class TimeProvider implements android.media.MediaPlayer.OnSeekCompleteListener, android.media.MediaTimeProvider {
@@ -514,28 +507,35 @@ public class MediaPlayer extends android.media.PlayerBase implements android.med
         }
     }
 
-    public static class TrackInfo implements android.os.Parcelable {
-        static final android.os.Parcelable.Creator<android.media.MediaPlayer.TrackInfo> CREATOR = null;
-        public static final int MEDIA_TRACK_TYPE_AUDIO = 2;
-        public static final int MEDIA_TRACK_TYPE_METADATA = 5;
-        public static final int MEDIA_TRACK_TYPE_SUBTITLE = 4;
-        public static final int MEDIA_TRACK_TYPE_TIMEDTEXT = 3;
-        public static final int MEDIA_TRACK_TYPE_UNKNOWN = 0;
-        public static final int MEDIA_TRACK_TYPE_VIDEO = 1;
-        final android.media.MediaFormat mFormat = null;
-        final int mTrackType = 0;
-        TrackInfo(int p0, android.media.MediaFormat p1) {}
-        TrackInfo(android.os.Parcel p0) {}
-        public int describeContents() { return 0; }
-        public android.media.MediaFormat getFormat() { return null; }
-        public java.lang.String getLanguage() { return null; }
-        public int getTrackType() { return 0; }
-        public boolean hasHapticChannels() { return false; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public static interface OnErrorListener {
+        public boolean onError(android.media.MediaPlayer p0, int p1, int p2);
+    }
 
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface TrackType {
-        }
+    private class OnDrmPreparedHandlerDelegate {
+        private android.os.Handler mHandler;
+        private android.media.MediaPlayer mMediaPlayer;
+        private android.media.MediaPlayer.OnDrmPreparedListener mOnDrmPreparedListener;
+        OnDrmPreparedHandlerDelegate(android.media.MediaPlayer p0, android.media.MediaPlayer p1, android.media.MediaPlayer.OnDrmPreparedListener p2, android.os.Handler p3) {}
+        void notifyClient(int p0) {}
+    }
+
+    public static interface OnMediaTimeDiscontinuityListener {
+        public void onMediaTimeDiscontinuity(android.media.MediaPlayer p0, android.media.MediaTimestamp p1);
+    }
+
+    public static interface OnCompletionListener {
+        public void onCompletion(android.media.MediaPlayer p0);
+    }
+
+    public static interface OnVideoSizeChangedListener {
+        public void onVideoSizeChanged(android.media.MediaPlayer p0, int p1, int p2);
+    }
+
+    public static interface OnSeekCompleteListener {
+        public void onSeekComplete(android.media.MediaPlayer p0);
+    }
+
+    public static interface OnInfoListener {
+        public boolean onInfo(android.media.MediaPlayer p0, int p1, int p2);
     }
 }

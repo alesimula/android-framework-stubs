@@ -1,7 +1,7 @@
 package com.android.internal.jank;
 
 public class InteractionJankMonitor {
-    private static final java.lang.String ACTION_PREFIX = null;
+    private static final java.lang.String ACTION_PREFIX = "com.android.internal.jank.InteractionJankMonitor";
     public static final java.lang.String ACTION_SESSION_CANCEL = null;
     public static final java.lang.String ACTION_SESSION_END = null;
     @java.lang.Deprecated
@@ -138,7 +138,7 @@ public class InteractionJankMonitor {
     private static final long DEFAULT_TIMEOUT_MS = Long.valueOf(0L);
     private static final int DEFAULT_TRACE_THRESHOLD_FRAME_TIME_MILLIS = 64;
     private static final int DEFAULT_TRACE_THRESHOLD_MISSED_FRAMES = 3;
-    private static final java.lang.String DEFAULT_WORKER_NAME = null;
+    private static final java.lang.String DEFAULT_WORKER_NAME = "InteractionJankMonitor-Worker";
     static final long EXECUTOR_TASK_TIMEOUT = 500L;
     private static final int MAX_LENGTH_SESSION_NAME = 100;
     private static final java.lang.String SETTINGS_DEBUG_OVERLAY_ENABLED_KEY = "debug_overlay_enabled";
@@ -146,29 +146,33 @@ public class InteractionJankMonitor {
     private static final java.lang.String SETTINGS_SAMPLING_INTERVAL_KEY = "sampling_interval";
     private static final java.lang.String SETTINGS_THRESHOLD_FRAME_TIME_MILLIS_KEY = "trace_threshold_frame_time_millis";
     private static final java.lang.String SETTINGS_THRESHOLD_MISSED_FRAMES_KEY = "trace_threshold_missed_frames";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "InteractionJankMonitor";
     private final android.app.Application mCurrentApplication = null;
     private int mDebugBgColor;
     private com.android.internal.jank.InteractionMonitorDebugOverlay mDebugOverlay;
     private double mDebugYOffset;
-    private final com.android.internal.jank.DisplayResolutionTracker mDisplayResolutionTracker = null;
+    private com.android.internal.jank.DisplayResolutionTracker mDisplayResolutionTracker;
     private volatile boolean mEnabled;
     private final java.lang.Object mLock = null;
     private final android.util.SparseArray<com.android.internal.jank.InteractionJankMonitor.RunningTracker> mRunningTrackers = null;
     private int mSamplingInterval;
     private int mTraceThresholdFrameTimeMillis;
     private int mTraceThresholdMissedFrames;
-    private final android.os.Handler mWorker = null;
+    private android.os.Handler mWorker;
+    private android.os.HandlerThread mWorkerThread;
+    public InteractionJankMonitor() {}
     public InteractionJankMonitor(android.os.HandlerThread p0) {}
     private boolean beginInternal(com.android.internal.jank.InteractionJankMonitor.Configuration p0) { return false; }
     private boolean cancelInternal(com.android.internal.jank.InteractionJankMonitor.RunningTracker p0, int p1) { return false; }
     private boolean endInternal(com.android.internal.jank.InteractionJankMonitor.RunningTracker p0) { return false; }
+    private com.android.internal.jank.DisplayResolutionTracker getDisplayResolutionTracker() { return null; }
     public static com.android.internal.jank.InteractionJankMonitor getInstance() { return null; }
     @java.lang.Deprecated
     public static java.lang.String getNameOfCuj(int p0) { return null; }
     @java.lang.Deprecated
     public static java.lang.String getNameOfInteraction(int p0) { return null; }
     private com.android.internal.jank.InteractionJankMonitor.RunningTracker getTracker(int p0) { return null; }
+    private android.os.Handler getWorker() { return null; }
     private void handleCujEvents(int p0, com.android.internal.jank.FrameTracker p1, java.lang.String p2, int p3) {}
     private static boolean needRemoveTasks(java.lang.String p0, int p1) { return false; }
     private void postEventLogToWorkerThread(com.android.internal.jank.InteractionJankMonitor.TimeFunction p0) {}
@@ -185,10 +189,25 @@ public class InteractionJankMonitor {
     public void configDebugOverlay(int p0, double p1) {}
     public com.android.internal.jank.FrameTracker createFrameTracker(com.android.internal.jank.InteractionJankMonitor.Configuration p0) { return null; }
     public boolean end(int p0) { return false; }
+    public android.os.Handler getWorkerForTesting() { return null; }
+    public android.os.HandlerThread getWorkerThreadForTesting() { return null; }
     public boolean isInstrumenting(int p0) { return false; }
     public void scheduleTimeoutAction(com.android.internal.jank.InteractionJankMonitor.Configuration p0, java.lang.Runnable p1) {}
+    public void setEnabledForTesting(boolean p0) {}
     public boolean shouldMonitor() { return false; }
     public void updateProperties(android.provider.DeviceConfig.Properties p0) {}
+
+    private static class InstanceHolder {
+        public static final com.android.internal.jank.InteractionJankMonitor INSTANCE = null;
+        private InstanceHolder() {}
+    }
+
+    static class RunningTracker {
+        public final com.android.internal.jank.InteractionJankMonitor.Configuration mConfig = null;
+        public final java.lang.Runnable mTimeoutAction = null;
+        public final com.android.internal.jank.FrameTracker mTracker = null;
+        RunningTracker(com.android.internal.jank.InteractionJankMonitor.Configuration p0, com.android.internal.jank.FrameTracker p1, java.lang.Runnable p2) {}
+    }
 
     public static class Configuration {
         private final android.content.Context mContext = null;
@@ -242,25 +261,13 @@ public class InteractionJankMonitor {
         }
     }
 
-    private static class InstanceHolder {
-        public static final com.android.internal.jank.InteractionJankMonitor INSTANCE = null;
-        private InstanceHolder() {}
-    }
-
-    static class RunningTracker {
-        public final com.android.internal.jank.InteractionJankMonitor.Configuration mConfig = null;
-        public final java.lang.Runnable mTimeoutAction = null;
-        public final com.android.internal.jank.FrameTracker mTracker = null;
-        RunningTracker(com.android.internal.jank.InteractionJankMonitor.Configuration p0, com.android.internal.jank.FrameTracker p1, java.lang.Runnable p2) {}
+    private static class TrackerResult {
+        private boolean mResult;
+        private TrackerResult() {}
     }
 
     @java.lang.FunctionalInterface
     private static interface TimeFunction {
         public void invoke(long p0, long p1, long p2);
-    }
-
-    private static class TrackerResult {
-        private boolean mResult;
-        private TrackerResult() {}
     }
 }

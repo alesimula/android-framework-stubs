@@ -8,7 +8,7 @@ public final class UiAutomation {
     public static final int FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES = 1;
     public static final int FLAG_DONT_USE_ACCESSIBILITY = 2;
     public static final int FLAG_NOT_ACCESSIBILITY_TOOL = 4;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "UiAutomation";
     public static final int ROTATION_FREEZE_0 = 0;
     public static final int ROTATION_FREEZE_180 = 2;
     public static final int ROTATION_FREEZE_270 = 3;

@@ -252,16 +252,6 @@ public abstract class ContentResolver implements android.content.ContentInterfac
         protected void finalize() throws java.lang.Throwable {}
     }
 
-    public static final class MimeTypeInfo {
-        private final java.lang.CharSequence mContentDescription = null;
-        private final android.graphics.drawable.Icon mIcon = null;
-        private final java.lang.CharSequence mLabel = null;
-        public MimeTypeInfo(android.graphics.drawable.Icon p0, java.lang.CharSequence p1, java.lang.CharSequence p2) {}
-        public java.lang.CharSequence getContentDescription() { return null; }
-        public android.graphics.drawable.Icon getIcon() { return null; }
-        public java.lang.CharSequence getLabel() { return null; }
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface NotifyFlags {
     }
@@ -309,5 +299,15 @@ public abstract class ContentResolver implements android.content.ContentInterfac
     private static class UriResultListener extends android.content.ContentResolver.ResultListener<android.net.Uri> {
         private UriResultListener() { super(); }
         protected android.net.Uri getResultFromBundle(android.os.Bundle p0) { return null; }
+    }
+
+    public static final class MimeTypeInfo {
+        private final java.lang.CharSequence mContentDescription = null;
+        private final android.graphics.drawable.Icon mIcon = null;
+        private final java.lang.CharSequence mLabel = null;
+        public MimeTypeInfo(android.graphics.drawable.Icon p0, java.lang.CharSequence p1, java.lang.CharSequence p2) {}
+        public java.lang.CharSequence getContentDescription() { return null; }
+        public android.graphics.drawable.Icon getIcon() { return null; }
+        public java.lang.CharSequence getLabel() { return null; }
     }
 }

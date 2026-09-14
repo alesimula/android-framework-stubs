@@ -28,13 +28,6 @@ public interface IGnssBatching extends android.internal.hidl.base.V1_0.IBase {
     public boolean stop() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class Flag {
-        public static final byte WAKEUP_ON_FIFO_FULL = 1;
-        public Flag() {}
-        public static final java.lang.String dumpBitfield(byte p0) { return null; }
-        public static final java.lang.String toString(byte p0) { return null; }
-    }
-
     public static final class Options {
         public byte flags;
         public long periodNanos;
@@ -48,6 +41,13 @@ public interface IGnssBatching extends android.internal.hidl.base.V1_0.IBase {
         public final java.lang.String toString() { return null; }
         public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
         public final void writeToParcel(android.os.HwParcel p0) {}
+    }
+
+    public static final class Flag {
+        public static final byte WAKEUP_ON_FIFO_FULL = 1;
+        public Flag() {}
+        public static final java.lang.String dumpBitfield(byte p0) { return null; }
+        public static final java.lang.String toString(byte p0) { return null; }
     }
 
     public static final class Proxy implements android.hardware.gnss.V1_0.IGnssBatching {

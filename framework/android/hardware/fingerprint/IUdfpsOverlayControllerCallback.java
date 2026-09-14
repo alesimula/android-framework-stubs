@@ -4,12 +4,6 @@ public interface IUdfpsOverlayControllerCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.fingerprint.IUdfpsOverlayControllerCallback";
     public void onUserCanceled() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.fingerprint.IUdfpsOverlayControllerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onUserCanceled() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.fingerprint.IUdfpsOverlayControllerCallback {
         static final int TRANSACTION_onUserCanceled = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IUdfpsOverlayControllerCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onUserCanceled() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.fingerprint.IUdfpsOverlayControllerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onUserCanceled() throws android.os.RemoteException {}
     }
 }

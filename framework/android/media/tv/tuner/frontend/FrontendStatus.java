@@ -150,6 +150,18 @@ public class FrontendStatus {
     public boolean isRfLocked() { return false; }
     public boolean isShortFramesEnabled() { return false; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrontendTransmissionMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrontendInterleaveMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrontendModulation {
+    }
+
     public static class Atsc3PlpTuningInfo {
         private final boolean mIsLocked = false;
         private final int mPlpId = 0;
@@ -161,23 +173,7 @@ public class FrontendStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendBandwidth {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FrontendGuardInterval {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendInterleaveMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendModulation {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendRollOff {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -185,6 +181,10 @@ public class FrontendStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrontendTransmissionMode {
+    public static @interface FrontendBandwidth {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrontendRollOff {
     }
 }

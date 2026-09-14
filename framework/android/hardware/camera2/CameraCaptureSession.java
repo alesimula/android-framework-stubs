@@ -26,6 +26,17 @@ public abstract class CameraCaptureSession implements java.lang.AutoCloseable {
     public void updateOutputConfiguration(android.hardware.camera2.params.OutputConfiguration p0) throws android.hardware.camera2.CameraAccessException {}
     public void updateOutputConfigurations(java.util.List<android.hardware.camera2.params.OutputConfiguration> p0) throws android.hardware.camera2.CameraAccessException {}
 
+    public static abstract class StateCallback {
+        public StateCallback() {}
+        public void onActive(android.hardware.camera2.CameraCaptureSession p0) {}
+        public void onCaptureQueueEmpty(android.hardware.camera2.CameraCaptureSession p0) {}
+        public void onClosed(android.hardware.camera2.CameraCaptureSession p0) {}
+        public abstract void onConfigureFailed(android.hardware.camera2.CameraCaptureSession p0);
+        public abstract void onConfigured(android.hardware.camera2.CameraCaptureSession p0);
+        public void onReady(android.hardware.camera2.CameraCaptureSession p0) {}
+        public void onSurfacePrepared(android.hardware.camera2.CameraCaptureSession p0, android.view.Surface p1) {}
+    }
+
     public static abstract class CaptureCallback {
         public static final int NO_FRAMES_CAPTURED = -1;
         public CaptureCallback() {}
@@ -38,16 +49,5 @@ public abstract class CameraCaptureSession implements java.lang.AutoCloseable {
         public void onCaptureSequenceCompleted(android.hardware.camera2.CameraCaptureSession p0, int p1, long p2) {}
         public void onCaptureStarted(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, long p2, long p3) {}
         public void onReadoutStarted(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, long p2, long p3) {}
-    }
-
-    public static abstract class StateCallback {
-        public StateCallback() {}
-        public void onActive(android.hardware.camera2.CameraCaptureSession p0) {}
-        public void onCaptureQueueEmpty(android.hardware.camera2.CameraCaptureSession p0) {}
-        public void onClosed(android.hardware.camera2.CameraCaptureSession p0) {}
-        public abstract void onConfigureFailed(android.hardware.camera2.CameraCaptureSession p0);
-        public abstract void onConfigured(android.hardware.camera2.CameraCaptureSession p0);
-        public void onReady(android.hardware.camera2.CameraCaptureSession p0) {}
-        public void onSurfacePrepared(android.hardware.camera2.CameraCaptureSession p0, android.view.Surface p1) {}
     }
 }

@@ -8,16 +8,6 @@ public interface IMediaRoute2ProviderServiceCallback extends android.os.IInterfa
     public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException;
     public void notifySessionsUpdated(java.util.List<android.media.RoutingSessionInfo> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMediaRoute2ProviderServiceCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyProviderUpdated(android.media.MediaRoute2ProviderInfo p0) throws android.os.RemoteException {}
-        public void notifyRequestFailed(long p0, int p1) throws android.os.RemoteException {}
-        public void notifySessionCreated(long p0, android.media.RoutingSessionInfo p1) throws android.os.RemoteException {}
-        public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
-        public void notifySessionsUpdated(java.util.List<android.media.RoutingSessionInfo> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMediaRoute2ProviderServiceCallback {
         static final int TRANSACTION_notifyProviderUpdated = 1;
         static final int TRANSACTION_notifyRequestFailed = 5;
@@ -42,5 +32,15 @@ public interface IMediaRoute2ProviderServiceCallback extends android.os.IInterfa
             public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
             public void notifySessionsUpdated(java.util.List<android.media.RoutingSessionInfo> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IMediaRoute2ProviderServiceCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyProviderUpdated(android.media.MediaRoute2ProviderInfo p0) throws android.os.RemoteException {}
+        public void notifyRequestFailed(long p0, int p1) throws android.os.RemoteException {}
+        public void notifySessionCreated(long p0, android.media.RoutingSessionInfo p1) throws android.os.RemoteException {}
+        public void notifySessionReleased(android.media.RoutingSessionInfo p0) throws android.os.RemoteException {}
+        public void notifySessionsUpdated(java.util.List<android.media.RoutingSessionInfo> p0) throws android.os.RemoteException {}
     }
 }

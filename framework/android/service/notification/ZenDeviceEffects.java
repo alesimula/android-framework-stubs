@@ -54,6 +54,10 @@ public final class ZenDeviceEffects implements android.os.Parcelable {
     public void validate() {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ModifiableField {
+    }
+
     public static final class Builder {
         private java.lang.Float mBrightnessCap;
         private boolean mDimWallpaper;
@@ -87,9 +91,5 @@ public final class ZenDeviceEffects implements android.os.Parcelable {
         public android.service.notification.ZenDeviceEffects.Builder setShouldSuppressAmbientDisplay(boolean p0) { return null; }
         public android.service.notification.ZenDeviceEffects.Builder setShouldUseNightLight(boolean p0) { return null; }
         public android.service.notification.ZenDeviceEffects.Builder setShouldUseNightMode(boolean p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ModifiableField {
     }
 }

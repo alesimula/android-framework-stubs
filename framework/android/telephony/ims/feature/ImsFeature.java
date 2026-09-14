@@ -53,6 +53,10 @@ public abstract class ImsFeature {
     @android.annotation.SystemApi
     public final void setFeatureState(int p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ImsCapabilityError {
+    }
+
     @android.annotation.SystemApi
     @java.lang.Deprecated
     public static class Capabilities {
@@ -77,10 +81,6 @@ public abstract class ImsFeature {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FeatureType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ImsCapabilityError {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

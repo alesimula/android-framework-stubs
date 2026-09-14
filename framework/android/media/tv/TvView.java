@@ -90,6 +90,7 @@ public class TvView extends android.view.ViewGroup {
     public void setStreamVolume(float p0) {}
     public void setTimeShiftPositionCallback(android.media.tv.TvView.TimeShiftPositionCallback p0) {}
     public void setTvMessageEnabled(int p0, boolean p1) {}
+    public void setVideoBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
     public void setVideoFrozen(boolean p0) {}
     public void setZOrderMediaOverlay(boolean p0) {}
     public void setZOrderOnTop(boolean p0) {}
@@ -100,10 +101,17 @@ public class TvView extends android.view.ViewGroup {
     public void timeShiftSeekTo(long p0) {}
     public void timeShiftSetMode(int p0) {}
     public void timeShiftSetPlaybackParams(android.media.PlaybackParams p0) {}
+    public void timeShiftStop() {}
     public void tune(java.lang.String p0, android.net.Uri p1) {}
     public void tune(java.lang.String p0, android.net.Uri p1, android.os.Bundle p2) {}
     @android.annotation.SystemApi
     public void unblockContent(android.media.tv.TvContentRating p0) {}
+
+    public static abstract class TimeShiftPositionCallback {
+        public TimeShiftPositionCallback() {}
+        public void onTimeShiftCurrentPositionChanged(java.lang.String p0, long p1) {}
+        public void onTimeShiftStartPositionChanged(java.lang.String p0, long p1) {}
+    }
 
     private class MySessionCallback extends android.media.tv.TvInputManager.SessionCallback {
         android.net.Uri mChannelUri;
@@ -142,12 +150,6 @@ public class TvView extends android.view.ViewGroup {
 
     public static interface OnUnhandledInputEventListener {
         public boolean onUnhandledInputEvent(android.view.InputEvent p0);
-    }
-
-    public static abstract class TimeShiftPositionCallback {
-        public TimeShiftPositionCallback() {}
-        public void onTimeShiftCurrentPositionChanged(java.lang.String p0, long p1) {}
-        public void onTimeShiftStartPositionChanged(java.lang.String p0, long p1) {}
     }
 
     public static abstract class TvInputCallback {

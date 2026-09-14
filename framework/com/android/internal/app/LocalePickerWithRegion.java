@@ -3,7 +3,7 @@ package com.android.internal.app;
 @java.lang.Deprecated
 public class LocalePickerWithRegion extends android.app.ListFragment implements android.widget.SearchView.OnQueryTextListener {
     private static final java.lang.String PARENT_FRAGMENT_NAME = "localeListEditor";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "LocalePickerWithRegion";
     private com.android.internal.app.SuggestedLocaleAdapter mAdapter;
     private int mFirstVisiblePosition;
     private boolean mIsNumberingSystem;

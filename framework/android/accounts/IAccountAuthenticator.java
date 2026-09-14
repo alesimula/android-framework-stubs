@@ -16,25 +16,6 @@ public interface IAccountAuthenticator extends android.os.IInterface {
     public void startUpdateCredentialsSession(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException;
     public void updateCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException;
 
-    public static class Default implements android.accounts.IAccountAuthenticator {
-        public Default() {}
-        public void addAccount(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1, java.lang.String p2, java.lang.String[] p3, android.os.Bundle p4) throws android.os.RemoteException {}
-        public void addAccountFromCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, android.os.Bundle p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void confirmCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, android.os.Bundle p2) throws android.os.RemoteException {}
-        public void editProperties(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void finishSession(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1, android.os.Bundle p2) throws android.os.RemoteException {}
-        public void getAccountCredentialsForCloning(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1) throws android.os.RemoteException {}
-        public void getAccountRemovalAllowed(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1) throws android.os.RemoteException {}
-        public void getAuthToken(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void getAuthTokenLabel(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void hasFeatures(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String[] p2) throws android.os.RemoteException {}
-        public void isCredentialsUpdateSuggested(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void startAddAccountSession(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1, java.lang.String p2, java.lang.String[] p3, android.os.Bundle p4) throws android.os.RemoteException {}
-        public void startUpdateCredentialsSession(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void updateCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.accounts.IAccountAuthenticator {
         public static final java.lang.String DESCRIPTOR = "android.accounts.IAccountAuthenticator";
         static final int TRANSACTION_addAccount = 1;
@@ -95,5 +76,24 @@ public interface IAccountAuthenticator extends android.os.IInterface {
             public void startUpdateCredentialsSession(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
             public void updateCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.accounts.IAccountAuthenticator {
+        public Default() {}
+        public void addAccount(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1, java.lang.String p2, java.lang.String[] p3, android.os.Bundle p4) throws android.os.RemoteException {}
+        public void addAccountFromCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void confirmCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void editProperties(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void finishSession(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void getAccountCredentialsForCloning(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1) throws android.os.RemoteException {}
+        public void getAccountRemovalAllowed(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1) throws android.os.RemoteException {}
+        public void getAuthToken(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void getAuthTokenLabel(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void hasFeatures(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String[] p2) throws android.os.RemoteException {}
+        public void isCredentialsUpdateSuggested(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void startAddAccountSession(android.accounts.IAccountAuthenticatorResponse p0, java.lang.String p1, java.lang.String p2, java.lang.String[] p3, android.os.Bundle p4) throws android.os.RemoteException {}
+        public void startUpdateCredentialsSession(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void updateCredentials(android.accounts.IAccountAuthenticatorResponse p0, android.accounts.Account p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
     }
 }

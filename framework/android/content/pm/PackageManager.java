@@ -359,6 +359,7 @@ public abstract class PackageManager {
     public static final int GET_INSTRUMENTATION = 16;
     @java.lang.Deprecated
     public static final int GET_INTENT_FILTERS = 32;
+    public static final long GET_MEMORY_BUDGETS = 68719476736L;
     public static final int GET_META_DATA = 128;
     public static final int GET_PERMISSIONS = 4096;
     public static final int GET_PROVIDERS = 8;
@@ -602,8 +603,12 @@ public abstract class PackageManager {
     public static final java.lang.String PROPERTY_NATIVE_SERVICE_LIBRARY_NAME = "android.app.PROPERTY_NATIVE_SERVICE_LIBRARY_NAME";
     public static final java.lang.String PROPERTY_NO_APP_DATA_STORAGE = "android.internal.PROPERTY_NO_APP_DATA_STORAGE";
     public static final java.lang.String PROPERTY_SELF_CERTIFIED_NETWORK_CAPABILITIES = "android.net.PROPERTY_SELF_CERTIFIED_NETWORK_CAPABILITIES";
+    public static final java.lang.String PROPERTY_SHOW_ACTIVITY_ON_LOGIN_SCREEN = "android.app.PROPERTY_SHOW_ACTIVITY_ON_LOGIN_SCREEN";
     public static final java.lang.String PROPERTY_SPECIAL_USE_FGS_SUBTYPE = "android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE";
     public static final java.lang.String PROPERTY_USE_RESTRICTED_BACKUP_MODE = "android.app.backup.PROPERTY_USE_RESTRICTED_BACKUP_MODE";
+    public static final int REGISTERED_APP_STORE_STATUS_GAIN = 1;
+    public static final int REGISTERED_APP_STORE_STATUS_LOSS = 2;
+    public static final int REGISTERED_APP_STORE_STATUS_NO_CHANGE = 0;
     @android.annotation.SystemApi
     public static final int RESTRICTION_CONFIRM_WITH_SPEEDBUMP = 4;
     @android.annotation.SystemApi
@@ -789,6 +794,7 @@ public abstract class PackageManager {
     public abstract java.lang.String getDefaultBrowserPackageNameAsUser(int p0);
     public java.lang.String getDefaultTextClassifierPackageName() { return null; }
     public abstract android.graphics.drawable.Drawable getDrawable(java.lang.String p0, int p1, android.content.pm.ApplicationInfo p2);
+    public android.graphics.drawable.Drawable getDrawableInternal(java.lang.String p0, int p1, android.content.pm.ApplicationInfo p2, boolean p3) { return null; }
     public android.app.PendingIntent getEnableAppLockIntentForPackage(java.lang.String p0, boolean p1) { return null; }
     public void getGroupOfPlatformPermission(java.lang.String p0, java.util.concurrent.Executor p1, java.util.function.Consumer<java.lang.String> p2) {}
     @android.annotation.SystemApi
@@ -836,6 +842,7 @@ public abstract class PackageManager {
     public android.content.Intent getLaunchIntentForPackage(java.lang.String p0, boolean p1) { return null; }
     public android.content.IntentSender getLaunchIntentSenderForPackage(java.lang.String p0) { return null; }
     public abstract android.content.Intent getLeanbackLaunchIntentForPackage(java.lang.String p0);
+    public java.util.List<android.content.pm.MemoryBudgetInfo> getMemoryBudgets(android.content.pm.ApplicationInfo p0) { return null; }
     public java.util.Set<java.lang.String> getMimeGroup(java.lang.String p0) { return null; }
     public android.content.pm.ModuleInfo getModuleInfo(java.lang.String p0, int p1) throws android.content.pm.PackageManager.NameNotFoundException { return null; }
     public abstract int getMoveStatus(int p0);
@@ -962,6 +969,8 @@ public abstract class PackageManager {
     public abstract boolean isPackageSuspendedForUser(java.lang.String p0, int p1);
     public boolean isPageSizeCompatEnabled(java.lang.String p0) { return false; }
     public abstract boolean isPermissionRevokedByPolicy(java.lang.String p0, java.lang.String p1);
+    @android.annotation.SystemApi
+    public boolean isQualifiedRegisteredAppStore(java.lang.String p0) { return false; }
     public abstract boolean isSafeMode();
     public abstract boolean isSignedBy(java.lang.String p0, android.content.pm.KeySet p1);
     public abstract boolean isSignedByExactly(java.lang.String p0, android.content.pm.KeySet p1);
@@ -1112,6 +1121,16 @@ public abstract class PackageManager {
     public abstract void verifyIntentFilter(int p0, int p1, java.util.List<java.lang.String> p2);
     public abstract void verifyPendingInstall(int p0, int p1);
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AppMetadataSource {
+    }
+
+    public static class Flags {
+        final long mValue = 0L;
+        protected Flags(long p0) {}
+        public long getValue() { return 0L; }
+    }
+
     public static final class ApplicationInfoFlags extends android.content.pm.PackageManager.Flags {
         private ApplicationInfoFlags(long p0) { super(0L); }
         public static android.content.pm.PackageManager.ApplicationInfoFlags of(long p0) { return null; }
@@ -1129,10 +1148,6 @@ public abstract class PackageManager {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AppMetadataSource {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -1199,16 +1214,6 @@ public abstract class PackageManager {
     public static @interface EnabledState {
     }
 
-    public static class Flags {
-        final long mValue = 0L;
-        protected Flags(long p0) {}
-        public long getValue() { return 0L; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface InstalledModulesFlags {
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface InstallFlags {
     }
@@ -1219,6 +1224,10 @@ public abstract class PackageManager {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface InstallScenario {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface InstalledModulesFlags {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -1249,12 +1258,6 @@ public abstract class PackageManager {
     @java.lang.FunctionalInterface
     public static interface OnChecksumsReadyListener {
         public void onChecksumsReady(java.util.List<android.content.pm.ApkChecksum> p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnPermissionsChangedListener {
-        public void onPermissionsChanged(int p0);
-        default public void onPermissionsChanged(int p0, java.lang.String p1) {}
     }
 
     public static final class PackageInfoFlags extends android.content.pm.PackageManager.Flags {
@@ -1345,6 +1348,10 @@ public abstract class PackageManager {
     public static @interface PropertyLocation {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RegisteredAppStoreTransitionStatus {
+    }
+
     public static final class ResolveInfoFlags extends android.content.pm.PackageManager.Flags {
         private ResolveInfoFlags(long p0) { super(0L); }
         public static android.content.pm.PackageManager.ResolveInfoFlags of(long p0) { return null; }
@@ -1400,5 +1407,11 @@ public abstract class PackageManager {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface VirtualGamepadUserOption {
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnPermissionsChangedListener {
+        public void onPermissionsChanged(int p0);
+        default public void onPermissionsChanged(int p0, java.lang.String p1) {}
     }
 }

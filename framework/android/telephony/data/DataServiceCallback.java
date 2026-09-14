@@ -9,7 +9,7 @@ public class DataServiceCallback {
     public static final int RESULT_ERROR_TEMPORARILY_UNAVAILABLE = 5;
     public static final int RESULT_ERROR_UNSUPPORTED = 1;
     public static final int RESULT_SUCCESS = 0;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DataServiceCallback";
     private final android.telephony.data.IDataServiceCallback mCallback = null;
     public DataServiceCallback(android.telephony.data.IDataServiceCallback p0) {}
     public static java.lang.String resultCodeToString(int p0) { return null; }

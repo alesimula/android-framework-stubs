@@ -6,15 +6,6 @@ public interface IAccessibilityManagerClient extends android.os.IInterface {
     public void setRelevantEventTypes(int p0) throws android.os.RemoteException;
     public void setState(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.accessibility.IAccessibilityManagerClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyServicesStateChanged(long p0) throws android.os.RemoteException {}
-        public void setFocusAppearance(int p0, int p1) throws android.os.RemoteException {}
-        public void setRelevantEventTypes(int p0) throws android.os.RemoteException {}
-        public void setState(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IAccessibilityManagerClient {
         public static final java.lang.String DESCRIPTOR = "android.view.accessibility.IAccessibilityManagerClient";
         static final int TRANSACTION_notifyServicesStateChanged = 2;
@@ -38,5 +29,14 @@ public interface IAccessibilityManagerClient extends android.os.IInterface {
             public void setRelevantEventTypes(int p0) throws android.os.RemoteException {}
             public void setState(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.accessibility.IAccessibilityManagerClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyServicesStateChanged(long p0) throws android.os.RemoteException {}
+        public void setFocusAppearance(int p0, int p1) throws android.os.RemoteException {}
+        public void setRelevantEventTypes(int p0) throws android.os.RemoteException {}
+        public void setState(int p0) throws android.os.RemoteException {}
     }
 }

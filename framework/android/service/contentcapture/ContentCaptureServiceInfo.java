@@ -1,7 +1,7 @@
 package android.service.contentcapture;
 
 public class ContentCaptureServiceInfo {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureServiceInfo";
     private static final java.lang.String XML_TAG_SERVICE = "content-capture-service";
     private final android.content.pm.ServiceInfo mServiceInfo = null;
     private final java.lang.String mSettingsActivity = null;

@@ -42,15 +42,15 @@ public abstract class CursorAdapter extends android.widget.BaseAdapter implement
     public void setFilterQueryProvider(android.widget.FilterQueryProvider p0) {}
     public android.database.Cursor swapCursor(android.database.Cursor p0) { return null; }
 
-    private class ChangeObserver extends android.database.ContentObserver {
-        public ChangeObserver(android.widget.CursorAdapter p0) { super((android.os.Handler)null); }
-        public boolean deliverSelfNotifications() { return false; }
-        public void onChange(boolean p0) {}
-    }
-
     private class MyDataSetObserver extends android.database.DataSetObserver {
         private MyDataSetObserver(android.widget.CursorAdapter p0) { super(); }
         public void onChanged() {}
         public void onInvalidated() {}
+    }
+
+    private class ChangeObserver extends android.database.ContentObserver {
+        public ChangeObserver(android.widget.CursorAdapter p0) { super((android.os.Handler)null); }
+        public boolean deliverSelfNotifications() { return false; }
+        public void onChange(boolean p0) {}
     }
 }

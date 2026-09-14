@@ -16,13 +16,6 @@ public final class AttributeCache {
     public void removePackage(java.lang.String p0) {}
     public void updateConfiguration(android.content.res.Configuration p0) {}
 
-    public static final class Entry {
-        public final android.content.res.TypedArray array = null;
-        public final android.content.Context context = null;
-        public Entry(android.content.Context p0, android.content.res.TypedArray p1) {}
-        void recycle() {}
-    }
-
     public static final class Package {
         public final android.content.Context context = null;
         private final android.util.SparseArray<android.util.ArrayMap<int[], com.android.internal.policy.AttributeCache.Entry>> mMap = null;
@@ -32,5 +25,12 @@ public final class AttributeCache {
     static class PackageMonitor extends android.content.BroadcastReceiver {
         PackageMonitor(android.content.Context p0, android.os.Handler p1) { super(); }
         public void onReceive(android.content.Context p0, android.content.Intent p1) {}
+    }
+
+    public static final class Entry {
+        public final android.content.res.TypedArray array = null;
+        public final android.content.Context context = null;
+        public Entry(android.content.Context p0, android.content.res.TypedArray p1) {}
+        void recycle() {}
     }
 }

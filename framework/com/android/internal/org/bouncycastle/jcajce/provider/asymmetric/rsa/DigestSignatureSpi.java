@@ -27,6 +27,10 @@ public class DigestSignatureSpi extends java.security.SignatureSpi {
         public SHA1() { super((com.android.internal.org.bouncycastle.crypto.Digest)null, (com.android.internal.org.bouncycastle.crypto.AsymmetricBlockCipher)null); }
     }
 
+    public static class SHA512 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi {
+        public SHA512() { super((com.android.internal.org.bouncycastle.crypto.Digest)null, (com.android.internal.org.bouncycastle.crypto.AsymmetricBlockCipher)null); }
+    }
+
     public static class SHA224 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi {
         public SHA224() { super((com.android.internal.org.bouncycastle.crypto.Digest)null, (com.android.internal.org.bouncycastle.crypto.AsymmetricBlockCipher)null); }
     }
@@ -37,9 +41,5 @@ public class DigestSignatureSpi extends java.security.SignatureSpi {
 
     public static class SHA384 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi {
         public SHA384() { super((com.android.internal.org.bouncycastle.crypto.Digest)null, (com.android.internal.org.bouncycastle.crypto.AsymmetricBlockCipher)null); }
-    }
-
-    public static class SHA512 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi {
-        public SHA512() { super((com.android.internal.org.bouncycastle.crypto.Digest)null, (com.android.internal.org.bouncycastle.crypto.AsymmetricBlockCipher)null); }
     }
 }

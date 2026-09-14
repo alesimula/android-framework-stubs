@@ -63,17 +63,6 @@ public abstract class NtpTrustedTime implements android.util.TrustedTime {
         public boolean isSuccess() { return false; }
     }
 
-    private static final class NtpTrustedTimeImpl extends android.util.NtpTrustedTime {
-        private final android.content.Context mContext = null;
-        private NtpTrustedTimeImpl(android.content.Context p0) { super(); }
-        private android.net.ConnectivityManager getConnectivityManager() { return null; }
-        private static int saturatedCast(long p0) { return 0; }
-        public android.net.Network getDefaultNetwork() { return null; }
-        public android.util.NtpTrustedTime.NtpConfig getNtpConfigInternal() { return null; }
-        public boolean isNetworkConnected(android.net.Network p0) { return false; }
-        public android.util.NtpTrustedTime.NtpQueryResult queryNtpServer(android.net.Network p0, java.net.URI p1, java.time.Duration p2) { return null; }
-    }
-
     public static class TimeResult {
         private final long mElapsedRealtimeMillis = 0L;
         private final java.net.InetSocketAddress mNtpServerSocketAddress = null;
@@ -89,5 +78,16 @@ public abstract class NtpTrustedTime implements android.util.TrustedTime {
         public int getUncertaintyMillis() { return 0; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    private static final class NtpTrustedTimeImpl extends android.util.NtpTrustedTime {
+        private final android.content.Context mContext = null;
+        private NtpTrustedTimeImpl(android.content.Context p0) { super(); }
+        private android.net.ConnectivityManager getConnectivityManager() { return null; }
+        private static int saturatedCast(long p0) { return 0; }
+        public android.net.Network getDefaultNetwork() { return null; }
+        public android.util.NtpTrustedTime.NtpConfig getNtpConfigInternal() { return null; }
+        public boolean isNetworkConnected(android.net.Network p0) { return false; }
+        public android.util.NtpTrustedTime.NtpQueryResult queryNtpServer(android.net.Network p0, java.net.URI p1, java.time.Duration p2) { return null; }
     }
 }

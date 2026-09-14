@@ -4,12 +4,6 @@ public interface IDecorViewGestureListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.view.IDecorViewGestureListener";
     public void onInterceptionChanged(android.os.IBinder p0, boolean p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IDecorViewGestureListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInterceptionChanged(android.os.IBinder p0, boolean p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IDecorViewGestureListener {
         static final int TRANSACTION_onInterceptionChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IDecorViewGestureListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onInterceptionChanged(android.os.IBinder p0, boolean p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IDecorViewGestureListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInterceptionChanged(android.os.IBinder p0, boolean p1) throws android.os.RemoteException {}
     }
 }

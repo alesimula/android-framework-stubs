@@ -41,13 +41,23 @@ public class AudioManager {
     public static final int AUDIOFOCUS_REQUEST_GRANTED = 1;
     public static final int AUDIOFOCUS_REQUEST_WAITING_FOR_EXT_POLICY = 100;
     private static final int AUDIOPORT_GENERATION_INIT = 0;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_CARKIT = 4;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static final int AUDIO_DEVICE_CATEGORY_GLASSES = 8;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_HEADPHONES = 3;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_HEARING_AID = 6;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_OTHER = 1;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_RECEIVER = 7;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_SPEAKER = 2;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_UNKNOWN = 0;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int AUDIO_DEVICE_CATEGORY_WATCH = 5;
     public static final int AUDIO_SESSION_ID_GENERATE = 0;
     public static final long CALL_REDIRECTION_AUDIO_MODES = 189472651L;
@@ -230,6 +240,10 @@ public class AudioManager {
     public static final int MODE_IN_COMMUNICATION = 3;
     public static final int MODE_NORMAL = 0;
     public static final int MODE_RINGTONE = 1;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static final int MODE_SESSION_SUPPORT_CONCURRENT = 2;
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static final int MODE_SESSION_SUPPORT_MULTI_DEVICE = 1;
     private static final int MSG_DEVICES_CALLBACK_REGISTERED = 0;
     private static final int MSG_DEVICES_DEVICES_ADDED = 1;
     private static final int MSG_DEVICES_DEVICES_REMOVED = 2;
@@ -493,6 +507,7 @@ public class AudioManager {
     public void adjustVolume(int p0, int p1) {}
     public void adjustVolumeGroupVolume(int p0, int p1, int p2) {}
     public boolean areNavigationRepeatSoundEffectsEnabled() { return false; }
+    public boolean canManageAssistantAudio() { return false; }
     @android.annotation.SystemApi
     public void cancelMuteAwaitConnection(android.media.AudioDeviceAttributes p0) throws java.lang.IllegalStateException {}
     @android.annotation.SystemApi
@@ -576,6 +591,8 @@ public class AudioManager {
     @android.annotation.SystemApi
     public int getMinVolumeIndexForAttributes(android.media.AudioAttributes p0) { return 0; }
     public int getMode() { return 0; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public int getModeSessionSupport() { return 0; }
     @android.annotation.SystemApi
     public android.media.AudioDeviceAttributes getMutingExpectedDevice() { return null; }
     @android.annotation.SystemApi
@@ -756,6 +773,8 @@ public class AudioManager {
     public void setBluetoothA2dpOn(boolean p0) {}
     public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1) { return false; }
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public boolean setBluetoothAudioDeviceCategory(java.lang.String p0, int p1, boolean p2) { return false; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public void setBluetoothHeadsetProperties(java.lang.String p0, boolean p1, boolean p2) {}
     @java.lang.Deprecated
     public void setBluetoothScoOn(boolean p0) {}
@@ -834,6 +853,8 @@ public class AudioManager {
     @java.lang.Deprecated
     public void setWiredHeadsetOn(boolean p0) {}
     public boolean shouldNotificationSoundPlay(android.media.AudioAttributes p0) { return false; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public boolean shouldSonificationPlay(android.media.AudioAttributes p0) { return false; }
     public boolean shouldVibrate(int p0) { return false; }
     @java.lang.Deprecated
     public void startBluetoothSco() {}
@@ -868,171 +889,26 @@ public class AudioManager {
     public void unregisterVolumeGroupCallback(android.media.AudioManager.VolumeGroupCallback p0) {}
     public void waitForAudioHandlerBarrier() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioDeviceCategory {
+    private final class StrategyNonDefaultDevicesDispatcherStub extends android.media.IStrategyNonDefaultDevicesDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
+        private StrategyNonDefaultDevicesDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchNonDefDevicesChanged(int p0, java.util.List<android.media.AudioDeviceAttributes> p1) {}
+        public void register(boolean p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AudioDeviceRole {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioDirectPlaybackMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioOffloadMode {
-    }
-
-    public static abstract class AudioPlaybackCallback {
-        public AudioPlaybackCallback() {}
-        public void onPlaybackConfigChanged(java.util.List<android.media.AudioPlaybackConfiguration> p0) {}
-    }
-
-    private static class AudioPlaybackCallbackInfo {
-        final android.media.AudioManager.AudioPlaybackCallback mCb = null;
-        final android.os.Handler mHandler = null;
-        AudioPlaybackCallbackInfo(android.media.AudioManager.AudioPlaybackCallback p0, android.os.Handler p1) {}
-    }
-
-    public static abstract class AudioRecordingCallback {
-        public AudioRecordingCallback() {}
-        public void onRecordingConfigChanged(java.util.List<android.media.AudioRecordingConfiguration> p0) {}
-    }
-
-    private static class AudioRecordingCallbackInfo {
-        final android.media.AudioManager.AudioRecordingCallback mCb = null;
-        final android.os.Handler mHandler = null;
-        AudioRecordingCallbackInfo(android.media.AudioManager.AudioRecordingCallback p0, android.os.Handler p1) {}
-    }
-
     @android.annotation.SystemApi
-    public static abstract class AudioServerStateCallback {
-        public AudioServerStateCallback() {}
-        public void onAudioServerDown() {}
-        public void onAudioServerUp() {}
+    @java.lang.Deprecated
+    public static interface OnPreferredDeviceForStrategyChangedListener {
+        public void onPreferredDeviceForStrategyChanged(android.media.audiopolicy.AudioProductStrategy p0, android.media.AudioDeviceAttributes p1);
     }
 
-    final class AudioVolumeChangeDispatcherStub extends android.media.audiopolicy.IAudioVolumeChangeDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
-        AudioVolumeChangeDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void onAudioVolumeGroupChanged(int p0, int p1) {}
-        public void register(boolean p0) {}
-    }
-
-    private static final class BlockingFocusResultReceiver {
-        private final java.lang.String mFocusClientId = null;
-        private int mFocusRequestResult;
-        private final android.media.AudioManager.SafeWaitObject mLock = null;
-        private boolean mResultReceived;
-        BlockingFocusResultReceiver(java.lang.String p0) {}
-        void notifyResult(int p0) {}
-        boolean receivedResult() { return false; }
-        int requestResult() { return 0; }
-        public void waitForResult(long p0) {}
-    }
-
-    class CallInjectionModeChangedListener implements android.media.AudioManager.OnModeChangedListener {
-        CallInjectionModeChangedListener(android.media.AudioManager p0) {}
-        public void onModeChanged(int p0) {}
-    }
-
-    class CallIRedirectionClientInfo {
-        public int redirectMode;
-        public java.lang.ref.WeakReference trackOrRecord;
-        CallIRedirectionClientInfo(android.media.AudioManager p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CallRedirectionMode {
-    }
-
-    private final class CapturePresetDevicesRoleDispatcherStub extends android.media.ICapturePresetDevicesRoleDispatcher.Stub {
-        private CapturePresetDevicesRoleDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchDevicesRoleChanged(int p0, int p1, java.util.List<android.media.AudioDeviceAttributes> p2) {}
-    }
-
-    private final class CommunicationDeviceDispatcherStub extends android.media.ICommunicationDeviceDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
-        private CommunicationDeviceDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchCommunicationDeviceChanged(int p0) {}
-        public void register(boolean p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CsdWarning {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeviceConnectionState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeviceVolumeBehavior {
-    }
-
-    private class DevRoleListenerInfo<T extends java.lang.Object> {
-        final java.util.concurrent.Executor mExecutor = null;
-        final T mListener = null;
-        DevRoleListenerInfo(java.util.concurrent.Executor p0, T p1) {}
-    }
-
-    private class DevRoleListeners<T extends java.lang.Object> {
-        private final java.lang.Object mDevRoleListenersLock = null;
-        private java.util.ArrayList<android.media.AudioManager.DevRoleListenerInfo<T>> mListenerInfos;
-        private DevRoleListeners(android.media.AudioManager p0) {}
-        private android.media.AudioManager.DevRoleListenerInfo<T> getDevRoleListenerInfo(T p0) { return null; }
-        private boolean hasDevRoleListener(T p0) { return false; }
-        private boolean removeDevRoleListener(T p0) { return false; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EncodedSurroundOutputMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Flags {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FocusIsolationExitMode {
-    }
-
-    public static class FocusIsolationToken {
-        private final android.os.IBinder mIBinder = null;
-        private FocusIsolationToken(android.os.IBinder p0) {}
-    }
-
-    private static class FocusRequestInfo {
-        final android.os.Handler mHandler = null;
-        final android.media.AudioFocusRequest mRequest = null;
-        FocusRequestInfo(android.media.AudioFocusRequest p0, android.os.Handler p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FocusRequestResult {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HardeningMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HfpAudioDisconnectReason {
-    }
-
-    private static final class IDevicesForAttributesCallbackStub extends android.media.IDevicesForAttributesCallback.Stub {
-        android.media.CallbackUtil.ListenerInfo<android.media.AudioManager.OnDevicesForAttributesChangedListener> mInfo;
-        IDevicesForAttributesCallbackStub(android.media.AudioManager.OnDevicesForAttributesChangedListener p0, java.util.concurrent.Executor p1) { super(); }
-        public void onDevicesForAttributesChanged(android.media.AudioAttributes p0, boolean p1, java.util.List<android.media.AudioDeviceAttributes> p2) {}
-        public void register(boolean p0, android.media.AudioAttributes p1) {}
-    }
-
-    final class ModeDispatcherStub extends android.media.IAudioModeDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
-        ModeDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchAudioModeChanged(int p0) {}
+    private final class MuteAwaitConnectionDispatcherStub extends android.media.IMuteAwaitConnectionCallback.Stub {
+        private MuteAwaitConnectionDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchOnMutedUntilConnection(android.media.AudioDeviceAttributes p0, int[] p1) {}
+        public void dispatchOnUnmutedEvent(int p0, android.media.AudioDeviceAttributes p1, int[] p2) {}
         public void register(boolean p0) {}
     }
 
@@ -1050,17 +926,79 @@ public class AudioManager {
         }
     }
 
-    private final class MuteAwaitConnectionDispatcherStub extends android.media.IMuteAwaitConnectionCallback.Stub {
-        private MuteAwaitConnectionDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchOnMutedUntilConnection(android.media.AudioDeviceAttributes p0, int[] p1) {}
-        public void dispatchOnUnmutedEvent(int p0, android.media.AudioDeviceAttributes p1, int[] p2) {}
-        public void register(boolean p0) {}
-    }
-
     private class NativeEventHandlerDelegate {
         private final android.os.Handler mHandler = null;
         NativeEventHandlerDelegate(android.media.AudioManager p0, android.media.AudioDeviceCallback p1, android.os.Handler p2) {}
         android.os.Handler getHandler() { return null; }
+    }
+
+    private static final class BlockingFocusResultReceiver {
+        private final java.lang.String mFocusClientId = null;
+        private int mFocusRequestResult;
+        private final android.media.AudioManager.SafeWaitObject mLock = null;
+        private boolean mResultReceived;
+        BlockingFocusResultReceiver(java.lang.String p0) {}
+        void notifyResult(int p0) {}
+        boolean receivedResult() { return false; }
+        int requestResult() { return 0; }
+        public void waitForResult(long p0) {}
+    }
+
+    private static final class RecordConfigChangeCallbackData {
+        final android.media.AudioManager.AudioRecordingCallback mCb = null;
+        final java.util.List<android.media.AudioRecordingConfiguration> mConfigs = null;
+        RecordConfigChangeCallbackData(android.media.AudioManager.AudioRecordingCallback p0, java.util.List<android.media.AudioRecordingConfiguration> p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HardeningMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CallRedirectionMode {
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnPreferredDevicesForCapturePresetChangedListener {
+        public void onPreferredDevicesForCapturePresetChanged(int p0, java.util.List<android.media.AudioDeviceAttributes> p1);
+    }
+
+    @android.annotation.SystemApi
+    public static abstract class VolumeGroupCallback {
+        public VolumeGroupCallback() {}
+        public void onAudioVolumeGroupChanged(int p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioOffloadMode {
+    }
+
+    private final class CommunicationDeviceDispatcherStub extends android.media.ICommunicationDeviceDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
+        private CommunicationDeviceDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchCommunicationDeviceChanged(int p0) {}
+        public void register(boolean p0) {}
+    }
+
+    private final class StrategyPreferredDevicesDispatcherStub extends android.media.IStrategyPreferredDevicesDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
+        private StrategyPreferredDevicesDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchPrefDevicesChanged(int p0, java.util.List<android.media.AudioDeviceAttributes> p1) {}
+        public void register(boolean p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PublicStreamTypes {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioDeviceCategory {
+    }
+
+    public static interface OnAudioFocusChangeListener {
+        public void onAudioFocusChange(int p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CsdWarning {
     }
 
     private class OnAmPortUpdateListener implements android.media.AudioManager.OnAudioPortUpdateListener {
@@ -1071,111 +1009,20 @@ public class AudioManager {
         public void onServiceDied() {}
     }
 
-    public static interface OnAudioFocusChangeListener {
-        public void onAudioFocusChange(int p0);
-    }
-
-    public static interface OnAudioPortUpdateListener {
-        public void onAudioPatchListUpdate(android.media.AudioPatch[] p0);
-        public void onAudioPortListUpdate(android.media.AudioPort[] p0);
-        public void onServiceDied();
-    }
-
-    public static interface OnCommunicationDeviceChangedListener {
-        public void onCommunicationDeviceChanged(android.media.AudioDeviceInfo p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnDevicesForAttributesChangedListener {
-        public void onDevicesForAttributesChanged(android.media.AudioAttributes p0, java.util.List<android.media.AudioDeviceAttributes> p1);
-    }
-
-    public static interface OnModeChangedListener {
-        public void onModeChanged(int p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnNonDefaultDevicesForStrategyChangedListener {
-        public void onNonDefaultDevicesForStrategyChanged(android.media.audiopolicy.AudioProductStrategy p0, java.util.List<android.media.AudioDeviceAttributes> p1);
-    }
-
-    @android.annotation.SystemApi
-    @java.lang.Deprecated
-    public static interface OnPreferredDeviceForStrategyChangedListener {
-        public void onPreferredDeviceForStrategyChanged(android.media.audiopolicy.AudioProductStrategy p0, android.media.AudioDeviceAttributes p1);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnPreferredDevicesForCapturePresetChangedListener {
-        public void onPreferredDevicesForCapturePresetChanged(int p0, java.util.List<android.media.AudioDeviceAttributes> p1);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnPreferredDevicesForStrategyChangedListener {
-        public void onPreferredDevicesForStrategyChanged(android.media.audiopolicy.AudioProductStrategy p0, java.util.List<android.media.AudioDeviceAttributes> p1);
-    }
-
-    public static interface OnPreferredMixerAttributesChangedListener {
-        public void onPreferredMixerAttributesChanged(android.media.AudioAttributes p0, android.media.AudioDeviceInfo p1, android.media.AudioMixerAttributes p2);
-    }
-
     private static final class PlaybackConfigChangeCallbackData {
         final android.media.AudioManager.AudioPlaybackCallback mCb = null;
         final java.util.List<android.media.AudioPlaybackConfiguration> mConfigs = null;
         PlaybackConfigChangeCallbackData(android.media.AudioManager.AudioPlaybackCallback p0, java.util.List<android.media.AudioPlaybackConfiguration> p1) {}
     }
 
-    private final class PreferredMixerAttributesDispatcherStub extends android.media.IPreferredMixerAttributesDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
-        private PreferredMixerAttributesDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchPrefMixerAttributesChanged(android.media.AudioAttributes p0, int p1, android.media.AudioMixerAttributes p2) {}
-        public void register(boolean p0) {}
+    private final class CapturePresetDevicesRoleDispatcherStub extends android.media.ICapturePresetDevicesRoleDispatcher.Stub {
+        private CapturePresetDevicesRoleDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchDevicesRoleChanged(int p0, int p1, java.util.List<android.media.AudioDeviceAttributes> p2) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PublicStreamTypes {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PublicStreamTypesWithDefault {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PublicVolumeFlags {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    private static @interface QueryVolCommand {
-    }
-
-    private static final class RecordConfigChangeCallbackData {
-        final android.media.AudioManager.AudioRecordingCallback mCb = null;
-        final java.util.List<android.media.AudioRecordingConfiguration> mConfigs = null;
-        RecordConfigChangeCallbackData(android.media.AudioManager.AudioRecordingCallback p0, java.util.List<android.media.AudioRecordingConfiguration> p1) {}
-    }
-
-    private static final class SafeWaitObject {
-        private boolean mQuit;
-        private SafeWaitObject() {}
-        public void safeNotify() {}
-        public void safeWait(long p0) throws java.lang.InterruptedException {}
-    }
-
-    private class ServiceEventHandlerDelegate {
-        private final android.os.Handler mHandler = null;
-        ServiceEventHandlerDelegate(android.media.AudioManager p0, android.os.Handler p1) {}
-        android.os.Handler getHandler() { return null; }
-    }
-
-    private final class StrategyNonDefaultDevicesDispatcherStub extends android.media.IStrategyNonDefaultDevicesDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
-        private StrategyNonDefaultDevicesDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchNonDefDevicesChanged(int p0, java.util.List<android.media.AudioDeviceAttributes> p1) {}
-        public void register(boolean p0) {}
-    }
-
-    private final class StrategyPreferredDevicesDispatcherStub extends android.media.IStrategyPreferredDevicesDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
-        private StrategyPreferredDevicesDispatcherStub(android.media.AudioManager p0) { super(); }
-        public void dispatchPrefDevicesChanged(int p0, java.util.List<android.media.AudioDeviceAttributes> p1) {}
-        public void register(boolean p0) {}
+    class CallInjectionModeChangedListener implements android.media.AudioManager.OnModeChangedListener {
+        CallInjectionModeChangedListener(android.media.AudioManager p0) {}
+        public void onModeChanged(int p0) {}
     }
 
     final class StreamAliasingDispatcherStub extends android.media.IStreamAliasingDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
@@ -1185,15 +1032,181 @@ public class AudioManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SystemSoundEffect {
+    public static @interface PublicVolumeFlags {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SystemVolumeFlags {
+    public static @interface DeviceConnectionState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface VolumeAdjustment {
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnDevicesForAttributesChangedListener {
+        public void onDevicesForAttributesChanged(android.media.AudioAttributes p0, java.util.List<android.media.AudioDeviceAttributes> p1);
+    }
+
+    class CallIRedirectionClientInfo {
+        public int redirectMode;
+        public java.lang.ref.WeakReference trackOrRecord;
+        CallIRedirectionClientInfo(android.media.AudioManager p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    private static @interface QueryVolCommand {
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnNonDefaultDevicesForStrategyChangedListener {
+        public void onNonDefaultDevicesForStrategyChanged(android.media.audiopolicy.AudioProductStrategy p0, java.util.List<android.media.AudioDeviceAttributes> p1);
+    }
+
+    public static class FocusIsolationToken {
+        private final android.os.IBinder mIBinder = null;
+        private FocusIsolationToken(android.os.IBinder p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioMode {
+    }
+
+    private static final class SafeWaitObject {
+        private boolean mQuit;
+        private SafeWaitObject() {}
+        public void safeNotify() {}
+        public void safeWait(long p0) throws java.lang.InterruptedException {}
+    }
+
+    public static abstract class AudioPlaybackCallback {
+        public AudioPlaybackCallback() {}
+        public void onPlaybackConfigChanged(java.util.List<android.media.AudioPlaybackConfiguration> p0) {}
+    }
+
+    public static interface OnAudioPortUpdateListener {
+        public void onAudioPatchListUpdate(android.media.AudioPatch[] p0);
+        public void onAudioPortListUpdate(android.media.AudioPort[] p0);
+        public void onServiceDied();
+    }
+
+    private static final class IDevicesForAttributesCallbackStub extends android.media.IDevicesForAttributesCallback.Stub {
+        android.media.CallbackUtil.ListenerInfo<android.media.AudioManager.OnDevicesForAttributesChangedListener> mInfo;
+        IDevicesForAttributesCallbackStub(android.media.AudioManager.OnDevicesForAttributesChangedListener p0, java.util.concurrent.Executor p1) { super(); }
+        public void onDevicesForAttributesChanged(android.media.AudioAttributes p0, boolean p1, java.util.List<android.media.AudioDeviceAttributes> p2) {}
+        public void register(boolean p0, android.media.AudioAttributes p1) {}
+    }
+
+    private static class AudioRecordingCallbackInfo {
+        final android.media.AudioManager.AudioRecordingCallback mCb = null;
+        final android.os.Handler mHandler = null;
+        AudioRecordingCallbackInfo(android.media.AudioManager.AudioRecordingCallback p0, android.os.Handler p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EncodedSurroundOutputMode {
+    }
+
+    private class DevRoleListenerInfo<T extends java.lang.Object> {
+        final java.util.concurrent.Executor mExecutor = null;
+        final T mListener = null;
+        DevRoleListenerInfo(java.util.concurrent.Executor p0, T p1) {}
+    }
+
+    private static class AudioPlaybackCallbackInfo {
+        final android.media.AudioManager.AudioPlaybackCallback mCb = null;
+        final android.os.Handler mHandler = null;
+        AudioPlaybackCallbackInfo(android.media.AudioManager.AudioPlaybackCallback p0, android.os.Handler p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioDirectPlaybackMode {
+    }
+
+    private static class FocusRequestInfo {
+        final android.os.Handler mHandler = null;
+        final android.media.AudioFocusRequest mRequest = null;
+        FocusRequestInfo(android.media.AudioFocusRequest p0, android.os.Handler p1) {}
+    }
+
+    public static interface OnModeChangedListener {
+        public void onModeChanged(int p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FocusIsolationExitMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FocusRequestResult {
+    }
+
+    final class ModeDispatcherStub extends android.media.IAudioModeDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
+        ModeDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchAudioModeChanged(int p0) {}
+        public void register(boolean p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Flags {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HfpAudioDisconnectReason {
+    }
+
+    public static interface OnCommunicationDeviceChangedListener {
+        public void onCommunicationDeviceChanged(android.media.AudioDeviceInfo p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ModeSessionSupport {
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnPreferredDevicesForStrategyChangedListener {
+        public void onPreferredDevicesForStrategyChanged(android.media.audiopolicy.AudioProductStrategy p0, java.util.List<android.media.AudioDeviceAttributes> p1);
+    }
+
+    public static abstract class AudioRecordingCallback {
+        public AudioRecordingCallback() {}
+        public void onRecordingConfigChanged(java.util.List<android.media.AudioRecordingConfiguration> p0) {}
+    }
+
+    @android.annotation.SystemApi
+    public static abstract class AudioServerStateCallback {
+        public AudioServerStateCallback() {}
+        public void onAudioServerDown() {}
+        public void onAudioServerUp() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PublicStreamTypesWithDefault {
+    }
+
+    public static interface OnPreferredMixerAttributesChangedListener {
+        public void onPreferredMixerAttributesChanged(android.media.AudioAttributes p0, android.media.AudioDeviceInfo p1, android.media.AudioMixerAttributes p2);
+    }
+
+    private class ServiceEventHandlerDelegate {
+        private final android.os.Handler mHandler = null;
+        ServiceEventHandlerDelegate(android.media.AudioManager p0, android.os.Handler p1) {}
+        android.os.Handler getHandler() { return null; }
+    }
+
+    private class DevRoleListeners<T extends java.lang.Object> {
+        private final java.lang.Object mDevRoleListenersLock = null;
+        private java.util.ArrayList<android.media.AudioManager.DevRoleListenerInfo<T>> mListenerInfos;
+        private DevRoleListeners(android.media.AudioManager p0) {}
+        private android.media.AudioManager.DevRoleListenerInfo<T> getDevRoleListenerInfo(T p0) { return null; }
+        private boolean hasDevRoleListener(T p0) { return false; }
+        private boolean removeDevRoleListener(T p0) { return false; }
+    }
+
+    private final class PreferredMixerAttributesDispatcherStub extends android.media.IPreferredMixerAttributesDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
+        private PreferredMixerAttributesDispatcherStub(android.media.AudioManager p0) { super(); }
+        public void dispatchPrefMixerAttributesChanged(android.media.AudioAttributes p0, int p1, android.media.AudioMixerAttributes p2) {}
+        public void register(boolean p0) {}
     }
 
     private static final class VolumeCacheQuery {
@@ -1208,9 +1221,21 @@ public class AudioManager {
         public java.lang.String toString() { return null; }
     }
 
-    @android.annotation.SystemApi
-    public static abstract class VolumeGroupCallback {
-        public VolumeGroupCallback() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SystemVolumeFlags {
+    }
+
+    final class AudioVolumeChangeDispatcherStub extends android.media.audiopolicy.IAudioVolumeChangeDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
+        AudioVolumeChangeDispatcherStub(android.media.AudioManager p0) { super(); }
         public void onAudioVolumeGroupChanged(int p0, int p1) {}
+        public void register(boolean p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DeviceVolumeBehavior {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SystemSoundEffect {
     }
 }

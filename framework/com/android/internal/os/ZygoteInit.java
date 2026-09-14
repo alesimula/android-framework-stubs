@@ -40,13 +40,13 @@ public class ZygoteInit {
     private static void preloadCompatConfig() {}
     private static void preloadSharedLibraries() {}
     private static void preloadTextResources() {}
-    private static void prepareSystemServerProfile(java.lang.String p0) throws android.os.RemoteException {}
+    private static void prepareSystemServerProfile(java.lang.String p0) {}
     public static void setApiDenylistExemptions(java.lang.String[] p0) {}
     public static void setHiddenApiAccessLogSampleRate(int p0) {}
     public static void setHiddenApiUsageLogger(dalvik.system.VMRuntime.HiddenApiUsageLogger p0) {}
     private static boolean shouldProfileBootClasspath() { return false; }
     static boolean shouldProfileSystemServer() { return false; }
-    private static void waitForSecondaryZygote(java.lang.String p0) {}
+    private static void waitForSecondaryZygote(java.lang.String p0) throws java.io.IOException {}
     private static void warmUpJcaProviders() {}
     public static java.lang.Runnable zygoteInit(int p0, long[] p1, long[] p2, java.lang.String[] p3, java.lang.ClassLoader p4) { return null; }
 }

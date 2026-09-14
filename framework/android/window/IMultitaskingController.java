@@ -5,13 +5,6 @@ public interface IMultitaskingController extends android.os.IInterface {
     public android.window.IMultitaskingDelegate getClientInterface(android.window.IMultitaskingControllerCallback p0) throws android.os.RemoteException;
     public android.window.IMultitaskingControllerCallback setMultitaskingDelegate(android.window.IMultitaskingDelegate p0) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IMultitaskingController {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.window.IMultitaskingDelegate getClientInterface(android.window.IMultitaskingControllerCallback p0) throws android.os.RemoteException { return null; }
-        public android.window.IMultitaskingControllerCallback setMultitaskingDelegate(android.window.IMultitaskingDelegate p0) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IMultitaskingController {
         static final int TRANSACTION_getClientInterface = 2;
         static final int TRANSACTION_setMultitaskingDelegate = 1;
@@ -30,5 +23,12 @@ public interface IMultitaskingController extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public android.window.IMultitaskingControllerCallback setMultitaskingDelegate(android.window.IMultitaskingDelegate p0) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.window.IMultitaskingController {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.window.IMultitaskingDelegate getClientInterface(android.window.IMultitaskingControllerCallback p0) throws android.os.RemoteException { return null; }
+        public android.window.IMultitaskingControllerCallback setMultitaskingDelegate(android.window.IMultitaskingDelegate p0) throws android.os.RemoteException { return null; }
     }
 }

@@ -4,12 +4,6 @@ public interface IAnrWarningCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.IAnrWarningCallback";
     public void onAnrImminent(android.app.AnrWarningResult p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.IAnrWarningCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAnrImminent(android.app.AnrWarningResult p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.IAnrWarningCallback {
         static final int TRANSACTION_onAnrImminent = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IAnrWarningCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAnrImminent(android.app.AnrWarningResult p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.IAnrWarningCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAnrImminent(android.app.AnrWarningResult p0) throws android.os.RemoteException {}
     }
 }

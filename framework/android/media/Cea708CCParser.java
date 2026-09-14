@@ -38,88 +38,6 @@ class Cea708CCParser {
     private int parseServiceBlockData(byte[] p0, int p1) { return 0; }
     public void parse(byte[] p0) {}
 
-    public static class CaptionColor {
-        private static final int[] COLOR_MAP = null;
-        public static final int OPACITY_FLASH = 1;
-        private static final int[] OPACITY_MAP = null;
-        public static final int OPACITY_SOLID = 0;
-        public static final int OPACITY_TRANSLUCENT = 2;
-        public static final int OPACITY_TRANSPARENT = 3;
-        public final int blue = 0;
-        public final int green = 0;
-        public final int opacity = 0;
-        public final int red = 0;
-        public CaptionColor(int p0, int p1, int p2, int p3) {}
-        public int getArgbValue() { return 0; }
-    }
-
-    public static class CaptionEvent {
-        public final java.lang.Object obj = null;
-        public final int type = 0;
-        public CaptionEvent(int p0, java.lang.Object p1) {}
-    }
-
-    public static class CaptionPenAttr {
-        public static final int OFFSET_NORMAL = 1;
-        public static final int OFFSET_SUBSCRIPT = 0;
-        public static final int OFFSET_SUPERSCRIPT = 2;
-        public static final int PEN_SIZE_LARGE = 2;
-        public static final int PEN_SIZE_SMALL = 0;
-        public static final int PEN_SIZE_STANDARD = 1;
-        public final int edgeType = 0;
-        public final int fontTag = 0;
-        public final boolean italic = false;
-        public final int penOffset = 0;
-        public final int penSize = 0;
-        public final int textTag = 0;
-        public final boolean underline = false;
-        public CaptionPenAttr(int p0, int p1, int p2, int p3, int p4, boolean p5, boolean p6) {}
-    }
-
-    public static class CaptionPenColor {
-        public final android.media.Cea708CCParser.CaptionColor backgroundColor = null;
-        public final android.media.Cea708CCParser.CaptionColor edgeColor = null;
-        public final android.media.Cea708CCParser.CaptionColor foregroundColor = null;
-        public CaptionPenColor(android.media.Cea708CCParser.CaptionColor p0, android.media.Cea708CCParser.CaptionColor p1, android.media.Cea708CCParser.CaptionColor p2) {}
-    }
-
-    public static class CaptionPenLocation {
-        public final int column = 0;
-        public final int row = 0;
-        public CaptionPenLocation(int p0, int p1) {}
-    }
-
-    public static class CaptionWindow {
-        public final int anchorHorizontal = 0;
-        public final int anchorId = 0;
-        public final int anchorVertical = 0;
-        public final int columnCount = 0;
-        public final boolean columnLock = false;
-        public final int id = 0;
-        public final int penStyle = 0;
-        public final int priority = 0;
-        public final boolean relativePositioning = false;
-        public final int rowCount = 0;
-        public final boolean rowLock = false;
-        public final boolean visible = false;
-        public final int windowStyle = 0;
-        public CaptionWindow(int p0, boolean p1, boolean p2, boolean p3, int p4, boolean p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12) {}
-    }
-
-    public static class CaptionWindowAttr {
-        public final android.media.Cea708CCParser.CaptionColor borderColor = null;
-        public final int borderType = 0;
-        public final int displayEffect = 0;
-        public final int effectDirection = 0;
-        public final int effectSpeed = 0;
-        public final android.media.Cea708CCParser.CaptionColor fillColor = null;
-        public final int justify = 0;
-        public final int printDirection = 0;
-        public final int scrollDirection = 0;
-        public final boolean wordWrap = false;
-        public CaptionWindowAttr(android.media.Cea708CCParser.CaptionColor p0, android.media.Cea708CCParser.CaptionColor p1, int p2, boolean p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
-    }
-
     private static class Const {
         public static final int CODE_C0_BS = 8;
         public static final int CODE_C0_CR = 13;
@@ -199,5 +117,87 @@ class Cea708CCParser {
 
     static interface DisplayListener {
         public void emitEvent(android.media.Cea708CCParser.CaptionEvent p0);
+    }
+
+    public static class CaptionWindow {
+        public final int anchorHorizontal = 0;
+        public final int anchorId = 0;
+        public final int anchorVertical = 0;
+        public final int columnCount = 0;
+        public final boolean columnLock = false;
+        public final int id = 0;
+        public final int penStyle = 0;
+        public final int priority = 0;
+        public final boolean relativePositioning = false;
+        public final int rowCount = 0;
+        public final boolean rowLock = false;
+        public final boolean visible = false;
+        public final int windowStyle = 0;
+        public CaptionWindow(int p0, boolean p1, boolean p2, boolean p3, int p4, boolean p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12) {}
+    }
+
+    public static class CaptionPenAttr {
+        public static final int OFFSET_NORMAL = 1;
+        public static final int OFFSET_SUBSCRIPT = 0;
+        public static final int OFFSET_SUPERSCRIPT = 2;
+        public static final int PEN_SIZE_LARGE = 2;
+        public static final int PEN_SIZE_SMALL = 0;
+        public static final int PEN_SIZE_STANDARD = 1;
+        public final int edgeType = 0;
+        public final int fontTag = 0;
+        public final boolean italic = false;
+        public final int penOffset = 0;
+        public final int penSize = 0;
+        public final int textTag = 0;
+        public final boolean underline = false;
+        public CaptionPenAttr(int p0, int p1, int p2, int p3, int p4, boolean p5, boolean p6) {}
+    }
+
+    public static class CaptionPenLocation {
+        public final int column = 0;
+        public final int row = 0;
+        public CaptionPenLocation(int p0, int p1) {}
+    }
+
+    public static class CaptionEvent {
+        public final java.lang.Object obj = null;
+        public final int type = 0;
+        public CaptionEvent(int p0, java.lang.Object p1) {}
+    }
+
+    public static class CaptionPenColor {
+        public final android.media.Cea708CCParser.CaptionColor backgroundColor = null;
+        public final android.media.Cea708CCParser.CaptionColor edgeColor = null;
+        public final android.media.Cea708CCParser.CaptionColor foregroundColor = null;
+        public CaptionPenColor(android.media.Cea708CCParser.CaptionColor p0, android.media.Cea708CCParser.CaptionColor p1, android.media.Cea708CCParser.CaptionColor p2) {}
+    }
+
+    public static class CaptionColor {
+        private static final int[] COLOR_MAP = null;
+        public static final int OPACITY_FLASH = 1;
+        private static final int[] OPACITY_MAP = null;
+        public static final int OPACITY_SOLID = 0;
+        public static final int OPACITY_TRANSLUCENT = 2;
+        public static final int OPACITY_TRANSPARENT = 3;
+        public final int blue = 0;
+        public final int green = 0;
+        public final int opacity = 0;
+        public final int red = 0;
+        public CaptionColor(int p0, int p1, int p2, int p3) {}
+        public int getArgbValue() { return 0; }
+    }
+
+    public static class CaptionWindowAttr {
+        public final android.media.Cea708CCParser.CaptionColor borderColor = null;
+        public final int borderType = 0;
+        public final int displayEffect = 0;
+        public final int effectDirection = 0;
+        public final int effectSpeed = 0;
+        public final android.media.Cea708CCParser.CaptionColor fillColor = null;
+        public final int justify = 0;
+        public final int printDirection = 0;
+        public final int scrollDirection = 0;
+        public final boolean wordWrap = false;
+        public CaptionWindowAttr(android.media.Cea708CCParser.CaptionColor p0, android.media.Cea708CCParser.CaptionColor p1, int p2, boolean p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
     }
 }

@@ -41,14 +41,6 @@ public class SurfaceTexture {
     public void setOnSetFrameRateListener(android.graphics.SurfaceTexture.OnSetFrameRateListener p0, android.os.Handler p1) {}
     public void updateTexImage() {}
 
-    public static interface OnFrameAvailableListener {
-        public void onFrameAvailable(android.graphics.SurfaceTexture p0);
-    }
-
-    public static interface OnSetFrameRateListener {
-        public void onSetFrameRate(android.graphics.SurfaceTexture p0, float p1, int p2, int p3);
-    }
-
     @java.lang.Deprecated
     public static class OutOfResourcesException extends java.lang.Exception {
         public OutOfResourcesException() { super(); }
@@ -60,5 +52,13 @@ public class SurfaceTexture {
         final int mCompatibility = 0;
         final float mFrameRate = 0.0f;
         SetFrameRateArgs(float p0, int p1, int p2) {}
+    }
+
+    public static interface OnSetFrameRateListener {
+        public void onSetFrameRate(android.graphics.SurfaceTexture p0, float p1, int p2, int p3);
+    }
+
+    public static interface OnFrameAvailableListener {
+        public void onFrameAvailable(android.graphics.SurfaceTexture p0);
     }
 }

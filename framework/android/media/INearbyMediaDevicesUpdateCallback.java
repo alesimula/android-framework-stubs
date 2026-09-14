@@ -4,12 +4,6 @@ public interface INearbyMediaDevicesUpdateCallback extends android.os.IInterface
     public static final java.lang.String DESCRIPTOR = "android.media.INearbyMediaDevicesUpdateCallback";
     public void onDevicesUpdated(java.util.List<android.media.NearbyDevice> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.INearbyMediaDevicesUpdateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDevicesUpdated(java.util.List<android.media.NearbyDevice> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.INearbyMediaDevicesUpdateCallback {
         static final int TRANSACTION_onDevicesUpdated = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface INearbyMediaDevicesUpdateCallback extends android.os.IInterface
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onDevicesUpdated(java.util.List<android.media.NearbyDevice> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.INearbyMediaDevicesUpdateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDevicesUpdated(java.util.List<android.media.NearbyDevice> p0) throws android.os.RemoteException {}
     }
 }

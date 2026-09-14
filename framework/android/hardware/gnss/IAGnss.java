@@ -12,13 +12,6 @@ public interface IAGnss extends android.os.IInterface {
     public void setCallback(android.hardware.gnss.IAGnssCallback p0) throws android.os.RemoteException;
     public void setServer(int p0, java.lang.String p1, int p2) throws android.os.RemoteException;
 
-    public static @interface ApnIpType {
-        public static final int INVALID = 0;
-        public static final int IPV4 = 1;
-        public static final int IPV4V6 = 3;
-        public static final int IPV6 = 2;
-    }
-
     public static class Default implements android.hardware.gnss.IAGnss {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -61,5 +54,12 @@ public interface IAGnss extends android.os.IInterface {
             public void setCallback(android.hardware.gnss.IAGnssCallback p0) throws android.os.RemoteException {}
             public void setServer(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static @interface ApnIpType {
+        public static final int INVALID = 0;
+        public static final int IPV4 = 1;
+        public static final int IPV4V6 = 3;
+        public static final int IPV6 = 2;
     }
 }

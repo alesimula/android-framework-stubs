@@ -6,14 +6,6 @@ public interface IChooserControllerCallback extends android.os.IInterface {
     public void onClosed() throws android.os.RemoteException;
     public void registerChooserController(android.service.chooser.IChooserController p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.chooser.IChooserControllerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onBoundsChanged(android.graphics.Rect p0, android.graphics.Rect p1) throws android.os.RemoteException {}
-        public void onClosed() throws android.os.RemoteException {}
-        public void registerChooserController(android.service.chooser.IChooserController p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.chooser.IChooserControllerCallback {
         static final int TRANSACTION_onBoundsChanged = 2;
         static final int TRANSACTION_onClosed = 3;
@@ -34,5 +26,13 @@ public interface IChooserControllerCallback extends android.os.IInterface {
             public void onClosed() throws android.os.RemoteException {}
             public void registerChooserController(android.service.chooser.IChooserController p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.chooser.IChooserControllerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onBoundsChanged(android.graphics.Rect p0, android.graphics.Rect p1) throws android.os.RemoteException {}
+        public void onClosed() throws android.os.RemoteException {}
+        public void registerChooserController(android.service.chooser.IChooserController p0) throws android.os.RemoteException {}
     }
 }

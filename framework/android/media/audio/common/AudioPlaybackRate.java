@@ -15,15 +15,15 @@ public class AudioPlaybackRate implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static @interface TimestretchMode {
+        public static final int DEFAULT = 0;
+        public static final int VOICE = 1;
+    }
+
     public static @interface TimestretchFallbackMode {
         public static final int FAIL = 2;
         public static final int MUTE = 1;
         public static final int SYS_RESERVED_CUT_REPEAT = -1;
         public static final int SYS_RESERVED_DEFAULT = 0;
-    }
-
-    public static @interface TimestretchMode {
-        public static final int DEFAULT = 0;
-        public static final int VOICE = 1;
     }
 }

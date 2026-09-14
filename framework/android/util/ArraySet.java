@@ -4,6 +4,8 @@ public final class ArraySet<E extends java.lang.Object> implements java.util.Col
     private static final int BASE_SIZE = 4;
     private static final int CACHE_SIZE = 10;
     private static final boolean DEBUG = false;
+    private static final int IDENTITY_FLAG = -2147483648;
+    private static final int SIZE_MASK = 2147483647;
     private static final java.lang.String TAG = "ArraySet";
     static java.lang.Object[] sBaseCache;
     private static final java.lang.Object sBaseCacheLock = null;
@@ -14,7 +16,6 @@ public final class ArraySet<E extends java.lang.Object> implements java.util.Col
     java.lang.Object[] mArray;
     private android.util.MapCollections<E, E> mCollections;
     int[] mHashes;
-    private final boolean mIdentityHashCode = false;
     int mSize;
     public ArraySet() {}
     public ArraySet(int p0) {}
@@ -23,12 +24,14 @@ public final class ArraySet<E extends java.lang.Object> implements java.util.Col
     public ArraySet(java.util.Collection<? extends E> p0) {}
     public ArraySet(E[] p0) {}
     private void allocArrays(int p0) {}
-    private int binarySearch(int[] p0, int p1) { return 0; }
+    private int binarySearch(int[] p0, int p1, int p2) { return 0; }
     private static void freeArrays(int[] p0, java.lang.Object[] p1, int p2) {}
     private android.util.MapCollections<E, E> getCollection() { return null; }
+    private int getHashCode(java.lang.Object p0) { return 0; }
     private int getNewShrunkenSize() { return 0; }
     private int indexOf(java.lang.Object p0, int p1) { return 0; }
     private int indexOfNull() { return 0; }
+    private boolean isIdentity() { return false; }
     private boolean shouldShrink() { return false; }
     public boolean add(E p0) { return false; }
     public void addAll(android.util.ArraySet<? extends E> p0) {}

@@ -10,18 +10,6 @@ public interface IQuickAccessWalletService extends android.os.IInterface {
     public void registerWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0, android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p1) throws android.os.RemoteException;
     public void unregisterWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.quickaccesswallet.IQuickAccessWalletService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onGestureTargetActivityIntentRequested(android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p0) throws android.os.RemoteException {}
-        public void onTargetActivityIntentRequested(android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p0) throws android.os.RemoteException {}
-        public void onWalletCardSelected(android.service.quickaccesswallet.SelectWalletCardRequest p0) throws android.os.RemoteException {}
-        public void onWalletCardsRequested(android.service.quickaccesswallet.GetWalletCardsRequest p0, android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p1) throws android.os.RemoteException {}
-        public void onWalletDismissed() throws android.os.RemoteException {}
-        public void registerWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0, android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p1) throws android.os.RemoteException {}
-        public void unregisterWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.quickaccesswallet.IQuickAccessWalletService {
         static final int TRANSACTION_onGestureTargetActivityIntentRequested = 7;
         static final int TRANSACTION_onTargetActivityIntentRequested = 6;
@@ -50,5 +38,17 @@ public interface IQuickAccessWalletService extends android.os.IInterface {
             public void registerWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0, android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p1) throws android.os.RemoteException {}
             public void unregisterWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.quickaccesswallet.IQuickAccessWalletService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onGestureTargetActivityIntentRequested(android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p0) throws android.os.RemoteException {}
+        public void onTargetActivityIntentRequested(android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p0) throws android.os.RemoteException {}
+        public void onWalletCardSelected(android.service.quickaccesswallet.SelectWalletCardRequest p0) throws android.os.RemoteException {}
+        public void onWalletCardsRequested(android.service.quickaccesswallet.GetWalletCardsRequest p0, android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p1) throws android.os.RemoteException {}
+        public void onWalletDismissed() throws android.os.RemoteException {}
+        public void registerWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0, android.service.quickaccesswallet.IQuickAccessWalletServiceCallbacks p1) throws android.os.RemoteException {}
+        public void unregisterWalletServiceEventListener(android.service.quickaccesswallet.WalletServiceEventListenerRequest p0) throws android.os.RemoteException {}
     }
 }

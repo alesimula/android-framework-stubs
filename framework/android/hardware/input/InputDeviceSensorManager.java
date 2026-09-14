@@ -37,23 +37,6 @@ public class InputDeviceSensorManager {
         public void onInputSensorChanged(int p0, int p1, int p2, long p3, float[] p4) throws android.os.RemoteException {}
     }
 
-    private static final class InputSensorEventListenerDelegate extends android.os.Handler {
-        private final android.hardware.SensorEventListener mListener = null;
-        private final android.util.SparseArray<android.hardware.SensorEvent> mSensorEvents = null;
-        private final java.util.List<android.hardware.Sensor> mSensors = null;
-        InputSensorEventListenerDelegate(android.hardware.SensorEventListener p0, android.hardware.Sensor p1, android.os.Looper p2) { super(); }
-        private android.hardware.SensorEvent getSensorEvent(android.hardware.Sensor p0) { return null; }
-        public void addSensor(android.hardware.Sensor p0) {}
-        public android.hardware.SensorEventListener getListener() { return null; }
-        public java.util.List<android.hardware.Sensor> getSensors() { return null; }
-        public void handleMessage(android.os.Message p0) {}
-        public boolean hasSensorRegistered(int p0, int p1) { return false; }
-        public boolean isEmpty() { return false; }
-        public void removeSensor(android.hardware.Sensor p0) {}
-        public void sendSensorAccuracyChanged(int p0, int p1, int p2) {}
-        public void sendSensorChanged(android.hardware.SensorEvent p0) {}
-    }
-
     public class InputSensorManager extends android.hardware.SensorManager {
         final int mId = 0;
         InputSensorManager(android.hardware.input.InputDeviceSensorManager p0, int p1) { super(); }
@@ -73,5 +56,22 @@ public class InputDeviceSensorManager {
         protected boolean setOperationParameterImpl(android.hardware.SensorAdditionalInfo p0) { return false; }
         protected void unregisterDynamicSensorCallbackImpl(android.hardware.SensorManager.DynamicSensorCallback p0) {}
         protected void unregisterListenerImpl(android.hardware.SensorEventListener p0, android.hardware.Sensor p1) {}
+    }
+
+    private static final class InputSensorEventListenerDelegate extends android.os.Handler {
+        private final android.hardware.SensorEventListener mListener = null;
+        private final android.util.SparseArray<android.hardware.SensorEvent> mSensorEvents = null;
+        private final java.util.List<android.hardware.Sensor> mSensors = null;
+        InputSensorEventListenerDelegate(android.hardware.SensorEventListener p0, android.hardware.Sensor p1, android.os.Looper p2) { super(); }
+        private android.hardware.SensorEvent getSensorEvent(android.hardware.Sensor p0) { return null; }
+        public void addSensor(android.hardware.Sensor p0) {}
+        public android.hardware.SensorEventListener getListener() { return null; }
+        public java.util.List<android.hardware.Sensor> getSensors() { return null; }
+        public void handleMessage(android.os.Message p0) {}
+        public boolean hasSensorRegistered(int p0, int p1) { return false; }
+        public boolean isEmpty() { return false; }
+        public void removeSensor(android.hardware.Sensor p0) {}
+        public void sendSensorAccuracyChanged(int p0, int p1, int p2) {}
+        public void sendSensorChanged(android.hardware.SensorEvent p0) {}
     }
 }

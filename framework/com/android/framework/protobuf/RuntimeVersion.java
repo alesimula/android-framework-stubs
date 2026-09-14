@@ -23,14 +23,14 @@ public final class RuntimeVersion {
     private static void validateProtobufGencodeVersionImpl(com.android.framework.protobuf.RuntimeVersion.RuntimeDomain p0, int p1, int p2, int p3, java.lang.String p4, java.lang.String p5) {}
     private static java.lang.String versionString(int p0, int p1, int p2, java.lang.String p3) { return null; }
 
-    public static final class ProtobufRuntimeVersionException extends java.lang.RuntimeException {
-        public ProtobufRuntimeVersionException(java.lang.String p0) { super(); }
-    }
-
     public static enum RuntimeDomain {
         GOOGLE_INTERNAL,
         PUBLIC;
         private static final com.android.framework.protobuf.RuntimeVersion.RuntimeDomain[] $VALUES = null;
         private RuntimeDomain() {}
+    }
+
+    public static final class ProtobufRuntimeVersionException extends java.lang.RuntimeException {
+        public ProtobufRuntimeVersionException(java.lang.String p0) { super(); }
     }
 }

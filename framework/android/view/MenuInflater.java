@@ -22,14 +22,6 @@ public class MenuInflater {
     android.content.Context getContext() { return null; }
     public void inflate(int p0, android.view.Menu p1) {}
 
-    private static class InflatedOnMenuItemClickListener implements android.view.MenuItem.OnMenuItemClickListener {
-        private static final java.lang.Class<?>[] PARAM_TYPES = null;
-        private java.lang.reflect.Method mMethod;
-        private java.lang.Object mRealOwner;
-        public InflatedOnMenuItemClickListener(java.lang.Object p0, java.lang.String p1) {}
-        public boolean onMenuItemClick(android.view.MenuItem p0) { return false; }
-    }
-
     private class MenuState {
         private static final int defaultGroupId = 0;
         private static final int defaultItemCategory = 0;
@@ -80,5 +72,13 @@ public class MenuInflater {
         public void readGroup(android.util.AttributeSet p0) {}
         public void readItem(android.util.AttributeSet p0) {}
         public void resetGroup() {}
+    }
+
+    private static class InflatedOnMenuItemClickListener implements android.view.MenuItem.OnMenuItemClickListener {
+        private static final java.lang.Class<?>[] PARAM_TYPES = null;
+        private java.lang.reflect.Method mMethod;
+        private java.lang.Object mRealOwner;
+        public InflatedOnMenuItemClickListener(java.lang.Object p0, java.lang.String p1) {}
+        public boolean onMenuItemClick(android.view.MenuItem p0) { return false; }
     }
 }

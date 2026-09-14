@@ -1,7 +1,7 @@
 package android.widget;
 
 public class DatePicker extends android.widget.FrameLayout {
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "DatePicker";
     public static final int MODE_CALENDAR = 2;
     public static final int MODE_SPINNER = 1;
     private final android.widget.DatePicker.DatePickerDelegate mDelegate = null;
@@ -50,6 +50,49 @@ public class DatePicker extends android.widget.FrameLayout {
     public void setValidationCallback(android.widget.DatePicker.ValidationCallback p0) {}
     public void updateDate(int p0, int p1, int p2) {}
 
+    public static interface ValidationCallback {
+        public void onValidationChanged(boolean p0);
+    }
+
+    static interface DatePickerDelegate {
+        public void autofill(android.view.autofill.AutofillValue p0);
+        public boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0);
+        public android.view.autofill.AutofillValue getAutofillValue();
+        public android.widget.CalendarView getCalendarView();
+        public boolean getCalendarViewShown();
+        public int getDayOfMonth();
+        public int getFirstDayOfWeek();
+        public android.icu.util.Calendar getMaxDate();
+        public android.icu.util.Calendar getMinDate();
+        public int getMonth();
+        public boolean getSpinnersShown();
+        public int getYear();
+        public void init(int p0, int p1, int p2, android.widget.DatePicker.OnDateChangedListener p3);
+        public boolean isEnabled();
+        public void onConfigurationChanged(android.content.res.Configuration p0);
+        public void onPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0);
+        public void onRestoreInstanceState(android.os.Parcelable p0);
+        public android.os.Parcelable onSaveInstanceState(android.os.Parcelable p0);
+        public void setAutoFillChangeListener(android.widget.DatePicker.OnDateChangedListener p0);
+        public void setCalendarViewShown(boolean p0);
+        public void setEnabled(boolean p0);
+        public void setFirstDayOfWeek(int p0);
+        public void setMaxDate(long p0);
+        public void setMinDate(long p0);
+        public void setOnDateChangedListener(android.widget.DatePicker.OnDateChangedListener p0);
+        public void setSpinnersShown(boolean p0);
+        public void setValidationCallback(android.widget.DatePicker.ValidationCallback p0);
+        public void updateDate(int p0, int p1, int p2);
+    }
+
+    public static interface OnDateChangedListener {
+        public void onDateChanged(android.widget.DatePicker p0, int p1, int p2, int p3);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DatePickerMode {
+    }
+
     static abstract class AbstractDatePickerDelegate implements android.widget.DatePicker.DatePickerDelegate {
         protected android.widget.DatePicker.OnDateChangedListener mAutoFillChangeListener;
         private long mAutofilledValue;
@@ -94,49 +137,6 @@ public class DatePicker extends android.widget.FrameLayout {
             public int getSelectedYear() { return 0; }
             public void writeToParcel(android.os.Parcel p0, int p1) {}
         }
-    }
-
-    static interface DatePickerDelegate {
-        public void autofill(android.view.autofill.AutofillValue p0);
-        public boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0);
-        public android.view.autofill.AutofillValue getAutofillValue();
-        public android.widget.CalendarView getCalendarView();
-        public boolean getCalendarViewShown();
-        public int getDayOfMonth();
-        public int getFirstDayOfWeek();
-        public android.icu.util.Calendar getMaxDate();
-        public android.icu.util.Calendar getMinDate();
-        public int getMonth();
-        public boolean getSpinnersShown();
-        public int getYear();
-        public void init(int p0, int p1, int p2, android.widget.DatePicker.OnDateChangedListener p3);
-        public boolean isEnabled();
-        public void onConfigurationChanged(android.content.res.Configuration p0);
-        public void onPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0);
-        public void onRestoreInstanceState(android.os.Parcelable p0);
-        public android.os.Parcelable onSaveInstanceState(android.os.Parcelable p0);
-        public void setAutoFillChangeListener(android.widget.DatePicker.OnDateChangedListener p0);
-        public void setCalendarViewShown(boolean p0);
-        public void setEnabled(boolean p0);
-        public void setFirstDayOfWeek(int p0);
-        public void setMaxDate(long p0);
-        public void setMinDate(long p0);
-        public void setOnDateChangedListener(android.widget.DatePicker.OnDateChangedListener p0);
-        public void setSpinnersShown(boolean p0);
-        public void setValidationCallback(android.widget.DatePicker.ValidationCallback p0);
-        public void updateDate(int p0, int p1, int p2);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DatePickerMode {
-    }
-
-    public static interface OnDateChangedListener {
-        public void onDateChanged(android.widget.DatePicker p0, int p1, int p2, int p3);
-    }
-
-    public static interface ValidationCallback {
-        public void onValidationChanged(boolean p0);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.DatePicker> {

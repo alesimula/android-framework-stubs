@@ -178,11 +178,11 @@ public class ServiceState implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DuplexMode {
+    public static @interface FrequencyRange {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrequencyRange {
+    public static @interface DuplexMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -190,10 +190,10 @@ public class ServiceState implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RilRadioTechnology {
+    public static @interface RoamingType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RoamingType {
+    public static @interface RilRadioTechnology {
     }
 }

@@ -61,6 +61,7 @@ public final class SatelliteManager {
     public static final java.lang.String KEY_SATELLITE_ENABLED = "satellite_enabled";
     public static final java.lang.String KEY_SATELLITE_NEXT_VISIBILITY = "satellite_next_visibility";
     public static final java.lang.String KEY_SATELLITE_PROVISIONED = "satellite_provisioned";
+    public static final java.lang.String KEY_SATELLITE_RESTRICTION_REASONS = "satellite_restriction_reasons";
     public static final java.lang.String KEY_SATELLITE_SUPPORTED = "satellite_supported";
     public static final java.lang.String KEY_SELECTED_NB_IOT_SATELLITE_SUBSCRIPTION_ID = "selected_nb_iot_satellite_subscription_id";
     public static final java.lang.String KEY_SESSION_STATS = "session_stats";
@@ -84,9 +85,15 @@ public final class SatelliteManager {
     @android.annotation.SystemApi
     public static final java.lang.String PROPERTY_SATELLITE_MANUAL_CONNECT_P2P_SUPPORT = "android.telephony.satellite.PROPERTY_SATELLITE_MANUAL_CONNECT_P2P_SUPPORT";
     @android.annotation.SystemApi
+    public static final int SATELLITE_COMMUNICATION_RESTRICTION_REASON_CARRIER_CONFIG = 3;
+    @android.annotation.SystemApi
     public static final int SATELLITE_COMMUNICATION_RESTRICTION_REASON_ENTITLEMENT = 2;
     @android.annotation.SystemApi
     public static final int SATELLITE_COMMUNICATION_RESTRICTION_REASON_GEOLOCATION = 1;
+    @android.annotation.SystemApi
+    public static final int SATELLITE_COMMUNICATION_RESTRICTION_REASON_POWER = 4;
+    @android.annotation.SystemApi
+    public static final int SATELLITE_COMMUNICATION_RESTRICTION_REASON_PROVISION = 5;
     @android.annotation.SystemApi
     public static final int SATELLITE_COMMUNICATION_RESTRICTION_REASON_USER = 0;
     @android.annotation.SystemApi
@@ -123,10 +130,13 @@ public final class SatelliteManager {
     public static final int SATELLITE_DISALLOWED_REASON_NOT_SUPPORTED = 0;
     public static final int SATELLITE_DISALLOWED_REASON_UNSUPPORTED_DEFAULT_MSG_APP = 3;
     @android.annotation.SystemApi
+    @java.lang.Deprecated
     public static final int SATELLITE_ENABLEMENT_REQUEST_REASON_CARRIER_CONFIG_UPDATE = 4;
     @android.annotation.SystemApi
+    @java.lang.Deprecated
     public static final int SATELLITE_ENABLEMENT_REQUEST_REASON_ENTITLEMENT = 5;
     @android.annotation.SystemApi
+    @java.lang.Deprecated
     public static final int SATELLITE_ENABLEMENT_REQUEST_REASON_POWER = 3;
     @android.annotation.SystemApi
     public static final int SATELLITE_ENABLEMENT_REQUEST_REASON_PURCHASE = 1;
@@ -222,6 +232,14 @@ public final class SatelliteManager {
     public static final int SATELLITE_RESULT_SERVICE_PROVISION_IN_PROGRESS = 14;
     @android.annotation.SystemApi
     public static final int SATELLITE_RESULT_SUCCESS = 0;
+    @android.annotation.SystemApi
+    public static final int SATELLITE_VOICE_SUPPORT_CONSTRAINED = 1;
+    @android.annotation.SystemApi
+    public static final int SATELLITE_VOICE_SUPPORT_RESTRICTED = 0;
+    @android.annotation.SystemApi
+    public static final int SATELLITE_VOICE_SUPPORT_UNCONSTRAINED = 2;
+    @android.annotation.SystemApi
+    public static final int SATELLITE_VOICE_SUPPORT_UNKNOWN = -1;
     private static final java.lang.String TAG = "SatelliteManager";
     private static final java.util.concurrent.ConcurrentHashMap<android.telephony.satellite.NtnSignalStrengthCallback, android.telephony.satellite.INtnSignalStrengthCallback> sNtnSignalStrengthCallbackMap = null;
     private static final java.util.concurrent.ConcurrentHashMap<android.telephony.satellite.SatelliteCapabilitiesCallback, android.telephony.satellite.ISatelliteCapabilitiesCallback> sSatelliteCapabilitiesCallbackMap = null;
@@ -247,6 +265,8 @@ public final class SatelliteManager {
     public void deprovisionSatellite(java.util.List<android.telephony.satellite.SatelliteSubscriberInfo> p0, java.util.concurrent.Executor p1, android.os.OutcomeReceiver<java.lang.Void, android.telephony.satellite.SatelliteManager.SatelliteException> p2) {}
     @android.annotation.SystemApi
     public void deprovisionService(java.lang.String p0, java.util.concurrent.Executor p1, java.util.function.Consumer<java.lang.Integer> p2) {}
+    @android.annotation.SystemApi
+    public java.util.List<java.lang.String> getAllSatellitePlmns() { return null; }
     @android.annotation.SystemApi
     public java.util.Set<java.lang.Integer> getAttachRestrictionReasonsForCarrier(int p0) { return null; }
     @android.annotation.SystemApi
@@ -369,7 +389,7 @@ public final class SatelliteManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DatagramType {
+    public static @interface SatelliteDatagramTransferState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -377,35 +397,7 @@ public final class SatelliteManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DisplayMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EmergencyCallToSatelliteHandoverType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NTRadioTechnology {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SatelliteCommunicationRestrictionReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SatelliteDatagramTransferState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SatelliteDataSupportMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SatelliteDisallowedReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SatelliteEnablementRequestReason {
     }
 
     @android.annotation.SystemApi
@@ -416,10 +408,42 @@ public final class SatelliteManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SatelliteVoiceSupportMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DatagramType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SatelliteDataSupportMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DisplayMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SatelliteEnablementRequestReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SatelliteModemState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SatelliteCommunicationRestrictionReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface NTRadioTechnology {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SatelliteResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EmergencyCallToSatelliteHandoverType {
     }
 }

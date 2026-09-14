@@ -2,8 +2,8 @@ package android.app;
 
 public class AppCompatTaskInfo implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.AppCompatTaskInfo> CREATOR = null;
-    private static final int FLAGS_COMPAT_UI_INTERESTED = 131051;
-    private static final int FLAGS_ORGANIZER_INTERESTED = 126944;
+    private static final int FLAGS_COMPAT_UI_INTERESTED = 262123;
+    private static final int FLAGS_ORGANIZER_INTERESTED = 258016;
     private static final int FLAG_BASE = 1;
     private static final int FLAG_ELIGIBLE_FOR_LETTERBOX_EDU = 2;
     private static final int FLAG_ELIGIBLE_FOR_USER_ASPECT_RATIO_BUTTON = 64;
@@ -17,12 +17,14 @@ public class AppCompatTaskInfo implements android.os.Parcelable {
     private static final int FLAG_IS_FROM_LETTERBOX_DOUBLE_TAP = 32;
     public static final int FLAG_IS_LEAF_TASK = 8192;
     public static final int FLAG_IS_LETTERBOX_RUNNING = 65536;
+    public static final int FLAG_IS_UNIVERSAL_RESIZEABLE = 131072;
     private static final int FLAG_LETTERBOXED = 4;
     private static final int FLAG_LETTERBOX_DOUBLE_TAP_ENABLED = 16;
     private static final int FLAG_LETTERBOX_EDU_ENABLED = 1;
     public static final int FLAG_OPT_OUT_EDGE_TO_EDGE = 2048;
     public static final int FLAG_SAFE_REGION_LETTERBOXED = 4096;
     private static final int FLAG_UNDEFINED = 0;
+    public int idealTaskOrientation;
     private int mTopActivityFlags;
     public final android.graphics.Rect topActivityAppBounds = null;
     public android.graphics.Rect topActivityLetterboxBounds;
@@ -59,6 +61,7 @@ public class AppCompatTaskInfo implements android.os.Parcelable {
     public boolean isTopActivityLetterboxed() { return false; }
     public boolean isTopActivityPillarboxShaped() { return false; }
     public boolean isTopActivitySafeRegionLetterboxed() { return false; }
+    public boolean isUniversalResizeable() { return false; }
     public boolean isUserFullscreenOverrideEnabled() { return false; }
     void readFromParcel(android.os.Parcel p0) {}
     public void setEligibleForLetterboxEducation(boolean p0) {}
@@ -68,6 +71,7 @@ public class AppCompatTaskInfo implements android.os.Parcelable {
     public void setIsExcludeCaptionInsets(boolean p0) {}
     public void setIsFromLetterboxDoubleTap(boolean p0) {}
     public void setIsLeafTask(boolean p0) {}
+    public void setIsUniversalResizeable(boolean p0) {}
     public void setLetterboxDoubleTapEnabled(boolean p0) {}
     public void setLetterboxEducationEnabled(boolean p0) {}
     public void setOptOutEdgeToEdge(boolean p0) {}

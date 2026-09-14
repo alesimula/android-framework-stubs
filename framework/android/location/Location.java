@@ -121,6 +121,10 @@ public class Location implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Format {
+    }
+
     private static class BearingDistanceCache {
         float mDistance;
         float mFinalBearing;
@@ -130,9 +134,5 @@ public class Location implements android.os.Parcelable {
         double mLon1;
         double mLon2;
         private BearingDistanceCache() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Format {
     }
 }

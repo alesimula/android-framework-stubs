@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations.layout.modifiers;
 
-public class RunActionOperation extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.operations.layout.Container {
+public class RunActionOperation extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.operations.layout.Container, com.android.internal.widget.remotecompose.core.operations.ComponentData {
     private static final java.lang.String CLASS_NAME = "RunActionOperation";
     private static final int OP_CODE = 236;
     public java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> mList;

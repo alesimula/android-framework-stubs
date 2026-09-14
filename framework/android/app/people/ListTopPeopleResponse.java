@@ -14,6 +14,7 @@ public final class ListTopPeopleResponse implements android.os.Parcelable {
     public int hashCode() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @android.annotation.SystemApi
     public static final class Builder {
         private long mRequestTimeMillis;
         private java.util.List<android.app.people.Entity> mResults;

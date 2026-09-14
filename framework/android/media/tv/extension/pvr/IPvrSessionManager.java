@@ -4,12 +4,6 @@ public interface IPvrSessionManager extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.pvr.IPvrSessionManager";
     public void activatePvr() throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.pvr.IPvrSessionManager {
-        public Default() {}
-        public void activatePvr() throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.pvr.IPvrSessionManager {
         static final int TRANSACTION_activatePvr = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IPvrSessionManager extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.pvr.IPvrSessionManager {
+        public Default() {}
+        public void activatePvr() throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

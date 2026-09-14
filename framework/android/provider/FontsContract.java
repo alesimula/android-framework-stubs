@@ -26,18 +26,20 @@ public class FontsContract {
     public static void setApplicationContextForResources(android.content.Context p0) {}
 
     @java.lang.Deprecated
-    public static final class Columns implements android.provider.BaseColumns {
-        public static final java.lang.String FILE_ID = "file_id";
-        public static final java.lang.String ITALIC = "font_italic";
-        public static final java.lang.String RESULT_CODE = "result_code";
-        public static final int RESULT_CODE_FONT_NOT_FOUND = 1;
-        public static final int RESULT_CODE_FONT_UNAVAILABLE = 2;
-        public static final int RESULT_CODE_MALFORMED_QUERY = 3;
-        public static final int RESULT_CODE_OK = 0;
-        public static final java.lang.String TTC_INDEX = "font_ttc_index";
-        public static final java.lang.String VARIATION_SETTINGS = "font_variation_settings";
-        public static final java.lang.String WEIGHT = "font_weight";
-        private Columns() {}
+    public static class FontRequestCallback {
+        public static final int FAIL_REASON_FONT_LOAD_ERROR = -3;
+        public static final int FAIL_REASON_FONT_NOT_FOUND = 1;
+        public static final int FAIL_REASON_FONT_UNAVAILABLE = 2;
+        public static final int FAIL_REASON_MALFORMED_QUERY = 3;
+        public static final int FAIL_REASON_PROVIDER_NOT_FOUND = -1;
+        public static final int FAIL_REASON_WRONG_CERTIFICATES = -2;
+        public FontRequestCallback() {}
+        public void onTypefaceRequestFailed(int p0) {}
+        public void onTypefaceRetrieved(android.graphics.Typeface p0) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        static @interface FontRequestFailReason {
+        }
     }
 
     @java.lang.Deprecated
@@ -75,19 +77,17 @@ public class FontsContract {
     }
 
     @java.lang.Deprecated
-    public static class FontRequestCallback {
-        public static final int FAIL_REASON_FONT_LOAD_ERROR = -3;
-        public static final int FAIL_REASON_FONT_NOT_FOUND = 1;
-        public static final int FAIL_REASON_FONT_UNAVAILABLE = 2;
-        public static final int FAIL_REASON_MALFORMED_QUERY = 3;
-        public static final int FAIL_REASON_PROVIDER_NOT_FOUND = -1;
-        public static final int FAIL_REASON_WRONG_CERTIFICATES = -2;
-        public FontRequestCallback() {}
-        public void onTypefaceRequestFailed(int p0) {}
-        public void onTypefaceRetrieved(android.graphics.Typeface p0) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        static @interface FontRequestFailReason {
-        }
+    public static final class Columns implements android.provider.BaseColumns {
+        public static final java.lang.String FILE_ID = "file_id";
+        public static final java.lang.String ITALIC = "font_italic";
+        public static final java.lang.String RESULT_CODE = "result_code";
+        public static final int RESULT_CODE_FONT_NOT_FOUND = 1;
+        public static final int RESULT_CODE_FONT_UNAVAILABLE = 2;
+        public static final int RESULT_CODE_MALFORMED_QUERY = 3;
+        public static final int RESULT_CODE_OK = 0;
+        public static final java.lang.String TTC_INDEX = "font_ttc_index";
+        public static final java.lang.String VARIATION_SETTINGS = "font_variation_settings";
+        public static final java.lang.String WEIGHT = "font_weight";
+        private Columns() {}
     }
 }

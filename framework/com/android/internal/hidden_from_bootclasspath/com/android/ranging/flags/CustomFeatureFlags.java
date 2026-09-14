@@ -18,4 +18,5 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean rangingStackUpdates25q4() { return false; }
     public boolean rangingStackUpdates26Q2() { return false; }
     public boolean rangingStackUpdates26Q4() { return false; }
+    public boolean rangingStackUpdates27Q2() { return false; }
 }

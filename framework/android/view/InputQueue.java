@@ -18,11 +18,8 @@ public final class InputQueue {
     public long getNativePtr() { return 0L; }
     public void sendInputEvent(android.view.InputEvent p0, java.lang.Object p1, boolean p2, android.view.InputQueue.FinishedInputEventCallback p3) {}
 
-    private final class ActiveInputEvent {
-        public android.view.InputQueue.FinishedInputEventCallback mCallback;
-        public java.lang.Object mToken;
-        private ActiveInputEvent(android.view.InputQueue p0) {}
-        public void recycle() {}
+    public static interface FinishedInputEventCallback {
+        public void onFinishedInputEvent(java.lang.Object p0, boolean p1);
     }
 
     public static interface Callback {
@@ -30,7 +27,10 @@ public final class InputQueue {
         public void onInputQueueDestroyed(android.view.InputQueue p0);
     }
 
-    public static interface FinishedInputEventCallback {
-        public void onFinishedInputEvent(java.lang.Object p0, boolean p1);
+    private final class ActiveInputEvent {
+        public android.view.InputQueue.FinishedInputEventCallback mCallback;
+        public java.lang.Object mToken;
+        private ActiveInputEvent(android.view.InputQueue p0) {}
+        public void recycle() {}
     }
 }

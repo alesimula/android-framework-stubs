@@ -39,7 +39,7 @@ final class IInputMethodManagerGlobalInvoker {
     static void setPreventImeStartupBypassedAppsForTest(java.util.List<java.lang.String> p0) {}
     static void setStylusWindowIdleTimeoutForTest(com.android.internal.inputmethod.IInputMethodClient p0, long p1) {}
     static boolean shouldShowImeSwitcherButtonForTest() { return false; }
-    static void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1) {}
+    static void showInputMethodPickerFromClient(com.android.internal.inputmethod.IInputMethodClient p0, int p1, int p2) {}
     static void showInputMethodPickerFromSystem(int p0, int p1, int p2) {}
     static boolean startConnectionlessStylusHandwriting(com.android.internal.inputmethod.IInputMethodClient p0, int p1, android.view.inputmethod.CursorAnchorInfo p2, java.lang.String p3, java.lang.String p4, com.android.internal.inputmethod.IConnectionlessHandwritingCallback p5) { return false; }
     static void startImeTrace(java.util.function.Consumer<android.os.RemoteException> p0) {}

@@ -16,24 +16,6 @@ public interface IHotwordRecognitionStatusCallback extends android.os.IInterface
     public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException;
     public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IHotwordRecognitionStatusCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) throws android.os.RemoteException {}
-        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) throws android.os.RemoteException {}
-        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) throws android.os.RemoteException {}
-        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) throws android.os.RemoteException {}
-        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
-        public void onProcessRestarted() throws android.os.RemoteException {}
-        public void onRecognitionPaused() throws android.os.RemoteException {}
-        public void onRecognitionResumed() throws android.os.RemoteException {}
-        public void onRejected(android.service.voice.HotwordRejectedResult p0) throws android.os.RemoteException {}
-        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) throws android.os.RemoteException {}
-        public void onStatusReported(int p0) throws android.os.RemoteException {}
-        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IHotwordRecognitionStatusCallback {
         static final int TRANSACTION_onGenericSoundTriggerDetected = 3;
         static final int TRANSACTION_onHotwordDetectionServiceFailure = 5;
@@ -74,5 +56,23 @@ public interface IHotwordRecognitionStatusCallback extends android.os.IInterface
             public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
             public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.app.IHotwordRecognitionStatusCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onGenericSoundTriggerDetected(android.hardware.soundtrigger.SoundTrigger.GenericRecognitionEvent p0) throws android.os.RemoteException {}
+        public void onHotwordDetectionServiceFailure(android.service.voice.HotwordDetectionServiceFailure p0) throws android.os.RemoteException {}
+        public void onKeyphraseDetected(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.service.voice.HotwordDetectedResult p1) throws android.os.RemoteException {}
+        public void onKeyphraseDetectedFromExternalSource(android.service.voice.HotwordDetectedResult p0) throws android.os.RemoteException {}
+        public void onOpenFile(java.lang.String p0, com.android.internal.infra.AndroidFuture p1) throws android.os.RemoteException {}
+        public void onProcessRestarted() throws android.os.RemoteException {}
+        public void onRecognitionPaused() throws android.os.RemoteException {}
+        public void onRecognitionResumed() throws android.os.RemoteException {}
+        public void onRejected(android.service.voice.HotwordRejectedResult p0) throws android.os.RemoteException {}
+        public void onSoundTriggerFailure(android.service.voice.SoundTriggerFailure p0) throws android.os.RemoteException {}
+        public void onStatusReported(int p0) throws android.os.RemoteException {}
+        public void onUnknownFailure(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVisualQueryDetectionServiceFailure(android.service.voice.VisualQueryDetectionServiceFailure p0) throws android.os.RemoteException {}
     }
 }

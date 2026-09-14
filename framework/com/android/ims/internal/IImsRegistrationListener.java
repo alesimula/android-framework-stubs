@@ -16,25 +16,6 @@ public interface IImsRegistrationListener extends android.os.IInterface {
     public void registrationSuspended() throws android.os.RemoteException;
     public void voiceMessageCountUpdate(int p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsRegistrationListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void registrationAssociatedUriChanged(android.net.Uri[] p0) throws android.os.RemoteException {}
-        public void registrationChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void registrationConnected() throws android.os.RemoteException {}
-        public void registrationConnectedWithRadioTech(int p0) throws android.os.RemoteException {}
-        public void registrationDisconnected(android.telephony.ims.ImsReasonInfo p0) throws android.os.RemoteException {}
-        public void registrationFeatureCapabilityChanged(int p0, int[] p1, int[] p2) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void registrationProgressing() throws android.os.RemoteException {}
-        public void registrationProgressingWithRadioTech(int p0) throws android.os.RemoteException {}
-        public void registrationResumed() throws android.os.RemoteException {}
-        public void registrationServiceCapabilityChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void registrationSuspended() throws android.os.RemoteException {}
-        public void voiceMessageCountUpdate(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsRegistrationListener {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsRegistrationListener";
         static final int TRANSACTION_registrationAssociatedUriChanged = 11;
@@ -76,5 +57,24 @@ public interface IImsRegistrationListener extends android.os.IInterface {
             public void registrationSuspended() throws android.os.RemoteException {}
             public void voiceMessageCountUpdate(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsRegistrationListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void registrationAssociatedUriChanged(android.net.Uri[] p0) throws android.os.RemoteException {}
+        public void registrationChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void registrationConnected() throws android.os.RemoteException {}
+        public void registrationConnectedWithRadioTech(int p0) throws android.os.RemoteException {}
+        public void registrationDisconnected(android.telephony.ims.ImsReasonInfo p0) throws android.os.RemoteException {}
+        public void registrationFeatureCapabilityChanged(int p0, int[] p1, int[] p2) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void registrationProgressing() throws android.os.RemoteException {}
+        public void registrationProgressingWithRadioTech(int p0) throws android.os.RemoteException {}
+        public void registrationResumed() throws android.os.RemoteException {}
+        public void registrationServiceCapabilityChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void registrationSuspended() throws android.os.RemoteException {}
+        public void voiceMessageCountUpdate(int p0) throws android.os.RemoteException {}
     }
 }

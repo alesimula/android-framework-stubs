@@ -3,7 +3,7 @@ package android.service.autofill.augmented;
 @android.annotation.SystemApi
 public abstract class AugmentedAutofillService extends android.app.Service {
     public static final java.lang.String SERVICE_INTERFACE = "android.service.autofill.augmented.AugmentedAutofillService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AugmentedAutofillService";
     static boolean sDebug;
     static boolean sVerbose;
     private android.util.SparseArray<android.service.autofill.augmented.AugmentedAutofillService.AutofillProxy> mAutofillProxies;

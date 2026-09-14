@@ -17,7 +17,7 @@ public final class PermissionManager {
     private static final java.lang.String[] INDICATOR_EXEMPTED_PACKAGES = null;
     public static final java.lang.String KILL_APP_REASON_GIDS_CHANGED = "permission grant or revoke changed gids";
     public static final java.lang.String KILL_APP_REASON_PERMISSIONS_REVOKED = "permissions revoked";
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "android.permission.PermissionManager";
     public static final java.lang.String LOG_TAG_TRACE_GRANTS = "PermissionGrantTrace";
     public static final int PERMISSION_GRANTED = 0;
     public static final int PERMISSION_HARD_DENIED = 2;
@@ -120,13 +120,31 @@ public final class PermissionManager {
     @android.annotation.SystemApi
     public void updatePermissionFlags(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, int p4) {}
 
-    private final class OnPermissionsChangeListenerDelegate extends android.permission.IOnPermissionsChangeListener.Stub implements android.os.Handler.Callback {
-        private static final int MSG_PERMISSIONS_CHANGED = 1;
-        private final android.os.Handler mHandler = null;
-        private final android.content.pm.PackageManager.OnPermissionsChangedListener mListener = null;
-        public OnPermissionsChangeListenerDelegate(android.permission.PermissionManager p0, android.content.pm.PackageManager.OnPermissionsChangedListener p1, android.os.Looper p2) { super(); }
-        public boolean handleMessage(android.os.Message p0) { return false; }
-        public void onPermissionsChanged(int p0, java.lang.String p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PermissionResult {
+    }
+
+    public static final class SplitPermissionInfo {
+        private final android.content.pm.permission.SplitPermissionInfoParcelable mSplitPermissionInfoParcelable = null;
+        private SplitPermissionInfo(android.content.pm.permission.SplitPermissionInfoParcelable p0) {}
+        public SplitPermissionInfo(java.lang.String p0, java.util.List<java.lang.String> p1, int p2, java.lang.String p3, boolean p4) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public java.lang.String getFeatureFlag() { return null; }
+        public java.util.List<java.lang.String> getNewPermissions() { return null; }
+        public java.lang.String getSplitPermission() { return null; }
+        public int getTargetSdk() { return 0; }
+        public int hashCode() { return 0; }
+        public boolean isFeatureFlagNegated() { return false; }
+    }
+
+    private static final class PermissionRequestStateQuery {
+        final int mDeviceId = 0;
+        final java.lang.String mPackageName = null;
+        final java.lang.String mPermission = null;
+        PermissionRequestStateQuery(java.lang.String p0, java.lang.String p1, int p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
     }
 
     private static final class PackageNamePermissionQuery {
@@ -140,29 +158,13 @@ public final class PermissionManager {
         public java.lang.String toString() { return null; }
     }
 
-    private static final class PermissionQuery {
-        final int deviceId = 0;
-        final java.lang.String permission = null;
-        final int pid = 0;
-        final int uid = 0;
-        PermissionQuery(java.lang.String p0, int p1, int p2, int p3) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    private static final class PermissionRequestStateQuery {
-        final int mDeviceId = 0;
-        final java.lang.String mPackageName = null;
-        final java.lang.String mPermission = null;
-        PermissionRequestStateQuery(java.lang.String p0, java.lang.String p1, int p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PermissionResult {
+    private final class OnPermissionsChangeListenerDelegate extends android.permission.IOnPermissionsChangeListener.Stub implements android.os.Handler.Callback {
+        private static final int MSG_PERMISSIONS_CHANGED = 1;
+        private final android.os.Handler mHandler = null;
+        private final android.content.pm.PackageManager.OnPermissionsChangedListener mListener = null;
+        public OnPermissionsChangeListenerDelegate(android.permission.PermissionManager p0, android.content.pm.PackageManager.OnPermissionsChangedListener p1, android.os.Looper p2) { super(); }
+        public boolean handleMessage(android.os.Message p0) { return false; }
+        public void onPermissionsChanged(int p0, java.lang.String p1) {}
     }
 
     @android.annotation.SystemApi
@@ -181,16 +183,14 @@ public final class PermissionManager {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static final class SplitPermissionInfo {
-        private final android.content.pm.permission.SplitPermissionInfoParcelable mSplitPermissionInfoParcelable = null;
-        private SplitPermissionInfo(android.content.pm.permission.SplitPermissionInfoParcelable p0) {}
-        public SplitPermissionInfo(java.lang.String p0, java.util.List<java.lang.String> p1, int p2, java.lang.String p3, boolean p4) {}
+    private static final class PermissionQuery {
+        final int deviceId = 0;
+        final java.lang.String permission = null;
+        final int pid = 0;
+        final int uid = 0;
+        PermissionQuery(java.lang.String p0, int p1, int p2, int p3) {}
         public boolean equals(java.lang.Object p0) { return false; }
-        public java.lang.String getFeatureFlag() { return null; }
-        public java.util.List<java.lang.String> getNewPermissions() { return null; }
-        public java.lang.String getSplitPermission() { return null; }
-        public int getTargetSdk() { return 0; }
         public int hashCode() { return 0; }
-        public boolean isFeatureFlagNegated() { return false; }
+        public java.lang.String toString() { return null; }
     }
 }

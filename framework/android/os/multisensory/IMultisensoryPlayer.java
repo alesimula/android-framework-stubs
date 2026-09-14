@@ -9,17 +9,6 @@ public interface IMultisensoryPlayer extends android.os.IInterface {
     public void play(int p0, android.os.VibrationAttributes p1, android.media.AudioAttributes p2) throws android.os.RemoteException;
     public void setPlayerId(long p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.multisensory.IMultisensoryPlayer {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancel() throws android.os.RemoteException {}
-        public void getCapabilities(android.os.multisensory.IMultisensoryPlayerCapabilitiesCallback p0) throws android.os.RemoteException {}
-        public void load(int p0, android.os.VibrationEffect p1, java.lang.String p2, android.os.multisensory.IMultisensoryPlayerLoadCallback p3) throws android.os.RemoteException {}
-        public void openRealtimeSession(int p0, android.os.multisensory.MultisensoryContinuousEffect p1, android.os.VibrationAttributes p2, android.media.AudioAttributes p3, android.os.multisensory.IMultisensoryPlayerSessionCallback p4) throws android.os.RemoteException {}
-        public void play(int p0, android.os.VibrationAttributes p1, android.media.AudioAttributes p2) throws android.os.RemoteException {}
-        public void setPlayerId(long p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.multisensory.IMultisensoryPlayer {
         static final int TRANSACTION_cancel = 5;
         static final int TRANSACTION_getCapabilities = 6;
@@ -46,5 +35,16 @@ public interface IMultisensoryPlayer extends android.os.IInterface {
             public void play(int p0, android.os.VibrationAttributes p1, android.media.AudioAttributes p2) throws android.os.RemoteException {}
             public void setPlayerId(long p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.multisensory.IMultisensoryPlayer {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancel() throws android.os.RemoteException {}
+        public void getCapabilities(android.os.multisensory.IMultisensoryPlayerCapabilitiesCallback p0) throws android.os.RemoteException {}
+        public void load(int p0, android.os.VibrationEffect p1, java.lang.String p2, android.os.multisensory.IMultisensoryPlayerLoadCallback p3) throws android.os.RemoteException {}
+        public void openRealtimeSession(int p0, android.os.multisensory.MultisensoryContinuousEffect p1, android.os.VibrationAttributes p2, android.media.AudioAttributes p3, android.os.multisensory.IMultisensoryPlayerSessionCallback p4) throws android.os.RemoteException {}
+        public void play(int p0, android.os.VibrationAttributes p1, android.media.AudioAttributes p2) throws android.os.RemoteException {}
+        public void setPlayerId(long p0) throws android.os.RemoteException {}
     }
 }

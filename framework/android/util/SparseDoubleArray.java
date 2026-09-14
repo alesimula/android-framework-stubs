@@ -6,6 +6,7 @@ public class SparseDoubleArray implements java.lang.Cloneable {
     public SparseDoubleArray(int p0) {}
     public void clear() {}
     public android.util.SparseDoubleArray clone() { return null; }
+    public double compute(int p0, java.util.function.DoubleBinaryOperator p1) { return 0.0; }
     public void delete(int p0) {}
     public double get(int p0) { return 0.0; }
     public double get(int p0, double p1) { return 0.0; }

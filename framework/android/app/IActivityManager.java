@@ -1,7 +1,7 @@
 package android.app;
 
 public interface IActivityManager extends android.os.IInterface {
-    public void addApplicationStartInfoCompleteListener(android.app.IApplicationStartInfoCompleteListener p0, int p1) throws android.os.RemoteException;
+    public void addApplicationStartInfoCompleteListener(android.app.IApplicationStartInfoCompleteListener p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public void addInstrumentationResults(android.app.IApplicationThread p0, android.os.Bundle p1) throws android.os.RemoteException;
     public void addOverridePermissionState(int p0, int p1, java.lang.String p2, int p3) throws android.os.RemoteException;
     public void addPackageDependency(java.lang.String p0) throws android.os.RemoteException;
@@ -159,6 +159,7 @@ public interface IActivityManager extends android.os.IInterface {
     public boolean registerForegroundServiceObserver(android.app.IForegroundServiceObserver p0) throws android.os.RemoteException;
     public boolean registerIntentSenderCancelListenerEx(android.content.IIntentSender p0, com.android.internal.os.IResultReceiver p1) throws android.os.RemoteException;
     public void registerProcessObserver(android.app.IProcessObserver p0) throws android.os.RemoteException;
+    public void registerProcessObserverForEvents(android.app.IProcessObserver p0, int p1) throws android.os.RemoteException;
     public android.content.Intent registerReceiver(android.app.IApplicationThread p0, java.lang.String p1, android.content.IIntentReceiver p2, android.content.IntentFilter p3, java.lang.String p4, int p5, int p6) throws android.os.RemoteException;
     public android.content.Intent registerReceiverWithFeature(android.app.IApplicationThread p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, android.content.IIntentReceiver p4, android.content.IntentFilter p5, java.lang.String p6, int p7, int p8) throws android.os.RemoteException;
     public void registerStrictModeCallback(android.os.IBinder p0) throws android.os.RemoteException;
@@ -286,7 +287,7 @@ public interface IActivityManager extends android.os.IInterface {
 
     public static class Default implements android.app.IActivityManager {
         public Default() {}
-        public void addApplicationStartInfoCompleteListener(android.app.IApplicationStartInfoCompleteListener p0, int p1) throws android.os.RemoteException {}
+        public void addApplicationStartInfoCompleteListener(android.app.IApplicationStartInfoCompleteListener p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
         public void addInstrumentationResults(android.app.IApplicationThread p0, android.os.Bundle p1) throws android.os.RemoteException {}
         public void addOverridePermissionState(int p0, int p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
         public void addPackageDependency(java.lang.String p0) throws android.os.RemoteException {}
@@ -445,6 +446,7 @@ public interface IActivityManager extends android.os.IInterface {
         public boolean registerForegroundServiceObserver(android.app.IForegroundServiceObserver p0) throws android.os.RemoteException { return false; }
         public boolean registerIntentSenderCancelListenerEx(android.content.IIntentSender p0, com.android.internal.os.IResultReceiver p1) throws android.os.RemoteException { return false; }
         public void registerProcessObserver(android.app.IProcessObserver p0) throws android.os.RemoteException {}
+        public void registerProcessObserverForEvents(android.app.IProcessObserver p0, int p1) throws android.os.RemoteException {}
         public android.content.Intent registerReceiver(android.app.IApplicationThread p0, java.lang.String p1, android.content.IIntentReceiver p2, android.content.IntentFilter p3, java.lang.String p4, int p5, int p6) throws android.os.RemoteException { return null; }
         public android.content.Intent registerReceiverWithFeature(android.app.IApplicationThread p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, android.content.IIntentReceiver p4, android.content.IntentFilter p5, java.lang.String p6, int p7, int p8) throws android.os.RemoteException { return null; }
         public void registerStrictModeCallback(android.os.IBinder p0) throws android.os.RemoteException {}
@@ -729,6 +731,7 @@ public interface IActivityManager extends android.os.IInterface {
         static final int TRANSACTION_registerForegroundServiceObserver = 90;
         static final int TRANSACTION_registerIntentSenderCancelListenerEx = 74;
         static final int TRANSACTION_registerProcessObserver = 13;
+        static final int TRANSACTION_registerProcessObserverForEvents = 277;
         static final int TRANSACTION_registerReceiver = 21;
         static final int TRANSACTION_registerReceiverWithFeature = 22;
         static final int TRANSACTION_registerStrictModeCallback = 115;
@@ -855,6 +858,7 @@ public interface IActivityManager extends android.os.IInterface {
         public Stub(android.os.PermissionEnforcer p0) { super(); }
         public static android.app.IActivityManager asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
+        private boolean onTransact$broadcastIntent$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$broadcastIntentWithFeature$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         public android.os.IBinder asBinder() { return null; }
         public java.lang.String getTransactionName(int p0) { return null; }
@@ -865,7 +869,7 @@ public interface IActivityManager extends android.os.IInterface {
         private static final class Proxy implements android.app.IActivityManager {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
-            public void addApplicationStartInfoCompleteListener(android.app.IApplicationStartInfoCompleteListener p0, int p1) throws android.os.RemoteException {}
+            public void addApplicationStartInfoCompleteListener(android.app.IApplicationStartInfoCompleteListener p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
             public void addInstrumentationResults(android.app.IApplicationThread p0, android.os.Bundle p1) throws android.os.RemoteException {}
             public void addOverridePermissionState(int p0, int p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
             public void addPackageDependency(java.lang.String p0) throws android.os.RemoteException {}
@@ -1025,6 +1029,7 @@ public interface IActivityManager extends android.os.IInterface {
             public boolean registerForegroundServiceObserver(android.app.IForegroundServiceObserver p0) throws android.os.RemoteException { return false; }
             public boolean registerIntentSenderCancelListenerEx(android.content.IIntentSender p0, com.android.internal.os.IResultReceiver p1) throws android.os.RemoteException { return false; }
             public void registerProcessObserver(android.app.IProcessObserver p0) throws android.os.RemoteException {}
+            public void registerProcessObserverForEvents(android.app.IProcessObserver p0, int p1) throws android.os.RemoteException {}
             public android.content.Intent registerReceiver(android.app.IApplicationThread p0, java.lang.String p1, android.content.IIntentReceiver p2, android.content.IntentFilter p3, java.lang.String p4, int p5, int p6) throws android.os.RemoteException { return null; }
             public android.content.Intent registerReceiverWithFeature(android.app.IApplicationThread p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, android.content.IIntentReceiver p4, android.content.IntentFilter p5, java.lang.String p6, int p7, int p8) throws android.os.RemoteException { return null; }
             public void registerStrictModeCallback(android.os.IBinder p0) throws android.os.RemoteException {}

@@ -5,13 +5,6 @@ public interface IInputSensorEventListener extends android.os.IInterface {
     public void onInputSensorAccuracyChanged(int p0, int p1, int p2) throws android.os.RemoteException;
     public void onInputSensorChanged(int p0, int p1, int p2, long p3, float[] p4) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.input.IInputSensorEventListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInputSensorAccuracyChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onInputSensorChanged(int p0, int p1, int p2, long p3, float[] p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.input.IInputSensorEventListener {
         static final int TRANSACTION_onInputSensorAccuracyChanged = 2;
         static final int TRANSACTION_onInputSensorChanged = 1;
@@ -30,5 +23,12 @@ public interface IInputSensorEventListener extends android.os.IInterface {
             public void onInputSensorAccuracyChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
             public void onInputSensorChanged(int p0, int p1, int p2, long p3, float[] p4) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.input.IInputSensorEventListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInputSensorAccuracyChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onInputSensorChanged(int p0, int p1, int p2, long p3, float[] p4) throws android.os.RemoteException {}
     }
 }

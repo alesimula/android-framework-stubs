@@ -117,19 +117,28 @@ public class Surface implements android.os.Parcelable {
     public static @interface ChangeFrameRateStrategy {
     }
 
-    private final class CompatibleCanvas extends android.graphics.Canvas {
-        private android.graphics.Matrix mOrigMatrix;
-        private CompatibleCanvas(android.view.Surface p0) { super(); }
-        public void getMatrix(android.graphics.Matrix p0) {}
-        public void setMatrix(android.graphics.Matrix p0) {}
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FrameRateCategory {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrameRateCompatibility {
+    public static class OutOfResourcesException extends java.lang.RuntimeException {
+        public OutOfResourcesException() { super(); }
+        public OutOfResourcesException(java.lang.String p0) { super(); }
+    }
+
+    private final class HwuiContext {
+        private android.graphics.RecordingCanvas mCanvas;
+        private android.graphics.HardwareRenderer mHardwareRenderer;
+        private int mHeight;
+        private final boolean mIsWideColorGamut = false;
+        private final android.graphics.RenderNode mRenderNode = null;
+        private int mWidth;
+        HwuiContext(android.view.Surface p0, boolean p1) {}
+        void destroy() {}
+        boolean isWideColorGamut() { return false; }
+        android.graphics.Canvas lockCanvas(int p0, int p1) { return null; }
+        void unlockAndPost(android.graphics.Canvas p0) {}
+        void updateSurface() {}
     }
 
     public static class FrameRateParams {
@@ -157,31 +166,22 @@ public class Surface implements android.os.Parcelable {
         }
     }
 
-    private final class HwuiContext {
-        private android.graphics.RecordingCanvas mCanvas;
-        private android.graphics.HardwareRenderer mHardwareRenderer;
-        private int mHeight;
-        private final boolean mIsWideColorGamut = false;
-        private final android.graphics.RenderNode mRenderNode = null;
-        private int mWidth;
-        HwuiContext(android.view.Surface p0, boolean p1) {}
-        void destroy() {}
-        boolean isWideColorGamut() { return false; }
-        android.graphics.Canvas lockCanvas(int p0, int p1) { return null; }
-        void unlockAndPost(android.graphics.Canvas p0) {}
-        void updateSurface() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrameRateCompatibility {
     }
 
-    public static class OutOfResourcesException extends java.lang.RuntimeException {
-        public OutOfResourcesException() { super(); }
-        public OutOfResourcesException(java.lang.String p0) { super(); }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScalingMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Rotation {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScalingMode {
+    private final class CompatibleCanvas extends android.graphics.Canvas {
+        private android.graphics.Matrix mOrigMatrix;
+        private CompatibleCanvas(android.view.Surface p0) { super(); }
+        public void getMatrix(android.graphics.Matrix p0) {}
+        public void setMatrix(android.graphics.Matrix p0) {}
     }
 }

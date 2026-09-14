@@ -19,8 +19,8 @@ abstract class AndroidKeyStoreRSACipherSpi extends android.security.keystore2.An
     protected final void resetWhilePreservingInitState() {}
     protected final void setKeymasterPaddingOverride(int p0) {}
 
-    public static final class NoPadding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi {
-        public NoPadding() { super(0); }
+    public static final class PKCS1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi {
+        public PKCS1Padding() { super(0); }
         protected boolean adjustConfigForEncryptingWithPrivateKey() { return false; }
         protected java.security.AlgorithmParameters engineGetParameters() { return null; }
         protected final int getAdditionalEntropyAmountForBegin() { return 0; }
@@ -28,6 +28,10 @@ abstract class AndroidKeyStoreRSACipherSpi extends android.security.keystore2.An
         protected void initAlgorithmSpecificParameters() throws java.security.InvalidKeyException {}
         protected void initAlgorithmSpecificParameters(java.security.AlgorithmParameters p0) throws java.security.InvalidAlgorithmParameterException {}
         protected void initAlgorithmSpecificParameters(java.security.spec.AlgorithmParameterSpec p0) throws java.security.InvalidAlgorithmParameterException {}
+    }
+
+    public static class OAEPWithSHA256AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
+        public OAEPWithSHA256AndMGF1Padding() { super(0); }
     }
 
     static abstract class OAEPWithMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi {
@@ -52,24 +56,8 @@ abstract class AndroidKeyStoreRSACipherSpi extends android.security.keystore2.An
         public OAEPWithSHA1AndMGF1Padding() { super(0); }
     }
 
-    public static class OAEPWithSHA224AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
-        public OAEPWithSHA224AndMGF1Padding() { super(0); }
-    }
-
-    public static class OAEPWithSHA256AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
-        public OAEPWithSHA256AndMGF1Padding() { super(0); }
-    }
-
-    public static class OAEPWithSHA384AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
-        public OAEPWithSHA384AndMGF1Padding() { super(0); }
-    }
-
-    public static class OAEPWithSHA512AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
-        public OAEPWithSHA512AndMGF1Padding() { super(0); }
-    }
-
-    public static final class PKCS1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi {
-        public PKCS1Padding() { super(0); }
+    public static final class NoPadding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi {
+        public NoPadding() { super(0); }
         protected boolean adjustConfigForEncryptingWithPrivateKey() { return false; }
         protected java.security.AlgorithmParameters engineGetParameters() { return null; }
         protected final int getAdditionalEntropyAmountForBegin() { return 0; }
@@ -77,5 +65,17 @@ abstract class AndroidKeyStoreRSACipherSpi extends android.security.keystore2.An
         protected void initAlgorithmSpecificParameters() throws java.security.InvalidKeyException {}
         protected void initAlgorithmSpecificParameters(java.security.AlgorithmParameters p0) throws java.security.InvalidAlgorithmParameterException {}
         protected void initAlgorithmSpecificParameters(java.security.spec.AlgorithmParameterSpec p0) throws java.security.InvalidAlgorithmParameterException {}
+    }
+
+    public static class OAEPWithSHA512AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
+        public OAEPWithSHA512AndMGF1Padding() { super(0); }
+    }
+
+    public static class OAEPWithSHA384AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
+        public OAEPWithSHA384AndMGF1Padding() { super(0); }
+    }
+
+    public static class OAEPWithSHA224AndMGF1Padding extends android.security.keystore2.AndroidKeyStoreRSACipherSpi.OAEPWithMGF1Padding {
+        public OAEPWithSHA224AndMGF1Padding() { super(0); }
     }
 }

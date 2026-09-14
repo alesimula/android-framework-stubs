@@ -9,6 +9,8 @@ public final class XmlReader {
     public static int readAttributeIntInRange(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1, int p2, int p3) throws com.android.internal.vibrator.persistence.XmlParserException { return 0; }
     public static int readAttributeIntNonNegative(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1) throws com.android.internal.vibrator.persistence.XmlParserException { return 0; }
     public static int readAttributeIntNonNegative(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1, int p2) throws com.android.internal.vibrator.persistence.XmlParserException { return 0; }
+    public static int readAttributeIntPositive(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1) throws com.android.internal.vibrator.persistence.XmlParserException { return 0; }
+    public static int readAttributeIntPositive(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1, int p2) throws com.android.internal.vibrator.persistence.XmlParserException { return 0; }
     private static long readAttributeLong(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1) throws com.android.internal.vibrator.persistence.XmlParserException { return 0L; }
     public static float readAttributePositiveFloat(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1) throws com.android.internal.vibrator.persistence.XmlParserException { return 0.0f; }
     public static float readAttributePositiveFloat(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1, float p2) throws com.android.internal.vibrator.persistence.XmlParserException { return 0.0f; }

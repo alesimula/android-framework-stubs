@@ -35,6 +35,10 @@ public final class TrafficDescriptor implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConnectionCapability {
+    }
+
     public static final class Builder {
         private int mConnectionCapability;
         private java.lang.String mDnn;
@@ -44,10 +48,6 @@ public final class TrafficDescriptor implements android.os.Parcelable {
         public android.telephony.data.TrafficDescriptor.Builder setConnectionCapability(int p0) { return null; }
         public android.telephony.data.TrafficDescriptor.Builder setDataNetworkName(java.lang.String p0) { return null; }
         public android.telephony.data.TrafficDescriptor.Builder setOsAppId(byte[] p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConnectionCapability {
     }
 
     public static final class OsAppId {

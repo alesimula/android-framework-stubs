@@ -14,6 +14,7 @@ public abstract class WallpaperService extends android.app.Service {
     private static final android.graphics.RectF LOCAL_COLOR_BOUNDS = null;
     private static final int MIN_BITMAP_SCREENSHOT_WIDTH = 64;
     static final float MIN_PAGE_ALLOWED_MARGIN = 0.05000000074505806f;
+    private static final int MSG_INSETS_CHANGED = 10038;
     private static final int MSG_MIRROR_SURFACE_CONTROL = 10220;
     private static final int MSG_REPORT_SHOWN = 10150;
     private static final int MSG_REQUEST_WALLPAPER_COLORS = 10050;
@@ -51,6 +52,13 @@ public abstract class WallpaperService extends android.app.Service {
     public void onDestroy() {}
     public android.os.Looper onProvideEngineLooper() { return null; }
 
+    class IWallpaperServiceWrapper extends android.service.wallpaper.IWallpaperService.Stub {
+        private final android.service.wallpaper.WallpaperService mTarget = null;
+        public IWallpaperServiceWrapper(android.service.wallpaper.WallpaperService p0, android.service.wallpaper.WallpaperService p1) { super(); }
+        public void attach(android.service.wallpaper.IWallpaperConnection p0, android.os.IBinder p1, int p2, boolean p3, int p4, int p5, android.graphics.Rect p6, int p7, int p8, android.app.WallpaperInfo p9, android.app.wallpaper.WallpaperDescription p10) {}
+        public void detach(android.os.IBinder p0) {}
+    }
+
     public class Engine {
         android.os.IBinder mBbqApplyToken;
         android.view.SurfaceControl mBbqSurfaceControl;
@@ -70,6 +78,7 @@ public abstract class WallpaperService extends android.app.Service {
         private final boolean mDisableDrawWakeLock = false;
         final android.graphics.Rect mDispatchedContentInsets = null;
         android.view.DisplayCutout mDispatchedDisplayCutout;
+        final android.graphics.Rect mDispatchedObservedInsets = null;
         final android.graphics.Rect mDispatchedStableInsets = null;
         private android.view.Display mDisplay;
         private android.content.Context mDisplayContext;
@@ -99,6 +108,7 @@ public abstract class WallpaperService extends android.app.Service {
         final java.lang.Object mLock = null;
         final android.util.MergedConfiguration mMergedConfiguration = null;
         private final java.lang.Runnable mNotifyColorsChanged = null;
+        volatile int mObservedInsetsTypes;
         boolean mOffsetMessageEnqueued;
         boolean mOffsetsChanged;
         android.view.MotionEvent mPendingMove;
@@ -124,7 +134,11 @@ public abstract class WallpaperService extends android.app.Service {
         final com.android.internal.view.BaseSurfaceHolder mSurfaceHolder = null;
         private final java.lang.Object mSurfaceReleaseLock = null;
         private final android.graphics.Point mSurfaceSize = null;
+        final android.graphics.Rect mTempContentInsets = null;
         final android.view.InsetsSourceControl.Array mTempControls = null;
+        final android.graphics.Rect mTempObservedInsets = null;
+        final android.graphics.Rect mTempStableInsets = null;
+        final android.graphics.Rect mTempVisibleRect = null;
         private final android.graphics.Matrix mTmpMatrix = null;
         private final float[] mTmpValues = null;
         android.view.SurfaceControl mTransformSurfaceControl;
@@ -142,6 +156,8 @@ public abstract class WallpaperService extends android.app.Service {
         float mZoom;
         public Engine(android.service.wallpaper.WallpaperService p0) {}
         public Engine(java.util.function.Supplier<java.lang.Long> p0, android.os.Handler p1) {}
+        private void applyWindowInsets(android.graphics.Rect p0, android.view.InsetsState p1, android.view.WindowInsets p2) {}
+        private android.view.WindowInsets calculateInsets(android.graphics.Rect p0, android.content.res.Configuration p1) { return null; }
         private void cleanUpScreenshotSurfaceControl() {}
         private void dispatchPointer(android.view.MotionEvent p0) {}
         private void doMirrorSurfaceControl(java.util.concurrent.CompletableFuture<android.view.SurfaceControl> p0) {}
@@ -152,6 +168,7 @@ public abstract class WallpaperService extends android.app.Service {
         private int getRectFPage(android.graphics.RectF p0, float p1) { return 0; }
         private void initWindowPages(android.service.wallpaper.EngineWindowPage[] p0, float p1) {}
         private void initializeSurface() {}
+        private void logUnconsumedInsets(android.view.InsetsState p0) {}
         private void processLocalColors() {}
         private void processLocalColorsInternal() {}
         private void reposition() {}
@@ -183,6 +200,7 @@ public abstract class WallpaperService extends android.app.Service {
         public android.view.SurfaceHolder getSurfaceHolder() { return null; }
         public int getWallpaperFlags() { return 0; }
         public float getZoom() { return 0.0f; }
+        public void handleInsetsChangedDirectly(android.view.InsetsState p0) {}
         @android.annotation.SystemApi
         public boolean isInAmbientMode() { return false; }
         public boolean isPreview() { return false; }
@@ -216,9 +234,11 @@ public abstract class WallpaperService extends android.app.Service {
         void scaleAndCropScreenshot() {}
         public void setCreated(boolean p0) {}
         public void setFixedSizeAllowed(boolean p0) {}
+        public void setObservedInsetsTypes(int p0) {}
         public void setOffsetNotificationsEnabled(boolean p0) {}
         public void setShowForAllUsers(boolean p0) {}
         public void setTouchEventsEnabled(boolean p0) {}
+        public void setWindowFrame(android.graphics.Rect p0) {}
         public void setZoom(float p0) {}
         public boolean shouldWaitForEngineShown() { return false; }
         public boolean shouldZoomOutWallpaper() { return false; }
@@ -231,6 +251,15 @@ public abstract class WallpaperService extends android.app.Service {
             public WallpaperInputEventReceiver(android.service.wallpaper.WallpaperService.Engine p0, android.view.InputChannel p1, android.os.Looper p2) { super(null, null); }
             public void onInputEvent(android.view.InputEvent p0) {}
         }
+    }
+
+    static final class WallpaperCommand {
+        java.lang.String action;
+        android.os.Bundle extras;
+        int x;
+        int y;
+        int z;
+        WallpaperCommand() {}
     }
 
     class IWallpaperEngineWrapper extends android.service.wallpaper.IWallpaperEngine.Stub implements com.android.internal.os.HandlerCaller.Callback {
@@ -257,7 +286,7 @@ public abstract class WallpaperService extends android.app.Service {
         IWallpaperEngineWrapper(android.service.wallpaper.WallpaperService p0, android.service.wallpaper.WallpaperService p1, android.service.wallpaper.IWallpaperConnection p2, android.os.IBinder p3, int p4, boolean p5, int p6, int p7, android.graphics.Rect p8, int p9, int p10, android.app.WallpaperInfo p11, android.app.wallpaper.WallpaperDescription p12) { super(); }
         private void doAttachEngine() {}
         private void doDetachEngine() {}
-        private void handleResized(android.util.MergedConfiguration p0, int p1) {}
+        private void handleResized(android.view.WindowRelayoutResult p0, int p1) {}
         public void addLocalColorsAreas(java.util.List<android.graphics.RectF> p0) {}
         public void applyDimming(float p0, float p1) throws android.os.RemoteException {}
         public void destroy() {}
@@ -280,21 +309,5 @@ public abstract class WallpaperService extends android.app.Service {
         public void setZoomOut(float p0) {}
         public void updateDescription(android.app.wallpaper.WallpaperDescription p0) {}
         public void updateScreenTurningOn(boolean p0) {}
-    }
-
-    class IWallpaperServiceWrapper extends android.service.wallpaper.IWallpaperService.Stub {
-        private final android.service.wallpaper.WallpaperService mTarget = null;
-        public IWallpaperServiceWrapper(android.service.wallpaper.WallpaperService p0, android.service.wallpaper.WallpaperService p1) { super(); }
-        public void attach(android.service.wallpaper.IWallpaperConnection p0, android.os.IBinder p1, int p2, boolean p3, int p4, int p5, android.graphics.Rect p6, int p7, int p8, android.app.WallpaperInfo p9, android.app.wallpaper.WallpaperDescription p10) {}
-        public void detach(android.os.IBinder p0) {}
-    }
-
-    static final class WallpaperCommand {
-        java.lang.String action;
-        android.os.Bundle extras;
-        int x;
-        int y;
-        int z;
-        WallpaperCommand() {}
     }
 }

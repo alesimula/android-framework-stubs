@@ -10,18 +10,6 @@ public interface IHintSession extends android.os.IInterface {
     public void setMode(int p0, boolean p1) throws android.os.RemoteException;
     public void updateTargetWorkDuration(long p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IHintSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void associateToLayers(android.os.IBinder[] p0) throws android.os.RemoteException {}
-        public void close() throws android.os.RemoteException {}
-        public void reportActualWorkDuration(long[] p0, long[] p1) throws android.os.RemoteException {}
-        public void reportActualWorkDuration2(android.hardware.power.WorkDuration[] p0) throws android.os.RemoteException {}
-        public void sendHint(int p0) throws android.os.RemoteException {}
-        public void setMode(int p0, boolean p1) throws android.os.RemoteException {}
-        public void updateTargetWorkDuration(long p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IHintSession {
         static final int TRANSACTION_associateToLayers = 7;
         static final int TRANSACTION_close = 3;
@@ -50,5 +38,17 @@ public interface IHintSession extends android.os.IInterface {
             public void setMode(int p0, boolean p1) throws android.os.RemoteException {}
             public void updateTargetWorkDuration(long p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IHintSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void associateToLayers(android.os.IBinder[] p0) throws android.os.RemoteException {}
+        public void close() throws android.os.RemoteException {}
+        public void reportActualWorkDuration(long[] p0, long[] p1) throws android.os.RemoteException {}
+        public void reportActualWorkDuration2(android.hardware.power.WorkDuration[] p0) throws android.os.RemoteException {}
+        public void sendHint(int p0) throws android.os.RemoteException {}
+        public void setMode(int p0, boolean p1) throws android.os.RemoteException {}
+        public void updateTargetWorkDuration(long p0) throws android.os.RemoteException {}
     }
 }

@@ -7,14 +7,16 @@ public class FlagValueList {
     public static android.internal.aconfig.storage.FlagValueList fromBytes(java.nio.ByteBuffer p0) { return null; }
     public boolean getBoolean(int p0) { return false; }
     public android.internal.aconfig.storage.FlagValueList.Header getHeader() { return null; }
-    public int size() { return 0; }
+    public long getInt64(int p0) { return 0L; }
 
     public static class Header {
         private int mBooleanValueOffset;
         private java.lang.String mContainer;
         private int mFileSize;
         private android.internal.aconfig.storage.FileType mFileType;
-        private int mNumFlags;
+        private int mInt64ValueOffset;
+        private int mNumBooleanFlags;
+        private int mNumInt64Flags;
         private int mVersion;
         public Header() {}
         public static android.internal.aconfig.storage.FlagValueList.Header fromBytes(android.internal.aconfig.storage.ByteBufferReader p0) { return null; }
@@ -22,7 +24,10 @@ public class FlagValueList {
         public java.lang.String getContainer() { return null; }
         public int getFileSize() { return 0; }
         public android.internal.aconfig.storage.FileType getFileType() { return null; }
+        public int getInt64ValueOffset() { return 0; }
+        public int getNumBooleanFlags() { return 0; }
         public int getNumFlags() { return 0; }
+        public int getNumInt64Flags() { return 0; }
         public int getVersion() { return 0; }
     }
 }

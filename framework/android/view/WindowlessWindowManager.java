@@ -23,8 +23,8 @@ public class WindowlessWindowManager implements android.view.IWindowSession {
     private int relayoutInner(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5, int p6, int p7, android.window.ClientWindowFrames p8, android.util.MergedConfiguration p9, android.view.SurfaceControl p10, android.view.InsetsState p11, android.view.InsetsSourceControl.Array p12) { return 0; }
     private void sendLayoutParamsToParent() {}
     public void addSharedAnimationProvider(android.view.IWindow p0, android.window.sharedsurface.ISharedAnimationProvider p1, android.window.sharedsurface.SharedAnimationParams p2, java.util.List<android.window.sharedsurface.SharedAnimationFilter> p3) {}
-    public int addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, android.view.InputChannel p5, android.view.WindowRelayoutResult p6) { return 0; }
-    public int addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5, android.view.InputChannel p6, android.view.WindowRelayoutResult p7) { return 0; }
+    public android.view.AddWindowResult addToDisplay(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4) { return null; }
+    public android.view.AddWindowResult addToDisplayAsUser(android.view.IWindow p0, android.view.WindowManager.LayoutParams p1, int p2, int p3, int p4, int p5) { return null; }
     public android.os.IBinder asBinder() { return null; }
     public void cancelDragAndDrop(android.os.IBinder p0, boolean p1) {}
     public boolean cancelDraw(android.view.IWindow p0, int p1) { return false; }
@@ -86,10 +86,6 @@ public class WindowlessWindowManager implements android.view.IWindowSession {
     public void updateSharedAnimationParams(android.window.sharedsurface.ISharedAnimationProvider p0, android.window.sharedsurface.SharedAnimationParams p1) {}
     public void updateTapExcludeRegion(android.view.IWindow p0, android.graphics.Region p1) {}
 
-    public static interface ResizeCompleteCallback {
-        public void finished(android.view.SurfaceControl.Transaction p0);
-    }
-
     private class State {
         android.window.WindowContainerToken mAssociatedWindowContainer;
         android.graphics.Rect mAttachedFrame;
@@ -104,5 +100,9 @@ public class WindowlessWindowManager implements android.view.IWindowSession {
         final android.view.WindowManager.LayoutParams mParams = null;
         android.view.SurfaceControl mSurfaceControl;
         State(android.view.WindowlessWindowManager p0, android.view.SurfaceControl p1, android.view.WindowManager.LayoutParams p2, int p3, android.view.IWindow p4, android.view.SurfaceControl p5, android.graphics.Rect p6) {}
+    }
+
+    public static interface ResizeCompleteCallback {
+        public void finished(android.view.SurfaceControl.Transaction p0);
     }
 }

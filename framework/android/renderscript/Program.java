@@ -23,6 +23,24 @@ public class Program extends android.renderscript.BaseObj {
     public java.lang.String getTextureName(int p0) { return null; }
     public android.renderscript.Program.TextureType getTextureType(int p0) { return null; }
 
+    public static enum TextureType {
+        TEXTURE_2D,
+        TEXTURE_CUBE;
+        private static final android.renderscript.Program.TextureType[] $VALUES = null;
+        int mID;
+        private TextureType() {}
+    }
+
+    static enum ProgramParam {
+        CONSTANT,
+        INPUT,
+        OUTPUT,
+        TEXTURE_TYPE;
+        private static final android.renderscript.Program.ProgramParam[] $VALUES = null;
+        int mID;
+        private ProgramParam() {}
+    }
+
     public static class BaseProgramBuilder {
         int mConstantCount;
         android.renderscript.Type[] mConstants;
@@ -45,23 +63,5 @@ public class Program extends android.renderscript.BaseObj {
         protected void initProgram(android.renderscript.Program p0) {}
         public android.renderscript.Program.BaseProgramBuilder setShader(android.content.res.Resources p0, int p1) { return null; }
         public android.renderscript.Program.BaseProgramBuilder setShader(java.lang.String p0) { return null; }
-    }
-
-    static enum ProgramParam {
-        CONSTANT,
-        INPUT,
-        OUTPUT,
-        TEXTURE_TYPE;
-        private static final android.renderscript.Program.ProgramParam[] $VALUES = null;
-        int mID;
-        private ProgramParam() {}
-    }
-
-    public static enum TextureType {
-        TEXTURE_2D,
-        TEXTURE_CUBE;
-        private static final android.renderscript.Program.TextureType[] $VALUES = null;
-        int mID;
-        private TextureType() {}
     }
 }

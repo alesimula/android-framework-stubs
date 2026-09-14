@@ -5,13 +5,6 @@ public interface ISignalStrengthOutcomeReceiver extends android.os.IInterface {
     public void onError(android.os.ParcelableException p0) throws android.os.RemoteException;
     public void onResult(android.telephony.SignalStrength p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ISignalStrengthOutcomeReceiver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
-        public void onResult(android.telephony.SignalStrength p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ISignalStrengthOutcomeReceiver {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onResult = 1;
@@ -30,5 +23,12 @@ public interface ISignalStrengthOutcomeReceiver extends android.os.IInterface {
             public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
             public void onResult(android.telephony.SignalStrength p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ISignalStrengthOutcomeReceiver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(android.os.ParcelableException p0) throws android.os.RemoteException {}
+        public void onResult(android.telephony.SignalStrength p0) throws android.os.RemoteException {}
     }
 }

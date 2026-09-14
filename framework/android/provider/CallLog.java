@@ -15,20 +15,14 @@ public class CallLog {
     public static void storeCallComposerPicture(android.content.Context p0, java.io.InputStream p1, java.util.concurrent.Executor p2, android.os.OutcomeReceiver<android.net.Uri, android.provider.CallLog.CallComposerLoggingException> p3) {}
     private static android.net.Uri storeCallComposerPictureAtUri(android.content.Context p0, android.net.Uri p1, boolean p2, byte[] p3) throws android.provider.CallLog.CallComposerLoggingException { return null; }
 
-    @android.annotation.SystemApi
-    public static class CallComposerLoggingException extends java.lang.Throwable {
-        public static final int ERROR_INPUT_CLOSED = 3;
-        public static final int ERROR_REMOTE_END_CLOSED = 1;
-        public static final int ERROR_STORAGE_FULL = 2;
-        public static final int ERROR_UNKNOWN = 0;
-        private final int mErrorCode = 0;
-        public CallComposerLoggingException(int p0) { super(); }
-        public int getErrorCode() { return 0; }
-        public java.lang.String toString() { return null; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface CallComposerLoggingError {
-        }
+    public static class Locations implements android.provider.BaseColumns {
+        public static final java.lang.String AUTHORITY = "call_composer_locations";
+        public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/call_composer_location";
+        public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/call_composer_location";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String LATITUDE = "latitude";
+        public static final java.lang.String LONGITUDE = "longitude";
+        private Locations() {}
     }
 
     public static class Calls implements android.provider.BaseColumns {
@@ -39,6 +33,7 @@ public class CallLog {
         public static final long AUTO_MISSED_EMERGENCY_CALL = 1L;
         public static final long AUTO_MISSED_MAXIMUM_DIALING = 4L;
         public static final long AUTO_MISSED_MAXIMUM_RINGING = 2L;
+        public static final long AUTO_MISSED_UNWANTED = 8L;
         public static final int BLOCKED_TYPE = 6;
         public static final java.lang.String BLOCK_REASON = "block_reason";
         public static final int BLOCK_REASON_BLOCKED_NUMBER = 3;
@@ -146,13 +141,19 @@ public class CallLog {
         }
     }
 
-    public static class Locations implements android.provider.BaseColumns {
-        public static final java.lang.String AUTHORITY = "call_composer_locations";
-        public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/call_composer_location";
-        public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/call_composer_location";
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String LATITUDE = "latitude";
-        public static final java.lang.String LONGITUDE = "longitude";
-        private Locations() {}
+    @android.annotation.SystemApi
+    public static class CallComposerLoggingException extends java.lang.Throwable {
+        public static final int ERROR_INPUT_CLOSED = 3;
+        public static final int ERROR_REMOTE_END_CLOSED = 1;
+        public static final int ERROR_STORAGE_FULL = 2;
+        public static final int ERROR_UNKNOWN = 0;
+        private final int mErrorCode = 0;
+        public CallComposerLoggingException(int p0) { super(); }
+        public int getErrorCode() { return 0; }
+        public java.lang.String toString() { return null; }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface CallComposerLoggingError {
+        }
     }
 }

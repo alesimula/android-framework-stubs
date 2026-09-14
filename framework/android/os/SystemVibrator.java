@@ -6,11 +6,11 @@ public class SystemVibrator extends android.os.Vibrator {
     private final android.content.Context mContext = null;
     private final java.lang.Object mLock = null;
     private final android.util.ArrayMap<android.os.Vibrator.OnVibratorStateChangedListener, android.os.SystemVibrator.MultiVibratorStateListener> mRegisteredListeners = null;
-    private int[] mVibratorIds;
+    private int[] mTargetVibratorIds;
     private android.os.VibratorInfo mVibratorInfo;
     private final android.os.VibratorManager mVibratorManager = null;
     public SystemVibrator(android.content.Context p0) { super(); }
-    private int[] getVibratorIds() { return null; }
+    private int[] getTargetVibratorIds() { return null; }
     private void tryUnregisterBrokenListeners() {}
     public void addVibratorStateListener(android.os.Vibrator.OnVibratorStateChangedListener p0) {}
     public void addVibratorStateListener(java.util.concurrent.Executor p0, android.os.Vibrator.OnVibratorStateChangedListener p1) {}

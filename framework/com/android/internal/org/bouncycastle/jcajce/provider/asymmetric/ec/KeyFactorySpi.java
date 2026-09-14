@@ -11,12 +11,16 @@ public class KeyFactorySpi extends com.android.internal.org.bouncycastle.jcajce.
     public java.security.PrivateKey generatePrivate(com.android.internal.org.bouncycastle.asn1.pkcs.PrivateKeyInfo p0) throws java.io.IOException { return null; }
     public java.security.PublicKey generatePublic(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0) throws java.io.IOException { return null; }
 
+    public static class ECDH extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
+        public ECDH() { super(null, null); }
+    }
+
     public static class EC extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
         public EC() { super(null, null); }
     }
 
-    public static class ECDH extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
-        public ECDH() { super(null, null); }
+    public static class ECMQV extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
+        public ECMQV() { super(null, null); }
     }
 
     public static class ECDHC extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
@@ -25,9 +29,5 @@ public class KeyFactorySpi extends com.android.internal.org.bouncycastle.jcajce.
 
     public static class ECDSA extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
         public ECDSA() { super(null, null); }
-    }
-
-    public static class ECMQV extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi {
-        public ECMQV() { super(null, null); }
     }
 }

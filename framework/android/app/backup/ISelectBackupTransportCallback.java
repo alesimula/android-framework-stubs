@@ -4,13 +4,6 @@ public interface ISelectBackupTransportCallback extends android.os.IInterface {
     public void onFailure(int p0) throws android.os.RemoteException;
     public void onSuccess(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.backup.ISelectBackupTransportCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFailure(int p0) throws android.os.RemoteException {}
-        public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.backup.ISelectBackupTransportCallback {
         public static final java.lang.String DESCRIPTOR = "android.app.backup.ISelectBackupTransportCallback";
         static final int TRANSACTION_onFailure = 2;
@@ -30,5 +23,12 @@ public interface ISelectBackupTransportCallback extends android.os.IInterface {
             public void onFailure(int p0) throws android.os.RemoteException {}
             public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.backup.ISelectBackupTransportCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFailure(int p0) throws android.os.RemoteException {}
+        public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

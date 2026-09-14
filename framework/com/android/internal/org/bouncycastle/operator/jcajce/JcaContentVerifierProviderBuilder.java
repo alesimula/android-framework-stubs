@@ -13,10 +13,11 @@ public class JcaContentVerifierProviderBuilder {
     public com.android.internal.org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder setProvider(java.lang.String p0) { return null; }
     public com.android.internal.org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder setProvider(java.security.Provider p0) { return null; }
 
-    private static class CompositeVerifier implements com.android.internal.org.bouncycastle.operator.ContentVerifier {
-        private java.security.Signature[] sigs;
-        private java.io.OutputStream stream;
-        public CompositeVerifier(java.security.Signature[] p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException {}
+    private static class SigVerifier implements com.android.internal.org.bouncycastle.operator.ContentVerifier {
+        private final com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier algorithm = null;
+        private final java.security.Signature signature = null;
+        protected final java.io.OutputStream stream = null;
+        SigVerifier(com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier p0, java.security.Signature p1) {}
         public com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier getAlgorithmIdentifier() { return null; }
         public java.io.OutputStream getOutputStream() { return null; }
         public boolean verify(byte[] p0) { return false; }
@@ -29,11 +30,10 @@ public class JcaContentVerifierProviderBuilder {
         public boolean verify(byte[] p0, byte[] p1) { return false; }
     }
 
-    private static class SigVerifier implements com.android.internal.org.bouncycastle.operator.ContentVerifier {
-        private final com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier algorithm = null;
-        private final java.security.Signature signature = null;
-        protected final java.io.OutputStream stream = null;
-        SigVerifier(com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier p0, java.security.Signature p1) {}
+    private static class CompositeVerifier implements com.android.internal.org.bouncycastle.operator.ContentVerifier {
+        private java.security.Signature[] sigs;
+        private java.io.OutputStream stream;
+        public CompositeVerifier(java.security.Signature[] p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException {}
         public com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier getAlgorithmIdentifier() { return null; }
         public java.io.OutputStream getOutputStream() { return null; }
         public boolean verify(byte[] p0) { return false; }

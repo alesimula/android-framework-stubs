@@ -61,14 +61,6 @@ public abstract class AndroidKeyStoreKeyPairGeneratorSpi extends java.security.K
     public void initialize(int p0, java.security.SecureRandom p1) throws java.security.InvalidParameterException {}
     public void initialize(java.security.spec.AlgorithmParameterSpec p0, java.security.SecureRandom p1) throws java.security.InvalidAlgorithmParameterException {}
 
-    public static class EC extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
-        public EC() { super(0); }
-    }
-
-    public static class ED25519 extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
-        public ED25519() { super(0); }
-    }
-
     public static class MLDSA extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
         public MLDSA() { super(0); }
     }
@@ -77,8 +69,8 @@ public abstract class AndroidKeyStoreKeyPairGeneratorSpi extends java.security.K
         public MLDSA65() { super(0); }
     }
 
-    public static class MLDSA87 extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
-        public MLDSA87() { super(0); }
+    public static class ED25519 extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
+        public ED25519() { super(0); }
     }
 
     public static class RSA extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
@@ -87,5 +79,13 @@ public abstract class AndroidKeyStoreKeyPairGeneratorSpi extends java.security.K
 
     public static class XDH extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
         public XDH() { super(0); }
+    }
+
+    public static class EC extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
+        public EC() { super(0); }
+    }
+
+    public static class MLDSA87 extends android.security.keystore2.AndroidKeyStoreKeyPairGeneratorSpi {
+        public MLDSA87() { super(0); }
     }
 }

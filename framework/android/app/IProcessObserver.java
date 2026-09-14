@@ -6,15 +6,6 @@ public interface IProcessObserver extends android.os.IInterface {
     public void onProcessDied(int p0, int p1) throws android.os.RemoteException;
     public void onProcessStarted(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException;
 
-    public static class Default implements android.app.IProcessObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onForegroundActivitiesChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void onForegroundServicesChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onProcessDied(int p0, int p1) throws android.os.RemoteException {}
-        public void onProcessStarted(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.IProcessObserver {
         public static final java.lang.String DESCRIPTOR = "android.app.IProcessObserver";
         static final int TRANSACTION_onForegroundActivitiesChanged = 2;
@@ -38,5 +29,14 @@ public interface IProcessObserver extends android.os.IInterface {
             public void onProcessDied(int p0, int p1) throws android.os.RemoteException {}
             public void onProcessStarted(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.IProcessObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onForegroundActivitiesChanged(int p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void onForegroundServicesChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onProcessDied(int p0, int p1) throws android.os.RemoteException {}
+        public void onProcessStarted(int p0, int p1, int p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
     }
 }

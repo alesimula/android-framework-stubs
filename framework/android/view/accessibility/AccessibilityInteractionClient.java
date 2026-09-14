@@ -31,6 +31,7 @@ public final class AccessibilityInteractionClient extends android.view.accessibi
     private void checkFindAccessibilityNodeInfoResultIntegrity(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0) {}
     private void clearInteraction(int p0) {}
     private void clearInteraction(android.view.accessibility.AccessibilityInteractionClient.InteractionState p0) {}
+    private void clearPrefetchInteractions(int p0) {}
     private void deleteScrollingWindow(int p0) {}
     private void finalizeAndCacheAccessibilityNodeInfo(android.view.accessibility.AccessibilityNodeInfo p0, int p1, boolean p2, java.lang.String[] p3) {}
     private void finalizeAndCacheAccessibilityNodeInfos(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1, boolean p2, java.lang.String[] p3) {}
@@ -77,6 +78,8 @@ public final class AccessibilityInteractionClient extends android.view.accessibi
     public java.util.List<android.view.accessibility.AccessibilityWindowInfo> getWindowsOnDisplay(int p0, int p1) { return null; }
     public void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, int p1) {}
     public boolean performAccessibilityAction(int p0, int p1, long p2, int p3, android.os.Bundle p4) { return false; }
+    public void reportServiceReady(int p0) {}
+    public void reportUiDrawn(int p0) {}
     public void sendAttachOverlayResult(int p0, int p1) {}
     public void sendTakeScreenshotOfWindowError(int p0, int p1) {}
     public void setFindAccessibilityNodeInfoResult(android.view.accessibility.AccessibilityNodeInfo p0, int p1) {}
@@ -100,6 +103,7 @@ public final class AccessibilityInteractionClient extends android.view.accessibi
         final java.lang.String mLoggingMethod = null;
         java.lang.String[] mPackageNames;
         boolean mPerformA11yActionResult;
+        boolean mPrefetchCanceled;
         java.util.List<android.view.accessibility.AccessibilityNodeInfo> mPrefetchResult;
         android.util.Pair<java.util.concurrent.Executor, android.accessibilityservice.AccessibilityService.TakeScreenshotCallback> mTakeScreenshotCallback;
         InteractionState(int p0, int p1, android.accessibilityservice.IAccessibilityServiceConnection p2, java.lang.String p3, boolean p4) {}

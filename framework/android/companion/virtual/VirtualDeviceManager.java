@@ -2,6 +2,7 @@ package android.companion.virtual;
 
 @android.annotation.RestrictedForEnvironment(environments="SDK Runtime", from=34)
 public final class VirtualDeviceManager {
+    public static final int COMPUTER_CONTROL_PERIPHERAL_VERSION = 1;
     public static final int COMPUTER_CONTROL_VERSION = Integer.valueOf(0);
     @android.annotation.SystemApi
     public static final int LAUNCH_FAILURE_NO_ACTIVITY = 2;
@@ -26,9 +27,9 @@ public final class VirtualDeviceManager {
     public int getAudioPlaybackSessionId(int p0) { return 0; }
     public int getAudioRecordingSessionId(int p0) { return 0; }
     public android.companion.virtual.computercontrol.ComputerControlConsentManager getComputerControlConsentManager() { return null; }
+    public int getContextDeviceIdForDisplayId(int p0) { return 0; }
     public int getDeviceIdForDisplayId(int p0) { return 0; }
     public int getDevicePolicy(int p0, int p1) { return 0; }
-    public int getDevicePolicyForDisplayId(int p0, int p1) { return 0; }
     @android.annotation.SystemApi
     public java.lang.CharSequence getDisplayNameForPersistentDeviceId(java.lang.String p0) { return null; }
     public android.companion.virtual.VirtualDevice getVirtualDevice(int p0) { return null; }
@@ -42,6 +43,7 @@ public final class VirtualDeviceManager {
     public void registerAutomatedPackageListener(java.util.concurrent.Executor p0, android.companion.virtual.computercontrol.AutomatedPackageListener p1) {}
     public void registerVirtualDeviceListener(java.util.concurrent.Executor p0, android.companion.virtual.VirtualDeviceManager.VirtualDeviceListener p1) {}
     public void requestComputerControlSession(android.companion.virtual.computercontrol.ComputerControlSessionParams p0, java.util.concurrent.Executor p1, android.companion.virtual.computercontrol.ComputerControlSession.Callback p2) {}
+    public void setComputerControlPeripheralNotification(java.util.UUID p0, android.companion.virtual.computercontrol.ComputerControlNotificationParams p1) {}
     public void unregisterAutomatedPackageListener(android.companion.virtual.computercontrol.AutomatedPackageListener p0) {}
     public void unregisterVirtualDeviceListener(android.companion.virtual.VirtualDeviceManager.VirtualDeviceListener p0) {}
 
@@ -139,6 +141,8 @@ public final class VirtualDeviceManager {
         public void setDisplayInTouchMode(int p0, boolean p1) {}
         public void setDisplayUiMode(int p0, int p1) {}
         public void setShowPointerIcon(boolean p0) {}
+        public void transferMirroredTasksToVirtualDisplay(int p0) {}
+        public void transferTasksFromVirtualDisplay(int p0, int p1) {}
         public void unregisterIntentInterceptor(android.companion.virtual.VirtualDeviceManager.IntentInterceptorCallback p0) {}
         public void wakeUp() {}
     }

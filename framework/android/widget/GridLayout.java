@@ -121,16 +121,45 @@ public class GridLayout extends android.view.ViewGroup {
     public void setRowOrderPreserved(boolean p0) {}
     public void setUseDefaultMargins(boolean p0) {}
 
-    public static abstract class Alignment {
-        Alignment() {}
-        abstract int getAlignmentValue(android.view.View p0, int p1, int p2);
-        android.widget.GridLayout.Bounds getBounds() { return null; }
-        abstract int getGravityOffset(android.view.View p0, int p1);
-        int getSizeInCell(android.view.View p0, int p1, int p2) { return 0; }
+    static final class Assoc<K extends java.lang.Object, V extends java.lang.Object> extends java.util.ArrayList<android.util.Pair<K, V>> {
+        private final java.lang.Class<K> keyType = null;
+        private final java.lang.Class<V> valueType = null;
+        private Assoc(java.lang.Class<K> p0, java.lang.Class<V> p1) { super(); }
+        public static <K extends java.lang.Object, V extends java.lang.Object> android.widget.GridLayout.Assoc<K, V> of(java.lang.Class<K> p0, java.lang.Class<V> p1) { return null; }
+        public android.widget.GridLayout.PackedMap<K, V> pack() { return null; }
+        public void put(K p0, V p1) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlignmentMode {
+    public static @interface Orientation {
+    }
+
+    static final class Interval {
+        public final int max = 0;
+        public final int min = 0;
+        public Interval(int p0, int p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        android.widget.GridLayout.Interval inverse() { return null; }
+        int size() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static class Spec {
+        static final float DEFAULT_WEIGHT = 0.0f;
+        static final android.widget.GridLayout.Spec UNDEFINED = null;
+        final android.widget.GridLayout.Alignment alignment = null;
+        final android.widget.GridLayout.Interval span = null;
+        final boolean startDefined = false;
+        final float weight = 0.0f;
+        private Spec(boolean p0, int p1, int p2, android.widget.GridLayout.Alignment p3, float p4) {}
+        private Spec(boolean p0, android.widget.GridLayout.Interval p1, android.widget.GridLayout.Alignment p2, float p3) {}
+        private android.widget.GridLayout.Alignment getAbsoluteAlignment(boolean p0) { return null; }
+        final android.widget.GridLayout.Spec copyWriteAlignment(android.widget.GridLayout.Alignment p0) { return null; }
+        final android.widget.GridLayout.Spec copyWriteSpan(android.widget.GridLayout.Interval p0) { return null; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        final int getFlexibility() { return 0; }
+        public int hashCode() { return 0; }
     }
 
     static final class Arc {
@@ -139,15 +168,6 @@ public class GridLayout extends android.view.ViewGroup {
         public final android.widget.GridLayout.MutableInt value = null;
         public Arc(android.widget.GridLayout.Interval p0, android.widget.GridLayout.MutableInt p1) {}
         public java.lang.String toString() { return null; }
-    }
-
-    static final class Assoc<K extends java.lang.Object, V extends java.lang.Object> extends java.util.ArrayList<android.util.Pair<K, V>> {
-        private final java.lang.Class<K> keyType = null;
-        private final java.lang.Class<V> valueType = null;
-        private Assoc(java.lang.Class<K> p0, java.lang.Class<V> p1) { super(); }
-        public static <K extends java.lang.Object, V extends java.lang.Object> android.widget.GridLayout.Assoc<K, V> of(java.lang.Class<K> p0, java.lang.Class<V> p1) { return null; }
-        public android.widget.GridLayout.PackedMap<K, V> pack() { return null; }
-        public void put(K p0, V p1) {}
     }
 
     final class Axis {
@@ -228,27 +248,25 @@ public class GridLayout extends android.view.ViewGroup {
         public void setOrderPreserved(boolean p0) {}
     }
 
-    static class Bounds {
-        public int after;
-        public int before;
-        public int flexibility;
-        private Bounds() {}
-        protected int getOffset(android.widget.GridLayout p0, android.view.View p1, android.widget.GridLayout.Alignment p2, int p3, boolean p4) { return 0; }
-        protected void include(int p0, int p1) {}
-        protected final void include(android.widget.GridLayout p0, android.view.View p1, android.widget.GridLayout.Spec p2, android.widget.GridLayout.Axis p3, int p4) {}
-        protected void reset() {}
-        protected int size(boolean p0) { return 0; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AlignmentMode {
     }
 
-    static final class Interval {
-        public final int max = 0;
-        public final int min = 0;
-        public Interval(int p0, int p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        android.widget.GridLayout.Interval inverse() { return null; }
-        int size() { return 0; }
+    static final class PackedMap<K extends java.lang.Object, V extends java.lang.Object> {
+        public final int[] index = null;
+        public final K[] keys = null;
+        public final V[] values = null;
+        private PackedMap(K[] p0, V[] p1) {}
+        private static <K extends java.lang.Object> K[] compact(K[] p0, int[] p1) { return null; }
+        private static <K extends java.lang.Object> int[] createIndex(K[] p0) { return null; }
+        public V getValue(int p0) { return null; }
+    }
+
+    static final class MutableInt {
+        public int value;
+        public MutableInt() {}
+        public MutableInt(int p0) {}
+        public void reset() {}
         public java.lang.String toString() { return null; }
     }
 
@@ -291,43 +309,25 @@ public class GridLayout extends android.view.ViewGroup {
         final void setRowSpecSpan(android.widget.GridLayout.Interval p0) {}
     }
 
-    static final class MutableInt {
-        public int value;
-        public MutableInt() {}
-        public MutableInt(int p0) {}
-        public void reset() {}
+    static class Bounds {
+        public int after;
+        public int before;
+        public int flexibility;
+        private Bounds() {}
+        protected int getOffset(android.widget.GridLayout p0, android.view.View p1, android.widget.GridLayout.Alignment p2, int p3, boolean p4) { return 0; }
+        protected void include(int p0, int p1) {}
+        protected final void include(android.widget.GridLayout p0, android.view.View p1, android.widget.GridLayout.Spec p2, android.widget.GridLayout.Axis p3, int p4) {}
+        protected void reset() {}
+        protected int size(boolean p0) { return 0; }
         public java.lang.String toString() { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Orientation {
-    }
-
-    static final class PackedMap<K extends java.lang.Object, V extends java.lang.Object> {
-        public final int[] index = null;
-        public final K[] keys = null;
-        public final V[] values = null;
-        private PackedMap(K[] p0, V[] p1) {}
-        private static <K extends java.lang.Object> K[] compact(K[] p0, int[] p1) { return null; }
-        private static <K extends java.lang.Object> int[] createIndex(K[] p0) { return null; }
-        public V getValue(int p0) { return null; }
-    }
-
-    public static class Spec {
-        static final float DEFAULT_WEIGHT = 0.0f;
-        static final android.widget.GridLayout.Spec UNDEFINED = null;
-        final android.widget.GridLayout.Alignment alignment = null;
-        final android.widget.GridLayout.Interval span = null;
-        final boolean startDefined = false;
-        final float weight = 0.0f;
-        private Spec(boolean p0, int p1, int p2, android.widget.GridLayout.Alignment p3, float p4) {}
-        private Spec(boolean p0, android.widget.GridLayout.Interval p1, android.widget.GridLayout.Alignment p2, float p3) {}
-        private android.widget.GridLayout.Alignment getAbsoluteAlignment(boolean p0) { return null; }
-        final android.widget.GridLayout.Spec copyWriteAlignment(android.widget.GridLayout.Alignment p0) { return null; }
-        final android.widget.GridLayout.Spec copyWriteSpan(android.widget.GridLayout.Interval p0) { return null; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        final int getFlexibility() { return 0; }
-        public int hashCode() { return 0; }
+    public static abstract class Alignment {
+        Alignment() {}
+        abstract int getAlignmentValue(android.view.View p0, int p1, int p2);
+        android.widget.GridLayout.Bounds getBounds() { return null; }
+        abstract int getGravityOffset(android.view.View p0, int p1);
+        int getSizeInCell(android.view.View p0, int p1, int p2) { return 0; }
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.GridLayout> {

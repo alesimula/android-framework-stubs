@@ -10,17 +10,6 @@ final class SerializedWaveformEnvelopeEffect implements com.android.internal.vib
     public java.lang.String toString() { return null; }
     public void write(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException {}
 
-    static final class Builder {
-        private final java.util.List<com.android.internal.vibrator.persistence.SerializedWaveformEnvelopeEffect.WaveformControlPoint> mControlPoints = null;
-        private float mInitialFrequencyHz;
-        private long mStartTimeMillis;
-        Builder() {}
-        void addControlPoint(float p0, float p1, long p2) {}
-        com.android.internal.vibrator.persistence.SerializedWaveformEnvelopeEffect build() { return null; }
-        void setInitialFrequencyHz(float p0) {}
-        void setStartTimeMillis(long p0) {}
-    }
-
     static final class Parser {
         Parser() {}
         private static void parseControlPoint(com.android.modules.utils.TypedXmlPullParser p0, com.android.internal.vibrator.persistence.SerializedWaveformEnvelopeEffect.Builder p1) throws com.android.internal.vibrator.persistence.XmlParserException {}
@@ -33,5 +22,16 @@ final class SerializedWaveformEnvelopeEffect implements com.android.internal.vib
         private final float mFrequency = 0.0f;
         WaveformControlPoint(float p0, float p1, long p2) {}
         public java.lang.String toString() { return null; }
+    }
+
+    static final class Builder {
+        private final java.util.List<com.android.internal.vibrator.persistence.SerializedWaveformEnvelopeEffect.WaveformControlPoint> mControlPoints = null;
+        private float mInitialFrequencyHz;
+        private long mStartTimeMillis;
+        Builder() {}
+        void addControlPoint(float p0, float p1, long p2) {}
+        com.android.internal.vibrator.persistence.SerializedWaveformEnvelopeEffect build() { return null; }
+        void setInitialFrequencyHz(float p0) {}
+        void setStartTimeMillis(long p0) {}
     }
 }

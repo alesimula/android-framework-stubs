@@ -13,6 +13,7 @@ public class WireBuffer {
     private void resize(int p0) {}
     public boolean available() { return false; }
     public byte[] cloneBytes() { return null; }
+    public int declareId() { return 0; }
     public void endWithSize() {}
     public byte[] getBuffer() { return null; }
     public int getIndex() { return 0; }
@@ -28,8 +29,11 @@ public class WireBuffer {
     public int readByte() { return 0; }
     public double readDouble() { return 0.0; }
     public float readFloat() { return 0.0f; }
+    public int readId() { return 0; }
     public int readInt() { return 0; }
     public long readLong() { return 0L; }
+    public long readLongNanId() { return 0L; }
+    public float readNanId() { return 0.0f; }
     public int readOperationType() { return 0; }
     public int readShort() { return 0; }
     public java.lang.String readUTF8() { return null; }
@@ -42,6 +46,7 @@ public class WireBuffer {
     public int size() { return 0; }
     public void start(int p0) {}
     public void startWithSize(int p0) {}
+    public void write(byte[] p0) {}
     public void writeBoolean(boolean p0) {}
     public void writeBuffer(byte[] p0) {}
     public void writeByte(int p0) {}

@@ -11,17 +11,6 @@ public interface IDescrambler extends android.os.IInterface {
     public boolean requiresSecureDecoderComponent(java.lang.String p0) throws android.os.RemoteException;
     public void setMediaCasSession(byte[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.cas.IDescrambler {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int descramble(int p0, android.hardware.cas.SubSample[] p1, android.hardware.cas.SharedBuffer p2, long p3, android.hardware.cas.DestinationBuffer p4, long p5) throws android.os.RemoteException { return 0; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void release() throws android.os.RemoteException {}
-        public boolean requiresSecureDecoderComponent(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public void setMediaCasSession(byte[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.cas.IDescrambler {
         static final int TRANSACTION_descramble = 1;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -48,5 +37,16 @@ public interface IDescrambler extends android.os.IInterface {
             public boolean requiresSecureDecoderComponent(java.lang.String p0) throws android.os.RemoteException { return false; }
             public void setMediaCasSession(byte[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.cas.IDescrambler {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int descramble(int p0, android.hardware.cas.SubSample[] p1, android.hardware.cas.SharedBuffer p2, long p3, android.hardware.cas.DestinationBuffer p4, long p5) throws android.os.RemoteException { return 0; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void release() throws android.os.RemoteException {}
+        public boolean requiresSecureDecoderComponent(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public void setMediaCasSession(byte[] p0) throws android.os.RemoteException {}
     }
 }

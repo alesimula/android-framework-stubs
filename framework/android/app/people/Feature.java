@@ -3,11 +3,14 @@ package android.app.people;
 @android.annotation.SystemApi
 public final class Feature implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.people.Feature> CREATOR = null;
+    public static final android.app.people.Feature FALSE = null;
     public static final int KIND_BOOLEAN = 1;
     public static final int KIND_BYTES = 5;
     public static final int KIND_DOUBLE = 3;
     public static final int KIND_LONG = 2;
     public static final int KIND_STRING = 4;
+    public static final android.app.people.Feature TRUE = null;
+    public static final android.app.people.Feature ZERO = null;
     private final int mKind = 0;
     private final java.lang.Object mValues = null;
     private Feature(int p0, java.lang.Object p1) {}

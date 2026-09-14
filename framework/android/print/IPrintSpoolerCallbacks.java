@@ -10,19 +10,6 @@ public interface IPrintSpoolerCallbacks extends android.os.IInterface {
     public void onSetPrintJobStateResult(boolean p0, int p1) throws android.os.RemoteException;
     public void onSetPrintJobTagResult(boolean p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.print.IPrintSpoolerCallbacks {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void customPrinterIconCacheCleared(int p0) throws android.os.RemoteException {}
-        public void onCancelPrintJobResult(boolean p0, int p1) throws android.os.RemoteException {}
-        public void onCustomPrinterIconCached(int p0) throws android.os.RemoteException {}
-        public void onGetCustomPrinterIconResult(android.graphics.drawable.Icon p0, int p1) throws android.os.RemoteException {}
-        public void onGetPrintJobInfoResult(android.print.PrintJobInfo p0, int p1) throws android.os.RemoteException {}
-        public void onGetPrintJobInfosResult(java.util.List<android.print.PrintJobInfo> p0, int p1) throws android.os.RemoteException {}
-        public void onSetPrintJobStateResult(boolean p0, int p1) throws android.os.RemoteException {}
-        public void onSetPrintJobTagResult(boolean p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.print.IPrintSpoolerCallbacks {
         public static final java.lang.String DESCRIPTOR = "android.print.IPrintSpoolerCallbacks";
         static final int TRANSACTION_customPrinterIconCacheCleared = 8;
@@ -54,5 +41,18 @@ public interface IPrintSpoolerCallbacks extends android.os.IInterface {
             public void onSetPrintJobStateResult(boolean p0, int p1) throws android.os.RemoteException {}
             public void onSetPrintJobTagResult(boolean p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.print.IPrintSpoolerCallbacks {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void customPrinterIconCacheCleared(int p0) throws android.os.RemoteException {}
+        public void onCancelPrintJobResult(boolean p0, int p1) throws android.os.RemoteException {}
+        public void onCustomPrinterIconCached(int p0) throws android.os.RemoteException {}
+        public void onGetCustomPrinterIconResult(android.graphics.drawable.Icon p0, int p1) throws android.os.RemoteException {}
+        public void onGetPrintJobInfoResult(android.print.PrintJobInfo p0, int p1) throws android.os.RemoteException {}
+        public void onGetPrintJobInfosResult(java.util.List<android.print.PrintJobInfo> p0, int p1) throws android.os.RemoteException {}
+        public void onSetPrintJobStateResult(boolean p0, int p1) throws android.os.RemoteException {}
+        public void onSetPrintJobTagResult(boolean p0, int p1) throws android.os.RemoteException {}
     }
 }

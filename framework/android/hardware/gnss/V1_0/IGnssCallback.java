@@ -31,18 +31,29 @@ public interface IGnssCallback extends android.internal.hidl.base.V1_0.IBase {
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class Capabilities {
-        public static final int GEOFENCING = 32;
-        public static final int MEASUREMENTS = 64;
-        public static final int MSA = 4;
-        public static final int MSB = 2;
-        public static final int NAV_MESSAGES = 128;
-        public static final int ON_DEMAND_TIME = 16;
-        public static final int SCHEDULING = 1;
-        public static final int SINGLE_SHOT = 8;
-        public Capabilities() {}
-        public static final java.lang.String dumpBitfield(int p0) { return null; }
-        public static final java.lang.String toString(int p0) { return null; }
+    public static final class GnssSvFlags {
+        public static final byte HAS_ALMANAC_DATA = 2;
+        public static final byte HAS_CARRIER_FREQUENCY = 8;
+        public static final byte HAS_EPHEMERIS_DATA = 1;
+        public static final byte NONE = 0;
+        public static final byte USED_IN_FIX = 4;
+        public GnssSvFlags() {}
+        public static final java.lang.String dumpBitfield(byte p0) { return null; }
+        public static final java.lang.String toString(byte p0) { return null; }
+    }
+
+    public static final class GnssSystemInfo {
+        public short yearOfHw;
+        public GnssSystemInfo() {}
+        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IGnssCallback.GnssSystemInfo> readVectorFromParcel(android.os.HwParcel p0) { return null; }
+        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IGnssCallback.GnssSystemInfo> p1) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
+        public final void readFromParcel(android.os.HwParcel p0) {}
+        public final java.lang.String toString() { return null; }
+        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
+        public final void writeToParcel(android.os.HwParcel p0) {}
     }
 
     public static final class GnssStatusValue {
@@ -52,17 +63,6 @@ public interface IGnssCallback extends android.internal.hidl.base.V1_0.IBase {
         public static final byte SESSION_BEGIN = 1;
         public static final byte SESSION_END = 2;
         public GnssStatusValue() {}
-        public static final java.lang.String dumpBitfield(byte p0) { return null; }
-        public static final java.lang.String toString(byte p0) { return null; }
-    }
-
-    public static final class GnssSvFlags {
-        public static final byte HAS_ALMANAC_DATA = 2;
-        public static final byte HAS_CARRIER_FREQUENCY = 8;
-        public static final byte HAS_EPHEMERIS_DATA = 1;
-        public static final byte NONE = 0;
-        public static final byte USED_IN_FIX = 4;
-        public GnssSvFlags() {}
         public static final java.lang.String dumpBitfield(byte p0) { return null; }
         public static final java.lang.String toString(byte p0) { return null; }
     }
@@ -102,18 +102,37 @@ public interface IGnssCallback extends android.internal.hidl.base.V1_0.IBase {
         public final void writeToParcel(android.os.HwParcel p0) {}
     }
 
-    public static final class GnssSystemInfo {
-        public short yearOfHw;
-        public GnssSystemInfo() {}
-        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IGnssCallback.GnssSystemInfo> readVectorFromParcel(android.os.HwParcel p0) { return null; }
-        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IGnssCallback.GnssSystemInfo> p1) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
-        public final void readFromParcel(android.os.HwParcel p0) {}
-        public final java.lang.String toString() { return null; }
-        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
-        public final void writeToParcel(android.os.HwParcel p0) {}
+    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IGnssCallback {
+        public Stub() { super(); }
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
+        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
+        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
+        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
+        public final java.lang.String interfaceDescriptor() { return null; }
+        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
+        public final void notifySyspropsChanged() {}
+        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
+        public final void ping() {}
+        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
+        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
+        public final void setHALInstrumentation() {}
+        public java.lang.String toString() { return null; }
+        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    }
+
+    public static final class Capabilities {
+        public static final int GEOFENCING = 32;
+        public static final int MEASUREMENTS = 64;
+        public static final int MSA = 4;
+        public static final int MSB = 2;
+        public static final int NAV_MESSAGES = 128;
+        public static final int ON_DEMAND_TIME = 16;
+        public static final int SCHEDULING = 1;
+        public static final int SINGLE_SHOT = 8;
+        public Capabilities() {}
+        public static final java.lang.String dumpBitfield(int p0) { return null; }
+        public static final java.lang.String toString(int p0) { return null; }
     }
 
     public static final class Proxy implements android.hardware.gnss.V1_0.IGnssCallback {
@@ -142,24 +161,5 @@ public interface IGnssCallback extends android.internal.hidl.base.V1_0.IBase {
         public void setHALInstrumentation() throws android.os.RemoteException {}
         public java.lang.String toString() { return null; }
         public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
-    }
-
-    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IGnssCallback {
-        public Stub() { super(); }
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
-        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
-        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
-        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
-        public final java.lang.String interfaceDescriptor() { return null; }
-        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
-        public final void notifySyspropsChanged() {}
-        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
-        public final void ping() {}
-        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
-        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
-        public final void setHALInstrumentation() {}
-        public java.lang.String toString() { return null; }
-        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
     }
 }

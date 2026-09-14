@@ -22,11 +22,12 @@ public class LayoutComponent extends com.android.internal.widget.remotecompose.c
     protected com.android.internal.widget.remotecompose.core.operations.layout.modifiers.WidthModifierOperation mWidthModifier;
     protected com.android.internal.widget.remotecompose.core.operations.layout.modifiers.ZIndexModifierOperation mZIndexModifier;
     public LayoutComponent(com.android.internal.widget.remotecompose.core.operations.layout.Component p0, int p1, int p2, float p3, float p4, float p5, float p6) { super((com.android.internal.widget.remotecompose.core.operations.layout.Component)null); }
-    private void internalPaintingComponent(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
+    private void internalPaintingComponent(com.android.internal.widget.remotecompose.core.PaintContext p0, boolean p1) {}
+    public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
     private void updatePadding() {}
     public boolean applyComputedLayout(int p0, com.android.internal.widget.remotecompose.core.PaintContext p1, com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure p2, com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasure p3) { return false; }
-    protected float applyHeightConstraints(float p0) { return 0.0f; }
-    protected float applyWidthConstraints(float p0) { return 0.0f; }
+    public float applyHeightConstraints(float p0) { return 0.0f; }
+    public float applyWidthConstraints(float p0) { return 0.0f; }
     public float computeModifierDefinedHeight(com.android.internal.widget.remotecompose.core.RemoteContext p0) { return 0.0f; }
     public float computeModifierDefinedHeight(com.android.internal.widget.remotecompose.core.RemoteContext p0, boolean p1) { return 0.0f; }
     public float computeModifierDefinedPaddingHeight(float[] p0) { return 0.0f; }
@@ -34,6 +35,7 @@ public class LayoutComponent extends com.android.internal.widget.remotecompose.c
     public float computeModifierDefinedWidth(com.android.internal.widget.remotecompose.core.RemoteContext p0) { return 0.0f; }
     public float computeModifierDefinedWidth(com.android.internal.widget.remotecompose.core.RemoteContext p0, boolean p1) { return 0.0f; }
     public void drawContent(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
+    public com.android.internal.widget.remotecompose.core.operations.layout.CanvasOperations getCanvasOperations() { return null; }
     public java.util.ArrayList<com.android.internal.widget.remotecompose.core.operations.layout.Component> getChildrenComponents() { return null; }
     public com.android.internal.widget.remotecompose.core.operations.layout.modifiers.ComponentModifiers getComponentModifiers() { return null; }
     protected void getComponentsData(com.android.internal.widget.remotecompose.core.operations.layout.LayoutComponentContent p0, java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p1) {}
@@ -53,7 +55,6 @@ public class LayoutComponent extends com.android.internal.widget.remotecompose.c
     public boolean hasComputedLayout() { return false; }
     public void inflate() {}
     public void paintingComponent(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
-    public void registerVariables(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public <T extends java.lang.Object> T selfOrModifier(java.lang.Class<T> p0) { return null; }
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
     public void setCanvasOperations(com.android.internal.widget.remotecompose.core.operations.layout.CanvasOperations p0) {}

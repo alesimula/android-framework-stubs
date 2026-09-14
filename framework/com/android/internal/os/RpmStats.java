@@ -7,6 +7,12 @@ public final class RpmStats {
     public com.android.internal.os.RpmStats.PowerStatePlatformSleepState getAndUpdatePlatformState(java.lang.String p0, long p1, int p2) { return null; }
     public com.android.internal.os.RpmStats.PowerStateSubsystem getSubsystem(java.lang.String p0) { return null; }
 
+    public static class PowerStateSubsystem {
+        public java.util.Map<java.lang.String, com.android.internal.os.RpmStats.PowerStateElement> mStates;
+        public PowerStateSubsystem() {}
+        public void putState(java.lang.String p0, long p1, int p2) {}
+    }
+
     public static class PowerStateElement {
         public int mCount;
         public long mTimeMs;
@@ -19,11 +25,5 @@ public final class RpmStats {
         public java.util.Map<java.lang.String, com.android.internal.os.RpmStats.PowerStateElement> mVoters;
         public PowerStatePlatformSleepState() {}
         public void putVoter(java.lang.String p0, long p1, int p2) {}
-    }
-
-    public static class PowerStateSubsystem {
-        public java.util.Map<java.lang.String, com.android.internal.os.RpmStats.PowerStateElement> mStates;
-        public PowerStateSubsystem() {}
-        public void putState(java.lang.String p0, long p1, int p2) {}
     }
 }

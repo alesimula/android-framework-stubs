@@ -4,6 +4,9 @@ public interface IInsightSurfaceClient extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.embedded.IInsightSurfaceClient";
     public void onReceiveInsight(android.service.personalcontext.insight.ContextInsightWrapper p0) throws android.os.RemoteException;
     public void onRegistered() throws android.os.RemoteException;
+    public void onScrollDelta(float p0, float p1) throws android.os.RemoteException;
+    public void onScrollStart(int p0) throws android.os.RemoteException;
+    public void onScrollStop(int p0, float p1, float p2) throws android.os.RemoteException;
     public void onSizeChanged(int p0, int p1) throws android.os.RemoteException;
     public void onSurfaceCreated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.service.personalcontext.embedded.IInsightSurfaceSession p1) throws android.os.RemoteException;
     public void onSurfaceReleased(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException;
@@ -15,6 +18,9 @@ public interface IInsightSurfaceClient extends android.os.IInterface {
         public android.os.IBinder asBinder() { return null; }
         public void onReceiveInsight(android.service.personalcontext.insight.ContextInsightWrapper p0) throws android.os.RemoteException {}
         public void onRegistered() throws android.os.RemoteException {}
+        public void onScrollDelta(float p0, float p1) throws android.os.RemoteException {}
+        public void onScrollStart(int p0) throws android.os.RemoteException {}
+        public void onScrollStop(int p0, float p1, float p2) throws android.os.RemoteException {}
         public void onSizeChanged(int p0, int p1) throws android.os.RemoteException {}
         public void onSurfaceCreated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.service.personalcontext.embedded.IInsightSurfaceSession p1) throws android.os.RemoteException {}
         public void onSurfaceReleased(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException {}
@@ -25,6 +31,9 @@ public interface IInsightSurfaceClient extends android.os.IInterface {
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.embedded.IInsightSurfaceClient {
         static final int TRANSACTION_onReceiveInsight = 4;
         static final int TRANSACTION_onRegistered = 7;
+        static final int TRANSACTION_onScrollDelta = 9;
+        static final int TRANSACTION_onScrollStart = 8;
+        static final int TRANSACTION_onScrollStop = 10;
         static final int TRANSACTION_onSizeChanged = 5;
         static final int TRANSACTION_onSurfaceCreated = 1;
         static final int TRANSACTION_onSurfaceReleased = 2;
@@ -44,6 +53,9 @@ public interface IInsightSurfaceClient extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onReceiveInsight(android.service.personalcontext.insight.ContextInsightWrapper p0) throws android.os.RemoteException {}
             public void onRegistered() throws android.os.RemoteException {}
+            public void onScrollDelta(float p0, float p1) throws android.os.RemoteException {}
+            public void onScrollStart(int p0) throws android.os.RemoteException {}
+            public void onScrollStop(int p0, float p1, float p2) throws android.os.RemoteException {}
             public void onSizeChanged(int p0, int p1) throws android.os.RemoteException {}
             public void onSurfaceCreated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.service.personalcontext.embedded.IInsightSurfaceSession p1) throws android.os.RemoteException {}
             public void onSurfaceReleased(android.view.SurfaceControlViewHost.SurfacePackage p0) throws android.os.RemoteException {}

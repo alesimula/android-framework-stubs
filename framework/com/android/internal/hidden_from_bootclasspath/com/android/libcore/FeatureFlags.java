@@ -15,6 +15,7 @@ public interface FeatureFlags {
     public boolean openjdk21V2Apis();
     public boolean openjdk25V1Apis();
     public boolean openjdk25V2Apis();
+    public boolean openjdk25V3Apis();
     public boolean osNoThrowApis();
     public boolean postCleanupApis();
     public boolean readOnlyDynamicCodeLoad();

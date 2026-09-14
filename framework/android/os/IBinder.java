@@ -30,11 +30,6 @@ public interface IBinder {
     public boolean transact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IBinder.DeathRecipient p0, int p1);
 
-    public static interface DeathRecipient {
-        public void binderDied();
-        default public void binderDied(android.os.IBinder p0) {}
-    }
-
     public static interface FrozenStateChangeCallback {
         public static final int STATE_FROZEN = 0;
         public static final int STATE_UNFROZEN = 1;
@@ -43,5 +38,10 @@ public interface IBinder {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface State {
         }
+    }
+
+    public static interface DeathRecipient {
+        public void binderDied();
+        default public void binderDied(android.os.IBinder p0) {}
     }
 }

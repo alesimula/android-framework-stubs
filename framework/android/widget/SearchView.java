@@ -141,18 +141,25 @@ public class SearchView extends android.widget.LinearLayout implements android.v
     public void setSubmitButtonEnabled(boolean p0) {}
     public void setSuggestionsAdapter(android.widget.CursorAdapter p0) {}
 
-    public static interface OnCloseListener {
-        public boolean onClose();
-    }
-
-    public static interface OnQueryTextListener {
-        public boolean onQueryTextChange(java.lang.String p0);
-        public boolean onQueryTextSubmit(java.lang.String p0);
+    private static class UpdatableTouchDelegate extends android.view.TouchDelegate {
+        private final android.graphics.Rect mActualBounds = null;
+        private boolean mDelegateTargeted;
+        private final android.view.View mDelegateView = null;
+        private final int mSlop = 0;
+        private final android.graphics.Rect mSlopBounds = null;
+        private final android.graphics.Rect mTargetBounds = null;
+        public UpdatableTouchDelegate(android.graphics.Rect p0, android.graphics.Rect p1, android.view.View p2) { super(null, null); }
+        public boolean onTouchEvent(android.view.MotionEvent p0) { return false; }
+        public void setBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
     }
 
     public static interface OnSuggestionListener {
         public boolean onSuggestionClick(int p0);
         public boolean onSuggestionSelect(int p0);
+    }
+
+    public static interface OnCloseListener {
+        public boolean onClose();
     }
 
     static class SavedState extends android.view.View.BaseSavedState {
@@ -190,16 +197,9 @@ public class SearchView extends android.widget.LinearLayout implements android.v
         public void setThreshold(int p0) {}
     }
 
-    private static class UpdatableTouchDelegate extends android.view.TouchDelegate {
-        private final android.graphics.Rect mActualBounds = null;
-        private boolean mDelegateTargeted;
-        private final android.view.View mDelegateView = null;
-        private final int mSlop = 0;
-        private final android.graphics.Rect mSlopBounds = null;
-        private final android.graphics.Rect mTargetBounds = null;
-        public UpdatableTouchDelegate(android.graphics.Rect p0, android.graphics.Rect p1, android.view.View p2) { super(null, null); }
-        public boolean onTouchEvent(android.view.MotionEvent p0) { return false; }
-        public void setBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
+    public static interface OnQueryTextListener {
+        public boolean onQueryTextChange(java.lang.String p0);
+        public boolean onQueryTextSubmit(java.lang.String p0);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.SearchView> {

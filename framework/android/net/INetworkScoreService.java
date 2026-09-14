@@ -13,22 +13,6 @@ public interface INetworkScoreService extends android.os.IInterface {
     public void unregisterNetworkScoreCache(int p0, android.net.INetworkScoreCache p1) throws android.os.RemoteException;
     public boolean updateScores(android.net.ScoredNetwork[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.net.INetworkScoreService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean clearScores() throws android.os.RemoteException { return false; }
-        public void disableScoring() throws android.os.RemoteException {}
-        public android.net.NetworkScorerAppData getActiveScorer() throws android.os.RemoteException { return null; }
-        public java.lang.String getActiveScorerPackage() throws android.os.RemoteException { return null; }
-        public java.util.List<android.net.NetworkScorerAppData> getAllValidScorers() throws android.os.RemoteException { return null; }
-        public boolean isCallerActiveScorer(int p0) throws android.os.RemoteException { return false; }
-        public void registerNetworkScoreCache(int p0, android.net.INetworkScoreCache p1, int p2) throws android.os.RemoteException {}
-        public boolean requestScores(android.net.NetworkKey[] p0) throws android.os.RemoteException { return false; }
-        public boolean setActiveScorer(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public void unregisterNetworkScoreCache(int p0, android.net.INetworkScoreCache p1) throws android.os.RemoteException {}
-        public boolean updateScores(android.net.ScoredNetwork[] p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.INetworkScoreService {
         public static final java.lang.String DESCRIPTOR = "android.net.INetworkScoreService";
         static final int TRANSACTION_clearScores = 2;
@@ -66,5 +50,21 @@ public interface INetworkScoreService extends android.os.IInterface {
             public void unregisterNetworkScoreCache(int p0, android.net.INetworkScoreCache p1) throws android.os.RemoteException {}
             public boolean updateScores(android.net.ScoredNetwork[] p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.net.INetworkScoreService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean clearScores() throws android.os.RemoteException { return false; }
+        public void disableScoring() throws android.os.RemoteException {}
+        public android.net.NetworkScorerAppData getActiveScorer() throws android.os.RemoteException { return null; }
+        public java.lang.String getActiveScorerPackage() throws android.os.RemoteException { return null; }
+        public java.util.List<android.net.NetworkScorerAppData> getAllValidScorers() throws android.os.RemoteException { return null; }
+        public boolean isCallerActiveScorer(int p0) throws android.os.RemoteException { return false; }
+        public void registerNetworkScoreCache(int p0, android.net.INetworkScoreCache p1, int p2) throws android.os.RemoteException {}
+        public boolean requestScores(android.net.NetworkKey[] p0) throws android.os.RemoteException { return false; }
+        public boolean setActiveScorer(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public void unregisterNetworkScoreCache(int p0, android.net.INetworkScoreCache p1) throws android.os.RemoteException {}
+        public boolean updateScores(android.net.ScoredNetwork[] p0) throws android.os.RemoteException { return false; }
     }
 }

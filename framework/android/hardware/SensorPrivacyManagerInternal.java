@@ -7,11 +7,11 @@ public abstract class SensorPrivacyManagerInternal {
     public abstract boolean isSensorPrivacyEnabled(int p0, int p1);
     public abstract void setPhysicalToggleSensorPrivacy(int p0, int p1, boolean p2);
 
-    public static interface OnSensorPrivacyChangedListener {
-        public void onSensorPrivacyChanged(boolean p0);
-    }
-
     public static interface OnUserSensorPrivacyChangedListener {
         public void onSensorPrivacyChanged(int p0, boolean p1);
+    }
+
+    public static interface OnSensorPrivacyChangedListener {
+        public void onSensorPrivacyChanged(boolean p0);
     }
 }

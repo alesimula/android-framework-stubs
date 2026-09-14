@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations;
 
-public class PathCombine extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.serialize.Serializable {
+public class PathCombine extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.VariableProvider, com.android.internal.widget.remotecompose.core.operations.ComponentData {
     private static final java.lang.String CLASS_NAME = "PathCombine";
     private static final int OP_CODE = 175;
     public static final byte OP_DIFFERENCE = 0;
@@ -19,9 +19,11 @@ public class PathCombine extends com.android.internal.widget.remotecompose.core.
     public static java.lang.String name() { return null; }
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
+    public int getId() { return 0; }
     public void paint(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
     public void registerListening(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
+    public void setId(int p0) {}
     public java.lang.String toString() { return null; }
     public void updateVariables(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void write(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}

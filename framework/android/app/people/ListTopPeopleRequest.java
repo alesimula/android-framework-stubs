@@ -3,6 +3,7 @@ package android.app.people;
 @android.annotation.SystemApi
 public final class ListTopPeopleRequest implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.people.ListTopPeopleRequest> CREATOR = null;
+    public static final int MAX_LIMIT = 10000;
     private final int mLimit = 0;
     private final android.app.people.RequestParams mParams = null;
     private ListTopPeopleRequest(android.app.people.ListTopPeopleRequest.Builder p0) {}

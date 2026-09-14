@@ -41,7 +41,7 @@ public class HapticFeedbackConstants {
     private HapticFeedbackConstants() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FeedbackConstant {
+    public static @interface PrivateFlags {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -49,6 +49,6 @@ public class HapticFeedbackConstants {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PrivateFlags {
+    public static @interface FeedbackConstant {
     }
 }

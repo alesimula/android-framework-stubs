@@ -14,5 +14,7 @@ public final class PackageUtils {
     public static java.lang.String computeSignaturesSha256Digest(java.lang.String[] p0) { return null; }
     public static java.lang.String[] computeSignaturesSha256Digests(android.content.pm.Signature[] p0) { return null; }
     public static java.lang.String[] computeSignaturesSha256Digests(android.content.pm.Signature[] p0, java.lang.String p1) { return null; }
+    public static byte[][] computeSignaturesSha256DigestsBytes(android.content.pm.Signature[] p0) { return null; }
     public static byte[] createLargeFileBuffer() { return null; }
+    public static java.lang.String toHexString(byte[] p0) { return null; }
 }

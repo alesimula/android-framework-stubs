@@ -13,7 +13,7 @@ public class ConnectivitySettingsUtils {
     public static final int PRIVATE_DNS_MODE_PROVIDER_HOSTNAME = 3;
     public static final java.lang.String PRIVATE_DNS_MODE_PROVIDER_HOSTNAME_STRING = "hostname";
     public static final java.lang.String PRIVATE_DNS_SPECIFIER = "private_dns_specifier";
-    public static final java.lang.String TAG = null;
+    public static final java.lang.String TAG = "ConnectivitySettingsUtils";
     public ConnectivitySettingsUtils() {}
     public static java.lang.String getAvoidBadWifiSettingKey(int p0) { return null; }
     public static int getL4sDeveloperOptionSetting(android.content.Context p0) { return 0; }

@@ -4,6 +4,7 @@ public class InstallLocationUtils {
     public static final int APP_INSTALL_AUTO = 0;
     public static final int APP_INSTALL_EXTERNAL = 2;
     public static final int APP_INSTALL_INTERNAL = 1;
+    public static final long MAX_SESSION_SIZE_BYTES = 214748364800L;
     public static final int RECOMMEND_FAILED_ALREADY_EXISTS = -4;
     public static final int RECOMMEND_FAILED_INSUFFICIENT_STORAGE = -1;
     public static final int RECOMMEND_FAILED_INVALID_APK = -2;

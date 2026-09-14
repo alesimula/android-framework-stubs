@@ -9,13 +9,16 @@ public final class ClassifiableContent implements android.os.Parcelable {
     private final android.net.Uri mUri = null;
     private ClassifiableContent(android.content.LocusId p0, java.lang.String p1, android.net.Uri p2, android.os.ParcelFileDescriptor p3) {}
     private ClassifiableContent(android.os.Parcel p0) {}
+    private boolean requiresMultiplexingInternal() throws android.system.ErrnoException { return false; }
     public int describeContents() { return 0; }
     public android.os.ParcelFileDescriptor getData() { return null; }
     public android.content.LocusId getId() { return null; }
     public java.lang.String getMimeType() { return null; }
     public java.lang.String getOriginatingPackageName() { return null; }
     public android.net.Uri getUri() { return null; }
+    public boolean requiresMultiplexing() { return false; }
     public void setOriginatingPackageName(java.lang.String p0) {}
+    public void validate() {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     public static final class Builder {

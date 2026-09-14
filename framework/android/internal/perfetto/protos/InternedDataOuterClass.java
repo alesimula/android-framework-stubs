@@ -22,22 +22,18 @@ public final class InternedDataOuterClass {
         public static final long LOG_MESSAGE_BODY = 2246267895828L;
         public static final long MAPPINGS = 2246267895827L;
         public static final long MAPPING_PATHS = 2246267895825L;
-        public static final long PROTOLOG_STACKTRACE = 2246267895845L;
-        public static final long PROTOLOG_STRING_ARGS = 2246267895844L;
         public static final long SOURCE_LOCATIONS = 2246267895812L;
         public static final long SOURCE_PATHS = 2246267895826L;
+        public static final long STACK_SAMPLE_ASYNC_CONTEXT_DESCRIPTORS = 2246267895859L;
+        public static final long STACK_SAMPLE_COUNTER_DESCRIPTORS = 2246267895858L;
+        public static final long STACK_SAMPLE_EXECUTION_CONTEXTS = 2246267895857L;
+        public static final long STACK_SAMPLE_TASK_CONTEXTS = 2246267895856L;
         public static final long UNSYMBOLIZED_SOURCE_LOCATIONS = 2246267895836L;
         public static final long V8_ISOLATE = 2246267895843L;
         public static final long V8_JS_FUNCTION = 2246267895840L;
         public static final long V8_JS_FUNCTION_NAME = 2246267895839L;
         public static final long V8_JS_SCRIPT = 2246267895841L;
         public static final long V8_WASM_SCRIPT = 2246267895842L;
-        public static final long VIEWCAPTURE_CLASS_NAME = 2246267895849L;
-        public static final long VIEWCAPTURE_CONTENT_DESCRIPTION = 2246267895853L;
-        public static final long VIEWCAPTURE_PACKAGE_NAME = 2246267895846L;
-        public static final long VIEWCAPTURE_TEXT = 2246267895854L;
-        public static final long VIEWCAPTURE_VIEW_ID = 2246267895848L;
-        public static final long VIEWCAPTURE_WINDOW_NAME = 2246267895847L;
         public static final long VULKAN_MEMORY_KEYS = 2246267895830L;
         public InternedData(android.internal.perfetto.protos.InternedDataOuterClass p0) {}
     }

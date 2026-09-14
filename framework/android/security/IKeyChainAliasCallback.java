@@ -4,13 +4,6 @@ public interface IKeyChainAliasCallback extends android.os.IInterface {
     public void alias(java.lang.String p0) throws android.os.RemoteException;
     public void onError(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.IKeyChainAliasCallback {
-        public Default() {}
-        public void alias(java.lang.String p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.IKeyChainAliasCallback {
         public static final java.lang.String DESCRIPTOR = "android.security.IKeyChainAliasCallback";
         static final int TRANSACTION_alias = 1;
@@ -30,5 +23,12 @@ public interface IKeyChainAliasCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onError(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.IKeyChainAliasCallback {
+        public Default() {}
+        public void alias(java.lang.String p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(int p0) throws android.os.RemoteException {}
     }
 }

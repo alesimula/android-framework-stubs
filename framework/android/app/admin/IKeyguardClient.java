@@ -4,12 +4,6 @@ public interface IKeyguardClient extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.admin.IKeyguardClient";
     public void onCreateKeyguardSurface(android.os.IBinder p0, android.app.admin.IKeyguardCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.app.admin.IKeyguardClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCreateKeyguardSurface(android.os.IBinder p0, android.app.admin.IKeyguardCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.admin.IKeyguardClient {
         static final int TRANSACTION_onCreateKeyguardSurface = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IKeyguardClient extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onCreateKeyguardSurface(android.os.IBinder p0, android.app.admin.IKeyguardCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.admin.IKeyguardClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCreateKeyguardSurface(android.os.IBinder p0, android.app.admin.IKeyguardCallback p1) throws android.os.RemoteException {}
     }
 }

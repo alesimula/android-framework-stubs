@@ -12,20 +12,6 @@ public interface ILegacyPermissionManager extends android.os.IInterface {
     public void revokeDefaultPermissionsFromDisabledTelephonyDataServices(java.lang.String[] p0, int p1) throws android.os.RemoteException;
     public void revokeDefaultPermissionsFromLuiApps(java.lang.String[] p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.permission.ILegacyPermissionManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int checkDeviceIdentifierAccess(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, int p4) throws android.os.RemoteException { return 0; }
-        public int checkPhoneNumberAccess(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, int p4) throws android.os.RemoteException { return 0; }
-        public void grantDefaultPermissionsToActiveLuiApp(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void grantDefaultPermissionsToCarrierServiceApp(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void grantDefaultPermissionsToEnabledCarrierApps(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
-        public void grantDefaultPermissionsToEnabledImsServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
-        public void grantDefaultPermissionsToEnabledTelephonyDataServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
-        public void revokeDefaultPermissionsFromDisabledTelephonyDataServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
-        public void revokeDefaultPermissionsFromLuiApps(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.permission.ILegacyPermissionManager {
         static final int TRANSACTION_checkDeviceIdentifierAccess = 1;
         static final int TRANSACTION_checkPhoneNumberAccess = 2;
@@ -58,5 +44,19 @@ public interface ILegacyPermissionManager extends android.os.IInterface {
             public void revokeDefaultPermissionsFromDisabledTelephonyDataServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
             public void revokeDefaultPermissionsFromLuiApps(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.permission.ILegacyPermissionManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int checkDeviceIdentifierAccess(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, int p4) throws android.os.RemoteException { return 0; }
+        public int checkPhoneNumberAccess(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, int p4) throws android.os.RemoteException { return 0; }
+        public void grantDefaultPermissionsToActiveLuiApp(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void grantDefaultPermissionsToCarrierServiceApp(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void grantDefaultPermissionsToEnabledCarrierApps(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
+        public void grantDefaultPermissionsToEnabledImsServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
+        public void grantDefaultPermissionsToEnabledTelephonyDataServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
+        public void revokeDefaultPermissionsFromDisabledTelephonyDataServices(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
+        public void revokeDefaultPermissionsFromLuiApps(java.lang.String[] p0, int p1) throws android.os.RemoteException {}
     }
 }

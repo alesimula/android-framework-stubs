@@ -52,53 +52,6 @@ public class ImsCallSession {
     public void transfer(java.lang.String p0, boolean p1) {}
     public void update(int p0, android.telephony.ims.ImsStreamMediaProfile p1) {}
 
-    private class IImsCallSessionListenerProxy extends android.telephony.ims.aidl.IImsCallSessionListener.Stub {
-        private IImsCallSessionListenerProxy(android.telephony.ims.ImsCallSession p0) { super(); }
-        public void callQualityChanged(android.telephony.CallQuality p0) {}
-        public void callSessionConferenceExtendFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionConferenceExtendReceived(com.android.ims.internal.IImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
-        public void callSessionConferenceExtended(com.android.ims.internal.IImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
-        public void callSessionConferenceStateUpdated(android.telephony.ims.ImsConferenceState p0) {}
-        public void callSessionDtmfReceived(char p0) {}
-        public void callSessionHandover(int p0, int p1, android.telephony.ims.ImsReasonInfo p2) {}
-        public void callSessionHandoverFailed(int p0, int p1, android.telephony.ims.ImsReasonInfo p2) {}
-        public void callSessionHeld(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionHoldFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionHoldReceived(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionInitiated(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionInitiatedFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionInitiating(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionInitiatingFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionInviteParticipantsRequestDelivered() {}
-        public void callSessionInviteParticipantsRequestFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionMayHandover(int p0, int p1) {}
-        public void callSessionMergeComplete(com.android.ims.internal.IImsCallSession p0) {}
-        public void callSessionMergeFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionMergeStarted(com.android.ims.internal.IImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
-        public void callSessionMultipartyStateChanged(boolean p0) {}
-        public void callSessionProgressing(android.telephony.ims.ImsStreamMediaProfile p0) {}
-        public void callSessionRemoveParticipantsRequestDelivered() {}
-        public void callSessionRemoveParticipantsRequestFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionResumeFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionResumeReceived(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionResumed(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionRtpHeaderExtensionsReceived(java.util.List<android.telephony.ims.RtpHeaderExtension> p0) {}
-        public void callSessionRttAudioIndicatorChanged(android.telephony.ims.ImsStreamMediaProfile p0) {}
-        public void callSessionRttMessageReceived(java.lang.String p0) {}
-        public void callSessionRttModifyRequestReceived(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionRttModifyResponseReceived(int p0) {}
-        public void callSessionSendAnbrQuery(int p0, int p1, int p2) {}
-        public void callSessionSuppServiceReceived(android.telephony.ims.ImsSuppServiceNotification p0) {}
-        public void callSessionTerminated(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionTransferFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionTransferred() {}
-        public void callSessionTtyModeReceived(int p0) {}
-        public void callSessionUpdateFailed(android.telephony.ims.ImsReasonInfo p0) {}
-        public void callSessionUpdateReceived(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionUpdated(android.telephony.ims.ImsCallProfile p0) {}
-        public void callSessionUssdMessageReceived(int p0, java.lang.String p1) {}
-    }
-
     public static class Listener {
         public Listener() {}
         public void callQualityChanged(android.telephony.CallQuality p0) {}
@@ -144,6 +97,53 @@ public class ImsCallSession {
         public void callSessionUpdateReceived(android.telephony.ims.ImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
         public void callSessionUpdated(android.telephony.ims.ImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
         public void callSessionUssdMessageReceived(android.telephony.ims.ImsCallSession p0, int p1, java.lang.String p2) {}
+    }
+
+    private class IImsCallSessionListenerProxy extends android.telephony.ims.aidl.IImsCallSessionListener.Stub {
+        private IImsCallSessionListenerProxy(android.telephony.ims.ImsCallSession p0) { super(); }
+        public void callQualityChanged(android.telephony.CallQuality p0) {}
+        public void callSessionConferenceExtendFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionConferenceExtendReceived(com.android.ims.internal.IImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
+        public void callSessionConferenceExtended(com.android.ims.internal.IImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
+        public void callSessionConferenceStateUpdated(android.telephony.ims.ImsConferenceState p0) {}
+        public void callSessionDtmfReceived(char p0) {}
+        public void callSessionHandover(int p0, int p1, android.telephony.ims.ImsReasonInfo p2) {}
+        public void callSessionHandoverFailed(int p0, int p1, android.telephony.ims.ImsReasonInfo p2) {}
+        public void callSessionHeld(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionHoldFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionHoldReceived(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionInitiated(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionInitiatedFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionInitiating(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionInitiatingFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionInviteParticipantsRequestDelivered() {}
+        public void callSessionInviteParticipantsRequestFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionMayHandover(int p0, int p1) {}
+        public void callSessionMergeComplete(com.android.ims.internal.IImsCallSession p0) {}
+        public void callSessionMergeFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionMergeStarted(com.android.ims.internal.IImsCallSession p0, android.telephony.ims.ImsCallProfile p1) {}
+        public void callSessionMultipartyStateChanged(boolean p0) {}
+        public void callSessionProgressing(android.telephony.ims.ImsStreamMediaProfile p0) {}
+        public void callSessionRemoveParticipantsRequestDelivered() {}
+        public void callSessionRemoveParticipantsRequestFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionResumeFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionResumeReceived(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionResumed(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionRtpHeaderExtensionsReceived(java.util.List<android.telephony.ims.RtpHeaderExtension> p0) {}
+        public void callSessionRttAudioIndicatorChanged(android.telephony.ims.ImsStreamMediaProfile p0) {}
+        public void callSessionRttMessageReceived(java.lang.String p0) {}
+        public void callSessionRttModifyRequestReceived(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionRttModifyResponseReceived(int p0) {}
+        public void callSessionSendAnbrQuery(int p0, int p1, int p2) {}
+        public void callSessionSuppServiceReceived(android.telephony.ims.ImsSuppServiceNotification p0) {}
+        public void callSessionTerminated(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionTransferFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionTransferred() {}
+        public void callSessionTtyModeReceived(int p0) {}
+        public void callSessionUpdateFailed(android.telephony.ims.ImsReasonInfo p0) {}
+        public void callSessionUpdateReceived(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionUpdated(android.telephony.ims.ImsCallProfile p0) {}
+        public void callSessionUssdMessageReceived(int p0, java.lang.String p1) {}
     }
 
     public static class State {

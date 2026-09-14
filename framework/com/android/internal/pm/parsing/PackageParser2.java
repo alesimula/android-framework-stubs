@@ -15,6 +15,7 @@ public class PackageParser2 implements java.lang.AutoCloseable {
 
     public static abstract class Callback implements com.android.internal.pm.pkg.parsing.ParsingPackageUtils.Callback {
         public Callback() {}
+        public java.util.List<android.permission.PermissionManager.SplitPermissionInfo> getSplitPermissions() { return null; }
         public abstract boolean isChangeEnabled(long p0, android.content.pm.ApplicationInfo p1);
         public final com.android.internal.pm.pkg.parsing.ParsingPackage startParsingPackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.content.res.TypedArray p3, boolean p4) { return null; }
     }

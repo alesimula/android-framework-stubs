@@ -69,47 +69,24 @@ public abstract class KeyProperties {
     public static @interface AuthEnum {
     }
 
-    public static abstract class BlockMode {
-        private BlockMode() {}
-        public static java.lang.String[] allFromKeymaster(java.util.Collection<java.lang.Integer> p0) { return null; }
-        public static int[] allToKeymaster(java.lang.String[] p0) { return null; }
-        public static java.lang.String fromKeymaster(int p0) { return null; }
-        public static int toKeymaster(java.lang.String p0) { return 0; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SignaturePaddingEnum {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OriginEnum {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PurposeEnum {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Namespace {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface BlockModeEnum {
-    }
-
-    public static abstract class Digest {
-        private Digest() {}
-        public static java.lang.String[] allFromKeymaster(java.util.Collection<java.lang.Integer> p0) { return null; }
-        public static int[] allToKeymaster(java.lang.String[] p0) { return null; }
-        public static java.lang.String fromKeymaster(int p0) { return null; }
-        public static java.security.spec.AlgorithmParameterSpec fromKeymasterToMGF1ParameterSpec(int p0) { return null; }
-        public static java.lang.String fromKeymasterToSignatureAlgorithmDigest(int p0) { return null; }
-        public static int toKeymaster(java.lang.String p0) { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DigestEnum {
-    }
-
-    public static abstract class EcCurve {
-        private EcCurve() {}
-        public static int fromKeymasterCurve(int p0) { return 0; }
-        public static int toKeymasterCurve(java.security.spec.ECParameterSpec p0) { return 0; }
-    }
-
-    public static abstract class EncryptionPadding {
-        private EncryptionPadding() {}
-        public static int[] allToKeymaster(java.lang.String[] p0) { return null; }
-        public static java.lang.String fromKeymaster(int p0) { return null; }
-        public static int toKeymaster(java.lang.String p0) { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EncryptionPaddingEnum {
     }
 
     public static abstract class KeyAlgorithm {
@@ -122,21 +99,7 @@ public abstract class KeyProperties {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-    public static @interface KeyAlgorithmEnum {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Namespace {
-    }
-
-    public static abstract class Origin {
-        private Origin() {}
-        public static int fromKeymaster(int p0) { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OriginEnum {
+    public static @interface DigestEnum {
     }
 
     public static abstract class Purpose {
@@ -147,18 +110,11 @@ public abstract class KeyProperties {
         public static int toKeymaster(int p0) { return 0; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PurposeEnum {
-    }
-
-    public static abstract class SecurityLevel {
-        private SecurityLevel() {}
-        public static int fromKeymaster(int p0) { return 0; }
-        public static int toKeymaster(int p0) { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SecurityLevelEnum {
+    public static abstract class EncryptionPadding {
+        private EncryptionPadding() {}
+        public static int[] allToKeymaster(java.lang.String[] p0) { return null; }
+        public static java.lang.String fromKeymaster(int p0) { return null; }
+        public static int toKeymaster(java.lang.String p0) { return 0; }
     }
 
     public static abstract class SignaturePadding {
@@ -169,6 +125,50 @@ public abstract class KeyProperties {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SignaturePaddingEnum {
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+    public static @interface KeyAlgorithmEnum {
+    }
+
+    public static abstract class EcCurve {
+        private EcCurve() {}
+        public static int fromKeymasterCurve(int p0) { return 0; }
+        public static int toKeymasterCurve(java.security.spec.ECParameterSpec p0) { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SecurityLevelEnum {
+    }
+
+    public static abstract class BlockMode {
+        private BlockMode() {}
+        public static java.lang.String[] allFromKeymaster(java.util.Collection<java.lang.Integer> p0) { return null; }
+        public static int[] allToKeymaster(java.lang.String[] p0) { return null; }
+        public static java.lang.String fromKeymaster(int p0) { return null; }
+        public static int toKeymaster(java.lang.String p0) { return 0; }
+    }
+
+    public static abstract class SecurityLevel {
+        private SecurityLevel() {}
+        public static int fromKeymaster(int p0) { return 0; }
+        public static int toKeymaster(int p0) { return 0; }
+    }
+
+    public static abstract class Digest {
+        private Digest() {}
+        public static java.lang.String[] allFromKeymaster(java.util.Collection<java.lang.Integer> p0) { return null; }
+        public static int[] allToKeymaster(java.lang.String[] p0) { return null; }
+        public static java.lang.String fromKeymaster(int p0) { return null; }
+        public static java.security.spec.AlgorithmParameterSpec fromKeymasterToMGF1ParameterSpec(int p0) { return null; }
+        public static java.lang.String fromKeymasterToSignatureAlgorithmDigest(int p0) { return null; }
+        public static int toKeymaster(java.lang.String p0) { return 0; }
+    }
+
+    public static abstract class Origin {
+        private Origin() {}
+        public static int fromKeymaster(int p0) { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EncryptionPaddingEnum {
     }
 }

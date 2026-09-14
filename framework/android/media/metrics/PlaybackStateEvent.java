@@ -30,6 +30,10 @@ public final class PlaybackStateEvent extends android.media.metrics.Event implem
     public int hashCode() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface State {
+    }
+
     public static final class Builder {
         private android.os.Bundle mMetricsBundle;
         private int mState;
@@ -39,9 +43,5 @@ public final class PlaybackStateEvent extends android.media.metrics.Event implem
         public android.media.metrics.PlaybackStateEvent.Builder setMetricsBundle(android.os.Bundle p0) { return null; }
         public android.media.metrics.PlaybackStateEvent.Builder setState(int p0) { return null; }
         public android.media.metrics.PlaybackStateEvent.Builder setTimeSinceCreatedMillis(long p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface State {
     }
 }

@@ -186,6 +186,7 @@ public final class Display {
     public boolean isInternal() { return false; }
     public boolean isMinimalPostProcessingSupported() { return false; }
     public boolean isPublicPresentation() { return false; }
+    public boolean isRefreshRateAllowedByPolicy(float p0) { return false; }
     public boolean isTrusted() { return false; }
     public boolean isValid() { return false; }
     public boolean isWideColorGamut() { return false; }
@@ -196,18 +197,6 @@ public final class Display {
     public void setUserPreferredDisplayMode(android.view.Display.Mode p0, boolean p1) {}
     public java.lang.String toString() { return null; }
     public void unregisterHdrSdrRatioChangedListener(java.util.function.Consumer<android.view.Display> p0) {}
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ColorMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DisplayState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrameRateCategory {
-    }
 
     public static final class HdrCapabilities implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.view.Display.HdrCapabilities> CREATOR = null;
@@ -244,6 +233,10 @@ public final class Display {
         }
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrameRateCategory {
+    }
+
     private class HdrSdrRatioListenerWrapper implements android.hardware.display.DisplayManager.DisplayListener {
         float mLastReportedRatio;
         java.util.function.Consumer<android.view.Display> mListener;
@@ -251,6 +244,18 @@ public final class Display {
         public void onDisplayAdded(int p0) {}
         public void onDisplayChanged(int p0) {}
         public void onDisplayRemoved(int p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ColorMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DisplayState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StateReason {
     }
 
     public static final class Mode implements android.os.Parcelable {
@@ -313,9 +318,5 @@ public final class Display {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ModeFlags {
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StateReason {
     }
 }

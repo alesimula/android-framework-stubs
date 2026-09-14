@@ -7,15 +7,15 @@ public class StatsServiceManager {
     public android.os.StatsServiceManager.ServiceRegisterer getStatsManagerServiceRegisterer() { return null; }
     public android.os.StatsServiceManager.ServiceRegisterer getStatsdServiceRegisterer() { return null; }
 
-    public static class ServiceNotFoundException extends android.os.ServiceManager.ServiceNotFoundException {
-        public ServiceNotFoundException(java.lang.String p0) { super(null); }
-    }
-
     public static final class ServiceRegisterer {
         private final java.lang.String mServiceName = null;
         public ServiceRegisterer(java.lang.String p0) {}
         private android.os.IBinder tryGet() { return null; }
         public android.os.IBinder get() { return null; }
         public android.os.IBinder getOrThrow() throws android.os.StatsServiceManager.ServiceNotFoundException { return null; }
+    }
+
+    public static class ServiceNotFoundException extends android.os.ServiceManager.ServiceNotFoundException {
+        public ServiceNotFoundException(java.lang.String p0) { super(null); }
     }
 }

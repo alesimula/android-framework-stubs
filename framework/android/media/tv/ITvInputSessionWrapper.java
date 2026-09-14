@@ -24,6 +24,7 @@ public class ITvInputSessionWrapper extends android.media.tv.ITvInputSession.Stu
     private static final int DO_SET_STREAM_VOLUME = 5;
     private static final int DO_SET_SURFACE = 3;
     private static final int DO_SET_TV_MESSAGE_ENABLED = 31;
+    private static final int DO_SET_VIDEO_BOUNDS = 38;
     private static final int DO_SET_VIDEO_FROZEN = 35;
     private static final int DO_START_RECORDING = 20;
     private static final int DO_STOP_PLAYBACK = 33;
@@ -35,6 +36,7 @@ public class ITvInputSessionWrapper extends android.media.tv.ITvInputSession.Stu
     private static final int DO_TIME_SHIFT_SEEK_TO = 17;
     private static final int DO_TIME_SHIFT_SET_MODE = 30;
     private static final int DO_TIME_SHIFT_SET_PLAYBACK_PARAMS = 18;
+    private static final int DO_TIME_SHIFT_STOP = 37;
     private static final int DO_TUNE = 6;
     private static final int DO_UNBLOCK_CONTENT = 13;
     private static final int EXECUTE_MESSAGE_TIMEOUT_LONG_MILLIS = 5000;
@@ -72,6 +74,7 @@ public class ITvInputSessionWrapper extends android.media.tv.ITvInputSession.Stu
     public void setMain(boolean p0) {}
     public void setSurface(android.view.Surface p0) {}
     public void setTvMessageEnabled(int p0, boolean p1) {}
+    public void setVideoBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
     public void setVideoFrozen(boolean p0) {}
     public final void setVolume(float p0) {}
     public void startRecording(android.net.Uri p0, android.os.Bundle p1) {}
@@ -84,6 +87,7 @@ public class ITvInputSessionWrapper extends android.media.tv.ITvInputSession.Stu
     public void timeShiftSeekTo(long p0) {}
     public void timeShiftSetMode(int p0) {}
     public void timeShiftSetPlaybackParams(android.media.PlaybackParams p0) {}
+    public void timeShiftStop() {}
     public void tune(android.net.Uri p0, android.os.Bundle p1) {}
     public void unblockContent(java.lang.String p0) {}
 

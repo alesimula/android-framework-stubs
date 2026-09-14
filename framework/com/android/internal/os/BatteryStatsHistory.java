@@ -179,6 +179,11 @@ public class BatteryStatsHistory {
     public void writeToBatteryUsageStatsParcel(android.os.Parcel p0, long p1) {}
     public void writeToParcel(android.os.Parcel p0) {}
 
+    public static class EventLogger {
+        public EventLogger() {}
+        public void writeCommitSysConfigFile(long p0) {}
+    }
+
     public static abstract class BatteryHistoryFragment implements java.lang.Comparable<com.android.internal.os.BatteryStatsHistory.BatteryHistoryFragment> {
         public final long monotonicTimeMs = 0L;
         public BatteryHistoryFragment(long p0) {}
@@ -214,11 +219,6 @@ public class BatteryStatsHistory {
         public boolean tryLock();
         public void unlock();
         public void writeFragment(com.android.internal.os.BatteryStatsHistory.BatteryHistoryFragment p0, byte[] p1, boolean p2);
-    }
-
-    public static class EventLogger {
-        public EventLogger() {}
-        public void writeCommitSysConfigFile(long p0) {}
     }
 
     public static class TraceDelegate {

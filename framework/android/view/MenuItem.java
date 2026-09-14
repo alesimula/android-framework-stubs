@@ -65,12 +65,12 @@ public interface MenuItem {
     default public android.view.MenuItem setTooltipText(java.lang.CharSequence p0) { return null; }
     public android.view.MenuItem setVisible(boolean p0);
 
+    public static interface OnMenuItemClickListener {
+        public boolean onMenuItemClick(android.view.MenuItem p0);
+    }
+
     public static interface OnActionExpandListener {
         public boolean onMenuItemActionCollapse(android.view.MenuItem p0);
         public boolean onMenuItemActionExpand(android.view.MenuItem p0);
-    }
-
-    public static interface OnMenuItemClickListener {
-        public boolean onMenuItemClick(android.view.MenuItem p0);
     }
 }

@@ -37,27 +37,17 @@ public final class SystemServiceRegistry {
     @android.annotation.SystemApi
     public static <TServiceClass extends java.lang.Object> void registerStaticService(java.lang.String p0, java.lang.Class<TServiceClass> p1, android.app.SystemServiceRegistry.StaticServiceProducerWithoutBinder<TServiceClass> p2) {}
 
+    static interface ServiceFetcher<T extends java.lang.Object> {
+        public T getService(android.app.ContextImpl p0);
+        default public boolean supportsFetchWithoutContext() { return false; }
+    }
+
     static abstract class CachedServiceFetcher<T extends java.lang.Object> implements android.app.SystemServiceRegistry.ServiceFetcher<T> {
         private final int mCacheIndex = 0;
         CachedServiceFetcher() {}
         public abstract T createService(android.app.ContextImpl p0) throws android.os.ServiceManager.ServiceNotFoundException;
         public final T getService(android.app.ContextImpl p0) { return null; }
         public final boolean supportsFetchWithoutContext() { return false; }
-    }
-
-    @android.annotation.SystemApi
-    public static interface ContextAwareServiceProducerWithBinder<TServiceClass extends java.lang.Object> {
-        public TServiceClass createService(android.content.Context p0, android.os.IBinder p1);
-    }
-
-    @android.annotation.SystemApi
-    public static interface ContextAwareServiceProducerWithoutBinder<TServiceClass extends java.lang.Object> {
-        public TServiceClass createService(android.content.Context p0);
-    }
-
-    static interface ServiceFetcher<T extends java.lang.Object> {
-        public T getService(android.app.ContextImpl p0);
-        default public boolean supportsFetchWithoutContext() { return false; }
     }
 
     static abstract class StaticServiceFetcher<T extends java.lang.Object> implements android.app.SystemServiceRegistry.ServiceFetcher<T> {
@@ -68,6 +58,16 @@ public final class SystemServiceRegistry {
         public final T getService(android.app.ContextImpl p0) { return null; }
         protected boolean isServiceEnabled(android.app.ContextImpl p0) { return false; }
         public boolean supportsFetchWithoutContext() { return false; }
+    }
+
+    @android.annotation.SystemApi
+    public static interface ContextAwareServiceProducerWithBinder<TServiceClass extends java.lang.Object> {
+        public TServiceClass createService(android.content.Context p0, android.os.IBinder p1);
+    }
+
+    @android.annotation.SystemApi
+    public static interface ContextAwareServiceProducerWithoutBinder<TServiceClass extends java.lang.Object> {
+        public TServiceClass createService(android.content.Context p0);
     }
 
     @android.annotation.SystemApi

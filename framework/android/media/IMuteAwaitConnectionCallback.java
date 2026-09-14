@@ -5,13 +5,6 @@ public interface IMuteAwaitConnectionCallback extends android.os.IInterface {
     public void dispatchOnMutedUntilConnection(android.media.AudioDeviceAttributes p0, int[] p1) throws android.os.RemoteException;
     public void dispatchOnUnmutedEvent(int p0, android.media.AudioDeviceAttributes p1, int[] p2) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMuteAwaitConnectionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchOnMutedUntilConnection(android.media.AudioDeviceAttributes p0, int[] p1) throws android.os.RemoteException {}
-        public void dispatchOnUnmutedEvent(int p0, android.media.AudioDeviceAttributes p1, int[] p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMuteAwaitConnectionCallback {
         static final int TRANSACTION_dispatchOnMutedUntilConnection = 1;
         static final int TRANSACTION_dispatchOnUnmutedEvent = 2;
@@ -30,5 +23,12 @@ public interface IMuteAwaitConnectionCallback extends android.os.IInterface {
             public void dispatchOnUnmutedEvent(int p0, android.media.AudioDeviceAttributes p1, int[] p2) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.IMuteAwaitConnectionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchOnMutedUntilConnection(android.media.AudioDeviceAttributes p0, int[] p1) throws android.os.RemoteException {}
+        public void dispatchOnUnmutedEvent(int p0, android.media.AudioDeviceAttributes p1, int[] p2) throws android.os.RemoteException {}
     }
 }

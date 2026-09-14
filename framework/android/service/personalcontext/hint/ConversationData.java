@@ -14,23 +14,28 @@ public final class ConversationData implements android.os.Parcelable {
     private final boolean mIsLastMessageFromTheUser = false;
     private final java.time.Instant mProcessingEndTimestamp = null;
     private final java.time.Instant mProcessingStartTimestamp = null;
-    private ConversationData(android.app.assist.ActivityId p0, java.time.Instant p1, java.time.Instant p2, android.content.ComponentName p3, android.view.autofill.AutofillId p4, java.lang.String p5, java.lang.String p6, boolean p7, boolean p8, boolean p9, java.util.List<android.service.personalcontext.hint.ChatMessageData> p10) {}
+    ConversationData(android.app.assist.ActivityId p0, java.time.Instant p1, java.time.Instant p2, android.content.ComponentName p3, android.view.autofill.AutofillId p4, java.lang.String p5, java.lang.String p6, boolean p7, boolean p8, boolean p9, java.util.List<android.service.personalcontext.hint.ChatMessageData> p10) {}
     private ConversationData(android.os.Parcel p0) {}
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
-    @android.annotation.SystemApi
     public android.app.assist.ActivityId getActivityId() { return null; }
     public java.util.List<android.service.personalcontext.hint.ChatMessageData> getChatMessages() { return null; }
     public android.content.ComponentName getComponentName() { return null; }
     public java.lang.String getConversationTitle() { return null; }
     public android.view.autofill.AutofillId getInputBoxAutofillId() { return null; }
     public java.lang.String getInputBoxText() { return null; }
+    @java.lang.Deprecated
     public java.time.Instant getProcessingEndTimestamp() { return null; }
+    public long getProcessingEndTimestampMillis() { return 0L; }
+    @java.lang.Deprecated
     public java.time.Instant getProcessingStartTimestamp() { return null; }
+    public long getProcessingStartTimestampMillis() { return 0L; }
     public boolean hasNewMessage() { return false; }
     public int hashCode() { return 0; }
     public boolean isKeyboardShown() { return false; }
     public boolean isLastMessageFromTheUser() { return false; }
+    public android.service.personalcontext.hint.ConversationData toContentCaptureConversationData() { return null; }
+    public android.service.personalcontext.hint.ConversationData toContextConversationData() { return null; }
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     void writeToSignatureParcel(android.os.Parcel p0) {}
@@ -49,7 +54,6 @@ public final class ConversationData implements android.os.Parcelable {
         private java.time.Instant mProcessingStartTimestamp;
         public Builder() {}
         public android.service.personalcontext.hint.ConversationData build() { return null; }
-        @android.annotation.SystemApi
         public android.service.personalcontext.hint.ConversationData.Builder setActivityId(android.app.assist.ActivityId p0) { return null; }
         public android.service.personalcontext.hint.ConversationData.Builder setChatMessages(java.util.List<android.service.personalcontext.hint.ChatMessageData> p0) { return null; }
         public android.service.personalcontext.hint.ConversationData.Builder setComponentName(android.content.ComponentName p0) { return null; }

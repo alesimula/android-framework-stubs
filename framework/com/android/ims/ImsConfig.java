@@ -24,6 +24,54 @@ public class ImsConfig {
     public int setProvisionedStringValue(int p0, java.lang.String p1) throws com.android.ims.ImsException { return 0; }
     public int setProvisionedValue(int p0, int p1) throws com.android.ims.ImsException { return 0; }
 
+    public static class OperationValuesConstants {
+        public static final int VIDEO_QUALITY_HIGH = 1;
+        public static final int VIDEO_QUALITY_LOW = 0;
+        public static final int VIDEO_QUALITY_UNKNOWN = -1;
+        public OperationValuesConstants() {}
+    }
+
+    public static class VideoQualityFeatureValuesConstants {
+        public static final int HIGH = 1;
+        public static final int LOW = 0;
+        public VideoQualityFeatureValuesConstants() {}
+    }
+
+    public static class FeatureValueConstants {
+        public static final int ERROR = -1;
+        public static final int OFF = 0;
+        public static final int ON = 1;
+        public FeatureValueConstants() {}
+    }
+
+    public static class WfcModeFeatureValueConstants {
+        public static final int CELLULAR_PREFERRED = 1;
+        public static final int WIFI_ONLY = 0;
+        public static final int WIFI_PREFERRED = 2;
+        public WfcModeFeatureValueConstants() {}
+    }
+
+    public static class FeatureConstants {
+        public static final int FEATURE_TYPE_UNKNOWN = -1;
+        public static final int FEATURE_TYPE_UT_OVER_LTE = 4;
+        public static final int FEATURE_TYPE_UT_OVER_WIFI = 5;
+        public static final int FEATURE_TYPE_VIDEO_OVER_LTE = 1;
+        public static final int FEATURE_TYPE_VIDEO_OVER_WIFI = 3;
+        public static final int FEATURE_TYPE_VOICE_OVER_LTE = 0;
+        public static final int FEATURE_TYPE_VOICE_OVER_WIFI = 2;
+        public FeatureConstants() {}
+    }
+
+    public static class OperationStatusConstants {
+        public static final int FAILED = 1;
+        public static final int SUCCESS = 0;
+        public static final int UNKNOWN = -1;
+        public static final int UNSUPPORTED_CAUSE_DISABLED = 4;
+        public static final int UNSUPPORTED_CAUSE_NONE = 2;
+        public static final int UNSUPPORTED_CAUSE_RAT = 3;
+        public OperationStatusConstants() {}
+    }
+
     public static class ConfigConstants {
         @java.lang.Deprecated
         public static final int AMR_BANDWIDTH_EFFICIENT_PT = 50;
@@ -163,53 +211,5 @@ public class ImsConfig {
         @java.lang.Deprecated
         public static final int VOWT_B = 61;
         public ConfigConstants() {}
-    }
-
-    public static class FeatureConstants {
-        public static final int FEATURE_TYPE_UNKNOWN = -1;
-        public static final int FEATURE_TYPE_UT_OVER_LTE = 4;
-        public static final int FEATURE_TYPE_UT_OVER_WIFI = 5;
-        public static final int FEATURE_TYPE_VIDEO_OVER_LTE = 1;
-        public static final int FEATURE_TYPE_VIDEO_OVER_WIFI = 3;
-        public static final int FEATURE_TYPE_VOICE_OVER_LTE = 0;
-        public static final int FEATURE_TYPE_VOICE_OVER_WIFI = 2;
-        public FeatureConstants() {}
-    }
-
-    public static class FeatureValueConstants {
-        public static final int ERROR = -1;
-        public static final int OFF = 0;
-        public static final int ON = 1;
-        public FeatureValueConstants() {}
-    }
-
-    public static class OperationStatusConstants {
-        public static final int FAILED = 1;
-        public static final int SUCCESS = 0;
-        public static final int UNKNOWN = -1;
-        public static final int UNSUPPORTED_CAUSE_DISABLED = 4;
-        public static final int UNSUPPORTED_CAUSE_NONE = 2;
-        public static final int UNSUPPORTED_CAUSE_RAT = 3;
-        public OperationStatusConstants() {}
-    }
-
-    public static class OperationValuesConstants {
-        public static final int VIDEO_QUALITY_HIGH = 1;
-        public static final int VIDEO_QUALITY_LOW = 0;
-        public static final int VIDEO_QUALITY_UNKNOWN = -1;
-        public OperationValuesConstants() {}
-    }
-
-    public static class VideoQualityFeatureValuesConstants {
-        public static final int HIGH = 1;
-        public static final int LOW = 0;
-        public VideoQualityFeatureValuesConstants() {}
-    }
-
-    public static class WfcModeFeatureValueConstants {
-        public static final int CELLULAR_PREFERRED = 1;
-        public static final int WIFI_ONLY = 0;
-        public static final int WIFI_PREFERRED = 2;
-        public WfcModeFeatureValueConstants() {}
     }
 }

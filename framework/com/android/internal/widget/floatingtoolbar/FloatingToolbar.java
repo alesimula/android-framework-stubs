@@ -17,10 +17,12 @@ public final class FloatingToolbar {
     private static java.util.List<android.view.MenuItem> getVisibleAndEnabledMenuItems(android.view.Menu p0) { return null; }
     private void registerOrientationHandler() {}
     private void unregisterOrientationHandler() {}
+    public void clearTextSelection() {}
     public void dismiss() {}
     public void hide() {}
     public boolean isHidden() { return false; }
     public boolean isShowing() { return false; }
+    public void selectText(java.lang.CharSequence p0, int p1, int p2, android.os.LocaleList p3) {}
     public com.android.internal.widget.floatingtoolbar.FloatingToolbar setContentRect(android.graphics.Rect p0) { return null; }
     public com.android.internal.widget.floatingtoolbar.FloatingToolbar setMenu(android.view.Menu p0) { return null; }
     public com.android.internal.widget.floatingtoolbar.FloatingToolbar setOnMenuItemClickListener(android.view.MenuItem.OnMenuItemClickListener p0) { return null; }

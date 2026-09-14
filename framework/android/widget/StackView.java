@@ -89,26 +89,6 @@ public class StackView extends android.widget.AdapterViewAnimator {
     void transformViewForTransition(int p0, int p1, android.view.View p2, boolean p3) {}
     void updateClickFeedback() {}
 
-    private static class HolographicHelper {
-        private static final int CLICK_FEEDBACK = 1;
-        private static final int RES_OUT = 0;
-        private final android.graphics.Paint mBlurPaint = null;
-        private final android.graphics.Canvas mCanvas = null;
-        private float mDensity;
-        private final android.graphics.Paint mErasePaint = null;
-        private final android.graphics.Paint mHolographicPaint = null;
-        private final android.graphics.Matrix mIdentityMatrix = null;
-        private android.graphics.BlurMaskFilter mLargeBlurMaskFilter;
-        private final android.graphics.Canvas mMaskCanvas = null;
-        private android.graphics.BlurMaskFilter mSmallBlurMaskFilter;
-        private final int[] mTmpXY = null;
-        HolographicHelper(android.content.Context p0) {}
-        android.graphics.Bitmap createClickOutline(android.view.View p0, int p1) { return null; }
-        android.graphics.Bitmap createOutline(android.view.View p0, int p1, int p2) { return null; }
-        android.graphics.Bitmap createResOutline(android.view.View p0, int p1) { return null; }
-        void drawOutline(android.graphics.Canvas p0, android.graphics.Bitmap p1) {}
-    }
-
     class LayoutParams extends android.view.ViewGroup.LayoutParams {
         private final android.graphics.Rect globalInvalidateRect = null;
         int horizontalOffset;
@@ -162,5 +142,25 @@ public class StackView extends android.widget.AdapterViewAnimator {
         void setView(android.view.View p0) {}
         public void setXProgress(float p0) {}
         public void setYProgress(float p0) {}
+    }
+
+    private static class HolographicHelper {
+        private static final int CLICK_FEEDBACK = 1;
+        private static final int RES_OUT = 0;
+        private final android.graphics.Paint mBlurPaint = null;
+        private final android.graphics.Canvas mCanvas = null;
+        private float mDensity;
+        private final android.graphics.Paint mErasePaint = null;
+        private final android.graphics.Paint mHolographicPaint = null;
+        private final android.graphics.Matrix mIdentityMatrix = null;
+        private android.graphics.BlurMaskFilter mLargeBlurMaskFilter;
+        private final android.graphics.Canvas mMaskCanvas = null;
+        private android.graphics.BlurMaskFilter mSmallBlurMaskFilter;
+        private final int[] mTmpXY = null;
+        HolographicHelper(android.content.Context p0) {}
+        android.graphics.Bitmap createClickOutline(android.view.View p0, int p1) { return null; }
+        android.graphics.Bitmap createOutline(android.view.View p0, int p1, int p2) { return null; }
+        android.graphics.Bitmap createResOutline(android.view.View p0, int p1) { return null; }
+        void drawOutline(android.graphics.Canvas p0, android.graphics.Bitmap p1) {}
     }
 }

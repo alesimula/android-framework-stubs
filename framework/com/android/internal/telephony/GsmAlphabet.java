@@ -45,13 +45,6 @@ public class GsmAlphabet {
     public static byte[] stringToGsm8BitPacked(java.lang.String p0) { return null; }
     public static void stringToGsm8BitUnpackedField(java.lang.String p0, byte[] p1, int p2, int p3) {}
 
-    private static class LanguagePairCount {
-        final int languageCode = 0;
-        final int[] septetCounts = null;
-        final int[] unencodableCounts = null;
-        LanguagePairCount(int p0) {}
-    }
-
     public static class TextEncodingDetails {
         public int codeUnitCount;
         public int codeUnitSize;
@@ -61,5 +54,12 @@ public class GsmAlphabet {
         public int msgCount;
         public TextEncodingDetails() {}
         public java.lang.String toString() { return null; }
+    }
+
+    private static class LanguagePairCount {
+        final int languageCode = 0;
+        final int[] septetCounts = null;
+        final int[] unencodableCounts = null;
+        LanguagePairCount(int p0) {}
     }
 }

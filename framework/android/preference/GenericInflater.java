@@ -33,14 +33,14 @@ abstract class GenericInflater<T extends java.lang.Object, P extends android.pre
         public T onCreateItem(java.lang.String p0, android.content.Context p1, android.util.AttributeSet p2);
     }
 
+    public static interface Parent<T extends java.lang.Object> {
+        public void addItemFromInflater(T p0);
+    }
+
     private static class FactoryMerger<T extends java.lang.Object> implements android.preference.GenericInflater.Factory<T> {
         private final android.preference.GenericInflater.Factory<T> mF1 = null;
         private final android.preference.GenericInflater.Factory<T> mF2 = null;
         FactoryMerger(android.preference.GenericInflater.Factory<T> p0, android.preference.GenericInflater.Factory<T> p1) {}
         public T onCreateItem(java.lang.String p0, android.content.Context p1, android.util.AttributeSet p2) { return null; }
-    }
-
-    public static interface Parent<T extends java.lang.Object> {
-        public void addItemFromInflater(T p0);
     }
 }

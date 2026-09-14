@@ -40,42 +40,6 @@ public interface IGnss extends android.internal.hidl.base.V1_0.IBase {
     public boolean stop() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class GnssAidingData {
-        public static final short DELETE_ALL = -1;
-        public static final short DELETE_ALMANAC = 2;
-        public static final short DELETE_CELLDB_INFO = -32768;
-        public static final short DELETE_EPHEMERIS = 1;
-        public static final short DELETE_HEALTH = 64;
-        public static final short DELETE_IONO = 16;
-        public static final short DELETE_POSITION = 4;
-        public static final short DELETE_RTI = 1024;
-        public static final short DELETE_SADATA = 512;
-        public static final short DELETE_SVDIR = 128;
-        public static final short DELETE_SVSTEER = 256;
-        public static final short DELETE_TIME = 8;
-        public static final short DELETE_UTC = 32;
-        public GnssAidingData() {}
-        public static final java.lang.String dumpBitfield(short p0) { return null; }
-        public static final java.lang.String toString(short p0) { return null; }
-    }
-
-    public static final class GnssPositionMode {
-        public static final byte MS_ASSISTED = 2;
-        public static final byte MS_BASED = 1;
-        public static final byte STANDALONE = 0;
-        public GnssPositionMode() {}
-        public static final java.lang.String dumpBitfield(byte p0) { return null; }
-        public static final java.lang.String toString(byte p0) { return null; }
-    }
-
-    public static final class GnssPositionRecurrence {
-        public static final int RECURRENCE_PERIODIC = 0;
-        public static final int RECURRENCE_SINGLE = 1;
-        public GnssPositionRecurrence() {}
-        public static final java.lang.String dumpBitfield(int p0) { return null; }
-        public static final java.lang.String toString(int p0) { return null; }
-    }
-
     public static final class Proxy implements android.hardware.gnss.V1_0.IGnss {
         private android.os.IHwBinder mRemote;
         public Proxy(android.os.IHwBinder p0) {}
@@ -130,5 +94,41 @@ public interface IGnss extends android.internal.hidl.base.V1_0.IBase {
         public final void setHALInstrumentation() {}
         public java.lang.String toString() { return null; }
         public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    }
+
+    public static final class GnssPositionRecurrence {
+        public static final int RECURRENCE_PERIODIC = 0;
+        public static final int RECURRENCE_SINGLE = 1;
+        public GnssPositionRecurrence() {}
+        public static final java.lang.String dumpBitfield(int p0) { return null; }
+        public static final java.lang.String toString(int p0) { return null; }
+    }
+
+    public static final class GnssAidingData {
+        public static final short DELETE_ALL = -1;
+        public static final short DELETE_ALMANAC = 2;
+        public static final short DELETE_CELLDB_INFO = -32768;
+        public static final short DELETE_EPHEMERIS = 1;
+        public static final short DELETE_HEALTH = 64;
+        public static final short DELETE_IONO = 16;
+        public static final short DELETE_POSITION = 4;
+        public static final short DELETE_RTI = 1024;
+        public static final short DELETE_SADATA = 512;
+        public static final short DELETE_SVDIR = 128;
+        public static final short DELETE_SVSTEER = 256;
+        public static final short DELETE_TIME = 8;
+        public static final short DELETE_UTC = 32;
+        public GnssAidingData() {}
+        public static final java.lang.String dumpBitfield(short p0) { return null; }
+        public static final java.lang.String toString(short p0) { return null; }
+    }
+
+    public static final class GnssPositionMode {
+        public static final byte MS_ASSISTED = 2;
+        public static final byte MS_BASED = 1;
+        public static final byte STANDALONE = 0;
+        public GnssPositionMode() {}
+        public static final java.lang.String dumpBitfield(byte p0) { return null; }
+        public static final java.lang.String toString(byte p0) { return null; }
     }
 }

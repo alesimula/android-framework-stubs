@@ -13,21 +13,6 @@ public interface IImsRcsFeature extends android.os.IInterface {
     public void setCapabilityExchangeEventListener(android.telephony.ims.aidl.ICapabilityExchangeEventListener p0) throws android.os.RemoteException;
     public void subscribeForCapabilities(java.util.List<android.net.Uri> p0, android.telephony.ims.aidl.ISubscribeResponseCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IImsRcsFeature {
-        public Default() {}
-        public void addCapabilityCallback(android.telephony.ims.aidl.IImsCapabilityCallback p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void changeCapabilitiesConfiguration(android.telephony.ims.feature.CapabilityChangeRequest p0, android.telephony.ims.aidl.IImsCapabilityCallback p1) throws android.os.RemoteException {}
-        public int getFeatureState() throws android.os.RemoteException { return 0; }
-        public void publishCapabilities(java.lang.String p0, android.telephony.ims.aidl.IPublishResponseCallback p1) throws android.os.RemoteException {}
-        public void queryCapabilityConfiguration(int p0, int p1, android.telephony.ims.aidl.IImsCapabilityCallback p2) throws android.os.RemoteException {}
-        public int queryCapabilityStatus() throws android.os.RemoteException { return 0; }
-        public void removeCapabilityCallback(android.telephony.ims.aidl.IImsCapabilityCallback p0) throws android.os.RemoteException {}
-        public void sendOptionsCapabilityRequest(android.net.Uri p0, java.util.List<java.lang.String> p1, android.telephony.ims.aidl.IOptionsResponseCallback p2) throws android.os.RemoteException {}
-        public void setCapabilityExchangeEventListener(android.telephony.ims.aidl.ICapabilityExchangeEventListener p0) throws android.os.RemoteException {}
-        public void subscribeForCapabilities(java.util.List<android.net.Uri> p0, android.telephony.ims.aidl.ISubscribeResponseCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IImsRcsFeature {
         static final int TRANSACTION_addCapabilityCallback = 3;
         static final int TRANSACTION_changeCapabilitiesConfiguration = 5;
@@ -62,5 +47,20 @@ public interface IImsRcsFeature extends android.os.IInterface {
             public void setCapabilityExchangeEventListener(android.telephony.ims.aidl.ICapabilityExchangeEventListener p0) throws android.os.RemoteException {}
             public void subscribeForCapabilities(java.util.List<android.net.Uri> p0, android.telephony.ims.aidl.ISubscribeResponseCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IImsRcsFeature {
+        public Default() {}
+        public void addCapabilityCallback(android.telephony.ims.aidl.IImsCapabilityCallback p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void changeCapabilitiesConfiguration(android.telephony.ims.feature.CapabilityChangeRequest p0, android.telephony.ims.aidl.IImsCapabilityCallback p1) throws android.os.RemoteException {}
+        public int getFeatureState() throws android.os.RemoteException { return 0; }
+        public void publishCapabilities(java.lang.String p0, android.telephony.ims.aidl.IPublishResponseCallback p1) throws android.os.RemoteException {}
+        public void queryCapabilityConfiguration(int p0, int p1, android.telephony.ims.aidl.IImsCapabilityCallback p2) throws android.os.RemoteException {}
+        public int queryCapabilityStatus() throws android.os.RemoteException { return 0; }
+        public void removeCapabilityCallback(android.telephony.ims.aidl.IImsCapabilityCallback p0) throws android.os.RemoteException {}
+        public void sendOptionsCapabilityRequest(android.net.Uri p0, java.util.List<java.lang.String> p1, android.telephony.ims.aidl.IOptionsResponseCallback p2) throws android.os.RemoteException {}
+        public void setCapabilityExchangeEventListener(android.telephony.ims.aidl.ICapabilityExchangeEventListener p0) throws android.os.RemoteException {}
+        public void subscribeForCapabilities(java.util.List<android.net.Uri> p0, android.telephony.ims.aidl.ISubscribeResponseCallback p1) throws android.os.RemoteException {}
     }
 }

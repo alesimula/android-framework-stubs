@@ -85,7 +85,6 @@ public final class BatteryUsageStats implements android.os.Parcelable, java.io.C
     public int describeContents() { return 0; }
     public void dump(java.io.PrintWriter p0, java.lang.String p1) {}
     public void dumpToProto(java.io.FileDescriptor p0) {}
-    protected void finalize() throws java.lang.Throwable {}
     public android.os.AggregateBatteryConsumer getAggregateBatteryConsumer(int p0) { return null; }
     public double getBatteryCapacity() { return 0.0; }
     public long getBatteryTimeRemainingMs() { return 0L; }

@@ -1,11 +1,13 @@
 package android.media.tv.extension.screenmode;
 
+@java.lang.Deprecated
 public interface IScreenModeSettings extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.screenmode.IScreenModeSettings";
     public int getOverScanIndex(java.lang.String p0) throws android.os.RemoteException;
     public boolean getSupportApplyOverScan(java.lang.String p0) throws android.os.RemoteException;
     public void setScreenModeSettings(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
 
+    @java.lang.Deprecated
     public static class Default implements android.media.tv.extension.screenmode.IScreenModeSettings {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -14,6 +16,7 @@ public interface IScreenModeSettings extends android.os.IInterface {
         public void setScreenModeSettings(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
     }
 
+    @java.lang.Deprecated
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.screenmode.IScreenModeSettings {
         static final int TRANSACTION_getOverScanIndex = 2;
         static final int TRANSACTION_getSupportApplyOverScan = 3;
@@ -25,6 +28,7 @@ public interface IScreenModeSettings extends android.os.IInterface {
         public java.lang.String getTransactionName(int p0) { return null; }
         public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
 
+        @java.lang.Deprecated
         private static final class Proxy implements android.media.tv.extension.screenmode.IScreenModeSettings {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}

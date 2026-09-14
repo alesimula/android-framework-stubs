@@ -15,16 +15,16 @@ public class MultiAutoCompleteTextView extends android.widget.AutoCompleteTextVi
     protected void replaceText(java.lang.CharSequence p0) {}
     public void setTokenizer(android.widget.MultiAutoCompleteTextView.Tokenizer p0) {}
 
+    public static interface Tokenizer {
+        public int findTokenEnd(java.lang.CharSequence p0, int p1);
+        public int findTokenStart(java.lang.CharSequence p0, int p1);
+        public java.lang.CharSequence terminateToken(java.lang.CharSequence p0);
+    }
+
     public static class CommaTokenizer implements android.widget.MultiAutoCompleteTextView.Tokenizer {
         public CommaTokenizer() {}
         public int findTokenEnd(java.lang.CharSequence p0, int p1) { return 0; }
         public int findTokenStart(java.lang.CharSequence p0, int p1) { return 0; }
         public java.lang.CharSequence terminateToken(java.lang.CharSequence p0) { return null; }
-    }
-
-    public static interface Tokenizer {
-        public int findTokenEnd(java.lang.CharSequence p0, int p1);
-        public int findTokenStart(java.lang.CharSequence p0, int p1);
-        public java.lang.CharSequence terminateToken(java.lang.CharSequence p0);
     }
 }

@@ -6,6 +6,7 @@ public final class Flags {
     public static final java.lang.String FLAG_ADD_RAT_RELATED_SUGGESTED_ACTION_TO_IMS_REGISTRATION = "com.android.internal.telephony.flags.add_rat_related_suggested_action_to_ims_registration";
     public static final java.lang.String FLAG_ALLOW_NON_STANDALONE_OPPORTUNISTIC_ADS_POLICY = "com.android.internal.telephony.flags.allow_non_standalone_opportunistic_ads_policy";
     public static final java.lang.String FLAG_ALLOW_SKIP_PASSWORD_VALIDATION_FOR_CALL_BARRING = "com.android.internal.telephony.flags.allow_skip_password_validation_for_call_barring";
+    public static final java.lang.String FLAG_ALLOW_UNSUPPORTED_MODEM_ACTIVITY_INFO = "com.android.internal.telephony.flags.allow_unsupported_modem_activity_info";
     public static final java.lang.String FLAG_AST_SKYLO_FALLBACK = "com.android.internal.telephony.flags.ast_skylo_fallback";
     public static final java.lang.String FLAG_CACHE_SMS_APPLICATION_DATA = "com.android.internal.telephony.flags.cache_sms_application_data";
     public static final java.lang.String FLAG_CANCEL_OBSOLETE_DATA_RETRY_ON_APN_CHANGE = "com.android.internal.telephony.flags.cancel_obsolete_data_retry_on_apn_change";
@@ -14,6 +15,7 @@ public final class Flags {
     public static final java.lang.String FLAG_CARRIER_PRIVILEGE_SEGMENTATION = "com.android.internal.telephony.flags.carrier_privilege_segmentation";
     public static final java.lang.String FLAG_CARRIER_RESTRICTION_STATUS = "com.android.internal.telephony.flags.carrier_restriction_status";
     public static final java.lang.String FLAG_CARRIER_ROAMING_NB_IOT_NTN = "com.android.internal.telephony.flags.carrier_roaming_nb_iot_ntn";
+    public static final java.lang.String FLAG_CAT_SERVICE_COARSE_LOCK_DEADLOCK_FIX = "com.android.internal.telephony.flags.cat_service_coarse_lock_deadlock_fix";
     public static final java.lang.String FLAG_CELL_IDENTITY_FOR_BARRING_INFO = "com.android.internal.telephony.flags.cell_identity_for_barring_info";
     public static final java.lang.String FLAG_CLEANUP_CARRIER_APP_UPDATE_ENABLED_STATE_LOGIC = "com.android.internal.telephony.flags.cleanup_carrier_app_update_enabled_state_logic";
     public static final java.lang.String FLAG_CONFIG_FOR_ENABLING_CARRIER = "com.android.internal.telephony.flags.config_for_enabling_carrier";
@@ -21,16 +23,18 @@ public final class Flags {
     public static final java.lang.String FLAG_DATA_ONLY_CELLULAR_SERVICE = "com.android.internal.telephony.flags.data_only_cellular_service";
     public static final java.lang.String FLAG_DATA_SERVICE_NOTIFY_IMS_DATA_NETWORK = "com.android.internal.telephony.flags.data_service_notify_ims_data_network";
     public static final java.lang.String FLAG_DATA_SERVICE_USER_DATA_TOGGLE_NOTIFY = "com.android.internal.telephony.flags.data_service_user_data_toggle_notify";
+    public static final java.lang.String FLAG_DEFER_EMERGENCY_DIAL_WHEN_HOLD_PENDING = "com.android.internal.telephony.flags.defer_emergency_dial_when_hold_pending";
     public static final java.lang.String FLAG_DELETE_CDMA = "com.android.internal.telephony.flags.delete_cdma";
     public static final java.lang.String FLAG_DISCONNECT_OTHER_DOMAIN_CALLS_ON_EMERGENCY_REDIAL = "com.android.internal.telephony.flags.disconnect_other_domain_calls_on_emergency_redial";
     public static final java.lang.String FLAG_DOMAIN_SELECTION_METRICS_ENABLED = "com.android.internal.telephony.flags.domain_selection_metrics_enabled";
-    public static final java.lang.String FLAG_DOWNLOADABLE_SUBSCRIPTION_INCLUDE_CARRIER_IDENTIFIER_INTERNAL = "com.android.internal.telephony.flags.downloadable_subscription_include_carrier_identifier_internal";
+    public static final java.lang.String FLAG_DOWNLOADABLE_SUBSCRIPTION_INCLUDE_CARRIER_IDENTIFIER = "com.android.internal.telephony.flags.downloadable_subscription_include_carrier_identifier";
     public static final java.lang.String FLAG_DRB_SECURITY_TRANSPARENCY = "com.android.internal.telephony.flags.drb_security_transparency";
     public static final java.lang.String FLAG_DSDA_ADHOC_FILTERING = "com.android.internal.telephony.flags.dsda_adhoc_filtering";
+    public static final java.lang.String FLAG_DYNAMIC_DROPS_FG_CALL_EXTRA = "com.android.internal.telephony.flags.dynamic_drops_fg_call_extra";
     public static final java.lang.String FLAG_EMERGENCY_CALLBACK_MODE_NOTIFICATION = "com.android.internal.telephony.flags.emergency_callback_mode_notification";
     public static final java.lang.String FLAG_EMERGENCY_MESSAGING_ROUTING_FOR_INTERNATIONAL_ROAMING = "com.android.internal.telephony.flags.emergency_messaging_routing_for_international_roaming";
-    public static final java.lang.String FLAG_EMERGENCY_OVER_NR_REQUIRES_VONR_ENABLED = "com.android.internal.telephony.flags.emergency_over_nr_requires_vonr_enabled";
     public static final java.lang.String FLAG_EMERGENCY_REGISTRATION_STATE = "com.android.internal.telephony.flags.emergency_registration_state";
+    public static final java.lang.String FLAG_ENABLE_5G_PLUS_SA_ICON = "com.android.internal.telephony.flags.enable_5g_plus_sa_icon";
     public static final java.lang.String FLAG_ENABLE_AEAD_ALGORITHMS = "com.android.internal.telephony.flags.enable_aead_algorithms";
     public static final java.lang.String FLAG_ENABLE_CARRIER_CONFIG_APN_STRING_RESTRICTION = "com.android.internal.telephony.flags.enable_carrier_config_apn_string_restriction";
     public static final java.lang.String FLAG_ENABLE_DATA_STALL_RECOVERY_RANDOMIZATION = "com.android.internal.telephony.flags.enable_data_stall_recovery_randomization";
@@ -53,28 +57,37 @@ public final class Flags {
     public static final java.lang.String FLAG_FIX_GET_CFNRY_TIME_WHEN_TIMER_NOT_SUPPORTED = "com.android.internal.telephony.flags.fix_get_cfnry_time_when_timer_not_supported";
     public static final java.lang.String FLAG_FIX_IMS_PDN_DISCONNECT_UPON_SIM_REMOVAL = "com.android.internal.telephony.flags.fix_ims_pdn_disconnect_upon_sim_removal";
     public static final java.lang.String FLAG_FIX_INCONSISTENT_REFRESH_STATE = "com.android.internal.telephony.flags.fix_inconsistent_refresh_state";
+    public static final java.lang.String FLAG_FIX_REGISTRY_SERVICE_NULL_CRASH = "com.android.internal.telephony.flags.fix_registry_service_null_crash";
     public static final java.lang.String FLAG_FIX_SATELLITE_PROVISION_STATE_OUT_OF_SYNC = "com.android.internal.telephony.flags.fix_satellite_provision_state_out_of_sync";
     public static final java.lang.String FLAG_FIX_SQL_INJECTION_HBPCD = "com.android.internal.telephony.flags.fix_sql_injection_hbpcd";
+    public static final java.lang.String FLAG_GAMING_AND_STREAMING_SLICE = "com.android.internal.telephony.flags.gaming_and_streaming_slice";
     public static final java.lang.String FLAG_GEOFENCE_ENHANCEMENT_FOR_BETTER_UX = "com.android.internal.telephony.flags.geofence_enhancement_for_better_ux";
     public static final java.lang.String FLAG_GET_PHONE_NUMBER_TS43_API = "com.android.internal.telephony.flags.get_phone_number_ts43_api";
     public static final java.lang.String FLAG_GET_PREFERRED_DATA_SUB_IS_OPPORTUNISTIC_SET_DATA_SUB = "com.android.internal.telephony.flags.get_preferred_data_sub_is_opportunistic_set_data_sub";
     public static final java.lang.String FLAG_GET_SERVICE_STATE_FOR_SLOT = "com.android.internal.telephony.flags.get_service_state_for_slot";
+    public static final java.lang.String FLAG_HANDLE_QOS_UPDATE_DURING_HANDOVER = "com.android.internal.telephony.flags.handle_qos_update_during_handover";
     public static final java.lang.String FLAG_HIDE_DEFAULT_OUTGOING_ACCOUNT_IF_NOT_MULTIPLE = "com.android.internal.telephony.flags.hide_default_outgoing_account_if_not_multiple";
     public static final java.lang.String FLAG_HIDE_NON_ACTIVE_OPPORTUNISTIC_SUBSCRIPTIONS = "com.android.internal.telephony.flags.hide_non_active_opportunistic_subscriptions";
     public static final java.lang.String FLAG_HIDE_PREFER_3G_ITEM = "com.android.internal.telephony.flags.hide_prefer_3g_item";
+    public static final java.lang.String FLAG_IGNORE_ECBM_EXIT_ON_SECOND_EMERGENCY_CALL = "com.android.internal.telephony.flags.ignore_ecbm_exit_on_second_emergency_call";
     public static final java.lang.String FLAG_IGNORE_INCALL_MMI_FOR_EMERGENCY = "com.android.internal.telephony.flags.ignore_incall_mmi_for_emergency";
     public static final java.lang.String FLAG_IGNORE_NETWORK_SUGGESTED_RETRY_FALLBACK = "com.android.internal.telephony.flags.ignore_network_suggested_retry_fallback";
+    public static final java.lang.String FLAG_IGNORE_VONR_USER_PREFERENCE_WHEN_TOGGLE_HIDDEN = "com.android.internal.telephony.flags.ignore_vonr_user_preference_when_toggle_hidden";
+    public static final java.lang.String FLAG_IMS_CONNECTION_RETRY_AND_CLEANUP_FIX = "com.android.internal.telephony.flags.ims_connection_retry_and_cleanup_fix";
     public static final java.lang.String FLAG_INCALL_HANDOVER_POLICY = "com.android.internal.telephony.flags.incall_handover_policy";
     public static final java.lang.String FLAG_INITIALIZE_TELECOM_ACCOUNT_REGISTRY_ASYNC = "com.android.internal.telephony.flags.initialize_telecom_account_registry_async";
+    public static final java.lang.String FLAG_INIT_IMS_PROVISIONING_CONTROLLER_ASYNC = "com.android.internal.telephony.flags.init_ims_provisioning_controller_async";
     public static final java.lang.String FLAG_INIT_RCS_PROVISIONING_MONITOR_ASYNC = "com.android.internal.telephony.flags.init_rcs_provisioning_monitor_async";
+    public static final java.lang.String FLAG_KEEP_PREFERRED_OPPORTUNISTIC_SUB_STICKY_WHEN_ROAMING = "com.android.internal.telephony.flags.keep_preferred_opportunistic_sub_sticky_when_roaming";
     public static final java.lang.String FLAG_KEEP_WFC_ON_APM = "com.android.internal.telephony.flags.keep_wfc_on_apm";
     public static final java.lang.String FLAG_KEY_2G_TOGGLE_EMERGENCY = "com.android.internal.telephony.flags.key_2g_toggle_emergency";
-    public static final java.lang.String FLAG_KEY_CARRIER_2G_TOGGLE = "com.android.internal.telephony.flags.key_carrier_2g_toggle";
+    public static final java.lang.String FLAG_KEY_ENABLE_CELLULAR_SECURITY_API = "com.android.internal.telephony.flags.key_enable_cellular_security_api";
     public static final java.lang.String FLAG_LOAD_GID_EFS_EARLY = "com.android.internal.telephony.flags.load_gid_efs_early";
     public static final java.lang.String FLAG_LOG_CALLS_ANSWERED_ELSEWHERE = "com.android.internal.telephony.flags.log_calls_answered_elsewhere";
     public static final java.lang.String FLAG_LOG_MMS_SMS_DATABASE_ACCESS_INFO = "com.android.internal.telephony.flags.log_mms_sms_database_access_info";
     public static final java.lang.String FLAG_MACRO_BASED_OPPORTUNISTIC_NETWORKS = "com.android.internal.telephony.flags.macro_based_opportunistic_networks";
     public static final java.lang.String FLAG_MAKE_METERED_UNMETERED_CONFIGURABLE_FOR_SLICE_NETWORK = "com.android.internal.telephony.flags.make_metered_unmetered_configurable_for_slice_network";
+    public static final java.lang.String FLAG_MAP_CS_REMOTE_HOLD_EVENTS = "com.android.internal.telephony.flags.map_cs_remote_hold_events";
     public static final java.lang.String FLAG_MCC_MNC_LOCALE_RESOLUTION = "com.android.internal.telephony.flags.mcc_mnc_locale_resolution";
     public static final java.lang.String FLAG_MESSAGE_PROMOTION = "com.android.internal.telephony.flags.message_promotion";
     public static final java.lang.String FLAG_MMS_DISABLED_ERROR = "com.android.internal.telephony.flags.mms_disabled_error";
@@ -88,32 +101,37 @@ public final class Flags {
     public static final java.lang.String FLAG_OEM_ENABLED_SATELLITE_PHASE_2 = "com.android.internal.telephony.flags.oem_enabled_satellite_phase_2";
     public static final java.lang.String FLAG_OFFLOAD_STARTUP_BINDER_CALLS = "com.android.internal.telephony.flags.offload_startup_binder_calls";
     public static final java.lang.String FLAG_ONS_HANDLER_THREAD = "com.android.internal.telephony.flags.ons_handler_thread";
-    public static final java.lang.String FLAG_ONS_THREAD_CONSOLIDATION = "com.android.internal.telephony.flags.ons_thread_consolidation";
     public static final java.lang.String FLAG_PASS_COPIED_CALL_STATE_LIST = "com.android.internal.telephony.flags.pass_copied_call_state_list";
     public static final java.lang.String FLAG_PCSCF_ADDRESS = "com.android.internal.telephony.flags.pcscf_address";
+    public static final java.lang.String FLAG_POLL_SIGNAL_STRENGTH_ON_WAKE = "com.android.internal.telephony.flags.poll_signal_strength_on_wake";
     public static final java.lang.String FLAG_POWER_DOWN_RACE_FIX = "com.android.internal.telephony.flags.power_down_race_fix";
     public static final java.lang.String FLAG_PREVENT_DIALING_DURING_RESUME = "com.android.internal.telephony.flags.prevent_dialing_during_resume";
     public static final java.lang.String FLAG_PROPAGATE_CONFERENCE_VIDEO_STATE_TO_PARTICIPANTS = "com.android.internal.telephony.flags.propagate_conference_video_state_to_participants";
+    public static final java.lang.String FLAG_RADIO_POWER_RACE_FIX = "com.android.internal.telephony.flags.radio_power_race_fix";
     public static final java.lang.String FLAG_REDACT_GENERIC_OTP_SMS = "com.android.internal.telephony.flags.redact_generic_otp_sms";
     public static final java.lang.String FLAG_REDACT_OTP_SMS = "com.android.internal.telephony.flags.redact_otp_sms";
     public static final java.lang.String FLAG_REDACT_OTP_SMS_API = "com.android.internal.telephony.flags.redact_otp_sms_api";
     public static final java.lang.String FLAG_REDACT_WEBOTP_SMS = "com.android.internal.telephony.flags.redact_webotp_sms";
+    public static final java.lang.String FLAG_REENABLE_UICC_APPLICATIONS_ON_EMBEDDED_SUBSCRIPTIONS = "com.android.internal.telephony.flags.reenable_uicc_applications_on_embedded_subscriptions";
     public static final java.lang.String FLAG_REFACTOR_UICC_PROFILE_TO_USE_CORRECT_CARD_STATE = "com.android.internal.telephony.flags.refactor_uicc_profile_to_use_correct_card_state";
     public static final java.lang.String FLAG_REMAP_DISCONNECT_CAUSE_SIP_REQUEST_CANCELLED = "com.android.internal.telephony.flags.remap_disconnect_cause_sip_request_cancelled";
-    public static final java.lang.String FLAG_REMOVE_TETHERING_CONDITION_WHEN_ENABLING_INDICATIONS = "com.android.internal.telephony.flags.remove_tethering_condition_when_enabling_indications";
     public static final java.lang.String FLAG_REQUEST_SIGNAL_STRENGTH = "com.android.internal.telephony.flags.request_signal_strength";
     public static final java.lang.String FLAG_RESET_CARRIER_ID_ON_SIM_REFRESH = "com.android.internal.telephony.flags.reset_carrier_id_on_sim_refresh";
     public static final java.lang.String FLAG_RESET_IMS_REGISTRATION_ON_INVALID_SUBID = "com.android.internal.telephony.flags.reset_ims_registration_on_invalid_subid";
     public static final java.lang.String FLAG_RESET_MOBILE_NETWORK_SETTINGS = "com.android.internal.telephony.flags.reset_mobile_network_settings";
+    public static final java.lang.String FLAG_RESET_TIMERS_ON_SA_TO_LTE_TRANSIT = "com.android.internal.telephony.flags.reset_timers_on_sa_to_lte_transit";
     public static final java.lang.String FLAG_RESTRICT_SEND_USSD_REQUEST = "com.android.internal.telephony.flags.restrict_send_ussd_request";
     public static final java.lang.String FLAG_ROBUST_NUMBER_VERIFICATION = "com.android.internal.telephony.flags.robust_number_verification";
+    public static final java.lang.String FLAG_RTT_TERMINATION_ASYNC = "com.android.internal.telephony.flags.rtt_termination_async";
     public static final java.lang.String FLAG_SATELLITE_25Q4_APIS = "com.android.internal.telephony.flags.satellite_25q4_apis";
     public static final java.lang.String FLAG_SATELLITE_26Q2_APIS = "com.android.internal.telephony.flags.satellite_26q2_apis";
     public static final java.lang.String FLAG_SATELLITE_26Q4_APIS = "com.android.internal.telephony.flags.satellite_26q4_apis";
     public static final java.lang.String FLAG_SATELLITE_DATA_METRICS_ENHANCEMENT = "com.android.internal.telephony.flags.satellite_data_metrics_enhancement";
+    public static final java.lang.String FLAG_SATELLITE_DATA_SAVER_MODE = "com.android.internal.telephony.flags.satellite_data_saver_mode";
     public static final java.lang.String FLAG_SATELLITE_EXIT_P2P_SESSION_OUTSIDE_GEOFENCE = "com.android.internal.telephony.flags.satellite_exit_p2p_session_outside_geofence";
     public static final java.lang.String FLAG_SATELLITE_IMPROVE_MULTI_THREAD_DESIGN = "com.android.internal.telephony.flags.satellite_improve_multi_thread_design";
     public static final java.lang.String FLAG_SATELLITE_METRICS_ENHANCEMENT = "com.android.internal.telephony.flags.satellite_metrics_enhancement";
+    public static final java.lang.String FLAG_SATELLITE_RETRY_SUSPEND_AND_DEFER_IDLE_EXIT = "com.android.internal.telephony.flags.satellite_retry_suspend_and_defer_idle_exit";
     public static final java.lang.String FLAG_SATELLITE_SIGNAL_HYSTERESIS_THRESHOLDS = "com.android.internal.telephony.flags.satellite_signal_hysteresis_thresholds";
     public static final java.lang.String FLAG_SATELLITE_STATE_CHANGE_LISTENER = "com.android.internal.telephony.flags.satellite_state_change_listener";
     public static final java.lang.String FLAG_SATELLITE_SUSPEND = "com.android.internal.telephony.flags.satellite_suspend";
@@ -126,7 +144,6 @@ public final class Flags {
     public static final java.lang.String FLAG_SIMULTANEOUS_CALLING_INDICATIONS = "com.android.internal.telephony.flags.simultaneous_calling_indications";
     public static final java.lang.String FLAG_SKIP_STK_SHORT_CODE_CHECK = "com.android.internal.telephony.flags.skip_stk_short_code_check";
     public static final java.lang.String FLAG_SLICING_ADDITIONAL_ERROR_CODES = "com.android.internal.telephony.flags.slicing_additional_error_codes";
-    public static final java.lang.String FLAG_SLOT_PORT_SWITCH_FAILURE_FIX = "com.android.internal.telephony.flags.slot_port_switch_failure_fix";
     public static final java.lang.String FLAG_SMS_NETWORK_SECURITY_EVENTS = "com.android.internal.telephony.flags.sms_network_security_events";
     public static final java.lang.String FLAG_STK_SEND_SMS_TERMINAL_RESPONSE_ON_SEND_SUCCESS = "com.android.internal.telephony.flags.stk_send_sms_terminal_response_on_send_success";
     public static final java.lang.String FLAG_STK_SMSC_ADDRESS_EXTRACTION = "com.android.internal.telephony.flags.stk_smsc_address_extraction";
@@ -146,19 +163,23 @@ public final class Flags {
     public static final java.lang.String FLAG_SUPPORT_SAME_URI_CONFERENCE_SRVCC = "com.android.internal.telephony.flags.support_same_uri_conference_srvcc";
     public static final java.lang.String FLAG_SUPPORT_SLOT_SWITCHING_2PSIM_1ESIM_CONFIG = "com.android.internal.telephony.flags.support_slot_switching_2psim_1esim_config";
     public static final java.lang.String FLAG_SUPPORT_SMS_OVER_IMS_APIS = "com.android.internal.telephony.flags.support_sms_over_ims_apis";
-    public static final java.lang.String FLAG_SUPPORT_STK_COMMAND_USSD_AND_CALL = "com.android.internal.telephony.flags.support_stk_command_ussd_and_call";
     public static final java.lang.String FLAG_SUPPORT_TARGETED_HOLD_ACTIONS = "com.android.internal.telephony.flags.support_targeted_hold_actions";
     public static final java.lang.String FLAG_SUPPORT_THROTTLE_TIME_FOR_DEREGISTRATION = "com.android.internal.telephony.flags.support_throttle_time_for_deregistration";
     public static final java.lang.String FLAG_SYNCHRONOUS_RCS_UCE_CALLBACK_REGISTRATION = "com.android.internal.telephony.flags.synchronous_rcs_uce_callback_registration";
     public static final java.lang.String FLAG_SYSTEM_SELECTION_SPECIFIER_ENHANCEMENT = "com.android.internal.telephony.flags.system_selection_specifier_enhancement";
+    public static final java.lang.String FLAG_TELEPHONY_INJECTION_SINGLE_CLASS_LOADER = "com.android.internal.telephony.flags.telephony_injection_single_class_loader";
     public static final java.lang.String FLAG_TELEPHONY_SATELLITE_APIS = "com.android.internal.telephony.flags.telephony_satellite_apis";
     public static final java.lang.String FLAG_TELEPHONY_SATELLITE_MAINLINE_PHASE1 = "com.android.internal.telephony.flags.telephony_satellite_mainline_phase1";
     public static final java.lang.String FLAG_TEMPORARY_FAILURES_IN_CARRIER_MESSAGING_SERVICE = "com.android.internal.telephony.flags.temporary_failures_in_carrier_messaging_service";
+    public static final java.lang.String FLAG_UNWANTED_CALL_INDICATION = "com.android.internal.telephony.flags.unwanted_call_indication";
     public static final java.lang.String FLAG_UPDATE_CARRIER_NAME_AFTER_SIM_READY = "com.android.internal.telephony.flags.update_carrier_name_after_sim_ready";
     public static final java.lang.String FLAG_UPDATE_DEVICE_SATELLITE_PLMN_BY_CONFIGUPDATER = "com.android.internal.telephony.flags.update_device_satellite_plmn_by_configupdater";
+    public static final java.lang.String FLAG_UPDATE_EMERGENCY_REGISTRATION_RESULT_WITH_SCAN_RESULTS = "com.android.internal.telephony.flags.update_emergency_registration_result_with_scan_results";
     public static final java.lang.String FLAG_USE_AOSP_DOMAIN_SELECTION_SERVICE = "com.android.internal.telephony.flags.use_aosp_domain_selection_service";
     public static final java.lang.String FLAG_USE_EMERGENCY_OVER_IMS_SUPPORTED_3GPP_NETWORK_TYPES_FOR_EMERGENCY_SMS_ON_NR = "com.android.internal.telephony.flags.use_emergency_over_ims_supported_3gpp_network_types_for_emergency_sms_on_nr";
     public static final java.lang.String FLAG_USE_OEM_DOMAIN_SELECTION_SERVICE = "com.android.internal.telephony.flags.use_oem_domain_selection_service";
+    public static final java.lang.String FLAG_USE_ONS_MAINLINE = "com.android.internal.telephony.flags.use_ons_mainline";
+    public static final java.lang.String FLAG_USE_PIN_STATE_FOR_GET_ICC_LOCK_ENABLED = "com.android.internal.telephony.flags.use_pin_state_for_get_icc_lock_enabled";
     public static final java.lang.String FLAG_USE_SUBSCRIPTION_MANAGER_FOR_PSTN_PHONE_NUMBER = "com.android.internal.telephony.flags.use_subscription_manager_for_pstn_phone_number";
     public static final java.lang.String FLAG_VENDOR_SPECIFIC_CELLULAR_IDENTIFIER_DISCLOSURE_INDICATIONS = "com.android.internal.telephony.flags.vendor_specific_cellular_identifier_disclosure_indications";
     public static final java.lang.String FLAG_VZW_AST_SKYLO_FALLBACK = "com.android.internal.telephony.flags.vzw_ast_skylo_fallback";
@@ -169,6 +190,7 @@ public final class Flags {
     public static boolean addRatRelatedSuggestedActionToImsRegistration() { return false; }
     public static boolean allowNonStandaloneOpportunisticAdsPolicy() { return false; }
     public static boolean allowSkipPasswordValidationForCallBarring() { return false; }
+    public static boolean allowUnsupportedModemActivityInfo() { return false; }
     public static boolean astSkyloFallback() { return false; }
     public static boolean cacheSmsApplicationData() { return false; }
     public static boolean cancelObsoleteDataRetryOnApnChange() { return false; }
@@ -177,6 +199,7 @@ public final class Flags {
     public static boolean carrierPrivilegeSegmentation() { return false; }
     public static boolean carrierRestrictionStatus() { return false; }
     public static boolean carrierRoamingNbIotNtn() { return false; }
+    public static boolean catServiceCoarseLockDeadlockFix() { return false; }
     public static boolean cellIdentityForBarringInfo() { return false; }
     public static boolean cleanupCarrierAppUpdateEnabledStateLogic() { return false; }
     public static boolean configForEnablingCarrier() { return false; }
@@ -184,16 +207,18 @@ public final class Flags {
     public static boolean dataOnlyCellularService() { return false; }
     public static boolean dataServiceNotifyImsDataNetwork() { return false; }
     public static boolean dataServiceUserDataToggleNotify() { return false; }
+    public static boolean deferEmergencyDialWhenHoldPending() { return false; }
     public static boolean deleteCdma() { return false; }
     public static boolean disconnectOtherDomainCallsOnEmergencyRedial() { return false; }
     public static boolean domainSelectionMetricsEnabled() { return false; }
-    public static boolean downloadableSubscriptionIncludeCarrierIdentifierInternal() { return false; }
+    public static boolean downloadableSubscriptionIncludeCarrierIdentifier() { return false; }
     public static boolean drbSecurityTransparency() { return false; }
     public static boolean dsdaAdhocFiltering() { return false; }
+    public static boolean dynamicDropsFgCallExtra() { return false; }
     public static boolean emergencyCallbackModeNotification() { return false; }
     public static boolean emergencyMessagingRoutingForInternationalRoaming() { return false; }
-    public static boolean emergencyOverNrRequiresVonrEnabled() { return false; }
     public static boolean emergencyRegistrationState() { return false; }
+    public static boolean enable5gPlusSaIcon() { return false; }
     public static boolean enableAeadAlgorithms() { return false; }
     public static boolean enableCarrierConfigApnStringRestriction() { return false; }
     public static boolean enableDataStallRecoveryRandomization() { return false; }
@@ -216,28 +241,37 @@ public final class Flags {
     public static boolean fixGetCfnryTimeWhenTimerNotSupported() { return false; }
     public static boolean fixImsPdnDisconnectUponSimRemoval() { return false; }
     public static boolean fixInconsistentRefreshState() { return false; }
+    public static boolean fixRegistryServiceNullCrash() { return false; }
     public static boolean fixSatelliteProvisionStateOutOfSync() { return false; }
     public static boolean fixSqlInjectionHbpcd() { return false; }
+    public static boolean gamingAndStreamingSlice() { return false; }
     public static boolean geofenceEnhancementForBetterUx() { return false; }
     public static boolean getPhoneNumberTs43Api() { return false; }
     public static boolean getPreferredDataSubIsOpportunisticSetDataSub() { return false; }
     public static boolean getServiceStateForSlot() { return false; }
+    public static boolean handleQosUpdateDuringHandover() { return false; }
     public static boolean hideDefaultOutgoingAccountIfNotMultiple() { return false; }
     public static boolean hideNonActiveOpportunisticSubscriptions() { return false; }
     public static boolean hidePrefer3gItem() { return false; }
+    public static boolean ignoreEcbmExitOnSecondEmergencyCall() { return false; }
     public static boolean ignoreIncallMmiForEmergency() { return false; }
     public static boolean ignoreNetworkSuggestedRetryFallback() { return false; }
+    public static boolean ignoreVonrUserPreferenceWhenToggleHidden() { return false; }
+    public static boolean imsConnectionRetryAndCleanupFix() { return false; }
     public static boolean incallHandoverPolicy() { return false; }
+    public static boolean initImsProvisioningControllerAsync() { return false; }
     public static boolean initRcsProvisioningMonitorAsync() { return false; }
     public static boolean initializeTelecomAccountRegistryAsync() { return false; }
+    public static boolean keepPreferredOpportunisticSubStickyWhenRoaming() { return false; }
     public static boolean keepWfcOnApm() { return false; }
     public static boolean key2gToggleEmergency() { return false; }
-    public static boolean keyCarrier2gToggle() { return false; }
+    public static boolean keyEnableCellularSecurityApi() { return false; }
     public static boolean loadGidEfsEarly() { return false; }
     public static boolean logCallsAnsweredElsewhere() { return false; }
     public static boolean logMmsSmsDatabaseAccessInfo() { return false; }
     public static boolean macroBasedOpportunisticNetworks() { return false; }
     public static boolean makeMeteredUnmeteredConfigurableForSliceNetwork() { return false; }
+    public static boolean mapCsRemoteHoldEvents() { return false; }
     public static boolean mccMncLocaleResolution() { return false; }
     public static boolean messagePromotion() { return false; }
     public static boolean mmsDisabledError() { return false; }
@@ -251,32 +285,37 @@ public final class Flags {
     public static boolean oemEnabledSatellitePhase2() { return false; }
     public static boolean offloadStartupBinderCalls() { return false; }
     public static boolean onsHandlerThread() { return false; }
-    public static boolean onsThreadConsolidation() { return false; }
     public static boolean passCopiedCallStateList() { return false; }
     public static boolean pcscfAddress() { return false; }
+    public static boolean pollSignalStrengthOnWake() { return false; }
     public static boolean powerDownRaceFix() { return false; }
     public static boolean preventDialingDuringResume() { return false; }
     public static boolean propagateConferenceVideoStateToParticipants() { return false; }
+    public static boolean radioPowerRaceFix() { return false; }
     public static boolean redactGenericOtpSms() { return false; }
     public static boolean redactOtpSms() { return false; }
     public static boolean redactOtpSmsApi() { return false; }
     public static boolean redactWebotpSms() { return false; }
+    public static boolean reenableUiccApplicationsOnEmbeddedSubscriptions() { return false; }
     public static boolean refactorUiccProfileToUseCorrectCardState() { return false; }
     public static boolean remapDisconnectCauseSipRequestCancelled() { return false; }
-    public static boolean removeTetheringConditionWhenEnablingIndications() { return false; }
     public static boolean requestSignalStrength() { return false; }
     public static boolean resetCarrierIdOnSimRefresh() { return false; }
     public static boolean resetImsRegistrationOnInvalidSubid() { return false; }
     public static boolean resetMobileNetworkSettings() { return false; }
+    public static boolean resetTimersOnSaToLteTransit() { return false; }
     public static boolean restrictSendUssdRequest() { return false; }
     public static boolean robustNumberVerification() { return false; }
+    public static boolean rttTerminationAsync() { return false; }
     public static boolean satellite25q4Apis() { return false; }
     public static boolean satellite26q2Apis() { return false; }
     public static boolean satellite26q4Apis() { return false; }
     public static boolean satelliteDataMetricsEnhancement() { return false; }
+    public static boolean satelliteDataSaverMode() { return false; }
     public static boolean satelliteExitP2pSessionOutsideGeofence() { return false; }
     public static boolean satelliteImproveMultiThreadDesign() { return false; }
     public static boolean satelliteMetricsEnhancement() { return false; }
+    public static boolean satelliteRetrySuspendAndDeferIdleExit() { return false; }
     public static boolean satelliteSignalHysteresisThresholds() { return false; }
     public static boolean satelliteStateChangeListener() { return false; }
     public static boolean satelliteSuspend() { return false; }
@@ -289,7 +328,6 @@ public final class Flags {
     public static boolean simultaneousCallingIndications() { return false; }
     public static boolean skipStkShortCodeCheck() { return false; }
     public static boolean slicingAdditionalErrorCodes() { return false; }
-    public static boolean slotPortSwitchFailureFix() { return false; }
     public static boolean smsNetworkSecurityEvents() { return false; }
     public static boolean stkSendSmsTerminalResponseOnSendSuccess() { return false; }
     public static boolean stkSmsPacking() { return false; }
@@ -309,19 +347,23 @@ public final class Flags {
     public static boolean supportSameUriConferenceSrvcc() { return false; }
     public static boolean supportSlotSwitching2psim1esimConfig() { return false; }
     public static boolean supportSmsOverImsApis() { return false; }
-    public static boolean supportStkCommandUssdAndCall() { return false; }
     public static boolean supportTargetedHoldActions() { return false; }
     public static boolean supportThrottleTimeForDeregistration() { return false; }
     public static boolean synchronousRcsUceCallbackRegistration() { return false; }
     public static boolean systemSelectionSpecifierEnhancement() { return false; }
+    public static boolean telephonyInjectionSingleClassLoader() { return false; }
     public static boolean telephonySatelliteApis() { return false; }
     public static boolean telephonySatelliteMainlinePhase1() { return false; }
     public static boolean temporaryFailuresInCarrierMessagingService() { return false; }
+    public static boolean unwantedCallIndication() { return false; }
     public static boolean updateCarrierNameAfterSimReady() { return false; }
     public static boolean updateDeviceSatellitePlmnByConfigupdater() { return false; }
+    public static boolean updateEmergencyRegistrationResultWithScanResults() { return false; }
     public static boolean useAospDomainSelectionService() { return false; }
     public static boolean useEmergencyOverImsSupported3gppNetworkTypesForEmergencySmsOnNr() { return false; }
     public static boolean useOemDomainSelectionService() { return false; }
+    public static boolean useOnsMainline() { return false; }
+    public static boolean usePinStateForGetIccLockEnabled() { return false; }
     public static boolean useSubscriptionManagerForPstnPhoneNumber() { return false; }
     public static boolean vendorSpecificCellularIdentifierDisclosureIndications() { return false; }
     public static boolean vzwAstSkyloFallback() { return false; }

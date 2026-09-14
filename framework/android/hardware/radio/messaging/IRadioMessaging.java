@@ -38,44 +38,6 @@ public interface IRadioMessaging extends android.os.IInterface {
     public void writeSmsToRuim(int p0, android.hardware.radio.messaging.CdmaSmsWriteArgs p1) throws android.os.RemoteException;
     public void writeSmsToSim(int p0, android.hardware.radio.messaging.SmsWriteArgs p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.messaging.IRadioMessaging {
-        public Default() {}
-        public void acknowledgeIncomingGsmSmsWithPdu(int p0, boolean p1, java.lang.String p2) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void acknowledgeLastIncomingCdmaSms(int p0, android.hardware.radio.messaging.CdmaSmsAck p1) throws android.os.RemoteException {}
-        public void acknowledgeLastIncomingGsmSms(int p0, boolean p1, int p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        @java.lang.Deprecated
-        public void deleteSmsOnRuim(int p0, int p1) throws android.os.RemoteException {}
-        public void deleteSmsOnSim(int p0, int p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getCdmaBroadcastConfig(int p0) throws android.os.RemoteException {}
-        public void getGsmBroadcastConfig(int p0) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getSmscAddress(int p0) throws android.os.RemoteException {}
-        public void reportSmsMemoryStatus(int p0, boolean p1) throws android.os.RemoteException {}
-        public void responseAcknowledgement() throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void sendCdmaSms(int p0, android.hardware.radio.messaging.CdmaSmsMessage p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void sendCdmaSmsExpectMore(int p0, android.hardware.radio.messaging.CdmaSmsMessage p1) throws android.os.RemoteException {}
-        public void sendImsSms(int p0, android.hardware.radio.messaging.ImsSmsMessage p1) throws android.os.RemoteException {}
-        public void sendSms(int p0, android.hardware.radio.messaging.GsmSmsMessage p1) throws android.os.RemoteException {}
-        public void sendSmsExpectMore(int p0, android.hardware.radio.messaging.GsmSmsMessage p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setCdmaBroadcastActivation(int p0, boolean p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setCdmaBroadcastConfig(int p0, android.hardware.radio.messaging.CdmaBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
-        public void setGsmBroadcastActivation(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setGsmBroadcastConfig(int p0, android.hardware.radio.messaging.GsmBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.messaging.IRadioMessagingResponse p0, android.hardware.radio.messaging.IRadioMessagingIndication p1) throws android.os.RemoteException {}
-        public void setSmscAddress(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void writeSmsToRuim(int p0, android.hardware.radio.messaging.CdmaSmsWriteArgs p1) throws android.os.RemoteException {}
-        public void writeSmsToSim(int p0, android.hardware.radio.messaging.SmsWriteArgs p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.messaging.IRadioMessaging {
         static final int TRANSACTION_acknowledgeIncomingGsmSmsWithPdu = 1;
         static final int TRANSACTION_acknowledgeLastIncomingCdmaSms = 2;
@@ -148,5 +110,43 @@ public interface IRadioMessaging extends android.os.IInterface {
             public void writeSmsToRuim(int p0, android.hardware.radio.messaging.CdmaSmsWriteArgs p1) throws android.os.RemoteException {}
             public void writeSmsToSim(int p0, android.hardware.radio.messaging.SmsWriteArgs p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.messaging.IRadioMessaging {
+        public Default() {}
+        public void acknowledgeIncomingGsmSmsWithPdu(int p0, boolean p1, java.lang.String p2) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void acknowledgeLastIncomingCdmaSms(int p0, android.hardware.radio.messaging.CdmaSmsAck p1) throws android.os.RemoteException {}
+        public void acknowledgeLastIncomingGsmSms(int p0, boolean p1, int p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        @java.lang.Deprecated
+        public void deleteSmsOnRuim(int p0, int p1) throws android.os.RemoteException {}
+        public void deleteSmsOnSim(int p0, int p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getCdmaBroadcastConfig(int p0) throws android.os.RemoteException {}
+        public void getGsmBroadcastConfig(int p0) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getSmscAddress(int p0) throws android.os.RemoteException {}
+        public void reportSmsMemoryStatus(int p0, boolean p1) throws android.os.RemoteException {}
+        public void responseAcknowledgement() throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void sendCdmaSms(int p0, android.hardware.radio.messaging.CdmaSmsMessage p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void sendCdmaSmsExpectMore(int p0, android.hardware.radio.messaging.CdmaSmsMessage p1) throws android.os.RemoteException {}
+        public void sendImsSms(int p0, android.hardware.radio.messaging.ImsSmsMessage p1) throws android.os.RemoteException {}
+        public void sendSms(int p0, android.hardware.radio.messaging.GsmSmsMessage p1) throws android.os.RemoteException {}
+        public void sendSmsExpectMore(int p0, android.hardware.radio.messaging.GsmSmsMessage p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setCdmaBroadcastActivation(int p0, boolean p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setCdmaBroadcastConfig(int p0, android.hardware.radio.messaging.CdmaBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
+        public void setGsmBroadcastActivation(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setGsmBroadcastConfig(int p0, android.hardware.radio.messaging.GsmBroadcastSmsConfigInfo[] p1) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.messaging.IRadioMessagingResponse p0, android.hardware.radio.messaging.IRadioMessagingIndication p1) throws android.os.RemoteException {}
+        public void setSmscAddress(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void writeSmsToRuim(int p0, android.hardware.radio.messaging.CdmaSmsWriteArgs p1) throws android.os.RemoteException {}
+        public void writeSmsToSim(int p0, android.hardware.radio.messaging.SmsWriteArgs p1) throws android.os.RemoteException {}
     }
 }

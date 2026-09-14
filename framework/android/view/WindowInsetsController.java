@@ -17,8 +17,11 @@ public interface WindowInsetsController {
     @java.lang.Deprecated
     public static final int BEHAVIOR_SHOW_BARS_BY_TOUCH = 0;
     public static final int BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE = 2;
+    public static final long NO_ANIMATION_DURATION_OVERRIDE = -1L;
     public void addOnControllableInsetsChangedListener(android.view.WindowInsetsController.OnControllableInsetsChangedListener p0);
     public void controlWindowInsetsAnimation(int p0, long p1, android.view.animation.Interpolator p2, android.os.CancellationSignal p3, android.view.WindowInsetsAnimationControlListener p4);
+    public long getImeHideAnimationDurationOverride();
+    public long getImeShowAnimationDurationOverride();
     public int getRequestedVisibleTypes();
     public android.view.InsetsState getState();
     public int getSystemBarsAppearance();
@@ -27,6 +30,8 @@ public interface WindowInsetsController {
     public void removeOnControllableInsetsChangedListener(android.view.WindowInsetsController.OnControllableInsetsChangedListener p0);
     public void setAnimationsDisabled(boolean p0);
     default public void setImeCaptionBarInsetsHeight(int p0) {}
+    public void setImeHideAnimationDurationOverride(long p0);
+    public void setImeShowAnimationDurationOverride(long p0);
     public void setSystemBarsAppearance(int p0, int p1);
     public void setSystemBarsAppearanceFromResource(int p0, int p1);
     public void setSystemBarsBehavior(int p0);
@@ -34,14 +39,14 @@ public interface WindowInsetsController {
     public void show(int p0);
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Appearance {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Behavior {
     }
 
     public static interface OnControllableInsetsChangedListener {
         public void onControllableInsetsChanged(android.view.WindowInsetsController p0, int p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Appearance {
     }
 }

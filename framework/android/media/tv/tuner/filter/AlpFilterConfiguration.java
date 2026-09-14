@@ -18,6 +18,10 @@ public final class AlpFilterConfiguration extends android.media.tv.tuner.filter.
     public int getPacketType() { return 0; }
     public int getType() { return 0; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LengthType {
+    }
+
     public static final class Builder {
         private int mLengthType;
         private int mPacketType;
@@ -27,9 +31,5 @@ public final class AlpFilterConfiguration extends android.media.tv.tuner.filter.
         public android.media.tv.tuner.filter.AlpFilterConfiguration.Builder setLengthType(int p0) { return null; }
         public android.media.tv.tuner.filter.AlpFilterConfiguration.Builder setPacketType(int p0) { return null; }
         public android.media.tv.tuner.filter.AlpFilterConfiguration.Builder setSettings(android.media.tv.tuner.filter.Settings p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LengthType {
     }
 }

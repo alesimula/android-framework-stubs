@@ -7,7 +7,6 @@ public interface IPrintSpooler extends android.os.IInterface {
     public void getPrintJobInfo(android.print.PrintJobId p0, android.print.IPrintSpoolerCallbacks p1, int p2, int p3) throws android.os.RemoteException;
     public void getPrintJobInfos(android.print.IPrintSpoolerCallbacks p0, android.content.ComponentName p1, int p2, int p3, int p4) throws android.os.RemoteException;
     public void onCustomPrinterIconLoaded(android.print.PrinterId p0, android.graphics.drawable.Icon p1, android.print.IPrintSpoolerCallbacks p2, int p3) throws android.os.RemoteException;
-    public void pruneApprovedPrintServices(java.util.List<android.content.ComponentName> p0) throws android.os.RemoteException;
     public void removeObsoletePrintJobs() throws android.os.RemoteException;
     public void setClient(android.print.IPrintSpoolerClient p0) throws android.os.RemoteException;
     public void setPrintJobCancelling(android.print.PrintJobId p0, boolean p1) throws android.os.RemoteException;
@@ -27,7 +26,6 @@ public interface IPrintSpooler extends android.os.IInterface {
         public void getPrintJobInfo(android.print.PrintJobId p0, android.print.IPrintSpoolerCallbacks p1, int p2, int p3) throws android.os.RemoteException {}
         public void getPrintJobInfos(android.print.IPrintSpoolerCallbacks p0, android.content.ComponentName p1, int p2, int p3, int p4) throws android.os.RemoteException {}
         public void onCustomPrinterIconLoaded(android.print.PrinterId p0, android.graphics.drawable.Icon p1, android.print.IPrintSpoolerCallbacks p2, int p3) throws android.os.RemoteException {}
-        public void pruneApprovedPrintServices(java.util.List<android.content.ComponentName> p0) throws android.os.RemoteException {}
         public void removeObsoletePrintJobs() throws android.os.RemoteException {}
         public void setClient(android.print.IPrintSpoolerClient p0) throws android.os.RemoteException {}
         public void setPrintJobCancelling(android.print.PrintJobId p0, boolean p1) throws android.os.RemoteException {}
@@ -47,7 +45,6 @@ public interface IPrintSpooler extends android.os.IInterface {
         static final int TRANSACTION_getPrintJobInfo = 3;
         static final int TRANSACTION_getPrintJobInfos = 2;
         static final int TRANSACTION_onCustomPrinterIconLoaded = 9;
-        static final int TRANSACTION_pruneApprovedPrintServices = 16;
         static final int TRANSACTION_removeObsoletePrintJobs = 1;
         static final int TRANSACTION_setClient = 14;
         static final int TRANSACTION_setPrintJobCancelling = 15;
@@ -75,7 +72,6 @@ public interface IPrintSpooler extends android.os.IInterface {
             public void getPrintJobInfo(android.print.PrintJobId p0, android.print.IPrintSpoolerCallbacks p1, int p2, int p3) throws android.os.RemoteException {}
             public void getPrintJobInfos(android.print.IPrintSpoolerCallbacks p0, android.content.ComponentName p1, int p2, int p3, int p4) throws android.os.RemoteException {}
             public void onCustomPrinterIconLoaded(android.print.PrinterId p0, android.graphics.drawable.Icon p1, android.print.IPrintSpoolerCallbacks p2, int p3) throws android.os.RemoteException {}
-            public void pruneApprovedPrintServices(java.util.List<android.content.ComponentName> p0) throws android.os.RemoteException {}
             public void removeObsoletePrintJobs() throws android.os.RemoteException {}
             public void setClient(android.print.IPrintSpoolerClient p0) throws android.os.RemoteException {}
             public void setPrintJobCancelling(android.print.PrintJobId p0, boolean p1) throws android.os.RemoteException {}

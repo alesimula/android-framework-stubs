@@ -52,6 +52,7 @@ public final class CameraManager {
     public java.util.Map<java.lang.String, android.hardware.camera2.CameraCharacteristics> getPhysicalIdToCharsMap(android.hardware.camera2.CameraCharacteristics p0) throws android.hardware.camera2.CameraAccessException { return null; }
     public int getTorchStrengthLevel(java.lang.String p0) throws android.hardware.camera2.CameraAccessException { return 0; }
     public void injectCamera(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.util.concurrent.Executor p3, android.hardware.camera2.CameraInjectionSession.InjectionStatusCallback p4) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException, java.lang.IllegalArgumentException {}
+    public void injectSessionParams(java.lang.String p0, int p1, java.lang.String p2, android.hardware.camera2.CaptureRequest p3) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException {}
     public void injectSessionParams(java.lang.String p0, android.hardware.camera2.CaptureRequest p1) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException {}
     public boolean isCameraDeviceSetupSupported(java.lang.String p0) throws android.hardware.camera2.CameraAccessException { return false; }
     @android.annotation.SystemApi
@@ -79,22 +80,6 @@ public final class CameraManager {
     public void unregisterTorchCallback(android.hardware.camera2.CameraManager.TorchCallback p0) {}
     public void warmUp(java.lang.String p0) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException {}
 
-    public static abstract class AvailabilityCallback {
-        private int mDeviceId;
-        private int mDevicePolicy;
-        public AvailabilityCallback() {}
-        public void onCameraAccessPrioritiesChanged() {}
-        public void onCameraAvailable(java.lang.String p0) {}
-        @android.annotation.SystemApi
-        public void onCameraClosed(java.lang.String p0) {}
-        @android.annotation.SystemApi
-        public void onCameraOpened(java.lang.String p0, java.lang.String p1) {}
-        public void onCameraRemoved(java.lang.String p0) {}
-        public void onCameraUnavailable(java.lang.String p0) {}
-        public void onPhysicalCameraAvailable(java.lang.String p0, java.lang.String p1) {}
-        public void onPhysicalCameraUnavailable(java.lang.String p0, java.lang.String p1) {}
-    }
-
     private static final class CameraManagerGlobal extends android.hardware.ICameraServiceListener.Stub implements android.os.IBinder.DeathRecipient {
         private static final java.lang.String CAMERA_SERVICE_BINDER_NAME = "media.camera";
         private static final int DEVICE_STATUS_ARRAY_SIZE = 10;
@@ -105,6 +90,7 @@ public final class CameraManager {
         private final int CAMERA_SERVICE_RECONNECT_DELAY_MS = 0;
         private final boolean DEBUG = false;
         private final android.util.ArrayMap<android.hardware.camera2.CameraManager.AvailabilityCallback, java.util.concurrent.Executor> mCallbackMap = null;
+        private final android.hardware.camera2.ICameraInjectionToken mCameraInjectionToken = null;
         private android.hardware.ICameraService mCameraService;
         private final java.util.Set<java.util.Set<android.hardware.camera2.CameraManager.CameraManagerGlobal.DeviceCameraInfo>> mConcurrentCameraIdCombinations = null;
         private android.os.Handler mDeviceStateHandler;
@@ -159,6 +145,7 @@ public final class CameraManager {
         public android.hardware.ICameraService getCameraService() { return null; }
         public java.util.Set<java.util.Set<java.lang.String>> getConcurrentCameraIds(int p0, int p1) { return null; }
         public int getTorchStrengthLevel(java.lang.String p0, android.content.AttributionSourceState p1, int p2) throws android.hardware.camera2.CameraAccessException { return 0; }
+        public void injectSessionParams(java.lang.String p0, int p1, java.lang.String p2, android.hardware.camera2.CaptureRequest p3) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException {}
         public void injectSessionParams(java.lang.String p0, android.hardware.camera2.CaptureRequest p1) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException {}
         public boolean isConcurrentSessionConfigurationSupported(java.util.Map<java.lang.String, android.hardware.camera2.params.SessionConfiguration> p0, int p1, android.content.AttributionSourceState p2, int p3) throws android.hardware.camera2.CameraAccessException { return false; }
         public boolean isDefaultAppSocialMediaParityEnabled() { return false; }
@@ -180,6 +167,10 @@ public final class CameraManager {
         public void unregisterTorchCallback(android.hardware.camera2.CameraManager.TorchCallback p0) {}
         public void warmUp(java.lang.String p0, android.content.AttributionSourceState p1, int p2) throws android.hardware.camera2.CameraAccessException, java.lang.SecurityException {}
 
+        private class CameraInjectionToken extends android.hardware.camera2.ICameraInjectionToken.Stub {
+            private CameraInjectionToken(android.hardware.camera2.CameraManager.CameraManagerGlobal p0) { super(); }
+        }
+
         private static final class DeviceCameraInfo {
             private final java.lang.String mCameraId = null;
             private final int mDeviceId = 0;
@@ -187,10 +178,6 @@ public final class CameraManager {
             public boolean equals(java.lang.Object p0) { return false; }
             public int hashCode() { return 0; }
         }
-    }
-
-    public static interface DeviceStateListener {
-        public void onDeviceStateChanged(boolean p0);
     }
 
     private static final class FoldStateListener implements android.hardware.devicestate.DeviceStateManager.DeviceStateCallback {
@@ -201,6 +188,26 @@ public final class CameraManager {
         private void handleStateChange(android.hardware.devicestate.DeviceState p0) {}
         public void addDeviceStateListener(android.hardware.camera2.CameraManager.DeviceStateListener p0) {}
         public void onDeviceStateChanged(android.hardware.devicestate.DeviceState p0) {}
+    }
+
+    public static abstract class AvailabilityCallback {
+        private int mDeviceId;
+        private int mDevicePolicy;
+        public AvailabilityCallback() {}
+        public void onCameraAccessPrioritiesChanged() {}
+        public void onCameraAvailable(java.lang.String p0) {}
+        @android.annotation.SystemApi
+        public void onCameraClosed(java.lang.String p0) {}
+        @android.annotation.SystemApi
+        public void onCameraOpened(java.lang.String p0, java.lang.String p1) {}
+        public void onCameraRemoved(java.lang.String p0) {}
+        public void onCameraUnavailable(java.lang.String p0) {}
+        public void onPhysicalCameraAvailable(java.lang.String p0, java.lang.String p1) {}
+        public void onPhysicalCameraUnavailable(java.lang.String p0, java.lang.String p1) {}
+    }
+
+    public static interface DeviceStateListener {
+        public void onDeviceStateChanged(boolean p0);
     }
 
     public static abstract class TorchCallback {

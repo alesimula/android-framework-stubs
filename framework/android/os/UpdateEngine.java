@@ -25,28 +25,6 @@ public class UpdateEngine {
     public boolean unbind() { return false; }
     public boolean verifyPayloadMetadata(java.lang.String p0) { return false; }
 
-    public static final class AllocateSpaceResult {
-        private int mErrorCode;
-        private long mFreeSpaceRequired;
-        private AllocateSpaceResult() {}
-        public int getErrorCode() { return 0; }
-        public long getFreeSpaceRequired() { return 0L; }
-    }
-
-    private static class CleanupAppliedPayloadCallback extends android.os.IUpdateEngineCallback.Stub {
-        private boolean mCompleted;
-        private int mErrorCode;
-        private java.lang.Object mLock;
-        private CleanupAppliedPayloadCallback() { super(); }
-        private int getResult() { return 0; }
-        public void onPayloadApplicationComplete(int p0) {}
-        public void onStatusUpdate(int p0, float p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ErrorCode {
-    }
-
     public static final class ErrorCodeConstants {
         public static final int DEVICE_CORRUPTED = 61;
         public static final int DOWNLOAD_PAYLOAD_VERIFICATION_ERROR = 12;
@@ -66,6 +44,20 @@ public class UpdateEngine {
         public ErrorCodeConstants() {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ErrorCode {
+    }
+
+    private static class CleanupAppliedPayloadCallback extends android.os.IUpdateEngineCallback.Stub {
+        private boolean mCompleted;
+        private int mErrorCode;
+        private java.lang.Object mLock;
+        private CleanupAppliedPayloadCallback() { super(); }
+        private int getResult() { return 0; }
+        public void onPayloadApplicationComplete(int p0) {}
+        public void onStatusUpdate(int p0, float p1) {}
+    }
+
     public static final class UpdateStatusConstants {
         public static final int ATTEMPTING_ROLLBACK = 8;
         public static final int CHECKING_FOR_UPDATE = 1;
@@ -78,5 +70,13 @@ public class UpdateEngine {
         public static final int UPDATE_AVAILABLE = 2;
         public static final int VERIFYING = 4;
         public UpdateStatusConstants() {}
+    }
+
+    public static final class AllocateSpaceResult {
+        private int mErrorCode;
+        private long mFreeSpaceRequired;
+        private AllocateSpaceResult() {}
+        public int getErrorCode() { return 0; }
+        public long getFreeSpaceRequired() { return 0L; }
     }
 }

@@ -42,6 +42,50 @@ public final class MandatoryStreamCombination {
     public int hashCode() { return 0; }
     public boolean isReprocessable() { return false; }
 
+    private static final class StreamCombinationTemplate {
+        public java.lang.String mDescription;
+        public android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType mReprocessType;
+        public android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] mStreamTemplates;
+        public boolean mSubstituteYUV;
+        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1) {}
+        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1, android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType p2) {}
+        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1, android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType p2, boolean p3) {}
+        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1, boolean p2) {}
+    }
+
+    private static final class StreamTemplate {
+        public int mFormat;
+        public android.hardware.camera2.params.MandatoryStreamCombination.SizeThreshold mSizeThreshold;
+        public long mStreamUseCase;
+        public StreamTemplate(int p0, android.hardware.camera2.params.MandatoryStreamCombination.SizeThreshold p1) {}
+        public StreamTemplate(int p0, android.hardware.camera2.params.MandatoryStreamCombination.SizeThreshold p1, long p2) {}
+    }
+
+    public static final class MandatoryStreamInformation {
+        private final java.util.ArrayList<android.util.Size> mAvailableSizes = null;
+        private final int mFormat = 0;
+        private final boolean mIs10BitCapable = false;
+        private final boolean mIsInput = false;
+        private final boolean mIsMaximumSize = false;
+        private final boolean mIsUltraHighResolution = false;
+        private final long mStreamUseCase = 0L;
+        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2) {}
+        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3) {}
+        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3, boolean p4) {}
+        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3, boolean p4, boolean p5) {}
+        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3, boolean p4, boolean p5, long p6) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int get10BitFormat() { return 0; }
+        public java.util.List<android.util.Size> getAvailableSizes() { return null; }
+        public int getFormat() { return 0; }
+        public long getStreamUseCase() { return 0L; }
+        public int hashCode() { return 0; }
+        public boolean is10BitCapable() { return false; }
+        public boolean isInput() { return false; }
+        public boolean isMaximumSize() { return false; }
+        public boolean isUltraHighResolution() { return false; }
+    }
+
     public static final class Builder {
         private final android.util.Size kPreviewSizeBound = null;
         private int mCameraId;
@@ -92,40 +136,6 @@ public final class MandatoryStreamCombination {
         }
     }
 
-    public static final class MandatoryStreamInformation {
-        private final java.util.ArrayList<android.util.Size> mAvailableSizes = null;
-        private final int mFormat = 0;
-        private final boolean mIs10BitCapable = false;
-        private final boolean mIsInput = false;
-        private final boolean mIsMaximumSize = false;
-        private final boolean mIsUltraHighResolution = false;
-        private final long mStreamUseCase = 0L;
-        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2) {}
-        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3) {}
-        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3, boolean p4) {}
-        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3, boolean p4, boolean p5) {}
-        public MandatoryStreamInformation(java.util.List<android.util.Size> p0, int p1, boolean p2, boolean p3, boolean p4, boolean p5, long p6) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int get10BitFormat() { return 0; }
-        public java.util.List<android.util.Size> getAvailableSizes() { return null; }
-        public int getFormat() { return 0; }
-        public long getStreamUseCase() { return 0L; }
-        public int hashCode() { return 0; }
-        public boolean is10BitCapable() { return false; }
-        public boolean isInput() { return false; }
-        public boolean isMaximumSize() { return false; }
-        public boolean isUltraHighResolution() { return false; }
-    }
-
-    private static enum ReprocessType {
-        NONE,
-        PRIVATE,
-        REMOSAIC,
-        YUV;
-        private static final android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType[] $VALUES = null;
-        private ReprocessType() {}
-    }
-
     private static enum SizeThreshold {
         FULL_RES,
         MAXIMUM,
@@ -138,22 +148,12 @@ public final class MandatoryStreamCombination {
         private SizeThreshold() {}
     }
 
-    private static final class StreamCombinationTemplate {
-        public java.lang.String mDescription;
-        public android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType mReprocessType;
-        public android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] mStreamTemplates;
-        public boolean mSubstituteYUV;
-        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1) {}
-        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1, android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType p2) {}
-        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1, android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType p2, boolean p3) {}
-        public StreamCombinationTemplate(android.hardware.camera2.params.MandatoryStreamCombination.StreamTemplate[] p0, java.lang.String p1, boolean p2) {}
-    }
-
-    private static final class StreamTemplate {
-        public int mFormat;
-        public android.hardware.camera2.params.MandatoryStreamCombination.SizeThreshold mSizeThreshold;
-        public long mStreamUseCase;
-        public StreamTemplate(int p0, android.hardware.camera2.params.MandatoryStreamCombination.SizeThreshold p1) {}
-        public StreamTemplate(int p0, android.hardware.camera2.params.MandatoryStreamCombination.SizeThreshold p1, long p2) {}
+    private static enum ReprocessType {
+        NONE,
+        PRIVATE,
+        REMOSAIC,
+        YUV;
+        private static final android.hardware.camera2.params.MandatoryStreamCombination.ReprocessType[] $VALUES = null;
+        private ReprocessType() {}
     }
 }

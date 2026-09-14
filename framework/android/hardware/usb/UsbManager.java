@@ -231,6 +231,25 @@ public class UsbManager {
     @android.annotation.SystemApi
     public void unregisterPowerProfileInfoListener(android.hardware.usb.UsbManager.PowerProfileInfoListener p0) {}
 
+    private class DisplayPortAltModeInfoDispatchingListener extends android.hardware.usb.IDisplayPortAltModeInfoListener.Stub {
+        private DisplayPortAltModeInfoDispatchingListener(android.hardware.usb.UsbManager p0) { super(); }
+        public void onDisplayPortAltModeInfoChanged(java.lang.String p0, android.hardware.usb.DisplayPortAltModeInfo p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UsbFunctionMode {
+    }
+
+    @android.annotation.SystemApi
+    public static interface Bc12TypeListener {
+        public void onPartnerBc12TypeChanged(android.hardware.usb.UsbPort p0, int p1);
+    }
+
+    @android.annotation.SystemApi
+    public static interface PowerProfileInfoListener {
+        public void onPowerProfileInfoChanged(android.hardware.usb.UsbPort p0, android.hardware.usb.UsbPortStatus p1);
+    }
+
     private class AccessoryAutoCloseInputStream extends java.io.FileInputStream {
         private final android.hardware.usb.UsbAccessory mAccessory = null;
         private final boolean mIsAccessoryFfsEnabled = false;
@@ -238,6 +257,31 @@ public class UsbManager {
         AccessoryAutoCloseInputStream(android.hardware.usb.UsbManager p0, android.hardware.usb.UsbAccessory p1, android.os.ParcelFileDescriptor p2) { super((java.io.FileDescriptor)null); }
         AccessoryAutoCloseInputStream(android.hardware.usb.UsbManager p0, android.hardware.usb.UsbAccessory p1, android.os.ParcelFileDescriptor p2, boolean p3) { super((java.io.FileDescriptor)null); }
         public void close() throws java.io.IOException {}
+    }
+
+    private class PowerProfileInfoDispatchingListener extends android.hardware.usb.IPowerProfileInfoListener.Stub {
+        android.hardware.usb.UsbManager mUsbManager;
+        PowerProfileInfoDispatchingListener(android.hardware.usb.UsbManager p0, android.hardware.usb.UsbManager p1) { super(); }
+        public void onPowerProfileInfoChanged(android.hardware.usb.ParcelableUsbPort p0, android.hardware.usb.UsbPortStatus p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UsbGadgetHalVersion {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PciTunnelControlAllowedStatus {
+    }
+
+    private static class AccessoryHandle {
+        private final boolean mInputStreamOpened = false;
+        private final boolean mOutputStreamOpened = false;
+        private final android.os.ParcelFileDescriptor mPfd = null;
+        AccessoryHandle(android.os.ParcelFileDescriptor p0, boolean p1, boolean p2) {}
+        public android.os.ParcelFileDescriptor getPfd() { return null; }
+        public boolean isInputStreamOpened() { return false; }
+        public boolean isOpen() { return false; }
+        public boolean isOutputStreamOpened() { return false; }
     }
 
     private class AccessoryAutoCloseOutputStream extends java.io.FileOutputStream {
@@ -252,62 +296,18 @@ public class UsbManager {
         public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
     }
 
-    private static class AccessoryHandle {
-        private final boolean mInputStreamOpened = false;
-        private final boolean mOutputStreamOpened = false;
-        private final android.os.ParcelFileDescriptor mPfd = null;
-        AccessoryHandle(android.os.ParcelFileDescriptor p0, boolean p1, boolean p2) {}
-        public android.os.ParcelFileDescriptor getPfd() { return null; }
-        public boolean isInputStreamOpened() { return false; }
-        public boolean isOpen() { return false; }
-        public boolean isOutputStreamOpened() { return false; }
-    }
-
     private class Bc12TypeDispatchingListener extends android.hardware.usb.IBc12TypeListener.Stub {
         android.hardware.usb.UsbManager mUsbManager;
         Bc12TypeDispatchingListener(android.hardware.usb.UsbManager p0, android.hardware.usb.UsbManager p1) { super(); }
         public void onPartnerBc12TypeChanged(android.hardware.usb.ParcelableUsbPort p0, int p1) {}
     }
 
-    @android.annotation.SystemApi
-    public static interface Bc12TypeListener {
-        public void onPartnerBc12TypeChanged(android.hardware.usb.UsbPort p0, int p1);
-    }
-
-    private class DisplayPortAltModeInfoDispatchingListener extends android.hardware.usb.IDisplayPortAltModeInfoListener.Stub {
-        private DisplayPortAltModeInfoDispatchingListener(android.hardware.usb.UsbManager p0) { super(); }
-        public void onDisplayPortAltModeInfoChanged(java.lang.String p0, android.hardware.usb.DisplayPortAltModeInfo p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UsbHalVersion {
     }
 
     @android.annotation.SystemApi
     public static interface DisplayPortAltModeInfoListener {
         public void onDisplayPortAltModeInfoChanged(java.lang.String p0, android.hardware.usb.DisplayPortAltModeInfo p1);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PciTunnelControlAllowedStatus {
-    }
-
-    private class PowerProfileInfoDispatchingListener extends android.hardware.usb.IPowerProfileInfoListener.Stub {
-        android.hardware.usb.UsbManager mUsbManager;
-        PowerProfileInfoDispatchingListener(android.hardware.usb.UsbManager p0, android.hardware.usb.UsbManager p1) { super(); }
-        public void onPowerProfileInfoChanged(android.hardware.usb.ParcelableUsbPort p0, android.hardware.usb.UsbPortStatus p1) {}
-    }
-
-    @android.annotation.SystemApi
-    public static interface PowerProfileInfoListener {
-        public void onPowerProfileInfoChanged(android.hardware.usb.UsbPort p0, android.hardware.usb.UsbPortStatus p1);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UsbFunctionMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UsbGadgetHalVersion {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UsbHalVersion {
     }
 }

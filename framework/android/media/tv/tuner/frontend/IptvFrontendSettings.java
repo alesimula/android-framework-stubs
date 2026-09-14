@@ -30,6 +30,14 @@ public final class IptvFrontendSettings extends android.media.tv.tuner.frontend.
     public int getSrcPort() { return 0; }
     public int getType() { return 0; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Protocol {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Igmp {
+    }
+
     public static final class Builder {
         private long mBitrate;
         private java.lang.String mContentUrl;
@@ -51,13 +59,5 @@ public final class IptvFrontendSettings extends android.media.tv.tuner.frontend.
         public android.media.tv.tuner.frontend.IptvFrontendSettings.Builder setProtocol(int p0) { return null; }
         public android.media.tv.tuner.frontend.IptvFrontendSettings.Builder setSrcIpAddress(byte[] p0) { return null; }
         public android.media.tv.tuner.frontend.IptvFrontendSettings.Builder setSrcPort(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Igmp {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Protocol {
     }
 }

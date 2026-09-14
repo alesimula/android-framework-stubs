@@ -7,15 +7,6 @@ public interface ISatelliteModemStateCallback extends android.os.IInterface {
     public void onSatelliteModemStateChanged(int p0) throws android.os.RemoteException;
     public void onTerrestrialNetworkAvailableChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.satellite.ISatelliteModemStateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onEmergencyModeChanged(boolean p0) throws android.os.RemoteException {}
-        public void onRegistrationFailure(int p0) throws android.os.RemoteException {}
-        public void onSatelliteModemStateChanged(int p0) throws android.os.RemoteException {}
-        public void onTerrestrialNetworkAvailableChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.satellite.ISatelliteModemStateCallback {
         static final int TRANSACTION_onEmergencyModeChanged = 2;
         static final int TRANSACTION_onRegistrationFailure = 3;
@@ -38,5 +29,14 @@ public interface ISatelliteModemStateCallback extends android.os.IInterface {
             public void onSatelliteModemStateChanged(int p0) throws android.os.RemoteException {}
             public void onTerrestrialNetworkAvailableChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.satellite.ISatelliteModemStateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onEmergencyModeChanged(boolean p0) throws android.os.RemoteException {}
+        public void onRegistrationFailure(int p0) throws android.os.RemoteException {}
+        public void onSatelliteModemStateChanged(int p0) throws android.os.RemoteException {}
+        public void onTerrestrialNetworkAvailableChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

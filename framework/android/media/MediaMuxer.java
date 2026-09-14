@@ -29,10 +29,6 @@ public final class MediaMuxer {
     public void stop() {}
     public void writeSampleData(int p0, java.nio.ByteBuffer p1, android.media.MediaCodec.BufferInfo p2) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Format {
-    }
-
     public static final class OutputFormat {
         public static final int MUXER_OUTPUT_3GPP = 2;
         public static final int MUXER_OUTPUT_FIRST = 0;
@@ -42,5 +38,9 @@ public final class MediaMuxer {
         public static final int MUXER_OUTPUT_OGG = 4;
         public static final int MUXER_OUTPUT_WEBM = 1;
         private OutputFormat() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Format {
     }
 }

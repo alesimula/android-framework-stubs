@@ -38,6 +38,7 @@ public interface ITelephony extends android.os.IInterface {
     public android.telephony.VisualVoicemailSmsFilterSettings getActiveVisualVoicemailSmsFilterSettings(int p0) throws android.os.RemoteException;
     public java.lang.String getAidForAppType(int p0, int p1) throws android.os.RemoteException;
     public java.util.List<android.telephony.CellInfo> getAllCellInfo(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
+    public java.util.List<java.lang.String> getAllSatellitePlmns() throws android.os.RemoteException;
     public android.telephony.CarrierRestrictionRules getAllowedCarriers() throws android.os.RemoteException;
     public int getAllowedNetworkTypesBitmask(int p0) throws android.os.RemoteException;
     public long getAllowedNetworkTypesForReason(int p0, int p1) throws android.os.RemoteException;
@@ -170,7 +171,7 @@ public interface ITelephony extends android.os.IInterface {
     public android.net.Uri getVoicemailRingtoneUri(android.telecom.PhoneAccountHandle p0) throws android.os.RemoteException;
     public boolean handlePinMmi(java.lang.String p0) throws android.os.RemoteException;
     public boolean handlePinMmiForSubscriber(int p0, java.lang.String p1) throws android.os.RemoteException;
-    public void handleUssdRequest(int p0, java.lang.String p1, android.os.ResultReceiver p2) throws android.os.RemoteException;
+    public void handleUssdRequest(int p0, java.lang.String p1, android.os.ResultReceiver p2, java.lang.String p3) throws android.os.RemoteException;
     public boolean hasIccCard() throws android.os.RemoteException;
     public boolean hasIccCardUsingSlotIndex(int p0) throws android.os.RemoteException;
     public boolean iccCloseLogicalChannel(com.android.internal.telephony.IccLogicalChannelRequest p0) throws android.os.RemoteException;
@@ -178,8 +179,8 @@ public interface ITelephony extends android.os.IInterface {
     public android.telephony.IccOpenLogicalChannelResponse iccOpenLogicalChannel(com.android.internal.telephony.IccLogicalChannelRequest p0) throws android.os.RemoteException;
     public java.lang.String iccTransmitApduBasicChannel(int p0, java.lang.String p1, int p2, int p3, int p4, int p5, int p6, java.lang.String p7) throws android.os.RemoteException;
     public java.lang.String iccTransmitApduBasicChannelByPort(int p0, int p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException;
-    public java.lang.String iccTransmitApduLogicalChannel(int p0, int p1, int p2, int p3, int p4, int p5, int p6, java.lang.String p7) throws android.os.RemoteException;
-    public java.lang.String iccTransmitApduLogicalChannelByPort(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException;
+    public java.lang.String iccTransmitApduLogicalChannel(int p0, java.lang.String p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException;
+    public java.lang.String iccTransmitApduLogicalChannelByPort(int p0, int p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, int p8, java.lang.String p9) throws android.os.RemoteException;
     public boolean isAdvancedCallingSettingEnabled(int p0) throws android.os.RemoteException;
     public boolean isAospDomainSelectionService() throws android.os.RemoteException;
     public boolean isApnMetered(int p0, int p1) throws android.os.RemoteException;
@@ -357,7 +358,7 @@ public interface ITelephony extends android.os.IInterface {
     public boolean setLine1NumberForDisplayForSubscriber(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
     public boolean setMaxAllowedSatelliteDataModeForCtsTest(int p0) throws android.os.RemoteException;
     public void setMobileDataPolicyEnabled(int p0, int p1, boolean p2) throws android.os.RemoteException;
-    public boolean setModemService(java.lang.String p0) throws android.os.RemoteException;
+    public boolean setModemService(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void setMultiSimCarrierRestriction(boolean p0) throws android.os.RemoteException;
     public void setNetworkSelectionModeAutomatic(int p0) throws android.os.RemoteException;
     public boolean setNetworkSelectionModeManual(int p0, com.android.internal.telephony.OperatorInfo p1, boolean p2) throws android.os.RemoteException;
@@ -424,7 +425,7 @@ public interface ITelephony extends android.os.IInterface {
     public void toggleRadioOnOffForSubscriber(int p0) throws android.os.RemoteException;
     public void triggerRcsReconfiguration(int p0) throws android.os.RemoteException;
     public boolean uncapMaxAllowedSatelliteDataMode() throws android.os.RemoteException;
-    public void unenrollSimFromAutoPinManagement(int p0, android.os.ResultReceiver p1) throws android.os.RemoteException;
+    public void unenrollSimFromAutoPinManagement(int p0, java.lang.String p1, android.os.ResultReceiver p2) throws android.os.RemoteException;
     public void unregisterFeatureProvisioningChangedCallback(int p0, android.telephony.ims.aidl.IFeatureProvisioningCallback p1) throws android.os.RemoteException;
     public void unregisterForCapabilitiesChanged(android.telephony.satellite.ISatelliteCapabilitiesCallback p0) throws android.os.RemoteException;
     public void unregisterForCommunicationAccessStateChanged(int p0, android.telephony.satellite.ISatelliteCommunicationAccessStateCallback p1) throws android.os.RemoteException;
@@ -489,6 +490,7 @@ public interface ITelephony extends android.os.IInterface {
         public android.telephony.VisualVoicemailSmsFilterSettings getActiveVisualVoicemailSmsFilterSettings(int p0) throws android.os.RemoteException { return null; }
         public java.lang.String getAidForAppType(int p0, int p1) throws android.os.RemoteException { return null; }
         public java.util.List<android.telephony.CellInfo> getAllCellInfo(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getAllSatellitePlmns() throws android.os.RemoteException { return null; }
         public android.telephony.CarrierRestrictionRules getAllowedCarriers() throws android.os.RemoteException { return null; }
         public int getAllowedNetworkTypesBitmask(int p0) throws android.os.RemoteException { return 0; }
         public long getAllowedNetworkTypesForReason(int p0, int p1) throws android.os.RemoteException { return 0L; }
@@ -621,7 +623,7 @@ public interface ITelephony extends android.os.IInterface {
         public android.net.Uri getVoicemailRingtoneUri(android.telecom.PhoneAccountHandle p0) throws android.os.RemoteException { return null; }
         public boolean handlePinMmi(java.lang.String p0) throws android.os.RemoteException { return false; }
         public boolean handlePinMmiForSubscriber(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public void handleUssdRequest(int p0, java.lang.String p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
+        public void handleUssdRequest(int p0, java.lang.String p1, android.os.ResultReceiver p2, java.lang.String p3) throws android.os.RemoteException {}
         public boolean hasIccCard() throws android.os.RemoteException { return false; }
         public boolean hasIccCardUsingSlotIndex(int p0) throws android.os.RemoteException { return false; }
         public boolean iccCloseLogicalChannel(com.android.internal.telephony.IccLogicalChannelRequest p0) throws android.os.RemoteException { return false; }
@@ -629,8 +631,8 @@ public interface ITelephony extends android.os.IInterface {
         public android.telephony.IccOpenLogicalChannelResponse iccOpenLogicalChannel(com.android.internal.telephony.IccLogicalChannelRequest p0) throws android.os.RemoteException { return null; }
         public java.lang.String iccTransmitApduBasicChannel(int p0, java.lang.String p1, int p2, int p3, int p4, int p5, int p6, java.lang.String p7) throws android.os.RemoteException { return null; }
         public java.lang.String iccTransmitApduBasicChannelByPort(int p0, int p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException { return null; }
-        public java.lang.String iccTransmitApduLogicalChannel(int p0, int p1, int p2, int p3, int p4, int p5, int p6, java.lang.String p7) throws android.os.RemoteException { return null; }
-        public java.lang.String iccTransmitApduLogicalChannelByPort(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException { return null; }
+        public java.lang.String iccTransmitApduLogicalChannel(int p0, java.lang.String p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException { return null; }
+        public java.lang.String iccTransmitApduLogicalChannelByPort(int p0, int p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, int p8, java.lang.String p9) throws android.os.RemoteException { return null; }
         public boolean isAdvancedCallingSettingEnabled(int p0) throws android.os.RemoteException { return false; }
         public boolean isAospDomainSelectionService() throws android.os.RemoteException { return false; }
         public boolean isApnMetered(int p0, int p1) throws android.os.RemoteException { return false; }
@@ -808,7 +810,7 @@ public interface ITelephony extends android.os.IInterface {
         public boolean setLine1NumberForDisplayForSubscriber(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
         public boolean setMaxAllowedSatelliteDataModeForCtsTest(int p0) throws android.os.RemoteException { return false; }
         public void setMobileDataPolicyEnabled(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public boolean setModemService(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean setModemService(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
         public void setMultiSimCarrierRestriction(boolean p0) throws android.os.RemoteException {}
         public void setNetworkSelectionModeAutomatic(int p0) throws android.os.RemoteException {}
         public boolean setNetworkSelectionModeManual(int p0, com.android.internal.telephony.OperatorInfo p1, boolean p2) throws android.os.RemoteException { return false; }
@@ -875,7 +877,7 @@ public interface ITelephony extends android.os.IInterface {
         public void toggleRadioOnOffForSubscriber(int p0) throws android.os.RemoteException {}
         public void triggerRcsReconfiguration(int p0) throws android.os.RemoteException {}
         public boolean uncapMaxAllowedSatelliteDataMode() throws android.os.RemoteException { return false; }
-        public void unenrollSimFromAutoPinManagement(int p0, android.os.ResultReceiver p1) throws android.os.RemoteException {}
+        public void unenrollSimFromAutoPinManagement(int p0, java.lang.String p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
         public void unregisterFeatureProvisioningChangedCallback(int p0, android.telephony.ims.aidl.IFeatureProvisioningCallback p1) throws android.os.RemoteException {}
         public void unregisterForCapabilitiesChanged(android.telephony.satellite.ISatelliteCapabilitiesCallback p0) throws android.os.RemoteException {}
         public void unregisterForCommunicationAccessStateChanged(int p0, android.telephony.satellite.ISatelliteCommunicationAccessStateCallback p1) throws android.os.RemoteException {}
@@ -920,7 +922,7 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_clearRadioPowerOffForReason = 22;
         static final int TRANSACTION_clearSignalStrengthUpdateRequest = 311;
         static final int TRANSACTION_clearUceRegistrationOverrideShell = 305;
-        static final int TRANSACTION_deprovisionSatellite = 422;
+        static final int TRANSACTION_deprovisionSatellite = 423;
         static final int TRANSACTION_deprovisionSatelliteService = 348;
         static final int TRANSACTION_dial = 1;
         static final int TRANSACTION_disableDataConnectivity = 29;
@@ -935,16 +937,17 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_enableVideoCalling = 119;
         static final int TRANSACTION_enableVisualVoicemailSmsFilter = 49;
         static final int TRANSACTION_enqueueSmsPickResult = 254;
-        static final int TRANSACTION_enrollSimInAutoPinManagement = 431;
+        static final int TRANSACTION_enrollSimInAutoPinManagement = 432;
         static final int TRANSACTION_factoryReset = 139;
         static final int TRANSACTION_getActiveVisualVoicemailSmsFilterSettings = 52;
         static final int TRANSACTION_getAidForAppType = 149;
         static final int TRANSACTION_getAllCellInfo = 61;
+        static final int TRANSACTION_getAllSatellitePlmns = 404;
         static final int TRANSACTION_getAllowedCarriers = 152;
         static final int TRANSACTION_getAllowedNetworkTypesBitmask = 75;
         static final int TRANSACTION_getAllowedNetworkTypesForReason = 93;
         static final int TRANSACTION_getAttachRestrictionReasonsForCarrier = 388;
-        static final int TRANSACTION_getAutoManagedPinForSim = 433;
+        static final int TRANSACTION_getAutoManagedPinForSim = 434;
         static final int TRANSACTION_getBoundGbaService = 278;
         static final int TRANSACTION_getBoundImsServicePackage = 86;
         static final int TRANSACTION_getCallComposerStatus = 8;
@@ -954,14 +957,14 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_getCallWaitingStatus = 163;
         static final int TRANSACTION_getCapabilityFromEab = 300;
         static final int TRANSACTION_getCardIdForDefaultEuicc = 173;
-        static final int TRANSACTION_getCarrierIdFromIdentifier = 424;
+        static final int TRANSACTION_getCarrierIdFromIdentifier = 425;
         static final int TRANSACTION_getCarrierIdFromMccMnc = 157;
         static final int TRANSACTION_getCarrierIdListVersion = 182;
         static final int TRANSACTION_getCarrierPackageNamesForIntentAndPhone = 107;
         static final int TRANSACTION_getCarrierPrivilegeStatus = 103;
         static final int TRANSACTION_getCarrierPrivilegeStatusForUid = 104;
         static final int TRANSACTION_getCarrierRestrictionStatus = 336;
-        static final int TRANSACTION_getCarrierRoamingNtnAvailableServices = 435;
+        static final int TRANSACTION_getCarrierRoamingNtnAvailableServices = 436;
         static final int TRANSACTION_getCarrierServicePackageNameForLogicalSlot = 325;
         static final int TRANSACTION_getCarrierSingleRegistrationEnabled = 294;
         static final int TRANSACTION_getCellBroadcastIdRanges = 333;
@@ -1026,7 +1029,7 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_getPackagesWithCarrierPrivilegesForAllPhones = 148;
         static final int TRANSACTION_getPhoneAccountHandleForSubscriptionId = 138;
         static final int TRANSACTION_getPhoneCapability = 312;
-        static final int TRANSACTION_getPlmnSatelliteConfig = 428;
+        static final int TRANSACTION_getPlmnSatelliteConfig = 429;
         static final int TRANSACTION_getPrimaryImei = 134;
         static final int TRANSACTION_getRadioAccessFamily = 117;
         static final int TRANSACTION_getRadioHalVersion = 244;
@@ -1034,16 +1037,16 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_getRadioPowerState = 187;
         static final int TRANSACTION_getRcsProvisioningStatusForCapability = 225;
         static final int TRANSACTION_getRcsSingleRegistrationTestModeEnabled = 287;
-        static final int TRANSACTION_getSatelliteDataOptimizedApps = 425;
-        static final int TRANSACTION_getSatelliteDataSupportMode = 426;
+        static final int TRANSACTION_getSatelliteDataOptimizedApps = 426;
+        static final int TRANSACTION_getSatelliteDataSupportMode = 427;
         static final int TRANSACTION_getSatelliteDisallowedReasons = 358;
-        static final int TRANSACTION_getSatelliteEntitlementServerUrl = 439;
-        static final int TRANSACTION_getSatelliteNtnConnectType = 440;
+        static final int TRANSACTION_getSatelliteEntitlementServerUrl = 440;
+        static final int TRANSACTION_getSatelliteNtnConnectType = 441;
         static final int TRANSACTION_getSatellitePlmnsForCarrier = 403;
         static final int TRANSACTION_getServiceStateForSlot = 142;
         static final int TRANSACTION_getShaIdFromAllowList = 385;
         static final int TRANSACTION_getSignalStrength = 172;
-        static final int TRANSACTION_getSimAutoPinManagementEnrollmentStatus = 430;
+        static final int TRANSACTION_getSimAutoPinManagementEnrollmentStatus = 431;
         static final int TRANSACTION_getSimLocaleForSubscriber = 140;
         static final int TRANSACTION_getSimStateForSlotIndex = 329;
         static final int TRANSACTION_getSlicingConfig = 314;
@@ -1056,7 +1059,7 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_getSupportedNetworkAlertCategories = 402;
         static final int TRANSACTION_getSystemSelectionChannels = 252;
         static final int TRANSACTION_getTelephonyHistograms = 150;
-        static final int TRANSACTION_getTestEuiccUiComponent = 420;
+        static final int TRANSACTION_getTestEuiccUiComponent = 421;
         static final int TRANSACTION_getTypeAllocationCodeForSlot = 135;
         static final int TRANSACTION_getUiccCardsInfo = 174;
         static final int TRANSACTION_getUiccSlotsInfo = 175;
@@ -1100,7 +1103,7 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_isHearingAidCompatibilitySupported = 126;
         static final int TRANSACTION_isIccLockEnabled = 262;
         static final int TRANSACTION_isImsRegistered = 127;
-        static final int TRANSACTION_isInCarrierRoamingNtnMode = 429;
+        static final int TRANSACTION_isInCarrierRoamingNtnMode = 430;
         static final int TRANSACTION_isInEmergencySmsMode = 186;
         static final int TRANSACTION_isManualNetworkSelectionAllowed = 100;
         static final int TRANSACTION_isMmTelCapabilitySupported = 198;
@@ -1122,8 +1125,8 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_isRcsVolteSingleRegistrationCapable = 282;
         static final int TRANSACTION_isRemovableEsimDefaultEuicc = 327;
         static final int TRANSACTION_isRttSupported = 125;
-        static final int TRANSACTION_isSatelliteAttachSupported = 437;
-        static final int TRANSACTION_isSatelliteEntitlementSupported = 438;
+        static final int TRANSACTION_isSatelliteAttachSupported = 438;
+        static final int TRANSACTION_isSatelliteEntitlementSupported = 439;
         static final int TRANSACTION_isTetheringApnRequiredForSubscriber = 76;
         static final int TRANSACTION_isTtyModeSupported = 123;
         static final int TRANSACTION_isTtyOverVolteEnabled = 215;
@@ -1138,30 +1141,30 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_isWifiCallingAvailable = 128;
         static final int TRANSACTION_isWorldPhone = 122;
         static final int TRANSACTION_needMobileRadioShutdown = 115;
-        static final int TRANSACTION_notifyEntitlementStatusChanged = 434;
+        static final int TRANSACTION_notifyEntitlementStatusChanged = 435;
         static final int TRANSACTION_notifyOtaEmergencyNumberDbInstalled = 235;
         static final int TRANSACTION_notifyRcsAutoConfigurationReceived = 261;
-        static final int TRANSACTION_overrideCarrierRoamingNtnEligibilityChanged = 421;
+        static final int TRANSACTION_overrideCarrierRoamingNtnEligibilityChanged = 422;
         static final int TRANSACTION_overrideConfigDataVersion = 384;
-        static final int TRANSACTION_overrideSatelliteEntilementQueryConditions = 411;
-        static final int TRANSACTION_overrideSatelliteEntilementStatusResponseForCtsTest = 410;
+        static final int TRANSACTION_overrideSatelliteEntilementQueryConditions = 412;
+        static final int TRANSACTION_overrideSatelliteEntilementStatusResponseForCtsTest = 411;
         static final int TRANSACTION_persistEmergencyCallDiagnosticData = 330;
         static final int TRANSACTION_pollPendingDatagrams = 356;
         static final int TRANSACTION_prepareForUnattendedReboot = 313;
-        static final int TRANSACTION_provisionSatellite = 417;
+        static final int TRANSACTION_provisionSatellite = 418;
         static final int TRANSACTION_provisionSatelliteService = 347;
         static final int TRANSACTION_purchasePremiumCapability = 316;
         static final int TRANSACTION_rebootModem = 74;
         static final int TRANSACTION_refreshUiccProfile = 183;
         static final int TRANSACTION_registerFeatureProvisioningChangedCallback = 221;
         static final int TRANSACTION_registerForCapabilitiesChanged = 392;
-        static final int TRANSACTION_registerForCommunicationAccessStateChanged = 406;
+        static final int TRANSACTION_registerForCommunicationAccessStateChanged = 407;
         static final int TRANSACTION_registerForIncomingDatagram = 354;
         static final int TRANSACTION_registerForNtnSignalStrengthChanged = 390;
         static final int TRANSACTION_registerForSatelliteDisallowedReasonsChanged = 359;
         static final int TRANSACTION_registerForSatelliteModemStateChanged = 352;
         static final int TRANSACTION_registerForSatelliteProvisionStateChanged = 349;
-        static final int TRANSACTION_registerForSatelliteSupportedStateChanged = 404;
+        static final int TRANSACTION_registerForSatelliteSupportedStateChanged = 405;
         static final int TRANSACTION_registerForSelectedNbIotSatelliteSubscriptionChanged = 366;
         static final int TRANSACTION_registerImsEmergencyRegistrationCallback = 190;
         static final int TRANSACTION_registerImsProvisioningChangedCallback = 219;
@@ -1189,14 +1192,14 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_requestNetworkScan = 90;
         static final int TRANSACTION_requestNtnSignalStrength = 389;
         static final int TRANSACTION_requestNumberVerification = 102;
-        static final int TRANSACTION_requestPointingUiAppLaunchIntent = 436;
+        static final int TRANSACTION_requestPointingUiAppLaunchIntent = 437;
         static final int TRANSACTION_requestRadioPowerOffForReason = 21;
         static final int TRANSACTION_requestSatelliteAccessConfigurationForCurrentLocation = 363;
         static final int TRANSACTION_requestSatelliteCapabilities = 344;
-        static final int TRANSACTION_requestSatelliteDisplayName = 416;
+        static final int TRANSACTION_requestSatelliteDisplayName = 417;
         static final int TRANSACTION_requestSatelliteEnabled = 337;
-        static final int TRANSACTION_requestSatelliteSessionStats = 414;
-        static final int TRANSACTION_requestSatelliteSubscriberProvisionStatus = 415;
+        static final int TRANSACTION_requestSatelliteSessionStats = 415;
+        static final int TRANSACTION_requestSatelliteSubscriberProvisionStatus = 416;
         static final int TRANSACTION_requestSelectedNbIotSatelliteSubscriptionId = 365;
         static final int TRANSACTION_requestSignalStrengthUpdate = 171;
         static final int TRANSACTION_requestTimeForNextSatelliteVisibility = 364;
@@ -1232,7 +1235,7 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_setDataActivationState = 42;
         static final int TRANSACTION_setDataEnabledForReason = 98;
         static final int TRANSACTION_setDataRoamingEnabled = 179;
-        static final int TRANSACTION_setDatagramControllerBooleanConfig = 408;
+        static final int TRANSACTION_setDatagramControllerBooleanConfig = 409;
         static final int TRANSACTION_setDatagramControllerTimeoutDuration = 376;
         static final int TRANSACTION_setDeviceAlignedWithSatellite = 368;
         static final int TRANSACTION_setDeviceSingleRegistrationEnabledOverride = 288;
@@ -1249,16 +1252,16 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_setImsProvisioningStatusForCapability = 223;
         static final int TRANSACTION_setImsProvisioningString = 230;
         static final int TRANSACTION_setImsRegistrationState = 101;
-        static final int TRANSACTION_setIsSatelliteCommunicationAllowedForCurrentLocationCache = 409;
+        static final int TRANSACTION_setIsSatelliteCommunicationAllowedForCurrentLocationCache = 410;
         static final int TRANSACTION_setLine1NumberForDisplayForSubscriber = 108;
-        static final int TRANSACTION_setMaxAllowedSatelliteDataModeForCtsTest = 412;
+        static final int TRANSACTION_setMaxAllowedSatelliteDataModeForCtsTest = 413;
         static final int TRANSACTION_setMobileDataPolicyEnabled = 258;
         static final int TRANSACTION_setModemService = 320;
         static final int TRANSACTION_setMultiSimCarrierRestriction = 239;
         static final int TRANSACTION_setNetworkSelectionModeAutomatic = 88;
         static final int TRANSACTION_setNetworkSelectionModeManual = 92;
         static final int TRANSACTION_setNrDualConnectivityState = 272;
-        static final int TRANSACTION_setNtnSmsSupported = 423;
+        static final int TRANSACTION_setNtnSmsSupported = 424;
         static final int TRANSACTION_setNullCipherAndIntegrityEnabled = 331;
         static final int TRANSACTION_setNullCipherNotificationsEnabled = 400;
         static final int TRANSACTION_setOemEnabledSatelliteProvisionStatus = 383;
@@ -1277,11 +1280,11 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_setSatelliteControllerTimeoutDuration = 377;
         static final int TRANSACTION_setSatelliteGatewayServicePackageName = 371;
         static final int TRANSACTION_setSatelliteIgnoreCellularServiceState = 373;
-        static final int TRANSACTION_setSatelliteIgnorePlmnListFromStorage = 427;
+        static final int TRANSACTION_setSatelliteIgnorePlmnListFromStorage = 428;
         static final int TRANSACTION_setSatelliteListeningTimeoutDuration = 372;
         static final int TRANSACTION_setSatellitePointingUiClassName = 375;
         static final int TRANSACTION_setSatelliteServicePackageName = 370;
-        static final int TRANSACTION_setSatelliteSubscriberIdListChangedIntentComponent = 418;
+        static final int TRANSACTION_setSatelliteSubscriberIdListChangedIntentComponent = 419;
         static final int TRANSACTION_setShouldSendDatagramToModemInDemoMode = 394;
         static final int TRANSACTION_setSignalStrengthUpdateRequest = 310;
         static final int TRANSACTION_setSimPowerStateForSlot = 166;
@@ -1289,7 +1292,7 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_setSimSlotMapping = 177;
         static final int TRANSACTION_setSupportDisableSatelliteWhileEnableInProgress = 374;
         static final int TRANSACTION_setSystemSelectionChannels = 251;
-        static final int TRANSACTION_setTestEuiccUiComponent = 419;
+        static final int TRANSACTION_setTestEuiccUiComponent = 420;
         static final int TRANSACTION_setTnScanningSupport = 382;
         static final int TRANSACTION_setVoNrEnabled = 270;
         static final int TRANSACTION_setVoWiFiModeSetting = 211;
@@ -1318,17 +1321,17 @@ public interface ITelephony extends android.os.IInterface {
         static final int TRANSACTION_toggleRadioOnOff = 16;
         static final int TRANSACTION_toggleRadioOnOffForSubscriber = 17;
         static final int TRANSACTION_triggerRcsReconfiguration = 285;
-        static final int TRANSACTION_uncapMaxAllowedSatelliteDataMode = 413;
-        static final int TRANSACTION_unenrollSimFromAutoPinManagement = 432;
+        static final int TRANSACTION_uncapMaxAllowedSatelliteDataMode = 414;
+        static final int TRANSACTION_unenrollSimFromAutoPinManagement = 433;
         static final int TRANSACTION_unregisterFeatureProvisioningChangedCallback = 222;
         static final int TRANSACTION_unregisterForCapabilitiesChanged = 393;
-        static final int TRANSACTION_unregisterForCommunicationAccessStateChanged = 407;
+        static final int TRANSACTION_unregisterForCommunicationAccessStateChanged = 408;
         static final int TRANSACTION_unregisterForIncomingDatagram = 355;
         static final int TRANSACTION_unregisterForModemStateChanged = 353;
         static final int TRANSACTION_unregisterForNtnSignalStrengthChanged = 391;
         static final int TRANSACTION_unregisterForSatelliteDisallowedReasonsChanged = 360;
         static final int TRANSACTION_unregisterForSatelliteProvisionStateChanged = 350;
-        static final int TRANSACTION_unregisterForSatelliteSupportedStateChanged = 405;
+        static final int TRANSACTION_unregisterForSatelliteSupportedStateChanged = 406;
         static final int TRANSACTION_unregisterForSelectedNbIotSatelliteSubscriptionChanged = 367;
         static final int TRANSACTION_unregisterImsEmergencyRegistrationCallback = 191;
         static final int TRANSACTION_unregisterImsFeatureCallback = 81;
@@ -1473,6 +1476,7 @@ public interface ITelephony extends android.os.IInterface {
         private boolean onTransact$setImsProvisioningString$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setLine1NumberForDisplayForSubscriber$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setMobileDataPolicyEnabled$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setModemService$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setNetworkSelectionModeManual$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setNrDualConnectivityState$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setOemEnabledSatelliteProvisionStatus$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1556,6 +1560,7 @@ public interface ITelephony extends android.os.IInterface {
             public android.telephony.VisualVoicemailSmsFilterSettings getActiveVisualVoicemailSmsFilterSettings(int p0) throws android.os.RemoteException { return null; }
             public java.lang.String getAidForAppType(int p0, int p1) throws android.os.RemoteException { return null; }
             public java.util.List<android.telephony.CellInfo> getAllCellInfo(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+            public java.util.List<java.lang.String> getAllSatellitePlmns() throws android.os.RemoteException { return null; }
             public android.telephony.CarrierRestrictionRules getAllowedCarriers() throws android.os.RemoteException { return null; }
             public int getAllowedNetworkTypesBitmask(int p0) throws android.os.RemoteException { return 0; }
             public long getAllowedNetworkTypesForReason(int p0, int p1) throws android.os.RemoteException { return 0L; }
@@ -1689,7 +1694,7 @@ public interface ITelephony extends android.os.IInterface {
             public android.net.Uri getVoicemailRingtoneUri(android.telecom.PhoneAccountHandle p0) throws android.os.RemoteException { return null; }
             public boolean handlePinMmi(java.lang.String p0) throws android.os.RemoteException { return false; }
             public boolean handlePinMmiForSubscriber(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-            public void handleUssdRequest(int p0, java.lang.String p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
+            public void handleUssdRequest(int p0, java.lang.String p1, android.os.ResultReceiver p2, java.lang.String p3) throws android.os.RemoteException {}
             public boolean hasIccCard() throws android.os.RemoteException { return false; }
             public boolean hasIccCardUsingSlotIndex(int p0) throws android.os.RemoteException { return false; }
             public boolean iccCloseLogicalChannel(com.android.internal.telephony.IccLogicalChannelRequest p0) throws android.os.RemoteException { return false; }
@@ -1697,8 +1702,8 @@ public interface ITelephony extends android.os.IInterface {
             public android.telephony.IccOpenLogicalChannelResponse iccOpenLogicalChannel(com.android.internal.telephony.IccLogicalChannelRequest p0) throws android.os.RemoteException { return null; }
             public java.lang.String iccTransmitApduBasicChannel(int p0, java.lang.String p1, int p2, int p3, int p4, int p5, int p6, java.lang.String p7) throws android.os.RemoteException { return null; }
             public java.lang.String iccTransmitApduBasicChannelByPort(int p0, int p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException { return null; }
-            public java.lang.String iccTransmitApduLogicalChannel(int p0, int p1, int p2, int p3, int p4, int p5, int p6, java.lang.String p7) throws android.os.RemoteException { return null; }
-            public java.lang.String iccTransmitApduLogicalChannelByPort(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException { return null; }
+            public java.lang.String iccTransmitApduLogicalChannel(int p0, java.lang.String p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String p8) throws android.os.RemoteException { return null; }
+            public java.lang.String iccTransmitApduLogicalChannelByPort(int p0, int p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, int p8, java.lang.String p9) throws android.os.RemoteException { return null; }
             public boolean isAdvancedCallingSettingEnabled(int p0) throws android.os.RemoteException { return false; }
             public boolean isAospDomainSelectionService() throws android.os.RemoteException { return false; }
             public boolean isApnMetered(int p0, int p1) throws android.os.RemoteException { return false; }
@@ -1876,7 +1881,7 @@ public interface ITelephony extends android.os.IInterface {
             public boolean setLine1NumberForDisplayForSubscriber(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
             public boolean setMaxAllowedSatelliteDataModeForCtsTest(int p0) throws android.os.RemoteException { return false; }
             public void setMobileDataPolicyEnabled(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-            public boolean setModemService(java.lang.String p0) throws android.os.RemoteException { return false; }
+            public boolean setModemService(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
             public void setMultiSimCarrierRestriction(boolean p0) throws android.os.RemoteException {}
             public void setNetworkSelectionModeAutomatic(int p0) throws android.os.RemoteException {}
             public boolean setNetworkSelectionModeManual(int p0, com.android.internal.telephony.OperatorInfo p1, boolean p2) throws android.os.RemoteException { return false; }
@@ -1943,7 +1948,7 @@ public interface ITelephony extends android.os.IInterface {
             public void toggleRadioOnOffForSubscriber(int p0) throws android.os.RemoteException {}
             public void triggerRcsReconfiguration(int p0) throws android.os.RemoteException {}
             public boolean uncapMaxAllowedSatelliteDataMode() throws android.os.RemoteException { return false; }
-            public void unenrollSimFromAutoPinManagement(int p0, android.os.ResultReceiver p1) throws android.os.RemoteException {}
+            public void unenrollSimFromAutoPinManagement(int p0, java.lang.String p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
             public void unregisterFeatureProvisioningChangedCallback(int p0, android.telephony.ims.aidl.IFeatureProvisioningCallback p1) throws android.os.RemoteException {}
             public void unregisterForCapabilitiesChanged(android.telephony.satellite.ISatelliteCapabilitiesCallback p0) throws android.os.RemoteException {}
             public void unregisterForCommunicationAccessStateChanged(int p0, android.telephony.satellite.ISatelliteCommunicationAccessStateCallback p1) throws android.os.RemoteException {}

@@ -42,6 +42,7 @@ public final class ApplicationStartInfo implements android.os.Parcelable {
     public static final int START_TIMESTAMP_RESERVED_RANGE_DEVELOPER = 30;
     public static final int START_TIMESTAMP_RESERVED_RANGE_DEVELOPER_START = 21;
     public static final int START_TIMESTAMP_RESERVED_RANGE_SYSTEM = 20;
+    public static final int START_TIMESTAMP_SOURCE_EVENT = 8;
     public static final int START_TIMESTAMP_SURFACEFLINGER_COMPOSITION_COMPLETE = 7;
     public static final int START_TYPE_COLD = 1;
     public static final int START_TYPE_HOT = 3;

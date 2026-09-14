@@ -40,7 +40,6 @@ public class DateTimeView extends android.widget.TextView {
     private static class ReceiverInfo {
         private final java.util.ArrayList<android.widget.DateTimeView> mAttachedViews = null;
         private android.os.Handler mHandler;
-        private final android.database.ContentObserver mObserver = null;
         private final android.content.BroadcastReceiver mReceiver = null;
         private ReceiverInfo() {}
         static final android.content.Context getApplicationContextIfAvailable(android.content.Context p0) { return null; }

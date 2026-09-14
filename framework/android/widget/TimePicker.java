@@ -1,7 +1,7 @@
 package android.widget;
 
 public class TimePicker extends android.widget.FrameLayout {
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "TimePicker";
     public static final int MODE_CLOCK = 2;
     public static final int MODE_SPINNER = 1;
     private final android.widget.TimePicker.TimePickerDelegate mDelegate = null;
@@ -75,10 +75,6 @@ public class TimePicker extends android.widget.FrameLayout {
         }
     }
 
-    public static interface OnTimeChangedListener {
-        public void onTimeChanged(android.widget.TimePicker p0, int p1, int p2);
-    }
-
     static interface TimePickerDelegate {
         public void autofill(android.view.autofill.AutofillValue p0);
         public boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0);
@@ -107,6 +103,10 @@ public class TimePicker extends android.widget.FrameLayout {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface TimePickerMode {
+    }
+
+    public static interface OnTimeChangedListener {
+        public void onTimeChanged(android.widget.TimePicker p0, int p1, int p2);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.TimePicker> {

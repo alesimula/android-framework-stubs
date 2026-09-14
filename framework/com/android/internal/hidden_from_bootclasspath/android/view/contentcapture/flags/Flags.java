@@ -13,7 +13,6 @@ public final class Flags {
     public static final java.lang.String FLAG_NEW_HEURISTICS_FOR_IMPORTANCE_ENABLED = "android.view.contentcapture.flags.new_heuristics_for_importance_enabled";
     public static final java.lang.String FLAG_NOTIFY_CORRECT_VIEW_EVENTS = "android.view.contentcapture.flags.notify_correct_view_events";
     public static final java.lang.String FLAG_REDUCE_BINDER_TRANSACTION_ENABLED = "android.view.contentcapture.flags.reduce_binder_transaction_enabled";
-    public static final java.lang.String FLAG_RUN_ON_BACKGROUND_THREAD_ENABLED = "android.view.contentcapture.flags.run_on_background_thread_enabled";
     public Flags() {}
     public static boolean ccapiBaklavaEnabled() { return false; }
     public static boolean ccapiNextEnabled() { return false; }
@@ -27,5 +26,4 @@ public final class Flags {
     public static boolean newHeuristicsForImportanceEnabled() { return false; }
     public static boolean notifyCorrectViewEvents() { return false; }
     public static boolean reduceBinderTransactionEnabled() { return false; }
-    public static boolean runOnBackgroundThreadEnabled() { return false; }
 }

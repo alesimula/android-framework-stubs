@@ -36,12 +36,12 @@ public final class FontFamily {
         public android.graphics.fonts.FontFamily build(java.lang.String p0, int p1, boolean p2, boolean p3, int p4) { return null; }
         public android.graphics.fonts.FontFamily buildVariableFamily() { return null; }
 
-        private static class NoImagePreloadHolder {
-            private NoImagePreloadHolder() {}
-        }
-
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface VariableFontFamilyType {
+        }
+
+        private static class NoImagePreloadHolder {
+            private NoImagePreloadHolder() {}
         }
     }
 }

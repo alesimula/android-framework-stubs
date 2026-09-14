@@ -4,7 +4,7 @@ public class PointerLocationView extends android.view.View implements android.ha
     private static final java.lang.String ALT_STRATEGY_PROPERY_KEY = "debug.velocitytracker.alt";
     private static final com.android.internal.widget.PointerLocationView.PointerState EMPTY_POINTER_STATE = null;
     private static final java.lang.String GESTURE_EXCLUSION_PROP = "debug.pointerlocation.showexclusion";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "PointerLocationView";
     private int mActivePointerId;
     private final android.view.VelocityTracker mAltVelocity = null;
     private boolean mCurDown;

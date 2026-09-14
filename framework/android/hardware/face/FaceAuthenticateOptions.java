@@ -29,6 +29,7 @@ public class FaceAuthenticateOptions implements android.hardware.biometrics.Auth
     private static java.lang.String defaultAttributionTag() { return null; }
     private static int defaultAuthenticateReason() { return 0; }
     private static int defaultDisplayState() { return 0; }
+    private static boolean defaultIsMandatoryBiometrics() { return false; }
     private static java.lang.String defaultOpPackageName() { return null; }
     private static int defaultSensorId() { return 0; }
     private static int defaultUserId() { return 0; }
@@ -43,6 +44,7 @@ public class FaceAuthenticateOptions implements android.hardware.biometrics.Auth
     public int getUserId() { return 0; }
     public int getWakeReason() { return 0; }
     public int hashCode() { return 0; }
+    public boolean isIsMandatoryBiometrics() { return false; }
     public boolean isMandatoryBiometrics() { return false; }
     public android.hardware.face.FaceAuthenticateOptions setAttributionTag(java.lang.String p0) { return null; }
     public android.hardware.face.FaceAuthenticateOptions setIsMandatoryBiometrics(boolean p0) { return null; }

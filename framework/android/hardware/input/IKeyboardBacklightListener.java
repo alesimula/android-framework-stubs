@@ -4,12 +4,6 @@ public interface IKeyboardBacklightListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.input.IKeyboardBacklightListener";
     public void onBrightnessChanged(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.input.IKeyboardBacklightListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onBrightnessChanged(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.input.IKeyboardBacklightListener {
         static final int TRANSACTION_onBrightnessChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IKeyboardBacklightListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onBrightnessChanged(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.input.IKeyboardBacklightListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onBrightnessChanged(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) throws android.os.RemoteException {}
     }
 }

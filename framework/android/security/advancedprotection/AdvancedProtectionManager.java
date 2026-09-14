@@ -59,12 +59,12 @@ public final class AdvancedProtectionManager {
     @android.annotation.SystemApi
     public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> updateAdvancedProtectionFeaturesProvisioning(int[] p0, int[] p1) { return null; }
 
-    public static interface Callback {
-        public void onAdvancedProtectionChanged(boolean p0);
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FeatureId {
+    }
+
+    public static interface Callback {
+        public void onAdvancedProtectionChanged(boolean p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

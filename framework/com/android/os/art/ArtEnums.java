@@ -24,9 +24,12 @@ public final class ArtEnums {
     public static final int ART_DATUM_DELTA_GC_YOUNG_GENERATION_COLLECTION_DURATION_MS = 33;
     public static final int ART_DATUM_DELTA_GC_YOUNG_GENERATION_COLLECTION_FREED_BYTES = 32;
     public static final int ART_DATUM_DELTA_GC_YOUNG_GENERATION_COLLECTION_SCANNED_BYTES = 31;
+    public static final int ART_DATUM_DELTA_HIDDEN_API_EXEMPTIONS_OVERWRITE = 44;
     public static final int ART_DATUM_DELTA_INVALID = 0;
     public static final int ART_DATUM_DELTA_JIT_METHOD_COMPILE_COUNT = 21;
     public static final int ART_DATUM_DELTA_JIT_METHOD_COMPILE_TIME_MICROS = 6;
+    public static final int ART_DATUM_DELTA_STABLE_FIELD_OVERWRITE = 42;
+    public static final int ART_DATUM_DELTA_SYNCHRONIZATION_ON_VALUE_CLASS = 43;
     public static final int ART_DATUM_DELTA_TIME_ELAPSED_MS = 37;
     public static final int ART_DATUM_DEX2OAT_DEX_CODE_COUNTER_BYTES = 11;
     public static final int ART_DATUM_DEX2OAT_FAST_VERIFY_TIME_COUNTER_MILLIS = 14;

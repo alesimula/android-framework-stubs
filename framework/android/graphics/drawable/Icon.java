@@ -97,8 +97,8 @@ public final class Icon implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeToStream(java.io.OutputStream p0) throws java.io.IOException {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IconType {
+    public static interface OnDrawableLoadedListener {
+        public void onDrawableLoaded(android.graphics.drawable.Drawable p0);
     }
 
     private class LoadDrawableTask implements java.lang.Runnable {
@@ -110,7 +110,7 @@ public final class Icon implements android.os.Parcelable {
         public void runAsync() {}
     }
 
-    public static interface OnDrawableLoadedListener {
-        public void onDrawableLoaded(android.graphics.drawable.Drawable p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IconType {
     }
 }

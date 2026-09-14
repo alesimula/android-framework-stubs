@@ -132,6 +132,12 @@ public class CameraDeviceImpl extends android.hardware.camera2.CameraDevice impl
     public void updateOutputConfiguration(android.hardware.camera2.params.OutputConfiguration p0) throws android.hardware.camera2.CameraAccessException {}
     public void updateOutputConfigurations(java.util.List<android.hardware.camera2.params.OutputConfiguration> p0) throws android.hardware.camera2.CameraAccessException {}
 
+    private static class CameraHandlerExecutor implements java.util.concurrent.Executor {
+        private final android.os.Handler mHandler = null;
+        public CameraHandlerExecutor(android.os.Handler p0) {}
+        public void execute(java.lang.Runnable p0) {}
+    }
+
     public class CameraDeviceCallbacks extends android.hardware.camera2.ICameraDeviceCallbacks.Stub {
         public CameraDeviceCallbacks(android.hardware.camera2.impl.CameraDeviceImpl p0) { super(); }
         private android.hardware.camera2.impl.PhysicalCaptureResultInfo[] readMetadata(android.hardware.camera2.impl.PhysicalCaptureResultInfo[] p0) { return null; }
@@ -145,12 +151,6 @@ public class CameraDeviceImpl extends android.hardware.camera2.CameraDevice impl
         public void onRepeatingRequestError(long p0, int p1) {}
         public void onRequestQueueEmpty() {}
         public void onResultReceived(android.hardware.camera2.CameraMetadataInfo p0, android.hardware.camera2.impl.CaptureResultExtras p1, android.hardware.camera2.impl.PhysicalCaptureResultInfo[] p2) throws android.os.RemoteException {}
-    }
-
-    private static class CameraHandlerExecutor implements java.util.concurrent.Executor {
-        private final android.os.Handler mHandler = null;
-        public CameraHandlerExecutor(android.os.Handler p0) {}
-        public void execute(java.lang.Runnable p0) {}
     }
 
     private class ClientStateCallback extends android.hardware.camera2.CameraDevice.StateCallback {

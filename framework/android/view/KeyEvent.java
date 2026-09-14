@@ -293,6 +293,7 @@ public class KeyEvent extends android.view.InputEvent implements android.os.Parc
     public static final int KEYCODE_STEM_1 = 265;
     public static final int KEYCODE_STEM_2 = 266;
     public static final int KEYCODE_STEM_3 = 267;
+    public static final int KEYCODE_STEM_CROWN = 342;
     public static final int KEYCODE_STEM_PRIMARY = 264;
     public static final int KEYCODE_STYLUS_BUTTON_PRIMARY = 308;
     public static final int KEYCODE_STYLUS_BUTTON_SECONDARY = 309;
@@ -366,7 +367,7 @@ public class KeyEvent extends android.view.InputEvent implements android.os.Parc
     public static final int KEYCODE_ZOOM_IN = 168;
     public static final int KEYCODE_ZOOM_OUT = 169;
     private static final java.lang.String LABEL_PREFIX = "KEYCODE_";
-    public static final int LAST_KEYCODE = 341;
+    public static final int LAST_KEYCODE = 342;
     @java.lang.Deprecated
     public static final int MAX_KEYCODE = 84;
     private static final int MAX_RECYCLED = 10;
@@ -532,17 +533,6 @@ public class KeyEvent extends android.view.InputEvent implements android.os.Parc
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface Action {
-    }
-
-    public static interface Callback {
-        public boolean onKeyDown(int p0, android.view.KeyEvent p1);
-        public boolean onKeyLongPress(int p0, android.view.KeyEvent p1);
-        public boolean onKeyMultiple(int p0, int p1, android.view.KeyEvent p2);
-        public boolean onKeyUp(int p0, android.view.KeyEvent p1);
-    }
-
     public static class DispatcherState {
         android.util.SparseIntArray mActiveLongPresses;
         int mDownKeyCode;
@@ -561,10 +551,21 @@ public class KeyEvent extends android.view.InputEvent implements android.os.Parc
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface MetaState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     static @interface KeyCode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface MetaState {
+    static @interface Action {
+    }
+
+    public static interface Callback {
+        public boolean onKeyDown(int p0, android.view.KeyEvent p1);
+        public boolean onKeyLongPress(int p0, android.view.KeyEvent p1);
+        public boolean onKeyMultiple(int p0, int p1, android.view.KeyEvent p2);
+        public boolean onKeyUp(int p0, android.view.KeyEvent p1);
     }
 }

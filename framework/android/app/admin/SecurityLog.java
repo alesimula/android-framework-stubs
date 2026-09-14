@@ -4,6 +4,7 @@ public class SecurityLog {
     public static final int LEVEL_ERROR = 3;
     public static final int LEVEL_INFO = 1;
     public static final int LEVEL_WARNING = 2;
+    private static final int MAX_DATA_LEAK_PAYLOAD_SIZE_BYTES = 4000;
     private static final java.lang.String PROPERTY_LOGGING_ENABLED = "persist.logd.security";
     public static final int TAG_ADB_SHELL_CMD = 210002;
     public static final int TAG_ADB_SHELL_INTERACTIVE = 210001;
@@ -16,6 +17,7 @@ public class SecurityLog {
     public static final int TAG_CERT_AUTHORITY_REMOVED = 210030;
     public static final int TAG_CERT_VALIDATION_FAILURE = 210033;
     public static final int TAG_CRYPTO_SELF_TEST_COMPLETED = 210031;
+    public static final int TAG_DATA_LEAK_PREVENTION_EVENT = 210048;
     public static final int TAG_KEYGUARD_DISABLED_FEATURES_SET = 210021;
     public static final int TAG_KEYGUARD_DISMISSED = 210006;
     public static final int TAG_KEYGUARD_DISMISS_AUTH_ATTEMPT = 210007;
@@ -36,7 +38,9 @@ public class SecurityLog {
     public static final int TAG_OS_SHUTDOWN = 210010;
     public static final int TAG_OS_STARTUP = 210009;
     public static final int TAG_PACKAGE_INSTALLED = 210041;
+    public static final int TAG_PACKAGE_INSTALL_FAILED = 210050;
     public static final int TAG_PACKAGE_UNINSTALLED = 210043;
+    public static final int TAG_PACKAGE_UNINSTALL_FAILED = 210051;
     public static final int TAG_PACKAGE_UPDATED = 210042;
     public static final int TAG_PASSWORD_CHANGED = 210036;
     public static final int TAG_PASSWORD_COMPLEXITY_REQUIRED = 210035;
@@ -46,6 +50,8 @@ public class SecurityLog {
     public static final int TAG_REMOTE_LOCK = 210022;
     public static final int TAG_SYNC_RECV_FILE = 210003;
     public static final int TAG_SYNC_SEND_FILE = 210004;
+    public static final int TAG_USER_LOGIN_ATTEMPT = 210049;
+    public static final int TAG_USER_LOGOUT = 210047;
     public static final int TAG_USER_RESTRICTION_ADDED = 210027;
     public static final int TAG_USER_RESTRICTION_REMOVED = 210028;
     public static final int TAG_WIFI_CONNECTION = 210037;
@@ -61,6 +67,8 @@ public class SecurityLog {
     public static void redactEvents(java.util.ArrayList<android.app.admin.SecurityLog.SecurityEvent> p0, int p1) {}
     public static void setLoggingEnabledProperty(boolean p0) {}
     @android.annotation.SystemApi
+    public static int writeDataLeakPreventionEvent(android.app.admin.dataleakprevention.reporting.DataLeakPreventionEvent p0) { return 0; }
+    @android.annotation.SystemApi
     public static native int writeEvent(int p0, java.lang.Object... p1);
 
     public static final class SecurityEvent implements android.os.Parcelable {
@@ -71,10 +79,13 @@ public class SecurityLog {
         SecurityEvent(android.os.Parcel p0) {}
         SecurityEvent(byte[] p0) {}
         private boolean getSuccess() { return false; }
+        private android.os.UserHandle getUserHandle(java.lang.Object p0) { return null; }
+        private android.os.UserHandle getUserHandle(java.lang.Object p0, int p1) { return null; }
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
         public boolean eventEquals(android.app.admin.SecurityLog.SecurityEvent p0) { return false; }
         public java.lang.Object getData() { return null; }
+        public <T extends java.lang.Object> T getData(java.lang.Class<T> p0) { return null; }
         public long getId() { return 0L; }
         public int getIntegerData(int p0) { return 0; }
         public int getLogLevel() { return 0; }

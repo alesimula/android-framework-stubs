@@ -5,13 +5,6 @@ public interface IImsStateCallback extends android.os.IInterface {
     public void onAvailable() throws android.os.RemoteException;
     public void onUnavailable(int p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.IImsStateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAvailable() throws android.os.RemoteException {}
-        public void onUnavailable(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.IImsStateCallback {
         static final int TRANSACTION_onAvailable = 2;
         static final int TRANSACTION_onUnavailable = 1;
@@ -30,5 +23,12 @@ public interface IImsStateCallback extends android.os.IInterface {
             public void onAvailable() throws android.os.RemoteException {}
             public void onUnavailable(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.IImsStateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAvailable() throws android.os.RemoteException {}
+        public void onUnavailable(int p0) throws android.os.RemoteException {}
     }
 }

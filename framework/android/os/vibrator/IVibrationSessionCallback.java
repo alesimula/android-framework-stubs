@@ -6,14 +6,6 @@ public interface IVibrationSessionCallback extends android.os.IInterface {
     public void onFinishing() throws android.os.RemoteException;
     public void onStarted(android.os.vibrator.IVibrationSession p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.vibrator.IVibrationSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFinished(int p0) throws android.os.RemoteException {}
-        public void onFinishing() throws android.os.RemoteException {}
-        public void onStarted(android.os.vibrator.IVibrationSession p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.vibrator.IVibrationSessionCallback {
         static final int TRANSACTION_onFinished = 3;
         static final int TRANSACTION_onFinishing = 2;
@@ -34,5 +26,13 @@ public interface IVibrationSessionCallback extends android.os.IInterface {
             public void onFinishing() throws android.os.RemoteException {}
             public void onStarted(android.os.vibrator.IVibrationSession p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.vibrator.IVibrationSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFinished(int p0) throws android.os.RemoteException {}
+        public void onFinishing() throws android.os.RemoteException {}
+        public void onStarted(android.os.vibrator.IVibrationSession p0) throws android.os.RemoteException {}
     }
 }

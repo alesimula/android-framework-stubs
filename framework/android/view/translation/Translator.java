@@ -30,6 +30,13 @@ public class Translator {
     @java.lang.Deprecated
     public void translate(android.view.translation.TranslationRequest p0, java.util.concurrent.Executor p1, java.util.function.Consumer<android.view.translation.TranslationResponse> p2) {}
 
+    private static class TranslationResponseCallbackImpl extends android.service.translation.ITranslationCallback.Stub {
+        private final java.util.function.Consumer<android.view.translation.TranslationResponse> mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        TranslationResponseCallbackImpl(java.util.function.Consumer<android.view.translation.TranslationResponse> p0, java.util.concurrent.Executor p1) { super(); }
+        public void onTranslationResponse(android.view.translation.TranslationResponse p0) throws android.os.RemoteException {}
+    }
+
     static class ServiceBinderReceiver extends com.android.internal.os.IResultReceiver.Stub {
         private java.util.function.Consumer<android.view.translation.Translator> mCallback;
         private final java.util.concurrent.CountDownLatch mLatch = null;
@@ -43,12 +50,5 @@ public class Translator {
         static final class TimeoutException extends java.lang.Exception {
             private TimeoutException(java.lang.String p0) { super(); }
         }
-    }
-
-    private static class TranslationResponseCallbackImpl extends android.service.translation.ITranslationCallback.Stub {
-        private final java.util.function.Consumer<android.view.translation.TranslationResponse> mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        TranslationResponseCallbackImpl(java.util.function.Consumer<android.view.translation.TranslationResponse> p0, java.util.concurrent.Executor p1) { super(); }
-        public void onTranslationResponse(android.view.translation.TranslationResponse p0) throws android.os.RemoteException {}
     }
 }

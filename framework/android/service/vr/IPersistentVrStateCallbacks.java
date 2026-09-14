@@ -3,12 +3,6 @@ package android.service.vr;
 public interface IPersistentVrStateCallbacks extends android.os.IInterface {
     public void onPersistentVrStateChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.vr.IPersistentVrStateCallbacks {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPersistentVrStateChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.vr.IPersistentVrStateCallbacks {
         public static final java.lang.String DESCRIPTOR = "android.service.vr.IPersistentVrStateCallbacks";
         static final int TRANSACTION_onPersistentVrStateChanged = 1;
@@ -26,5 +20,11 @@ public interface IPersistentVrStateCallbacks extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onPersistentVrStateChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.vr.IPersistentVrStateCallbacks {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPersistentVrStateChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

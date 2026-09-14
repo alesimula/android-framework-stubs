@@ -46,12 +46,14 @@ public final class PowerManager {
     public static final int GO_TO_SLEEP_REASON_DEVICE_FOLD = 13;
     public static final int GO_TO_SLEEP_REASON_DISPLAY_GROUPS_TURNED_OFF = 12;
     public static final int GO_TO_SLEEP_REASON_DISPLAY_GROUP_REMOVED = 11;
+    public static final int GO_TO_SLEEP_REASON_DOUBLE_TAP = 17;
     public static final int GO_TO_SLEEP_REASON_DREAM_FAILED = 15;
+    public static final int GO_TO_SLEEP_REASON_DREAM_SKIPPED = 16;
     public static final int GO_TO_SLEEP_REASON_FORCE_SUSPEND = 8;
     public static final int GO_TO_SLEEP_REASON_HDMI = 5;
     public static final int GO_TO_SLEEP_REASON_INATTENTIVE = 9;
     public static final int GO_TO_SLEEP_REASON_LID_SWITCH = 3;
-    public static final int GO_TO_SLEEP_REASON_MAX = 15;
+    public static final int GO_TO_SLEEP_REASON_MAX = 17;
     public static final int GO_TO_SLEEP_REASON_MIN = 0;
     public static final int GO_TO_SLEEP_REASON_POWER_BUTTON = 4;
     public static final int GO_TO_SLEEP_REASON_QUIESCENT = 10;
@@ -250,7 +252,7 @@ public final class PowerManager {
     public boolean isScreenOn() { return false; }
     public boolean isSustainedPerformanceModeSupported() { return false; }
     public boolean isWakeLockLevelSupported(int p0) { return false; }
-    public void nap(long p0) {}
+    public void nap(long p0, int p1) {}
     @android.annotation.SystemApi
     public android.os.PowerManager.LowPowerStandbyPortsLock newLowPowerStandbyPortsLock(java.util.List<android.os.PowerManager.LowPowerStandbyPortDescription> p0) { return null; }
     public android.os.PowerManager.SleepLock newSleepLock(int p0, java.lang.String p1) throws java.lang.RuntimeException { return null; }
@@ -298,27 +300,15 @@ public final class PowerManager {
     public void wakeUp(long p0, java.lang.String p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AutoPowerSaveModeTriggers {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface BrightnessConstraint {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FlagAmbientSuppression {
+    public static @interface AutoPowerSaveModeTriggers {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GoToSleepReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LocationPowerSaveMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LowPowerStandbyAllowedReason {
+    public static interface ScreenTimeoutPolicyListener {
+        public void onScreenTimeoutPolicyChanged(int p0);
     }
 
     @android.annotation.SystemApi
@@ -337,6 +327,81 @@ public final class PowerManager {
         public java.lang.String getIdentifier() { return null; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+    public static @interface ThermalStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScreenTimeoutPolicy {
+    }
+
+    public final class WakeLock {
+        private final java.util.PriorityQueue<android.os.PowerManager.WakeLock.TimeoutRunnable> mActiveTimeouts = null;
+        private android.os.IWakeLockCallback mCallback;
+        private final java.util.function.LongSupplier mClock = null;
+        private final int mDisplayId = 0;
+        private int mExternalCount;
+        private int mFlags;
+        private boolean mHeld;
+        private java.lang.String mHistoryTag;
+        private int mInternalCount;
+        private final android.os.PowerManager.WakeLock.WakeLockLazyReleaser mLazyReleaser = null;
+        private android.os.PowerManager.WakeLockStateListener mListener;
+        private long mMessageScheduledTime;
+        private final java.lang.String mPackageName = null;
+        private boolean mRefCounted;
+        private java.lang.String mTag;
+        private int mTagHash;
+        private final android.os.IBinder mToken = null;
+        private long mWakeLockTimeoutTime;
+        private android.os.WorkSource mWorkSource;
+        WakeLock(android.os.PowerManager p0, int p1, java.lang.String p2, java.lang.String p3, int p4) {}
+        WakeLock(android.os.PowerManager p0, int p1, java.lang.String p2, java.lang.String p3, int p4, java.util.function.LongSupplier p5) {}
+        private void acquireLocked(boolean p0) {}
+        private void handleTimeout() {}
+        public void acquire() {}
+        public void acquire(long p0) {}
+        public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
+        protected void finalize() throws java.lang.Throwable {}
+        public java.lang.String getTag() { return null; }
+        public boolean isHeld() { return false; }
+        public void release() {}
+        public void release(int p0) {}
+        public void setHistoryTag(java.lang.String p0) {}
+        public void setReferenceCounted(boolean p0) {}
+        public void setStateListener(java.util.concurrent.Executor p0, android.os.PowerManager.WakeLockStateListener p1) {}
+        public void setTag(java.lang.String p0) {}
+        public void setUnimportantForLogging(boolean p0) {}
+        public void setWorkSource(android.os.WorkSource p0) {}
+        public java.lang.String toString() { return null; }
+        public void updateUids(int[] p0) {}
+        public java.lang.Runnable wrap(java.lang.Runnable p0) { return null; }
+
+        private static final class WakeLockLazyReleaser implements java.lang.Runnable {
+            private final java.util.concurrent.atomic.AtomicReference<android.os.PowerManager.WakeLock> mTarget = null;
+            private WakeLockLazyReleaser() {}
+            void clearTarget() {}
+            public void run() {}
+            void setTarget(android.os.PowerManager.WakeLock p0) {}
+        }
+
+        private final class TimeoutRunnable implements java.lang.Runnable, java.lang.Comparable<android.os.PowerManager.WakeLock.TimeoutRunnable> {
+            final long mTargetTime = 0L;
+            TimeoutRunnable(android.os.PowerManager.WakeLock p0, long p1) {}
+            public int compareTo(android.os.PowerManager.WakeLock.TimeoutRunnable p0) { return 0; }
+            public void run() {}
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LowPowerStandbyAllowedReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface WakeReason {
     }
 
     @android.annotation.SystemApi
@@ -374,6 +439,10 @@ public final class PowerManager {
         }
     }
 
+    public static interface WakeLockStateListener {
+        public void onStateChanged(boolean p0);
+    }
+
     @android.annotation.SystemApi
     public final class LowPowerStandbyPortsLock {
         private boolean mHeld;
@@ -385,20 +454,66 @@ public final class PowerManager {
         public void release() {}
     }
 
-    public static interface OnThermalHeadroomChangedListener {
-        public void onThermalHeadroomChanged(float p0, float p1, int p2, java.util.Map<java.lang.Integer, java.lang.Float> p3);
-    }
-
     public static interface OnThermalStatusChangedListener {
         public void onThermalStatusChanged(int p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScreenTimeoutPolicy {
+    public static @interface FlagAmbientSuppression {
     }
 
-    public static interface ScreenTimeoutPolicyListener {
-        public void onScreenTimeoutPolicyChanged(int p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LocationPowerSaveMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ShutdownReason {
+    }
+
+    public static class SleepData {
+        public final int goToSleepReason = 0;
+        public final long goToSleepUptimeMillis = 0L;
+        public SleepData(long p0, int p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SoundTriggerPowerSaveMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserActivityFlag {
+    }
+
+    public static interface OnThermalHeadroomChangedListener {
+        public void onThermalHeadroomChanged(float p0, float p1, int p2, java.util.Map<java.lang.Integer, java.lang.Float> p3);
+    }
+
+    public static class WakeData {
+        public final long sleepDurationRealtime = 0L;
+        public final int wakeReason = 0;
+        public final long wakeTime = 0L;
+        public WakeData(long p0, int p1, long p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface GoToSleepReason {
+    }
+
+    public final class SleepLock {
+        private static final int SLEEP_LOCK = 512;
+        private final int mDefaultTimeoutMillis = 0;
+        private final int mDisplayId = 0;
+        private final java.lang.String mTag = null;
+        private final android.os.PowerManager.WakeLock mWakelock = null;
+        public SleepLock(android.os.PowerManager p0, int p1, java.lang.String p2) {}
+        public void acquire(long p0) {}
+        public boolean isHeld() { return false; }
+        public void release() {}
+        public java.lang.String toString() { return null; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -423,98 +538,6 @@ public final class PowerManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ShutdownReason {
-    }
-
-    public static class SleepData {
-        public final int goToSleepReason = 0;
-        public final long goToSleepUptimeMillis = 0L;
-        public SleepData(long p0, int p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
-    public final class SleepLock {
-        private static final int SLEEP_LOCK = 512;
-        private final int mDefaultTimeoutMillis = 0;
-        private final int mDisplayId = 0;
-        private final java.lang.String mTag = null;
-        private final android.os.PowerManager.WakeLock mWakelock = null;
-        public SleepLock(android.os.PowerManager p0, int p1, java.lang.String p2) {}
-        public void acquire(long p0) {}
-        public boolean isHeld() { return false; }
-        public void release() {}
-        public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SoundTriggerPowerSaveMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-    public static @interface ThermalStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface UserActivityEvent {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserActivityFlag {
-    }
-
-    public static class WakeData {
-        public final long sleepDurationRealtime = 0L;
-        public final int wakeReason = 0;
-        public final long wakeTime = 0L;
-        public WakeData(long p0, int p1, long p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
-    public final class WakeLock {
-        private android.os.IWakeLockCallback mCallback;
-        private final int mDisplayId = 0;
-        private int mExternalCount;
-        private int mFlags;
-        private boolean mHeld;
-        private java.lang.String mHistoryTag;
-        private int mInternalCount;
-        private android.os.PowerManager.WakeLockStateListener mListener;
-        private final java.lang.String mPackageName = null;
-        private boolean mRefCounted;
-        private final java.lang.Runnable mReleaser = null;
-        private java.lang.String mTag;
-        private int mTagHash;
-        private final android.os.IBinder mToken = null;
-        private android.os.WorkSource mWorkSource;
-        WakeLock(android.os.PowerManager p0, int p1, java.lang.String p2, java.lang.String p3, int p4) {}
-        private void acquireLocked() {}
-        public void acquire() {}
-        public void acquire(long p0) {}
-        public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
-        protected void finalize() throws java.lang.Throwable {}
-        public java.lang.String getTag() { return null; }
-        public boolean isHeld() { return false; }
-        public void release() {}
-        public void release(int p0) {}
-        public void setHistoryTag(java.lang.String p0) {}
-        public void setReferenceCounted(boolean p0) {}
-        public void setStateListener(java.util.concurrent.Executor p0, android.os.PowerManager.WakeLockStateListener p1) {}
-        public void setTag(java.lang.String p0) {}
-        public void setUnimportantForLogging(boolean p0) {}
-        public void setWorkSource(android.os.WorkSource p0) {}
-        public java.lang.String toString() { return null; }
-        public void updateUids(int[] p0) {}
-        public java.lang.Runnable wrap(java.lang.Runnable p0) { return null; }
-    }
-
-    public static interface WakeLockStateListener {
-        public void onStateChanged(boolean p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface WakeReason {
     }
 }

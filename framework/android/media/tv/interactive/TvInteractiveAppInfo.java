@@ -88,7 +88,7 @@ public class TvInteractiveAppInfo implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ControlCode {
+    public static @interface InteractiveAppType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -96,6 +96,6 @@ public class TvInteractiveAppInfo implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface InteractiveAppType {
+    public static @interface ControlCode {
     }
 }

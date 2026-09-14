@@ -6,6 +6,7 @@ public @interface PolicyDefinition {
     public android.processor.devicepolicy.AllowedDpcTypes allowedDpcTypes();
     public android.processor.devicepolicy.AllowedRoles allowedRoles();
     public int[] allowedScopes();
+    public boolean applyOnFullUsersOnly() default false;
     public java.lang.String requiredCrossUserPermission() default "";
     public java.lang.String requiredPermission() default "";
 }

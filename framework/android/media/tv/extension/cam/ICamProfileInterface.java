@@ -11,19 +11,6 @@ public interface ICamProfileInterface extends android.os.IInterface {
     public void requestResendProfileInfoBroadcastACON() throws android.os.RemoteException;
     public int updateCiOPControl(java.lang.String p0, boolean p1, android.media.tv.extension.cam.ICiOperatorListener p2) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.cam.ICamProfileInterface {
-        public Default() {}
-        public void addListener(android.media.tv.extension.cam.ICamProfileListener p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean deleteProfile(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public android.os.Bundle getCamServiceUpdateInfo(int p0) throws android.os.RemoteException { return null; }
-        public java.lang.String[] getCiOpNameList() throws android.os.RemoteException { return null; }
-        public boolean isCamScanEnabled(int p0) throws android.os.RemoteException { return false; }
-        public void removeListener(android.media.tv.extension.cam.ICamProfileListener p0) throws android.os.RemoteException {}
-        public void requestResendProfileInfoBroadcastACON() throws android.os.RemoteException {}
-        public int updateCiOPControl(java.lang.String p0, boolean p1, android.media.tv.extension.cam.ICiOperatorListener p2) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.cam.ICamProfileInterface {
         static final int TRANSACTION_addListener = 4;
         static final int TRANSACTION_deleteProfile = 8;
@@ -54,5 +41,18 @@ public interface ICamProfileInterface extends android.os.IInterface {
             public void requestResendProfileInfoBroadcastACON() throws android.os.RemoteException {}
             public int updateCiOPControl(java.lang.String p0, boolean p1, android.media.tv.extension.cam.ICiOperatorListener p2) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.cam.ICamProfileInterface {
+        public Default() {}
+        public void addListener(android.media.tv.extension.cam.ICamProfileListener p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean deleteProfile(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public android.os.Bundle getCamServiceUpdateInfo(int p0) throws android.os.RemoteException { return null; }
+        public java.lang.String[] getCiOpNameList() throws android.os.RemoteException { return null; }
+        public boolean isCamScanEnabled(int p0) throws android.os.RemoteException { return false; }
+        public void removeListener(android.media.tv.extension.cam.ICamProfileListener p0) throws android.os.RemoteException {}
+        public void requestResendProfileInfoBroadcastACON() throws android.os.RemoteException {}
+        public int updateCiOPControl(java.lang.String p0, boolean p1, android.media.tv.extension.cam.ICiOperatorListener p2) throws android.os.RemoteException { return 0; }
     }
 }

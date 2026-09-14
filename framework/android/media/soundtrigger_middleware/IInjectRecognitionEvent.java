@@ -5,13 +5,6 @@ public interface IInjectRecognitionEvent extends android.os.IInterface {
     public void triggerAbortRecognition() throws android.os.RemoteException;
     public void triggerRecognitionEvent(byte[] p0, android.media.soundtrigger.PhraseRecognitionExtra[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.soundtrigger_middleware.IInjectRecognitionEvent {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void triggerAbortRecognition() throws android.os.RemoteException {}
-        public void triggerRecognitionEvent(byte[] p0, android.media.soundtrigger.PhraseRecognitionExtra[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.soundtrigger_middleware.IInjectRecognitionEvent {
         static final int TRANSACTION_triggerAbortRecognition = 2;
         static final int TRANSACTION_triggerRecognitionEvent = 1;
@@ -28,5 +21,12 @@ public interface IInjectRecognitionEvent extends android.os.IInterface {
             public void triggerAbortRecognition() throws android.os.RemoteException {}
             public void triggerRecognitionEvent(byte[] p0, android.media.soundtrigger.PhraseRecognitionExtra[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.soundtrigger_middleware.IInjectRecognitionEvent {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void triggerAbortRecognition() throws android.os.RemoteException {}
+        public void triggerRecognitionEvent(byte[] p0, android.media.soundtrigger.PhraseRecognitionExtra[] p1) throws android.os.RemoteException {}
     }
 }

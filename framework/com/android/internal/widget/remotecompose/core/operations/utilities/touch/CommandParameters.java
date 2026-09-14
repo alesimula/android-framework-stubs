@@ -44,17 +44,6 @@ public class CommandParameters {
         public void value(int p0, int[] p1) {}
     }
 
-    public static interface Callback {
-        public void value(int p0, byte p1);
-        public void value(int p0, float p1);
-        public void value(int p0, int p1);
-        public void value(int p0, java.lang.String p1);
-        public void value(int p0, short p1);
-        public void value(int p0, boolean p1);
-        public void value(int p0, float[] p1);
-        public void value(int p0, int[] p1);
-    }
-
     public static class Param {
         boolean mDefaultBooleanValue;
         float mDefaultFloatValue;
@@ -66,5 +55,16 @@ public class CommandParameters {
         Param(java.lang.String p0, byte p1, float p2) {}
         Param(java.lang.String p0, byte p1, int p2) {}
         Param(java.lang.String p0, byte p1, boolean p2) {}
+    }
+
+    public static interface Callback {
+        public void value(int p0, byte p1);
+        public void value(int p0, float p1);
+        public void value(int p0, int p1);
+        public void value(int p0, java.lang.String p1);
+        public void value(int p0, short p1);
+        public void value(int p0, boolean p1);
+        public void value(int p0, float[] p1);
+        public void value(int p0, int[] p1);
     }
 }

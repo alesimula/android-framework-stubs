@@ -4,12 +4,6 @@ public interface IContextualModeSyncListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.modes.IContextualModeSyncListener";
     public void onModeSyncEnabledChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.modes.IContextualModeSyncListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onModeSyncEnabledChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.modes.IContextualModeSyncListener {
         static final int TRANSACTION_onModeSyncEnabledChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IContextualModeSyncListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onModeSyncEnabledChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.modes.IContextualModeSyncListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onModeSyncEnabledChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

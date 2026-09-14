@@ -5,13 +5,6 @@ public interface IActivityRecognitionHardwareWatcher extends android.os.IInterfa
     public void onInstanceChanged(android.hardware.location.IActivityRecognitionHardware p0) throws android.os.RemoteException;
 
     @java.lang.Deprecated
-    public static class Default implements android.hardware.location.IActivityRecognitionHardwareWatcher {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInstanceChanged(android.hardware.location.IActivityRecognitionHardware p0) throws android.os.RemoteException {}
-    }
-
-    @java.lang.Deprecated
     public static abstract class Stub extends android.os.Binder implements android.hardware.location.IActivityRecognitionHardwareWatcher {
         public static final java.lang.String DESCRIPTOR = "android.hardware.location.IActivityRecognitionHardwareWatcher";
         static final int TRANSACTION_onInstanceChanged = 1;
@@ -30,5 +23,12 @@ public interface IActivityRecognitionHardwareWatcher extends android.os.IInterfa
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onInstanceChanged(android.hardware.location.IActivityRecognitionHardware p0) throws android.os.RemoteException {}
         }
+    }
+
+    @java.lang.Deprecated
+    public static class Default implements android.hardware.location.IActivityRecognitionHardwareWatcher {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInstanceChanged(android.hardware.location.IActivityRecognitionHardware p0) throws android.os.RemoteException {}
     }
 }

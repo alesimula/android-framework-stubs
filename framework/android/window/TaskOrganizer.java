@@ -10,11 +10,7 @@ public class TaskOrganizer extends android.window.WindowOrganizer {
     public void addStartingWindow(android.window.StartingWindowInfo p0) {}
     public void clearExcludeLayersFromTaskSnapshot(android.window.WindowContainerToken p0) {}
     public void copySplashScreenView(int p0) {}
-    @java.lang.Deprecated
-    public void createRootTask(int p0, int p1, android.os.IBinder p2) {}
     public android.window.TaskAppearedInfo createTask(android.window.TaskCreationParams p0) { return null; }
-    @java.lang.Deprecated
-    public boolean deleteRootTask(android.window.WindowContainerToken p0) { return false; }
     public boolean deleteTask(android.window.WindowContainerToken p0) { return false; }
     public java.util.List<android.app.ActivityManager.RunningTaskInfo> getChildTasks(android.window.WindowContainerToken p0, int[] p1) { return null; }
     public java.util.concurrent.Executor getExecutor() { return null; }

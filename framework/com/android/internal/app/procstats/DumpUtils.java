@@ -10,8 +10,8 @@ public final class DumpUtils {
     static final java.lang.String CSV_SEP = "\t";
     private static final int[] PROCESS_STATS_STATE_TO_AGGREGATED_STATE = null;
     public static final java.lang.String[] STATE_LABELS = null;
-    public static final java.lang.String STATE_LABEL_CACHED = null;
-    public static final java.lang.String STATE_LABEL_TOTAL = null;
+    public static final java.lang.String STATE_LABEL_CACHED = "  (Cached)";
+    public static final java.lang.String STATE_LABEL_TOTAL = "     TOTAL";
     public static final java.lang.String[] STATE_NAMES = null;
     public static final java.lang.String[] STATE_NAMES_CSV = null;
     static final int[] STATE_PROTO_ENUMS = null;

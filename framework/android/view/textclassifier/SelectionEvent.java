@@ -93,7 +93,7 @@ public final class SelectionEvent implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ActionType {
+    public static @interface InvocationMethod {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -101,6 +101,6 @@ public final class SelectionEvent implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface InvocationMethod {
+    public static @interface ActionType {
     }
 }

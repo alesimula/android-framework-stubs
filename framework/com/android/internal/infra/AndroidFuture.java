@@ -5,7 +5,7 @@ public class AndroidFuture<T extends java.lang.Object> extends java.util.concurr
     private static final boolean DEBUG = false;
     private static final java.util.concurrent.Executor DIRECT_EXECUTOR = null;
     private static final java.lang.StackTraceElement[] EMPTY_STACK_TRACE = null;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "AndroidFuture";
     private static android.os.Handler sMainHandler;
     private java.util.function.BiConsumer<? super T, ? super java.lang.Throwable> mListener;
     private java.util.concurrent.Executor mListenerExecutor;

@@ -6,15 +6,6 @@ public interface IImsServiceFeatureCallback extends android.os.IInterface {
     public void imsStatusChanged(int p0, int p1) throws android.os.RemoteException;
     public void updateCapabilities(long p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsServiceFeatureCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void imsFeatureCreated(com.android.ims.ImsFeatureContainer p0, int p1) throws android.os.RemoteException {}
-        public void imsFeatureRemoved(int p0) throws android.os.RemoteException {}
-        public void imsStatusChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void updateCapabilities(long p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsServiceFeatureCallback {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsServiceFeatureCallback";
         static final int TRANSACTION_imsFeatureCreated = 1;
@@ -38,5 +29,14 @@ public interface IImsServiceFeatureCallback extends android.os.IInterface {
             public void imsStatusChanged(int p0, int p1) throws android.os.RemoteException {}
             public void updateCapabilities(long p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsServiceFeatureCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void imsFeatureCreated(com.android.ims.ImsFeatureContainer p0, int p1) throws android.os.RemoteException {}
+        public void imsFeatureRemoved(int p0) throws android.os.RemoteException {}
+        public void imsStatusChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void updateCapabilities(long p0) throws android.os.RemoteException {}
     }
 }

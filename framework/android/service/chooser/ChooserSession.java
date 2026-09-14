@@ -22,12 +22,23 @@ public final class ChooserSession {
     public void setTargetsEnabled(boolean p0) {}
     public void updateIntent(android.content.Intent p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface State {
+    }
+
     private static class BoundsInfo {
         private final android.graphics.Rect mBounds = null;
         private final android.graphics.Rect mDefaultBounds = null;
         private BoundsInfo(android.graphics.Rect p0, android.graphics.Rect p1) {}
         android.graphics.Rect getBounds() { return null; }
         android.graphics.Rect getDefaultBounds() { return null; }
+    }
+
+    private static class UpdateListenerWrapper {
+        public final java.util.concurrent.Executor executor = null;
+        public final java.util.concurrent.atomic.AtomicBoolean isSubscribed = null;
+        public final android.service.chooser.ChooserSession.StateListener listener = null;
+        UpdateListenerWrapper(android.service.chooser.ChooserSession.StateListener p0, java.util.concurrent.Executor p1) {}
     }
 
     private static class ChooserSessionImpl extends android.service.chooser.IChooserControllerCallback.Stub {
@@ -60,19 +71,8 @@ public final class ChooserSession {
         public void setTargetsEnabled(boolean p0) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface State {
-    }
-
     public static interface StateListener {
         public void onBoundsChanged(android.graphics.Rect p0);
         public void onStateChanged(int p0);
-    }
-
-    private static class UpdateListenerWrapper {
-        public final java.util.concurrent.Executor executor = null;
-        public final java.util.concurrent.atomic.AtomicBoolean isSubscribed = null;
-        public final android.service.chooser.ChooserSession.StateListener listener = null;
-        UpdateListenerWrapper(android.service.chooser.ChooserSession.StateListener p0, java.util.concurrent.Executor p1) {}
     }
 }

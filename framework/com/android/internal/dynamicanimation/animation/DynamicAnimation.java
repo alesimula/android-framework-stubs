@@ -65,18 +65,18 @@ public abstract class DynamicAnimation<T extends com.android.internal.dynamicani
     public void start() {}
     abstract boolean updateValueAndVelocity(long p0);
 
-    static class MassState {
-        float mValue;
-        float mVelocity;
-        MassState() {}
-    }
-
     public static interface OnAnimationEndListener {
         public void onAnimationEnd(com.android.internal.dynamicanimation.animation.DynamicAnimation p0, boolean p1, float p2, float p3);
     }
 
     public static interface OnAnimationUpdateListener {
         public void onAnimationUpdate(com.android.internal.dynamicanimation.animation.DynamicAnimation p0, float p1, float p2);
+    }
+
+    static class MassState {
+        float mValue;
+        float mVelocity;
+        MassState() {}
     }
 
     public static abstract class ViewProperty extends android.util.FloatProperty<android.view.View> {

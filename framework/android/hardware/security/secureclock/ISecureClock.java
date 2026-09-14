@@ -9,14 +9,6 @@ public interface ISecureClock extends android.os.IInterface {
     public java.lang.String getInterfaceHash() throws android.os.RemoteException;
     public int getInterfaceVersion() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.security.secureclock.ISecureClock {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.security.secureclock.TimeStampToken generateTimeStamp(long p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.security.secureclock.ISecureClock {
         static final int TRANSACTION_generateTimeStamp = 1;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -39,5 +31,13 @@ public interface ISecureClock extends android.os.IInterface {
             public java.lang.String getInterfaceHash() throws android.os.RemoteException { return null; }
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.hardware.security.secureclock.ISecureClock {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.security.secureclock.TimeStampToken generateTimeStamp(long p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
     }
 }

@@ -35,13 +35,13 @@ public class Equalizer extends android.media.audiofx.AudioEffect {
     public void setProperties(android.media.audiofx.Equalizer.Settings p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
     public void usePreset(short p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
 
+    public static interface OnParameterChangeListener {
+        public void onParameterChange(android.media.audiofx.Equalizer p0, int p1, int p2, int p3, int p4);
+    }
+
     private class BaseParameterListener implements android.media.audiofx.AudioEffect.OnParameterChangeListener {
         private BaseParameterListener(android.media.audiofx.Equalizer p0) {}
         public void onParameterChange(android.media.audiofx.AudioEffect p0, int p1, byte[] p2, byte[] p3) {}
-    }
-
-    public static interface OnParameterChangeListener {
-        public void onParameterChange(android.media.audiofx.Equalizer p0, int p1, int p2, int p3, int p4);
     }
 
     public static class Settings {

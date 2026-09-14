@@ -73,12 +73,28 @@ public abstract class CarrierMessagingService extends android.app.Service {
     @java.lang.Deprecated
     public void onSendTextSms(java.lang.String p0, int p1, java.lang.String p2, android.service.carrier.CarrierMessagingService.ResultCallback<android.service.carrier.CarrierMessagingService.SendSmsResult> p3) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DownloadResult {
+    public static final class SendMmsResult {
+        private byte[] mSendConfPdu;
+        private int mSendStatus;
+        public SendMmsResult(int p0, byte[] p1) {}
+        public byte[] getSendConfPdu() { return null; }
+        public int getSendStatus() { return 0; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FilterCompleteResult {
+    public static @interface SendRequest {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SendResult {
+    }
+
+    public static final class SendMultipartSmsResult {
+        private final int[] mMessageRefs = null;
+        private final int mSendStatus = 0;
+        public SendMultipartSmsResult(int p0, int[] p1) {}
+        public int[] getMessageRefs() { return null; }
+        public int getSendStatus() { return 0; }
     }
 
     private class ICarrierMessagingWrapper extends android.service.carrier.ICarrierMessagingService.Stub {
@@ -91,32 +107,16 @@ public abstract class CarrierMessagingService extends android.app.Service {
         public void sendTextSms(java.lang.String p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FilterCompleteResult {
+    }
+
     public static interface ResultCallback<T extends java.lang.Object> {
         public void onReceiveResult(T p0) throws android.os.RemoteException;
     }
 
-    public static final class SendMmsResult {
-        private byte[] mSendConfPdu;
-        private int mSendStatus;
-        public SendMmsResult(int p0, byte[] p1) {}
-        public byte[] getSendConfPdu() { return null; }
-        public int getSendStatus() { return 0; }
-    }
-
-    public static final class SendMultipartSmsResult {
-        private final int[] mMessageRefs = null;
-        private final int mSendStatus = 0;
-        public SendMultipartSmsResult(int p0, int[] p1) {}
-        public int[] getMessageRefs() { return null; }
-        public int getSendStatus() { return 0; }
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SendRequest {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SendResult {
+    public static @interface DownloadResult {
     }
 
     public static final class SendSmsResult {

@@ -86,10 +86,12 @@ public final class TvInputManager {
     public static final int VIDEO_UNAVAILABLE_REASON_CAS_PVR_RECORDING_NOT_ALLOWED = 8;
     public static final int VIDEO_UNAVAILABLE_REASON_CAS_REBOOTING = 17;
     public static final int VIDEO_UNAVAILABLE_REASON_CAS_UNKNOWN = 18;
-    static final int VIDEO_UNAVAILABLE_REASON_END = 18;
+    static final int VIDEO_UNAVAILABLE_REASON_END = 22;
     public static final int VIDEO_UNAVAILABLE_REASON_INSUFFICIENT_RESOURCE = 6;
     public static final int VIDEO_UNAVAILABLE_REASON_NOT_CONNECTED = 5;
+    public static final int VIDEO_UNAVAILABLE_REASON_NO_VIDEO = 22;
     public static final int VIDEO_UNAVAILABLE_REASON_NO_VIDEO_NO_AUDIO = 20;
+    public static final int VIDEO_UNAVAILABLE_REASON_SCRAMBLED = 21;
     static final int VIDEO_UNAVAILABLE_REASON_START = 0;
     public static final int VIDEO_UNAVAILABLE_REASON_STOPPED = 19;
     public static final int VIDEO_UNAVAILABLE_REASON_TUNING = 1;
@@ -174,24 +176,43 @@ public final class TvInputManager {
     public void updateTvInputInfo(android.media.tv.TvInputInfo p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BroadcastInfoType {
+    public static @interface TimeShiftStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DvbDeviceType {
+    public static @interface SessionDataKey {
     }
 
-    @android.annotation.SystemApi
-    public static final class Hardware {
-        private final android.media.tv.ITvInputHardware mInterface = null;
-        private Hardware(android.media.tv.ITvInputHardware p0) {}
-        private android.media.tv.ITvInputHardware getInterface() { return null; }
-        @android.annotation.SystemApi
-        public boolean dispatchKeyEventToHdmi(android.view.KeyEvent p0) { return false; }
-        public void overrideAudioSink(int p0, java.lang.String p1, int p2, int p3, int p4) {}
-        public void overrideAudioSink(android.media.AudioDeviceInfo p0, int p1, int p2, int p3) {}
-        public void setStreamVolume(float p0) {}
-        public boolean setSurface(android.view.Surface p0, android.media.tv.TvStreamConfig p1) { return false; }
+    public static abstract class SessionCallback {
+        public SessionCallback() {}
+        public void onAitInfoUpdated(android.media.tv.TvInputManager.Session p0, android.media.tv.AitInfo p1) {}
+        public void onAudioPresentationSelected(android.media.tv.TvInputManager.Session p0, int p1, int p2) {}
+        public void onAudioPresentationsChanged(android.media.tv.TvInputManager.Session p0, java.util.List<android.media.AudioPresentation> p1) {}
+        public void onAvailableSpeeds(android.media.tv.TvInputManager.Session p0, float[] p1) {}
+        public void onChannelRetuned(android.media.tv.TvInputManager.Session p0, android.net.Uri p1) {}
+        public void onChannelRetunedWithExtraInfo(android.media.tv.TvInputManager.Session p0, android.net.Uri p1, android.os.Bundle p2) {}
+        public void onContentAllowed(android.media.tv.TvInputManager.Session p0) {}
+        public void onContentBlocked(android.media.tv.TvInputManager.Session p0, android.media.tv.TvContentRating p1) {}
+        public void onCueingMessageAvailability(android.media.tv.TvInputManager.Session p0, boolean p1) {}
+        void onError(android.media.tv.TvInputManager.Session p0, int p1) {}
+        public void onLayoutSurface(android.media.tv.TvInputManager.Session p0, int p1, int p2, int p3, int p4) {}
+        void onRecordingStopped(android.media.tv.TvInputManager.Session p0, android.net.Uri p1) {}
+        public void onSessionCreated(android.media.tv.TvInputManager.Session p0) {}
+        public void onSessionEvent(android.media.tv.TvInputManager.Session p0, java.lang.String p1, android.os.Bundle p2) {}
+        public void onSessionReleased(android.media.tv.TvInputManager.Session p0) {}
+        public void onSignalStrengthUpdated(android.media.tv.TvInputManager.Session p0, int p1) {}
+        public void onTimeShiftCurrentPositionChanged(android.media.tv.TvInputManager.Session p0, long p1) {}
+        public void onTimeShiftMode(android.media.tv.TvInputManager.Session p0, int p1) {}
+        public void onTimeShiftStartPositionChanged(android.media.tv.TvInputManager.Session p0, long p1) {}
+        public void onTimeShiftStatusChanged(android.media.tv.TvInputManager.Session p0, int p1) {}
+        public void onTrackSelected(android.media.tv.TvInputManager.Session p0, int p1, java.lang.String p2) {}
+        public void onTracksChanged(android.media.tv.TvInputManager.Session p0, java.util.List<android.media.tv.TvTrackInfo> p1) {}
+        public void onTuned(android.media.tv.TvInputManager.Session p0, android.net.Uri p1) {}
+        public void onTvMessage(android.media.tv.TvInputManager.Session p0, int p1, android.os.Bundle p2) {}
+        public void onVideoAvailable(android.media.tv.TvInputManager.Session p0) {}
+        public void onVideoFreezeUpdated(android.media.tv.TvInputManager.Session p0, boolean p1) {}
+        public void onVideoSizeChanged(android.media.tv.TvInputManager.Session p0, int p1, int p2) {}
+        public void onVideoUnavailable(android.media.tv.TvInputManager.Session p0, int p1) {}
     }
 
     @android.annotation.SystemApi
@@ -201,12 +222,15 @@ public final class TvInputManager {
         public abstract void onStreamConfigChanged(android.media.tv.TvStreamConfig[] p0);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface InputState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecordingError {
+    public static abstract class TvInputCallback {
+        public TvInputCallback() {}
+        @android.annotation.SystemApi
+        public void onCurrentTunedInfosUpdated(java.util.List<android.media.tv.TunedInfo> p0) {}
+        public void onInputAdded(java.lang.String p0) {}
+        public void onInputRemoved(java.lang.String p0) {}
+        public void onInputStateChanged(java.lang.String p0, int p1) {}
+        public void onInputUpdated(java.lang.String p0) {}
+        public void onTvInputInfoUpdated(android.media.tv.TvInputInfo p0) {}
     }
 
     public static final class Session {
@@ -285,6 +309,7 @@ public final class TvInputManager {
         public void setStreamVolume(float p0) {}
         public void setSurface(android.view.Surface p0) {}
         public void setTvMessageEnabled(int p0, boolean p1) {}
+        void setVideoBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
         void setVideoFrozen(boolean p0) {}
         void startRecording(android.net.Uri p0) {}
         void startRecording(android.net.Uri p0, android.os.Bundle p1) {}
@@ -297,6 +322,7 @@ public final class TvInputManager {
         void timeShiftSeekTo(long p0) {}
         void timeShiftSetMode(int p0) {}
         void timeShiftSetPlaybackParams(android.media.PlaybackParams p0) {}
+        void timeShiftStop() {}
         public void tune(android.net.Uri p0) {}
         public void tune(android.net.Uri p0, android.os.Bundle p1) {}
         void unblockContent(android.media.tv.TvContentRating p0) {}
@@ -307,14 +333,6 @@ public final class TvInputManager {
 
         public static interface FinishedInputEventCallback {
             public void onFinishedInputEvent(java.lang.Object p0, boolean p1);
-        }
-
-        private final class InputEventHandler extends android.os.Handler {
-            public static final int MSG_FLUSH_INPUT_EVENT = 3;
-            public static final int MSG_SEND_INPUT_EVENT = 1;
-            public static final int MSG_TIMEOUT_INPUT_EVENT = 2;
-            InputEventHandler(android.media.tv.TvInputManager.Session p0, android.os.Looper p1) { super(); }
-            public void handleMessage(android.os.Message p0) {}
         }
 
         private final class PendingEvent implements java.lang.Runnable {
@@ -328,42 +346,80 @@ public final class TvInputManager {
             public void run() {}
         }
 
+        private final class InputEventHandler extends android.os.Handler {
+            public static final int MSG_FLUSH_INPUT_EVENT = 3;
+            public static final int MSG_SEND_INPUT_EVENT = 1;
+            public static final int MSG_TIMEOUT_INPUT_EVENT = 2;
+            InputEventHandler(android.media.tv.TvInputManager.Session p0, android.os.Looper p1) { super(); }
+            public void handleMessage(android.os.Message p0) {}
+        }
+
         private final class TvInputEventSender extends android.view.InputEventSender {
             public TvInputEventSender(android.media.tv.TvInputManager.Session p0, android.view.InputChannel p1, android.os.Looper p2) { super(null, null); }
             public void onInputEventFinished(int p0, boolean p1) {}
         }
     }
 
-    public static abstract class SessionCallback {
-        public SessionCallback() {}
-        public void onAitInfoUpdated(android.media.tv.TvInputManager.Session p0, android.media.tv.AitInfo p1) {}
-        public void onAudioPresentationSelected(android.media.tv.TvInputManager.Session p0, int p1, int p2) {}
-        public void onAudioPresentationsChanged(android.media.tv.TvInputManager.Session p0, java.util.List<android.media.AudioPresentation> p1) {}
-        public void onAvailableSpeeds(android.media.tv.TvInputManager.Session p0, float[] p1) {}
-        public void onChannelRetuned(android.media.tv.TvInputManager.Session p0, android.net.Uri p1) {}
-        public void onChannelRetunedWithExtraInfo(android.media.tv.TvInputManager.Session p0, android.net.Uri p1, android.os.Bundle p2) {}
-        public void onContentAllowed(android.media.tv.TvInputManager.Session p0) {}
-        public void onContentBlocked(android.media.tv.TvInputManager.Session p0, android.media.tv.TvContentRating p1) {}
-        public void onCueingMessageAvailability(android.media.tv.TvInputManager.Session p0, boolean p1) {}
-        void onError(android.media.tv.TvInputManager.Session p0, int p1) {}
-        public void onLayoutSurface(android.media.tv.TvInputManager.Session p0, int p1, int p2, int p3, int p4) {}
-        void onRecordingStopped(android.media.tv.TvInputManager.Session p0, android.net.Uri p1) {}
-        public void onSessionCreated(android.media.tv.TvInputManager.Session p0) {}
-        public void onSessionEvent(android.media.tv.TvInputManager.Session p0, java.lang.String p1, android.os.Bundle p2) {}
-        public void onSessionReleased(android.media.tv.TvInputManager.Session p0) {}
-        public void onSignalStrengthUpdated(android.media.tv.TvInputManager.Session p0, int p1) {}
-        public void onTimeShiftCurrentPositionChanged(android.media.tv.TvInputManager.Session p0, long p1) {}
-        public void onTimeShiftMode(android.media.tv.TvInputManager.Session p0, int p1) {}
-        public void onTimeShiftStartPositionChanged(android.media.tv.TvInputManager.Session p0, long p1) {}
-        public void onTimeShiftStatusChanged(android.media.tv.TvInputManager.Session p0, int p1) {}
-        public void onTrackSelected(android.media.tv.TvInputManager.Session p0, int p1, java.lang.String p2) {}
-        public void onTracksChanged(android.media.tv.TvInputManager.Session p0, java.util.List<android.media.tv.TvTrackInfo> p1) {}
-        public void onTuned(android.media.tv.TvInputManager.Session p0, android.net.Uri p1) {}
-        public void onTvMessage(android.media.tv.TvInputManager.Session p0, int p1, android.os.Bundle p2) {}
-        public void onVideoAvailable(android.media.tv.TvInputManager.Session p0) {}
-        public void onVideoFreezeUpdated(android.media.tv.TvInputManager.Session p0, boolean p1) {}
-        public void onVideoSizeChanged(android.media.tv.TvInputManager.Session p0, int p1, int p2) {}
-        public void onVideoUnavailable(android.media.tv.TvInputManager.Session p0, int p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SignalStrength {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BroadcastInfoType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DvbDeviceType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TimeShiftMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TvMessageType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VideoUnavailableReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface InputState {
+    }
+
+    private static final class TvInputCallbackRecord {
+        private final android.media.tv.TvInputManager.TvInputCallback mCallback = null;
+        private final android.os.Handler mHandler = null;
+        public TvInputCallbackRecord(android.media.tv.TvInputManager.TvInputCallback p0, android.os.Handler p1) {}
+        public android.media.tv.TvInputManager.TvInputCallback getCallback() { return null; }
+        public void postCurrentTunedInfosUpdated(java.util.List<android.media.tv.TunedInfo> p0) {}
+        public void postInputAdded(java.lang.String p0) {}
+        public void postInputRemoved(java.lang.String p0) {}
+        public void postInputStateChanged(java.lang.String p0, int p1) {}
+        public void postInputUpdated(java.lang.String p0) {}
+        public void postTvInputInfoUpdated(android.media.tv.TvInputInfo p0) {}
+    }
+
+    @android.annotation.SystemApi
+    public static final class Hardware {
+        private final android.media.tv.ITvInputHardware mInterface = null;
+        private Hardware(android.media.tv.ITvInputHardware p0) {}
+        private android.media.tv.ITvInputHardware getInterface() { return null; }
+        @android.annotation.SystemApi
+        public boolean dispatchKeyEventToHdmi(android.view.KeyEvent p0) { return false; }
+        public void overrideAudioSink(int p0, java.lang.String p1, int p2, int p3, int p4) {}
+        public void overrideAudioSink(android.media.AudioDeviceInfo p0, int p1, int p2, int p3) {}
+        public void setStreamVolume(float p0) {}
+        public boolean setSurface(android.view.Surface p0, android.media.tv.TvStreamConfig p1) { return false; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SessionDataType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecordingError {
     }
 
     private static final class SessionCallbackRecord {
@@ -403,57 +459,5 @@ public final class TvInputManager {
         void postVideoFreezeUpdated(boolean p0) {}
         void postVideoSizeChanged(int p0, int p1) {}
         void postVideoUnavailable(int p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionDataKey {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionDataType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SignalStrength {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TimeShiftMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TimeShiftStatus {
-    }
-
-    public static abstract class TvInputCallback {
-        public TvInputCallback() {}
-        @android.annotation.SystemApi
-        public void onCurrentTunedInfosUpdated(java.util.List<android.media.tv.TunedInfo> p0) {}
-        public void onInputAdded(java.lang.String p0) {}
-        public void onInputRemoved(java.lang.String p0) {}
-        public void onInputStateChanged(java.lang.String p0, int p1) {}
-        public void onInputUpdated(java.lang.String p0) {}
-        public void onTvInputInfoUpdated(android.media.tv.TvInputInfo p0) {}
-    }
-
-    private static final class TvInputCallbackRecord {
-        private final android.media.tv.TvInputManager.TvInputCallback mCallback = null;
-        private final android.os.Handler mHandler = null;
-        public TvInputCallbackRecord(android.media.tv.TvInputManager.TvInputCallback p0, android.os.Handler p1) {}
-        public android.media.tv.TvInputManager.TvInputCallback getCallback() { return null; }
-        public void postCurrentTunedInfosUpdated(java.util.List<android.media.tv.TunedInfo> p0) {}
-        public void postInputAdded(java.lang.String p0) {}
-        public void postInputRemoved(java.lang.String p0) {}
-        public void postInputStateChanged(java.lang.String p0, int p1) {}
-        public void postInputUpdated(java.lang.String p0) {}
-        public void postTvInputInfoUpdated(android.media.tv.TvInputInfo p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TvMessageType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VideoUnavailableReason {
     }
 }

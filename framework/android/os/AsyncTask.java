@@ -50,9 +50,16 @@ public abstract class AsyncTask<Params extends java.lang.Object, Progress extend
     protected void onProgressUpdate(Progress... p0) {}
     protected final void publishProgress(Progress... p0) {}
 
-    private static class AsyncTaskResult<Data extends java.lang.Object> {
-        final android.os.AsyncTask mTask = null;
-        AsyncTaskResult(android.os.AsyncTask p0, Data... p1) {}
+    private static abstract class WorkerRunnable<Params extends java.lang.Object, Result extends java.lang.Object> implements java.util.concurrent.Callable<Result> {
+        private WorkerRunnable() {}
+    }
+
+    public static enum Status {
+        FINISHED,
+        PENDING,
+        RUNNING;
+        private static final android.os.AsyncTask.Status[] $VALUES = null;
+        private Status() {}
     }
 
     private static class InternalHandler extends android.os.Handler {
@@ -68,15 +75,8 @@ public abstract class AsyncTask<Params extends java.lang.Object, Progress extend
         protected void scheduleNext() {}
     }
 
-    public static enum Status {
-        FINISHED,
-        PENDING,
-        RUNNING;
-        private static final android.os.AsyncTask.Status[] $VALUES = null;
-        private Status() {}
-    }
-
-    private static abstract class WorkerRunnable<Params extends java.lang.Object, Result extends java.lang.Object> implements java.util.concurrent.Callable<Result> {
-        private WorkerRunnable() {}
+    private static class AsyncTaskResult<Data extends java.lang.Object> {
+        final android.os.AsyncTask mTask = null;
+        AsyncTaskResult(android.os.AsyncTask p0, Data... p1) {}
     }
 }

@@ -6,14 +6,6 @@ public interface IBinderStatsConsumerService extends android.os.IInterface {
     public void reportSecondGranularityStats(android.os.binder.SingleSecondBinderStats[] p0, android.os.binder.DroppedBinderStats p1) throws android.os.RemoteException;
     public void reportSpamStats(android.os.binder.BinderSpamStats[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.binder.IBinderStatsConsumerService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void reportCallStats(android.os.binder.BinderCallsStats[] p0) throws android.os.RemoteException {}
-        public void reportSecondGranularityStats(android.os.binder.SingleSecondBinderStats[] p0, android.os.binder.DroppedBinderStats p1) throws android.os.RemoteException {}
-        public void reportSpamStats(android.os.binder.BinderSpamStats[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.binder.IBinderStatsConsumerService {
         static final int TRANSACTION_reportCallStats = 1;
         static final int TRANSACTION_reportSecondGranularityStats = 3;
@@ -34,5 +26,13 @@ public interface IBinderStatsConsumerService extends android.os.IInterface {
             public void reportSecondGranularityStats(android.os.binder.SingleSecondBinderStats[] p0, android.os.binder.DroppedBinderStats p1) throws android.os.RemoteException {}
             public void reportSpamStats(android.os.binder.BinderSpamStats[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.binder.IBinderStatsConsumerService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void reportCallStats(android.os.binder.BinderCallsStats[] p0) throws android.os.RemoteException {}
+        public void reportSecondGranularityStats(android.os.binder.SingleSecondBinderStats[] p0, android.os.binder.DroppedBinderStats p1) throws android.os.RemoteException {}
+        public void reportSpamStats(android.os.binder.BinderSpamStats[] p0) throws android.os.RemoteException {}
     }
 }

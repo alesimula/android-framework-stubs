@@ -47,21 +47,17 @@ public class BaseBlockCipher extends com.android.internal.org.bouncycastle.jcajc
     protected void engineUpdateAAD(java.nio.ByteBuffer p0) {}
     protected void engineUpdateAAD(byte[] p0, int p1, int p2) {}
 
-    private static class AEADGenericBlockCipher implements com.android.internal.org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.GenericBlockCipher {
-        private static final java.lang.reflect.Constructor aeadBadTagConstructor = null;
-        private com.android.internal.org.bouncycastle.crypto.modes.AEADCipher cipher;
-        AEADGenericBlockCipher(com.android.internal.org.bouncycastle.crypto.modes.AEADCipher p0) {}
-        private static java.lang.reflect.Constructor findExceptionConstructor(java.lang.Class p0) { return null; }
-        public int doFinal(byte[] p0, int p1) throws java.lang.IllegalStateException, javax.crypto.BadPaddingException { return 0; }
-        public java.lang.String getAlgorithmName() { return null; }
-        public int getOutputSize(int p0) { return 0; }
-        public com.android.internal.org.bouncycastle.crypto.BlockCipher getUnderlyingCipher() { return null; }
-        public int getUpdateOutputSize(int p0) { return 0; }
-        public void init(boolean p0, com.android.internal.org.bouncycastle.crypto.CipherParameters p1) throws java.lang.IllegalArgumentException {}
-        public int processByte(byte p0, byte[] p1, int p2) throws com.android.internal.org.bouncycastle.crypto.DataLengthException { return 0; }
-        public int processBytes(byte[] p0, int p1, int p2, byte[] p3, int p4) throws com.android.internal.org.bouncycastle.crypto.DataLengthException { return 0; }
-        public void updateAAD(byte[] p0, int p1, int p2) {}
-        public boolean wrapOnNoPadding() { return false; }
+    private static interface GenericBlockCipher {
+        public int doFinal(byte[] p0, int p1) throws java.lang.IllegalStateException, javax.crypto.BadPaddingException;
+        public java.lang.String getAlgorithmName();
+        public int getOutputSize(int p0);
+        public com.android.internal.org.bouncycastle.crypto.BlockCipher getUnderlyingCipher();
+        public int getUpdateOutputSize(int p0);
+        public void init(boolean p0, com.android.internal.org.bouncycastle.crypto.CipherParameters p1) throws java.lang.IllegalArgumentException;
+        public int processByte(byte p0, byte[] p1, int p2) throws com.android.internal.org.bouncycastle.crypto.DataLengthException;
+        public int processBytes(byte[] p0, int p1, int p2, byte[] p3, int p4) throws com.android.internal.org.bouncycastle.crypto.DataLengthException;
+        public void updateAAD(byte[] p0, int p1, int p2);
+        public boolean wrapOnNoPadding();
     }
 
     private static class BufferedGenericBlockCipher implements com.android.internal.org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.GenericBlockCipher {
@@ -81,16 +77,20 @@ public class BaseBlockCipher extends com.android.internal.org.bouncycastle.jcajc
         public boolean wrapOnNoPadding() { return false; }
     }
 
-    private static interface GenericBlockCipher {
-        public int doFinal(byte[] p0, int p1) throws java.lang.IllegalStateException, javax.crypto.BadPaddingException;
-        public java.lang.String getAlgorithmName();
-        public int getOutputSize(int p0);
-        public com.android.internal.org.bouncycastle.crypto.BlockCipher getUnderlyingCipher();
-        public int getUpdateOutputSize(int p0);
-        public void init(boolean p0, com.android.internal.org.bouncycastle.crypto.CipherParameters p1) throws java.lang.IllegalArgumentException;
-        public int processByte(byte p0, byte[] p1, int p2) throws com.android.internal.org.bouncycastle.crypto.DataLengthException;
-        public int processBytes(byte[] p0, int p1, int p2, byte[] p3, int p4) throws com.android.internal.org.bouncycastle.crypto.DataLengthException;
-        public void updateAAD(byte[] p0, int p1, int p2);
-        public boolean wrapOnNoPadding();
+    private static class AEADGenericBlockCipher implements com.android.internal.org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.GenericBlockCipher {
+        private static final java.lang.reflect.Constructor aeadBadTagConstructor = null;
+        private com.android.internal.org.bouncycastle.crypto.modes.AEADCipher cipher;
+        AEADGenericBlockCipher(com.android.internal.org.bouncycastle.crypto.modes.AEADCipher p0) {}
+        private static java.lang.reflect.Constructor findExceptionConstructor(java.lang.Class p0) { return null; }
+        public int doFinal(byte[] p0, int p1) throws java.lang.IllegalStateException, javax.crypto.BadPaddingException { return 0; }
+        public java.lang.String getAlgorithmName() { return null; }
+        public int getOutputSize(int p0) { return 0; }
+        public com.android.internal.org.bouncycastle.crypto.BlockCipher getUnderlyingCipher() { return null; }
+        public int getUpdateOutputSize(int p0) { return 0; }
+        public void init(boolean p0, com.android.internal.org.bouncycastle.crypto.CipherParameters p1) throws java.lang.IllegalArgumentException {}
+        public int processByte(byte p0, byte[] p1, int p2) throws com.android.internal.org.bouncycastle.crypto.DataLengthException { return 0; }
+        public int processBytes(byte[] p0, int p1, int p2, byte[] p3, int p4) throws com.android.internal.org.bouncycastle.crypto.DataLengthException { return 0; }
+        public void updateAAD(byte[] p0, int p1, int p2) {}
+        public boolean wrapOnNoPadding() { return false; }
     }
 }

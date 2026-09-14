@@ -4,12 +4,6 @@ public interface IKeyGestureHandler extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.input.IKeyGestureHandler";
     public void handleKeyGesture(android.hardware.input.AidlKeyGestureEvent p0, android.os.IBinder p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.input.IKeyGestureHandler {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void handleKeyGesture(android.hardware.input.AidlKeyGestureEvent p0, android.os.IBinder p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.input.IKeyGestureHandler {
         static final int TRANSACTION_handleKeyGesture = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IKeyGestureHandler extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void handleKeyGesture(android.hardware.input.AidlKeyGestureEvent p0, android.os.IBinder p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.input.IKeyGestureHandler {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void handleKeyGesture(android.hardware.input.AidlKeyGestureEvent p0, android.os.IBinder p1) throws android.os.RemoteException {}
     }
 }

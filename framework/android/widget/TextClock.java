@@ -61,6 +61,12 @@ public class TextClock extends android.widget.TextView {
     @android.view.RemotableViewMethod
     public void setTimeZone(java.lang.String p0) {}
 
+    private class FormatChangeObserver extends android.database.ContentObserver {
+        public FormatChangeObserver(android.widget.TextClock p0, android.os.Handler p1) { super((android.os.Handler)null); }
+        public void onChange(boolean p0) {}
+        public void onChange(boolean p0, android.net.Uri p1) {}
+    }
+
     public static class ClockEventDelegate {
         private final android.content.Context mContext = null;
         public ClockEventDelegate(android.content.Context p0) {}
@@ -68,12 +74,6 @@ public class TextClock extends android.widget.TextView {
         public void registerTimeChangeReceiver(android.content.BroadcastReceiver p0, android.os.Handler p1) {}
         public void unregisterFormatChangeObserver(android.database.ContentObserver p0) {}
         public void unregisterTimeChangeReceiver(android.content.BroadcastReceiver p0) {}
-    }
-
-    private class FormatChangeObserver extends android.database.ContentObserver {
-        public FormatChangeObserver(android.widget.TextClock p0, android.os.Handler p1) { super((android.os.Handler)null); }
-        public void onChange(boolean p0) {}
-        public void onChange(boolean p0, android.net.Uri p1) {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.TextClock> {

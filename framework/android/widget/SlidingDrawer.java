@@ -84,6 +84,11 @@ public class SlidingDrawer extends android.view.ViewGroup {
     public void toggle() {}
     public void unlock() {}
 
+    public static interface OnDrawerScrollListener {
+        public void onScrollEnded();
+        public void onScrollStarted();
+    }
+
     private class DrawerToggler implements android.view.View.OnClickListener {
         private DrawerToggler(android.widget.SlidingDrawer p0) {}
         public void onClick(android.view.View p0) {}
@@ -95,10 +100,5 @@ public class SlidingDrawer extends android.view.ViewGroup {
 
     public static interface OnDrawerOpenListener {
         public void onDrawerOpened();
-    }
-
-    public static interface OnDrawerScrollListener {
-        public void onScrollEnded();
-        public void onScrollStarted();
     }
 }

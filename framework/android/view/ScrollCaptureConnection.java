@@ -35,16 +35,6 @@ public class ScrollCaptureConnection extends android.view.IScrollCaptureConnecti
     public android.os.ICancellationSignal startCapture(android.view.Surface p0, android.view.IScrollCaptureCallbacks p1) throws android.os.RemoteException { return null; }
     public java.lang.String toString() { return null; }
 
-    private static final class ConsumerCallback<T extends java.lang.Object> extends android.view.ScrollCaptureConnection.SafeCallback<java.util.function.Consumer<T>> implements java.util.function.Consumer<T> {
-        ConsumerCallback(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, java.util.function.Consumer<T> p2) { super(null, null, null); }
-        public void accept(T p0) {}
-    }
-
-    private static final class RunnableCallback extends android.view.ScrollCaptureConnection.SafeCallback<java.lang.Runnable> implements java.lang.Runnable {
-        RunnableCallback(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, java.lang.Runnable p2) { super(null, null, null); }
-        public void run() {}
-    }
-
     private static class SafeCallback<T extends java.lang.Object> {
         private final java.util.concurrent.Executor mExecutor = null;
         private final android.os.CancellationSignal mSignal = null;
@@ -53,5 +43,15 @@ public class ScrollCaptureConnection extends android.view.IScrollCaptureConnecti
         static java.lang.Runnable create(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, java.lang.Runnable p2) { return null; }
         static <T extends java.lang.Object> java.util.function.Consumer<T> create(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, java.util.function.Consumer<T> p2) { return null; }
         protected final void maybeAccept(java.util.function.Consumer<T> p0) {}
+    }
+
+    private static final class ConsumerCallback<T extends java.lang.Object> extends android.view.ScrollCaptureConnection.SafeCallback<java.util.function.Consumer<T>> implements java.util.function.Consumer<T> {
+        ConsumerCallback(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, java.util.function.Consumer<T> p2) { super(null, null, null); }
+        public void accept(T p0) {}
+    }
+
+    private static final class RunnableCallback extends android.view.ScrollCaptureConnection.SafeCallback<java.lang.Runnable> implements java.lang.Runnable {
+        RunnableCallback(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, java.lang.Runnable p2) { super(null, null, null); }
+        public void run() {}
     }
 }

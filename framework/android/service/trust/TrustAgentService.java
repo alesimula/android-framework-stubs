@@ -62,18 +62,14 @@ public class TrustAgentService extends android.app.Service {
     public final void showKeyguardErrorMessage(java.lang.CharSequence p0) {}
     public final void unlockUserWithToken(long p0, byte[] p1, android.os.UserHandle p2) {}
 
-    private static final class ConfigurationData {
-        final java.util.List<android.os.PersistableBundle> options = null;
-        final android.os.IBinder token = null;
-        ConfigurationData(java.util.List<android.os.PersistableBundle> p0, android.os.IBinder p1) {}
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface GrantTrustFlags {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TokenState {
+    private static final class ConfigurationData {
+        final java.util.List<android.os.PersistableBundle> options = null;
+        final android.os.IBinder token = null;
+        ConfigurationData(java.util.List<android.os.PersistableBundle> p0, android.os.IBinder p1) {}
     }
 
     private final class TrustAgentServiceWrapper extends android.service.trust.ITrustAgentService.Stub {
@@ -90,5 +86,9 @@ public class TrustAgentService extends android.app.Service {
         public void onUserMayRequestUnlock() {}
         public void onUserRequestedUnlock(boolean p0) {}
         public void setCallback(android.service.trust.ITrustAgentServiceCallback p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TokenState {
     }
 }

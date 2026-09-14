@@ -24,33 +24,6 @@ public interface IDeviceIdleController extends android.os.IInterface {
     public void restoreSystemPowerWhitelistApp(java.lang.String p0) throws android.os.RemoteException;
     public long whitelistAppTemporarily(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IDeviceIdleController {
-        public Default() {}
-        public void addPowerSaveTempWhitelistApp(java.lang.String p0, long p1, int p2, int p3, java.lang.String p4) throws android.os.RemoteException {}
-        public long addPowerSaveTempWhitelistAppForMms(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
-        public long addPowerSaveTempWhitelistAppForSms(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
-        public void addPowerSaveWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
-        public int addPowerSaveWhitelistApps(java.util.List<java.lang.String> p0) throws android.os.RemoteException { return 0; }
-        public android.os.IBinder asBinder() { return null; }
-        public void exitIdle(java.lang.String p0) throws android.os.RemoteException {}
-        public int[] getAppIdTempWhitelist() throws android.os.RemoteException { return null; }
-        public int[] getAppIdUserWhitelist() throws android.os.RemoteException { return null; }
-        public int[] getAppIdWhitelist() throws android.os.RemoteException { return null; }
-        public int[] getAppIdWhitelistExceptIdle() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getFullPowerWhitelist() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getFullPowerWhitelistExceptIdle() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getRemovedSystemPowerWhitelistApps() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getSystemPowerWhitelist() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getSystemPowerWhitelistExceptIdle() throws android.os.RemoteException { return null; }
-        public java.lang.String[] getUserPowerWhitelist() throws android.os.RemoteException { return null; }
-        public boolean isPowerSaveWhitelistApp(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean isPowerSaveWhitelistExceptIdleApp(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public void removePowerSaveWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
-        public void removeSystemPowerWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
-        public void restoreSystemPowerWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
-        public long whitelistAppTemporarily(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IDeviceIdleController {
         public static final java.lang.String DESCRIPTOR = "android.os.IDeviceIdleController";
         static final int TRANSACTION_addPowerSaveTempWhitelistApp = 18;
@@ -114,5 +87,32 @@ public interface IDeviceIdleController extends android.os.IInterface {
             public void restoreSystemPowerWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
             public long whitelistAppTemporarily(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
         }
+    }
+
+    public static class Default implements android.os.IDeviceIdleController {
+        public Default() {}
+        public void addPowerSaveTempWhitelistApp(java.lang.String p0, long p1, int p2, int p3, java.lang.String p4) throws android.os.RemoteException {}
+        public long addPowerSaveTempWhitelistAppForMms(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
+        public long addPowerSaveTempWhitelistAppForSms(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
+        public void addPowerSaveWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
+        public int addPowerSaveWhitelistApps(java.util.List<java.lang.String> p0) throws android.os.RemoteException { return 0; }
+        public android.os.IBinder asBinder() { return null; }
+        public void exitIdle(java.lang.String p0) throws android.os.RemoteException {}
+        public int[] getAppIdTempWhitelist() throws android.os.RemoteException { return null; }
+        public int[] getAppIdUserWhitelist() throws android.os.RemoteException { return null; }
+        public int[] getAppIdWhitelist() throws android.os.RemoteException { return null; }
+        public int[] getAppIdWhitelistExceptIdle() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getFullPowerWhitelist() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getFullPowerWhitelistExceptIdle() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getRemovedSystemPowerWhitelistApps() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getSystemPowerWhitelist() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getSystemPowerWhitelistExceptIdle() throws android.os.RemoteException { return null; }
+        public java.lang.String[] getUserPowerWhitelist() throws android.os.RemoteException { return null; }
+        public boolean isPowerSaveWhitelistApp(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean isPowerSaveWhitelistExceptIdleApp(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public void removePowerSaveWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
+        public void removeSystemPowerWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
+        public void restoreSystemPowerWhitelistApp(java.lang.String p0) throws android.os.RemoteException {}
+        public long whitelistAppTemporarily(java.lang.String p0, int p1, int p2, java.lang.String p3) throws android.os.RemoteException { return 0L; }
     }
 }

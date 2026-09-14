@@ -26,6 +26,13 @@ public class NetworkStatsDataMigrationUtils {
     private static long readVarLong(java.io.DataInput p0) throws java.io.IOException { return 0L; }
     private static long[] readVarLongArray(java.io.DataInput p0) throws java.io.IOException { return null; }
 
+    private static class HistoryVersion {
+        static final int VERSION_ADD_ACTIVE = 3;
+        static final int VERSION_ADD_PACKETS = 2;
+        static final int VERSION_INIT = 1;
+        private HistoryVersion() {}
+    }
+
     private static class CollectionVersion {
         static final int VERSION_NETWORK_INIT = 1;
         static final int VERSION_UID_INIT = 1;
@@ -36,11 +43,8 @@ public class NetworkStatsDataMigrationUtils {
         private CollectionVersion() {}
     }
 
-    private static class HistoryVersion {
-        static final int VERSION_ADD_ACTIVE = 3;
-        static final int VERSION_ADD_PACKETS = 2;
-        static final int VERSION_INIT = 1;
-        private HistoryVersion() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Prefix {
     }
 
     private static class IdentitySetVersion {
@@ -52,9 +56,5 @@ public class NetworkStatsDataMigrationUtils {
         static final int VERSION_ADD_SUB_ID = 7;
         static final int VERSION_INIT = 1;
         private IdentitySetVersion() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Prefix {
     }
 }

@@ -7,15 +7,6 @@ public interface ITranslationService extends android.os.IInterface {
     public void onDisconnected() throws android.os.RemoteException;
     public void onTranslationCapabilitiesRequest(int p0, int p1, android.os.ResultReceiver p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.translation.ITranslationService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnected(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void onCreateTranslationSession(android.view.translation.TranslationContext p0, int p1, com.android.internal.os.IResultReceiver p2) throws android.os.RemoteException {}
-        public void onDisconnected() throws android.os.RemoteException {}
-        public void onTranslationCapabilitiesRequest(int p0, int p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.translation.ITranslationService {
         static final int TRANSACTION_onConnected = 1;
         static final int TRANSACTION_onCreateTranslationSession = 3;
@@ -38,5 +29,14 @@ public interface ITranslationService extends android.os.IInterface {
             public void onDisconnected() throws android.os.RemoteException {}
             public void onTranslationCapabilitiesRequest(int p0, int p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.translation.ITranslationService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnected(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void onCreateTranslationSession(android.view.translation.TranslationContext p0, int p1, com.android.internal.os.IResultReceiver p2) throws android.os.RemoteException {}
+        public void onDisconnected() throws android.os.RemoteException {}
+        public void onTranslationCapabilitiesRequest(int p0, int p1, android.os.ResultReceiver p2) throws android.os.RemoteException {}
     }
 }

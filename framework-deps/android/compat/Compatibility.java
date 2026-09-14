@@ -2,8 +2,8 @@ package android.compat;
 
 public class Compatibility {
     public Compatibility() {}
-    public void setBehaviorChangeDelegate(android.compat.Compatibility.BehaviorChangeDelegate p0) {}
     public boolean isChangeEnabled(long p0) { return false; }
+    public void setBehaviorChangeDelegate(android.compat.Compatibility.BehaviorChangeDelegate p0) {}
 
     public static interface BehaviorChangeDelegate {
     }

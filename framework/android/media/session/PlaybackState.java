@@ -63,10 +63,6 @@ public final class PlaybackState implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Actions {
-    }
-
     public static final class Builder {
         private long mActions;
         private long mActiveItemId;
@@ -90,6 +86,14 @@ public final class PlaybackState implements android.os.Parcelable {
         public android.media.session.PlaybackState.Builder setExtras(android.os.Bundle p0) { return null; }
         public android.media.session.PlaybackState.Builder setState(int p0, long p1, float p2) { return null; }
         public android.media.session.PlaybackState.Builder setState(int p0, long p1, float p2, long p3) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Actions {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface State {
     }
 
     public static final class CustomAction implements android.os.Parcelable {
@@ -117,9 +121,5 @@ public final class PlaybackState implements android.os.Parcelable {
             public android.media.session.PlaybackState.CustomAction build() { return null; }
             public android.media.session.PlaybackState.CustomAction.Builder setExtras(android.os.Bundle p0) { return null; }
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface State {
     }
 }

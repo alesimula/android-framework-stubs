@@ -1,6 +1,7 @@
 package android.gui;
 
 public @interface CompositionFilterFlag {
+    public static final int FLAG_DATA_LEAK_PREVENTION_SCREENSHOT = 32;
     public static final int FLAG_IME = 8;
     public static final int FLAG_MOUSE_CURSOR = 1;
     public static final int FLAG_SCREENSHOT_UI = 2;

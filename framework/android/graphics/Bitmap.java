@@ -10,11 +10,9 @@ public final class Bitmap implements android.os.Parcelable {
     private static final int WORKING_COMPRESS_STORAGE = 4096;
     private static android.graphics.Bitmap.DumpData dumpData;
     private static final java.util.WeakHashMap<android.graphics.Bitmap, java.lang.Void> sAllBitmaps = null;
-    private static final java.lang.Object sCleanerLock = null;
     private static volatile int sDefaultDensity;
     private static final java.util.concurrent.ConcurrentHashMap<java.lang.Long, android.graphics.Bitmap.SharedAllocationReference> sSharedAllocations = null;
     private static final java.lang.ref.ReferenceQueue<android.graphics.Bitmap.SharedAllocationHolder> sSharedAllocationsQueue = null;
-    private static volatile java.lang.ref.Cleaner sSharedCleaner;
     private android.graphics.ColorSpace mColorSpace;
     int mDensity;
     private android.graphics.Gainmap mGainmap;
@@ -53,7 +51,6 @@ public final class Bitmap implements android.os.Parcelable {
     public static android.graphics.Bitmap createBitmap(android.util.DisplayMetrics p0, int[] p1, int p2, int p3, android.graphics.Bitmap.Config p4) { return null; }
     public static android.graphics.Bitmap createBitmap(int[] p0, int p1, int p2, int p3, int p4, android.graphics.Bitmap.Config p5) { return null; }
     public static android.graphics.Bitmap createBitmap(int[] p0, int p1, int p2, android.graphics.Bitmap.Config p3) { return null; }
-    private static libcore.util.NativeAllocationRegistry createObjectTrackingRegistry() { return null; }
     public static android.graphics.Bitmap createScaledAshmemBitmap(android.graphics.Bitmap p0, int p1, int p2, boolean p3) { return null; }
     public static android.graphics.Bitmap createScaledBitmap(android.graphics.Bitmap p0, int p1, int p2, boolean p3) { return null; }
     private static libcore.util.NativeAllocationRegistry createSizeTrackingRegistry(int p0, boolean p1) { return null; }
@@ -61,7 +58,6 @@ public final class Bitmap implements android.os.Parcelable {
     public static void dumpAll(java.lang.String p0) {}
     private static java.util.ArrayList<android.graphics.Bitmap> getAllBitmaps() { return null; }
     static int getDefaultDensity() { return 0; }
-    private static java.lang.ref.Cleaner getSharedCleaner() { return null; }
     private boolean isShared$ravenwood() { return false; }
     private static native boolean nativeCompress(long p0, int p1, int p2, java.io.OutputStream p3, byte[] p4);
     private static native android.graphics.ColorSpace nativeComputeColorSpace(long p0);
@@ -184,16 +180,30 @@ public final class Bitmap implements android.os.Parcelable {
     public void setWidth(int p0) {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static enum CompressFormat {
-        JPEG,
-        PNG,
-        WEBP,
-        WEBP_LOSSLESS,
-        WEBP_LOSSY;
-        private static final android.graphics.Bitmap.CompressFormat[] $VALUES = null;
-        final int nativeInt = 0;
-        private CompressFormat() {}
-        public static android.graphics.Bitmap.CompressFormat from(java.lang.String p0) { return null; }
+    private static class SharedAllocationReference extends java.lang.ref.WeakReference<android.graphics.Bitmap.SharedAllocationHolder> {
+        final long mSharedId = 0L;
+        SharedAllocationReference(android.graphics.Bitmap.SharedAllocationHolder p0, java.lang.ref.ReferenceQueue<android.graphics.Bitmap.SharedAllocationHolder> p1) { super(null); }
+    }
+
+    static class SharedAllocationHolder {
+        private final java.lang.Runnable mCleaner = null;
+        private final java.util.concurrent.atomic.AtomicInteger mRefCount = null;
+        private final long mSharedId = 0L;
+        public SharedAllocationHolder(long p0, long p1, int p2, boolean p3) {}
+        public void decrement() {}
+        public boolean increment() { return false; }
+    }
+
+    private static final class DumpData {
+        private byte[][] buffers;
+        private int count;
+        private int format;
+        private int max;
+        private long[] natives;
+        private int[] sizes;
+        public DumpData(android.graphics.Bitmap.CompressFormat p0, int p1) {}
+        public void add(long p0, byte[] p1, int p2) {}
+        public int size() { return 0; }
     }
 
     public static enum Config {
@@ -211,29 +221,21 @@ public final class Bitmap implements android.os.Parcelable {
         public static android.graphics.Bitmap.Config nativeToConfig(int p0) { return null; }
     }
 
-    private static final class DumpData {
-        private byte[][] buffers;
-        private int count;
-        private int format;
-        private int max;
-        private long[] natives;
-        private int[] sizes;
-        public DumpData(android.graphics.Bitmap.CompressFormat p0, int p1) {}
-        public void add(long p0, byte[] p1, int p2) {}
-        public int size() { return 0; }
+    private static class ObjectTrackingRegistry {
+        private ObjectTrackingRegistry() {}
+        private static libcore.util.NativeAllocationRegistry create() { return null; }
+        public static java.lang.Runnable registerNativeAllocation(java.lang.Object p0, long p1) { return null; }
     }
 
-    static class SharedAllocationHolder {
-        private final java.lang.Runnable mCleaner = null;
-        private final java.util.concurrent.atomic.AtomicInteger mRefCount = null;
-        private final long mSharedId = 0L;
-        public SharedAllocationHolder(long p0, long p1, int p2, boolean p3) {}
-        public void decrement() {}
-        public boolean increment() { return false; }
-    }
-
-    private static class SharedAllocationReference extends java.lang.ref.WeakReference<android.graphics.Bitmap.SharedAllocationHolder> {
-        final long mSharedId = 0L;
-        SharedAllocationReference(android.graphics.Bitmap.SharedAllocationHolder p0, java.lang.ref.ReferenceQueue<android.graphics.Bitmap.SharedAllocationHolder> p1) { super(null); }
+    public static enum CompressFormat {
+        JPEG,
+        PNG,
+        WEBP,
+        WEBP_LOSSLESS,
+        WEBP_LOSSY;
+        private static final android.graphics.Bitmap.CompressFormat[] $VALUES = null;
+        final int nativeInt = 0;
+        private CompressFormat() {}
+        public static android.graphics.Bitmap.CompressFormat from(java.lang.String p0) { return null; }
     }
 }

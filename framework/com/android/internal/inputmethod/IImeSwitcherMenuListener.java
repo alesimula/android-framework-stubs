@@ -5,13 +5,6 @@ public interface IImeSwitcherMenuListener extends android.os.IInterface {
     public void onImeAndSubtypeSelected(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
     public void onVisibilityChanged(boolean p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IImeSwitcherMenuListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onImeAndSubtypeSelected(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onVisibilityChanged(boolean p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IImeSwitcherMenuListener {
         static final int TRANSACTION_onImeAndSubtypeSelected = 2;
         static final int TRANSACTION_onVisibilityChanged = 1;
@@ -30,5 +23,12 @@ public interface IImeSwitcherMenuListener extends android.os.IInterface {
             public void onImeAndSubtypeSelected(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
             public void onVisibilityChanged(boolean p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IImeSwitcherMenuListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onImeAndSubtypeSelected(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onVisibilityChanged(boolean p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

@@ -61,6 +61,7 @@ public interface WindowManager extends android.view.ViewManager {
     public static final int SCREEN_RECORDING_STATE_VISIBLE = 1;
     public static final int SHELL_ROOT_LAYER_DIVIDER = 0;
     public static final int SHELL_ROOT_LAYER_PIP = 1;
+    public static final int SYSTEM_ACTION_PIP = 1001;
     public static final int TAKE_SCREENSHOT_FULLSCREEN = 1;
     public static final int TAKE_SCREENSHOT_PROVIDED_IMAGE = 3;
     public static final int TRANSIT_CHANGE = 6;
@@ -175,21 +176,8 @@ public interface WindowManager extends android.view.ViewManager {
     default public void unregisterTaskFpsCallback(android.window.TaskFpsCallback p0) {}
     default public void unregisterTrustedPresentationListener(java.util.function.Consumer<java.lang.Boolean> p0) {}
 
-    public static class BadTokenException extends java.lang.RuntimeException {
-        public BadTokenException() { super(); }
-        public BadTokenException(java.lang.String p0) { super(); }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CompatSmallScreenPolicy {
-    }
-
-    public static final class DisplayEngagementModeState {
-        private final int mDisplayId = 0;
-        private final int mEngagementModeFlags = 0;
-        DisplayEngagementModeState(int p0, int p1) {}
-        public int getDisplayId() { return 0; }
-        public int getEngagementModeFlags() { return 0; }
+    public static interface KeyboardShortcutsReceiver {
+        public void onKeyboardShortcutsReceived(java.util.List<android.view.KeyboardShortcutGroup> p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -197,22 +185,35 @@ public interface WindowManager extends android.view.ViewManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EngagementControlFlags {
+    public static @interface RemoveContentMode {
     }
 
-    @android.annotation.SystemApi
-    public static final class EngagementControlRequest {
-        private final int mDisplayId = 0;
-        private final int mEngagementControlFlags = 0;
-        private final int mTaskId = 0;
-        public EngagementControlRequest(int p0, int p1, int p2) {}
-        public int getDisplayId() { return 0; }
-        public int getEngagementControlFlags() { return 0; }
-        public int getTaskId() { return 0; }
+    public static @interface ScreenshotSource {
+        public static final int SCREENSHOT_ACCESSIBILITY_ACTIONS = 4;
+        public static final int SCREENSHOT_GLOBAL_ACTIONS = 0;
+        public static final int SCREENSHOT_KEY_CHORD = 1;
+        public static final int SCREENSHOT_KEY_OTHER = 2;
+        public static final int SCREENSHOT_OTHER = 5;
+        public static final int SCREENSHOT_OVERVIEW = 3;
+        public static final int SCREENSHOT_SCREEN_CAPTURE_UI = 7;
+        public static final int SCREENSHOT_VENDOR_GESTURE = 6;
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ShellRootLayer {
+    }
+
+    public static class BadTokenException extends java.lang.RuntimeException {
+        public BadTokenException() { super(); }
+        public BadTokenException(java.lang.String p0) { super(); }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface EngagementModeFlags {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CompatSmallScreenPolicy {
     }
 
     @android.annotation.SystemApi
@@ -225,13 +226,24 @@ public interface WindowManager extends android.view.ViewManager {
         public android.view.WindowManager.InsetsParams setInsetsSize(android.graphics.Insets p0) { return null; }
     }
 
-    public static class InvalidDisplayException extends java.lang.RuntimeException {
-        public InvalidDisplayException() { super(); }
-        public InvalidDisplayException(java.lang.String p0) { super(); }
+    public static final class DisplayEngagementModeState {
+        private final int mDisplayId = 0;
+        private final int mEngagementModeFlags = 0;
+        DisplayEngagementModeState(int p0, int p1) {}
+        public int getDisplayId() { return 0; }
+        public int getEngagementModeFlags() { return 0; }
     }
 
-    public static interface KeyboardShortcutsReceiver {
-        public void onKeyboardShortcutsReceived(java.util.List<android.view.KeyboardShortcutGroup> p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TransitionFlags {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TransitionType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TransitionOldType {
     }
 
     public static class LayoutParams extends android.view.ViewGroup.LayoutParams implements android.os.Parcelable {
@@ -599,7 +611,8 @@ public interface WindowManager extends android.view.ViewManager {
         public java.lang.String toString(java.lang.String p0) { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-        public static @interface DisplayFlags {
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface SystemUiVisibilityFlags {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -614,12 +627,7 @@ public interface WindowManager extends android.view.ViewManager {
         static @interface LayoutInDisplayCutoutMode {
         }
 
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface PrivateFlags {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface RenderingHints {
+        public static @interface DisplayFlags {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -627,11 +635,15 @@ public interface WindowManager extends android.view.ViewManager {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface RenderingHints {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface SystemFlags {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface SystemUiVisibilityFlags {
+        public static @interface PrivateFlags {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -640,41 +652,30 @@ public interface WindowManager extends android.view.ViewManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RemoveContentMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
     public static @interface ScreenRecordingState {
     }
 
-    public static @interface ScreenshotSource {
-        public static final int SCREENSHOT_ACCESSIBILITY_ACTIONS = 4;
-        public static final int SCREENSHOT_GLOBAL_ACTIONS = 0;
-        public static final int SCREENSHOT_KEY_CHORD = 1;
-        public static final int SCREENSHOT_KEY_OTHER = 2;
-        public static final int SCREENSHOT_OTHER = 5;
-        public static final int SCREENSHOT_OVERVIEW = 3;
-        public static final int SCREENSHOT_SCREEN_CAPTURE_UI = 7;
-        public static final int SCREENSHOT_VENDOR_GESTURE = 6;
+    @android.annotation.SystemApi
+    public static final class EngagementControlRequest {
+        private final int mDisplayId = 0;
+        private final int mEngagementControlFlags = 0;
+        private final int mTaskId = 0;
+        public EngagementControlRequest(int p0, int p1, int p2) {}
+        public int getDisplayId() { return 0; }
+        public int getEngagementControlFlags() { return 0; }
+        public int getTaskId() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EngagementControlFlags {
+    }
+
+    public static class InvalidDisplayException extends java.lang.RuntimeException {
+        public InvalidDisplayException() { super(); }
+        public InvalidDisplayException(java.lang.String p0) { super(); }
     }
 
     public static @interface ScreenshotType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ShellRootLayer {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransitionFlags {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransitionOldType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransitionType {
     }
 }

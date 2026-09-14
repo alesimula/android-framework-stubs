@@ -16,16 +16,6 @@ public final class WindowInsetsAnimation {
     public void setAlpha(float p0) {}
     public void setFraction(float p0) {}
 
-    public static final class Bounds {
-        private final android.graphics.Insets mLowerBound = null;
-        private final android.graphics.Insets mUpperBound = null;
-        public Bounds(android.graphics.Insets p0, android.graphics.Insets p1) {}
-        public android.graphics.Insets getLowerBound() { return null; }
-        public android.graphics.Insets getUpperBound() { return null; }
-        public android.view.WindowInsetsAnimation.Bounds inset(android.graphics.Insets p0) { return null; }
-        public java.lang.String toString() { return null; }
-    }
-
     public static abstract class Callback {
         public static final int DISPATCH_MODE_CONTINUE_ON_SUBTREE = 1;
         public static final int DISPATCH_MODE_STOP = 0;
@@ -40,5 +30,15 @@ public final class WindowInsetsAnimation {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface DispatchMode {
         }
+    }
+
+    public static final class Bounds {
+        private final android.graphics.Insets mLowerBound = null;
+        private final android.graphics.Insets mUpperBound = null;
+        public Bounds(android.graphics.Insets p0, android.graphics.Insets p1) {}
+        public android.graphics.Insets getLowerBound() { return null; }
+        public android.graphics.Insets getUpperBound() { return null; }
+        public android.view.WindowInsetsAnimation.Bounds inset(android.graphics.Insets p0) { return null; }
+        public java.lang.String toString() { return null; }
     }
 }

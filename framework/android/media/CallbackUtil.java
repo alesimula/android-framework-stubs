@@ -14,10 +14,6 @@ class CallbackUtil {
         public void callbackMethod(T p0);
     }
 
-    static interface DispatcherStub {
-        public void register(boolean p0);
-    }
-
     static class LazyListenerManager<T extends java.lang.Object> {
         private android.media.CallbackUtil.DispatcherStub mDispatcherStub;
         private final java.lang.Object mListenerLock = null;
@@ -26,6 +22,10 @@ class CallbackUtil {
         void addListener(java.util.concurrent.Executor p0, T p1, java.lang.String p2, java.util.function.Supplier<android.media.CallbackUtil.DispatcherStub> p3) {}
         void callListeners(android.media.CallbackUtil.CallbackMethod<T> p0) {}
         void removeListener(T p0, java.lang.String p1) {}
+    }
+
+    static interface DispatcherStub {
+        public void register(boolean p0);
     }
 
     static class ListenerInfo<T extends java.lang.Object> {

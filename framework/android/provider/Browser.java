@@ -47,6 +47,14 @@ public class Browser {
     public static final void truncateHistory(android.content.ContentResolver p0) {}
     public static final void updateVisitedHistory(android.content.ContentResolver p0, java.lang.String p1, boolean p2) {}
 
+    public static class SearchColumns implements android.provider.BaseColumns {
+        public static final java.lang.String DATE = "date";
+        public static final java.lang.String SEARCH = "search";
+        @java.lang.Deprecated
+        public static final java.lang.String URL = "url";
+        public SearchColumns() {}
+    }
+
     public static class BookmarkColumns implements android.provider.BaseColumns {
         public static final java.lang.String BOOKMARK = "bookmark";
         public static final java.lang.String CREATED = "created";
@@ -59,13 +67,5 @@ public class Browser {
         public static final java.lang.String USER_ENTERED = "user_entered";
         public static final java.lang.String VISITS = "visits";
         public BookmarkColumns() {}
-    }
-
-    public static class SearchColumns implements android.provider.BaseColumns {
-        public static final java.lang.String DATE = "date";
-        public static final java.lang.String SEARCH = "search";
-        @java.lang.Deprecated
-        public static final java.lang.String URL = "url";
-        public SearchColumns() {}
     }
 }

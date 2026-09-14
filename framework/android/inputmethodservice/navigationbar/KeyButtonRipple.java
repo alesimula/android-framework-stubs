@@ -75,11 +75,6 @@ final class KeyButtonRipple extends android.graphics.drawable.Drawable {
     public boolean setVisible(boolean p0, boolean p1) { return false; }
     public void updateResources() {}
 
-    private static final class LogInterpolator implements android.view.animation.Interpolator {
-        private LogInterpolator() {}
-        public float getInterpolation(float p0) { return 0.0f; }
-    }
-
     private static final class TraceAnimatorListener extends android.animation.AnimatorListenerAdapter {
         private final java.lang.String mName = null;
         TraceAnimatorListener(java.lang.String p0) { super(); }
@@ -93,5 +88,10 @@ final class KeyButtonRipple extends android.graphics.drawable.Drawable {
         ROUNDED_RECT;
         private static final android.inputmethodservice.navigationbar.KeyButtonRipple.Type[] $VALUES = null;
         private Type() {}
+    }
+
+    private static final class LogInterpolator implements android.view.animation.Interpolator {
+        private LogInterpolator() {}
+        public float getInterpolation(float p0) { return 0.0f; }
     }
 }

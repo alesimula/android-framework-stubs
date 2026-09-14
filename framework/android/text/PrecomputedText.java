@@ -66,6 +66,10 @@ public class PrecomputedText implements android.text.Spannable {
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface CheckResultUsableResult {
+        }
+
         public static class Builder {
             private int mBreakStrategy;
             private int mHyphenationFrequency;
@@ -79,10 +83,6 @@ public class PrecomputedText implements android.text.Spannable {
             public android.text.PrecomputedText.Params.Builder setHyphenationFrequency(int p0) { return null; }
             public android.text.PrecomputedText.Params.Builder setLineBreakConfig(android.graphics.text.LineBreakConfig p0) { return null; }
             public android.text.PrecomputedText.Params.Builder setTextDirection(android.text.TextDirectionHeuristic p0) { return null; }
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface CheckResultUsableResult {
         }
     }
 }

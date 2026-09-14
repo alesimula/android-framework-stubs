@@ -24,6 +24,7 @@ public abstract class Context {
     @android.annotation.SystemApi
     public static final java.lang.String APP_INTEGRITY_SERVICE = "app_integrity";
     public static final java.lang.String APP_INTERACTION_SERVICE = "app_interaction";
+    public static final java.lang.String APP_LOCK_SERVICE = "app_lock";
     public static final java.lang.String APP_OPS_SERVICE = "appops";
     @android.annotation.SystemApi
     public static final java.lang.String APP_PREDICTION_SERVICE = "app_prediction";
@@ -34,7 +35,6 @@ public abstract class Context {
     @android.annotation.SystemApi
     public static final java.lang.String AUDIO_DEVICE_VOLUME_SERVICE = "audio_device_volume";
     public static final java.lang.String AUDIO_SERVICE = "audio";
-    @android.annotation.SystemApi
     public static final java.lang.String AUTHENTICATION_POLICY_SERVICE = "authentication_policy";
     public static final java.lang.String AUTH_SERVICE = "auth";
     public static final java.lang.String AUTOFILL_SERVICE = "autofill";
@@ -101,6 +101,7 @@ public abstract class Context {
     public static final java.lang.String CARRIER_CONFIG_SERVICE = "carrier_config";
     public static final java.lang.String CHOOSER_SERVICE = "chooser";
     public static final java.lang.String CLIPBOARD_SERVICE = "clipboard";
+    public static final java.lang.String CLOCK_MANAGER_SERVICE = "clock_manager";
     @android.annotation.SystemApi
     public static final java.lang.String CLOUDSEARCH_SERVICE = "cloudsearch";
     protected static final java.lang.String CODE_CACHE_DIR = "code_cache";
@@ -129,6 +130,7 @@ public abstract class Context {
     public static final int CONTEXT_RESTRICTED = 4;
     public static final java.lang.String COUNTRY_DETECTOR = "country_detector";
     public static final java.lang.String CREDENTIAL_SERVICE = "credential";
+    public static final java.lang.String CROSS_DEVICE_TRUST_SERVICE = "cross_device_trust";
     public static final java.lang.String CROSS_PROFILE_APPS_SERVICE = "crossprofileapps";
     @android.annotation.SystemApi
     public static final java.lang.String D2D_CONNECTIVITY_SERVICE = "d2d_connectivity";
@@ -156,7 +158,6 @@ public abstract class Context {
     public static final java.lang.String EUICC_CARD_SERVICE = "euicc_card";
     public static final java.lang.String EUICC_SERVICE = "euicc";
     public static final java.lang.String FACE_SERVICE = "face";
-    public static final java.lang.String FEATURE_FLAGS_SERVICE = "feature_flags";
     public static final java.lang.String FILE_INTEGRITY_SERVICE = "file_integrity";
     public static final java.lang.String FILE_SERVICE = "file";
     public static final java.lang.String FINGERPRINT_SERVICE = "fingerprint";
@@ -199,6 +200,7 @@ public abstract class Context {
     public static final java.lang.String MEDIA_SESSION_SERVICE = "media_session";
     @android.annotation.SystemApi
     public static final java.lang.String MEDIA_TRANSCODING_SERVICE = "media_transcoding";
+    public static final java.lang.String MEMORY_BUDGET_SERVICE = "memory_budget";
     public static final java.lang.String MIDI_SERVICE = "midi";
     public static final java.lang.String MMS_SERVICE = "mms";
     public static final int MODE_APPEND = 32768;
@@ -324,6 +326,8 @@ public abstract class Context {
     public static final java.lang.String TASK_CONTINUITY_SERVICE = "task_continuity";
     public static final java.lang.String TELECOM_SERVICE = "telecom";
     public static final java.lang.String TELEPHONY_IMS_SERVICE = "telephony_ims";
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static final java.lang.String TELEPHONY_ONS_SERVICE = "ions";
     public static final java.lang.String TELEPHONY_PHONE_NUMBER_SERVICE = "telephony_phone_number";
     public static final java.lang.String TELEPHONY_RCS_MESSAGE_SERVICE = "ircsmessage";
     public static final java.lang.String TELEPHONY_REGISTRY_SERVICE = "telephony_registry";

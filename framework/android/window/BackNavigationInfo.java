@@ -21,9 +21,10 @@ public final class BackNavigationInfo implements android.os.Parcelable {
     private final android.window.IOnBackInvokedCallback mOnBackInvokedCallback = null;
     private final android.os.RemoteCallback mOnBackNavigationDone = null;
     private final boolean mPrepareRemoteAnimation = false;
+    private final int mTargetDisplayId = 0;
     private final android.graphics.Rect mTouchableRegion = null;
     private final int mType = 0;
-    private BackNavigationInfo(int p0, android.os.RemoteCallback p1, android.window.IOnBackInvokedCallback p2, boolean p3, boolean p4, android.window.BackNavigationInfo.CustomAnimationInfo p5, int p6, android.graphics.Rect p7, boolean p8, int p9) {}
+    private BackNavigationInfo(int p0, android.os.RemoteCallback p1, android.window.IOnBackInvokedCallback p2, boolean p3, boolean p4, android.window.BackNavigationInfo.CustomAnimationInfo p5, int p6, android.graphics.Rect p7, boolean p8, int p9, int p10) {}
     private BackNavigationInfo(android.os.Parcel p0) {}
     public static java.lang.String typeToString(int p0) { return null; }
     public int describeContents() { return 0; }
@@ -32,6 +33,7 @@ public final class BackNavigationInfo implements android.os.Parcelable {
     public int getFocusedTaskId() { return 0; }
     public int getLetterboxColor() { return 0; }
     public android.window.IOnBackInvokedCallback getOnBackInvokedCallback() { return null; }
+    public int getTargetDisplayId() { return 0; }
     public android.graphics.Rect getTouchableRegion() { return null; }
     public int getType() { return 0; }
     public boolean isAnimationCallback() { return false; }
@@ -40,36 +42,6 @@ public final class BackNavigationInfo implements android.os.Parcelable {
     public void onBackNavigationFinished(boolean p0) {}
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BackTargetType {
-    }
-
-    public static class Builder {
-        private boolean mAnimationCallback;
-        private boolean mAppProgressGenerationAllowed;
-        private android.window.BackNavigationInfo.CustomAnimationInfo mCustomAnimationInfo;
-        private int mFocusedTaskId;
-        private int mLetterboxColor;
-        private android.window.IOnBackInvokedCallback mOnBackInvokedCallback;
-        private android.os.RemoteCallback mOnBackNavigationDone;
-        private boolean mPrepareRemoteAnimation;
-        private android.graphics.Rect mTouchableRegion;
-        private int mType;
-        public Builder() {}
-        public android.window.BackNavigationInfo build() { return null; }
-        public android.window.BackNavigationInfo.Builder setAnimationCallback(boolean p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setAppProgressAllowed(boolean p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setCustomAnimation(java.lang.String p0, int p1, int p2, int p3) { return null; }
-        public android.window.BackNavigationInfo.Builder setFocusedTaskId(int p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setLetterboxColor(int p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setOnBackInvokedCallback(android.window.IOnBackInvokedCallback p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setOnBackNavigationDone(android.os.RemoteCallback p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setPrepareRemoteAnimation(boolean p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setTouchableRegion(android.graphics.Rect p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setType(int p0) { return null; }
-        public android.window.BackNavigationInfo.Builder setWindowAnimations(java.lang.String p0, int p1) { return null; }
-    }
 
     public static final class CustomAnimationInfo implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.BackNavigationInfo.CustomAnimationInfo> CREATOR = null;
@@ -88,5 +60,37 @@ public final class BackNavigationInfo implements android.os.Parcelable {
         public int getWindowAnimations() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BackTargetType {
+    }
+
+    public static class Builder {
+        private boolean mAnimationCallback;
+        private boolean mAppProgressGenerationAllowed;
+        private android.window.BackNavigationInfo.CustomAnimationInfo mCustomAnimationInfo;
+        private int mFocusedTaskId;
+        private int mLetterboxColor;
+        private android.window.IOnBackInvokedCallback mOnBackInvokedCallback;
+        private android.os.RemoteCallback mOnBackNavigationDone;
+        private boolean mPrepareRemoteAnimation;
+        private int mTargetDisplayId;
+        private android.graphics.Rect mTouchableRegion;
+        private int mType;
+        public Builder() {}
+        public android.window.BackNavigationInfo build() { return null; }
+        public android.window.BackNavigationInfo.Builder setAnimationCallback(boolean p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setAppProgressAllowed(boolean p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setCustomAnimation(java.lang.String p0, int p1, int p2, int p3) { return null; }
+        public android.window.BackNavigationInfo.Builder setFocusedTaskId(int p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setLetterboxColor(int p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setOnBackInvokedCallback(android.window.IOnBackInvokedCallback p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setOnBackNavigationDone(android.os.RemoteCallback p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setPrepareRemoteAnimation(boolean p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setTargetDisplayId(int p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setTouchableRegion(android.graphics.Rect p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setType(int p0) { return null; }
+        public android.window.BackNavigationInfo.Builder setWindowAnimations(java.lang.String p0, int p1) { return null; }
     }
 }

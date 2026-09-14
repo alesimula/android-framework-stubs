@@ -60,7 +60,9 @@ public final class NetworkSecurityEvent implements android.os.Parcelable {
     private final java.lang.String mPlmn = null;
     private final int mRat = 0;
     private final int[] mReasonCodes = null;
+    private final long mTimestampMillis = 0L;
     public NetworkSecurityEvent(int p0, int p1, int[] p2, long p3, int p4, int p5, java.lang.String p6, int p7, boolean p8) {}
+    public NetworkSecurityEvent(int p0, int p1, int[] p2, long p3, int p4, int p5, java.lang.String p6, int p7, boolean p8, long p9) {}
     private NetworkSecurityEvent(android.os.Parcel p0) {}
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
@@ -72,24 +74,25 @@ public final class NetworkSecurityEvent implements android.os.Parcelable {
     public java.lang.String getPlmn() { return null; }
     public int getRat() { return 0; }
     public int[] getReasonCodes() { return null; }
+    public long getTimestampMillis() { return 0L; }
     public int hashCode() { return 0; }
     public boolean isEmergency() { return false; }
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertCategory {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AlertStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ReasonCode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AlertCategory {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface RilRadioTechnology {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AlertStatus {
     }
 }

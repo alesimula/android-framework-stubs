@@ -10,6 +10,8 @@ public @interface SimpleActionType {
     public static final int CONTEXTUAL_INSERT = 22;
     public static final int CONTEXTUAL_QUERY = 24;
     public static final int CONTEXTUAL_SEARCH = 23;
+    public static final int COPY = 26;
+    public static final int CUT = 28;
     public static final int DICTATION = 5;
     public static final int DO_NOTHING = 18;
     public static final int EMOJI_MENU = 6;
@@ -19,9 +21,11 @@ public @interface SimpleActionType {
     public static final int MEDIA_PLAY_PAUSE = 10;
     public static final int MEDIA_PREVIOUS = 11;
     public static final int PARTIAL_SCREENSHOT = 20;
+    public static final int PASTE = 27;
     public static final int PRINT_SCREEN = 12;
     public static final int SCREEN_CAPTURE = 13;
     public static final int SHOW_DESKTOP = 14;
+    public static final int SWITCH_INPUT_LANGUAGE = 29;
     public static final int VOICE_ASSIST = 25;
     public static final int VOLUME_DOWN = 15;
     public static final int VOLUME_MUTE = 16;

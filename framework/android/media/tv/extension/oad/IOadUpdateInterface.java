@@ -15,23 +15,6 @@ public interface IOadUpdateInterface extends android.os.IInterface {
     public void stopScan() throws android.os.RemoteException;
     public void unregisterListener(android.media.tv.extension.oad.IOadListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.oad.IOadUpdateInterface {
-        public Default() {}
-        public void applyUpgrade(java.lang.String p0, long p1, long p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean getOadStatus() throws android.os.RemoteException { return false; }
-        public int getSoftwareVersion() throws android.os.RemoteException { return 0; }
-        public void registerListener(android.media.tv.extension.oad.IOadListener p0) throws android.os.RemoteException {}
-        public void setOadStatus(boolean p0) throws android.os.RemoteException {}
-        public void startDetect() throws android.os.RemoteException {}
-        public void startDownload() throws android.os.RemoteException {}
-        public void startScan() throws android.os.RemoteException {}
-        public void stopDetect() throws android.os.RemoteException {}
-        public void stopDownload() throws android.os.RemoteException {}
-        public void stopScan() throws android.os.RemoteException {}
-        public void unregisterListener(android.media.tv.extension.oad.IOadListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.oad.IOadUpdateInterface {
         static final int TRANSACTION_applyUpgrade = 12;
         static final int TRANSACTION_getOadStatus = 2;
@@ -70,5 +53,22 @@ public interface IOadUpdateInterface extends android.os.IInterface {
             public void stopScan() throws android.os.RemoteException {}
             public void unregisterListener(android.media.tv.extension.oad.IOadListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.oad.IOadUpdateInterface {
+        public Default() {}
+        public void applyUpgrade(java.lang.String p0, long p1, long p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean getOadStatus() throws android.os.RemoteException { return false; }
+        public int getSoftwareVersion() throws android.os.RemoteException { return 0; }
+        public void registerListener(android.media.tv.extension.oad.IOadListener p0) throws android.os.RemoteException {}
+        public void setOadStatus(boolean p0) throws android.os.RemoteException {}
+        public void startDetect() throws android.os.RemoteException {}
+        public void startDownload() throws android.os.RemoteException {}
+        public void startScan() throws android.os.RemoteException {}
+        public void stopDetect() throws android.os.RemoteException {}
+        public void stopDownload() throws android.os.RemoteException {}
+        public void stopScan() throws android.os.RemoteException {}
+        public void unregisterListener(android.media.tv.extension.oad.IOadListener p0) throws android.os.RemoteException {}
     }
 }

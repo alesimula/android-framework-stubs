@@ -7,6 +7,7 @@ public final class TelephonyServiceManager {
     public android.os.TelephonyServiceManager.ServiceRegisterer getEuiccCardControllerServiceRegisterer() { return null; }
     public android.os.TelephonyServiceManager.ServiceRegisterer getEuiccControllerService() { return null; }
     public android.os.TelephonyServiceManager.ServiceRegisterer getIccPhoneBookServiceRegisterer() { return null; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public android.os.TelephonyServiceManager.ServiceRegisterer getOpportunisticNetworkServiceRegisterer() { return null; }
     public android.os.TelephonyServiceManager.ServiceRegisterer getPhoneNumberServiceRegisterer() { return null; }
     public android.os.TelephonyServiceManager.ServiceRegisterer getPhoneSubServiceRegisterer() { return null; }

@@ -30,6 +30,10 @@ public final class WalletCard implements android.os.Parcelable {
     public void removeCardLocations() {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CardType {
+    }
+
     public static final class Builder {
         private android.graphics.drawable.Icon mCardIcon;
         private java.lang.String mCardId;
@@ -47,9 +51,5 @@ public final class WalletCard implements android.os.Parcelable {
         public android.service.quickaccesswallet.WalletCard.Builder setCardLabel(java.lang.CharSequence p0) { return null; }
         public android.service.quickaccesswallet.WalletCard.Builder setCardLocations(java.util.List<android.location.Location> p0) { return null; }
         public android.service.quickaccesswallet.WalletCard.Builder setNonPaymentCardSecondaryImage(android.graphics.drawable.Icon p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CardType {
     }
 }

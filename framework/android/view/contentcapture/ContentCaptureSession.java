@@ -29,7 +29,7 @@ public abstract class ContentCaptureSession implements java.lang.AutoCloseable {
     public static final int STATE_SERVICE_RESURRECTED = 4096;
     public static final int STATE_SERVICE_UPDATING = 2048;
     public static final int STATE_WAITING_FOR_SERVER = 1;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureSession";
     public static final int UNKNOWN_STATE = 0;
     public static final int VERSION_1 = 1;
     public static final int VERSION_2 = 2;
@@ -57,6 +57,7 @@ public abstract class ContentCaptureSession implements java.lang.AutoCloseable {
     public abstract int getContentCaptureVersion();
     public int getId() { return 0; }
     protected abstract android.view.contentcapture.ContentCaptureSession getMainCaptureSession();
+    public abstract void internalAddOnNodesCommitListener(java.lang.Runnable p0);
     abstract void internalNotifyChildSessionFinished(int p0, int p1);
     abstract void internalNotifyChildSessionStarted(int p0, int p1, android.view.contentcapture.ContentCaptureContext p2);
     protected abstract void internalNotifyContentInteractionEvent(int p0, android.view.autofill.AutofillId p1);
@@ -69,6 +70,8 @@ public abstract class ContentCaptureSession implements java.lang.AutoCloseable {
     protected abstract void internalNotifyViewInsetsChanged(int p0, android.graphics.Insets p1);
     protected abstract void internalNotifyViewTextChanged(int p0, android.view.autofill.AutofillId p1, java.lang.CharSequence p2);
     protected abstract void internalNotifyViewTreeEvent(int p0, boolean p1);
+    public abstract void internalRemoveOnNodesCommitListener(java.lang.Runnable p0);
+    public abstract void internalScheduleNodesCommit();
     boolean isContentCaptureEnabled() { return false; }
     public boolean isContentCaptureVersion1() { return false; }
     abstract boolean isDisabled();
@@ -79,6 +82,8 @@ public abstract class ContentCaptureSession implements java.lang.AutoCloseable {
     public abstract void notifyContentCaptureEvents(android.util.SparseArray<java.util.ArrayList<java.lang.Object>> p0);
     public abstract void notifyContentCaptureInteractionEvents(android.util.SparseArray<java.util.ArrayList<java.lang.Object>> p0);
     public void notifyContentInteractionEvent(android.view.autofill.AutofillId p0) {}
+    public abstract void notifyNodeAppearedOrChanged(android.view.autofill.AutofillId p0, android.view.contentcapture.ContentCaptureNodeProperties p1);
+    public abstract void notifyNodeDisappeared(android.view.autofill.AutofillId p0);
     public final void notifySessionPaused() {}
     public final void notifySessionResumed() {}
     public final void notifyViewAppeared(android.view.ViewStructure p0) {}
@@ -97,10 +102,10 @@ public abstract class ContentCaptureSession implements java.lang.AutoCloseable {
     abstract void updateContentCaptureContext(android.view.contentcapture.ContentCaptureContext p0);
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ContentCaptureVersion {
+    public static @interface FlushReason {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FlushReason {
+    public static @interface ContentCaptureVersion {
     }
 }

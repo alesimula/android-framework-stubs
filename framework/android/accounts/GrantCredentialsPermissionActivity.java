@@ -13,6 +13,7 @@ public class GrantCredentialsPermissionActivity extends android.app.Activity imp
     private int mUid;
     public GrantCredentialsPermissionActivity() { super(); }
     private java.lang.String getAccountLabel(android.accounts.Account p0) { return null; }
+    private java.lang.String makeSafe(java.lang.String p0) { return null; }
     private android.view.View newPackageView(java.lang.String p0) { return null; }
     public void finish() {}
     public void onClick(android.view.View p0) {}

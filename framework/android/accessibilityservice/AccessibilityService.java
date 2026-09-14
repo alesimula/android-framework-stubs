@@ -110,6 +110,7 @@ public abstract class AccessibilityService extends android.app.Service {
     private android.accessibilityservice.AccessibilityService.SoftKeyboardController mSoftKeyboardController;
     private final android.util.SparseArray<android.accessibilityservice.TouchInteractionController> mTouchInteractionControllers = null;
     private android.view.WindowManager mWindowManager;
+    private android.view.WindowManagerImpl mWindowManagerImpl;
     private android.os.IBinder mWindowToken;
     public AccessibilityService() { super(); }
     private int calculateGestureSampleTimeMs(int p0) { return 0; }
@@ -179,19 +180,6 @@ public abstract class AccessibilityService extends android.app.Service {
     public void takeScreenshot(int p0, java.util.concurrent.Executor p1, android.accessibilityservice.AccessibilityService.TakeScreenshotCallback p2) {}
     public void takeScreenshotOfWindow(int p0, java.util.concurrent.Executor p1, android.accessibilityservice.AccessibilityService.TakeScreenshotCallback p2) {}
 
-    private static class AccessibilityContext extends android.content.ContextWrapper {
-        private final int mConnectionId = 0;
-        private AccessibilityContext(android.content.Context p0, int p1) { super(null); }
-        private void setDefaultTokenInternal(android.content.Context p0, int p1) {}
-        public android.content.Context createDisplayContext(android.view.Display p0) { return null; }
-        public android.content.Context createWindowContext(int p0, android.os.Bundle p1) { return null; }
-        public android.content.Context createWindowContext(android.view.Display p0, int p1, android.os.Bundle p2) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttachOverlayResult {
-    }
-
     public static interface Callbacks {
         public void createImeSession(com.android.internal.inputmethod.IAccessibilityInputMethodSessionCallback p0);
         public void init(int p0, android.os.IBinder p1);
@@ -211,6 +199,19 @@ public abstract class AccessibilityService extends android.app.Service {
         public void onSystemActionsChanged();
         public void onTouchStateChanged(int p0, int p1);
         public void startInput(com.android.internal.inputmethod.RemoteAccessibilityInputConnection p0, android.view.inputmethod.EditorInfo p1, boolean p2);
+    }
+
+    private static class AccessibilityContext extends android.content.ContextWrapper {
+        private final int mConnectionId = 0;
+        private AccessibilityContext(android.content.Context p0, int p1) { super(null); }
+        private void setDefaultTokenInternal(android.content.Context p0, int p1) {}
+        public android.content.Context createDisplayContext(android.view.Display p0) { return null; }
+        public android.content.Context createWindowContext(int p0, android.os.Bundle p1) { return null; }
+        public android.content.Context createWindowContext(android.view.Display p0, int p1, android.os.Bundle p2) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AttachOverlayResult {
     }
 
     public static abstract class GestureResultCallback {

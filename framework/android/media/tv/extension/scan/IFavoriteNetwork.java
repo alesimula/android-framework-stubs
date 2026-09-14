@@ -6,14 +6,6 @@ public interface IFavoriteNetwork extends android.os.IInterface {
     public int setFavoriteNetwork(android.os.Bundle p0) throws android.os.RemoteException;
     public int setListener(android.media.tv.extension.scan.IFavoriteNetworkListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.scan.IFavoriteNetwork {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.Bundle[] getFavoriteNetworks() throws android.os.RemoteException { return null; }
-        public int setFavoriteNetwork(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
-        public int setListener(android.media.tv.extension.scan.IFavoriteNetworkListener p0) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.scan.IFavoriteNetwork {
         static final int TRANSACTION_getFavoriteNetworks = 1;
         static final int TRANSACTION_setFavoriteNetwork = 2;
@@ -34,5 +26,13 @@ public interface IFavoriteNetwork extends android.os.IInterface {
             public int setFavoriteNetwork(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
             public int setListener(android.media.tv.extension.scan.IFavoriteNetworkListener p0) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.scan.IFavoriteNetwork {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.Bundle[] getFavoriteNetworks() throws android.os.RemoteException { return null; }
+        public int setFavoriteNetwork(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
+        public int setListener(android.media.tv.extension.scan.IFavoriteNetworkListener p0) throws android.os.RemoteException { return 0; }
     }
 }

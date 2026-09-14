@@ -15,6 +15,10 @@ public abstract class Qos implements android.os.Parcelable {
     public int hashCode() { return 0; }
     public void writeToParcel(int p0, android.os.Parcel p1, int p2) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface QosType {
+    }
+
     public static class QosBandwidth implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.telephony.data.Qos.QosBandwidth> CREATOR = null;
         int guaranteedBitrateKbps;
@@ -28,9 +32,5 @@ public abstract class Qos implements android.os.Parcelable {
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface QosType {
     }
 }

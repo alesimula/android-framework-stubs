@@ -169,68 +169,27 @@ public class LockPatternView extends android.view.View {
     public void setPattern(com.android.internal.widget.LockPatternView.DisplayMode p0, java.util.List<com.android.internal.widget.LockPatternView.Cell> p1) {}
     public void startCellStateAnimation(com.android.internal.widget.LockPatternView.CellState p0, float p1, float p2, float p3, float p4, float p5, float p6, long p7, long p8, android.view.animation.Interpolator p9, java.lang.Runnable p10) {}
 
-    public static final class Cell {
-        private static final com.android.internal.widget.LockPatternView.Cell[][] sCells = null;
-        final int column = 0;
-        final int row = 0;
-        private Cell(int p0, int p1) {}
-        private static void checkRange(int p0, int p1) {}
-        private static com.android.internal.widget.LockPatternView.Cell[][] createCells() { return null; }
-        public static com.android.internal.widget.LockPatternView.Cell of(int p0, int p1) { return null; }
-        public int getColumn() { return 0; }
-        public int getRow() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static class CellState {
-        float activationAnimationProgress;
-        android.animation.Animator activationAnimator;
-        float alpha;
-        int col;
-        android.animation.Animator deactivationAnimator;
-        boolean hwAnimating;
-        android.graphics.CanvasProperty<java.lang.Float> hwCenterX;
-        android.graphics.CanvasProperty<java.lang.Float> hwCenterY;
-        android.graphics.CanvasProperty<android.graphics.Paint> hwPaint;
-        android.graphics.CanvasProperty<java.lang.Float> hwRadius;
-        public float lineEndX;
-        public float lineEndY;
-        float radius;
-        int row;
-        float translationY;
-        public CellState() {}
-    }
-
-    public static enum DisplayMode {
-        Animate,
-        Correct,
-        Wrong;
-        private static final com.android.internal.widget.LockPatternView.DisplayMode[] $VALUES = null;
-        private DisplayMode() {}
+    private static class SavedState extends android.view.View.BaseSavedState {
+        public static final android.os.Parcelable.Creator<com.android.internal.widget.LockPatternView.SavedState> CREATOR = null;
+        private final int mDisplayMode = 0;
+        private final boolean mInStealthMode = false;
+        private final boolean mInputEnabled = false;
+        private final int mInputMode = 0;
+        private final boolean mPatternInProgress = false;
+        private final java.lang.String mSerializedPattern = null;
+        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        private SavedState(android.os.Parcelable p0, java.lang.String p1, int p2, boolean p3, int p4, boolean p5, boolean p6) { super((android.os.Parcel)null); }
+        int getDisplayMode() { return 0; }
+        int getInputMode() { return 0; }
+        java.lang.String getSerializedPattern() { return null; }
+        boolean isInStealthMode() { return false; }
+        boolean isInputEnabled() { return false; }
+        boolean isPatternInProgress() { return false; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static interface ExternalHapticsPlayer {
         public void performCellAddedFeedback();
-    }
-
-    public static enum InputMode {
-        Click,
-        Swipe;
-        private static final com.android.internal.widget.LockPatternView.InputMode[] $VALUES = null;
-        private InputMode() {}
-    }
-
-    public static interface OnPatternListener {
-        @java.lang.Deprecated
-        default public void onPatternCellAdded(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0) {}
-        default public void onPatternCellAdded(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0, com.android.internal.widget.LockPatternView.InputMode p1) {}
-        default public void onPatternCleared() {}
-        @java.lang.Deprecated
-        default public void onPatternDetected(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0) {}
-        default public void onPatternDetected(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0, com.android.internal.widget.LockPatternView.InputMode p1) {}
-        @java.lang.Deprecated
-        default public void onPatternStart() {}
-        default public void onPatternStart(com.android.internal.widget.LockPatternView.InputMode p0) {}
     }
 
     private final class PatternExploreByTouchHelper extends com.android.internal.widget.ExploreByTouchHelper {
@@ -256,22 +215,63 @@ public class LockPatternView extends android.view.View {
         }
     }
 
-    private static class SavedState extends android.view.View.BaseSavedState {
-        public static final android.os.Parcelable.Creator<com.android.internal.widget.LockPatternView.SavedState> CREATOR = null;
-        private final int mDisplayMode = 0;
-        private final boolean mInStealthMode = false;
-        private final boolean mInputEnabled = false;
-        private final int mInputMode = 0;
-        private final boolean mPatternInProgress = false;
-        private final java.lang.String mSerializedPattern = null;
-        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        private SavedState(android.os.Parcelable p0, java.lang.String p1, int p2, boolean p3, int p4, boolean p5, boolean p6) { super((android.os.Parcel)null); }
-        int getDisplayMode() { return 0; }
-        int getInputMode() { return 0; }
-        java.lang.String getSerializedPattern() { return null; }
-        boolean isInStealthMode() { return false; }
-        boolean isInputEnabled() { return false; }
-        boolean isPatternInProgress() { return false; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public static enum InputMode {
+        Click,
+        Swipe;
+        private static final com.android.internal.widget.LockPatternView.InputMode[] $VALUES = null;
+        private InputMode() {}
+    }
+
+    public static class CellState {
+        float activationAnimationProgress;
+        android.animation.Animator activationAnimator;
+        float alpha;
+        int col;
+        android.animation.Animator deactivationAnimator;
+        boolean hwAnimating;
+        android.graphics.CanvasProperty<java.lang.Float> hwCenterX;
+        android.graphics.CanvasProperty<java.lang.Float> hwCenterY;
+        android.graphics.CanvasProperty<android.graphics.Paint> hwPaint;
+        android.graphics.CanvasProperty<java.lang.Float> hwRadius;
+        public float lineEndX;
+        public float lineEndY;
+        float radius;
+        int row;
+        float translationY;
+        public CellState() {}
+    }
+
+    public static interface OnPatternListener {
+        @java.lang.Deprecated
+        default public void onPatternCellAdded(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0) {}
+        default public void onPatternCellAdded(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0, com.android.internal.widget.LockPatternView.InputMode p1) {}
+        default public void onPatternCleared() {}
+        @java.lang.Deprecated
+        default public void onPatternDetected(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0) {}
+        default public void onPatternDetected(java.util.List<com.android.internal.widget.LockPatternView.Cell> p0, com.android.internal.widget.LockPatternView.InputMode p1) {}
+        @java.lang.Deprecated
+        default public void onPatternStart() {}
+        default public void onPatternStart(com.android.internal.widget.LockPatternView.InputMode p0) {}
+    }
+
+    public static final class Cell {
+        private static final com.android.internal.widget.LockPatternView.Cell[][] sCells = null;
+        final int column = 0;
+        final int row = 0;
+        private Cell(int p0, int p1) {}
+        private static void checkRange(int p0, int p1) {}
+        private static com.android.internal.widget.LockPatternView.Cell[][] createCells() { return null; }
+        public static com.android.internal.widget.LockPatternView.Cell of(int p0, int p1) { return null; }
+        public int getColumn() { return 0; }
+        public int getRow() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static enum DisplayMode {
+        Animate,
+        Correct,
+        Wrong;
+        private static final com.android.internal.widget.LockPatternView.DisplayMode[] $VALUES = null;
+        private DisplayMode() {}
     }
 }

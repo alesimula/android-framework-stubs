@@ -73,6 +73,10 @@ public class TaskSnapshot implements android.os.Parcelable {
     public android.graphics.Bitmap wrapToBitmap(android.graphics.ColorSpace p0) { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ReferenceFlags {
+    }
+
     public static final class Builder {
         private int mAppearance;
         private long mCaptureTime;
@@ -113,9 +117,5 @@ public class TaskSnapshot implements android.os.Parcelable {
         public android.window.TaskSnapshot.Builder setTopActivityComponent(android.content.ComponentName p0) { return null; }
         public android.window.TaskSnapshot.Builder setUiMode(int p0) { return null; }
         public android.window.TaskSnapshot.Builder setWindowingMode(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ReferenceFlags {
     }
 }

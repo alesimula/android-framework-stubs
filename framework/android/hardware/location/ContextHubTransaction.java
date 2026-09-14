@@ -35,11 +35,6 @@ public class ContextHubTransaction<T extends java.lang.Object> {
     public void setResponse(android.hardware.location.ContextHubTransaction.Response<T> p0) {}
     public android.hardware.location.ContextHubTransaction.Response<T> waitForResponse(long p0, java.util.concurrent.TimeUnit p1) throws java.lang.InterruptedException, java.util.concurrent.TimeoutException { return null; }
 
-    @java.lang.FunctionalInterface
-    public static interface OnCompleteListener<L extends java.lang.Object> {
-        public void onComplete(android.hardware.location.ContextHubTransaction<L> p0, android.hardware.location.ContextHubTransaction.Response<L> p1);
-    }
-
     public static class Response<R extends java.lang.Object> {
         private R mContents;
         private int mResult;
@@ -50,6 +45,11 @@ public class ContextHubTransaction<T extends java.lang.Object> {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Result {
+    }
+
+    @java.lang.FunctionalInterface
+    public static interface OnCompleteListener<L extends java.lang.Object> {
+        public void onComplete(android.hardware.location.ContextHubTransaction<L> p0, android.hardware.location.ContextHubTransaction.Response<L> p1);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

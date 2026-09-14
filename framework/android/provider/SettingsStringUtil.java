@@ -20,15 +20,6 @@ public class SettingsStringUtil {
         }
     }
 
-    public static class ComponentNameSet extends android.provider.SettingsStringUtil.ColonDelimitedSet<android.content.ComponentName> {
-        public ComponentNameSet(java.lang.String p0) { super(null); }
-        public static java.lang.String add(java.lang.String p0, android.content.ComponentName p1) { return null; }
-        public static boolean contains(java.lang.String p0, android.content.ComponentName p1) { return false; }
-        public static java.lang.String remove(java.lang.String p0, android.content.ComponentName p1) { return null; }
-        protected android.content.ComponentName itemFromString(java.lang.String p0) { return null; }
-        protected java.lang.String itemToString(android.content.ComponentName p0) { return null; }
-    }
-
     public static class SettingStringHelper {
         private final android.content.ContentResolver mContentResolver = null;
         private final java.lang.String mSettingName = null;
@@ -37,5 +28,14 @@ public class SettingsStringUtil {
         public boolean modify(java.util.function.Function<java.lang.String, java.lang.String> p0) { return false; }
         public java.lang.String read() { return null; }
         public boolean write(java.lang.String p0) { return false; }
+    }
+
+    public static class ComponentNameSet extends android.provider.SettingsStringUtil.ColonDelimitedSet<android.content.ComponentName> {
+        public ComponentNameSet(java.lang.String p0) { super(null); }
+        public static java.lang.String add(java.lang.String p0, android.content.ComponentName p1) { return null; }
+        public static boolean contains(java.lang.String p0, android.content.ComponentName p1) { return false; }
+        public static java.lang.String remove(java.lang.String p0, android.content.ComponentName p1) { return null; }
+        protected android.content.ComponentName itemFromString(java.lang.String p0) { return null; }
+        protected java.lang.String itemToString(android.content.ComponentName p0) { return null; }
     }
 }

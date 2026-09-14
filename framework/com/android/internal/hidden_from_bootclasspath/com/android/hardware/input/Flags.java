@@ -13,22 +13,25 @@ public final class Flags {
     public static final java.lang.String FLAG_ENABLE_DETACHABLE_KEYBOARD_SETTINGS_MERGE = "com.android.hardware.input.enable_detachable_keyboard_settings_merge";
     public static final java.lang.String FLAG_ENABLE_HID_API_DEVICE_FILTERING = "com.android.hardware.input.enable_hid_api_device_filtering";
     public static final java.lang.String FLAG_ENABLE_HID_API_INPUT_REPORTS = "com.android.hardware.input.enable_hid_api_input_reports";
+    public static final java.lang.String FLAG_ENABLE_HID_SERVICE_FOCUS_MONITORING = "com.android.hardware.input.enable_hid_service_focus_monitoring";
     public static final java.lang.String FLAG_ENABLE_KEYBOARD_A11Y_CONFIRMATION_DIALOGS = "com.android.hardware.input.enable_keyboard_a11y_confirmation_dialogs";
     public static final java.lang.String FLAG_ENABLE_NEW_25Q2_KEYCODES = "com.android.hardware.input.enable_new_25q2_keycodes";
     public static final java.lang.String FLAG_ENABLE_NEW_26Q2_KEYCODES = "com.android.hardware.input.enable_new_26q2_keycodes";
     public static final java.lang.String FLAG_ENABLE_NEW_26Q3_KEYCODES = "com.android.hardware.input.enable_new_26q3_keycodes";
+    public static final java.lang.String FLAG_ENABLE_NEW_27Q2_KEYCODES = "com.android.hardware.input.enable_new_27q2_keycodes";
     public static final java.lang.String FLAG_ENABLE_NOTES_ROLE_BOOKMARKS_KB_SHORTCUT = "com.android.hardware.input.enable_notes_role_bookmarks_kb_shortcut";
-    public static final java.lang.String FLAG_ENABLE_NOTE_TAKING_KEYBOARD_SHORTCUT = "com.android.hardware.input.enable_note_taking_keyboard_shortcut";
-    public static final java.lang.String FLAG_ENABLE_PARTIAL_SCREENSHOT_KEYBOARD_SHORTCUT = "com.android.hardware.input.enable_partial_screenshot_keyboard_shortcut";
     public static final java.lang.String FLAG_ENABLE_POEM_INPUT_CUSTOMIZATION = "com.android.hardware.input.enable_poem_input_customization";
     public static final java.lang.String FLAG_ENABLE_POEM_INPUT_CUSTOMIZATION_API_V2 = "com.android.hardware.input.enable_poem_input_customization_api_v2";
     public static final java.lang.String FLAG_ENABLE_POEM_INPUT_CUSTOMIZATION_IMPL_V2 = "com.android.hardware.input.enable_poem_input_customization_impl_v2";
     public static final java.lang.String FLAG_ENABLE_SELECT_TO_SPEAK_KEY_GESTURES = "com.android.hardware.input.enable_select_to_speak_key_gestures";
+    public static final java.lang.String FLAG_ENABLE_VIRTUAL_TOUCHPAD_API = "com.android.hardware.input.enable_virtual_touchpad_api";
+    public static final java.lang.String FLAG_FREEZER_AWARE_INPUT_MANAGER = "com.android.hardware.input.freezer_aware_input_manager";
     public static final java.lang.String FLAG_HID_API = "com.android.hardware.input.hid_api";
     public static final java.lang.String FLAG_KEYBOARD_BACKLIGHT_SHORTCUTS = "com.android.hardware.input.keyboard_backlight_shortcuts";
     public static final java.lang.String FLAG_KEYBOARD_GLYPH_MAP = "com.android.hardware.input.keyboard_glyph_map";
     public static final java.lang.String FLAG_KEY_EVENT_ACTIVITY_DETECTION = "com.android.hardware.input.key_event_activity_detection";
     public static final java.lang.String FLAG_MANAGE_KEY_GESTURES = "com.android.hardware.input.manage_key_gestures";
+    public static final java.lang.String FLAG_META_QUESTIONS_SHORTCUT = "com.android.hardware.input.meta_questions_shortcut";
     public static final java.lang.String FLAG_OVERRIDE_POWER_KEY_BEHAVIOR_IN_FOCUSED_WINDOW = "com.android.hardware.input.override_power_key_behavior_in_focused_window";
     public static final java.lang.String FLAG_POINTER_CAPTURE_MODES = "com.android.hardware.input.pointer_capture_modes";
     public static final java.lang.String FLAG_RELATIVE_CAPTURE_MODE_BY_DEFAULT = "com.android.hardware.input.relative_capture_mode_by_default";
@@ -50,22 +53,25 @@ public final class Flags {
     public static boolean enableDetachableKeyboardSettingsMerge() { return false; }
     public static boolean enableHidApiDeviceFiltering() { return false; }
     public static boolean enableHidApiInputReports() { return false; }
+    public static boolean enableHidServiceFocusMonitoring() { return false; }
     public static boolean enableKeyboardA11yConfirmationDialogs() { return false; }
     public static boolean enableNew25q2Keycodes() { return false; }
     public static boolean enableNew26q2Keycodes() { return false; }
     public static boolean enableNew26q3Keycodes() { return false; }
-    public static boolean enableNoteTakingKeyboardShortcut() { return false; }
+    public static boolean enableNew27q2Keycodes() { return false; }
     public static boolean enableNotesRoleBookmarksKbShortcut() { return false; }
-    public static boolean enablePartialScreenshotKeyboardShortcut() { return false; }
     public static boolean enablePoemInputCustomization() { return false; }
     public static boolean enablePoemInputCustomizationApiV2() { return false; }
     public static boolean enablePoemInputCustomizationImplV2() { return false; }
     public static boolean enableSelectToSpeakKeyGestures() { return false; }
+    public static boolean enableVirtualTouchpadApi() { return false; }
+    public static boolean freezerAwareInputManager() { return false; }
     public static boolean hidApi() { return false; }
     public static boolean keyEventActivityDetection() { return false; }
     public static boolean keyboardBacklightShortcuts() { return false; }
     public static boolean keyboardGlyphMap() { return false; }
     public static boolean manageKeyGestures() { return false; }
+    public static boolean metaQuestionsShortcut() { return false; }
     public static boolean overridePowerKeyBehaviorInFocusedWindow() { return false; }
     public static boolean pointerCaptureModes() { return false; }
     public static boolean relativeCaptureModeByDefault() { return false; }

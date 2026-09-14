@@ -386,6 +386,13 @@ public class RenderScript {
     void validate() {}
     void validateObject(android.renderscript.BaseObj p0) {}
 
+    public static class RSErrorHandler implements java.lang.Runnable {
+        protected java.lang.String mErrorMessage;
+        protected int mErrorNum;
+        public RSErrorHandler() {}
+        public void run() {}
+    }
+
     public static enum ContextType {
         DEBUG,
         NORMAL,
@@ -393,6 +400,14 @@ public class RenderScript {
         private static final android.renderscript.RenderScript.ContextType[] $VALUES = null;
         int mID;
         private ContextType() {}
+    }
+
+    public static enum Priority {
+        LOW,
+        NORMAL;
+        private static final android.renderscript.RenderScript.Priority[] $VALUES = null;
+        int mID;
+        private Priority() {}
     }
 
     static class MessageThread extends java.lang.Thread {
@@ -408,21 +423,6 @@ public class RenderScript {
         android.renderscript.RenderScript mRS;
         boolean mRun;
         MessageThread(android.renderscript.RenderScript p0) { super(); }
-        public void run() {}
-    }
-
-    public static enum Priority {
-        LOW,
-        NORMAL;
-        private static final android.renderscript.RenderScript.Priority[] $VALUES = null;
-        int mID;
-        private Priority() {}
-    }
-
-    public static class RSErrorHandler implements java.lang.Runnable {
-        protected java.lang.String mErrorMessage;
-        protected int mErrorNum;
-        public RSErrorHandler() {}
         public void run() {}
     }
 

@@ -14,13 +14,6 @@ public final class ImsFeatureConfiguration implements android.os.Parcelable {
     public int hashCode() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static class Builder {
-        android.telephony.ims.stub.ImsFeatureConfiguration mConfig;
-        public Builder() {}
-        public android.telephony.ims.stub.ImsFeatureConfiguration.Builder addFeature(int p0, int p1) { return null; }
-        public android.telephony.ims.stub.ImsFeatureConfiguration build() { return null; }
-    }
-
     public static final class FeatureSlotPair {
         public final int featureType = 0;
         public final int slotId = 0;
@@ -28,5 +21,12 @@ public final class ImsFeatureConfiguration implements android.os.Parcelable {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    public static class Builder {
+        android.telephony.ims.stub.ImsFeatureConfiguration mConfig;
+        public Builder() {}
+        public android.telephony.ims.stub.ImsFeatureConfiguration.Builder addFeature(int p0, int p1) { return null; }
+        public android.telephony.ims.stub.ImsFeatureConfiguration build() { return null; }
     }
 }

@@ -6,14 +6,6 @@ public interface ISelectionToolbarManager extends android.os.IInterface {
     public void hideToolbar() throws android.os.RemoteException;
     public void showToolbar(android.view.selectiontoolbar.ShowInfo p0, android.view.selectiontoolbar.ISelectionToolbarCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.selectiontoolbar.ISelectionToolbarManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dismissToolbar() throws android.os.RemoteException {}
-        public void hideToolbar() throws android.os.RemoteException {}
-        public void showToolbar(android.view.selectiontoolbar.ShowInfo p0, android.view.selectiontoolbar.ISelectionToolbarCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.selectiontoolbar.ISelectionToolbarManager {
         static final int TRANSACTION_dismissToolbar = 3;
         static final int TRANSACTION_hideToolbar = 2;
@@ -34,5 +26,13 @@ public interface ISelectionToolbarManager extends android.os.IInterface {
             public void hideToolbar() throws android.os.RemoteException {}
             public void showToolbar(android.view.selectiontoolbar.ShowInfo p0, android.view.selectiontoolbar.ISelectionToolbarCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.selectiontoolbar.ISelectionToolbarManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dismissToolbar() throws android.os.RemoteException {}
+        public void hideToolbar() throws android.os.RemoteException {}
+        public void showToolbar(android.view.selectiontoolbar.ShowInfo p0, android.view.selectiontoolbar.ISelectionToolbarCallback p1) throws android.os.RemoteException {}
     }
 }

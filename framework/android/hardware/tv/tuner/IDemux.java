@@ -16,22 +16,6 @@ public interface IDemux extends android.os.IInterface {
     public android.hardware.tv.tuner.ITimeFilter openTimeFilter() throws android.os.RemoteException;
     public void setFrontendDataSource(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.IDemux {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public void connectCiCam(int p0) throws android.os.RemoteException {}
-        public void disconnectCiCam() throws android.os.RemoteException {}
-        public int getAvSyncHwId(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException { return 0; }
-        public long getAvSyncTime(int p0) throws android.os.RemoteException { return 0L; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public android.hardware.tv.tuner.IDvr openDvr(byte p0, int p1, android.hardware.tv.tuner.IDvrCallback p2) throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.IFilter openFilter(android.hardware.tv.tuner.DemuxFilterType p0, int p1, android.hardware.tv.tuner.IFilterCallback p2) throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.ITimeFilter openTimeFilter() throws android.os.RemoteException { return null; }
-        public void setFrontendDataSource(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.IDemux {
         static final int TRANSACTION_close = 6;
         static final int TRANSACTION_connectCiCam = 8;
@@ -68,5 +52,21 @@ public interface IDemux extends android.os.IInterface {
             public android.hardware.tv.tuner.ITimeFilter openTimeFilter() throws android.os.RemoteException { return null; }
             public void setFrontendDataSource(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.IDemux {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public void connectCiCam(int p0) throws android.os.RemoteException {}
+        public void disconnectCiCam() throws android.os.RemoteException {}
+        public int getAvSyncHwId(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException { return 0; }
+        public long getAvSyncTime(int p0) throws android.os.RemoteException { return 0L; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public android.hardware.tv.tuner.IDvr openDvr(byte p0, int p1, android.hardware.tv.tuner.IDvrCallback p2) throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.IFilter openFilter(android.hardware.tv.tuner.DemuxFilterType p0, int p1, android.hardware.tv.tuner.IFilterCallback p2) throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.ITimeFilter openTimeFilter() throws android.os.RemoteException { return null; }
+        public void setFrontendDataSource(int p0) throws android.os.RemoteException {}
     }
 }

@@ -7,15 +7,6 @@ public interface ITransportSelectorCallback extends android.os.IInterface {
     public void onWlanSelected(boolean p0) throws android.os.RemoteException;
     public void onWwanSelectedAsync(com.android.internal.telephony.ITransportSelectorResultCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.ITransportSelectorCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCreated(com.android.internal.telephony.IDomainSelector p0) throws android.os.RemoteException {}
-        public void onSelectionTerminated(int p0) throws android.os.RemoteException {}
-        public void onWlanSelected(boolean p0) throws android.os.RemoteException {}
-        public void onWwanSelectedAsync(com.android.internal.telephony.ITransportSelectorResultCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.ITransportSelectorCallback {
         static final int TRANSACTION_onCreated = 1;
         static final int TRANSACTION_onSelectionTerminated = 4;
@@ -38,5 +29,14 @@ public interface ITransportSelectorCallback extends android.os.IInterface {
             public void onWlanSelected(boolean p0) throws android.os.RemoteException {}
             public void onWwanSelectedAsync(com.android.internal.telephony.ITransportSelectorResultCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.ITransportSelectorCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCreated(com.android.internal.telephony.IDomainSelector p0) throws android.os.RemoteException {}
+        public void onSelectionTerminated(int p0) throws android.os.RemoteException {}
+        public void onWlanSelected(boolean p0) throws android.os.RemoteException {}
+        public void onWwanSelectedAsync(com.android.internal.telephony.ITransportSelectorResultCallback p0) throws android.os.RemoteException {}
     }
 }

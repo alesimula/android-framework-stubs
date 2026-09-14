@@ -148,41 +148,55 @@ public final class MediaDrm implements java.lang.AutoCloseable {
     public native void setPropertyString(java.lang.String p0, java.lang.String p1);
     public byte[] signRSA(byte[] p0, java.lang.String p1, byte[] p2, byte[] p3) { return null; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ArrayProperty {
+    public static final class MetricsConstants {
+        public static final java.lang.String CLOSE_SESSION_ERROR_COUNT = "drm.mediadrm.close_session.error.count";
+        public static final java.lang.String CLOSE_SESSION_ERROR_LIST = "drm.mediadrm.close_session.error.list";
+        public static final java.lang.String CLOSE_SESSION_OK_COUNT = "drm.mediadrm.close_session.ok.count";
+        public static final java.lang.String EVENT_KEY_EXPIRED_COUNT = "drm.mediadrm.event.KEY_EXPIRED.count";
+        public static final java.lang.String EVENT_KEY_NEEDED_COUNT = "drm.mediadrm.event.KEY_NEEDED.count";
+        public static final java.lang.String EVENT_PROVISION_REQUIRED_COUNT = "drm.mediadrm.event.PROVISION_REQUIRED.count";
+        public static final java.lang.String EVENT_SESSION_RECLAIMED_COUNT = "drm.mediadrm.event.SESSION_RECLAIMED.count";
+        public static final java.lang.String EVENT_VENDOR_DEFINED_COUNT = "drm.mediadrm.event.VENDOR_DEFINED.count";
+        public static final java.lang.String GET_DEVICE_UNIQUE_ID_ERROR_COUNT = "drm.mediadrm.get_device_unique_id.error.count";
+        public static final java.lang.String GET_DEVICE_UNIQUE_ID_ERROR_LIST = "drm.mediadrm.get_device_unique_id.error.list";
+        public static final java.lang.String GET_DEVICE_UNIQUE_ID_OK_COUNT = "drm.mediadrm.get_device_unique_id.ok.count";
+        public static final java.lang.String GET_KEY_REQUEST_ERROR_COUNT = "drm.mediadrm.get_key_request.error.count";
+        public static final java.lang.String GET_KEY_REQUEST_ERROR_LIST = "drm.mediadrm.get_key_request.error.list";
+        public static final java.lang.String GET_KEY_REQUEST_OK_COUNT = "drm.mediadrm.get_key_request.ok.count";
+        public static final java.lang.String GET_KEY_REQUEST_OK_TIME_MICROS = "drm.mediadrm.get_key_request.ok.average_time_micros";
+        public static final java.lang.String GET_PROVISION_REQUEST_ERROR_COUNT = "drm.mediadrm.get_provision_request.error.count";
+        public static final java.lang.String GET_PROVISION_REQUEST_ERROR_LIST = "drm.mediadrm.get_provision_request.error.list";
+        public static final java.lang.String GET_PROVISION_REQUEST_OK_COUNT = "drm.mediadrm.get_provision_request.ok.count";
+        public static final java.lang.String KEY_STATUS_EXPIRED_COUNT = "drm.mediadrm.key_status.EXPIRED.count";
+        public static final java.lang.String KEY_STATUS_INTERNAL_ERROR_COUNT = "drm.mediadrm.key_status.INTERNAL_ERROR.count";
+        public static final java.lang.String KEY_STATUS_OUTPUT_NOT_ALLOWED_COUNT = "drm.mediadrm.key_status_change.OUTPUT_NOT_ALLOWED.count";
+        public static final java.lang.String KEY_STATUS_PENDING_COUNT = "drm.mediadrm.key_status_change.PENDING.count";
+        public static final java.lang.String KEY_STATUS_USABLE_COUNT = "drm.mediadrm.key_status_change.USABLE.count";
+        public static final java.lang.String OPEN_SESSION_ERROR_COUNT = "drm.mediadrm.open_session.error.count";
+        public static final java.lang.String OPEN_SESSION_ERROR_LIST = "drm.mediadrm.open_session.error.list";
+        public static final java.lang.String OPEN_SESSION_OK_COUNT = "drm.mediadrm.open_session.ok.count";
+        public static final java.lang.String PROVIDE_KEY_RESPONSE_ERROR_COUNT = "drm.mediadrm.provide_key_response.error.count";
+        public static final java.lang.String PROVIDE_KEY_RESPONSE_ERROR_LIST = "drm.mediadrm.provide_key_response.error.list";
+        public static final java.lang.String PROVIDE_KEY_RESPONSE_OK_COUNT = "drm.mediadrm.provide_key_response.ok.count";
+        public static final java.lang.String PROVIDE_KEY_RESPONSE_OK_TIME_MICROS = "drm.mediadrm.provide_key_response.ok.average_time_micros";
+        public static final java.lang.String PROVIDE_PROVISION_RESPONSE_ERROR_COUNT = "drm.mediadrm.provide_provision_response.error.count";
+        public static final java.lang.String PROVIDE_PROVISION_RESPONSE_ERROR_LIST = "drm.mediadrm.provide_provision_response.error.list";
+        public static final java.lang.String PROVIDE_PROVISION_RESPONSE_OK_COUNT = "drm.mediadrm.provide_provision_response.ok.count";
+        public static final java.lang.String SESSION_END_TIMES_MS = "drm.mediadrm.session_end_times_ms";
+        public static final java.lang.String SESSION_START_TIMES_MS = "drm.mediadrm.session_start_times_ms";
+        private MetricsConstants() {}
     }
 
-    public static final class Certificate {
-        private byte[] mCertificateData;
-        private byte[] mWrappedKey;
-        Certificate() {}
-        public byte[] getContent() { return null; }
-        public byte[] getWrappedPrivateKey() { return null; }
-    }
-
-    public static final class CertificateRequest {
-        private byte[] mData;
-        private java.lang.String mDefaultUrl;
-        CertificateRequest(byte[] p0, java.lang.String p1) {}
-        public byte[] getData() { return null; }
-        public java.lang.String getDefaultUrl() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CertificateType {
-    }
-
-    public final class CryptoSession {
-        private byte[] mSessionId;
-        CryptoSession(android.media.MediaDrm p0, byte[] p1, java.lang.String p2, java.lang.String p3) {}
-        public byte[] decrypt(byte[] p0, byte[] p1, byte[] p2) { return null; }
-        public byte[] encrypt(byte[] p0, byte[] p1, byte[] p2) { return null; }
-        public byte[] sign(byte[] p0, byte[] p1) { return null; }
-        public boolean verify(byte[] p0, byte[] p1, byte[] p2) { return false; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DrmEvent {
+    public static final class LogMessage {
+        private final java.lang.String message = null;
+        private final int priority = 0;
+        private final long timestampMillis = 0L;
+        private LogMessage(long p0, int p1, java.lang.String p2) {}
+        private char logPriorityChar() { return 0; }
+        public final java.lang.String getMessage() { return null; }
+        public final int getPriority() { return 0; }
+        public final long getTimestampMillis() { return 0L; }
+        public java.lang.String toString() { return null; }
     }
 
     public static final class ErrorCodes {
@@ -223,9 +237,113 @@ public final class MediaDrm implements java.lang.AutoCloseable {
         private ErrorCodes() {}
     }
 
+    public static interface OnExpirationUpdateListener {
+        public void onExpirationUpdate(android.media.MediaDrm p0, byte[] p1, long p2);
+    }
+
+    public final class CryptoSession {
+        private byte[] mSessionId;
+        CryptoSession(android.media.MediaDrm p0, byte[] p1, java.lang.String p2, java.lang.String p3) {}
+        public byte[] decrypt(byte[] p0, byte[] p1, byte[] p2) { return null; }
+        public byte[] encrypt(byte[] p0, byte[] p1, byte[] p2) { return null; }
+        public byte[] sign(byte[] p0, byte[] p1) { return null; }
+        public boolean verify(byte[] p0, byte[] p1, byte[] p2) { return false; }
+    }
+
+    public static final class MediaDrmStateException extends java.lang.IllegalStateException implements android.media.MediaDrmThrowable {
+        private final java.lang.String mDiagnosticInfo = null;
+        private final int mErrorCode = 0;
+        private final int mErrorContext = 0;
+        private final int mOemError = 0;
+        private final int mVendorError = 0;
+        public MediaDrmStateException(int p0, java.lang.String p1) { super(); }
+        public MediaDrmStateException(java.lang.String p0, int p1, int p2, int p3, int p4) { super(); }
+        public java.lang.String getDiagnosticInfo() { return null; }
+        public int getErrorCode() { return 0; }
+        public int getErrorContext() { return 0; }
+        public int getOemError() { return 0; }
+        public int getVendorError() { return 0; }
+        public boolean isTransient() { return false; }
+    }
+
     @java.lang.Deprecated
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface HdcpLevel {
+    }
+
+    public static interface OnSessionLostStateListener {
+        public void onSessionLostState(android.media.MediaDrm p0, byte[] p1);
+    }
+
+    private static class ListenerWithExecutor {
+        private final java.util.function.Consumer<android.media.MediaDrm.ListenerArgs> mConsumer = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        public ListenerWithExecutor(java.util.concurrent.Executor p0, java.util.function.Consumer<android.media.MediaDrm.ListenerArgs> p1) {}
+    }
+
+    public static interface OnKeyStatusChangeListener {
+        public void onKeyStatusChange(android.media.MediaDrm p0, byte[] p1, java.util.List<android.media.MediaDrm.KeyStatus> p2, boolean p3);
+    }
+
+    public final class PlaybackComponent {
+        private android.media.metrics.LogSessionId mLogSessionId;
+        private final byte[] mSessionId = null;
+        public PlaybackComponent(android.media.MediaDrm p0, byte[] p1) {}
+        public android.media.metrics.LogSessionId getLogSessionId() { return null; }
+        public void setLogSessionId(android.media.metrics.LogSessionId p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OfflineLicenseState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DrmEvent {
+    }
+
+    public static final class CertificateRequest {
+        private byte[] mData;
+        private java.lang.String mDefaultUrl;
+        CertificateRequest(byte[] p0, java.lang.String p1) {}
+        public byte[] getData() { return null; }
+        public java.lang.String getDefaultUrl() { return null; }
+    }
+
+    @java.lang.Deprecated
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SecurityLevel {
+    }
+
+    public static interface OnEventListener {
+        public void onEvent(android.media.MediaDrm p0, byte[] p1, int p2, int p3, byte[] p4);
+    }
+
+    public static final class Certificate {
+        private byte[] mCertificateData;
+        private byte[] mWrappedKey;
+        Certificate() {}
+        public byte[] getContent() { return null; }
+        public byte[] getWrappedPrivateKey() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ArrayProperty {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StringProperty {
+    }
+
+    public static final class ProvisionRequest {
+        private byte[] mData;
+        private java.lang.String mDefaultUrl;
+        ProvisionRequest() {}
+        public byte[] getData() { return null; }
+        public java.lang.String getDefaultUrl() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CertificateType {
     }
 
     public static final class KeyRequest {
@@ -265,10 +383,6 @@ public final class MediaDrm implements java.lang.AutoCloseable {
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface KeyType {
-    }
-
     private static class ListenerArgs {
         private final int arg1 = 0;
         private final int arg2 = 0;
@@ -280,122 +394,12 @@ public final class MediaDrm implements java.lang.AutoCloseable {
         public ListenerArgs(int p0, int p1, byte[] p2, byte[] p3, long p4, java.util.List<android.media.MediaDrm.KeyStatus> p5, boolean p6) {}
     }
 
-    private static class ListenerWithExecutor {
-        private final java.util.function.Consumer<android.media.MediaDrm.ListenerArgs> mConsumer = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        public ListenerWithExecutor(java.util.concurrent.Executor p0, java.util.function.Consumer<android.media.MediaDrm.ListenerArgs> p1) {}
-    }
-
-    public static final class LogMessage {
-        private final java.lang.String message = null;
-        private final int priority = 0;
-        private final long timestampMillis = 0L;
-        private LogMessage(long p0, int p1, java.lang.String p2) {}
-        private char logPriorityChar() { return 0; }
-        public final java.lang.String getMessage() { return null; }
-        public final int getPriority() { return 0; }
-        public final long getTimestampMillis() { return 0L; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface KeyType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface MediaDrmErrorCode {
-    }
-
-    public static final class MediaDrmStateException extends java.lang.IllegalStateException implements android.media.MediaDrmThrowable {
-        private final java.lang.String mDiagnosticInfo = null;
-        private final int mErrorCode = 0;
-        private final int mErrorContext = 0;
-        private final int mOemError = 0;
-        private final int mVendorError = 0;
-        public MediaDrmStateException(int p0, java.lang.String p1) { super(); }
-        public MediaDrmStateException(java.lang.String p0, int p1, int p2, int p3, int p4) { super(); }
-        public java.lang.String getDiagnosticInfo() { return null; }
-        public int getErrorCode() { return 0; }
-        public int getErrorContext() { return 0; }
-        public int getOemError() { return 0; }
-        public int getVendorError() { return 0; }
-        public boolean isTransient() { return false; }
-    }
-
-    public static final class MetricsConstants {
-        public static final java.lang.String CLOSE_SESSION_ERROR_COUNT = "drm.mediadrm.close_session.error.count";
-        public static final java.lang.String CLOSE_SESSION_ERROR_LIST = "drm.mediadrm.close_session.error.list";
-        public static final java.lang.String CLOSE_SESSION_OK_COUNT = "drm.mediadrm.close_session.ok.count";
-        public static final java.lang.String EVENT_KEY_EXPIRED_COUNT = "drm.mediadrm.event.KEY_EXPIRED.count";
-        public static final java.lang.String EVENT_KEY_NEEDED_COUNT = "drm.mediadrm.event.KEY_NEEDED.count";
-        public static final java.lang.String EVENT_PROVISION_REQUIRED_COUNT = "drm.mediadrm.event.PROVISION_REQUIRED.count";
-        public static final java.lang.String EVENT_SESSION_RECLAIMED_COUNT = "drm.mediadrm.event.SESSION_RECLAIMED.count";
-        public static final java.lang.String EVENT_VENDOR_DEFINED_COUNT = "drm.mediadrm.event.VENDOR_DEFINED.count";
-        public static final java.lang.String GET_DEVICE_UNIQUE_ID_ERROR_COUNT = "drm.mediadrm.get_device_unique_id.error.count";
-        public static final java.lang.String GET_DEVICE_UNIQUE_ID_ERROR_LIST = "drm.mediadrm.get_device_unique_id.error.list";
-        public static final java.lang.String GET_DEVICE_UNIQUE_ID_OK_COUNT = "drm.mediadrm.get_device_unique_id.ok.count";
-        public static final java.lang.String GET_KEY_REQUEST_ERROR_COUNT = "drm.mediadrm.get_key_request.error.count";
-        public static final java.lang.String GET_KEY_REQUEST_ERROR_LIST = "drm.mediadrm.get_key_request.error.list";
-        public static final java.lang.String GET_KEY_REQUEST_OK_COUNT = "drm.mediadrm.get_key_request.ok.count";
-        public static final java.lang.String GET_KEY_REQUEST_OK_TIME_MICROS = "drm.mediadrm.get_key_request.ok.average_time_micros";
-        public static final java.lang.String GET_PROVISION_REQUEST_ERROR_COUNT = "drm.mediadrm.get_provision_request.error.count";
-        public static final java.lang.String GET_PROVISION_REQUEST_ERROR_LIST = "drm.mediadrm.get_provision_request.error.list";
-        public static final java.lang.String GET_PROVISION_REQUEST_OK_COUNT = "drm.mediadrm.get_provision_request.ok.count";
-        public static final java.lang.String KEY_STATUS_EXPIRED_COUNT = "drm.mediadrm.key_status.EXPIRED.count";
-        public static final java.lang.String KEY_STATUS_INTERNAL_ERROR_COUNT = "drm.mediadrm.key_status.INTERNAL_ERROR.count";
-        public static final java.lang.String KEY_STATUS_OUTPUT_NOT_ALLOWED_COUNT = "drm.mediadrm.key_status_change.OUTPUT_NOT_ALLOWED.count";
-        public static final java.lang.String KEY_STATUS_PENDING_COUNT = "drm.mediadrm.key_status_change.PENDING.count";
-        public static final java.lang.String KEY_STATUS_USABLE_COUNT = "drm.mediadrm.key_status_change.USABLE.count";
-        public static final java.lang.String OPEN_SESSION_ERROR_COUNT = "drm.mediadrm.open_session.error.count";
-        public static final java.lang.String OPEN_SESSION_ERROR_LIST = "drm.mediadrm.open_session.error.list";
-        public static final java.lang.String OPEN_SESSION_OK_COUNT = "drm.mediadrm.open_session.ok.count";
-        public static final java.lang.String PROVIDE_KEY_RESPONSE_ERROR_COUNT = "drm.mediadrm.provide_key_response.error.count";
-        public static final java.lang.String PROVIDE_KEY_RESPONSE_ERROR_LIST = "drm.mediadrm.provide_key_response.error.list";
-        public static final java.lang.String PROVIDE_KEY_RESPONSE_OK_COUNT = "drm.mediadrm.provide_key_response.ok.count";
-        public static final java.lang.String PROVIDE_KEY_RESPONSE_OK_TIME_MICROS = "drm.mediadrm.provide_key_response.ok.average_time_micros";
-        public static final java.lang.String PROVIDE_PROVISION_RESPONSE_ERROR_COUNT = "drm.mediadrm.provide_provision_response.error.count";
-        public static final java.lang.String PROVIDE_PROVISION_RESPONSE_ERROR_LIST = "drm.mediadrm.provide_provision_response.error.list";
-        public static final java.lang.String PROVIDE_PROVISION_RESPONSE_OK_COUNT = "drm.mediadrm.provide_provision_response.ok.count";
-        public static final java.lang.String SESSION_END_TIMES_MS = "drm.mediadrm.session_end_times_ms";
-        public static final java.lang.String SESSION_START_TIMES_MS = "drm.mediadrm.session_start_times_ms";
-        private MetricsConstants() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OfflineLicenseState {
-    }
-
-    public static interface OnEventListener {
-        public void onEvent(android.media.MediaDrm p0, byte[] p1, int p2, int p3, byte[] p4);
-    }
-
-    public static interface OnExpirationUpdateListener {
-        public void onExpirationUpdate(android.media.MediaDrm p0, byte[] p1, long p2);
-    }
-
-    public static interface OnKeyStatusChangeListener {
-        public void onKeyStatusChange(android.media.MediaDrm p0, byte[] p1, java.util.List<android.media.MediaDrm.KeyStatus> p2, boolean p3);
-    }
-
-    public static interface OnSessionLostStateListener {
-        public void onSessionLostState(android.media.MediaDrm p0, byte[] p1);
-    }
-
-    public final class PlaybackComponent {
-        private android.media.metrics.LogSessionId mLogSessionId;
-        private final byte[] mSessionId = null;
-        public PlaybackComponent(android.media.MediaDrm p0, byte[] p1) {}
-        public android.media.metrics.LogSessionId getLogSessionId() { return null; }
-        public void setLogSessionId(android.media.metrics.LogSessionId p0) {}
-    }
-
-    public static final class ProvisionRequest {
-        private byte[] mData;
-        private java.lang.String mDefaultUrl;
-        ProvisionRequest() {}
-        public byte[] getData() { return null; }
-        public java.lang.String getDefaultUrl() { return null; }
-    }
-
-    @java.lang.Deprecated
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SecurityLevel {
     }
 
     public static final class SessionException extends java.lang.RuntimeException implements android.media.MediaDrmThrowable {
@@ -416,9 +420,5 @@ public final class MediaDrm implements java.lang.AutoCloseable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface SessionErrorCode {
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StringProperty {
     }
 }

@@ -2,7 +2,7 @@ package android.view.textservice;
 
 public final class TextServicesManager {
     private static final boolean DBG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "TextServicesManager";
     @java.lang.Deprecated
     private static android.view.textservice.TextServicesManager sInstance;
     private final android.view.inputmethod.InputMethodManager mInputMethodManager = null;

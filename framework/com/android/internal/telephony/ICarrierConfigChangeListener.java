@@ -4,12 +4,6 @@ public interface ICarrierConfigChangeListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.ICarrierConfigChangeListener";
     public void onCarrierConfigChanged(int p0, int p1, int p2, int p3) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.ICarrierConfigChangeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCarrierConfigChanged(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.ICarrierConfigChangeListener {
         static final int TRANSACTION_onCarrierConfigChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICarrierConfigChangeListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onCarrierConfigChanged(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.ICarrierConfigChangeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCarrierConfigChanged(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
     }
 }

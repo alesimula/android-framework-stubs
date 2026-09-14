@@ -18,6 +18,14 @@ public class EventScheduler {
     protected com.android.internal.midi.EventScheduler.SchedulableEvent removeNextEventLocked(long p0) { return null; }
     public com.android.internal.midi.EventScheduler.SchedulableEvent waitNextEvent() throws java.lang.InterruptedException { return null; }
 
+    public static class SchedulableEvent {
+        private volatile com.android.internal.midi.EventScheduler.SchedulableEvent mNext;
+        private long mTimestamp;
+        public SchedulableEvent(long p0) {}
+        public long getTimestamp() { return 0L; }
+        public void setTimestamp(long p0) {}
+    }
+
     public static class FastEventQueue {
         volatile long mEventsAdded;
         volatile long mEventsRemoved;
@@ -27,13 +35,5 @@ public class EventScheduler {
         public void add(com.android.internal.midi.EventScheduler.SchedulableEvent p0) {}
         public com.android.internal.midi.EventScheduler.SchedulableEvent remove() { return null; }
         int size() { return 0; }
-    }
-
-    public static class SchedulableEvent {
-        private volatile com.android.internal.midi.EventScheduler.SchedulableEvent mNext;
-        private long mTimestamp;
-        public SchedulableEvent(long p0) {}
-        public long getTimestamp() { return 0L; }
-        public void setTimestamp(long p0) {}
     }
 }

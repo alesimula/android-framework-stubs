@@ -13,6 +13,7 @@ public class AppZygote {
     private final int mZygoteUidGidMin = 0;
     public AppZygote(android.content.pm.ApplicationInfo p0, android.content.pm.ProcessInfo p1, int p2, int p3, int p4, boolean p5, java.lang.String p6) {}
     private void connectToZygoteIfNeededLocked() {}
+    private android.os.IZygoteProcess getZygoteProcessOrDefault() { return null; }
     private void stopZygoteLocked() {}
     public android.content.pm.ApplicationInfo getAppInfo() { return null; }
     public android.os.ChildZygoteProcess getProcess() { return null; }

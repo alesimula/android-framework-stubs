@@ -38,6 +38,7 @@ public class ContextWrapper extends android.content.Context {
     public android.content.Context createAttributionContext(java.lang.String p0) { return null; }
     public android.content.Context createConfigurationContext(android.content.res.Configuration p0) { return null; }
     public android.content.Context createContext(android.content.ContextParams p0) { return null; }
+    @android.annotation.SystemApi
     public android.content.Context createContextAsUser(android.os.UserHandle p0, int p1) { return null; }
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public android.content.Context createContextForSdkInSandbox(android.content.pm.ApplicationInfo p0, int p1) throws android.content.pm.PackageManager.NameNotFoundException { return null; }
@@ -48,6 +49,7 @@ public class ContextWrapper extends android.content.Context {
     public android.content.Context createDeviceProtectedStorageContext() { return null; }
     public android.content.Context createDisplayContext(android.view.Display p0) { return null; }
     public android.content.Context createPackageContext(java.lang.String p0, int p1) throws android.content.pm.PackageManager.NameNotFoundException { return null; }
+    @android.annotation.SystemApi
     public android.content.Context createPackageContextAsUser(java.lang.String p0, int p1, android.os.UserHandle p2) throws android.content.pm.PackageManager.NameNotFoundException { return null; }
     public android.content.Context createTokenContext(android.os.IBinder p0, android.view.Display p1) { return null; }
     public android.content.Context createWindowContext(int p0, android.os.Bundle p1) { return null; }
@@ -88,7 +90,7 @@ public class ContextWrapper extends android.content.Context {
     public android.view.Display getDisplay() { return null; }
     public android.view.DisplayAdjustments getDisplayAdjustments(int p0) { return null; }
     public int getDisplayId() { return 0; }
-    public final android.view.Display getDisplayNoVerify() { return null; }
+    public android.view.Display getDisplayNoVerify() { return null; }
     public java.io.File getExternalCacheDir() { return null; }
     public java.io.File[] getExternalCacheDirs() { return null; }
     public java.io.File getExternalFilesDir(java.lang.String p0) { return null; }
@@ -111,7 +113,9 @@ public class ContextWrapper extends android.content.Context {
     public java.lang.String getPackageResourcePath() { return null; }
     public android.content.ContextParams getParams() { return null; }
     public int getPermissionRequestState(java.lang.String p0) { return 0; }
+    @android.annotation.SystemApi
     public java.io.File getPreloadsFileCache() { return null; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public android.os.IBinder getProcessToken() { return null; }
     public java.util.List<android.content.IntentFilter> getRegisteredIntentFilters(android.content.BroadcastReceiver p0) { return null; }
     public android.content.res.Resources getResources() { return null; }
@@ -123,6 +127,7 @@ public class ContextWrapper extends android.content.Context {
     public java.lang.String getSystemServiceName(java.lang.Class<?> p0) { return null; }
     public android.content.res.Resources.Theme getTheme() { return null; }
     public int getThemeResId() { return 0; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public android.os.UserHandle getUser() { return null; }
     public int getUserId() { return 0; }
     @java.lang.Deprecated
@@ -156,7 +161,9 @@ public class ContextWrapper extends android.content.Context {
     public android.content.Intent registerReceiver(android.content.BroadcastReceiver p0, android.content.IntentFilter p1, java.lang.String p2, android.os.Handler p3, int p4) { return null; }
     public android.content.Intent registerReceiverAsUser(android.content.BroadcastReceiver p0, android.os.UserHandle p1, android.content.IntentFilter p2, java.lang.String p3, android.os.Handler p4) { return null; }
     public android.content.Intent registerReceiverAsUser(android.content.BroadcastReceiver p0, android.os.UserHandle p1, android.content.IntentFilter p2, java.lang.String p3, android.os.Handler p4, int p5) { return null; }
+    @android.annotation.SystemApi
     public android.content.Intent registerReceiverForAllUsers(android.content.BroadcastReceiver p0, android.content.IntentFilter p1, java.lang.String p2, android.os.Handler p3) { return null; }
+    @android.annotation.SystemApi
     public android.content.Intent registerReceiverForAllUsers(android.content.BroadcastReceiver p0, android.content.IntentFilter p1, java.lang.String p2, android.os.Handler p3, int p4) { return null; }
     public void reloadSharedPreferences() {}
     @java.lang.Deprecated
@@ -173,6 +180,7 @@ public class ContextWrapper extends android.content.Context {
     public void sendBroadcastAsUser(android.content.Intent p0, android.os.UserHandle p1) {}
     public void sendBroadcastAsUser(android.content.Intent p0, android.os.UserHandle p1, java.lang.String p2) {}
     public void sendBroadcastAsUser(android.content.Intent p0, android.os.UserHandle p1, java.lang.String p2, int p3) {}
+    @android.annotation.SystemApi
     public void sendBroadcastAsUser(android.content.Intent p0, android.os.UserHandle p1, java.lang.String p2, android.os.Bundle p3) {}
     public void sendBroadcastAsUserMultiplePermissions(android.content.Intent p0, android.os.UserHandle p1, java.lang.String[] p2) {}
     public void sendBroadcastMultiplePermissions(android.content.Intent p0, java.lang.String[] p1) {}
@@ -189,6 +197,7 @@ public class ContextWrapper extends android.content.Context {
     public void sendOrderedBroadcastAsUser(android.content.Intent p0, android.os.UserHandle p1, java.lang.String p2, int p3, android.os.Bundle p4, android.content.BroadcastReceiver p5, android.os.Handler p6, int p7, java.lang.String p8, android.os.Bundle p9) {}
     public void sendOrderedBroadcastAsUser(android.content.Intent p0, android.os.UserHandle p1, java.lang.String p2, android.content.BroadcastReceiver p3, android.os.Handler p4, int p5, java.lang.String p6, android.os.Bundle p7) {}
     public void sendOrderedBroadcastAsUserMultiplePermissions(android.content.Intent p0, android.os.UserHandle p1, java.lang.String[] p2, int p3, android.os.Bundle p4, android.content.BroadcastReceiver p5, android.os.Handler p6, int p7, java.lang.String p8, android.os.Bundle p9) {}
+    @android.annotation.SystemApi
     public void sendOrderedBroadcastMultiplePermissions(android.content.Intent p0, java.lang.String[] p1, java.lang.String p2, android.content.BroadcastReceiver p3, android.os.Handler p4, int p5, java.lang.String p6, android.os.Bundle p7, android.os.Bundle p8) {}
     public void sendOrderedBroadcastMultiplePermissions(android.content.Intent p0, java.lang.String[] p1, java.lang.String[] p2, java.lang.String p3, android.content.BroadcastReceiver p4, android.os.Handler p5, int p6, java.lang.String p7, android.os.Bundle p8, android.os.Bundle p9) {}
     @java.lang.Deprecated
@@ -217,7 +226,9 @@ public class ContextWrapper extends android.content.Context {
     public int startActivitiesAsUser(android.content.Intent[] p0, android.os.Bundle p1, android.os.UserHandle p2) { return 0; }
     public void startActivity(android.content.Intent p0) {}
     public void startActivity(android.content.Intent p0, android.os.Bundle p1) {}
+    @android.annotation.SystemApi
     public void startActivityAsUser(android.content.Intent p0, android.os.Bundle p1, android.os.UserHandle p2) {}
+    @android.annotation.SystemApi
     public void startActivityAsUser(android.content.Intent p0, android.os.UserHandle p1) {}
     public void startActivityForResult(java.lang.String p0, android.content.Intent p1, int p2, android.os.Bundle p3) {}
     public android.content.ComponentName startForegroundService(android.content.Intent p0) { return null; }

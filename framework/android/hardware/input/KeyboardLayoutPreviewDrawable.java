@@ -31,6 +31,10 @@ final class KeyboardLayoutPreviewDrawable extends android.graphics.drawable.Draw
     public void setAlpha(int p0) {}
     public void setColorFilter(android.graphics.ColorFilter p0) {}
 
+    private static interface KeyDrawable {
+        public void draw(android.graphics.Canvas p0);
+    }
+
     private static final class GlyphDrawable {
         private final int gravity = 0;
         private final android.graphics.Paint paint = null;
@@ -44,6 +48,25 @@ final class KeyboardLayoutPreviewDrawable extends android.graphics.drawable.Draw
         public android.graphics.RectF rect() { return null; }
         public java.lang.String text() { return null; }
         public final java.lang.String toString() { return null; }
+    }
+
+    private static class TypingKey implements android.hardware.input.KeyboardLayoutPreviewDrawable.KeyDrawable {
+        private final android.graphics.Paint mBaseTextPaint = null;
+        private final java.util.List<android.hardware.input.KeyboardLayoutPreviewDrawable.GlyphDrawable> mGlyphDrawables = null;
+        private final android.graphics.Paint mKeyPaint = null;
+        private final float mKeyRadius = 0.0f;
+        private final android.graphics.RectF mKeyRect = null;
+        private final android.graphics.Paint mModifierTextPaint = null;
+        private final float mTextPadding = 0.0f;
+        private TypingKey(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0, android.graphics.RectF p1, float p2, float p3, android.graphics.Paint p4, android.graphics.Paint p5, android.graphics.Paint p6) {}
+        private void createGlyphs(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0) {}
+        private void initGlyphs(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0) {}
+        private void measureGlyphs() {}
+        public void draw(android.graphics.Canvas p0) {}
+    }
+
+    private static class UnsureTypingKey extends android.hardware.input.KeyboardLayoutPreviewDrawable.TypingKey {
+        private UnsureTypingKey(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0, android.graphics.RectF p1, float p2, float p3, android.graphics.Paint p4, android.graphics.Paint p5, android.graphics.Paint p6) { super(null, null, 0.0f, 0.0f, null, null, null); }
     }
 
     private static class IsoEnterKey implements android.hardware.input.KeyboardLayoutPreviewDrawable.KeyDrawable {
@@ -68,10 +91,6 @@ final class KeyboardLayoutPreviewDrawable extends android.graphics.drawable.Draw
             private android.hardware.input.KeyboardLayoutPreviewDrawable.IsoEnterKey.Builder setTopWidth(float p0) { return null; }
             private android.hardware.input.KeyboardLayoutPreviewDrawable.IsoEnterKey.Builder setVerticalEdges(float p0, float p1) { return null; }
         }
-    }
-
-    private static interface KeyDrawable {
-        public void draw(android.graphics.Canvas p0);
     }
 
     private static class ResourceProvider {
@@ -100,24 +119,5 @@ final class KeyboardLayoutPreviewDrawable extends android.graphics.drawable.Draw
         private float getTextPadding() { return 0.0f; }
         private android.graphics.Paint getTypingKeyPaint() { return null; }
         private void updateTextSize(float p0) {}
-    }
-
-    private static class TypingKey implements android.hardware.input.KeyboardLayoutPreviewDrawable.KeyDrawable {
-        private final android.graphics.Paint mBaseTextPaint = null;
-        private final java.util.List<android.hardware.input.KeyboardLayoutPreviewDrawable.GlyphDrawable> mGlyphDrawables = null;
-        private final android.graphics.Paint mKeyPaint = null;
-        private final float mKeyRadius = 0.0f;
-        private final android.graphics.RectF mKeyRect = null;
-        private final android.graphics.Paint mModifierTextPaint = null;
-        private final float mTextPadding = 0.0f;
-        private TypingKey(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0, android.graphics.RectF p1, float p2, float p3, android.graphics.Paint p4, android.graphics.Paint p5, android.graphics.Paint p6) {}
-        private void createGlyphs(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0) {}
-        private void initGlyphs(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0) {}
-        private void measureGlyphs() {}
-        public void draw(android.graphics.Canvas p0) {}
-    }
-
-    private static class UnsureTypingKey extends android.hardware.input.KeyboardLayoutPreviewDrawable.TypingKey {
-        private UnsureTypingKey(android.hardware.input.PhysicalKeyLayout.KeyGlyph p0, android.graphics.RectF p1, float p2, float p3, android.graphics.Paint p4, android.graphics.Paint p5, android.graphics.Paint p6) { super(null, null, 0.0f, 0.0f, null, null, null); }
     }
 }

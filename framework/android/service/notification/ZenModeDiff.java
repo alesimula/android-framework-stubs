@@ -21,15 +21,34 @@ public class ZenModeDiff {
         public final boolean wasRemoved() { return false; }
     }
 
-    public static class ConfigDiff extends android.service.notification.ZenModeDiff.BaseDiff {
-        public static final java.lang.String FIELD_HAS_PRIORITY_CHANNELS = "hasPriorityChannels";
-        public static final java.lang.String FIELD_USER = "user";
-        private final android.util.ArrayMap<java.lang.String, android.service.notification.ZenModeDiff.RuleDiff> mAutomaticRulesDiff = null;
-        private android.service.notification.ZenModeDiff.RuleDiff mManualRuleDiff;
-        public ConfigDiff(android.service.notification.ZenModeConfig p0, android.service.notification.ZenModeConfig p1) { super(null, null); }
-        private static <T extends java.lang.Object> void addKeys(android.util.ArraySet<T> p0, android.util.ArrayMap<T, ?> p1) {}
-        public android.util.ArrayMap<java.lang.String, android.service.notification.ZenModeDiff.RuleDiff> getAllAutomaticRuleDiffs() { return null; }
-        public android.service.notification.ZenModeDiff.RuleDiff getManualRuleDiff() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ExistenceChange {
+    }
+
+    public static class RuleDiff extends android.service.notification.ZenModeDiff.BaseDiff {
+        public static final java.lang.String FIELD_ALLOW_MANUAL = "allowManualInvocation";
+        public static final java.lang.String FIELD_COMPONENT = "component";
+        public static final java.lang.String FIELD_CONDITION = "condition";
+        public static final java.lang.String FIELD_CONDITION_ID = "conditionId";
+        public static final java.lang.String FIELD_CONDITION_OVERRIDE = "conditionOverride";
+        public static final java.lang.String FIELD_CONFIGURATION_ACTIVITY = "configurationActivity";
+        public static final java.lang.String FIELD_CREATION_TIME = "creationTime";
+        public static final java.lang.String FIELD_ENABLED = "enabled";
+        public static final java.lang.String FIELD_ENABLER = "enabler";
+        public static final java.lang.String FIELD_ICON_RES = "iconResName";
+        public static final java.lang.String FIELD_ID = "id";
+        public static final java.lang.String FIELD_LEGACY_SUPPRESSED_EFFECTS = "legacySuppressedEffects";
+        public static final java.lang.String FIELD_NAME = "name";
+        public static final java.lang.String FIELD_PKG = "pkg";
+        public static final java.lang.String FIELD_TRIGGER_DESCRIPTION = "triggerDescription";
+        public static final java.lang.String FIELD_TYPE = "type";
+        public static final java.lang.String FIELD_ZEN_DEVICE_EFFECTS = "zenDeviceEffects";
+        public static final java.lang.String FIELD_ZEN_MODE = "zenMode";
+        public static final java.lang.String FIELD_ZEN_POLICY = "zenPolicy";
+        android.service.notification.ZenModeDiff.FieldDiff<java.lang.Boolean> mActiveDiff;
+        public RuleDiff(android.service.notification.ZenModeConfig.ZenRule p0, android.service.notification.ZenModeConfig.ZenRule p1) { super(null, null); }
+        public boolean becameActive() { return false; }
+        public boolean becameInactive() { return false; }
         public boolean hasDiff() { return false; }
         public java.lang.String toString() { return null; }
     }
@@ -51,10 +70,6 @@ public class ZenModeDiff {
         public DeviceEffectsDiff(android.service.notification.ZenDeviceEffects p0, android.service.notification.ZenDeviceEffects p1) { super(null, null); }
         public boolean hasDiff() { return false; }
         public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ExistenceChange {
     }
 
     public static class FieldDiff<T extends java.lang.Object> {
@@ -96,30 +111,15 @@ public class ZenModeDiff {
         public java.lang.String toString() { return null; }
     }
 
-    public static class RuleDiff extends android.service.notification.ZenModeDiff.BaseDiff {
-        public static final java.lang.String FIELD_ALLOW_MANUAL = "allowManualInvocation";
-        public static final java.lang.String FIELD_COMPONENT = "component";
-        public static final java.lang.String FIELD_CONDITION = "condition";
-        public static final java.lang.String FIELD_CONDITION_ID = "conditionId";
-        public static final java.lang.String FIELD_CONDITION_OVERRIDE = "conditionOverride";
-        public static final java.lang.String FIELD_CONFIGURATION_ACTIVITY = "configurationActivity";
-        public static final java.lang.String FIELD_CREATION_TIME = "creationTime";
-        public static final java.lang.String FIELD_ENABLED = "enabled";
-        public static final java.lang.String FIELD_ENABLER = "enabler";
-        public static final java.lang.String FIELD_ICON_RES = "iconResName";
-        public static final java.lang.String FIELD_ID = "id";
-        public static final java.lang.String FIELD_LEGACY_SUPPRESSED_EFFECTS = "legacySuppressedEffects";
-        public static final java.lang.String FIELD_NAME = "name";
-        public static final java.lang.String FIELD_PKG = "pkg";
-        public static final java.lang.String FIELD_TRIGGER_DESCRIPTION = "triggerDescription";
-        public static final java.lang.String FIELD_TYPE = "type";
-        public static final java.lang.String FIELD_ZEN_DEVICE_EFFECTS = "zenDeviceEffects";
-        public static final java.lang.String FIELD_ZEN_MODE = "zenMode";
-        public static final java.lang.String FIELD_ZEN_POLICY = "zenPolicy";
-        android.service.notification.ZenModeDiff.FieldDiff<java.lang.Boolean> mActiveDiff;
-        public RuleDiff(android.service.notification.ZenModeConfig.ZenRule p0, android.service.notification.ZenModeConfig.ZenRule p1) { super(null, null); }
-        public boolean becameActive() { return false; }
-        public boolean becameInactive() { return false; }
+    public static class ConfigDiff extends android.service.notification.ZenModeDiff.BaseDiff {
+        public static final java.lang.String FIELD_HAS_PRIORITY_CHANNELS = "hasPriorityChannels";
+        public static final java.lang.String FIELD_USER = "user";
+        private final android.util.ArrayMap<java.lang.String, android.service.notification.ZenModeDiff.RuleDiff> mAutomaticRulesDiff = null;
+        private android.service.notification.ZenModeDiff.RuleDiff mManualRuleDiff;
+        public ConfigDiff(android.service.notification.ZenModeConfig p0, android.service.notification.ZenModeConfig p1) { super(null, null); }
+        private static <T extends java.lang.Object> void addKeys(android.util.ArraySet<T> p0, android.util.ArrayMap<T, ?> p1) {}
+        public android.util.ArrayMap<java.lang.String, android.service.notification.ZenModeDiff.RuleDiff> getAllAutomaticRuleDiffs() { return null; }
+        public android.service.notification.ZenModeDiff.RuleDiff getManualRuleDiff() { return null; }
         public boolean hasDiff() { return false; }
         public java.lang.String toString() { return null; }
     }

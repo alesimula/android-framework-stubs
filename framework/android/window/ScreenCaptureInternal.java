@@ -33,6 +33,7 @@ public class ScreenCaptureInternal {
         public final int mPixelFormat = 0;
         public final boolean mPreserveDisplayColors = false;
         public final int mProtectedContentPolicy = 0;
+        public final int mRedactMask = 0;
         public final int mSecureContentPolicy = 0;
         public final android.graphics.Rect mSourceCrop = null;
         public final long mUid = 0L;
@@ -55,6 +56,7 @@ public class ScreenCaptureInternal {
             private int mPixelFormat;
             private boolean mPreserveDisplayColors;
             private int mProtectedContentPolicy;
+            private int mRedactMask;
             private int mSecureContentPolicy;
             private final android.graphics.Rect mSourceCrop = null;
             private long mUid;
@@ -72,46 +74,11 @@ public class ScreenCaptureInternal {
             public T setPixelFormat(int p0) { return null; }
             public T setPreserveDisplayColors(boolean p0) { return null; }
             public T setProtectedContentPolicy(int p0) { return null; }
+            public T setRedactMask(int p0) { return null; }
             public T setSecureContentPolicy(int p0) { return null; }
             public T setSourceCrop(android.graphics.Rect p0) { return null; }
             public T setUid(long p0) { return null; }
             public T setUseDisplayInstallationOrientation(boolean p0) { return null; }
-        }
-    }
-
-    public static class DisplayCaptureArgs extends android.window.ScreenCaptureInternal.CaptureArgs {
-        private final android.os.IBinder mDisplayToken = null;
-        private final int mHeight = 0;
-        private final int mWidth = 0;
-        private DisplayCaptureArgs(android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder p0) { super((android.os.Parcel)null); }
-
-        public static class Builder extends android.window.ScreenCaptureInternal.CaptureArgs.Builder<android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder> {
-            private android.os.IBinder mDisplayToken;
-            private int mHeight;
-            private int mWidth;
-            public Builder() { super(); }
-            public Builder(android.os.IBinder p0) { super(); }
-            public android.window.ScreenCaptureInternal.DisplayCaptureArgs build() { return null; }
-            android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder getThis() { return null; }
-            public android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder setDisplayToken(android.os.IBinder p0) { return null; }
-            public android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder setSize(int p0, int p1) { return null; }
-        }
-    }
-
-    public static class LayerCaptureArgs extends android.window.ScreenCaptureInternal.CaptureArgs {
-        private final boolean mChildrenOnly = false;
-        private final long mNativeLayer = 0L;
-        private LayerCaptureArgs(android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder p0) { super((android.os.Parcel)null); }
-
-        public static class Builder extends android.window.ScreenCaptureInternal.CaptureArgs.Builder<android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder> {
-            private boolean mChildrenOnly;
-            private android.view.SurfaceControl mLayer;
-            public Builder(android.view.SurfaceControl p0) { super(); }
-            public Builder(android.view.SurfaceControl p0, android.window.ScreenCaptureInternal.CaptureArgs p1) { super(); }
-            public android.window.ScreenCaptureInternal.LayerCaptureArgs build() { return null; }
-            android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder getThis() { return null; }
-            public android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder setChildrenOnly(boolean p0) { return null; }
-            public android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder setLayer(android.view.SurfaceControl p0) { return null; }
         }
     }
 
@@ -144,8 +111,44 @@ public class ScreenCaptureInternal {
         public android.hardware.HardwareBuffer getHardwareBuffer() { return null; }
     }
 
+    public static class DisplayCaptureArgs extends android.window.ScreenCaptureInternal.CaptureArgs {
+        private final android.os.IBinder mDisplayToken = null;
+        private final int mHeight = 0;
+        private final int mWidth = 0;
+        private DisplayCaptureArgs(android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder p0) { super((android.os.Parcel)null); }
+
+        public static class Builder extends android.window.ScreenCaptureInternal.CaptureArgs.Builder<android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder> {
+            private android.os.IBinder mDisplayToken;
+            private int mHeight;
+            private int mWidth;
+            public Builder() { super(); }
+            public Builder(android.os.IBinder p0) { super(); }
+            public android.window.ScreenCaptureInternal.DisplayCaptureArgs build() { return null; }
+            android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder getThis() { return null; }
+            public android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder setDisplayToken(android.os.IBinder p0) { return null; }
+            public android.window.ScreenCaptureInternal.DisplayCaptureArgs.Builder setSize(int p0, int p1) { return null; }
+        }
+    }
+
     public static abstract class SynchronousScreenCaptureListener extends android.window.ScreenCaptureInternal.ScreenCaptureListener {
         SynchronousScreenCaptureListener(java.util.function.ObjIntConsumer<android.window.ScreenCaptureInternal.ScreenshotHardwareBuffer> p0) { super((java.util.function.ObjIntConsumer)null); }
         public abstract android.window.ScreenCaptureInternal.ScreenshotHardwareBuffer getBuffer();
+    }
+
+    public static class LayerCaptureArgs extends android.window.ScreenCaptureInternal.CaptureArgs {
+        private final boolean mChildrenOnly = false;
+        private final long mNativeLayer = 0L;
+        private LayerCaptureArgs(android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder p0) { super((android.os.Parcel)null); }
+
+        public static class Builder extends android.window.ScreenCaptureInternal.CaptureArgs.Builder<android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder> {
+            private boolean mChildrenOnly;
+            private android.view.SurfaceControl mLayer;
+            public Builder(android.view.SurfaceControl p0) { super(); }
+            public Builder(android.view.SurfaceControl p0, android.window.ScreenCaptureInternal.CaptureArgs p1) { super(); }
+            public android.window.ScreenCaptureInternal.LayerCaptureArgs build() { return null; }
+            android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder getThis() { return null; }
+            public android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder setChildrenOnly(boolean p0) { return null; }
+            public android.window.ScreenCaptureInternal.LayerCaptureArgs.Builder setLayer(android.view.SurfaceControl p0) { return null; }
+        }
     }
 }

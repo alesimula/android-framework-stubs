@@ -39,6 +39,10 @@ public class ImsConfigImplBase {
     public void triggerAutoConfiguration() {}
     public void updateImsCarrierConfigs(android.os.PersistableBundle p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SetConfigResult {
+    }
+
     public static class ImsConfigStub extends android.telephony.ims.aidl.IImsConfig.Stub {
         private java.util.concurrent.Executor mExecutor;
         java.lang.ref.WeakReference<android.telephony.ims.stub.ImsConfigImplBase> mImsConfigImplBaseWeakReference;
@@ -69,9 +73,5 @@ public class ImsConfigImplBase {
         protected void updateCachedValue(int p0, int p1) {}
         protected void updateCachedValue(int p0, java.lang.String p1) {}
         public void updateImsCarrierConfigs(android.os.PersistableBundle p0) throws android.os.RemoteException {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SetConfigResult {
     }
 }

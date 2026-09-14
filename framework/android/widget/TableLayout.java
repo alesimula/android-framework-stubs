@@ -44,6 +44,13 @@ public class TableLayout extends android.widget.LinearLayout {
     public void setShrinkAllColumns(boolean p0) {}
     public void setStretchAllColumns(boolean p0) {}
 
+    private class PassThroughHierarchyChangeListener implements android.view.ViewGroup.OnHierarchyChangeListener {
+        private android.view.ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
+        private PassThroughHierarchyChangeListener(android.widget.TableLayout p0) {}
+        public void onChildViewAdded(android.view.View p0, android.view.View p1) {}
+        public void onChildViewRemoved(android.view.View p0, android.view.View p1) {}
+    }
+
     public static class LayoutParams extends android.widget.LinearLayout.LayoutParams {
         public LayoutParams() { super((android.view.ViewGroup.LayoutParams)null); }
         public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
@@ -52,12 +59,5 @@ public class TableLayout extends android.widget.LinearLayout {
         public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
         public LayoutParams(android.view.ViewGroup.MarginLayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
         protected void setBaseAttributes(android.content.res.TypedArray p0, int p1, int p2) {}
-    }
-
-    private class PassThroughHierarchyChangeListener implements android.view.ViewGroup.OnHierarchyChangeListener {
-        private android.view.ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
-        private PassThroughHierarchyChangeListener(android.widget.TableLayout p0) {}
-        public void onChildViewAdded(android.view.View p0, android.view.View p1) {}
-        public void onChildViewRemoved(android.view.View p0, android.view.View p1) {}
     }
 }

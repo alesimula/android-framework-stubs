@@ -6,7 +6,6 @@ public final class Flags {
     public static final java.lang.String FLAG_AIDL_HAL_INPUT_SURFACE = "android.media.codec.aidl_hal_input_surface";
     public static final java.lang.String FLAG_APV_SUPPORT = "android.media.codec.apv_support";
     public static final java.lang.String FLAG_AUDIO_MIX_PRESENTATION_SUPPORT = "android.media.codec.audio_mix_presentation_support";
-    public static final java.lang.String FLAG_CODEC_AVAILABILITY_METRICS = "android.media.codec.codec_availability_metrics";
     public static final java.lang.String FLAG_CODEC_BUFFER_STATE_CLEANUP = "android.media.codec.codec_buffer_state_cleanup";
     public static final java.lang.String FLAG_DATASPACE_V0_PARTIAL = "android.media.codec.dataspace_v0_partial";
     public static final java.lang.String FLAG_DECRYPT_AND_DECODE_IN_HAL = "android.media.codec.decrypt_and_decode_in_hal";
@@ -29,6 +28,7 @@ public final class Flags {
     public static final java.lang.String FLAG_OFFLOAD_FRAME_CAPTURE_TO_SF = "android.media.codec.offload_frame_capture_to_sf";
     public static final java.lang.String FLAG_P210_FORMAT_SUPPORT = "android.media.codec.p210_format_support";
     public static final java.lang.String FLAG_RECLAIM_RESOURCES_ON_PROCESS_FROZEN = "android.media.codec.reclaim_resources_on_process_frozen";
+    public static final java.lang.String FLAG_RECLAIM_RESOURCES_PENDING_REMOVAL_COALESCE_FIX = "android.media.codec.reclaim_resources_pending_removal_coalesce_fix";
     public static final java.lang.String FLAG_REGION_OF_INTEREST = "android.media.codec.region_of_interest";
     public static final java.lang.String FLAG_REGION_OF_INTEREST_SUPPORT = "android.media.codec.region_of_interest_support";
     public static final java.lang.String FLAG_RETRY_DECRYPT_FOR_HDCP_FAILURE = "android.media.codec.retry_decrypt_for_hdcp_failure";
@@ -49,7 +49,6 @@ public final class Flags {
     public static boolean aidlHalInputSurface() { return false; }
     public static boolean apvSupport() { return false; }
     public static boolean audioMixPresentationSupport() { return false; }
-    public static boolean codecAvailabilityMetrics() { return false; }
     public static boolean codecBufferStateCleanup() { return false; }
     public static boolean dataspaceV0Partial() { return false; }
     public static boolean decryptAndDecodeInHal() { return false; }
@@ -72,6 +71,7 @@ public final class Flags {
     public static boolean offloadFrameCaptureToSf() { return false; }
     public static boolean p210FormatSupport() { return false; }
     public static boolean reclaimResourcesOnProcessFrozen() { return false; }
+    public static boolean reclaimResourcesPendingRemovalCoalesceFix() { return false; }
     public static boolean regionOfInterest() { return false; }
     public static boolean regionOfInterestSupport() { return false; }
     public static boolean retryDecryptForHdcpFailure() { return false; }

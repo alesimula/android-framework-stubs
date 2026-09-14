@@ -36,44 +36,6 @@ public interface IPermissionManager extends android.os.IInterface {
     public void updatePermissionFlags(java.lang.String p0, java.lang.String p1, int p2, int p3, boolean p4, java.lang.String p5, int p6) throws android.os.RemoteException;
     public void updatePermissionFlagsForAllApps(int p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.permission.IPermissionManager {
-        public Default() {}
-        public boolean addAllowlistedRestrictedPermission(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
-        public void addOnPermissionsChangeListener(android.permission.IOnPermissionsChangeListener p0) throws android.os.RemoteException {}
-        public boolean addPermission(android.content.pm.PermissionInfo p0, boolean p1) throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public int checkPermission(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) throws android.os.RemoteException { return 0; }
-        public int checkUidPermission(int p0, java.lang.String p1, int p2) throws android.os.RemoteException { return 0; }
-        public android.content.pm.ParceledListSlice getAllPermissionGroups(int p0) throws android.os.RemoteException { return null; }
-        public java.util.Map<java.lang.String, android.permission.PermissionManager.PermissionState> getAllPermissionStates(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getAllowlistedRestrictedPermissions(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getAutoRevokeExemptionGrantedPackages(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getAutoRevokeExemptionRequestedPackages(int p0) throws android.os.RemoteException { return null; }
-        public int getPermissionFlags(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) throws android.os.RemoteException { return 0; }
-        public android.content.pm.PermissionGroupInfo getPermissionGroupInfo(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.content.pm.PermissionInfo getPermissionInfo(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return null; }
-        public int getPermissionRequestState(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return 0; }
-        public int getRegisteredAttributionSourceCount(int p0) throws android.os.RemoteException { return 0; }
-        public java.util.List<android.content.pm.permission.SplitPermissionInfoParcelable> getSplitPermissions(boolean p0) throws android.os.RemoteException { return null; }
-        public void grantRuntimePermission(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
-        public boolean isAutoRevokeExempted(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
-        public boolean isPermissionRevokedByPolicy(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
-        public boolean isRegisteredAttributionSource(android.content.AttributionSourceState p0) throws android.os.RemoteException { return false; }
-        public android.content.pm.ParceledListSlice queryPermissionsByGroup(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.os.IBinder registerAttributionSource(android.content.AttributionSourceState p0) throws android.os.RemoteException { return null; }
-        public boolean removeAllowlistedRestrictedPermission(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
-        public void removeOnPermissionsChangeListener(android.permission.IOnPermissionsChangeListener p0) throws android.os.RemoteException {}
-        public void removePermission(java.lang.String p0) throws android.os.RemoteException {}
-        public void revokePostNotificationPermissionWithoutKillForTest(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void revokeRuntimePermission(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, java.lang.String p4) throws android.os.RemoteException {}
-        public boolean setAutoRevokeExempted(java.lang.String p0, boolean p1, int p2) throws android.os.RemoteException { return false; }
-        public boolean shouldShowRequestPermissionRationale(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
-        public void startOneTimePermissionSession(java.lang.String p0, int p1, int p2, long p3, long p4) throws android.os.RemoteException {}
-        public void stopOneTimePermissionSession(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void updatePermissionFlags(java.lang.String p0, java.lang.String p1, int p2, int p3, boolean p4, java.lang.String p5, int p6) throws android.os.RemoteException {}
-        public void updatePermissionFlagsForAllApps(int p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.permission.IPermissionManager {
         static final int TRANSACTION_addAllowlistedRestrictedPermission = 13;
         static final int TRANSACTION_addOnPermissionsChangeListener = 10;
@@ -159,5 +121,43 @@ public interface IPermissionManager extends android.os.IInterface {
             public void updatePermissionFlags(java.lang.String p0, java.lang.String p1, int p2, int p3, boolean p4, java.lang.String p5, int p6) throws android.os.RemoteException {}
             public void updatePermissionFlagsForAllApps(int p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.permission.IPermissionManager {
+        public Default() {}
+        public boolean addAllowlistedRestrictedPermission(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
+        public void addOnPermissionsChangeListener(android.permission.IOnPermissionsChangeListener p0) throws android.os.RemoteException {}
+        public boolean addPermission(android.content.pm.PermissionInfo p0, boolean p1) throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public int checkPermission(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) throws android.os.RemoteException { return 0; }
+        public int checkUidPermission(int p0, java.lang.String p1, int p2) throws android.os.RemoteException { return 0; }
+        public android.content.pm.ParceledListSlice getAllPermissionGroups(int p0) throws android.os.RemoteException { return null; }
+        public java.util.Map<java.lang.String, android.permission.PermissionManager.PermissionState> getAllPermissionStates(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getAllowlistedRestrictedPermissions(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getAutoRevokeExemptionGrantedPackages(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getAutoRevokeExemptionRequestedPackages(int p0) throws android.os.RemoteException { return null; }
+        public int getPermissionFlags(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) throws android.os.RemoteException { return 0; }
+        public android.content.pm.PermissionGroupInfo getPermissionGroupInfo(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public android.content.pm.PermissionInfo getPermissionInfo(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return null; }
+        public int getPermissionRequestState(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return 0; }
+        public int getRegisteredAttributionSourceCount(int p0) throws android.os.RemoteException { return 0; }
+        public java.util.List<android.content.pm.permission.SplitPermissionInfoParcelable> getSplitPermissions(boolean p0) throws android.os.RemoteException { return null; }
+        public void grantRuntimePermission(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
+        public boolean isAutoRevokeExempted(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean isPermissionRevokedByPolicy(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
+        public boolean isRegisteredAttributionSource(android.content.AttributionSourceState p0) throws android.os.RemoteException { return false; }
+        public android.content.pm.ParceledListSlice queryPermissionsByGroup(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public android.os.IBinder registerAttributionSource(android.content.AttributionSourceState p0) throws android.os.RemoteException { return null; }
+        public boolean removeAllowlistedRestrictedPermission(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
+        public void removeOnPermissionsChangeListener(android.permission.IOnPermissionsChangeListener p0) throws android.os.RemoteException {}
+        public void removePermission(java.lang.String p0) throws android.os.RemoteException {}
+        public void revokePostNotificationPermissionWithoutKillForTest(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void revokeRuntimePermission(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, java.lang.String p4) throws android.os.RemoteException {}
+        public boolean setAutoRevokeExempted(java.lang.String p0, boolean p1, int p2) throws android.os.RemoteException { return false; }
+        public boolean shouldShowRequestPermissionRationale(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return false; }
+        public void startOneTimePermissionSession(java.lang.String p0, int p1, int p2, long p3, long p4) throws android.os.RemoteException {}
+        public void stopOneTimePermissionSession(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void updatePermissionFlags(java.lang.String p0, java.lang.String p1, int p2, int p3, boolean p4, java.lang.String p5, int p6) throws android.os.RemoteException {}
+        public void updatePermissionFlagsForAllApps(int p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

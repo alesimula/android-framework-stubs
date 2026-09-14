@@ -7,7 +7,7 @@ public class PermissionUsageHelper implements android.app.AppOpsManager.OnOpActi
     private static final long DEFAULT_RECENT_TIME_MS = 15000L;
     private static final long DEFAULT_RUNNING_TIME_MS = 5000L;
     private static final java.util.List<java.lang.String> LOCATION_OPS = null;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "android.permission.PermissionUsageHelper";
     private static final java.util.List<java.lang.String> MIC_OPS = null;
     private static final java.lang.String PROPERTY_CAMERA_MIC_ICONS_ENABLED = "camera_mic_icons_enabled";
     private static final java.lang.String RECENT_ACCESS_TIME_MS = "recent_access_time_ms";

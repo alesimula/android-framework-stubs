@@ -3,7 +3,7 @@ package android.service.contentsuggestions;
 @android.annotation.SystemApi
 public abstract class ContentSuggestionsService extends android.app.Service {
     public static final java.lang.String SERVICE_INTERFACE = "android.service.contentsuggestions.ContentSuggestionsService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentSuggestionsService";
     private android.os.Handler mHandler;
     private final android.service.contentsuggestions.IContentSuggestionsService mInterface = null;
     public ContentSuggestionsService() { super(); }

@@ -7,15 +7,6 @@ public interface ICapabilityExchangeEventListener extends android.os.IInterface 
     public void onRequestPublishCapabilities(int p0) throws android.os.RemoteException;
     public void onUnpublish() throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.ICapabilityExchangeEventListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPublishUpdated(android.telephony.ims.SipDetails p0) throws android.os.RemoteException {}
-        public void onRemoteCapabilityRequest(android.net.Uri p0, java.util.List<java.lang.String> p1, android.telephony.ims.aidl.IOptionsRequestCallback p2) throws android.os.RemoteException {}
-        public void onRequestPublishCapabilities(int p0) throws android.os.RemoteException {}
-        public void onUnpublish() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.ICapabilityExchangeEventListener {
         static final int TRANSACTION_onPublishUpdated = 3;
         static final int TRANSACTION_onRemoteCapabilityRequest = 4;
@@ -38,5 +29,14 @@ public interface ICapabilityExchangeEventListener extends android.os.IInterface 
             public void onRequestPublishCapabilities(int p0) throws android.os.RemoteException {}
             public void onUnpublish() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.ICapabilityExchangeEventListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPublishUpdated(android.telephony.ims.SipDetails p0) throws android.os.RemoteException {}
+        public void onRemoteCapabilityRequest(android.net.Uri p0, java.util.List<java.lang.String> p1, android.telephony.ims.aidl.IOptionsRequestCallback p2) throws android.os.RemoteException {}
+        public void onRequestPublishCapabilities(int p0) throws android.os.RemoteException {}
+        public void onUnpublish() throws android.os.RemoteException {}
     }
 }

@@ -7,16 +7,6 @@ public interface IVoiceInteractionSessionListener extends android.os.IInterface 
     public void onVoiceSessionShown() throws android.os.RemoteException;
     public void onVoiceSessionWindowVisibilityChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IVoiceInteractionSessionListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSetInvocationEffectEnabled(boolean p0) throws android.os.RemoteException {}
-        public void onSetUiHints(android.os.Bundle p0) throws android.os.RemoteException {}
-        public void onVoiceSessionHidden() throws android.os.RemoteException {}
-        public void onVoiceSessionShown() throws android.os.RemoteException {}
-        public void onVoiceSessionWindowVisibilityChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IVoiceInteractionSessionListener {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.app.IVoiceInteractionSessionListener";
         static final int TRANSACTION_onSetInvocationEffectEnabled = 5;
@@ -42,5 +32,15 @@ public interface IVoiceInteractionSessionListener extends android.os.IInterface 
             public void onVoiceSessionShown() throws android.os.RemoteException {}
             public void onVoiceSessionWindowVisibilityChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.app.IVoiceInteractionSessionListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSetInvocationEffectEnabled(boolean p0) throws android.os.RemoteException {}
+        public void onSetUiHints(android.os.Bundle p0) throws android.os.RemoteException {}
+        public void onVoiceSessionHidden() throws android.os.RemoteException {}
+        public void onVoiceSessionShown() throws android.os.RemoteException {}
+        public void onVoiceSessionWindowVisibilityChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

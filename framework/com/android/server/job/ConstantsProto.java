@@ -26,6 +26,10 @@ public final class ConstantsProto {
     public static final long TIME_CONTROLLER = 1146756268057L;
     public ConstantsProto() {}
 
+    public final class TimeController {
+        public TimeController(com.android.server.job.ConstantsProto p0) {}
+    }
+
     public final class QuotaController {
         public static final long ACTIVE_WINDOW_SIZE_MS = 1112396529667L;
         public static final long ALLOWED_TIME_PER_PERIOD_MS = 1112396529665L;
@@ -61,9 +65,5 @@ public final class ConstantsProto {
         public static final long TIMING_SESSION_COALESCING_DURATION_MS = 1112396529682L;
         public static final long WORKING_WINDOW_SIZE_MS = 1112396529668L;
         public QuotaController(com.android.server.job.ConstantsProto p0) {}
-    }
-
-    public final class TimeController {
-        public TimeController(com.android.server.job.ConstantsProto p0) {}
     }
 }

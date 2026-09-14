@@ -23,6 +23,7 @@ public class BrightnessSynchronizer {
     public static float brightnessFloatToIntRange(float p0) { return 0.0f; }
     public static float brightnessIntToFloat(int p0) { return 0.0f; }
     public static boolean floatEquals(float p0, float p1) { return false; }
+    public static boolean floatEquals(float p0, float p1, float p2) { return false; }
     private float getScreenBrightnessFloat() { return 0.0f; }
     private int getScreenBrightnessInt() { return 0; }
     private void handleBrightnessChange(int p0, float p1) {}
@@ -31,20 +32,6 @@ public class BrightnessSynchronizer {
     private void runUpdate() {}
     public void dump(java.io.PrintWriter p0) {}
     public void startSynchronizing() {}
-
-    class BrightnessSynchronizerHandler extends android.os.Handler {
-        BrightnessSynchronizerHandler(com.android.internal.display.BrightnessSynchronizer p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    private class BrightnessSyncObserver {
-        private boolean mIsObserving;
-        private final android.hardware.display.DisplayManager.DisplayListener mListener = null;
-        private BrightnessSyncObserver(com.android.internal.display.BrightnessSynchronizer p0) {}
-        private android.database.ContentObserver createBrightnessContentObserver(android.os.Handler p0) { return null; }
-        boolean isObserving() { return false; }
-        void startObserving(android.os.Handler p0) {}
-    }
 
     public class BrightnessUpdate {
         private static final int STATE_COMPLETED = 3;
@@ -69,6 +56,20 @@ public class BrightnessSynchronizer {
         boolean swallowUpdate(int p0, float p1) { return false; }
         public java.lang.String toString() { return null; }
         void update() {}
+    }
+
+    private class BrightnessSyncObserver {
+        private boolean mIsObserving;
+        private final android.hardware.display.DisplayManager.DisplayListener mListener = null;
+        private BrightnessSyncObserver(com.android.internal.display.BrightnessSynchronizer p0) {}
+        private android.database.ContentObserver createBrightnessContentObserver(android.os.Handler p0) { return null; }
+        boolean isObserving() { return false; }
+        void startObserving(android.os.Handler p0) {}
+    }
+
+    class BrightnessSynchronizerHandler extends android.os.Handler {
+        BrightnessSynchronizerHandler(com.android.internal.display.BrightnessSynchronizer p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
     }
 
     public static interface Clock {

@@ -1,16 +1,27 @@
 package com.android.internal.app;
 
 public final class LockedAppActivity extends android.app.Activity {
+    private static final float DARK_BACKGROUND_LUMINANCE_THRESHOLD = 0.5f;
     private static final boolean DEBUG = Boolean.valueOf(false);
+    private static final java.lang.String DEFAULT_SETTINGS_PACKAGE = "com.android.settings";
+    public static final int DEFAULT_TARGET_APP_APPEARANCE = 0;
+    public static final int DEFAULT_TARGET_APP_BACKGROUND_COLOR = 0;
     public static final java.lang.String EXTRA_ACTIVITY_MODE = "com.android.internal.app.extra.ACTIVITY_MODE";
+    public static final java.lang.String EXTRA_IN_TARGET_TASK = "com.android.internal.app.extra.IN_TARGET_TASK";
     public static final java.lang.String EXTRA_STATUS_RECEIVER = "com.android.internal.app.extra.STATUS_RECEIVER";
+    public static final java.lang.String EXTRA_TARGET_APP_BACKGROUND_COLOR = "com.android.internal.app.extra.TARGET_APP_BACKGROUND_COLOR";
+    public static final java.lang.String EXTRA_TARGET_APP_SYSTEM_BARS_APPEARANCE = "com.android.internal.app.extra.TARGET_APP_SYSTEM_BARS_APPEARANCE";
     public static final java.lang.String EXTRA_UNINSTALL_FLAGS = "com.android.internal.app.extra.UNINSTALL_FLAGS";
     public static final java.lang.String EXTRA_VERSIONED_PACKAGE = "com.android.internal.app.extra.VERSIONED_PACKAGE";
+    private static final java.lang.String PLURALS_APP_1 = "app1";
+    private static final java.lang.String PLURALS_APP_2 = "app2";
+    private static final java.lang.String PLURALS_APP_3 = "app3";
+    private static final java.lang.String PLURALS_COUNT = "count";
     private static final java.lang.String SYSTEM_PACKAGE_NAME = "android";
     private static final java.lang.String TAG = "LockedAppActivity";
     private static com.android.internal.app.LockedAppActivity.Injector sInjector;
     private com.android.internal.app.LockedAppActivity.ActivityMode mActivityMode;
-    private final android.app.AppLockInternal mAppLockInternal = null;
+    private android.security.applock.AppLockManager mAppLockManager;
     private final android.hardware.biometrics.BiometricPrompt.AuthenticationCallback mAuthenticationCallback = null;
     private android.os.CancellationSignal mCancellationSignal;
     private final com.android.internal.app.LockedAppActivity.Injector mInjector = null;
@@ -22,7 +33,10 @@ public final class LockedAppActivity extends android.app.Activity {
     private com.android.internal.app.LockedAppActivity.AppLockLockedStateListener mPackageLockedStateListener;
     private android.graphics.Bitmap mPackageLogo;
     private java.lang.String mPackageName;
+    private java.lang.String mSettingsPackageName;
     private android.content.IntentSender mTarget;
+    private int mTargetAppAppearance;
+    private int mTargetAppBackgroundColor;
     private final java.util.concurrent.atomic.AtomicBoolean mTargetIntentSent = null;
     private int mUninstallFlags;
     private android.content.IntentSender mUninstallStatusReceiver;
@@ -33,11 +47,15 @@ public final class LockedAppActivity extends android.app.Activity {
     private void completeUnlockAndFinish() {}
     public static android.graphics.Bitmap convertDrawableToBitmap(android.graphics.drawable.Drawable p0) { return null; }
     public static android.content.Intent createClearStorageAuthIntent(java.lang.String p0, int p1) { return null; }
+    public static android.content.Intent createLockedAppActivityIntent(java.lang.String p0, int p1, int p2, int p3, android.content.IntentSender p4) { return null; }
     public static android.content.Intent createLockedAppActivityIntent(java.lang.String p0, int p1, android.content.IntentSender p2) { return null; }
     public static android.content.Intent createLockedAppActivityUninstallIntent(android.content.pm.VersionedPackage p0, int p1, int p2, android.content.IntentSender p3) { return null; }
     private boolean finishIfUnlocked(java.lang.String p0, int p1) { return false; }
+    private java.lang.String getBiometricPromptDescription(java.util.List<java.lang.String> p0) { return null; }
     private java.lang.CharSequence getPackageLabel(java.lang.String p0) { return null; }
     private android.graphics.drawable.Drawable getPackageLogo(java.lang.String p0) { return null; }
+    private java.util.List<java.lang.String> getPackagesWithVisibleAppLockOverlayLabels() { return null; }
+    private android.content.Context getThemedContext(android.content.res.Configuration p0) { return null; }
     private void initStateFromIntent() {}
     private boolean isClearStorageMode() { return false; }
     private boolean isInterceptMode() { return false; }
@@ -47,16 +65,27 @@ public final class LockedAppActivity extends android.app.Activity {
     private void maybeShowBiometricPromptForLockedTask() {}
     private void onKeyguardDismissFailed(java.lang.String p0) {}
     private void requestShowBiometricPromptForLockedTask() {}
+    private java.lang.String resolveSettingsPackageName() { return null; }
+    private int resolveTargetNightMode(android.content.res.Configuration p0) { return 0; }
     private void sendUninstallFailure(int p0, java.lang.String p1) {}
     public static void setInjectorForTesting(com.android.internal.app.LockedAppActivity.Injector p0) {}
-    private boolean setupLockedTaskModeUi() { return false; }
+    private void setupExternalDisplayMessage(android.content.Context p0) {}
+    private boolean setupLockedTaskModeUi(android.content.res.Configuration p0) { return false; }
     private boolean setupUi() { return false; }
+    private boolean setupUi(android.content.res.Configuration p0) { return false; }
     private void showBiometricPrompt() {}
     public void onConfigurationChanged(android.content.res.Configuration p0) {}
     public void onCreate(android.os.Bundle p0) {}
     public void onDestroy() {}
     public void onResume() {}
     public void onWindowFocusChanged(boolean p0) {}
+
+    private class AppLockKeyguardDismissCallback extends android.app.KeyguardManager.KeyguardDismissCallback {
+        private AppLockKeyguardDismissCallback(com.android.internal.app.LockedAppActivity p0) { super(); }
+        public void onDismissCancelled() {}
+        public void onDismissError() {}
+        public void onDismissSucceeded() {}
+    }
 
     protected static enum ActivityMode {
         CLEAR_STORAGE,
@@ -69,14 +98,7 @@ public final class LockedAppActivity extends android.app.Activity {
         static com.android.internal.app.LockedAppActivity.ActivityMode fromInt(int p0) { return null; }
     }
 
-    private class AppLockKeyguardDismissCallback extends android.app.KeyguardManager.KeyguardDismissCallback {
-        private AppLockKeyguardDismissCallback(com.android.internal.app.LockedAppActivity p0) { super(); }
-        public void onDismissCancelled() {}
-        public void onDismissError() {}
-        public void onDismissSucceeded() {}
-    }
-
-    private static class AppLockLockedStateListener implements android.app.AppLockInternal.PackageLockedStateListener {
+    private static class AppLockLockedStateListener implements android.security.applock.AppLockManager.PackageLockedStateListener {
         private final com.android.internal.app.LockedAppActivity mActivity = null;
         private final java.lang.String mPackageName = null;
         private final android.content.IntentSender mTarget = null;
@@ -88,6 +110,7 @@ public final class LockedAppActivity extends android.app.Activity {
     public static class Injector {
         public Injector() {}
         public android.view.View findViewById(android.app.Activity p0, int p1) { return null; }
+        public android.security.applock.AppLockManager getAppLockManager(android.app.Activity p0) { return null; }
         public android.hardware.biometrics.BiometricPrompt.Builder getBiometricPromptBuilder(android.app.Activity p0) { return null; }
         public int getDisplayId(android.app.Activity p0) { return 0; }
         public android.content.IntentSender getIntentSender(android.content.Intent p0) { return null; }
@@ -96,6 +119,7 @@ public final class LockedAppActivity extends android.app.Activity {
         public android.content.pm.PackageManager getPackageManager(android.app.Activity p0) { return null; }
         public android.content.IntentSender getUninstallStatusReceiver(android.content.Intent p0) { return null; }
         public boolean hasWindowFocus(android.app.Activity p0) { return false; }
+        public void moveTaskToBack(android.app.Activity p0, boolean p1) {}
         public void sendTargetIntent(android.app.Activity p0, android.content.IntentSender p1) {}
         public void setContentView(android.app.Activity p0, int p1) {}
         public void setTheme(android.app.Activity p0, int p1) {}

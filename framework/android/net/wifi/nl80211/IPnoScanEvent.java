@@ -5,13 +5,6 @@ public interface IPnoScanEvent extends android.os.IInterface {
     public void OnPnoNetworkFound() throws android.os.RemoteException;
     public void OnPnoScanFailed() throws android.os.RemoteException;
 
-    public static class Default implements android.net.wifi.nl80211.IPnoScanEvent {
-        public Default() {}
-        public void OnPnoNetworkFound() throws android.os.RemoteException {}
-        public void OnPnoScanFailed() throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.wifi.nl80211.IPnoScanEvent {
         static final int TRANSACTION_OnPnoNetworkFound = 1;
         static final int TRANSACTION_OnPnoScanFailed = 2;
@@ -30,5 +23,12 @@ public interface IPnoScanEvent extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.net.wifi.nl80211.IPnoScanEvent {
+        public Default() {}
+        public void OnPnoNetworkFound() throws android.os.RemoteException {}
+        public void OnPnoScanFailed() throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

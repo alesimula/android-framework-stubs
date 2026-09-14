@@ -41,6 +41,11 @@ public final class AudioHalCapCriterionV2 implements android.os.Parcelable {
     public void setTelephonyMode(android.media.audio.common.AudioHalCapCriterionV2.TelephonyMode p0) {}
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static @interface LogicalDisjunction {
+        public static final byte EXCLUSIVE = 0;
+        public static final byte INCLUSIVE = 1;
+    }
+
     public static class AvailableDevices implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.audio.common.AudioHalCapCriterionV2.AvailableDevices> CREATOR = null;
         public byte logic;
@@ -51,6 +56,15 @@ public final class AudioHalCapCriterionV2 implements android.os.Parcelable {
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static @interface Tag {
+        public static final int availableInputDevices = 0;
+        public static final int availableInputDevicesAddresses = 2;
+        public static final int availableOutputDevices = 1;
+        public static final int availableOutputDevicesAddresses = 3;
+        public static final int forceConfigForUse = 5;
+        public static final int telephonyMode = 4;
     }
 
     public static class AvailableDevicesAddresses implements android.os.Parcelable {
@@ -76,20 +90,6 @@ public final class AudioHalCapCriterionV2 implements android.os.Parcelable {
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static @interface LogicalDisjunction {
-        public static final byte EXCLUSIVE = 0;
-        public static final byte INCLUSIVE = 1;
-    }
-
-    public static @interface Tag {
-        public static final int availableInputDevices = 0;
-        public static final int availableInputDevicesAddresses = 2;
-        public static final int availableOutputDevices = 1;
-        public static final int availableOutputDevicesAddresses = 3;
-        public static final int forceConfigForUse = 5;
-        public static final int telephonyMode = 4;
     }
 
     public static class TelephonyMode implements android.os.Parcelable {

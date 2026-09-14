@@ -20,8 +20,11 @@ public class BatteryManager {
     public static final int BATTERY_PLUGGED_AC = 1;
     public static final int BATTERY_PLUGGED_ANY = 15;
     public static final int BATTERY_PLUGGED_DOCK = 8;
+    public static final int BATTERY_PLUGGED_NONE = 0;
     public static final int BATTERY_PLUGGED_USB = 2;
     public static final int BATTERY_PLUGGED_WIRELESS = 4;
+    public static final int BATTERY_PROPERTY_BATTERY_DEFENDER_ACTIVE = 17;
+    public static final int BATTERY_PROPERTY_BATTERY_TIME_REMAINING_ESTIMATE = 23;
     public static final int BATTERY_PROPERTY_CAPACITY = 4;
     public static final int BATTERY_PROPERTY_CHARGE_COUNTER = 1;
     @android.annotation.SystemApi
@@ -29,8 +32,10 @@ public class BatteryManager {
     public static final int BATTERY_PROPERTY_CURRENT_AVERAGE = 3;
     public static final int BATTERY_PROPERTY_CURRENT_NOW = 2;
     public static final int BATTERY_PROPERTY_ENERGY_COUNTER = 5;
+    public static final int BATTERY_PROPERTY_EXTREME_POWER_SAVE = 20;
     @android.annotation.SystemApi
     public static final int BATTERY_PROPERTY_FIRST_USAGE_DATE = 8;
+    public static final int BATTERY_PROPERTY_INCOMPATIBLE_CHARGING = 18;
     @android.annotation.SystemApi
     public static final int BATTERY_PROPERTY_MANUFACTURER = 13;
     @android.annotation.SystemApi
@@ -39,9 +44,14 @@ public class BatteryManager {
     public static final int BATTERY_PROPERTY_MODEL_NAME = 14;
     @android.annotation.SystemApi
     public static final int BATTERY_PROPERTY_PART_STATUS = 12;
+    public static final int BATTERY_PROPERTY_PLUGGED_IN = 16;
+    public static final int BATTERY_PROPERTY_PLUGGED_TYPE = 24;
+    public static final int BATTERY_PROPERTY_POWER_SAVE = 19;
     @android.annotation.SystemApi
     public static final int BATTERY_PROPERTY_SERIAL_NUMBER = 11;
+    public static final int BATTERY_PROPERTY_SHOW_BATTERY_PERCENT_SETTING = 22;
     public static final int BATTERY_PROPERTY_STATE_OF_HEALTH = 10;
+    public static final int BATTERY_PROPERTY_STATE_UNKNOWN = 21;
     public static final int BATTERY_PROPERTY_STATUS = 6;
     @android.annotation.SystemApi
     public static final int BATTERY_PROPERTY_VOLTAGE_MIN_DESIGN = 15;
@@ -96,17 +106,25 @@ public class BatteryManager {
     public BatteryManager(android.content.Context p0, com.android.internal.app.IBatteryStats p1, android.os.IBatteryPropertiesRegistrar p2) {}
     public static boolean isAdaptiveChargingPolicy(int p0) { return false; }
     public static boolean isPlugWired(int p0) { return false; }
+    private boolean queryBooleanProperty(int p0) { return false; }
     private long queryProperty(int p0) { return 0L; }
     private java.lang.String queryStringProperty(int p0) { return null; }
     public long computeChargeTimeRemaining() { return 0L; }
+    public boolean getBooleanProperty(int p0) { return false; }
     public int getIntProperty(int p0) { return 0; }
     public long getLongProperty(int p0) { return 0L; }
     public java.lang.String getStringProperty(int p0) { return null; }
     public boolean isCharging() { return false; }
+    public void registerBatteryStateChangedCallback(android.os.BatteryStateFilter p0, java.util.concurrent.Executor p1, android.os.BatteryStateChangedCallback p2) {}
     @android.annotation.SystemApi
     public boolean setChargingStateUpdateDelayMillis(int p0) { return false; }
+    public void unregisterBatteryStateChangedCallback(android.os.BatteryStateChangedCallback p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface BatteryChargingPolicy {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BatteryPluggedType {
     }
 }

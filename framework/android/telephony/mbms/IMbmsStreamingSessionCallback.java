@@ -5,14 +5,6 @@ public interface IMbmsStreamingSessionCallback extends android.os.IInterface {
     public void onMiddlewareReady() throws android.os.RemoteException;
     public void onStreamingServicesUpdated(java.util.List<android.telephony.mbms.StreamingServiceInfo> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.mbms.IMbmsStreamingSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onMiddlewareReady() throws android.os.RemoteException {}
-        public void onStreamingServicesUpdated(java.util.List<android.telephony.mbms.StreamingServiceInfo> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.mbms.IMbmsStreamingSessionCallback {
         public static final java.lang.String DESCRIPTOR = "android.telephony.mbms.IMbmsStreamingSessionCallback";
         static final int TRANSACTION_onError = 1;
@@ -34,5 +26,13 @@ public interface IMbmsStreamingSessionCallback extends android.os.IInterface {
             public void onMiddlewareReady() throws android.os.RemoteException {}
             public void onStreamingServicesUpdated(java.util.List<android.telephony.mbms.StreamingServiceInfo> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.mbms.IMbmsStreamingSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onMiddlewareReady() throws android.os.RemoteException {}
+        public void onStreamingServicesUpdated(java.util.List<android.telephony.mbms.StreamingServiceInfo> p0) throws android.os.RemoteException {}
     }
 }

@@ -9,18 +9,6 @@ public interface ITextToSpeechCallback extends android.os.IInterface {
     public void onStop(java.lang.String p0, boolean p1) throws android.os.RemoteException;
     public void onSuccess(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.speech.tts.ITextToSpeechCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAudioAvailable(java.lang.String p0, byte[] p1) throws android.os.RemoteException {}
-        public void onBeginSynthesis(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void onError(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onRangeStart(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void onStart(java.lang.String p0) throws android.os.RemoteException {}
-        public void onStop(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
-        public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.speech.tts.ITextToSpeechCallback {
         public static final java.lang.String DESCRIPTOR = "android.speech.tts.ITextToSpeechCallback";
         static final int TRANSACTION_onAudioAvailable = 6;
@@ -50,5 +38,17 @@ public interface ITextToSpeechCallback extends android.os.IInterface {
             public void onStop(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
             public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.speech.tts.ITextToSpeechCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAudioAvailable(java.lang.String p0, byte[] p1) throws android.os.RemoteException {}
+        public void onBeginSynthesis(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void onError(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onRangeStart(java.lang.String p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void onStart(java.lang.String p0) throws android.os.RemoteException {}
+        public void onStop(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
+        public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

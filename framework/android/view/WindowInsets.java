@@ -108,6 +108,20 @@ public final class WindowInsets {
     java.lang.String toDiffString(android.view.WindowInsets p0) { return null; }
     public java.lang.String toString() { return null; }
 
+    public static final class Side {
+        public static final int BOTTOM = 8;
+        public static final int LEFT = 1;
+        public static final int RIGHT = 4;
+        public static final int TOP = 2;
+        private Side() {}
+        public static int all() { return 0; }
+        public static java.lang.String toString(int p0) { return null; }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface InsetsSide {
+        }
+    }
+
     public static final class Builder {
         private boolean mCompatIgnoreVisibility;
         private int mCompatInsetTypes;
@@ -157,20 +171,6 @@ public final class WindowInsets {
         @java.lang.Deprecated
         public android.view.WindowInsets.Builder setTappableElementInsets(android.graphics.Insets p0) { return null; }
         public android.view.WindowInsets.Builder setVisible(int p0, boolean p1) { return null; }
-    }
-
-    public static final class Side {
-        public static final int BOTTOM = 8;
-        public static final int LEFT = 1;
-        public static final int RIGHT = 4;
-        public static final int TOP = 2;
-        private Side() {}
-        public static int all() { return 0; }
-        public static java.lang.String toString(int p0) { return null; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface InsetsSide {
-        }
     }
 
     public static final class Type {

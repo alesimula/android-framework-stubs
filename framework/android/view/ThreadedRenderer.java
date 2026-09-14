@@ -63,7 +63,7 @@ public final class ThreadedRenderer extends android.graphics.HardwareRenderer {
     boolean isEnabled() { return false; }
     boolean isRequested() { return false; }
     public boolean loadSystemProperties() { return false; }
-    public void notifyCallbackPending() {}
+    public void notifyCallbackPending(int p0) {}
     public void notifyExpensiveFrame() {}
     void registerRtFrameCallback(android.graphics.HardwareRenderer.FrameDrawingCallback p0) {}
     public boolean rendererOwnsSurfaceControlOpacity() { return false; }
@@ -77,11 +77,6 @@ public final class ThreadedRenderer extends android.graphics.HardwareRenderer {
     void unregisterRtFrameCallback(android.graphics.HardwareRenderer.FrameDrawingCallback p0) {}
     void updateSurface(android.view.Surface p0) throws android.view.Surface.OutOfResourcesException {}
 
-    static interface DrawCallbacks {
-        public void onPostDraw(android.graphics.RecordingCanvas p0);
-        public void onPreDraw(android.graphics.RecordingCanvas p0);
-    }
-
     public static class SimpleRenderer extends android.graphics.HardwareRenderer {
         private final float mLightRadius = 0.0f;
         private final float mLightY = 0.0f;
@@ -90,6 +85,11 @@ public final class ThreadedRenderer extends android.graphics.HardwareRenderer {
         public void draw(android.graphics.HardwareRenderer.FrameDrawingCallback p0) {}
         public android.graphics.RenderNode getRootNode() { return null; }
         public void setLightCenter(android.view.Display p0, int p1, int p2) {}
+    }
+
+    static interface DrawCallbacks {
+        public void onPostDraw(android.graphics.RecordingCanvas p0);
+        public void onPreDraw(android.graphics.RecordingCanvas p0);
     }
 
     private static final class WebViewOverlayProvider implements android.graphics.HardwareRenderer.PrepareSurfaceControlForWebviewCallback, android.graphics.HardwareRenderer.ASurfaceTransactionCallback {

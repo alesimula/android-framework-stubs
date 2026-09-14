@@ -22,30 +22,6 @@ public interface IImageCaptureExtenderImpl extends android.os.IInterface {
     public void onInit(android.os.IBinder p0, java.lang.String p1, android.hardware.camera2.impl.CameraMetadataNative p2) throws android.os.RemoteException;
     public android.hardware.camera2.extension.CaptureStageImpl onPresetSession() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.IImageCaptureExtenderImpl {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureRequestKeys() throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureResultKeys() throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.ICaptureProcessorImpl getCaptureProcessor() throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.camera2.extension.CaptureStageImpl> getCaptureStages() throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.LatencyRange getEstimatedCaptureLatencyRange(android.hardware.camera2.extension.Size p0) throws android.os.RemoteException { return null; }
-        public int getMaxCaptureStage() throws android.os.RemoteException { return 0; }
-        public android.hardware.camera2.extension.LatencyPair getRealtimeCaptureLatency() throws android.os.RemoteException { return null; }
-        public int getSessionType() throws android.os.RemoteException { return 0; }
-        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedPostviewResolutions(android.hardware.camera2.extension.Size p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedResolutions() throws android.os.RemoteException { return null; }
-        public void init(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
-        public boolean isCaptureProcessProgressAvailable() throws android.os.RemoteException { return false; }
-        public boolean isExtensionAvailable(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException { return false; }
-        public boolean isPostviewAvailable() throws android.os.RemoteException { return false; }
-        public void onDeInit(android.os.IBinder p0) throws android.os.RemoteException {}
-        public android.hardware.camera2.extension.CaptureStageImpl onDisableSession() throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.CaptureStageImpl onEnableSession() throws android.os.RemoteException { return null; }
-        public void onInit(android.os.IBinder p0, java.lang.String p1, android.hardware.camera2.impl.CameraMetadataNative p2) throws android.os.RemoteException {}
-        public android.hardware.camera2.extension.CaptureStageImpl onPresetSession() throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.IImageCaptureExtenderImpl {
         static final int TRANSACTION_getAvailableCaptureRequestKeys = 15;
         static final int TRANSACTION_getAvailableCaptureResultKeys = 16;
@@ -98,5 +74,29 @@ public interface IImageCaptureExtenderImpl extends android.os.IInterface {
             public void onInit(android.os.IBinder p0, java.lang.String p1, android.hardware.camera2.impl.CameraMetadataNative p2) throws android.os.RemoteException {}
             public android.hardware.camera2.extension.CaptureStageImpl onPresetSession() throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.IImageCaptureExtenderImpl {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureRequestKeys() throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.impl.CameraMetadataNative getAvailableCaptureResultKeys() throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.ICaptureProcessorImpl getCaptureProcessor() throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.camera2.extension.CaptureStageImpl> getCaptureStages() throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.LatencyRange getEstimatedCaptureLatencyRange(android.hardware.camera2.extension.Size p0) throws android.os.RemoteException { return null; }
+        public int getMaxCaptureStage() throws android.os.RemoteException { return 0; }
+        public android.hardware.camera2.extension.LatencyPair getRealtimeCaptureLatency() throws android.os.RemoteException { return null; }
+        public int getSessionType() throws android.os.RemoteException { return 0; }
+        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedPostviewResolutions(android.hardware.camera2.extension.Size p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.camera2.extension.SizeList> getSupportedResolutions() throws android.os.RemoteException { return null; }
+        public void init(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
+        public boolean isCaptureProcessProgressAvailable() throws android.os.RemoteException { return false; }
+        public boolean isExtensionAvailable(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException { return false; }
+        public boolean isPostviewAvailable() throws android.os.RemoteException { return false; }
+        public void onDeInit(android.os.IBinder p0) throws android.os.RemoteException {}
+        public android.hardware.camera2.extension.CaptureStageImpl onDisableSession() throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.CaptureStageImpl onEnableSession() throws android.os.RemoteException { return null; }
+        public void onInit(android.os.IBinder p0, java.lang.String p1, android.hardware.camera2.impl.CameraMetadataNative p2) throws android.os.RemoteException {}
+        public android.hardware.camera2.extension.CaptureStageImpl onPresetSession() throws android.os.RemoteException { return null; }
     }
 }

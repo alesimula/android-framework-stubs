@@ -68,7 +68,7 @@ public final class EuiccProfileInfo implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PolicyRule {
+    public static @interface ProfileState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -76,6 +76,6 @@ public final class EuiccProfileInfo implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ProfileState {
+    public static @interface PolicyRule {
     }
 }

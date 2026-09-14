@@ -20,10 +20,6 @@ public final class VirtualStylusButtonEvent implements android.os.Parcelable {
     public long getEventTimeNanos() { return 0L; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Action {
-    }
-
     public static final class Builder {
         private int mAction;
         private int mButtonCode;
@@ -33,6 +29,10 @@ public final class VirtualStylusButtonEvent implements android.os.Parcelable {
         public android.hardware.input.VirtualStylusButtonEvent.Builder setAction(int p0) { return null; }
         public android.hardware.input.VirtualStylusButtonEvent.Builder setButtonCode(int p0) { return null; }
         public android.hardware.input.VirtualStylusButtonEvent.Builder setEventTimeNanos(long p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Action {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

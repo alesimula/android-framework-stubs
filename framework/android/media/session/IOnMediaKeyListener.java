@@ -3,12 +3,6 @@ package android.media.session;
 public interface IOnMediaKeyListener extends android.os.IInterface {
     public void onMediaKey(android.view.KeyEvent p0, android.os.ResultReceiver p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.session.IOnMediaKeyListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMediaKey(android.view.KeyEvent p0, android.os.ResultReceiver p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.session.IOnMediaKeyListener {
         public static final java.lang.String DESCRIPTOR = "android.media.session.IOnMediaKeyListener";
         static final int TRANSACTION_onMediaKey = 1;
@@ -26,5 +20,11 @@ public interface IOnMediaKeyListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onMediaKey(android.view.KeyEvent p0, android.os.ResultReceiver p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.session.IOnMediaKeyListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMediaKey(android.view.KeyEvent p0, android.os.ResultReceiver p1) throws android.os.RemoteException {}
     }
 }

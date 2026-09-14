@@ -7,7 +7,6 @@ public final class Flags {
     public static final java.lang.String FLAG_ENABLE_PROVIDE_READ_ONLY_PFD = "android.app.wearable.enable_provide_read_only_pfd";
     public static final java.lang.String FLAG_ENABLE_PROVIDE_WEARABLE_CONNECTION_API = "android.app.wearable.enable_provide_wearable_connection_api";
     public static final java.lang.String FLAG_ENABLE_UNSUPPORTED_OPERATION_STATUS_CODE = "android.app.wearable.enable_unsupported_operation_status_code";
-    public static final java.lang.String FLAG_ENABLE_WEARABLE_SENSING_MANAGER_SERVICE_DUMP = "android.app.wearable.enable_wearable_sensing_manager_service_dump";
     public Flags() {}
     public static boolean enableConcurrentWearableConnections() { return false; }
     public static boolean enableDataRequestObserverApi() { return false; }
@@ -15,5 +14,4 @@ public final class Flags {
     public static boolean enableProvideReadOnlyPfd() { return false; }
     public static boolean enableProvideWearableConnectionApi() { return false; }
     public static boolean enableUnsupportedOperationStatusCode() { return false; }
-    public static boolean enableWearableSensingManagerServiceDump() { return false; }
 }

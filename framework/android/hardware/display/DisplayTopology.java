@@ -19,21 +19,25 @@ public final class DisplayTopology implements android.os.Parcelable {
     public DisplayTopology(android.os.Parcel p0) {}
     private void clampOffsets(android.hardware.display.DisplayTopology.TreeNode p0) {}
     public static float dpToPx(float p0, int p1) { return 0.0f; }
-    public static android.hardware.display.DisplayTopology.TreeNode findDisplay(int p0, android.hardware.display.DisplayTopology.TreeNode p1) { return null; }
+    private android.util.Pair<android.hardware.display.DisplayTopology.TreeNode, android.hardware.display.DisplayTopology.TreeNode> findDisplayAndParent(int p0) { return null; }
+    private static android.util.Pair<android.hardware.display.DisplayTopology.TreeNode, android.hardware.display.DisplayTopology.TreeNode> findDisplayAndParent(int p0, android.hardware.display.DisplayTopology.TreeNode p1, android.hardware.display.DisplayTopology.TreeNode p2) { return null; }
     private java.util.List<android.util.Pair<java.lang.Integer, java.lang.Float>> findDisplayPlacements(android.graphics.RectF p0, android.graphics.RectF p1) { return null; }
     private static android.util.Pair<android.hardware.display.DisplayTopology.TreeNode, java.lang.Float> findRightMostDisplay(android.hardware.display.DisplayTopology.TreeNode p0, float p1) { return null; }
     private static boolean floatEquals(float p0, float p1) { return false; }
     private android.graphics.PointF getDpCenterPosition(int p0, android.graphics.RectF p1, android.graphics.Rect p2) { return null; }
     private java.util.List<android.hardware.display.DisplayTopology.NodeDerivedInfo> getInfo() { return null; }
     private static void getSubTreeInfo(java.util.List<android.hardware.display.DisplayTopology.NodeDerivedInfo> p0, android.hardware.display.DisplayTopology.NodeDerivedInfo p1) {}
+    private void makeRoot(android.hardware.display.DisplayTopology.TreeNode p0) {}
     public static float pxToDp(float p0, int p1) { return 0.0f; }
     public void addDisplay(int p0, int p1, int p2, int p3) {}
     public java.util.Map<java.lang.Integer, android.hardware.display.DisplayTopology.TreeNode> allNodesIdMap() { return null; }
     public android.graphics.PointF calculateRelativeDirection(int p0, int p1, android.graphics.Rect p2, android.graphics.Rect p3) { return null; }
+    public boolean containsDisplay(int p0) { return false; }
     public android.hardware.display.DisplayTopology copy() { return null; }
     public int describeContents() { return 0; }
     public void dump(android.util.IndentingPrintWriter p0) {}
     public boolean equals(java.lang.Object p0) { return false; }
+    public android.hardware.display.DisplayTopology.TreeNode findDisplay(int p0) { return null; }
     public android.util.SparseArray<android.graphics.RectF> getAbsoluteBounds() { return null; }
     public android.hardware.display.DisplayTopologyGraph getGraph() { return null; }
     public int getPrimaryDisplayId() { return 0; }
@@ -45,6 +49,7 @@ public final class DisplayTopology implements android.os.Parcelable {
     public void rearrange(java.util.Map<java.lang.Integer, android.graphics.PointF> p0) {}
     public boolean removeDisplay(int p0) { return false; }
     public void setDefaultPosition(int p0) {}
+    public void setPrimaryDisplayId(int p0) {}
     public java.lang.String toString() { return null; }
     public boolean updateDisplay(int p0, int p1, int p2, int p3) { return false; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
@@ -67,10 +72,6 @@ public final class DisplayTopology implements android.os.Parcelable {
         public float top() { return 0.0f; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Position {
-    }
-
     public static final class TreeNode implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.display.DisplayTopology.TreeNode> CREATOR = null;
         private final java.util.List<android.hardware.display.DisplayTopology.TreeNode> mChildren = null;
@@ -80,6 +81,7 @@ public final class DisplayTopology implements android.os.Parcelable {
         private int mLogicalWidth;
         private float mOffset;
         private int mPosition;
+        private TreeNode(int p0, int p1, int p2, int p3) {}
         public TreeNode(int p0, int p1, int p2, int p3, int p4, float p5) {}
         public TreeNode(int p0, int p1, int p2, int p3, int p4, float p5, java.util.List<android.hardware.display.DisplayTopology.TreeNode> p6) {}
         public TreeNode(android.os.Parcel p0) {}
@@ -100,5 +102,9 @@ public final class DisplayTopology implements android.os.Parcelable {
         public void setPosition(int p0) {}
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Position {
     }
 }

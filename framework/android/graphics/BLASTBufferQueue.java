@@ -53,11 +53,11 @@ public final class BLASTBufferQueue {
     public boolean syncNextTransaction(boolean p0, android.gui.ITransactionReadyCallback p1) { return false; }
     public void update(android.view.SurfaceControl p0, int p1, int p2, int p3) {}
 
-    public static interface CornerRadiiCallback {
-        public void onCornerRadiiChanged(float[] p0);
-    }
-
     public static interface WaitForBufferReleaseCallback {
         public void onWaitForBufferRelease(long p0);
+    }
+
+    public static interface CornerRadiiCallback {
+        public void onCornerRadiiChanged(float[] p0);
     }
 }

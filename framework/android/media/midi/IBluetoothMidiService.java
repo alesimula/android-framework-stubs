@@ -3,12 +3,6 @@ package android.media.midi;
 public interface IBluetoothMidiService extends android.os.IInterface {
     public android.os.IBinder addBluetoothDevice(android.bluetooth.BluetoothDevice p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.midi.IBluetoothMidiService {
-        public Default() {}
-        public android.os.IBinder addBluetoothDevice(android.bluetooth.BluetoothDevice p0) throws android.os.RemoteException { return null; }
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.midi.IBluetoothMidiService {
         public static final java.lang.String DESCRIPTOR = "android.media.midi.IBluetoothMidiService";
         static final int TRANSACTION_addBluetoothDevice = 1;
@@ -26,5 +20,11 @@ public interface IBluetoothMidiService extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.midi.IBluetoothMidiService {
+        public Default() {}
+        public android.os.IBinder addBluetoothDevice(android.bluetooth.BluetoothDevice p0) throws android.os.RemoteException { return null; }
+        public android.os.IBinder asBinder() { return null; }
     }
 }

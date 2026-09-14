@@ -13,22 +13,6 @@ public interface IFingerprintServiceReceiver extends android.os.IInterface {
     public void onUdfpsPointerDown(int p0) throws android.os.RemoteException;
     public void onUdfpsPointerUp(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.fingerprint.IFingerprintServiceReceiver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAcquired(int p0, int p1) throws android.os.RemoteException {}
-        public void onAuthenticationFailed() throws android.os.RemoteException {}
-        public void onAuthenticationSucceeded(android.hardware.fingerprint.Fingerprint p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void onChallengeGenerated(int p0, int p1, long p2) throws android.os.RemoteException {}
-        public void onEnrollResult(android.hardware.fingerprint.Fingerprint p0, int p1) throws android.os.RemoteException {}
-        public void onError(int p0, int p1) throws android.os.RemoteException {}
-        public void onFingerprintDetected(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void onRemoved(android.hardware.fingerprint.Fingerprint p0, int p1) throws android.os.RemoteException {}
-        public void onUdfpsOverlayShown() throws android.os.RemoteException {}
-        public void onUdfpsPointerDown(int p0) throws android.os.RemoteException {}
-        public void onUdfpsPointerUp(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.fingerprint.IFingerprintServiceReceiver {
         public static final java.lang.String DESCRIPTOR = "android.hardware.fingerprint.IFingerprintServiceReceiver";
         static final int TRANSACTION_onAcquired = 2;
@@ -66,5 +50,21 @@ public interface IFingerprintServiceReceiver extends android.os.IInterface {
             public void onUdfpsPointerDown(int p0) throws android.os.RemoteException {}
             public void onUdfpsPointerUp(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.fingerprint.IFingerprintServiceReceiver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAcquired(int p0, int p1) throws android.os.RemoteException {}
+        public void onAuthenticationFailed() throws android.os.RemoteException {}
+        public void onAuthenticationSucceeded(android.hardware.fingerprint.Fingerprint p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void onChallengeGenerated(int p0, int p1, long p2) throws android.os.RemoteException {}
+        public void onEnrollResult(android.hardware.fingerprint.Fingerprint p0, int p1) throws android.os.RemoteException {}
+        public void onError(int p0, int p1) throws android.os.RemoteException {}
+        public void onFingerprintDetected(int p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void onRemoved(android.hardware.fingerprint.Fingerprint p0, int p1) throws android.os.RemoteException {}
+        public void onUdfpsOverlayShown() throws android.os.RemoteException {}
+        public void onUdfpsPointerDown(int p0) throws android.os.RemoteException {}
+        public void onUdfpsPointerUp(int p0) throws android.os.RemoteException {}
     }
 }

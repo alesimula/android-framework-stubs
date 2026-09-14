@@ -12,21 +12,11 @@ public interface IAdvancedProtectionService extends android.os.IInterface {
     public void unregisterAdvancedProtectionFeatureCallback(android.security.advancedprotection.IAdvancedProtectionFeatureCallback p0) throws android.os.RemoteException;
     public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> updateAdvancedProtectionFeaturesProvisioning(int[] p0, int[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.security.advancedprotection.IAdvancedProtectionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> getAdvancedProtectionFeatures(int[] p0) throws android.os.RemoteException { return null; }
-        public boolean isAdvancedProtectionEnabled() throws android.os.RemoteException { return false; }
-        public void logDialogShown(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void registerAdvancedProtectionCallback(android.security.advancedprotection.IAdvancedProtectionCallback p0) throws android.os.RemoteException {}
-        public void registerAdvancedProtectionFeatureCallback(int[] p0, android.security.advancedprotection.IAdvancedProtectionFeatureCallback p1) throws android.os.RemoteException {}
-        public void setAdvancedProtectionEnabled(boolean p0) throws android.os.RemoteException {}
-        public void unregisterAdvancedProtectionCallback(android.security.advancedprotection.IAdvancedProtectionCallback p0) throws android.os.RemoteException {}
-        public void unregisterAdvancedProtectionFeatureCallback(android.security.advancedprotection.IAdvancedProtectionFeatureCallback p0) throws android.os.RemoteException {}
-        public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> updateAdvancedProtectionFeaturesProvisioning(int[] p0, int[] p1) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.advancedprotection.IAdvancedProtectionService {
+        static final java.lang.String[] PERMISSIONS_getAdvancedProtectionFeatures = null;
+        static final java.lang.String[] PERMISSIONS_logDialogShown = null;
+        static final java.lang.String[] PERMISSIONS_registerAdvancedProtectionFeatureCallback = null;
+        static final java.lang.String[] PERMISSIONS_unregisterAdvancedProtectionFeatureCallback = null;
         static final int TRANSACTION_getAdvancedProtectionFeatures = 5;
         static final int TRANSACTION_isAdvancedProtectionEnabled = 1;
         static final int TRANSACTION_logDialogShown = 9;
@@ -70,5 +60,19 @@ public interface IAdvancedProtectionService extends android.os.IInterface {
             public void unregisterAdvancedProtectionFeatureCallback(android.security.advancedprotection.IAdvancedProtectionFeatureCallback p0) throws android.os.RemoteException {}
             public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> updateAdvancedProtectionFeaturesProvisioning(int[] p0, int[] p1) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.security.advancedprotection.IAdvancedProtectionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> getAdvancedProtectionFeatures(int[] p0) throws android.os.RemoteException { return null; }
+        public boolean isAdvancedProtectionEnabled() throws android.os.RemoteException { return false; }
+        public void logDialogShown(int p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void registerAdvancedProtectionCallback(android.security.advancedprotection.IAdvancedProtectionCallback p0) throws android.os.RemoteException {}
+        public void registerAdvancedProtectionFeatureCallback(int[] p0, android.security.advancedprotection.IAdvancedProtectionFeatureCallback p1) throws android.os.RemoteException {}
+        public void setAdvancedProtectionEnabled(boolean p0) throws android.os.RemoteException {}
+        public void unregisterAdvancedProtectionCallback(android.security.advancedprotection.IAdvancedProtectionCallback p0) throws android.os.RemoteException {}
+        public void unregisterAdvancedProtectionFeatureCallback(android.security.advancedprotection.IAdvancedProtectionFeatureCallback p0) throws android.os.RemoteException {}
+        public java.util.List<android.security.advancedprotection.AdvancedProtectionFeature> updateAdvancedProtectionFeaturesProvisioning(int[] p0, int[] p1) throws android.os.RemoteException { return null; }
     }
 }

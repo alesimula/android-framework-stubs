@@ -9,15 +9,6 @@ public interface IMeasurementCorrectionsInterface extends android.os.IInterface 
     public void setCallback(android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback p0) throws android.os.RemoteException;
     public void setCorrections(android.hardware.gnss.measurement_corrections.MeasurementCorrections p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsInterface {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void setCallback(android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback p0) throws android.os.RemoteException {}
-        public void setCorrections(android.hardware.gnss.measurement_corrections.MeasurementCorrections p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsInterface {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -42,5 +33,14 @@ public interface IMeasurementCorrectionsInterface extends android.os.IInterface 
             public void setCallback(android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback p0) throws android.os.RemoteException {}
             public void setCorrections(android.hardware.gnss.measurement_corrections.MeasurementCorrections p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsInterface {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void setCallback(android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback p0) throws android.os.RemoteException {}
+        public void setCorrections(android.hardware.gnss.measurement_corrections.MeasurementCorrections p0) throws android.os.RemoteException {}
     }
 }

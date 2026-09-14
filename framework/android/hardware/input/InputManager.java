@@ -13,6 +13,9 @@ public final class InputManager {
     public static final int INJECT_INPUT_EVENT_MODE_ASYNC = 0;
     public static final int INJECT_INPUT_EVENT_MODE_WAIT_FOR_FINISH = 2;
     public static final int INJECT_INPUT_EVENT_MODE_WAIT_FOR_RESULT = 1;
+    public static final int INPUT_OVERLAY_LAYER_GESTURE_MONITOR = 1;
+    public static final int INPUT_OVERLAY_LAYER_HANDWRITING_SURFACE = 2;
+    public static final int INPUT_OVERLAY_POINTER_EVENT_DISPATCHER = 2147483647;
     public static final java.lang.String META_DATA_KEYBOARD_GLYPH_MAPS = "android.hardware.input.metadata.KEYBOARD_GLYPH_MAPS";
     public static final java.lang.String META_DATA_KEYBOARD_LAYOUTS = "android.hardware.input.metadata.KEYBOARD_LAYOUTS";
     public static final int SWITCH_STATE_OFF = 0;
@@ -24,7 +27,6 @@ public final class InputManager {
     private final android.hardware.input.IInputManager mIm = null;
     private java.lang.Boolean mIsStylusPointerIconEnabled;
     public InputManager(android.content.Context p0) {}
-    public void addAllowedPeripheralApp(int p0, java.lang.String p1, byte[] p2) {}
     public int addCustomInputGesture(android.hardware.input.InputGestureData p0) { return 0; }
     public void addInputDeviceBatteryListener(int p0, java.util.concurrent.Executor p1, android.hardware.input.InputManager.InputDeviceBatteryListener p2) {}
     public void addKeyboardLayoutForInputDevice(android.hardware.input.InputDeviceIdentifier p0, java.lang.String p1) {}
@@ -42,6 +44,7 @@ public final class InputManager {
     @android.annotation.SystemApi
     public android.hardware.input.VirtualKeyboard createVirtualKeyboard(android.hardware.input.VirtualKeyboardConfig p0) { return null; }
     public android.hardware.input.VirtualMouse createVirtualMouse(android.hardware.input.VirtualMouseConfig p0) { return null; }
+    public android.hardware.input.VirtualTouchpad createVirtualTouchpad(android.hardware.input.VirtualTouchpadConfig p0) { return null; }
     public boolean[] deviceHasKeys(int p0, int[] p1) { return null; }
     public boolean[] deviceHasKeys(int[] p0) { return null; }
     public void disableInputDevice(int p0) {}
@@ -101,7 +104,6 @@ public final class InputManager {
     public void remapModifierKey(int p0, int p1) {}
     public void removeAllCustomInputGestures(android.hardware.input.InputGestureData.Filter p0) {}
     public void removeAllPeripheralCustomizations(int p0, int p1) {}
-    public void removeAllowedPeripheralApp(int p0, java.lang.String p1) {}
     public void removeControllerAxisRemapping(android.hardware.input.InputDeviceIdentifier p0, int p1) {}
     public void removeControllerButtonRemapping(android.hardware.input.InputDeviceIdentifier p0, int p1) {}
     public void removeControllerButtonToAxisRemapping(android.hardware.input.InputDeviceIdentifier p0, int p1) {}
@@ -131,6 +133,57 @@ public final class InputManager {
     public android.view.VerifiedInputEvent verifyInputEvent(android.view.InputEvent p0) { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SwitchState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RemappableModifierKey {
+        public static final int REMAPPABLE_MODIFIER_KEY_ALT_LEFT = 57;
+        public static final int REMAPPABLE_MODIFIER_KEY_ALT_RIGHT = 58;
+        public static final int REMAPPABLE_MODIFIER_KEY_CAPS_LOCK = 115;
+        public static final int REMAPPABLE_MODIFIER_KEY_CTRL_LEFT = 113;
+        public static final int REMAPPABLE_MODIFIER_KEY_CTRL_RIGHT = 114;
+        public static final int REMAPPABLE_MODIFIER_KEY_META_LEFT = 117;
+        public static final int REMAPPABLE_MODIFIER_KEY_META_RIGHT = 118;
+        public static final int REMAPPABLE_MODIFIER_KEY_SHIFT_LEFT = 59;
+        public static final int REMAPPABLE_MODIFIER_KEY_SHIFT_RIGHT = 60;
+    }
+
+    public static interface OnTabletModeChangedListener {
+        public void onTabletModeChanged(long p0, boolean p1);
+    }
+
+    public static interface InputDeviceBatteryListener {
+        public void onBatteryStateChanged(int p0, long p1, android.hardware.BatteryState p2);
+    }
+
+    public static interface StickyModifierStateListener {
+        public void onStickyModifierStateChanged(android.hardware.input.StickyModifierState p0);
+    }
+
+    public static interface KeyboardBacklightListener {
+        public void onKeyboardBacklightChanged(int p0, android.hardware.input.KeyboardBacklightState p1, boolean p2);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CustomInputGestureResult {
+    }
+
+    public static interface KeyGestureEventListener {
+        public void onKeyGestureEvent(android.hardware.input.KeyGestureEvent p0);
+    }
+
+    public static interface InputDeviceListener {
+        public void onInputDeviceAdded(int p0);
+        public void onInputDeviceChanged(int p0);
+        public void onInputDeviceRemoved(int p0);
+    }
+
+    public static interface KeyGestureEventHandler {
+        public void handleKeyGestureEvent(android.hardware.input.KeyGestureEvent p0, android.os.IBinder p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ControllerButton {
         public static final int CONTROLLER_BUTTON_A = 96;
         public static final int CONTROLLER_BUTTON_B = 97;
@@ -147,58 +200,7 @@ public final class InputManager {
         public static final int CONTROLLER_BUTTON_Y = 100;
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CustomInputGestureResult {
-    }
-
-    public static interface InputDeviceBatteryListener {
-        public void onBatteryStateChanged(int p0, long p1, android.hardware.BatteryState p2);
-    }
-
-    public static interface InputDeviceListener {
-        public void onInputDeviceAdded(int p0);
-        public void onInputDeviceChanged(int p0);
-        public void onInputDeviceRemoved(int p0);
-    }
-
-    public static interface KeyboardBacklightListener {
-        public void onKeyboardBacklightChanged(int p0, android.hardware.input.KeyboardBacklightState p1, boolean p2);
-    }
-
     public static interface KeyEventActivityListener {
         public void onKeyEventActivity();
-    }
-
-    public static interface KeyGestureEventHandler {
-        public void handleKeyGestureEvent(android.hardware.input.KeyGestureEvent p0, android.os.IBinder p1);
-    }
-
-    public static interface KeyGestureEventListener {
-        public void onKeyGestureEvent(android.hardware.input.KeyGestureEvent p0);
-    }
-
-    public static interface OnTabletModeChangedListener {
-        public void onTabletModeChanged(long p0, boolean p1);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RemappableModifierKey {
-        public static final int REMAPPABLE_MODIFIER_KEY_ALT_LEFT = 57;
-        public static final int REMAPPABLE_MODIFIER_KEY_ALT_RIGHT = 58;
-        public static final int REMAPPABLE_MODIFIER_KEY_CAPS_LOCK = 115;
-        public static final int REMAPPABLE_MODIFIER_KEY_CTRL_LEFT = 113;
-        public static final int REMAPPABLE_MODIFIER_KEY_CTRL_RIGHT = 114;
-        public static final int REMAPPABLE_MODIFIER_KEY_META_LEFT = 117;
-        public static final int REMAPPABLE_MODIFIER_KEY_META_RIGHT = 118;
-        public static final int REMAPPABLE_MODIFIER_KEY_SHIFT_LEFT = 59;
-        public static final int REMAPPABLE_MODIFIER_KEY_SHIFT_RIGHT = 60;
-    }
-
-    public static interface StickyModifierStateListener {
-        public void onStickyModifierStateChanged(android.hardware.input.StickyModifierState p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SwitchState {
     }
 }

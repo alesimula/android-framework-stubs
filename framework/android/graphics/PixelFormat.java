@@ -42,10 +42,10 @@ public class PixelFormat {
     public static boolean isPublicFormat(int p0) { return false; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Format {
+    public static @interface Opacity {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Opacity {
+    public static @interface Format {
     }
 }

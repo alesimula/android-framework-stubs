@@ -9,18 +9,6 @@ public interface IMidiDeviceServer extends android.os.IInterface {
     public java.io.FileDescriptor openOutputPort(android.os.IBinder p0, int p1) throws android.os.RemoteException;
     public void setDeviceInfo(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.midi.IMidiDeviceServer {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void closeDevice() throws android.os.RemoteException {}
-        public void closePort(android.os.IBinder p0) throws android.os.RemoteException {}
-        public int connectPorts(android.os.IBinder p0, java.io.FileDescriptor p1, int p2) throws android.os.RemoteException { return 0; }
-        public android.media.midi.MidiDeviceInfo getDeviceInfo() throws android.os.RemoteException { return null; }
-        public java.io.FileDescriptor openInputPort(android.os.IBinder p0, int p1) throws android.os.RemoteException { return null; }
-        public java.io.FileDescriptor openOutputPort(android.os.IBinder p0, int p1) throws android.os.RemoteException { return null; }
-        public void setDeviceInfo(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.midi.IMidiDeviceServer {
         public static final java.lang.String DESCRIPTOR = "android.media.midi.IMidiDeviceServer";
         static final int TRANSACTION_closeDevice = 4;
@@ -50,5 +38,17 @@ public interface IMidiDeviceServer extends android.os.IInterface {
             public java.io.FileDescriptor openOutputPort(android.os.IBinder p0, int p1) throws android.os.RemoteException { return null; }
             public void setDeviceInfo(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.midi.IMidiDeviceServer {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void closeDevice() throws android.os.RemoteException {}
+        public void closePort(android.os.IBinder p0) throws android.os.RemoteException {}
+        public int connectPorts(android.os.IBinder p0, java.io.FileDescriptor p1, int p2) throws android.os.RemoteException { return 0; }
+        public android.media.midi.MidiDeviceInfo getDeviceInfo() throws android.os.RemoteException { return null; }
+        public java.io.FileDescriptor openInputPort(android.os.IBinder p0, int p1) throws android.os.RemoteException { return null; }
+        public java.io.FileDescriptor openOutputPort(android.os.IBinder p0, int p1) throws android.os.RemoteException { return null; }
+        public void setDeviceInfo(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
     }
 }

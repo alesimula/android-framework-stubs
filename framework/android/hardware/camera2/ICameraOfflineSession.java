@@ -4,12 +4,6 @@ public interface ICameraOfflineSession extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.camera2.ICameraOfflineSession";
     public void disconnect() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.ICameraOfflineSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void disconnect() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.ICameraOfflineSession {
         static final int TRANSACTION_disconnect = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICameraOfflineSession extends android.os.IInterface {
             public void disconnect() throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.camera2.ICameraOfflineSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void disconnect() throws android.os.RemoteException {}
     }
 }

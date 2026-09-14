@@ -11,6 +11,7 @@ public class BackProgressAnimator implements com.android.internal.dynamicanimati
     private android.window.BackProgressAnimator.ProgressCallback mCallback;
     private final com.android.internal.dynamicanimation.animation.SpringForce mGestureSpringForce = null;
     private android.window.BackMotionEvent mLastBackEvent;
+    private long mLastFrameTime;
     private final com.android.internal.dynamicanimation.animation.DynamicAnimation.OnAnimationEndListener mOnAnimationEndListener = null;
     private float mProgress;
     private final com.android.internal.dynamicanimation.animation.SpringAnimation mSpring = null;

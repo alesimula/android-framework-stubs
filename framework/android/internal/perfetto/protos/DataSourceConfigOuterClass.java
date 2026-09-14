@@ -20,6 +20,8 @@ public final class DataSourceConfigOuterClass {
         public static final int BUFFER_EXHAUSTED_UNSPECIFIED = 0;
         public static final long CHROME_CONFIG = 1146756268133L;
         public static final long CHROMIUM_HISTOGRAM_SAMPLES = 1146756268166L;
+        public static final long CHROMIUM_SAMPLING_HEAP_PROFILER = 1146756268176L;
+        public static final long CHROMIUM_STACK_SAMPLING_PROFILER = 1146756268175L;
         public static final long CHROMIUM_SYSTEM_METRICS = 1146756268163L;
         public static final long CPU_PER_UID_CONFIG = 1146756268169L;
         public static final long DISPLAY_VIDEO_CONFIG = 1146756268174L;

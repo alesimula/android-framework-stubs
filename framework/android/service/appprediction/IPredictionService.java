@@ -12,20 +12,6 @@ public interface IPredictionService extends android.os.IInterface {
     public void sortAppTargets(android.app.prediction.AppPredictionSessionId p0, android.content.pm.ParceledListSlice p1, android.app.prediction.IPredictionCallback p2) throws android.os.RemoteException;
     public void unregisterPredictionUpdates(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.IPredictionCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.appprediction.IPredictionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyAppTargetEvent(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.AppTargetEvent p1) throws android.os.RemoteException {}
-        public void notifyLaunchLocationShown(android.app.prediction.AppPredictionSessionId p0, java.lang.String p1, android.content.pm.ParceledListSlice p2) throws android.os.RemoteException {}
-        public void onCreatePredictionSession(android.app.prediction.AppPredictionContext p0, android.app.prediction.AppPredictionSessionId p1) throws android.os.RemoteException {}
-        public void onDestroyPredictionSession(android.app.prediction.AppPredictionSessionId p0) throws android.os.RemoteException {}
-        public void registerPredictionUpdates(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.IPredictionCallback p1) throws android.os.RemoteException {}
-        public void requestPredictionUpdate(android.app.prediction.AppPredictionSessionId p0) throws android.os.RemoteException {}
-        public void requestServiceFeatures(android.app.prediction.AppPredictionSessionId p0, android.os.IRemoteCallback p1) throws android.os.RemoteException {}
-        public void sortAppTargets(android.app.prediction.AppPredictionSessionId p0, android.content.pm.ParceledListSlice p1, android.app.prediction.IPredictionCallback p2) throws android.os.RemoteException {}
-        public void unregisterPredictionUpdates(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.IPredictionCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.appprediction.IPredictionService {
         static final int TRANSACTION_notifyAppTargetEvent = 2;
         static final int TRANSACTION_notifyLaunchLocationShown = 3;
@@ -58,5 +44,19 @@ public interface IPredictionService extends android.os.IInterface {
             public void sortAppTargets(android.app.prediction.AppPredictionSessionId p0, android.content.pm.ParceledListSlice p1, android.app.prediction.IPredictionCallback p2) throws android.os.RemoteException {}
             public void unregisterPredictionUpdates(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.IPredictionCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.appprediction.IPredictionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyAppTargetEvent(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.AppTargetEvent p1) throws android.os.RemoteException {}
+        public void notifyLaunchLocationShown(android.app.prediction.AppPredictionSessionId p0, java.lang.String p1, android.content.pm.ParceledListSlice p2) throws android.os.RemoteException {}
+        public void onCreatePredictionSession(android.app.prediction.AppPredictionContext p0, android.app.prediction.AppPredictionSessionId p1) throws android.os.RemoteException {}
+        public void onDestroyPredictionSession(android.app.prediction.AppPredictionSessionId p0) throws android.os.RemoteException {}
+        public void registerPredictionUpdates(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.IPredictionCallback p1) throws android.os.RemoteException {}
+        public void requestPredictionUpdate(android.app.prediction.AppPredictionSessionId p0) throws android.os.RemoteException {}
+        public void requestServiceFeatures(android.app.prediction.AppPredictionSessionId p0, android.os.IRemoteCallback p1) throws android.os.RemoteException {}
+        public void sortAppTargets(android.app.prediction.AppPredictionSessionId p0, android.content.pm.ParceledListSlice p1, android.app.prediction.IPredictionCallback p2) throws android.os.RemoteException {}
+        public void unregisterPredictionUpdates(android.app.prediction.AppPredictionSessionId p0, android.app.prediction.IPredictionCallback p1) throws android.os.RemoteException {}
     }
 }

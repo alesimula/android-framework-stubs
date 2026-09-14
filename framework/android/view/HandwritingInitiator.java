@@ -51,14 +51,6 @@ public class HandwritingInitiator {
     public boolean updateFocusedView(android.view.View p0) { return false; }
     public void updateHandwritingAreasForView(android.view.View p0) {}
 
-    private class DelegationCallback implements android.view.inputmethod.ConnectionlessHandwritingCallback {
-        private final java.lang.String mDelegatePackageName = null;
-        private final android.view.View mView = null;
-        private DelegationCallback(android.view.HandwritingInitiator p0, android.view.View p1, java.lang.String p2) {}
-        public void onError(int p0) {}
-        public void onResult(java.lang.CharSequence p0) {}
-    }
-
     public static class HandwritableViewInfo {
         android.graphics.Rect mHandwritingArea;
         public boolean mIsDirty;
@@ -67,13 +59,6 @@ public class HandwritingInitiator {
         public android.graphics.Rect getHandwritingArea() { return null; }
         public android.view.View getView() { return null; }
         public boolean update() { return false; }
-    }
-
-    public static class HandwritingAreaTracker {
-        private final java.util.List<android.view.HandwritingInitiator.HandwritableViewInfo> mHandwritableViewInfos = null;
-        public HandwritingAreaTracker() {}
-        public java.util.List<android.view.HandwritingInitiator.HandwritableViewInfo> computeViewInfos() { return null; }
-        public void updateHandwritingAreaForView(android.view.View p0) {}
     }
 
     private static class State {
@@ -88,5 +73,20 @@ public class HandwritingInitiator {
         private final float mStylusDownY = 0.0f;
         private final int mStylusPointerId = 0;
         private State(android.view.MotionEvent p0) {}
+    }
+
+    private class DelegationCallback implements android.view.inputmethod.ConnectionlessHandwritingCallback {
+        private final java.lang.String mDelegatePackageName = null;
+        private final android.view.View mView = null;
+        private DelegationCallback(android.view.HandwritingInitiator p0, android.view.View p1, java.lang.String p2) {}
+        public void onError(int p0) {}
+        public void onResult(java.lang.CharSequence p0) {}
+    }
+
+    public static class HandwritingAreaTracker {
+        private final java.util.List<android.view.HandwritingInitiator.HandwritableViewInfo> mHandwritableViewInfos = null;
+        public HandwritingAreaTracker() {}
+        public java.util.List<android.view.HandwritingInitiator.HandwritableViewInfo> computeViewInfos() { return null; }
+        public void updateHandwritingAreaForView(android.view.View p0) {}
     }
 }

@@ -3,12 +3,6 @@ package com.android.internal.textservice;
 public interface ISpellCheckerService extends android.os.IInterface {
     public void getISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, int p3, com.android.internal.textservice.ISpellCheckerServiceCallback p4) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.textservice.ISpellCheckerService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void getISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, int p3, com.android.internal.textservice.ISpellCheckerServiceCallback p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.textservice.ISpellCheckerService {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.textservice.ISpellCheckerService";
         static final int TRANSACTION_getISpellCheckerSession = 1;
@@ -26,5 +20,11 @@ public interface ISpellCheckerService extends android.os.IInterface {
             public void getISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, int p3, com.android.internal.textservice.ISpellCheckerServiceCallback p4) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements com.android.internal.textservice.ISpellCheckerService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void getISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, int p3, com.android.internal.textservice.ISpellCheckerServiceCallback p4) throws android.os.RemoteException {}
     }
 }

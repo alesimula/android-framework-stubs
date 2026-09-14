@@ -2,7 +2,7 @@ package com.android.internal.graphics.drawable;
 
 public final class BackgroundBlurDrawable extends android.graphics.drawable.Drawable {
     private static final boolean DEBUG = Boolean.valueOf(false);
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "BackgroundBlurDrawable";
     private final com.android.internal.graphics.drawable.BackgroundBlurDrawable.Aggregator mAggregator = null;
     private int mAlpha;
     private int mBlurRadius;
@@ -38,6 +38,23 @@ public final class BackgroundBlurDrawable extends android.graphics.drawable.Draw
     public void setXfermode(android.graphics.Xfermode p0) {}
     public java.lang.String toString() { return null; }
 
+    public static final class BlurRegion {
+        public final float alpha = 0.0f;
+        public final int blurRadius = 0;
+        public final float cornerRadiusBLX = 0.0f;
+        public final float cornerRadiusBLY = 0.0f;
+        public final float cornerRadiusBRX = 0.0f;
+        public final float cornerRadiusBRY = 0.0f;
+        public final float cornerRadiusTLX = 0.0f;
+        public final float cornerRadiusTLY = 0.0f;
+        public final float cornerRadiusTRX = 0.0f;
+        public final float cornerRadiusTRY = 0.0f;
+        public final android.graphics.Rect rect = null;
+        BlurRegion(com.android.internal.graphics.drawable.BackgroundBlurDrawable p0) {}
+        float[] toFloatArray() { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
     public static final class Aggregator {
         private final android.util.ArraySet<com.android.internal.graphics.drawable.BackgroundBlurDrawable> mDrawables = null;
         private final android.util.LongSparseArray<android.util.ArraySet<java.lang.Runnable>> mFrameRtUpdates = null;
@@ -58,22 +75,5 @@ public final class BackgroundBlurDrawable extends android.graphics.drawable.Draw
         public boolean hasUpdates() { return false; }
         void onBlurDrawableUpdated(com.android.internal.graphics.drawable.BackgroundBlurDrawable p0) {}
         void onRenderNodePositionChanged(long p0, java.lang.Runnable p1) {}
-    }
-
-    public static final class BlurRegion {
-        public final float alpha = 0.0f;
-        public final int blurRadius = 0;
-        public final float cornerRadiusBLX = 0.0f;
-        public final float cornerRadiusBLY = 0.0f;
-        public final float cornerRadiusBRX = 0.0f;
-        public final float cornerRadiusBRY = 0.0f;
-        public final float cornerRadiusTLX = 0.0f;
-        public final float cornerRadiusTLY = 0.0f;
-        public final float cornerRadiusTRX = 0.0f;
-        public final float cornerRadiusTRY = 0.0f;
-        public final android.graphics.Rect rect = null;
-        BlurRegion(com.android.internal.graphics.drawable.BackgroundBlurDrawable p0) {}
-        float[] toFloatArray() { return null; }
-        public java.lang.String toString() { return null; }
     }
 }

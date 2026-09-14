@@ -1,7 +1,7 @@
 package android.telephony;
 
 public final class MessageUpgradeController {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MessageUpgradeController";
     private static volatile android.telephony.MessageUpgradeController sInstance;
     private static final android.util.SparseArray<android.telephony.MessageUpgradeWorker> sUpgradeWorkers = null;
     private MessageUpgradeController(android.content.Context p0) {}

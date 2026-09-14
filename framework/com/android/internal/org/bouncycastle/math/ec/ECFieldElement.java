@@ -26,17 +26,6 @@ public abstract class ECFieldElement implements com.android.internal.org.bouncyc
     public abstract java.math.BigInteger toBigInteger();
     public java.lang.String toString() { return null; }
 
-    public static abstract class AbstractF2m extends com.android.internal.org.bouncycastle.math.ec.ECFieldElement {
-        public AbstractF2m() { super(); }
-        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement halfTrace() { return null; }
-        public boolean hasFastTrace() { return false; }
-        public int trace() { return 0; }
-    }
-
-    public static abstract class AbstractFp extends com.android.internal.org.bouncycastle.math.ec.ECFieldElement {
-        public AbstractFp() { super(); }
-    }
-
     public static class F2m extends com.android.internal.org.bouncycastle.math.ec.ECFieldElement.AbstractF2m {
         public static final int GNB = 1;
         public static final int PPB = 3;
@@ -74,6 +63,17 @@ public abstract class ECFieldElement implements com.android.internal.org.bouncyc
         public com.android.internal.org.bouncycastle.math.ec.ECFieldElement subtract(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
         public boolean testBitZero() { return false; }
         public java.math.BigInteger toBigInteger() { return null; }
+    }
+
+    public static abstract class AbstractF2m extends com.android.internal.org.bouncycastle.math.ec.ECFieldElement {
+        public AbstractF2m() { super(); }
+        public com.android.internal.org.bouncycastle.math.ec.ECFieldElement halfTrace() { return null; }
+        public boolean hasFastTrace() { return false; }
+        public int trace() { return 0; }
+    }
+
+    public static abstract class AbstractFp extends com.android.internal.org.bouncycastle.math.ec.ECFieldElement {
+        public AbstractFp() { super(); }
     }
 
     public static class Fp extends com.android.internal.org.bouncycastle.math.ec.ECFieldElement.AbstractFp {

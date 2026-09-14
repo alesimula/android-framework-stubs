@@ -5,6 +5,7 @@ public class SyncRtSurfaceTransactionApplier {
     public static final int FLAG_ALPHA = 1;
     public static final int FLAG_BACKGROUND_BLUR_RADIUS = 32;
     public static final int FLAG_BACKGROUND_BLUR_SCALE = 64;
+    public static final int FLAG_BLUR_THROTTLING_TARGET_FPS = 4096;
     public static final int FLAG_CORNER_RADIUS = 16;
     public static final int FLAG_EARLY_WAKEUP_END = 1024;
     public static final int FLAG_EARLY_WAKEUP_START = 512;
@@ -28,6 +29,7 @@ public class SyncRtSurfaceTransactionApplier {
         public final float alpha = 0.0f;
         public final int backgroundBlurRadius = 0;
         public final float backgroundBlurScale = 0.0f;
+        public final int blurThrottlingTargetFps = 0;
         public final float cornerRadius = 0.0f;
         public final android.gui.EarlyWakeupInfo earlyWakeupInfo = null;
         private final int flags = 0;
@@ -38,12 +40,13 @@ public class SyncRtSurfaceTransactionApplier {
         public final android.view.SurfaceControl surface = null;
         public final boolean visible = false;
         public final android.graphics.Rect windowCrop = null;
-        private SurfaceParams(android.view.SurfaceControl p0, int p1, float p2, android.graphics.Matrix p3, android.graphics.Rect p4, int p5, float p6, int p7, float p8, boolean p9, android.view.SurfaceControl.Transaction p10, boolean p11, android.gui.EarlyWakeupInfo p12) {}
+        private SurfaceParams(android.view.SurfaceControl p0, int p1, float p2, android.graphics.Matrix p3, android.graphics.Rect p4, int p5, float p6, int p7, float p8, boolean p9, android.view.SurfaceControl.Transaction p10, boolean p11, android.gui.EarlyWakeupInfo p12, int p13) {}
 
         public static class Builder {
             float alpha;
             int backgroundBlurRadius;
             float backgroundBlurScale;
+            int blurThrottlingTargetFps;
             float cornerRadius;
             android.gui.EarlyWakeupInfo earlyWakeupInfo;
             int flags;
@@ -59,6 +62,7 @@ public class SyncRtSurfaceTransactionApplier {
             public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withAlpha(float p0) { return null; }
             public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withBackgroundBlurRadius(int p0) { return null; }
             public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withBackgroundBlurScale(float p0) { return null; }
+            public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withBlurThrottlingTargetFps(int p0) { return null; }
             public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withCornerRadius(float p0) { return null; }
             public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withEarlyWakeupEnd(android.gui.EarlyWakeupInfo p0) { return null; }
             public android.view.SyncRtSurfaceTransactionApplier.SurfaceParams.Builder withEarlyWakeupStart(android.gui.EarlyWakeupInfo p0) { return null; }

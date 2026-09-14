@@ -108,14 +108,14 @@ public class Matrix {
     public java.lang.String toShortString() { return null; }
     public java.lang.String toString() { return null; }
 
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
+    }
+
     private static class ExtraNatives {
         private ExtraNatives() {}
         static native long nCreate(long p0);
         static native long nGetNativeFinalizer();
-    }
-
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
     }
 
     public static enum ScaleToFit {

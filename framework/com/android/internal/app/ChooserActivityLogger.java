@@ -16,6 +16,14 @@ public interface ChooserActivityLogger {
     default public int typeFromIntentString(java.lang.String p0) { return 0; }
     default public int typeFromPreviewInt(int p0) { return 0; }
 
+    public static enum SharesheetStartedEvent implements com.android.internal.logging.UiEventLogger.UiEventEnum {
+        SHARE_STARTED;
+        private static final com.android.internal.app.ChooserActivityLogger.SharesheetStartedEvent[] $VALUES = null;
+        private final int mId = 0;
+        private SharesheetStartedEvent() {}
+        public int getId() { return 0; }
+    }
+
     public static enum SharesheetStandardEvent implements com.android.internal.logging.UiEventLogger.UiEventEnum {
         INVALID,
         SHARESHEET_APP_LOAD_COMPLETE,
@@ -30,14 +38,6 @@ public interface ChooserActivityLogger {
         private static final com.android.internal.app.ChooserActivityLogger.SharesheetStandardEvent[] $VALUES = null;
         private final int mId = 0;
         private SharesheetStandardEvent() {}
-        public int getId() { return 0; }
-    }
-
-    public static enum SharesheetStartedEvent implements com.android.internal.logging.UiEventLogger.UiEventEnum {
-        SHARE_STARTED;
-        private static final com.android.internal.app.ChooserActivityLogger.SharesheetStartedEvent[] $VALUES = null;
-        private final int mId = 0;
-        private SharesheetStartedEvent() {}
         public int getId() { return 0; }
     }
 

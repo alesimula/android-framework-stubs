@@ -9,17 +9,6 @@ public interface IRequestProcessorImpl extends android.os.IInterface {
     public int submit(android.hardware.camera2.extension.Request p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException;
     public int submitBurst(java.util.List<android.hardware.camera2.extension.Request> p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.IRequestProcessorImpl {
-        public Default() {}
-        public void abortCaptures() throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void setImageProcessor(android.hardware.camera2.extension.OutputConfigId p0, android.hardware.camera2.extension.IImageProcessorImpl p1) throws android.os.RemoteException {}
-        public int setRepeating(android.hardware.camera2.extension.Request p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
-        public void stopRepeating() throws android.os.RemoteException {}
-        public int submit(android.hardware.camera2.extension.Request p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
-        public int submitBurst(java.util.List<android.hardware.camera2.extension.Request> p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.IRequestProcessorImpl {
         static final int TRANSACTION_abortCaptures = 5;
         static final int TRANSACTION_setImageProcessor = 1;
@@ -46,5 +35,16 @@ public interface IRequestProcessorImpl extends android.os.IInterface {
             public int submit(android.hardware.camera2.extension.Request p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
             public int submitBurst(java.util.List<android.hardware.camera2.extension.Request> p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.IRequestProcessorImpl {
+        public Default() {}
+        public void abortCaptures() throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void setImageProcessor(android.hardware.camera2.extension.OutputConfigId p0, android.hardware.camera2.extension.IImageProcessorImpl p1) throws android.os.RemoteException {}
+        public int setRepeating(android.hardware.camera2.extension.Request p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
+        public void stopRepeating() throws android.os.RemoteException {}
+        public int submit(android.hardware.camera2.extension.Request p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
+        public int submitBurst(java.util.List<android.hardware.camera2.extension.Request> p0, android.hardware.camera2.extension.IRequestCallback p1) throws android.os.RemoteException { return 0; }
     }
 }

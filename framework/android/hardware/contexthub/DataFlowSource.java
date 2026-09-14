@@ -38,16 +38,16 @@ public final class DataFlowSource implements java.lang.AutoCloseable {
     public int size() { return 0; }
     public void updateSinkPolicy(android.hardware.contexthub.HubEndpointInfo p0, android.hardware.contexthub.DataFlowNewDataAlertPolicy p1, boolean p2) {}
 
-    private final class ApiGuard implements java.lang.AutoCloseable {
-        private ApiGuard(android.hardware.contexthub.DataFlowSource p0) {}
-        public void close() {}
-    }
-
     private static final class AsyncState {
         final android.hardware.contexthub.DataFlowData mData = null;
         final java.util.concurrent.Executor mExecutor = null;
         final android.hardware.contexthub.DataFlowSource.ApiGuard mGuard = null;
         final android.os.OutcomeReceiver<java.lang.Void, java.lang.Throwable> mReceiver = null;
         AsyncState(android.hardware.contexthub.DataFlowData p0, android.hardware.contexthub.DataFlowSource.ApiGuard p1, android.os.OutcomeReceiver<java.lang.Void, java.lang.Throwable> p2, java.util.concurrent.Executor p3) {}
+    }
+
+    private final class ApiGuard implements java.lang.AutoCloseable {
+        private ApiGuard(android.hardware.contexthub.DataFlowSource p0) {}
+        public void close() {}
     }
 }

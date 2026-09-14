@@ -4,12 +4,6 @@ public interface IWindowContainerTransactionCallback extends android.os.IInterfa
     public static final java.lang.String DESCRIPTOR = "android.window.IWindowContainerTransactionCallback";
     public void onTransactionReady(int p0, android.view.SurfaceControl.Transaction p1) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IWindowContainerTransactionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onTransactionReady(int p0, android.view.SurfaceControl.Transaction p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IWindowContainerTransactionCallback {
         static final int TRANSACTION_onTransactionReady = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IWindowContainerTransactionCallback extends android.os.IInterfa
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onTransactionReady(int p0, android.view.SurfaceControl.Transaction p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.IWindowContainerTransactionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onTransactionReady(int p0, android.view.SurfaceControl.Transaction p1) throws android.os.RemoteException {}
     }
 }

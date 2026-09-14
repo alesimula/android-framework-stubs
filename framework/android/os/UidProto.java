@@ -31,66 +31,17 @@ public final class UidProto {
     public static final long WIFI_MULTICAST_WAKELOCK = 1146756268060L;
     public UidProto() {}
 
-    public final class AggregatedWakelock {
-        public static final long BACKGROUND_PARTIAL_DURATION_MS = 1112396529666L;
-        public static final long PARTIAL_DURATION_MS = 1112396529665L;
-        public AggregatedWakelock(android.os.UidProto p0) {}
-    }
-
-    public final class BluetoothMisc {
-        public static final long APPORTIONED_BLE_SCAN = 1146756268033L;
-        public static final long BACKGROUND_BLE_SCAN = 1146756268034L;
-        public static final long BACKGROUND_BLE_SCAN_RESULT_COUNT = 1120986464262L;
-        public static final long BACKGROUND_UNOPTIMIZED_BLE_SCAN = 1146756268036L;
-        public static final long BLE_SCAN_RESULT_COUNT = 1120986464261L;
-        public static final long UNOPTIMIZED_BLE_SCAN = 1146756268035L;
-        public BluetoothMisc(android.os.UidProto p0) {}
-    }
-
-    public final class Cpu {
-        public static final int BACKGROUND = 3;
-        public static final long BY_FREQUENCY = 2246267895811L;
-        public static final long BY_PROCESS_STATE = 2246267895812L;
-        public static final int CACHED = 6;
-        public static final int FOREGROUND = 2;
-        public static final int FOREGROUND_SERVICE = 1;
-        public static final int HEAVY_WEIGHT = 5;
-        public static final long SYSTEM_DURATION_MS = 1112396529666L;
-        public static final int TOP = 0;
-        public static final int TOP_SLEEPING = 4;
-        public static final long USER_DURATION_MS = 1112396529665L;
-        public Cpu(android.os.UidProto p0) {}
-
-        public final class ByFrequency {
-            public static final long FREQUENCY_INDEX = 1120986464257L;
-            public static final long SCREEN_OFF_DURATION_MS = 1112396529667L;
-            public static final long TOTAL_DURATION_MS = 1112396529666L;
-            public ByFrequency(android.os.UidProto.Cpu p0) {}
-        }
-
-        public final class ByProcessState {
-            public static final long BY_FREQUENCY = 2246267895810L;
-            public static final long PROCESS_STATE = 1159641169921L;
-            public ByProcessState(android.os.UidProto.Cpu p0) {}
-        }
-    }
-
-    public final class Job {
-        public static final long BACKGROUND = 1146756268035L;
+    public final class Package {
         public static final long NAME = 1138166333441L;
-        public static final long TOTAL = 1146756268034L;
-        public Job(android.os.UidProto p0) {}
-    }
+        public static final long SERVICES = 2246267895810L;
+        public Package(android.os.UidProto p0) {}
 
-    public final class JobCompletion {
-        public static final long NAME = 1138166333441L;
-        public static final long REASON_COUNT = 2246267895810L;
-        public JobCompletion(android.os.UidProto p0) {}
-
-        public final class ReasonCount {
-            public static final long COUNT = 1120986464258L;
-            public static final long NAME = 1159641169921L;
-            public ReasonCount(android.os.UidProto.JobCompletion p0) {}
+        public final class Service {
+            public static final long LAUNCH_COUNT = 1120986464260L;
+            public static final long NAME = 1138166333441L;
+            public static final long START_COUNT = 1120986464259L;
+            public static final long START_DURATION_MS = 1112396529666L;
+            public Service(android.os.UidProto.Package p0) {}
         }
     }
 
@@ -120,26 +71,22 @@ public final class UidProto {
         public Network(android.os.UidProto p0) {}
     }
 
-    public final class Package {
-        public static final long NAME = 1138166333441L;
-        public static final long SERVICES = 2246267895810L;
-        public Package(android.os.UidProto p0) {}
-
-        public final class Service {
-            public static final long LAUNCH_COUNT = 1120986464260L;
-            public static final long NAME = 1138166333441L;
-            public static final long START_COUNT = 1120986464259L;
-            public static final long START_DURATION_MS = 1112396529666L;
-            public Service(android.os.UidProto.Package p0) {}
-        }
+    public final class UserActivity {
+        public static final long COUNT = 1120986464258L;
+        public static final long NAME = 1159641169921L;
+        public UserActivity(android.os.UidProto p0) {}
     }
 
-    public final class PowerUseItem {
-        public static final long COMPUTED_POWER_MAH = 1103806595073L;
-        public static final long PROPORTIONAL_SMEAR_MAH = 1103806595076L;
-        public static final long SCREEN_POWER_MAH = 1103806595075L;
-        public static final long SHOULD_HIDE = 1133871366146L;
-        public PowerUseItem(android.os.UidProto p0) {}
+    public final class JobCompletion {
+        public static final long NAME = 1138166333441L;
+        public static final long REASON_COUNT = 2246267895810L;
+        public JobCompletion(android.os.UidProto p0) {}
+
+        public final class ReasonCount {
+            public static final long COUNT = 1120986464258L;
+            public static final long NAME = 1159641169921L;
+            public ReasonCount(android.os.UidProto.JobCompletion p0) {}
+        }
     }
 
     public final class Process {
@@ -153,11 +100,23 @@ public final class UidProto {
         public Process(android.os.UidProto p0) {}
     }
 
-    public final class Sensor {
-        public static final long APPORTIONED = 1146756268034L;
+    public final class WakeupAlarm {
+        public static final long COUNT = 1120986464258L;
+        public static final long NAME = 1138166333441L;
+        public WakeupAlarm(android.os.UidProto p0) {}
+    }
+
+    public final class Job {
         public static final long BACKGROUND = 1146756268035L;
-        public static final long ID = 1120986464257L;
-        public Sensor(android.os.UidProto p0) {}
+        public static final long NAME = 1138166333441L;
+        public static final long TOTAL = 1146756268034L;
+        public Job(android.os.UidProto p0) {}
+    }
+
+    public final class AggregatedWakelock {
+        public static final long BACKGROUND_PARTIAL_DURATION_MS = 1112396529666L;
+        public static final long PARTIAL_DURATION_MS = 1112396529665L;
+        public AggregatedWakelock(android.os.UidProto p0) {}
     }
 
     public final class StateTime {
@@ -173,17 +132,27 @@ public final class UidProto {
         public StateTime(android.os.UidProto p0) {}
     }
 
-    public final class Sync {
+    public final class Sensor {
+        public static final long APPORTIONED = 1146756268034L;
         public static final long BACKGROUND = 1146756268035L;
-        public static final long NAME = 1138166333441L;
-        public static final long TOTAL = 1146756268034L;
-        public Sync(android.os.UidProto p0) {}
+        public static final long ID = 1120986464257L;
+        public Sensor(android.os.UidProto p0) {}
     }
 
-    public final class UserActivity {
-        public static final long COUNT = 1120986464258L;
-        public static final long NAME = 1159641169921L;
-        public UserActivity(android.os.UidProto p0) {}
+    public final class PowerUseItem {
+        public static final long COMPUTED_POWER_MAH = 1103806595073L;
+        public static final long PROPORTIONAL_SMEAR_MAH = 1103806595076L;
+        public static final long SCREEN_POWER_MAH = 1103806595075L;
+        public static final long SHOULD_HIDE = 1133871366146L;
+        public PowerUseItem(android.os.UidProto p0) {}
+    }
+
+    public final class Wifi {
+        public static final long APPORTIONED_SCAN = 1146756268035L;
+        public static final long BACKGROUND_SCAN = 1146756268036L;
+        public static final long FULL_WIFI_LOCK_DURATION_MS = 1112396529665L;
+        public static final long RUNNING_DURATION_MS = 1112396529666L;
+        public Wifi(android.os.UidProto p0) {}
     }
 
     public final class Wakelock {
@@ -195,17 +164,48 @@ public final class UidProto {
         public Wakelock(android.os.UidProto p0) {}
     }
 
-    public final class WakeupAlarm {
-        public static final long COUNT = 1120986464258L;
+    public final class Sync {
+        public static final long BACKGROUND = 1146756268035L;
         public static final long NAME = 1138166333441L;
-        public WakeupAlarm(android.os.UidProto p0) {}
+        public static final long TOTAL = 1146756268034L;
+        public Sync(android.os.UidProto p0) {}
     }
 
-    public final class Wifi {
-        public static final long APPORTIONED_SCAN = 1146756268035L;
-        public static final long BACKGROUND_SCAN = 1146756268036L;
-        public static final long FULL_WIFI_LOCK_DURATION_MS = 1112396529665L;
-        public static final long RUNNING_DURATION_MS = 1112396529666L;
-        public Wifi(android.os.UidProto p0) {}
+    public final class Cpu {
+        public static final int BACKGROUND = 3;
+        public static final long BY_FREQUENCY = 2246267895811L;
+        public static final long BY_PROCESS_STATE = 2246267895812L;
+        public static final int CACHED = 6;
+        public static final int FOREGROUND = 2;
+        public static final int FOREGROUND_SERVICE = 1;
+        public static final int HEAVY_WEIGHT = 5;
+        public static final long SYSTEM_DURATION_MS = 1112396529666L;
+        public static final int TOP = 0;
+        public static final int TOP_SLEEPING = 4;
+        public static final long USER_DURATION_MS = 1112396529665L;
+        public Cpu(android.os.UidProto p0) {}
+
+        public final class ByProcessState {
+            public static final long BY_FREQUENCY = 2246267895810L;
+            public static final long PROCESS_STATE = 1159641169921L;
+            public ByProcessState(android.os.UidProto.Cpu p0) {}
+        }
+
+        public final class ByFrequency {
+            public static final long FREQUENCY_INDEX = 1120986464257L;
+            public static final long SCREEN_OFF_DURATION_MS = 1112396529667L;
+            public static final long TOTAL_DURATION_MS = 1112396529666L;
+            public ByFrequency(android.os.UidProto.Cpu p0) {}
+        }
+    }
+
+    public final class BluetoothMisc {
+        public static final long APPORTIONED_BLE_SCAN = 1146756268033L;
+        public static final long BACKGROUND_BLE_SCAN = 1146756268034L;
+        public static final long BACKGROUND_BLE_SCAN_RESULT_COUNT = 1120986464262L;
+        public static final long BACKGROUND_UNOPTIMIZED_BLE_SCAN = 1146756268036L;
+        public static final long BLE_SCAN_RESULT_COUNT = 1120986464261L;
+        public static final long UNOPTIMIZED_BLE_SCAN = 1146756268035L;
+        public BluetoothMisc(android.os.UidProto p0) {}
     }
 }

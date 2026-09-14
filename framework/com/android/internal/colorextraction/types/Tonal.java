@@ -26,6 +26,15 @@ public class Tonal implements com.android.internal.colorextraction.types.Extract
     public void applyFallback(android.app.WallpaperColors p0, com.android.internal.colorextraction.ColorExtractor.GradientColors p1) {}
     public void extractInto(android.app.WallpaperColors p0, com.android.internal.colorextraction.ColorExtractor.GradientColors p1, com.android.internal.colorextraction.ColorExtractor.GradientColors p2, com.android.internal.colorextraction.ColorExtractor.GradientColors p3) {}
 
+    public static class TonalPalette {
+        public final float[] h = null;
+        public final float[] l = null;
+        public final float maxHue = 0.0f;
+        public final float minHue = 0.0f;
+        public final float[] s = null;
+        TonalPalette(float[] p0, float[] p1, float[] p2) {}
+    }
+
     public static class ColorRange {
         private android.util.Range<java.lang.Float> mHue;
         private android.util.Range<java.lang.Float> mLightness;
@@ -44,14 +53,5 @@ public class Tonal implements com.android.internal.colorextraction.types.Extract
         private com.android.internal.colorextraction.types.Tonal.TonalPalette readPalette(org.xmlpull.v1.XmlPullParser p0) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
         private com.android.internal.colorextraction.types.Tonal.ColorRange readRange(org.xmlpull.v1.XmlPullParser p0) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
         public java.util.ArrayList<com.android.internal.colorextraction.types.Tonal.TonalPalette> getTonalPalettes() { return null; }
-    }
-
-    public static class TonalPalette {
-        public final float[] h = null;
-        public final float[] l = null;
-        public final float maxHue = 0.0f;
-        public final float minHue = 0.0f;
-        public final float[] s = null;
-        TonalPalette(float[] p0, float[] p1, float[] p2) {}
     }
 }

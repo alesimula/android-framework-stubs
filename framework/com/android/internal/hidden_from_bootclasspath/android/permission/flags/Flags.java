@@ -8,9 +8,6 @@ public final class Flags {
     public static final java.lang.String FLAG_ALLOW_HOST_PERMISSION_DIALOGS_ON_VIRTUAL_DEVICES = "android.permission.flags.allow_host_permission_dialogs_on_virtual_devices";
     public static final java.lang.String FLAG_APPOP_ACCESS_TRACKING_LOGGING_ENABLED = "android.permission.flags.appop_access_tracking_logging_enabled";
     public static final java.lang.String FLAG_APPOP_MODE_CACHING_ENABLED = "android.permission.flags.appop_mode_caching_enabled";
-    public static final java.lang.String FLAG_APP_FUNCTION_ACCESS_API_ENABLED = "android.permission.flags.app_function_access_api_enabled";
-    public static final java.lang.String FLAG_APP_FUNCTION_ACCESS_SERVICE_ENABLED = "android.permission.flags.app_function_access_service_enabled";
-    public static final java.lang.String FLAG_APP_FUNCTION_ACCESS_UI_ENABLED = "android.permission.flags.app_function_access_ui_enabled";
     public static final java.lang.String FLAG_APP_INTERACTION_ACCESS_CONTROL_ENABLED = "android.permission.flags.app_interaction_access_control_enabled";
     public static final java.lang.String FLAG_APP_OPS_CELL_REPORTING = "android.permission.flags.app_ops_cell_reporting";
     public static final java.lang.String FLAG_APP_OPS_READ_CELL_INFORMATION = "android.permission.flags.app_ops_read_cell_information";
@@ -26,6 +23,7 @@ public final class Flags {
     public static final java.lang.String FLAG_DEVICE_CONTROLLER_ROLE_API_ENABLED = "android.permission.flags.device_controller_role_api_enabled";
     public static final java.lang.String FLAG_DEVICE_ID_IN_OP_PROXY_INFO_ENABLED = "android.permission.flags.device_id_in_op_proxy_info_enabled";
     public static final java.lang.String FLAG_DEVICE_POLICY_MANAGEMENT_ROLE_SPLIT_CREATE_MANAGED_PROFILE_ENABLED = "android.permission.flags.device_policy_management_role_split_create_managed_profile_enabled";
+    public static final java.lang.String FLAG_ENABLE_ABLE_SAFETY_STACK = "android.permission.flags.enable_able_safety_stack";
     public static final java.lang.String FLAG_ENABLE_ALL_SQLITE_APPOPS_ACCESSES = "android.permission.flags.enable_all_sqlite_appops_accesses";
     public static final java.lang.String FLAG_ENABLE_OTP_IN_TEXT_CLASSIFIERS = "android.permission.flags.enable_otp_in_text_classifiers";
     public static final java.lang.String FLAG_ENABLE_SQLITE_APPOPS_ACCESSES = "android.permission.flags.enable_sqlite_appops_accesses";
@@ -39,6 +37,7 @@ public final class Flags {
     public static final java.lang.String FLAG_FULL_LOOPBACK_PROTECTIONS_ENABLED = "android.permission.flags.full_loopback_protections_enabled";
     public static final java.lang.String FLAG_GET_EMERGENCY_ROLE_HOLDER_API_ENABLED = "android.permission.flags.get_emergency_role_holder_api_enabled";
     public static final java.lang.String FLAG_GRANT_READ_BLOCKED_NUMBERS_TO_SYSTEM_UI_INTELLIGENCE = "android.permission.flags.grant_read_blocked_numbers_to_system_ui_intelligence";
+    public static final java.lang.String FLAG_GRANT_SECURE_VIDEO_OUTPUT_TO_NEARBY_STREAMING = "android.permission.flags.grant_secure_video_output_to_nearby_streaming";
     public static final java.lang.String FLAG_GRANULAR_HEALTH_PERMISSIONS_PHASE_TWO_ENABLED = "android.permission.flags.granular_health_permissions_phase_two_enabled";
     public static final java.lang.String FLAG_HEALTH_CONNECT_BACKUP_RESTORE_PERMISSION_ENABLED = "android.permission.flags.health_connect_backup_restore_permission_enabled";
     public static final java.lang.String FLAG_HEALTH_CONNECT_PROVIDE_DEVICE_DATA_PERMISSION_ENABLED = "android.permission.flags.health_connect_provide_device_data_permission_enabled";
@@ -63,10 +62,12 @@ public final class Flags {
     public static final java.lang.String FLAG_RANGING_PERMISSION_ENABLED = "android.permission.flags.ranging_permission_enabled";
     public static final java.lang.String FLAG_RATE_LIMIT_BATCHED_NOTE_OP_ASYNC_CALLBACKS_ENABLED = "android.permission.flags.rate_limit_batched_note_op_async_callbacks_enabled";
     public static final java.lang.String FLAG_READ_MEDIA_DOCUMENTS_PERMISSION_ENABLED = "android.permission.flags.read_media_documents_permission_enabled";
+    public static final java.lang.String FLAG_REGISTERED_APP_STORE = "android.permission.flags.registered_app_store";
     public static final java.lang.String FLAG_REPLACE_BODY_SENSOR_PERMISSION_ENABLED = "android.permission.flags.replace_body_sensor_permission_enabled";
     public static final java.lang.String FLAG_RESTRICT_ASSIST_STRUCTURE_SCREEN_CONTENT_ENABLED = "android.permission.flags.restrict_assist_structure_screen_content_enabled";
     public static final java.lang.String FLAG_RETAIL_DEMO_ROLE_ENABLED = "android.permission.flags.retail_demo_role_enabled";
     public static final java.lang.String FLAG_SAFETY_CENTER_SHOW_ISSUES_API = "android.permission.flags.safety_center_show_issues_api";
+    public static final java.lang.String FLAG_SEARCH_ENGINE_ROLE_ENABLED = "android.permission.flags.search_engine_role_enabled";
     public static final java.lang.String FLAG_SENSITIVE_NOTIFICATION_APP_PROTECTION = "android.permission.flags.sensitive_notification_app_protection";
     public static final java.lang.String FLAG_SET_NEXT_ATTRIBUTION_SOURCE = "android.permission.flags.set_next_attribution_source";
     public static final java.lang.String FLAG_SHOULD_REGISTER_ATTRIBUTION_SOURCE = "android.permission.flags.should_register_attribution_source";
@@ -100,9 +101,6 @@ public final class Flags {
     public static boolean allowHostPermissionDialogsOnVirtualDevices() { return false; }
     public static boolean allowlistTestProviderEnabled() { return false; }
     public static boolean allowlistV2ChangesEnabled() { return false; }
-    public static boolean appFunctionAccessApiEnabled() { return false; }
-    public static boolean appFunctionAccessServiceEnabled() { return false; }
-    public static boolean appFunctionAccessUiEnabled() { return false; }
     public static boolean appInteractionAccessControlEnabled() { return false; }
     public static boolean appOpsCellReporting() { return false; }
     public static boolean appOpsReadCellInformation() { return false; }
@@ -120,6 +118,7 @@ public final class Flags {
     public static boolean deviceControllerRoleApiEnabled() { return false; }
     public static boolean deviceIdInOpProxyInfoEnabled() { return false; }
     public static boolean devicePolicyManagementRoleSplitCreateManagedProfileEnabled() { return false; }
+    public static boolean enableAbleSafetyStack() { return false; }
     public static boolean enableAllSqliteAppopsAccesses() { return false; }
     public static boolean enableOtpInTextClassifiers() { return false; }
     public static boolean enableSqliteAppopsAccesses() { return false; }
@@ -133,6 +132,7 @@ public final class Flags {
     public static boolean fullLoopbackProtectionsEnabled() { return false; }
     public static boolean getEmergencyRoleHolderApiEnabled() { return false; }
     public static boolean grantReadBlockedNumbersToSystemUiIntelligence() { return false; }
+    public static boolean grantSecureVideoOutputToNearbyStreaming() { return false; }
     public static boolean granularHealthPermissionsPhaseTwoEnabled() { return false; }
     public static boolean healthConnectBackupRestorePermissionEnabled() { return false; }
     public static boolean healthConnectProvideDeviceDataPermissionEnabled() { return false; }
@@ -157,10 +157,12 @@ public final class Flags {
     public static boolean rangingPermissionEnabled() { return false; }
     public static boolean rateLimitBatchedNoteOpAsyncCallbacksEnabled() { return false; }
     public static boolean readMediaDocumentsPermissionEnabled() { return false; }
+    public static boolean registeredAppStore() { return false; }
     public static boolean replaceBodySensorPermissionEnabled() { return false; }
     public static boolean restrictAssistStructureScreenContentEnabled() { return false; }
     public static boolean retailDemoRoleEnabled() { return false; }
     public static boolean safetyCenterShowIssuesApi() { return false; }
+    public static boolean searchEngineRoleEnabled() { return false; }
     public static boolean sensitiveNotificationAppProtection() { return false; }
     public static boolean setNextAttributionSource() { return false; }
     public static boolean shouldRegisterAttributionSource() { return false; }

@@ -71,6 +71,7 @@ public class Resources {
     @java.lang.Deprecated
     public android.graphics.drawable.Drawable getDrawableForDensity(int p0, int p1) throws android.content.res.Resources.NotFoundException { return null; }
     public android.graphics.drawable.Drawable getDrawableForDensity(int p0, int p1, android.content.res.Resources.Theme p2) { return null; }
+    public android.graphics.drawable.Drawable getDrawableForDensityCapped(int p0, int p1, android.content.res.Resources.Theme p2) throws android.content.res.Resources.NotFoundException { return null; }
     public final android.graphics.drawable.DrawableInflater getDrawableInflater() { return null; }
     public float getFloat(int p0) { return 0.0f; }
     public android.graphics.Typeface getFont(int p0) throws android.content.res.Resources.NotFoundException { return null; }
@@ -131,6 +132,10 @@ public class Resources {
     public void updateConfiguration(android.content.res.Configuration p0, android.util.DisplayMetrics p1) {}
     public void updateConfiguration(android.content.res.Configuration p0, android.util.DisplayMetrics p1, android.content.res.CompatibilityInfo p2) {}
 
+    public static interface UpdateCallbacks extends android.content.res.loader.ResourcesLoader.UpdateCallbacks {
+        public void onLoadersChanged(android.content.res.Resources p0, java.util.List<android.content.res.loader.ResourcesLoader> p1);
+    }
+
     public class AssetManagerUpdateHandler implements android.content.res.Resources.UpdateCallbacks {
         public AssetManagerUpdateHandler(android.content.res.Resources p0) {}
         public void onLoaderUpdated(android.content.res.loader.ResourcesLoader p0) {}
@@ -178,12 +183,14 @@ public class Resources {
         public java.lang.String toString() { return null; }
     }
 
-    static class ThemeKey implements java.lang.Cloneable {
-        int mCount;
-        boolean[] mForce;
+    public static class ThemeKey implements java.lang.Cloneable {
+        public int mCount;
+        public boolean[] mForce;
         private int mHashCode;
-        int[] mResId;
-        ThemeKey() {}
+        public int[] mResId;
+        private boolean mShared;
+        public ThemeKey() {}
+        private void ensureNotShared() {}
         private int findValue(int p0, boolean p1) { return 0; }
         private void moveToLast(int p0) {}
         public void append(int p0, boolean p1) {}
@@ -191,9 +198,5 @@ public class Resources {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public void setTo(android.content.res.Resources.ThemeKey p0) {}
-    }
-
-    public static interface UpdateCallbacks extends android.content.res.loader.ResourcesLoader.UpdateCallbacks {
-        public void onLoadersChanged(android.content.res.Resources p0, java.util.List<android.content.res.loader.ResourcesLoader> p1);
     }
 }

@@ -5,8 +5,8 @@ public final class HeuristicInferrer implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.people.HeuristicInferrer> CREATOR = null;
     private final java.util.List<android.app.people.Expression> mFilters = null;
     private final java.util.List<android.app.people.Expression> mScorers = null;
+    public HeuristicInferrer(int p0, android.os.Parcel p1) {}
     private HeuristicInferrer(android.app.people.HeuristicInferrer.Builder p0) {}
-    public HeuristicInferrer(android.os.Parcel p0, int p1) {}
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
     public java.util.List<android.app.people.Expression> getFilters() { return null; }

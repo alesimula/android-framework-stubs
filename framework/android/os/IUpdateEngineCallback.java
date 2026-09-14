@@ -4,13 +4,6 @@ public interface IUpdateEngineCallback extends android.os.IInterface {
     public void onPayloadApplicationComplete(int p0) throws android.os.RemoteException;
     public void onStatusUpdate(int p0, float p1) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IUpdateEngineCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPayloadApplicationComplete(int p0) throws android.os.RemoteException {}
-        public void onStatusUpdate(int p0, float p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IUpdateEngineCallback {
         public static final java.lang.String DESCRIPTOR = "android.os.IUpdateEngineCallback";
         static final int TRANSACTION_onPayloadApplicationComplete = 2;
@@ -30,5 +23,12 @@ public interface IUpdateEngineCallback extends android.os.IInterface {
             public void onPayloadApplicationComplete(int p0) throws android.os.RemoteException {}
             public void onStatusUpdate(int p0, float p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IUpdateEngineCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPayloadApplicationComplete(int p0) throws android.os.RemoteException {}
+        public void onStatusUpdate(int p0, float p1) throws android.os.RemoteException {}
     }
 }

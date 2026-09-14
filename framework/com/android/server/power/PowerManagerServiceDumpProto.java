@@ -61,6 +61,21 @@ public final class PowerManagerServiceDumpProto {
     public static final long WIRELESS_CHARGER_DETECTOR = 1146756268081L;
     public PowerManagerServiceDumpProto() {}
 
+    public final class ConstantsProto {
+        public static final long IS_NO_CACHED_WAKE_LOCKS = 1133871366145L;
+        public ConstantsProto(com.android.server.power.PowerManagerServiceDumpProto p0) {}
+    }
+
+    public final class UserActivityProto {
+        public static final long DISPLAY_GROUP_ID = 1120986464262L;
+        public static final long IS_SCREEN_BRIGHT = 1133871366145L;
+        public static final long IS_SCREEN_DIM = 1133871366146L;
+        public static final long IS_SCREEN_DREAM = 1133871366147L;
+        public static final long LAST_USER_ACTIVITY_TIME_MS = 1112396529668L;
+        public static final long LAST_USER_ACTIVITY_TIME_NO_CHANGE_LIGHTS_MS = 1112396529669L;
+        public UserActivityProto(com.android.server.power.PowerManagerServiceDumpProto p0) {}
+    }
+
     public final class ActiveWakeLocksProto {
         public static final long IS_BUTTON_BRIGHT = 1133871366148L;
         public static final long IS_CPU = 1133871366145L;
@@ -74,11 +89,6 @@ public final class PowerManagerServiceDumpProto {
         public ActiveWakeLocksProto(com.android.server.power.PowerManagerServiceDumpProto p0) {}
     }
 
-    public final class ConstantsProto {
-        public static final long IS_NO_CACHED_WAKE_LOCKS = 1133871366145L;
-        public ConstantsProto(com.android.server.power.PowerManagerServiceDumpProto p0) {}
-    }
-
     public final class UidStateProto {
         public static final long IS_ACTIVE = 1133871366147L;
         public static final long NUM_WAKE_LOCKS = 1120986464260L;
@@ -86,15 +96,5 @@ public final class PowerManagerServiceDumpProto {
         public static final long UID = 1120986464257L;
         public static final long UID_STRING = 1138166333442L;
         public UidStateProto(com.android.server.power.PowerManagerServiceDumpProto p0) {}
-    }
-
-    public final class UserActivityProto {
-        public static final long DISPLAY_GROUP_ID = 1120986464262L;
-        public static final long IS_SCREEN_BRIGHT = 1133871366145L;
-        public static final long IS_SCREEN_DIM = 1133871366146L;
-        public static final long IS_SCREEN_DREAM = 1133871366147L;
-        public static final long LAST_USER_ACTIVITY_TIME_MS = 1112396529668L;
-        public static final long LAST_USER_ACTIVITY_TIME_NO_CHANGE_LIGHTS_MS = 1112396529669L;
-        public UserActivityProto(com.android.server.power.PowerManagerServiceDumpProto p0) {}
     }
 }

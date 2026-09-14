@@ -494,12 +494,8 @@ public class AudioSystem {
     public static native int updatePolicyMixes(android.media.audiopolicy.AudioMix[] p0, android.media.audiopolicy.AudioMixingRule[] p1);
     private static void volRangeInitReqCallbackFromNative() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioFormatNativeEnumForBtCodec {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioFormatNativeEnumForBtLeAudioCodec {
+    public static interface DynamicPolicyCallback {
+        public void onDynamicPolicyMixStateUpdate(java.lang.String p0, int p1);
     }
 
     public static interface AudioRecordingCallback {
@@ -507,26 +503,30 @@ public class AudioSystem {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioSystemError {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BtOffloadDeviceType {
-    }
-
-    public static interface DynamicPolicyCallback {
-        public void onDynamicPolicyMixStateUpdate(java.lang.String p0, int p1);
-    }
-
-    public static interface ErrorCallback {
-        public void onError(int p0);
+    public static @interface AudioFormatNativeEnumForBtCodec {
     }
 
     public static interface RoutingUpdateCallback {
         public void onRoutingUpdated();
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BtOffloadDeviceType {
+    }
+
     public static interface VolumeRangeInitRequestCallback {
         public void onVolumeRangeInitializationRequested();
+    }
+
+    public static interface ErrorCallback {
+        public void onError(int p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioFormatNativeEnumForBtLeAudioCodec {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AudioSystemError {
     }
 }

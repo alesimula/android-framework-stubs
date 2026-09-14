@@ -29,12 +29,13 @@ public abstract class PowerManagerInternal {
     public abstract android.os.PowerManager.WakeData getLastWakeup();
     public abstract android.os.PowerSaveState getLowPowerState(int p0);
     public abstract void goToSleepPerGroup(android.util.IntArray p0, long p1, int p2, int p3);
+    public abstract boolean hasWakeLock(int p0, int... p1);
     public abstract boolean interceptPowerKeyDown(android.view.KeyEvent p0);
     public abstract boolean isAmbientDisplaySuppressed();
     public abstract boolean isAnyDefaultAdjacentGroupInteractive();
     public abstract boolean isDefaultGroupAdjacent(int p0);
     public abstract boolean isGroupInteractive(int p0);
-    public abstract void nap(long p0, boolean p1);
+    public abstract void nap(long p0, boolean p1, int p2);
     public void registerLowPowerModeObserver(int p0, java.util.function.Consumer<android.os.PowerSaveState> p1) {}
     public abstract void registerLowPowerModeObserver(android.os.PowerManagerInternal.LowPowerModeListener p0);
     public abstract void registerUserActivityListener(android.os.PowerManagerInternal.UserActivityListener p0);
@@ -80,12 +81,12 @@ public abstract class PowerManagerInternal {
         public void updateUidProcState(int p0, int p1);
     }
 
-    public static interface UserActivityListener {
-        public void onUserActivity(long p0, int p1, int p2);
-    }
-
     public static interface WakeUpDelegate {
         public boolean sleep(long p0, int p1, int p2);
         public boolean wakeUp(long p0, int p1, java.lang.String p2, int p3);
+    }
+
+    public static interface UserActivityListener {
+        public void onUserActivity(long p0, int p1, int p2);
     }
 }

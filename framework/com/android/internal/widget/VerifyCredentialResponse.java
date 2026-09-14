@@ -31,7 +31,6 @@ public final class VerifyCredentialResponse implements android.os.Parcelable {
     public byte[] getGatekeeperHAT() { return null; }
     public long getGatekeeperPasswordHandle() { return 0L; }
     public java.time.Duration getTimeout() { return null; }
-    public java.time.Duration getTimeoutAsDuration() { return null; }
     public boolean hasTimeout() { return false; }
     public int hashCode() { return 0; }
     public boolean isCredAlreadyTried() { return false; }

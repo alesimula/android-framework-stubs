@@ -19,6 +19,10 @@ public class FingerprintEnrollOptions implements android.os.Parcelable {
     public int hashCode() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EnrollReason {
+    }
+
     public static class Builder {
         private long mBuilderFieldsSet;
         private int mEnrollReason;
@@ -26,9 +30,5 @@ public class FingerprintEnrollOptions implements android.os.Parcelable {
         private void checkNotUsed() {}
         public android.hardware.fingerprint.FingerprintEnrollOptions build() { return null; }
         public android.hardware.fingerprint.FingerprintEnrollOptions.Builder setEnrollReason(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EnrollReason {
     }
 }

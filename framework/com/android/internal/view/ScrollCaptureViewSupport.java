@@ -33,7 +33,6 @@ public class ScrollCaptureViewSupport<V extends android.view.View> implements an
         private final android.graphics.RenderNode mCaptureRenderNode = null;
         private long mLastRenderedSourceDrawingId;
         private final android.graphics.HardwareRenderer mRenderer = null;
-        private android.view.Surface mSurface;
         private final int[] mTempLocation = null;
         private final android.graphics.Rect mTempRect = null;
         ViewRenderer() {}

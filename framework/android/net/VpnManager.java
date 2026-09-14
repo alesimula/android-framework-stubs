@@ -43,7 +43,6 @@ public class VpnManager {
     public void deleteProvisionedVpnProfile() {}
     public void factoryReset() {}
     public java.lang.String getAlwaysOnVpnPackageForUser(int p0) { return null; }
-    public java.util.List<java.lang.String> getAppExclusionList(int p0, java.lang.String p1) { return null; }
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public java.util.List<java.lang.String> getAppExclusionList(android.os.UserHandle p0, java.lang.String p1) { return null; }
     public byte[] getFromVpnProfileStore(java.lang.String p0) { return null; }
@@ -59,7 +58,6 @@ public class VpnManager {
     public boolean putIntoVpnProfileStore(java.lang.String p0, byte[] p1) { return false; }
     public boolean removeFromVpnProfileStore(java.lang.String p0) { return false; }
     public boolean setAlwaysOnVpnPackageForUser(int p0, java.lang.String p1, boolean p2, java.util.List<java.lang.String> p3) { return false; }
-    public boolean setAppExclusionList(int p0, java.lang.String p1, java.util.List<java.lang.String> p2) { return false; }
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public boolean setAppExclusionList(android.os.UserHandle p0, java.lang.String p1, java.util.List<java.lang.String> p2) { return false; }
     public void setVpnPackageAuthorization(java.lang.String p0, int p1, int p2) {}

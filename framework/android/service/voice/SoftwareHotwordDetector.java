@@ -2,7 +2,7 @@ package android.service.voice;
 
 class SoftwareHotwordDetector extends android.service.voice.AbstractDetector {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SoftwareHotwordDetector";
     private final java.lang.String mAttributionTag = null;
     private final android.media.AudioFormat mAudioFormat = null;
     private final android.service.voice.HotwordDetector.Callback mCallback = null;

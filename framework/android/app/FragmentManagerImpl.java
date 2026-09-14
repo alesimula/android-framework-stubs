@@ -169,6 +169,10 @@ final class FragmentManagerImpl extends android.app.FragmentManager implements a
     public java.lang.String toString() { return null; }
     public void unregisterFragmentLifecycleCallbacks(android.app.FragmentManager.FragmentLifecycleCallbacks p0) {}
 
+    static interface OpGenerator {
+        public boolean generateOps(java.util.ArrayList<android.app.BackStackRecord> p0, java.util.ArrayList<java.lang.Boolean> p1);
+    }
+
     static class AnimateOnHWLayerIfNeededListener implements android.animation.Animator.AnimatorListener {
         private boolean mShouldRunOnHWLayer;
         private android.view.View mView;
@@ -177,10 +181,6 @@ final class FragmentManagerImpl extends android.app.FragmentManager implements a
         public void onAnimationEnd(android.animation.Animator p0) {}
         public void onAnimationRepeat(android.animation.Animator p0) {}
         public void onAnimationStart(android.animation.Animator p0) {}
-    }
-
-    static interface OpGenerator {
-        public boolean generateOps(java.util.ArrayList<android.app.BackStackRecord> p0, java.util.ArrayList<java.lang.Boolean> p1);
     }
 
     private class PopBackStackState implements android.app.FragmentManagerImpl.OpGenerator {

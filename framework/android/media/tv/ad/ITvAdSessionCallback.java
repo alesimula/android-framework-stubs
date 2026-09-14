@@ -11,19 +11,6 @@ public interface ITvAdSessionCallback extends android.os.IInterface {
     public void onSessionCreated(android.media.tv.ad.ITvAdSession p0) throws android.os.RemoteException;
     public void onTvAdSessionData(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.ad.ITvAdSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onLayoutSurface(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void onRequestCurrentChannelUri() throws android.os.RemoteException {}
-        public void onRequestCurrentTvInputId() throws android.os.RemoteException {}
-        public void onRequestCurrentVideoBounds() throws android.os.RemoteException {}
-        public void onRequestSigning(java.lang.String p0, java.lang.String p1, java.lang.String p2, byte[] p3) throws android.os.RemoteException {}
-        public void onRequestTrackInfoList() throws android.os.RemoteException {}
-        public void onSessionCreated(android.media.tv.ad.ITvAdSession p0) throws android.os.RemoteException {}
-        public void onTvAdSessionData(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.ad.ITvAdSessionCallback {
         static final int TRANSACTION_onLayoutSurface = 2;
         static final int TRANSACTION_onRequestCurrentChannelUri = 4;
@@ -54,5 +41,18 @@ public interface ITvAdSessionCallback extends android.os.IInterface {
             public void onSessionCreated(android.media.tv.ad.ITvAdSession p0) throws android.os.RemoteException {}
             public void onTvAdSessionData(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.ad.ITvAdSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onLayoutSurface(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void onRequestCurrentChannelUri() throws android.os.RemoteException {}
+        public void onRequestCurrentTvInputId() throws android.os.RemoteException {}
+        public void onRequestCurrentVideoBounds() throws android.os.RemoteException {}
+        public void onRequestSigning(java.lang.String p0, java.lang.String p1, java.lang.String p2, byte[] p3) throws android.os.RemoteException {}
+        public void onRequestTrackInfoList() throws android.os.RemoteException {}
+        public void onSessionCreated(android.media.tv.ad.ITvAdSession p0) throws android.os.RemoteException {}
+        public void onTvAdSessionData(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
     }
 }

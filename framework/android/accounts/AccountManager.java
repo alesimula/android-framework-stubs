@@ -142,18 +142,6 @@ public class AccountManager {
     public void updateAppPermission(android.accounts.Account p0, java.lang.String p1, int p2, boolean p3) {}
     public android.accounts.AccountManagerFuture<android.os.Bundle> updateCredentials(android.accounts.Account p0, java.lang.String p1, android.os.Bundle p2, android.app.Activity p3, android.accounts.AccountManagerCallback<android.os.Bundle> p4, android.os.Handler p5) { return null; }
 
-    private static final class AccountKeyData {
-        public final android.accounts.Account account = null;
-        public final java.lang.String key = null;
-        public AccountKeyData(android.accounts.Account p0, java.lang.String p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AccountVisibility {
-    }
-
     private abstract class AmsTask extends java.util.concurrent.FutureTask<android.os.Bundle> implements android.accounts.AccountManagerFuture<android.os.Bundle> {
         final android.app.Activity mActivity = null;
         final android.accounts.AccountManagerCallback<android.os.Bundle> mCallback = null;
@@ -199,6 +187,18 @@ public class AccountManager {
         public T getResult() throws android.accounts.OperationCanceledException, java.io.IOException, android.accounts.AuthenticatorException { return null; }
         public T getResult(long p0, java.util.concurrent.TimeUnit p1) throws android.accounts.OperationCanceledException, java.io.IOException, android.accounts.AuthenticatorException { return null; }
         public android.accounts.AccountManager.Future2Task<T> start() { return null; }
+    }
+
+    private static final class AccountKeyData {
+        public final android.accounts.Account account = null;
+        public final java.lang.String key = null;
+        public AccountKeyData(android.accounts.Account p0, java.lang.String p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AccountVisibility {
     }
 
     private class GetAuthTokenByTypeAndFeaturesTask extends android.accounts.AccountManager.AmsTask implements android.accounts.AccountManagerCallback<android.os.Bundle> {

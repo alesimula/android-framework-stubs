@@ -4,7 +4,7 @@ public class KernelSingleUidTimeReader {
     private static final boolean DBG = false;
     private static final java.lang.String PROC_FILE_DIR = "/proc/uid/";
     private static final java.lang.String PROC_FILE_NAME = "/time_in_state";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "com.android.internal.os.KernelSingleUidTimeReader";
     public static final int TOTAL_READ_ERROR_COUNT = 5;
     private static final java.lang.String UID_TIMES_PROC_FILE = "/proc/uid_time_in_state";
     private boolean mBpfTimesAvailable;

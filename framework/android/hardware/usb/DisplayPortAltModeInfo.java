@@ -31,10 +31,10 @@ public final class DisplayPortAltModeInfo implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DisplayPortAltModeStatus {
+    public static @interface LinkTrainingStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LinkTrainingStatus {
+    public static @interface DisplayPortAltModeStatus {
     }
 }

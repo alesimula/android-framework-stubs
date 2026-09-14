@@ -82,6 +82,7 @@ public class TelephonyCallback {
     public static final int EVENT_RADIO_POWER_STATE_CHANGED = 24;
     @android.annotation.SystemApi
     public static final int EVENT_REGISTRATION_FAILURE = 31;
+    public static final int EVENT_SATELLITE_ENTITLEMENT_STATUS_CHANGED = 51;
     public static final int EVENT_SATELLITE_PURCHASE_MODE_CHANGED = 50;
     @android.annotation.SystemApi
     public static final int EVENT_SECURITY_ALGORITHMS_CHANGED = 46;
@@ -110,40 +111,44 @@ public class TelephonyCallback {
     public void close() {}
     public void init(java.util.concurrent.Executor p0) {}
 
-    public static interface ActiveDataSubscriptionIdListener {
-        public void onActiveDataSubscriptionIdChanged(int p0);
+    public static interface PhysicalChannelConfigListener {
+        public void onPhysicalChannelConfigChanged(java.util.List<android.telephony.PhysicalChannelConfig> p0);
     }
 
     @android.annotation.SystemApi
-    public static interface AllowedNetworkTypesListener {
-        public void onAllowedNetworkTypesChanged(int p0, long p1);
-    }
-
-    public static interface BarringInfoListener {
-        public void onBarringInfoChanged(android.telephony.BarringInfo p0);
+    public static interface SrvccStateListener {
+        public void onSrvccStateChanged(int p0);
     }
 
     @android.annotation.SystemApi
-    public static interface CallAttributesListener {
-        @java.lang.Deprecated
-        default public void onCallAttributesChanged(android.telephony.CallAttributes p0) {}
-        default public void onCallStatesChanged(java.util.List<android.telephony.CallState> p0) {}
+    public static interface LinkCapacityEstimateChangedListener {
+        public void onLinkCapacityEstimateChanged(java.util.List<android.telephony.LinkCapacityEstimate> p0);
     }
 
-    public static interface CallDisconnectCauseListener {
-        public void onCallDisconnectCauseChanged(int p0, int p1);
+    @android.annotation.SystemApi
+    public static interface CellularIdentifierDisclosedListener {
+        public void onCellularIdentifierDisclosedChanged(android.telephony.CellularIdentifierDisclosure p0);
     }
 
     public static interface CallForwardingIndicatorListener {
         public void onCallForwardingIndicatorChanged(boolean p0);
     }
 
-    public static interface CallStateListener {
-        public void onCallStateChanged(int p0);
+    @android.annotation.SystemApi
+    public static interface PreciseCallStateListener {
+        public void onPreciseCallStateChanged(android.telephony.PreciseCallState p0);
     }
 
-    public static interface CarrierNetworkListener {
-        public void onCarrierNetworkChange(boolean p0);
+    public static interface SignalStrengthsListener {
+        public void onSignalStrengthsChanged(android.telephony.SignalStrength p0);
+    }
+
+    public static interface DataActivityListener {
+        public void onDataActivity(int p0);
+    }
+
+    public static interface ServiceStateListener {
+        public void onServiceStateChanged(android.telephony.ServiceState p0);
     }
 
     public static interface CarrierRoamingNtnListener {
@@ -153,43 +158,44 @@ public class TelephonyCallback {
         default public void onCarrierRoamingNtnSignalStrengthChanged(android.telephony.satellite.NtnSignalStrength p0) {}
     }
 
-    public static interface CellInfoListener {
-        public void onCellInfoChanged(java.util.List<android.telephony.CellInfo> p0);
+    @android.annotation.SystemApi
+    public static interface SimultaneousCellularCallingSupportListener {
+        public void onSimultaneousCellularCallingSubscriptionsChanged(java.util.Set<java.lang.Integer> p0);
     }
 
-    public static interface CellLocationListener {
-        public void onCellLocationChanged(android.telephony.CellLocation p0);
+    public static interface ImsCallDisconnectCauseListener {
+        public void onImsCallDisconnectCauseChanged(android.telephony.ims.ImsReasonInfo p0);
     }
 
     @android.annotation.SystemApi
-    public static interface CellularIdentifierDisclosedListener {
-        public void onCellularIdentifierDisclosedChanged(android.telephony.CellularIdentifierDisclosure p0);
-    }
-
-    public static interface DataActivationStateListener {
-        public void onDataActivationStateChanged(int p0);
-    }
-
-    public static interface DataActivityListener {
-        public void onDataActivity(int p0);
-    }
-
-    public static interface DataConnectionStateListener {
-        public void onDataConnectionStateChanged(int p0, int p1);
+    public static interface OutgoingEmergencyCallListener {
+        public void onOutgoingEmergencyCall(android.telephony.emergency.EmergencyNumber p0, int p1);
     }
 
     @android.annotation.SystemApi
-    public static interface DataEnabledListener {
-        public void onDataEnabledChanged(boolean p0, int p1);
+    public static interface CallAttributesListener {
+        @java.lang.Deprecated
+        default public void onCallAttributesChanged(android.telephony.CallAttributes p0) {}
+        default public void onCallStatesChanged(java.util.List<android.telephony.CallState> p0) {}
     }
 
-    public static interface DisplayInfoListener {
-        public void onDisplayInfoChanged(android.telephony.TelephonyDisplayInfo p0);
+    @android.annotation.SystemApi
+    public static interface OutgoingEmergencySmsListener {
+        public void onOutgoingEmergencySms(android.telephony.emergency.EmergencyNumber p0, int p1);
     }
 
-    public static interface DomainSelectionEmergencyModeListener {
-        public void onDomainSelectionEmergencyModeEntered(int p0, int p1, int p2);
-        public void onDomainSelectionEmergencyModeExited(int p0, int p1, int p2);
+    @android.annotation.SystemApi
+    public static interface SecurityAlgorithmsListener {
+        public void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0);
+    }
+
+    public static interface SatelliteEntitlementStatusListener {
+        public void onSatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1);
+    }
+
+    @android.annotation.SystemApi
+    public static interface NetworkSecurityEventsListener {
+        public void onNetworkSecurityEvents(java.util.Set<android.telephony.NetworkSecurityEvent> p0);
     }
 
     @android.annotation.SystemApi
@@ -199,12 +205,95 @@ public class TelephonyCallback {
         public void onCallbackModeStopped(int p0, int p1, int p2);
     }
 
+    public static interface DataActivationStateListener {
+        public void onDataActivationStateChanged(int p0);
+    }
+
+    @android.annotation.SystemApi
+    public static interface VoiceActivationStateListener {
+        public void onVoiceActivationStateChanged(int p0);
+    }
+
     public static interface EmergencyNumberListListener {
         public void onEmergencyNumberListChanged(java.util.Map<java.lang.Integer, java.util.List<android.telephony.emergency.EmergencyNumber>> p0);
     }
 
-    public static interface ImsCallDisconnectCauseListener {
-        public void onImsCallDisconnectCauseChanged(android.telephony.ims.ImsReasonInfo p0);
+    public static interface CallDisconnectCauseListener {
+        public void onCallDisconnectCauseChanged(int p0, int p1);
+    }
+
+    @android.annotation.SystemApi
+    public static interface RadioPowerStateListener {
+        public void onRadioPowerStateChanged(int p0);
+    }
+
+    public static interface CellInfoListener {
+        public void onCellInfoChanged(java.util.List<android.telephony.CellInfo> p0);
+    }
+
+    public static interface DomainSelectionEmergencyModeListener {
+        public void onDomainSelectionEmergencyModeEntered(int p0, int p1, int p2);
+        public void onDomainSelectionEmergencyModeExited(int p0, int p1, int p2);
+    }
+
+    @android.annotation.SystemApi
+    public static interface AllowedNetworkTypesListener {
+        public void onAllowedNetworkTypesChanged(int p0, long p1);
+    }
+
+    public static interface UserMobileDataStateListener {
+        public void onUserMobileDataStateChanged(boolean p0);
+    }
+
+    public static interface BarringInfoListener {
+        public void onBarringInfoChanged(android.telephony.BarringInfo p0);
+    }
+
+    public static interface MessageWaitingIndicatorListener {
+        public void onMessageWaitingIndicatorChanged(boolean p0);
+    }
+
+    @android.annotation.SystemApi
+    public static interface PhoneCapabilityListener {
+        public void onPhoneCapabilityChanged(android.telephony.PhoneCapability p0);
+    }
+
+    public static interface CallStateListener {
+        public void onCallStateChanged(int p0);
+    }
+
+    @android.annotation.SystemApi
+    public static interface DataEnabledListener {
+        public void onDataEnabledChanged(boolean p0, int p1);
+    }
+
+    public static interface PreciseDataConnectionStateListener {
+        public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0);
+    }
+
+    public static interface CellLocationListener {
+        public void onCellLocationChanged(android.telephony.CellLocation p0);
+    }
+
+    public static interface SatellitePurchaseModeListener {
+        public void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2);
+    }
+
+    @android.annotation.SystemApi
+    public static interface MediaQualityStatusChangedListener {
+        public void onMediaQualityStatusChanged(android.telephony.ims.MediaQualityStatus p0);
+    }
+
+    public static interface RegistrationFailedListener {
+        public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4);
+    }
+
+    public static interface CarrierNetworkListener {
+        public void onCarrierNetworkChange(boolean p0);
+    }
+
+    public static interface DisplayInfoListener {
+        public void onDisplayInfoChanged(android.telephony.TelephonyDisplayInfo p0);
     }
 
     private static class IPhoneStateListenerStub extends com.android.internal.telephony.IPhoneStateListener.Stub {
@@ -253,6 +342,7 @@ public class TelephonyCallback {
         public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0) {}
         public void onRadioPowerStateChanged(int p0) {}
         public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4) {}
+        public void onSatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) {}
         public void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2) {}
         public void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0) {}
         public void onServiceStateChanged(android.telephony.ServiceState p0) {}
@@ -264,99 +354,15 @@ public class TelephonyCallback {
         public void onVoiceActivationStateChanged(int p0) {}
     }
 
-    @android.annotation.SystemApi
-    public static interface LinkCapacityEstimateChangedListener {
-        public void onLinkCapacityEstimateChanged(java.util.List<android.telephony.LinkCapacityEstimate> p0);
+    public static interface ActiveDataSubscriptionIdListener {
+        public void onActiveDataSubscriptionIdChanged(int p0);
     }
 
-    @android.annotation.SystemApi
-    public static interface MediaQualityStatusChangedListener {
-        public void onMediaQualityStatusChanged(android.telephony.ims.MediaQualityStatus p0);
-    }
-
-    public static interface MessageWaitingIndicatorListener {
-        public void onMessageWaitingIndicatorChanged(boolean p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface NetworkSecurityEventsListener {
-        public void onNetworkSecurityEvents(java.util.Set<android.telephony.NetworkSecurityEvent> p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OutgoingEmergencyCallListener {
-        public void onOutgoingEmergencyCall(android.telephony.emergency.EmergencyNumber p0, int p1);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OutgoingEmergencySmsListener {
-        public void onOutgoingEmergencySms(android.telephony.emergency.EmergencyNumber p0, int p1);
-    }
-
-    @android.annotation.SystemApi
-    public static interface PhoneCapabilityListener {
-        public void onPhoneCapabilityChanged(android.telephony.PhoneCapability p0);
-    }
-
-    public static interface PhysicalChannelConfigListener {
-        public void onPhysicalChannelConfigChanged(java.util.List<android.telephony.PhysicalChannelConfig> p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface PreciseCallStateListener {
-        public void onPreciseCallStateChanged(android.telephony.PreciseCallState p0);
-    }
-
-    public static interface PreciseDataConnectionStateListener {
-        public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface RadioPowerStateListener {
-        public void onRadioPowerStateChanged(int p0);
-    }
-
-    public static interface RegistrationFailedListener {
-        public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4);
-    }
-
-    public static interface SatellitePurchaseModeListener {
-        public void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2);
-    }
-
-    @android.annotation.SystemApi
-    public static interface SecurityAlgorithmsListener {
-        public void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0);
-    }
-
-    public static interface ServiceStateListener {
-        public void onServiceStateChanged(android.telephony.ServiceState p0);
-    }
-
-    public static interface SignalStrengthsListener {
-        public void onSignalStrengthsChanged(android.telephony.SignalStrength p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface SimultaneousCellularCallingSupportListener {
-        public void onSimultaneousCellularCallingSubscriptionsChanged(java.util.Set<java.lang.Integer> p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface SrvccStateListener {
-        public void onSrvccStateChanged(int p0);
+    public static interface DataConnectionStateListener {
+        public void onDataConnectionStateChanged(int p0, int p1);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface TelephonyEvent {
-    }
-
-    public static interface UserMobileDataStateListener {
-        public void onUserMobileDataStateChanged(boolean p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface VoiceActivationStateListener {
-        public void onVoiceActivationStateChanged(int p0);
     }
 }

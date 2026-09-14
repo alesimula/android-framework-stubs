@@ -34,16 +34,6 @@ public abstract class GameSession {
         protected void onConfigurationChanged(android.content.res.Configuration p0) {}
     }
 
-    public static enum LifecycleState {
-        CREATED,
-        DESTROYED,
-        INITIALIZED,
-        TASK_FOCUSED,
-        TASK_UNFOCUSED;
-        private static final android.service.games.GameSession.LifecycleState[] $VALUES = null;
-        private LifecycleState() {}
-    }
-
     public static interface ScreenshotCallback {
         public static final int ERROR_TAKE_SCREENSHOT_INTERNAL_ERROR = 0;
         public void onFailure(int p0);
@@ -52,5 +42,15 @@ public abstract class GameSession {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ScreenshotFailureStatus {
         }
+    }
+
+    public static enum LifecycleState {
+        CREATED,
+        DESTROYED,
+        INITIALIZED,
+        TASK_FOCUSED,
+        TASK_UNFOCUSED;
+        private static final android.service.games.GameSession.LifecycleState[] $VALUES = null;
+        private LifecycleState() {}
     }
 }

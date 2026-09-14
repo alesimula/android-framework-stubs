@@ -6,6 +6,7 @@ public class ToolbarMenuItem implements android.os.Parcelable {
     public static final int PRIORITY_PRIMARY = 1;
     public static final int PRIORITY_UNKNOWN = 0;
     public java.lang.CharSequence contentDescription;
+    public android.os.Bundle extras;
     public int groupId;
     public android.graphics.drawable.Icon icon;
     public int itemId;

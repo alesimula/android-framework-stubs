@@ -5,13 +5,6 @@ public interface IContextualModeListener extends android.os.IInterface {
     public void onModeRemoved(java.lang.String p0) throws android.os.RemoteException;
     public void onModesChanged(java.util.List<android.app.modes.ContextualMode> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.modes.IContextualModeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onModeRemoved(java.lang.String p0) throws android.os.RemoteException {}
-        public void onModesChanged(java.util.List<android.app.modes.ContextualMode> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.modes.IContextualModeListener {
         static final int TRANSACTION_onModeRemoved = 2;
         static final int TRANSACTION_onModesChanged = 1;
@@ -30,5 +23,12 @@ public interface IContextualModeListener extends android.os.IInterface {
             public void onModeRemoved(java.lang.String p0) throws android.os.RemoteException {}
             public void onModesChanged(java.util.List<android.app.modes.ContextualMode> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.modes.IContextualModeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onModeRemoved(java.lang.String p0) throws android.os.RemoteException {}
+        public void onModesChanged(java.util.List<android.app.modes.ContextualMode> p0) throws android.os.RemoteException {}
     }
 }

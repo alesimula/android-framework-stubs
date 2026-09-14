@@ -91,6 +91,10 @@ public final class DisplayCutout {
     public android.view.DisplayCutout replaceSafeInsets(android.graphics.Rect p0) { return null; }
     public java.lang.String toString() { return null; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BoundsPosition {
+    }
+
     private static class Bounds {
         private final android.graphics.Rect[] mRects = null;
         private Bounds(android.graphics.Rect p0, android.graphics.Rect p1, android.graphics.Rect p2, android.graphics.Rect p3, boolean p4) {}
@@ -102,29 +106,6 @@ public final class DisplayCutout {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BoundsPosition {
-    }
-
-    public static final class Builder {
-        private final android.graphics.Rect mBoundingRectBottom = null;
-        private final android.graphics.Rect mBoundingRectLeft = null;
-        private final android.graphics.Rect mBoundingRectRight = null;
-        private final android.graphics.Rect mBoundingRectTop = null;
-        private android.graphics.Path mCutoutPath;
-        private android.graphics.Insets mSafeInsets;
-        private android.graphics.Insets mWaterfallInsets;
-        public Builder() {}
-        public android.view.DisplayCutout build() { return null; }
-        public android.view.DisplayCutout.Builder setBoundingRectBottom(android.graphics.Rect p0) { return null; }
-        public android.view.DisplayCutout.Builder setBoundingRectLeft(android.graphics.Rect p0) { return null; }
-        public android.view.DisplayCutout.Builder setBoundingRectRight(android.graphics.Rect p0) { return null; }
-        public android.view.DisplayCutout.Builder setBoundingRectTop(android.graphics.Rect p0) { return null; }
-        public android.view.DisplayCutout.Builder setCutoutPath(android.graphics.Path p0) { return null; }
-        public android.view.DisplayCutout.Builder setSafeInsets(android.graphics.Insets p0) { return null; }
-        public android.view.DisplayCutout.Builder setWaterfallInsets(android.graphics.Insets p0) { return null; }
     }
 
     public static class CutoutPathParserInfo {
@@ -171,5 +152,24 @@ public final class DisplayCutout {
         public void set(android.view.DisplayCutout p0) {}
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class Builder {
+        private final android.graphics.Rect mBoundingRectBottom = null;
+        private final android.graphics.Rect mBoundingRectLeft = null;
+        private final android.graphics.Rect mBoundingRectRight = null;
+        private final android.graphics.Rect mBoundingRectTop = null;
+        private android.graphics.Path mCutoutPath;
+        private android.graphics.Insets mSafeInsets;
+        private android.graphics.Insets mWaterfallInsets;
+        public Builder() {}
+        public android.view.DisplayCutout build() { return null; }
+        public android.view.DisplayCutout.Builder setBoundingRectBottom(android.graphics.Rect p0) { return null; }
+        public android.view.DisplayCutout.Builder setBoundingRectLeft(android.graphics.Rect p0) { return null; }
+        public android.view.DisplayCutout.Builder setBoundingRectRight(android.graphics.Rect p0) { return null; }
+        public android.view.DisplayCutout.Builder setBoundingRectTop(android.graphics.Rect p0) { return null; }
+        public android.view.DisplayCutout.Builder setCutoutPath(android.graphics.Path p0) { return null; }
+        public android.view.DisplayCutout.Builder setSafeInsets(android.graphics.Insets p0) { return null; }
+        public android.view.DisplayCutout.Builder setWaterfallInsets(android.graphics.Insets p0) { return null; }
     }
 }

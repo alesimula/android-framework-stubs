@@ -312,6 +312,10 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
     public void swapAdapter(com.android.internal.widget.RecyclerView.Adapter p0, boolean p1) {}
     void viewRangeUpdate(int p0, int p1, java.lang.Object p2) {}
 
+    public static interface ChildDrawingOrderCallback {
+        public int onGetChildDrawingOrder(int p0, int p1);
+    }
+
     public static abstract class Adapter<VH extends com.android.internal.widget.RecyclerView.ViewHolder> {
         private boolean mHasStableIds;
         private final com.android.internal.widget.RecyclerView.AdapterDataObservable mObservable = null;
@@ -347,15 +351,14 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
         public void unregisterAdapterDataObserver(com.android.internal.widget.RecyclerView.AdapterDataObserver p0) {}
     }
 
-    static class AdapterDataObservable extends android.database.Observable<com.android.internal.widget.RecyclerView.AdapterDataObserver> {
-        AdapterDataObservable() { super(); }
-        public boolean hasObservers() { return false; }
-        public void notifyChanged() {}
-        public void notifyItemMoved(int p0, int p1) {}
-        public void notifyItemRangeChanged(int p0, int p1) {}
-        public void notifyItemRangeChanged(int p0, int p1, java.lang.Object p2) {}
-        public void notifyItemRangeInserted(int p0, int p1) {}
-        public void notifyItemRangeRemoved(int p0, int p1) {}
+    private class RecyclerViewDataObserver extends com.android.internal.widget.RecyclerView.AdapterDataObserver {
+        RecyclerViewDataObserver(com.android.internal.widget.RecyclerView p0) { super(); }
+        public void onChanged() {}
+        public void onItemRangeChanged(int p0, int p1, java.lang.Object p2) {}
+        public void onItemRangeInserted(int p0, int p1) {}
+        public void onItemRangeMoved(int p0, int p1, int p2) {}
+        public void onItemRangeRemoved(int p0, int p1) {}
+        void triggerUpdateProcessor() {}
     }
 
     public static abstract class AdapterDataObserver {
@@ -366,95 +369,6 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
         public void onItemRangeInserted(int p0, int p1) {}
         public void onItemRangeMoved(int p0, int p1, int p2) {}
         public void onItemRangeRemoved(int p0, int p1) {}
-    }
-
-    public static interface ChildDrawingOrderCallback {
-        public int onGetChildDrawingOrder(int p0, int p1);
-    }
-
-    public static abstract class ItemAnimator {
-        public static final int FLAG_APPEARED_IN_PRE_LAYOUT = 4096;
-        public static final int FLAG_CHANGED = 2;
-        public static final int FLAG_INVALIDATED = 4;
-        public static final int FLAG_MOVED = 2048;
-        public static final int FLAG_REMOVED = 8;
-        private long mAddDuration;
-        private long mChangeDuration;
-        private java.util.ArrayList<com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorFinishedListener> mFinishedListeners;
-        private com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorListener mListener;
-        private long mMoveDuration;
-        private long mRemoveDuration;
-        public ItemAnimator() {}
-        static int buildAdapterChangeFlagsForAnimations(com.android.internal.widget.RecyclerView.ViewHolder p0) { return 0; }
-        public abstract boolean animateAppearance(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2);
-        public abstract boolean animateChange(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ViewHolder p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p3);
-        public abstract boolean animateDisappearance(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2);
-        public abstract boolean animatePersistence(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2);
-        public boolean canReuseUpdatedViewHolder(com.android.internal.widget.RecyclerView.ViewHolder p0) { return false; }
-        public boolean canReuseUpdatedViewHolder(com.android.internal.widget.RecyclerView.ViewHolder p0, java.util.List<java.lang.Object> p1) { return false; }
-        public final void dispatchAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        public final void dispatchAnimationStarted(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        public final void dispatchAnimationsFinished() {}
-        public abstract void endAnimation(com.android.internal.widget.RecyclerView.ViewHolder p0);
-        public abstract void endAnimations();
-        public long getAddDuration() { return 0L; }
-        public long getChangeDuration() { return 0L; }
-        public long getMoveDuration() { return 0L; }
-        public long getRemoveDuration() { return 0L; }
-        public abstract boolean isRunning();
-        public final boolean isRunning(com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorFinishedListener p0) { return false; }
-        public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo obtainHolderInfo() { return null; }
-        public void onAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        public void onAnimationStarted(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo recordPostLayoutInformation(com.android.internal.widget.RecyclerView.State p0, com.android.internal.widget.RecyclerView.ViewHolder p1) { return null; }
-        public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo recordPreLayoutInformation(com.android.internal.widget.RecyclerView.State p0, com.android.internal.widget.RecyclerView.ViewHolder p1, int p2, java.util.List<java.lang.Object> p3) { return null; }
-        public abstract void runPendingAnimations();
-        public void setAddDuration(long p0) {}
-        public void setChangeDuration(long p0) {}
-        void setListener(com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorListener p0) {}
-        public void setMoveDuration(long p0) {}
-        public void setRemoveDuration(long p0) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface AdapterChanges {
-        }
-
-        public static interface ItemAnimatorFinishedListener {
-            public void onAnimationsFinished();
-        }
-
-        static interface ItemAnimatorListener {
-            public void onAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0);
-        }
-
-        public static class ItemHolderInfo {
-            public int bottom;
-            public int changeFlags;
-            public int left;
-            public int right;
-            public int top;
-            public ItemHolderInfo() {}
-            public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo setFrom(com.android.internal.widget.RecyclerView.ViewHolder p0) { return null; }
-            public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo setFrom(com.android.internal.widget.RecyclerView.ViewHolder p0, int p1) { return null; }
-        }
-    }
-
-    private class ItemAnimatorRestoreListener implements com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorListener {
-        ItemAnimatorRestoreListener(com.android.internal.widget.RecyclerView p0) {}
-        public void onAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-    }
-
-    public static abstract class ItemDecoration {
-        public ItemDecoration() {}
-        @java.lang.Deprecated
-        public void getItemOffsets(android.graphics.Rect p0, int p1, com.android.internal.widget.RecyclerView p2) {}
-        public void getItemOffsets(android.graphics.Rect p0, android.view.View p1, com.android.internal.widget.RecyclerView p2, com.android.internal.widget.RecyclerView.State p3) {}
-        @java.lang.Deprecated
-        public void onDraw(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1) {}
-        public void onDraw(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1, com.android.internal.widget.RecyclerView.State p2) {}
-        @java.lang.Deprecated
-        public void onDrawOver(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1) {}
-        public void onDrawOver(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1, com.android.internal.widget.RecyclerView.State p2) {}
     }
 
     public static abstract class LayoutManager {
@@ -650,224 +564,6 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
         }
     }
 
-    public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
-        final android.graphics.Rect mDecorInsets = null;
-        boolean mInsetsDirty;
-        boolean mPendingInvalidate;
-        com.android.internal.widget.RecyclerView.ViewHolder mViewHolder;
-        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.view.ViewGroup.MarginLayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(com.android.internal.widget.RecyclerView.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
-        public int getViewAdapterPosition() { return 0; }
-        public int getViewLayoutPosition() { return 0; }
-        @java.lang.Deprecated
-        public int getViewPosition() { return 0; }
-        public boolean isItemChanged() { return false; }
-        public boolean isItemRemoved() { return false; }
-        public boolean isViewInvalid() { return false; }
-        public boolean viewNeedsUpdate() { return false; }
-    }
-
-    public static interface OnChildAttachStateChangeListener {
-        public void onChildViewAttachedToWindow(android.view.View p0);
-        public void onChildViewDetachedFromWindow(android.view.View p0);
-    }
-
-    public static abstract class OnFlingListener {
-        public OnFlingListener() {}
-        public abstract boolean onFling(int p0, int p1);
-    }
-
-    public static interface OnItemTouchListener {
-        public boolean onInterceptTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1);
-        public void onRequestDisallowInterceptTouchEvent(boolean p0);
-        public void onTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1);
-    }
-
-    public static abstract class OnScrollListener {
-        public OnScrollListener() {}
-        public void onScrollStateChanged(com.android.internal.widget.RecyclerView p0, int p1) {}
-        public void onScrolled(com.android.internal.widget.RecyclerView p0, int p1, int p2) {}
-    }
-
-    public static class RecycledViewPool {
-        private static final int DEFAULT_MAX_SCRAP = 5;
-        private int mAttachCount;
-        android.util.SparseArray<com.android.internal.widget.RecyclerView.RecycledViewPool.ScrapData> mScrap;
-        public RecycledViewPool() {}
-        private com.android.internal.widget.RecyclerView.RecycledViewPool.ScrapData getScrapDataForType(int p0) { return null; }
-        void attach(com.android.internal.widget.RecyclerView.Adapter p0) {}
-        public void clear() {}
-        void detach() {}
-        void factorInBindTime(int p0, long p1) {}
-        void factorInCreateTime(int p0, long p1) {}
-        public com.android.internal.widget.RecyclerView.ViewHolder getRecycledView(int p0) { return null; }
-        public int getRecycledViewCount(int p0) { return 0; }
-        void onAdapterChanged(com.android.internal.widget.RecyclerView.Adapter p0, com.android.internal.widget.RecyclerView.Adapter p1, boolean p2) {}
-        public void putRecycledView(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        long runningAverage(long p0, long p1) { return 0L; }
-        public void setMaxRecycledViews(int p0, int p1) {}
-        int size() { return 0; }
-        boolean willBindInTime(int p0, long p1, long p2) { return false; }
-        boolean willCreateInTime(int p0, long p1, long p2) { return false; }
-
-        static class ScrapData {
-            long mBindRunningAverageNs;
-            long mCreateRunningAverageNs;
-            int mMaxScrap;
-            java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mScrapHeap;
-            ScrapData() {}
-        }
-    }
-
-    public final class Recycler {
-        static final int DEFAULT_CACHE_SIZE = 2;
-        final java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mAttachedScrap = null;
-        final java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mCachedViews = null;
-        java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mChangedScrap;
-        com.android.internal.widget.RecyclerView.RecycledViewPool mRecyclerPool;
-        private int mRequestedCacheMax;
-        private final java.util.List<com.android.internal.widget.RecyclerView.ViewHolder> mUnmodifiableAttachedScrap = null;
-        private com.android.internal.widget.RecyclerView.ViewCacheExtension mViewCacheExtension;
-        int mViewCacheMax;
-        public Recycler(com.android.internal.widget.RecyclerView p0) {}
-        private void attachAccessibilityDelegate(android.view.View p0) {}
-        private void invalidateDisplayListInt(android.view.ViewGroup p0, boolean p1) {}
-        private void invalidateDisplayListInt(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        private boolean tryBindViewHolderByDeadline(com.android.internal.widget.RecyclerView.ViewHolder p0, int p1, int p2, long p3) { return false; }
-        void addViewHolderToRecycledViewPool(com.android.internal.widget.RecyclerView.ViewHolder p0, boolean p1) {}
-        public void bindViewToPosition(android.view.View p0, int p1) {}
-        public void clear() {}
-        void clearOldPositions() {}
-        void clearScrap() {}
-        public int convertPreLayoutPositionToPostLayout(int p0) { return 0; }
-        void dispatchViewRecycled(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        com.android.internal.widget.RecyclerView.ViewHolder getChangedScrapViewForPosition(int p0) { return null; }
-        com.android.internal.widget.RecyclerView.RecycledViewPool getRecycledViewPool() { return null; }
-        int getScrapCount() { return 0; }
-        public java.util.List<com.android.internal.widget.RecyclerView.ViewHolder> getScrapList() { return null; }
-        com.android.internal.widget.RecyclerView.ViewHolder getScrapOrCachedViewForId(long p0, int p1, boolean p2) { return null; }
-        com.android.internal.widget.RecyclerView.ViewHolder getScrapOrHiddenOrCachedHolderForPosition(int p0, boolean p1) { return null; }
-        android.view.View getScrapViewAt(int p0) { return null; }
-        public android.view.View getViewForPosition(int p0) { return null; }
-        android.view.View getViewForPosition(int p0, boolean p1) { return null; }
-        void markItemDecorInsetsDirty() {}
-        void markKnownViewsInvalid() {}
-        void offsetPositionRecordsForInsert(int p0, int p1) {}
-        void offsetPositionRecordsForMove(int p0, int p1) {}
-        void offsetPositionRecordsForRemove(int p0, int p1, boolean p2) {}
-        void onAdapterChanged(com.android.internal.widget.RecyclerView.Adapter p0, com.android.internal.widget.RecyclerView.Adapter p1, boolean p2) {}
-        void quickRecycleScrapView(android.view.View p0) {}
-        void recycleAndClearCachedViews() {}
-        void recycleCachedViewAt(int p0) {}
-        public void recycleView(android.view.View p0) {}
-        void recycleViewHolderInternal(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        void recycleViewInternal(android.view.View p0) {}
-        void scrapView(android.view.View p0) {}
-        void setAdapterPositionsAsUnknown() {}
-        void setRecycledViewPool(com.android.internal.widget.RecyclerView.RecycledViewPool p0) {}
-        void setViewCacheExtension(com.android.internal.widget.RecyclerView.ViewCacheExtension p0) {}
-        public void setViewCacheSize(int p0) {}
-        com.android.internal.widget.RecyclerView.ViewHolder tryGetViewHolderForPositionByDeadline(int p0, boolean p1, long p2) { return null; }
-        void unscrapView(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
-        void updateViewCacheSize() {}
-        boolean validateViewHolderForOffsetPosition(com.android.internal.widget.RecyclerView.ViewHolder p0) { return false; }
-        void viewRangeUpdate(int p0, int p1) {}
-    }
-
-    public static interface RecyclerListener {
-        public void onViewRecycled(com.android.internal.widget.RecyclerView.ViewHolder p0);
-    }
-
-    private class RecyclerViewDataObserver extends com.android.internal.widget.RecyclerView.AdapterDataObserver {
-        RecyclerViewDataObserver(com.android.internal.widget.RecyclerView p0) { super(); }
-        public void onChanged() {}
-        public void onItemRangeChanged(int p0, int p1, java.lang.Object p2) {}
-        public void onItemRangeInserted(int p0, int p1) {}
-        public void onItemRangeMoved(int p0, int p1, int p2) {}
-        public void onItemRangeRemoved(int p0, int p1) {}
-        void triggerUpdateProcessor() {}
-    }
-
-    public static class SavedState extends android.view.AbsSavedState {
-        public static final android.os.Parcelable.Creator<com.android.internal.widget.RecyclerView.SavedState> CREATOR = null;
-        android.os.Parcelable mLayoutState;
-        SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
-        void copyFrom(com.android.internal.widget.RecyclerView.SavedState p0) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class SimpleOnItemTouchListener implements com.android.internal.widget.RecyclerView.OnItemTouchListener {
-        public SimpleOnItemTouchListener() {}
-        public boolean onInterceptTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1) { return false; }
-        public void onRequestDisallowInterceptTouchEvent(boolean p0) {}
-        public void onTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1) {}
-    }
-
-    public static abstract class SmoothScroller {
-        private com.android.internal.widget.RecyclerView.LayoutManager mLayoutManager;
-        private boolean mPendingInitialRun;
-        private com.android.internal.widget.RecyclerView mRecyclerView;
-        private final com.android.internal.widget.RecyclerView.SmoothScroller.Action mRecyclingAction = null;
-        private boolean mRunning;
-        private int mTargetPosition;
-        private android.view.View mTargetView;
-        public SmoothScroller() {}
-        private void onAnimation(int p0, int p1) {}
-        public android.view.View findViewByPosition(int p0) { return null; }
-        public int getChildCount() { return 0; }
-        public int getChildPosition(android.view.View p0) { return 0; }
-        public com.android.internal.widget.RecyclerView.LayoutManager getLayoutManager() { return null; }
-        public int getTargetPosition() { return 0; }
-        @java.lang.Deprecated
-        public void instantScrollToPosition(int p0) {}
-        public boolean isPendingInitialRun() { return false; }
-        public boolean isRunning() { return false; }
-        protected void normalize(android.graphics.PointF p0) {}
-        protected void onChildAttachedToWindow(android.view.View p0) {}
-        protected abstract void onSeekTargetStep(int p0, int p1, com.android.internal.widget.RecyclerView.State p2, com.android.internal.widget.RecyclerView.SmoothScroller.Action p3);
-        protected abstract void onStart();
-        protected abstract void onStop();
-        protected abstract void onTargetFound(android.view.View p0, com.android.internal.widget.RecyclerView.State p1, com.android.internal.widget.RecyclerView.SmoothScroller.Action p2);
-        public void setTargetPosition(int p0) {}
-        void start(com.android.internal.widget.RecyclerView p0, com.android.internal.widget.RecyclerView.LayoutManager p1) {}
-        protected final void stop() {}
-
-        public static class Action {
-            public static final int UNDEFINED_DURATION = -2147483648;
-            private boolean mChanged;
-            private int mConsecutiveUpdates;
-            private int mDuration;
-            private int mDx;
-            private int mDy;
-            private android.view.animation.Interpolator mInterpolator;
-            private int mJumpToPosition;
-            public Action(int p0, int p1) {}
-            public Action(int p0, int p1, int p2) {}
-            public Action(int p0, int p1, int p2, android.view.animation.Interpolator p3) {}
-            private void validate() {}
-            public int getDuration() { return 0; }
-            public int getDx() { return 0; }
-            public int getDy() { return 0; }
-            public android.view.animation.Interpolator getInterpolator() { return null; }
-            boolean hasJumpTarget() { return false; }
-            public void jumpTo(int p0) {}
-            void runIfNecessary(com.android.internal.widget.RecyclerView p0) {}
-            public void setDuration(int p0) {}
-            public void setDx(int p0) {}
-            public void setDy(int p0) {}
-            public void setInterpolator(android.view.animation.Interpolator p0) {}
-            public void update(int p0, int p1, int p2, android.view.animation.Interpolator p3) {}
-        }
-
-        public static interface ScrollVectorProvider {
-            public android.graphics.PointF computeScrollVectorForPosition(int p0);
-        }
-    }
-
     public static class State {
         static final int STEP_ANIMATIONS = 4;
         static final int STEP_LAYOUT = 2;
@@ -914,6 +610,72 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
         public abstract android.view.View getViewForPositionAndType(com.android.internal.widget.RecyclerView.Recycler p0, int p1, int p2);
     }
 
+    public static interface OnItemTouchListener {
+        public boolean onInterceptTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1);
+        public void onRequestDisallowInterceptTouchEvent(boolean p0);
+        public void onTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1);
+    }
+
+    public static class RecycledViewPool {
+        private static final int DEFAULT_MAX_SCRAP = 5;
+        private int mAttachCount;
+        android.util.SparseArray<com.android.internal.widget.RecyclerView.RecycledViewPool.ScrapData> mScrap;
+        public RecycledViewPool() {}
+        private com.android.internal.widget.RecyclerView.RecycledViewPool.ScrapData getScrapDataForType(int p0) { return null; }
+        void attach(com.android.internal.widget.RecyclerView.Adapter p0) {}
+        public void clear() {}
+        void detach() {}
+        void factorInBindTime(int p0, long p1) {}
+        void factorInCreateTime(int p0, long p1) {}
+        public com.android.internal.widget.RecyclerView.ViewHolder getRecycledView(int p0) { return null; }
+        public int getRecycledViewCount(int p0) { return 0; }
+        void onAdapterChanged(com.android.internal.widget.RecyclerView.Adapter p0, com.android.internal.widget.RecyclerView.Adapter p1, boolean p2) {}
+        public void putRecycledView(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        long runningAverage(long p0, long p1) { return 0L; }
+        public void setMaxRecycledViews(int p0, int p1) {}
+        int size() { return 0; }
+        boolean willBindInTime(int p0, long p1, long p2) { return false; }
+        boolean willCreateInTime(int p0, long p1, long p2) { return false; }
+
+        static class ScrapData {
+            long mBindRunningAverageNs;
+            long mCreateRunningAverageNs;
+            int mMaxScrap;
+            java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mScrapHeap;
+            ScrapData() {}
+        }
+    }
+
+    public static abstract class OnFlingListener {
+        public OnFlingListener() {}
+        public abstract boolean onFling(int p0, int p1);
+    }
+
+    public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
+        final android.graphics.Rect mDecorInsets = null;
+        boolean mInsetsDirty;
+        boolean mPendingInvalidate;
+        com.android.internal.widget.RecyclerView.ViewHolder mViewHolder;
+        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.view.ViewGroup.MarginLayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(com.android.internal.widget.RecyclerView.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
+        public int getViewAdapterPosition() { return 0; }
+        public int getViewLayoutPosition() { return 0; }
+        @java.lang.Deprecated
+        public int getViewPosition() { return 0; }
+        public boolean isItemChanged() { return false; }
+        public boolean isItemRemoved() { return false; }
+        public boolean isViewInvalid() { return false; }
+        public boolean viewNeedsUpdate() { return false; }
+    }
+
+    private class ItemAnimatorRestoreListener implements com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorListener {
+        ItemAnimatorRestoreListener(com.android.internal.widget.RecyclerView p0) {}
+        public void onAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+    }
+
     class ViewFlinger implements java.lang.Runnable {
         private boolean mEatRunOnAnimationRequest;
         android.view.animation.Interpolator mInterpolator;
@@ -935,6 +697,121 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
         public void smoothScrollBy(int p0, int p1, int p2, android.view.animation.Interpolator p3) {}
         public void smoothScrollBy(int p0, int p1, android.view.animation.Interpolator p2) {}
         public void stop() {}
+    }
+
+    public static abstract class OnScrollListener {
+        public OnScrollListener() {}
+        public void onScrollStateChanged(com.android.internal.widget.RecyclerView p0, int p1) {}
+        public void onScrolled(com.android.internal.widget.RecyclerView p0, int p1, int p2) {}
+    }
+
+    static class AdapterDataObservable extends android.database.Observable<com.android.internal.widget.RecyclerView.AdapterDataObserver> {
+        AdapterDataObservable() { super(); }
+        public boolean hasObservers() { return false; }
+        public void notifyChanged() {}
+        public void notifyItemMoved(int p0, int p1) {}
+        public void notifyItemRangeChanged(int p0, int p1) {}
+        public void notifyItemRangeChanged(int p0, int p1, java.lang.Object p2) {}
+        public void notifyItemRangeInserted(int p0, int p1) {}
+        public void notifyItemRangeRemoved(int p0, int p1) {}
+    }
+
+    public static class SavedState extends android.view.AbsSavedState {
+        public static final android.os.Parcelable.Creator<com.android.internal.widget.RecyclerView.SavedState> CREATOR = null;
+        android.os.Parcelable mLayoutState;
+        SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
+        void copyFrom(com.android.internal.widget.RecyclerView.SavedState p0) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static abstract class ItemAnimator {
+        public static final int FLAG_APPEARED_IN_PRE_LAYOUT = 4096;
+        public static final int FLAG_CHANGED = 2;
+        public static final int FLAG_INVALIDATED = 4;
+        public static final int FLAG_MOVED = 2048;
+        public static final int FLAG_REMOVED = 8;
+        private long mAddDuration;
+        private long mChangeDuration;
+        private java.util.ArrayList<com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorFinishedListener> mFinishedListeners;
+        private com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorListener mListener;
+        private long mMoveDuration;
+        private long mRemoveDuration;
+        public ItemAnimator() {}
+        static int buildAdapterChangeFlagsForAnimations(com.android.internal.widget.RecyclerView.ViewHolder p0) { return 0; }
+        public abstract boolean animateAppearance(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2);
+        public abstract boolean animateChange(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ViewHolder p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p3);
+        public abstract boolean animateDisappearance(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2);
+        public abstract boolean animatePersistence(com.android.internal.widget.RecyclerView.ViewHolder p0, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p1, com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo p2);
+        public boolean canReuseUpdatedViewHolder(com.android.internal.widget.RecyclerView.ViewHolder p0) { return false; }
+        public boolean canReuseUpdatedViewHolder(com.android.internal.widget.RecyclerView.ViewHolder p0, java.util.List<java.lang.Object> p1) { return false; }
+        public final void dispatchAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        public final void dispatchAnimationStarted(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        public final void dispatchAnimationsFinished() {}
+        public abstract void endAnimation(com.android.internal.widget.RecyclerView.ViewHolder p0);
+        public abstract void endAnimations();
+        public long getAddDuration() { return 0L; }
+        public long getChangeDuration() { return 0L; }
+        public long getMoveDuration() { return 0L; }
+        public long getRemoveDuration() { return 0L; }
+        public abstract boolean isRunning();
+        public final boolean isRunning(com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorFinishedListener p0) { return false; }
+        public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo obtainHolderInfo() { return null; }
+        public void onAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        public void onAnimationStarted(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo recordPostLayoutInformation(com.android.internal.widget.RecyclerView.State p0, com.android.internal.widget.RecyclerView.ViewHolder p1) { return null; }
+        public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo recordPreLayoutInformation(com.android.internal.widget.RecyclerView.State p0, com.android.internal.widget.RecyclerView.ViewHolder p1, int p2, java.util.List<java.lang.Object> p3) { return null; }
+        public abstract void runPendingAnimations();
+        public void setAddDuration(long p0) {}
+        public void setChangeDuration(long p0) {}
+        void setListener(com.android.internal.widget.RecyclerView.ItemAnimator.ItemAnimatorListener p0) {}
+        public void setMoveDuration(long p0) {}
+        public void setRemoveDuration(long p0) {}
+
+        public static class ItemHolderInfo {
+            public int bottom;
+            public int changeFlags;
+            public int left;
+            public int right;
+            public int top;
+            public ItemHolderInfo() {}
+            public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo setFrom(com.android.internal.widget.RecyclerView.ViewHolder p0) { return null; }
+            public com.android.internal.widget.RecyclerView.ItemAnimator.ItemHolderInfo setFrom(com.android.internal.widget.RecyclerView.ViewHolder p0, int p1) { return null; }
+        }
+
+        public static interface ItemAnimatorFinishedListener {
+            public void onAnimationsFinished();
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface AdapterChanges {
+        }
+
+        static interface ItemAnimatorListener {
+            public void onAnimationFinished(com.android.internal.widget.RecyclerView.ViewHolder p0);
+        }
+    }
+
+    public static abstract class ItemDecoration {
+        public ItemDecoration() {}
+        @java.lang.Deprecated
+        public void getItemOffsets(android.graphics.Rect p0, int p1, com.android.internal.widget.RecyclerView p2) {}
+        public void getItemOffsets(android.graphics.Rect p0, android.view.View p1, com.android.internal.widget.RecyclerView p2, com.android.internal.widget.RecyclerView.State p3) {}
+        @java.lang.Deprecated
+        public void onDraw(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1) {}
+        public void onDraw(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1, com.android.internal.widget.RecyclerView.State p2) {}
+        @java.lang.Deprecated
+        public void onDrawOver(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1) {}
+        public void onDrawOver(android.graphics.Canvas p0, com.android.internal.widget.RecyclerView p1, com.android.internal.widget.RecyclerView.State p2) {}
+    }
+
+    public static interface RecyclerListener {
+        public void onViewRecycled(com.android.internal.widget.RecyclerView.ViewHolder p0);
+    }
+
+    public static interface OnChildAttachStateChangeListener {
+        public void onChildViewAttachedToWindow(android.view.View p0);
+        public void onChildViewDetachedFromWindow(android.view.View p0);
     }
 
     public static abstract class ViewHolder {
@@ -1013,5 +890,128 @@ public class RecyclerView extends android.view.ViewGroup implements com.android.
         public java.lang.String toString() { return null; }
         void unScrap() {}
         boolean wasReturnedFromScrap() { return false; }
+    }
+
+    public static class SimpleOnItemTouchListener implements com.android.internal.widget.RecyclerView.OnItemTouchListener {
+        public SimpleOnItemTouchListener() {}
+        public boolean onInterceptTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1) { return false; }
+        public void onRequestDisallowInterceptTouchEvent(boolean p0) {}
+        public void onTouchEvent(com.android.internal.widget.RecyclerView p0, android.view.MotionEvent p1) {}
+    }
+
+    public static abstract class SmoothScroller {
+        private com.android.internal.widget.RecyclerView.LayoutManager mLayoutManager;
+        private boolean mPendingInitialRun;
+        private com.android.internal.widget.RecyclerView mRecyclerView;
+        private final com.android.internal.widget.RecyclerView.SmoothScroller.Action mRecyclingAction = null;
+        private boolean mRunning;
+        private int mTargetPosition;
+        private android.view.View mTargetView;
+        public SmoothScroller() {}
+        private void onAnimation(int p0, int p1) {}
+        public android.view.View findViewByPosition(int p0) { return null; }
+        public int getChildCount() { return 0; }
+        public int getChildPosition(android.view.View p0) { return 0; }
+        public com.android.internal.widget.RecyclerView.LayoutManager getLayoutManager() { return null; }
+        public int getTargetPosition() { return 0; }
+        @java.lang.Deprecated
+        public void instantScrollToPosition(int p0) {}
+        public boolean isPendingInitialRun() { return false; }
+        public boolean isRunning() { return false; }
+        protected void normalize(android.graphics.PointF p0) {}
+        protected void onChildAttachedToWindow(android.view.View p0) {}
+        protected abstract void onSeekTargetStep(int p0, int p1, com.android.internal.widget.RecyclerView.State p2, com.android.internal.widget.RecyclerView.SmoothScroller.Action p3);
+        protected abstract void onStart();
+        protected abstract void onStop();
+        protected abstract void onTargetFound(android.view.View p0, com.android.internal.widget.RecyclerView.State p1, com.android.internal.widget.RecyclerView.SmoothScroller.Action p2);
+        public void setTargetPosition(int p0) {}
+        void start(com.android.internal.widget.RecyclerView p0, com.android.internal.widget.RecyclerView.LayoutManager p1) {}
+        protected final void stop() {}
+
+        public static interface ScrollVectorProvider {
+            public android.graphics.PointF computeScrollVectorForPosition(int p0);
+        }
+
+        public static class Action {
+            public static final int UNDEFINED_DURATION = -2147483648;
+            private boolean mChanged;
+            private int mConsecutiveUpdates;
+            private int mDuration;
+            private int mDx;
+            private int mDy;
+            private android.view.animation.Interpolator mInterpolator;
+            private int mJumpToPosition;
+            public Action(int p0, int p1) {}
+            public Action(int p0, int p1, int p2) {}
+            public Action(int p0, int p1, int p2, android.view.animation.Interpolator p3) {}
+            private void validate() {}
+            public int getDuration() { return 0; }
+            public int getDx() { return 0; }
+            public int getDy() { return 0; }
+            public android.view.animation.Interpolator getInterpolator() { return null; }
+            boolean hasJumpTarget() { return false; }
+            public void jumpTo(int p0) {}
+            void runIfNecessary(com.android.internal.widget.RecyclerView p0) {}
+            public void setDuration(int p0) {}
+            public void setDx(int p0) {}
+            public void setDy(int p0) {}
+            public void setInterpolator(android.view.animation.Interpolator p0) {}
+            public void update(int p0, int p1, int p2, android.view.animation.Interpolator p3) {}
+        }
+    }
+
+    public final class Recycler {
+        static final int DEFAULT_CACHE_SIZE = 2;
+        final java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mAttachedScrap = null;
+        final java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mCachedViews = null;
+        java.util.ArrayList<com.android.internal.widget.RecyclerView.ViewHolder> mChangedScrap;
+        com.android.internal.widget.RecyclerView.RecycledViewPool mRecyclerPool;
+        private int mRequestedCacheMax;
+        private final java.util.List<com.android.internal.widget.RecyclerView.ViewHolder> mUnmodifiableAttachedScrap = null;
+        private com.android.internal.widget.RecyclerView.ViewCacheExtension mViewCacheExtension;
+        int mViewCacheMax;
+        public Recycler(com.android.internal.widget.RecyclerView p0) {}
+        private void attachAccessibilityDelegate(android.view.View p0) {}
+        private void invalidateDisplayListInt(android.view.ViewGroup p0, boolean p1) {}
+        private void invalidateDisplayListInt(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        private boolean tryBindViewHolderByDeadline(com.android.internal.widget.RecyclerView.ViewHolder p0, int p1, int p2, long p3) { return false; }
+        void addViewHolderToRecycledViewPool(com.android.internal.widget.RecyclerView.ViewHolder p0, boolean p1) {}
+        public void bindViewToPosition(android.view.View p0, int p1) {}
+        public void clear() {}
+        void clearOldPositions() {}
+        void clearScrap() {}
+        public int convertPreLayoutPositionToPostLayout(int p0) { return 0; }
+        void dispatchViewRecycled(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        com.android.internal.widget.RecyclerView.ViewHolder getChangedScrapViewForPosition(int p0) { return null; }
+        com.android.internal.widget.RecyclerView.RecycledViewPool getRecycledViewPool() { return null; }
+        int getScrapCount() { return 0; }
+        public java.util.List<com.android.internal.widget.RecyclerView.ViewHolder> getScrapList() { return null; }
+        com.android.internal.widget.RecyclerView.ViewHolder getScrapOrCachedViewForId(long p0, int p1, boolean p2) { return null; }
+        com.android.internal.widget.RecyclerView.ViewHolder getScrapOrHiddenOrCachedHolderForPosition(int p0, boolean p1) { return null; }
+        android.view.View getScrapViewAt(int p0) { return null; }
+        public android.view.View getViewForPosition(int p0) { return null; }
+        android.view.View getViewForPosition(int p0, boolean p1) { return null; }
+        void markItemDecorInsetsDirty() {}
+        void markKnownViewsInvalid() {}
+        void offsetPositionRecordsForInsert(int p0, int p1) {}
+        void offsetPositionRecordsForMove(int p0, int p1) {}
+        void offsetPositionRecordsForRemove(int p0, int p1, boolean p2) {}
+        void onAdapterChanged(com.android.internal.widget.RecyclerView.Adapter p0, com.android.internal.widget.RecyclerView.Adapter p1, boolean p2) {}
+        void quickRecycleScrapView(android.view.View p0) {}
+        void recycleAndClearCachedViews() {}
+        void recycleCachedViewAt(int p0) {}
+        public void recycleView(android.view.View p0) {}
+        void recycleViewHolderInternal(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        void recycleViewInternal(android.view.View p0) {}
+        void scrapView(android.view.View p0) {}
+        void setAdapterPositionsAsUnknown() {}
+        void setRecycledViewPool(com.android.internal.widget.RecyclerView.RecycledViewPool p0) {}
+        void setViewCacheExtension(com.android.internal.widget.RecyclerView.ViewCacheExtension p0) {}
+        public void setViewCacheSize(int p0) {}
+        com.android.internal.widget.RecyclerView.ViewHolder tryGetViewHolderForPositionByDeadline(int p0, boolean p1, long p2) { return null; }
+        void unscrapView(com.android.internal.widget.RecyclerView.ViewHolder p0) {}
+        void updateViewCacheSize() {}
+        boolean validateViewHolderForOffsetPosition(com.android.internal.widget.RecyclerView.ViewHolder p0) { return false; }
+        void viewRangeUpdate(int p0, int p1) {}
     }
 }

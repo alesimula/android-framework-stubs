@@ -123,131 +123,6 @@ public interface IAudioPolicyService extends android.os.IInterface {
     public void updatePolicyMixes(android.media.AudioMixUpdate[] p0) throws android.os.RemoteException;
     public boolean useMmapForPcmOffload() throws android.os.RemoteException;
 
-    public static class Default implements android.media.IAudioPolicyService {
-        public Default() {}
-        public android.media.SoundTriggerSession acquireSoundTriggerSession() throws android.os.RemoteException { return null; }
-        public void addDevicesRoleForCapturePreset(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
-        public int addSourceDefaultEffect(android.media.audio.common.AudioUuid p0, java.lang.String p1, android.media.audio.common.AudioUuid p2, int p3, int p4) throws android.os.RemoteException { return 0; }
-        public int addStreamDefaultEffect(android.media.audio.common.AudioUuid p0, java.lang.String p1, android.media.audio.common.AudioUuid p2, int p3, int p4) throws android.os.RemoteException { return 0; }
-        public android.os.IBinder asBinder() { return null; }
-        public boolean canBeSpatialized(android.media.audio.common.AudioAttributes p0, android.media.audio.common.AudioConfig p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException { return false; }
-        public void clearDevicesRoleForCapturePreset(int p0, int p1) throws android.os.RemoteException {}
-        public void clearDevicesRoleForStrategy(int p0, int p1) throws android.os.RemoteException {}
-        public void clearPreferredMixerAttributes(android.media.audio.common.AudioAttributes p0, int p1, int p2) throws android.os.RemoteException {}
-        public int createAudioPatch(android.media.AudioPatchFw p0, int p1) throws android.os.RemoteException { return 0; }
-        public void forceReleaseDirectOutput(int p0) throws android.os.RemoteException {}
-        public android.media.audio.common.AudioAttributes getAttributesForStreamType(int p0) throws android.os.RemoteException { return null; }
-        public android.media.AudioPortFw getAudioPort(int p0) throws android.os.RemoteException { return null; }
-        public int getDeviceConnectionState(android.media.audio.common.AudioDevice p0) throws android.os.RemoteException { return 0; }
-        public android.media.audio.common.AudioDevice[] getDevicesForAttributes(android.media.audio.common.AudioAttributes p0, int p1, boolean p2) throws android.os.RemoteException { return null; }
-        public android.media.audio.common.AudioDevice[] getDevicesForRoleAndCapturePreset(int p0, int p1) throws android.os.RemoteException { return null; }
-        public android.media.audio.common.AudioDevice[] getDevicesForRoleAndStrategy(int p0, int p1) throws android.os.RemoteException { return null; }
-        public int getDirectPlaybackSupport(android.media.audio.common.AudioAttributes p0, int p1, android.media.audio.common.AudioConfig p2) throws android.os.RemoteException { return 0; }
-        public android.media.audio.common.AudioProfile[] getDirectProfilesForAttributes(android.media.audio.common.AudioAttributes p0, int p1) throws android.os.RemoteException { return null; }
-        public int getFlushFromFrameSupport(android.media.audio.common.AudioConfigBase p0, android.media.audio.common.AudioAttributes p1, int p2, int p3) throws android.os.RemoteException { return 0; }
-        public int getForceUse(int p0) throws android.os.RemoteException { return 0; }
-        public android.media.audio.common.AudioFormatDescription[] getHwOffloadFormatsSupportedForBluetoothMedia(android.media.audio.common.AudioDeviceDescription p0) throws android.os.RemoteException { return null; }
-        public android.media.GetInputForAttrResponse getInputForAttr(android.media.audio.common.AudioAttributes p0, int p1, int p2, int p3, android.content.AttributionSourceState p4, android.media.audio.common.AudioConfigBase p5, int p6, int p7) throws android.os.RemoteException { return null; }
-        public boolean getMasterMono() throws android.os.RemoteException { return false; }
-        public int getMaxVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0) throws android.os.RemoteException { return 0; }
-        public int getMaxVolumeIndexForGroup(int p0) throws android.os.RemoteException { return 0; }
-        public int getMinVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0) throws android.os.RemoteException { return 0; }
-        public int getMinVolumeIndexForGroup(int p0) throws android.os.RemoteException { return 0; }
-        public void getMmapPolicyForDevice(int p0, android.media.audio.common.AudioMMapPolicyInfo p1) throws android.os.RemoteException {}
-        public android.media.audio.common.AudioMMapPolicyInfo[] getMmapPolicyInfos(int p0) throws android.os.RemoteException { return null; }
-        public int getOffloadSupport(android.media.audio.common.AudioOffloadInfo p0) throws android.os.RemoteException { return 0; }
-        public int getOutput(int p0) throws android.os.RemoteException { return 0; }
-        public android.media.GetOutputForAttrResponse getOutputForAttr(android.media.audio.common.AudioAttributes p0, int p1, android.content.AttributionSourceState p2, android.media.audio.common.AudioConfig p3, int p4, int[] p5) throws android.os.RemoteException { return null; }
-        public int getOutputForEffect(android.media.EffectDescriptor p0) throws android.os.RemoteException { return 0; }
-        public com.android.media.permission.INativePermissionController getPermissionController() throws android.os.RemoteException { return null; }
-        public int getPhoneState() throws android.os.RemoteException { return 0; }
-        public android.media.AudioMixerAttributesInternal getPreferredMixerAttributes(android.media.audio.common.AudioAttributes p0, int p1, int p2) throws android.os.RemoteException { return null; }
-        public int getProductStrategyFromAudioAttributes(android.media.audio.common.AudioAttributes p0, boolean p1) throws android.os.RemoteException { return 0; }
-        public java.util.List<android.media.AudioMix> getRegisteredPolicyMixes() throws android.os.RemoteException { return null; }
-        public void getReportedSurroundFormats(android.media.audio.common.Int p0, android.media.audio.common.AudioFormatDescription[] p1) throws android.os.RemoteException {}
-        public android.media.GetSpatializerResponse getSpatializer(android.media.INativeSpatializerCallback p0) throws android.os.RemoteException { return null; }
-        public int getStrategyForStream(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public int getStreamTypeForAttributes(android.media.audio.common.AudioAttributes p0) throws android.os.RemoteException { return 0; }
-        public float getStreamVolumeDB(int p0, int p1, android.media.audio.common.AudioDeviceDescription p2) throws android.os.RemoteException { return 0.0f; }
-        public int getStreamVolumeIndex(int p0, android.media.audio.common.AudioDeviceDescription p1) throws android.os.RemoteException { return 0; }
-        public android.media.AudioMixerAttributesInternal[] getSupportedMixerAttributes(int p0) throws android.os.RemoteException { return null; }
-        public void getSurroundFormats(android.media.audio.common.Int p0, android.media.audio.common.AudioFormatDescription[] p1, boolean[] p2) throws android.os.RemoteException {}
-        public int getVolumeGroupFromAudioAttributes(android.media.audio.common.AudioAttributes p0, boolean p1) throws android.os.RemoteException { return 0; }
-        public int getVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0, android.media.audio.common.AudioDeviceDescription p1) throws android.os.RemoteException { return 0; }
-        public int getVolumeIndexForGroup(int p0, android.media.audio.common.AudioDeviceDescription p1) throws android.os.RemoteException { return 0; }
-        public void handleDeviceConfigChange(android.media.audio.common.AudioDevice p0, java.lang.String p1, android.media.audio.common.AudioFormatDescription p2) throws android.os.RemoteException {}
-        public void initStreamVolume(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public boolean isCallScreenModeSupported() throws android.os.RemoteException { return false; }
-        public boolean isDirectOutputSupported(android.media.audio.common.AudioConfigBase p0, android.media.audio.common.AudioAttributes p1) throws android.os.RemoteException { return false; }
-        public boolean isHapticPlaybackSupported() throws android.os.RemoteException { return false; }
-        public boolean isHotwordStreamSupported(boolean p0) throws android.os.RemoteException { return false; }
-        public boolean isSourceActive(int p0) throws android.os.RemoteException { return false; }
-        public boolean isStreamActive(int p0, int p1) throws android.os.RemoteException { return false; }
-        public boolean isStreamActiveRemotely(int p0, int p1) throws android.os.RemoteException { return false; }
-        public boolean isUltrasoundSupported() throws android.os.RemoteException { return false; }
-        public int listAudioPatches(android.media.AudioPatchFw[] p0) throws android.os.RemoteException { return 0; }
-        public int listAudioPorts(int p0, int p1, android.media.AudioPortFw[] p2) throws android.os.RemoteException { return 0; }
-        public android.media.AudioProductStrategy[] listAudioProductStrategies() throws android.os.RemoteException { return null; }
-        public android.media.AudioVolumeGroup[] listAudioVolumeGroups() throws android.os.RemoteException { return null; }
-        public android.media.AudioPortFw[] listDeclaredDevicePorts(int p0) throws android.os.RemoteException { return null; }
-        public void moveEffectsToIo(int[] p0, int p1) throws android.os.RemoteException {}
-        public void onNewAudioModulesAvailable() throws android.os.RemoteException {}
-        public android.media.EffectDescriptor[] queryDefaultPreProcessing(int p0, android.media.audio.common.Int p1) throws android.os.RemoteException { return null; }
-        public void registerClient(android.media.IAudioPolicyServiceClient p0) throws android.os.RemoteException {}
-        public void registerEffect(android.media.EffectDescriptor p0, int p1, int p2, int p3, int p4) throws android.os.RemoteException {}
-        public void registerPolicyMixes(android.media.AudioMix[] p0, boolean p1) throws android.os.RemoteException {}
-        public boolean registerSoundTriggerCaptureStateListener(android.media.ICaptureStateListener p0) throws android.os.RemoteException { return false; }
-        public void releaseAudioPatch(int p0) throws android.os.RemoteException {}
-        public void releaseInput(int p0) throws android.os.RemoteException {}
-        public void releaseOutput(int p0) throws android.os.RemoteException {}
-        public void releaseSoundTriggerSession(int p0) throws android.os.RemoteException {}
-        public void removeDevicesRoleForCapturePreset(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
-        public void removeDevicesRoleForStrategy(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
-        public void removeSourceDefaultEffect(int p0) throws android.os.RemoteException {}
-        public void removeStreamDefaultEffect(int p0) throws android.os.RemoteException {}
-        public void removeUidDeviceAffinities(int p0) throws android.os.RemoteException {}
-        public void removeUserIdDeviceAffinities(int p0) throws android.os.RemoteException {}
-        public void resetProductStrategiesZoneIdForUserId(int p0) throws android.os.RemoteException {}
-        public void setA11yServicesUids(int[] p0) throws android.os.RemoteException {}
-        public void setActiveAssistantServicesUids(int[] p0) throws android.os.RemoteException {}
-        public void setAllowedCapturePolicy(int p0, int p1) throws android.os.RemoteException {}
-        public void setAssistantServicesUids(int[] p0) throws android.os.RemoteException {}
-        public void setAudioPortCallbacksEnabled(boolean p0) throws android.os.RemoteException {}
-        public void setAudioPortConfig(android.media.AudioPortConfigFw p0) throws android.os.RemoteException {}
-        public void setAudioVolumeGroupCallbacksEnabled(boolean p0) throws android.os.RemoteException {}
-        public void setCurrentImeUid(int p0) throws android.os.RemoteException {}
-        public void setDeviceAbsoluteVolumeEnabled(android.media.audio.common.AudioDevice p0, boolean p1, int p2) throws android.os.RemoteException {}
-        public void setDeviceConnectionState(int p0, android.media.audio.common.AudioPort p1, android.media.audio.common.AudioFormatDescription p2, boolean p3) throws android.os.RemoteException {}
-        public void setDevicesRoleForCapturePreset(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
-        public void setDevicesRoleForStrategy(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
-        public void setEffectEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setForceUse(int p0, int p1) throws android.os.RemoteException {}
-        public void setHardeningOverride(byte p0) throws android.os.RemoteException {}
-        public void setMasterMono(boolean p0) throws android.os.RemoteException {}
-        public void setMaxVolumeIndexForGroup(int p0, int p1) throws android.os.RemoteException {}
-        public void setMinVolumeIndexForGroup(int p0, int p1) throws android.os.RemoteException {}
-        public void setPhoneState(int p0, int p1) throws android.os.RemoteException {}
-        public void setPreferredMixerAttributes(android.media.audio.common.AudioAttributes p0, int p1, int p2, android.media.AudioMixerAttributesInternal p3) throws android.os.RemoteException {}
-        public void setProductStrategiesZoneIdForUserId(int p0, int p1) throws android.os.RemoteException {}
-        public void setRttEnabled(boolean p0) throws android.os.RemoteException {}
-        public void setStreamVolumeIndex(int p0, android.media.audio.common.AudioDeviceDescription p1, int p2, boolean p3) throws android.os.RemoteException {}
-        public void setSupportedSystemUsages(int[] p0) throws android.os.RemoteException {}
-        public void setSurroundFormatEnabled(android.media.audio.common.AudioFormatDescription p0, boolean p1) throws android.os.RemoteException {}
-        public void setUidDeviceAffinities(int p0, android.media.audio.common.AudioDevice[] p1) throws android.os.RemoteException {}
-        public void setUserIdDeviceAffinities(int p0, android.media.audio.common.AudioDevice[] p1) throws android.os.RemoteException {}
-        public void setVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0, android.media.audio.common.AudioDeviceDescription p1, int p2, boolean p3) throws android.os.RemoteException {}
-        public void setVolumeIndexForGroup(int p0, int p1, android.media.audio.common.AudioDeviceDescription p2, int p3, boolean p4) throws android.os.RemoteException {}
-        public int startAudioSource(android.media.AudioPortConfigFw p0, android.media.audio.common.AudioAttributes p1) throws android.os.RemoteException { return 0; }
-        public void startInput(int p0) throws android.os.RemoteException {}
-        public android.media.StartOutputResponse startOutput(int p0) throws android.os.RemoteException { return null; }
-        public void stopAudioSource(int p0) throws android.os.RemoteException {}
-        public void stopInput(int p0) throws android.os.RemoteException {}
-        public void stopOutput(int p0) throws android.os.RemoteException {}
-        public void unregisterEffect(int p0) throws android.os.RemoteException {}
-        public void updatePolicyMixes(android.media.AudioMixUpdate[] p0) throws android.os.RemoteException {}
-        public boolean useMmapForPcmOffload() throws android.os.RemoteException { return false; }
-    }
-
     public static @interface HardeningOverride {
         public static final byte DEFAULT = 0;
         public static final byte DISABLE = 1;
@@ -507,5 +382,130 @@ public interface IAudioPolicyService extends android.os.IInterface {
             public void updatePolicyMixes(android.media.AudioMixUpdate[] p0) throws android.os.RemoteException {}
             public boolean useMmapForPcmOffload() throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.media.IAudioPolicyService {
+        public Default() {}
+        public android.media.SoundTriggerSession acquireSoundTriggerSession() throws android.os.RemoteException { return null; }
+        public void addDevicesRoleForCapturePreset(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
+        public int addSourceDefaultEffect(android.media.audio.common.AudioUuid p0, java.lang.String p1, android.media.audio.common.AudioUuid p2, int p3, int p4) throws android.os.RemoteException { return 0; }
+        public int addStreamDefaultEffect(android.media.audio.common.AudioUuid p0, java.lang.String p1, android.media.audio.common.AudioUuid p2, int p3, int p4) throws android.os.RemoteException { return 0; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean canBeSpatialized(android.media.audio.common.AudioAttributes p0, android.media.audio.common.AudioConfig p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException { return false; }
+        public void clearDevicesRoleForCapturePreset(int p0, int p1) throws android.os.RemoteException {}
+        public void clearDevicesRoleForStrategy(int p0, int p1) throws android.os.RemoteException {}
+        public void clearPreferredMixerAttributes(android.media.audio.common.AudioAttributes p0, int p1, int p2) throws android.os.RemoteException {}
+        public int createAudioPatch(android.media.AudioPatchFw p0, int p1) throws android.os.RemoteException { return 0; }
+        public void forceReleaseDirectOutput(int p0) throws android.os.RemoteException {}
+        public android.media.audio.common.AudioAttributes getAttributesForStreamType(int p0) throws android.os.RemoteException { return null; }
+        public android.media.AudioPortFw getAudioPort(int p0) throws android.os.RemoteException { return null; }
+        public int getDeviceConnectionState(android.media.audio.common.AudioDevice p0) throws android.os.RemoteException { return 0; }
+        public android.media.audio.common.AudioDevice[] getDevicesForAttributes(android.media.audio.common.AudioAttributes p0, int p1, boolean p2) throws android.os.RemoteException { return null; }
+        public android.media.audio.common.AudioDevice[] getDevicesForRoleAndCapturePreset(int p0, int p1) throws android.os.RemoteException { return null; }
+        public android.media.audio.common.AudioDevice[] getDevicesForRoleAndStrategy(int p0, int p1) throws android.os.RemoteException { return null; }
+        public int getDirectPlaybackSupport(android.media.audio.common.AudioAttributes p0, int p1, android.media.audio.common.AudioConfig p2) throws android.os.RemoteException { return 0; }
+        public android.media.audio.common.AudioProfile[] getDirectProfilesForAttributes(android.media.audio.common.AudioAttributes p0, int p1) throws android.os.RemoteException { return null; }
+        public int getFlushFromFrameSupport(android.media.audio.common.AudioConfigBase p0, android.media.audio.common.AudioAttributes p1, int p2, int p3) throws android.os.RemoteException { return 0; }
+        public int getForceUse(int p0) throws android.os.RemoteException { return 0; }
+        public android.media.audio.common.AudioFormatDescription[] getHwOffloadFormatsSupportedForBluetoothMedia(android.media.audio.common.AudioDeviceDescription p0) throws android.os.RemoteException { return null; }
+        public android.media.GetInputForAttrResponse getInputForAttr(android.media.audio.common.AudioAttributes p0, int p1, int p2, int p3, android.content.AttributionSourceState p4, android.media.audio.common.AudioConfigBase p5, int p6, int p7) throws android.os.RemoteException { return null; }
+        public boolean getMasterMono() throws android.os.RemoteException { return false; }
+        public int getMaxVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0) throws android.os.RemoteException { return 0; }
+        public int getMaxVolumeIndexForGroup(int p0) throws android.os.RemoteException { return 0; }
+        public int getMinVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0) throws android.os.RemoteException { return 0; }
+        public int getMinVolumeIndexForGroup(int p0) throws android.os.RemoteException { return 0; }
+        public void getMmapPolicyForDevice(int p0, android.media.audio.common.AudioMMapPolicyInfo p1) throws android.os.RemoteException {}
+        public android.media.audio.common.AudioMMapPolicyInfo[] getMmapPolicyInfos(int p0) throws android.os.RemoteException { return null; }
+        public int getOffloadSupport(android.media.audio.common.AudioOffloadInfo p0) throws android.os.RemoteException { return 0; }
+        public int getOutput(int p0) throws android.os.RemoteException { return 0; }
+        public android.media.GetOutputForAttrResponse getOutputForAttr(android.media.audio.common.AudioAttributes p0, int p1, android.content.AttributionSourceState p2, android.media.audio.common.AudioConfig p3, int p4, int[] p5) throws android.os.RemoteException { return null; }
+        public int getOutputForEffect(android.media.EffectDescriptor p0) throws android.os.RemoteException { return 0; }
+        public com.android.media.permission.INativePermissionController getPermissionController() throws android.os.RemoteException { return null; }
+        public int getPhoneState() throws android.os.RemoteException { return 0; }
+        public android.media.AudioMixerAttributesInternal getPreferredMixerAttributes(android.media.audio.common.AudioAttributes p0, int p1, int p2) throws android.os.RemoteException { return null; }
+        public int getProductStrategyFromAudioAttributes(android.media.audio.common.AudioAttributes p0, boolean p1) throws android.os.RemoteException { return 0; }
+        public java.util.List<android.media.AudioMix> getRegisteredPolicyMixes() throws android.os.RemoteException { return null; }
+        public void getReportedSurroundFormats(android.media.audio.common.Int p0, android.media.audio.common.AudioFormatDescription[] p1) throws android.os.RemoteException {}
+        public android.media.GetSpatializerResponse getSpatializer(android.media.INativeSpatializerCallback p0) throws android.os.RemoteException { return null; }
+        public int getStrategyForStream(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public int getStreamTypeForAttributes(android.media.audio.common.AudioAttributes p0) throws android.os.RemoteException { return 0; }
+        public float getStreamVolumeDB(int p0, int p1, android.media.audio.common.AudioDeviceDescription p2) throws android.os.RemoteException { return 0.0f; }
+        public int getStreamVolumeIndex(int p0, android.media.audio.common.AudioDeviceDescription p1) throws android.os.RemoteException { return 0; }
+        public android.media.AudioMixerAttributesInternal[] getSupportedMixerAttributes(int p0) throws android.os.RemoteException { return null; }
+        public void getSurroundFormats(android.media.audio.common.Int p0, android.media.audio.common.AudioFormatDescription[] p1, boolean[] p2) throws android.os.RemoteException {}
+        public int getVolumeGroupFromAudioAttributes(android.media.audio.common.AudioAttributes p0, boolean p1) throws android.os.RemoteException { return 0; }
+        public int getVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0, android.media.audio.common.AudioDeviceDescription p1) throws android.os.RemoteException { return 0; }
+        public int getVolumeIndexForGroup(int p0, android.media.audio.common.AudioDeviceDescription p1) throws android.os.RemoteException { return 0; }
+        public void handleDeviceConfigChange(android.media.audio.common.AudioDevice p0, java.lang.String p1, android.media.audio.common.AudioFormatDescription p2) throws android.os.RemoteException {}
+        public void initStreamVolume(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public boolean isCallScreenModeSupported() throws android.os.RemoteException { return false; }
+        public boolean isDirectOutputSupported(android.media.audio.common.AudioConfigBase p0, android.media.audio.common.AudioAttributes p1) throws android.os.RemoteException { return false; }
+        public boolean isHapticPlaybackSupported() throws android.os.RemoteException { return false; }
+        public boolean isHotwordStreamSupported(boolean p0) throws android.os.RemoteException { return false; }
+        public boolean isSourceActive(int p0) throws android.os.RemoteException { return false; }
+        public boolean isStreamActive(int p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean isStreamActiveRemotely(int p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean isUltrasoundSupported() throws android.os.RemoteException { return false; }
+        public int listAudioPatches(android.media.AudioPatchFw[] p0) throws android.os.RemoteException { return 0; }
+        public int listAudioPorts(int p0, int p1, android.media.AudioPortFw[] p2) throws android.os.RemoteException { return 0; }
+        public android.media.AudioProductStrategy[] listAudioProductStrategies() throws android.os.RemoteException { return null; }
+        public android.media.AudioVolumeGroup[] listAudioVolumeGroups() throws android.os.RemoteException { return null; }
+        public android.media.AudioPortFw[] listDeclaredDevicePorts(int p0) throws android.os.RemoteException { return null; }
+        public void moveEffectsToIo(int[] p0, int p1) throws android.os.RemoteException {}
+        public void onNewAudioModulesAvailable() throws android.os.RemoteException {}
+        public android.media.EffectDescriptor[] queryDefaultPreProcessing(int p0, android.media.audio.common.Int p1) throws android.os.RemoteException { return null; }
+        public void registerClient(android.media.IAudioPolicyServiceClient p0) throws android.os.RemoteException {}
+        public void registerEffect(android.media.EffectDescriptor p0, int p1, int p2, int p3, int p4) throws android.os.RemoteException {}
+        public void registerPolicyMixes(android.media.AudioMix[] p0, boolean p1) throws android.os.RemoteException {}
+        public boolean registerSoundTriggerCaptureStateListener(android.media.ICaptureStateListener p0) throws android.os.RemoteException { return false; }
+        public void releaseAudioPatch(int p0) throws android.os.RemoteException {}
+        public void releaseInput(int p0) throws android.os.RemoteException {}
+        public void releaseOutput(int p0) throws android.os.RemoteException {}
+        public void releaseSoundTriggerSession(int p0) throws android.os.RemoteException {}
+        public void removeDevicesRoleForCapturePreset(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
+        public void removeDevicesRoleForStrategy(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
+        public void removeSourceDefaultEffect(int p0) throws android.os.RemoteException {}
+        public void removeStreamDefaultEffect(int p0) throws android.os.RemoteException {}
+        public void removeUidDeviceAffinities(int p0) throws android.os.RemoteException {}
+        public void removeUserIdDeviceAffinities(int p0) throws android.os.RemoteException {}
+        public void resetProductStrategiesZoneIdForUserId(int p0) throws android.os.RemoteException {}
+        public void setA11yServicesUids(int[] p0) throws android.os.RemoteException {}
+        public void setActiveAssistantServicesUids(int[] p0) throws android.os.RemoteException {}
+        public void setAllowedCapturePolicy(int p0, int p1) throws android.os.RemoteException {}
+        public void setAssistantServicesUids(int[] p0) throws android.os.RemoteException {}
+        public void setAudioPortCallbacksEnabled(boolean p0) throws android.os.RemoteException {}
+        public void setAudioPortConfig(android.media.AudioPortConfigFw p0) throws android.os.RemoteException {}
+        public void setAudioVolumeGroupCallbacksEnabled(boolean p0) throws android.os.RemoteException {}
+        public void setCurrentImeUid(int p0) throws android.os.RemoteException {}
+        public void setDeviceAbsoluteVolumeEnabled(android.media.audio.common.AudioDevice p0, boolean p1, int p2) throws android.os.RemoteException {}
+        public void setDeviceConnectionState(int p0, android.media.audio.common.AudioPort p1, android.media.audio.common.AudioFormatDescription p2, boolean p3) throws android.os.RemoteException {}
+        public void setDevicesRoleForCapturePreset(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
+        public void setDevicesRoleForStrategy(int p0, int p1, android.media.audio.common.AudioDevice[] p2) throws android.os.RemoteException {}
+        public void setEffectEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setForceUse(int p0, int p1) throws android.os.RemoteException {}
+        public void setHardeningOverride(byte p0) throws android.os.RemoteException {}
+        public void setMasterMono(boolean p0) throws android.os.RemoteException {}
+        public void setMaxVolumeIndexForGroup(int p0, int p1) throws android.os.RemoteException {}
+        public void setMinVolumeIndexForGroup(int p0, int p1) throws android.os.RemoteException {}
+        public void setPhoneState(int p0, int p1) throws android.os.RemoteException {}
+        public void setPreferredMixerAttributes(android.media.audio.common.AudioAttributes p0, int p1, int p2, android.media.AudioMixerAttributesInternal p3) throws android.os.RemoteException {}
+        public void setProductStrategiesZoneIdForUserId(int p0, int p1) throws android.os.RemoteException {}
+        public void setRttEnabled(boolean p0) throws android.os.RemoteException {}
+        public void setStreamVolumeIndex(int p0, android.media.audio.common.AudioDeviceDescription p1, int p2, boolean p3) throws android.os.RemoteException {}
+        public void setSupportedSystemUsages(int[] p0) throws android.os.RemoteException {}
+        public void setSurroundFormatEnabled(android.media.audio.common.AudioFormatDescription p0, boolean p1) throws android.os.RemoteException {}
+        public void setUidDeviceAffinities(int p0, android.media.audio.common.AudioDevice[] p1) throws android.os.RemoteException {}
+        public void setUserIdDeviceAffinities(int p0, android.media.audio.common.AudioDevice[] p1) throws android.os.RemoteException {}
+        public void setVolumeIndexForAttributes(android.media.audio.common.AudioAttributes p0, android.media.audio.common.AudioDeviceDescription p1, int p2, boolean p3) throws android.os.RemoteException {}
+        public void setVolumeIndexForGroup(int p0, int p1, android.media.audio.common.AudioDeviceDescription p2, int p3, boolean p4) throws android.os.RemoteException {}
+        public int startAudioSource(android.media.AudioPortConfigFw p0, android.media.audio.common.AudioAttributes p1) throws android.os.RemoteException { return 0; }
+        public void startInput(int p0) throws android.os.RemoteException {}
+        public android.media.StartOutputResponse startOutput(int p0) throws android.os.RemoteException { return null; }
+        public void stopAudioSource(int p0) throws android.os.RemoteException {}
+        public void stopInput(int p0) throws android.os.RemoteException {}
+        public void stopOutput(int p0) throws android.os.RemoteException {}
+        public void unregisterEffect(int p0) throws android.os.RemoteException {}
+        public void updatePolicyMixes(android.media.AudioMixUpdate[] p0) throws android.os.RemoteException {}
+        public boolean useMmapForPcmOffload() throws android.os.RemoteException { return false; }
     }
 }

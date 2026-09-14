@@ -46,21 +46,8 @@ public class BcKeyStoreSpi extends java.security.KeyStoreSpi implements com.andr
     protected void saveStore(java.io.OutputStream p0) throws java.io.IOException {}
     public void setRandom(java.security.SecureRandom p0) {}
 
-    private static class BCKeyStoreException extends java.security.KeyStoreException {
-        private final java.lang.Exception cause = null;
-        public BCKeyStoreException(java.lang.String p0, java.lang.Exception p1) { super((java.lang.String)null); }
-        public java.lang.Throwable getCause() { return null; }
-    }
-
-    public static class BouncyCastleStore extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi {
-        public BouncyCastleStore() { super(0); }
-        public void engineLoad(java.io.InputStream p0, char[] p1) throws java.io.IOException {}
-        public boolean engineProbe(java.io.InputStream p0) throws java.io.IOException { return false; }
-        public void engineStore(java.io.OutputStream p0, char[] p1) throws java.io.IOException {}
-    }
-
-    public static class Std extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi {
-        public Std() { super(0); }
+    public static class Version1 extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi {
+        public Version1() { super(0); }
     }
 
     private class StoreEntry {
@@ -82,7 +69,20 @@ public class BcKeyStoreSpi extends java.security.KeyStoreSpi implements com.andr
         int getType() { return 0; }
     }
 
-    public static class Version1 extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi {
-        public Version1() { super(0); }
+    private static class BCKeyStoreException extends java.security.KeyStoreException {
+        private final java.lang.Exception cause = null;
+        public BCKeyStoreException(java.lang.String p0, java.lang.Exception p1) { super((java.lang.String)null); }
+        public java.lang.Throwable getCause() { return null; }
+    }
+
+    public static class BouncyCastleStore extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi {
+        public BouncyCastleStore() { super(0); }
+        public void engineLoad(java.io.InputStream p0, char[] p1) throws java.io.IOException {}
+        public boolean engineProbe(java.io.InputStream p0) throws java.io.IOException { return false; }
+        public void engineStore(java.io.OutputStream p0, char[] p1) throws java.io.IOException {}
+    }
+
+    public static class Std extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi {
+        public Std() { super(0); }
     }
 }

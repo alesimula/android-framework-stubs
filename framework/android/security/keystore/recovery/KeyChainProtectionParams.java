@@ -21,6 +21,14 @@ public final class KeyChainProtectionParams implements android.os.Parcelable {
     public int getUserSecretType() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LockScreenUiFormat {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserSecretType {
+    }
+
     public static class Builder {
         private android.security.keystore.recovery.KeyChainProtectionParams mInstance;
         public Builder() {}
@@ -29,13 +37,5 @@ public final class KeyChainProtectionParams implements android.os.Parcelable {
         public android.security.keystore.recovery.KeyChainProtectionParams.Builder setLockScreenUiFormat(int p0) { return null; }
         public android.security.keystore.recovery.KeyChainProtectionParams.Builder setSecret(byte[] p0) { return null; }
         public android.security.keystore.recovery.KeyChainProtectionParams.Builder setUserSecretType(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LockScreenUiFormat {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserSecretType {
     }
 }

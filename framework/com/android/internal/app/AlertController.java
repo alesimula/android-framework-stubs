@@ -88,6 +88,29 @@ public class AlertController {
     protected void setupContent(android.view.ViewGroup p0) {}
     protected void setupTitle(android.view.ViewGroup p0) {}
 
+    private static final class ButtonHandler extends android.os.Handler {
+        private static final int MSG_DISMISS_DIALOG = 1;
+        private java.lang.ref.WeakReference<android.content.DialogInterface> mDialog;
+        public ButtonHandler(android.content.DialogInterface p0) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    private static class CheckedItemAdapter extends android.widget.ArrayAdapter<java.lang.CharSequence> {
+        public CheckedItemAdapter(android.content.Context p0, int p1, int p2, java.lang.CharSequence[] p3) { super((android.content.Context)null, 0); }
+        public long getItemId(int p0) { return 0L; }
+        public boolean hasStableIds() { return false; }
+    }
+
+    public static class RecycleListView extends android.widget.ListView {
+        private final int mPaddingBottomNoButtons = 0;
+        private final int mPaddingTopNoTitle = 0;
+        boolean mRecycleOnMeasure;
+        public RecycleListView(android.content.Context p0) { super((android.content.Context)null); }
+        public RecycleListView(android.content.Context p0, android.util.AttributeSet p1) { super((android.content.Context)null); }
+        protected boolean recycleOnMeasure() { return false; }
+        public void setHasDecor(boolean p0, boolean p1) {}
+    }
+
     public static class AlertParams {
         public android.widget.ListAdapter mAdapter;
         public boolean mCancelable;
@@ -136,28 +159,5 @@ public class AlertController {
         public static interface OnPrepareListViewListener {
             public void onPrepareListView(android.widget.ListView p0);
         }
-    }
-
-    private static final class ButtonHandler extends android.os.Handler {
-        private static final int MSG_DISMISS_DIALOG = 1;
-        private java.lang.ref.WeakReference<android.content.DialogInterface> mDialog;
-        public ButtonHandler(android.content.DialogInterface p0) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    private static class CheckedItemAdapter extends android.widget.ArrayAdapter<java.lang.CharSequence> {
-        public CheckedItemAdapter(android.content.Context p0, int p1, int p2, java.lang.CharSequence[] p3) { super((android.content.Context)null, 0); }
-        public long getItemId(int p0) { return 0L; }
-        public boolean hasStableIds() { return false; }
-    }
-
-    public static class RecycleListView extends android.widget.ListView {
-        private final int mPaddingBottomNoButtons = 0;
-        private final int mPaddingTopNoTitle = 0;
-        boolean mRecycleOnMeasure;
-        public RecycleListView(android.content.Context p0) { super((android.content.Context)null); }
-        public RecycleListView(android.content.Context p0, android.util.AttributeSet p1) { super((android.content.Context)null); }
-        protected boolean recycleOnMeasure() { return false; }
-        public void setHasDecor(boolean p0, boolean p1) {}
     }
 }

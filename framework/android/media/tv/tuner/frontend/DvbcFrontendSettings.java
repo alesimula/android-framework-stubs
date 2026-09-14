@@ -58,12 +58,13 @@ public class DvbcFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     public int getTimeInterleaveMode() { return 0; }
     public int getType() { return 0; }
 
+    @java.lang.Deprecated
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Annex {
+    public static @interface SpectralInversion {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Bandwidth {
+    public static @interface Modulation {
     }
 
     public static class Builder {
@@ -92,19 +93,18 @@ public class DvbcFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Modulation {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OuterFec {
-    }
-
-    @java.lang.Deprecated
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SpectralInversion {
+    public static @interface Bandwidth {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface TimeInterleaveMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Annex {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OuterFec {
     }
 }

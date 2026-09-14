@@ -3,12 +3,6 @@ package com.android.internal.app;
 public interface IAppOpsCallback extends android.os.IInterface {
     public void opChanged(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IAppOpsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void opChanged(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IAppOpsCallback {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.app.IAppOpsCallback";
         static final int TRANSACTION_opChanged = 1;
@@ -24,5 +18,11 @@ public interface IAppOpsCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void opChanged(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.app.IAppOpsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void opChanged(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
     }
 }

@@ -84,13 +84,38 @@ public final class Message implements android.os.Parcelable {
     java.lang.String toString(long p0) { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static final class MatchAllFutureMessages extends android.os.Message.MessageCompare {
-        MatchAllFutureMessages() { super(); }
+    static final class MatchHandlerAndObjectEquals extends android.os.Message.MessageCompare {
+        MatchHandlerAndObjectEquals() { super(); }
+        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
+    }
+
+    static final class MatchHandlerAndObject extends android.os.Message.MessageCompare {
+        MatchHandlerAndObject() { super(); }
+        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
+    }
+
+    static final class MatchHandlerRunnableAndObjectEquals extends android.os.Message.MessageCompare {
+        MatchHandlerRunnableAndObjectEquals() { super(); }
+        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
+    }
+
+    public static final class MatchHandlerWhatAndObject extends android.os.Message.MessageCompare {
+        public MatchHandlerWhatAndObject() { super(); }
         public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
     }
 
     public static final class MatchAllMessages extends android.os.Message.MessageCompare {
         public MatchAllMessages() { super(); }
+        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
+    }
+
+    static final class MatchHandlerWhatAndObjectEquals extends android.os.Message.MessageCompare {
+        MatchHandlerWhatAndObjectEquals() { super(); }
+        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
+    }
+
+    static final class MatchAllFutureMessages extends android.os.Message.MessageCompare {
+        MatchAllFutureMessages() { super(); }
         public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
     }
 
@@ -105,43 +130,18 @@ public final class Message implements android.os.Parcelable {
         public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
     }
 
-    static final class MatchHandler extends android.os.Message.MessageCompare {
-        MatchHandler() { super(); }
-        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
-    }
-
-    static final class MatchHandlerAndObject extends android.os.Message.MessageCompare {
-        MatchHandlerAndObject() { super(); }
-        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
-    }
-
-    static final class MatchHandlerAndObjectEquals extends android.os.Message.MessageCompare {
-        MatchHandlerAndObjectEquals() { super(); }
-        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
-    }
-
     static final class MatchHandlerRunnableAndObject extends android.os.Message.MessageCompare {
         MatchHandlerRunnableAndObject() { super(); }
-        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
-    }
-
-    static final class MatchHandlerRunnableAndObjectEquals extends android.os.Message.MessageCompare {
-        MatchHandlerRunnableAndObjectEquals() { super(); }
-        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
-    }
-
-    public static final class MatchHandlerWhatAndObject extends android.os.Message.MessageCompare {
-        public MatchHandlerWhatAndObject() { super(); }
-        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
-    }
-
-    static final class MatchHandlerWhatAndObjectEquals extends android.os.Message.MessageCompare {
-        MatchHandlerWhatAndObjectEquals() { super(); }
         public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
     }
 
     static abstract class MessageCompare {
         MessageCompare() {}
         public abstract boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5);
+    }
+
+    static final class MatchHandler extends android.os.Message.MessageCompare {
+        MatchHandler() { super(); }
+        public boolean compareMessage(android.os.Message p0, android.os.Handler p1, int p2, java.lang.Object p3, java.lang.Runnable p4, long p5) { return false; }
     }
 }

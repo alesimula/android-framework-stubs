@@ -91,10 +91,10 @@ public class PowerWhitelistManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TempAllowListType {
+    public static @interface WhitelistEvent {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface WhitelistEvent {
+    public static @interface TempAllowListType {
     }
 }

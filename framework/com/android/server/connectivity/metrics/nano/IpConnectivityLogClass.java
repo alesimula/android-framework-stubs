@@ -12,22 +12,68 @@ public interface IpConnectivityLogClass {
     public static final int WIFI_NAN = 8;
     public static final int WIFI_P2P = 7;
 
-    public static final class ApfProgramEvent extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent[] _emptyArray;
-        public int currentRas;
-        public boolean dropMulticast;
-        public long effectiveLifetime;
-        public int filteredRas;
-        public boolean hasIpv4Addr;
-        public long lifetime;
-        public int programLength;
-        public ApfProgramEvent() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent clear() { return null; }
+    public static final class NetworkEvent extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent[] _emptyArray;
+        public int eventType;
+        public int latencyMs;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId networkId;
+        public NetworkEvent() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent clear() { return null; }
         protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class ConnectStatistics extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics[] _emptyArray;
+        public int connectBlockingCount;
+        public int connectCount;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] errnosCounters;
+        public int ipv6AddrCount;
+        public int[] latenciesMs;
+        public int[] nonBlockingLatenciesMs;
+        public ConnectStatistics() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class DNSLatencies extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies[] _emptyArray;
+        public int aCount;
+        public int aaaaCount;
+        public int[] latenciesMs;
+        public int queryCount;
+        public int returnCode;
+        public int type;
+        public DNSLatencies() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class IpReachabilityEvent extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent[] _emptyArray;
+        public int eventType;
+        public java.lang.String ifName;
+        public IpReachabilityEvent() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
@@ -56,21 +102,95 @@ public interface IpConnectivityLogClass {
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
-    public static final class ConnectStatistics extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics[] _emptyArray;
-        public int connectBlockingCount;
-        public int connectCount;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] errnosCounters;
-        public int ipv6AddrCount;
-        public int[] latenciesMs;
-        public int[] nonBlockingLatenciesMs;
-        public ConnectStatistics() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics clear() { return null; }
+    public static final class NetworkId extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId[] _emptyArray;
+        public int networkId;
+        public NetworkId() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId clear() { return null; }
         protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ConnectStatistics mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class NetworkStats extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats[] _emptyArray;
+        public long durationMs;
+        public boolean everValidated;
+        public int ipSupport;
+        public int noConnectivityReports;
+        public boolean portalFound;
+        public int validationAttempts;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] validationEvents;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] validationStates;
+        public NetworkStats() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class Pair extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] _emptyArray;
+        public int key;
+        public int value;
+        public Pair() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class ApfProgramEvent extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent[] _emptyArray;
+        public int currentRas;
+        public boolean dropMulticast;
+        public long effectiveLifetime;
+        public int filteredRas;
+        public boolean hasIpv4Addr;
+        public long lifetime;
+        public int programLength;
+        public ApfProgramEvent() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.ApfProgramEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
+    public static final class DHCPEvent extends com.android.framework.protobuf.nano.MessageNano {
+        public static final int ERROR_CODE_FIELD_NUMBER = 3;
+        public static final int STATE_TRANSITION_FIELD_NUMBER = 2;
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent[] _emptyArray;
+        public int durationMs;
+        public java.lang.String ifName;
+        private int valueCase_;
+        private java.lang.Object value_;
+        public DHCPEvent() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent clear() { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent clearValue() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public int getErrorCode() { return 0; }
+        public java.lang.String getStateTransition() { return null; }
+        public int getValueCase() { return 0; }
+        public boolean hasErrorCode() { return false; }
+        public boolean hasStateTransition() { return false; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent setErrorCode(int p0) { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent setStateTransition(java.lang.String p0) { return null; }
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
@@ -102,72 +222,6 @@ public interface IpConnectivityLogClass {
         public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DefaultNetworkEvent clear() { return null; }
         protected int computeSerializedSize() { return 0; }
         public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DefaultNetworkEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class DHCPEvent extends com.android.framework.protobuf.nano.MessageNano {
-        public static final int ERROR_CODE_FIELD_NUMBER = 3;
-        public static final int STATE_TRANSITION_FIELD_NUMBER = 2;
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent[] _emptyArray;
-        public int durationMs;
-        public java.lang.String ifName;
-        private int valueCase_;
-        private java.lang.Object value_;
-        public DHCPEvent() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent clear() { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent clearValue() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public int getErrorCode() { return 0; }
-        public java.lang.String getStateTransition() { return null; }
-        public int getValueCase() { return 0; }
-        public boolean hasErrorCode() { return false; }
-        public boolean hasStateTransition() { return false; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent setErrorCode(int p0) { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DHCPEvent setStateTransition(java.lang.String p0) { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class DNSLatencies extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies[] _emptyArray;
-        public int aCount;
-        public int aaaaCount;
-        public int[] latenciesMs;
-        public int queryCount;
-        public int returnCode;
-        public int type;
-        public DNSLatencies() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLatencies mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class DNSLookupBatch extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch[] _emptyArray;
-        public int[] eventTypes;
-        public long getaddrinfoErrorCount;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] getaddrinfoErrors;
-        public long getaddrinfoQueryCount;
-        public long gethostbynameErrorCount;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] gethostbynameErrors;
-        public long gethostbynameQueryCount;
-        public int[] latenciesMs;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId networkId;
-        public int[] returnCodes;
-        public DNSLookupBatch() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
@@ -248,6 +302,28 @@ public interface IpConnectivityLogClass {
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 
+    public static final class DNSLookupBatch extends com.android.framework.protobuf.nano.MessageNano {
+        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch[] _emptyArray;
+        public int[] eventTypes;
+        public long getaddrinfoErrorCount;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] getaddrinfoErrors;
+        public long getaddrinfoQueryCount;
+        public long gethostbynameErrorCount;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] gethostbynameErrors;
+        public long gethostbynameQueryCount;
+        public int[] latenciesMs;
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId networkId;
+        public int[] returnCodes;
+        public DNSLookupBatch() { super(); }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch[] emptyArray() { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch clear() { return null; }
+        protected int computeSerializedSize() { return 0; }
+        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.DNSLookupBatch mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
+        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
+    }
+
     public static final class IpConnectivityLog extends com.android.framework.protobuf.nano.MessageNano {
         private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpConnectivityLog[] _emptyArray;
         public int droppedEvents;
@@ -275,82 +351,6 @@ public interface IpConnectivityLogClass {
         public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpProvisioningEvent clear() { return null; }
         protected int computeSerializedSize() { return 0; }
         public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpProvisioningEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class IpReachabilityEvent extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent[] _emptyArray;
-        public int eventType;
-        public java.lang.String ifName;
-        public IpReachabilityEvent() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpReachabilityEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class NetworkEvent extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent[] _emptyArray;
-        public int eventType;
-        public int latencyMs;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId networkId;
-        public NetworkEvent() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkEvent mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class NetworkId extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId[] _emptyArray;
-        public int networkId;
-        public NetworkId() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkId mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class NetworkStats extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats[] _emptyArray;
-        public long durationMs;
-        public boolean everValidated;
-        public int ipSupport;
-        public int noConnectivityReports;
-        public boolean portalFound;
-        public int validationAttempts;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] validationEvents;
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] validationStates;
-        public NetworkStats() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.NetworkStats mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
-    }
-
-    public static final class Pair extends com.android.framework.protobuf.nano.MessageNano {
-        private static volatile com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] _emptyArray;
-        public int key;
-        public int value;
-        public Pair() { super(); }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair[] emptyArray() { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair parseFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
-        public static com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair parseFrom(byte[] p0) throws com.android.framework.protobuf.nano.InvalidProtocolBufferNanoException { return null; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair clear() { return null; }
-        protected int computeSerializedSize() { return 0; }
-        public com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.Pair mergeFrom(com.android.framework.protobuf.nano.CodedInputByteBufferNano p0) throws java.io.IOException { return null; }
         public void writeTo(com.android.framework.protobuf.nano.CodedOutputByteBufferNano p0) throws java.io.IOException {}
     }
 

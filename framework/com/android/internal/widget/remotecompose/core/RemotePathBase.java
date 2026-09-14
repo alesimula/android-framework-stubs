@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core;
 
-public class RemotePathBase {
+public class RemotePathBase implements com.android.internal.widget.remotecompose.core.RcPlatformServices.RcPathArrayCreator {
     public static final int CLOSE = 15;
     public static final float CLOSE_NAN = Float.valueOf(0.0f);
     public static final int CONIC = 13;

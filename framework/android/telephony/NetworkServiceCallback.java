@@ -8,7 +8,7 @@ public class NetworkServiceCallback {
     public static final int RESULT_ERROR_INVALID_ARG = 2;
     public static final int RESULT_ERROR_UNSUPPORTED = 1;
     public static final int RESULT_SUCCESS = 0;
-    private static final java.lang.String mTag = null;
+    private static final java.lang.String mTag = "NetworkServiceCallback";
     private final android.telephony.INetworkServiceCallback mCallback = null;
     public NetworkServiceCallback(android.telephony.INetworkServiceCallback p0) {}
     public void onRequestNetworkRegistrationInfoComplete(int p0, android.telephony.NetworkRegistrationInfo p1) {}

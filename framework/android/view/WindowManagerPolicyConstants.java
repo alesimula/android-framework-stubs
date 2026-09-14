@@ -55,19 +55,19 @@ public interface WindowManagerPolicyConstants {
     public static int translateSleepReasonToOffReason(int p0) { return 0; }
     public static int translateWakeReasonToOnReason(int p0) { return 0; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OffReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OnReason {
-    }
-
     public static interface PointerEventListener {
         public void onPointerEvent(android.view.MotionEvent p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PolicyFlag {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OnReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OffReason {
     }
 }

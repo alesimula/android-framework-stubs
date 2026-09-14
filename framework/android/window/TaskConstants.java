@@ -11,6 +11,7 @@ public class TaskConstants {
     public static final int TASK_CHILD_LAYER_STARTING_WINDOW = 30000;
     public static final int TASK_CHILD_LAYER_TASK_BACKGROUND = -30000;
     public static final int TASK_CHILD_LAYER_TASK_OVERLAY = 60000;
+    public static final int TASK_CHILD_LAYER_TRANSITION_SNAPSHOT = 45000;
     public static final int TASK_CHILD_LAYER_WINDOW_DECORATIONS = 40000;
     public static final int TASK_CHILD_SHELL_LAYER_LETTERBOX_BACKGROUND = -10000;
     public static final int TASK_CHILD_SHELL_LAYER_LETTERBOX_ROUNDED_CORNERS = 2000;

@@ -32,8 +32,8 @@ public final class BlowfishEngine implements com.android.internal.org.bouncycast
     public void init(boolean p0, com.android.internal.org.bouncycastle.crypto.CipherParameters p1) {}
     public final int processBlock(byte[] p0, int p1, byte[] p2, int p3) { return 0; }
     public void reset() {}
-    private static long[] $d2j$hex$3008ba5d$decode_J(java.lang.String p0) { return null; }
-    private static int[] $d2j$hex$3008ba5d$decode_I(java.lang.String p0) { return null; }
-    private static short[] $d2j$hex$3008ba5d$decode_S(java.lang.String p0) { return null; }
-    private static byte[] $d2j$hex$3008ba5d$decode_B(java.lang.String p0) { return null; }
+    private static long[] $d2j$hex$a58e620f$decode_J(java.lang.String p0) { return null; }
+    private static int[] $d2j$hex$a58e620f$decode_I(java.lang.String p0) { return null; }
+    private static short[] $d2j$hex$a58e620f$decode_S(java.lang.String p0) { return null; }
+    private static byte[] $d2j$hex$a58e620f$decode_B(java.lang.String p0) { return null; }
 }

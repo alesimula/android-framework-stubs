@@ -68,76 +68,6 @@ public interface ITvInteractiveAppSession extends android.os.IInterface {
     public void switchOperatorAppState(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1) throws android.os.RemoteException;
     public void updateWebServiceClientState(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.interactive.ITvInteractiveAppSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void createBiInteractiveApp(android.net.Uri p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void createMediaView(android.os.IBinder p0, android.graphics.Rect p1) throws android.os.RemoteException {}
-        public void destroyBiInteractiveApp(java.lang.String p0) throws android.os.RemoteException {}
-        public void dispatchSurfaceChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void notifyAdBufferConsumed(android.media.tv.AdBuffer p0) throws android.os.RemoteException {}
-        public void notifyAdResponse(android.media.tv.AdResponse p0) throws android.os.RemoteException {}
-        public void notifyBroadcastInfoResponse(android.media.tv.BroadcastInfoResponse p0) throws android.os.RemoteException {}
-        public void notifyContentAllowed() throws android.os.RemoteException {}
-        public void notifyContentBlocked(java.lang.String p0) throws android.os.RemoteException {}
-        public void notifyError(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void notifyInteractiveAppFocusChanged(boolean p0) throws android.os.RemoteException {}
-        public void notifyRecordingConnectionFailed(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void notifyRecordingDisconnected(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void notifyRecordingError(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void notifyRecordingScheduled(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void notifyRecordingStarted(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void notifyRecordingStopped(java.lang.String p0) throws android.os.RemoteException {}
-        public void notifyRecordingTuned(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException {}
-        public void notifySignalStrength(int p0) throws android.os.RemoteException {}
-        public void notifyTimeShiftCurrentPositionChanged(java.lang.String p0, long p1) throws android.os.RemoteException {}
-        public void notifyTimeShiftPlaybackParams(android.media.PlaybackParams p0) throws android.os.RemoteException {}
-        public void notifyTimeShiftStartPositionChanged(java.lang.String p0, long p1) throws android.os.RemoteException {}
-        public void notifyTimeShiftStatusChanged(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void notifyTrackSelected(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void notifyTracksChanged(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
-        public void notifyTuned(android.net.Uri p0) throws android.os.RemoteException {}
-        public void notifyTvMessage(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void notifyVideoAvailable() throws android.os.RemoteException {}
-        public void notifyVideoFreezeUpdated(boolean p0) throws android.os.RemoteException {}
-        public void notifyVideoUnavailable(int p0) throws android.os.RemoteException {}
-        public void relayoutMediaView(android.graphics.Rect p0) throws android.os.RemoteException {}
-        public void release() throws android.os.RemoteException {}
-        public void removeMediaView() throws android.os.RemoteException {}
-        public void removeWebServiceClient(int p0) throws android.os.RemoteException {}
-        public void requestOperatorAppSupportedStatus() throws android.os.RemoteException {}
-        public void requestWebServiceClients() throws android.os.RemoteException {}
-        public void resetInteractiveApp() throws android.os.RemoteException {}
-        public void selectInteractiveAppStreamingTrack(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void sendAvailableSpeeds(float[] p0) throws android.os.RemoteException {}
-        public void sendCertificate(java.lang.String p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
-        public void sendCurrentChannelLcn(int p0) throws android.os.RemoteException {}
-        public void sendCurrentChannelUri(android.net.Uri p0) throws android.os.RemoteException {}
-        public void sendCurrentTvInputId(java.lang.String p0) throws android.os.RemoteException {}
-        public void sendCurrentVideoBounds(android.graphics.Rect p0) throws android.os.RemoteException {}
-        public void sendParentalControlApprovalResult(int p0, boolean p1) throws android.os.RemoteException {}
-        public void sendParentalControlPinLength(int p0) throws android.os.RemoteException {}
-        public void sendSelectedTrackInfo(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
-        public void sendSetParentalControlPinResult(int p0) throws android.os.RemoteException {}
-        public void sendSigningResult(java.lang.String p0, byte[] p1) throws android.os.RemoteException {}
-        public void sendStreamVolume(float p0) throws android.os.RemoteException {}
-        public void sendTimeShiftMode(int p0) throws android.os.RemoteException {}
-        public void sendTrackInfoList(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
-        public void sendTvRecordingInfo(android.media.tv.TvRecordingInfo p0) throws android.os.RemoteException {}
-        public void sendTvRecordingInfoList(java.util.List<android.media.tv.TvRecordingInfo> p0) throws android.os.RemoteException {}
-        public void sendVerifyParentalControlPinResult(int p0, int p1) throws android.os.RemoteException {}
-        public void setSurface(android.view.Surface p0) throws android.os.RemoteException {}
-        public void setTeletextAppEnabled(boolean p0) throws android.os.RemoteException {}
-        public void startInteractiveApp() throws android.os.RemoteException {}
-        public void startInteractiveAppWithHandle(int p0) throws android.os.RemoteException {}
-        public void startOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void stopInteractiveApp() throws android.os.RemoteException {}
-        public void stopInteractiveAppWithHandle(int p0) throws android.os.RemoteException {}
-        public void stopOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException {}
-        public void switchOperatorAppState(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1) throws android.os.RemoteException {}
-        public void updateWebServiceClientState(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.interactive.ITvInteractiveAppSession {
         static final int TRANSACTION_createBiInteractiveApp = 6;
         static final int TRANSACTION_createMediaView = 55;
@@ -282,5 +212,75 @@ public interface ITvInteractiveAppSession extends android.os.IInterface {
             public void switchOperatorAppState(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1) throws android.os.RemoteException {}
             public void updateWebServiceClientState(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.interactive.ITvInteractiveAppSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void createBiInteractiveApp(android.net.Uri p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void createMediaView(android.os.IBinder p0, android.graphics.Rect p1) throws android.os.RemoteException {}
+        public void destroyBiInteractiveApp(java.lang.String p0) throws android.os.RemoteException {}
+        public void dispatchSurfaceChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void notifyAdBufferConsumed(android.media.tv.AdBuffer p0) throws android.os.RemoteException {}
+        public void notifyAdResponse(android.media.tv.AdResponse p0) throws android.os.RemoteException {}
+        public void notifyBroadcastInfoResponse(android.media.tv.BroadcastInfoResponse p0) throws android.os.RemoteException {}
+        public void notifyContentAllowed() throws android.os.RemoteException {}
+        public void notifyContentBlocked(java.lang.String p0) throws android.os.RemoteException {}
+        public void notifyError(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void notifyInteractiveAppFocusChanged(boolean p0) throws android.os.RemoteException {}
+        public void notifyRecordingConnectionFailed(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void notifyRecordingDisconnected(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void notifyRecordingError(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void notifyRecordingScheduled(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void notifyRecordingStarted(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void notifyRecordingStopped(java.lang.String p0) throws android.os.RemoteException {}
+        public void notifyRecordingTuned(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException {}
+        public void notifySignalStrength(int p0) throws android.os.RemoteException {}
+        public void notifyTimeShiftCurrentPositionChanged(java.lang.String p0, long p1) throws android.os.RemoteException {}
+        public void notifyTimeShiftPlaybackParams(android.media.PlaybackParams p0) throws android.os.RemoteException {}
+        public void notifyTimeShiftStartPositionChanged(java.lang.String p0, long p1) throws android.os.RemoteException {}
+        public void notifyTimeShiftStatusChanged(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void notifyTrackSelected(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void notifyTracksChanged(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
+        public void notifyTuned(android.net.Uri p0) throws android.os.RemoteException {}
+        public void notifyTvMessage(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void notifyVideoAvailable() throws android.os.RemoteException {}
+        public void notifyVideoFreezeUpdated(boolean p0) throws android.os.RemoteException {}
+        public void notifyVideoUnavailable(int p0) throws android.os.RemoteException {}
+        public void relayoutMediaView(android.graphics.Rect p0) throws android.os.RemoteException {}
+        public void release() throws android.os.RemoteException {}
+        public void removeMediaView() throws android.os.RemoteException {}
+        public void removeWebServiceClient(int p0) throws android.os.RemoteException {}
+        public void requestOperatorAppSupportedStatus() throws android.os.RemoteException {}
+        public void requestWebServiceClients() throws android.os.RemoteException {}
+        public void resetInteractiveApp() throws android.os.RemoteException {}
+        public void selectInteractiveAppStreamingTrack(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void sendAvailableSpeeds(float[] p0) throws android.os.RemoteException {}
+        public void sendCertificate(java.lang.String p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void sendCurrentChannelLcn(int p0) throws android.os.RemoteException {}
+        public void sendCurrentChannelUri(android.net.Uri p0) throws android.os.RemoteException {}
+        public void sendCurrentTvInputId(java.lang.String p0) throws android.os.RemoteException {}
+        public void sendCurrentVideoBounds(android.graphics.Rect p0) throws android.os.RemoteException {}
+        public void sendParentalControlApprovalResult(int p0, boolean p1) throws android.os.RemoteException {}
+        public void sendParentalControlPinLength(int p0) throws android.os.RemoteException {}
+        public void sendSelectedTrackInfo(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
+        public void sendSetParentalControlPinResult(int p0) throws android.os.RemoteException {}
+        public void sendSigningResult(java.lang.String p0, byte[] p1) throws android.os.RemoteException {}
+        public void sendStreamVolume(float p0) throws android.os.RemoteException {}
+        public void sendTimeShiftMode(int p0) throws android.os.RemoteException {}
+        public void sendTrackInfoList(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
+        public void sendTvRecordingInfo(android.media.tv.TvRecordingInfo p0) throws android.os.RemoteException {}
+        public void sendTvRecordingInfoList(java.util.List<android.media.tv.TvRecordingInfo> p0) throws android.os.RemoteException {}
+        public void sendVerifyParentalControlPinResult(int p0, int p1) throws android.os.RemoteException {}
+        public void setSurface(android.view.Surface p0) throws android.os.RemoteException {}
+        public void setTeletextAppEnabled(boolean p0) throws android.os.RemoteException {}
+        public void startInteractiveApp() throws android.os.RemoteException {}
+        public void startInteractiveAppWithHandle(int p0) throws android.os.RemoteException {}
+        public void startOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void stopInteractiveApp() throws android.os.RemoteException {}
+        public void stopInteractiveAppWithHandle(int p0) throws android.os.RemoteException {}
+        public void stopOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException {}
+        public void switchOperatorAppState(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1) throws android.os.RemoteException {}
+        public void updateWebServiceClientState(int p0, int p1) throws android.os.RemoteException {}
     }
 }

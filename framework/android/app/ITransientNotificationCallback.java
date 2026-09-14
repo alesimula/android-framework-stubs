@@ -5,13 +5,6 @@ public interface ITransientNotificationCallback extends android.os.IInterface {
     public void onToastHidden() throws android.os.RemoteException;
     public void onToastShown() throws android.os.RemoteException;
 
-    public static class Default implements android.app.ITransientNotificationCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onToastHidden() throws android.os.RemoteException {}
-        public void onToastShown() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.ITransientNotificationCallback {
         static final int TRANSACTION_onToastHidden = 2;
         static final int TRANSACTION_onToastShown = 1;
@@ -30,5 +23,12 @@ public interface ITransientNotificationCallback extends android.os.IInterface {
             public void onToastHidden() throws android.os.RemoteException {}
             public void onToastShown() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.ITransientNotificationCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onToastHidden() throws android.os.RemoteException {}
+        public void onToastShown() throws android.os.RemoteException {}
     }
 }

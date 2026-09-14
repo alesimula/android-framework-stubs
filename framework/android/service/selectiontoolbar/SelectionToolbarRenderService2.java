@@ -13,9 +13,11 @@ public abstract class SelectionToolbarRenderService2 extends android.app.Service
     private void handleClientDied(int p0, android.os.IBinder p1) {}
     protected android.os.Handler getThreadHandler() { return null; }
     public final android.os.IBinder onBind(android.content.Intent p0) { return null; }
+    public abstract void onClearTextSelection(android.os.IBinder p0);
     public abstract void onClose(android.os.IBinder p0);
     public abstract void onHide(android.os.IBinder p0);
     protected void onPasteAction(int p0) {}
+    public abstract void onSelectText(android.os.IBinder p0, java.lang.CharSequence p1, int p2, int p3, android.os.LocaleList p4);
     public abstract void onShow(android.os.IBinder p0, int p1, android.view.selectiontoolbar.ShowInfo p2, android.service.selectiontoolbar.SelectionToolbarRenderCallback p3);
     public abstract void onUpdate(android.os.IBinder p0, android.view.selectiontoolbar.ShowInfo p1);
 

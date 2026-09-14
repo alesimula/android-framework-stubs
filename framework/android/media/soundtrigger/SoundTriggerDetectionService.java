@@ -3,7 +3,7 @@ package android.media.soundtrigger;
 @android.annotation.SystemApi
 public abstract class SoundTriggerDetectionService extends android.app.Service {
     private static final boolean DEBUG = false;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "SoundTriggerDetectionService";
     private final android.util.ArrayMap<java.util.UUID, android.media.soundtrigger.ISoundTriggerDetectionServiceClient> mClients = null;
     private android.os.Handler mHandler;
     private final java.lang.Object mLock = null;

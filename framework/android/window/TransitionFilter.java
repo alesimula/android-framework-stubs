@@ -17,9 +17,6 @@ public final class TransitionFilter implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static @interface ContainerOrder {
-    }
-
     public static final class Requirement implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.TransitionFilter.Requirement> CREATOR = null;
         public int mActivityType;
@@ -45,5 +42,8 @@ public final class TransitionFilter implements android.os.Parcelable {
         boolean matches(android.window.TransitionRequestInfo p0) { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static @interface ContainerOrder {
     }
 }

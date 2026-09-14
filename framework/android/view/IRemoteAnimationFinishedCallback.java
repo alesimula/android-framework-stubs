@@ -3,12 +3,6 @@ package android.view;
 public interface IRemoteAnimationFinishedCallback extends android.os.IInterface {
     public void onAnimationFinished() throws android.os.RemoteException;
 
-    public static class Default implements android.view.IRemoteAnimationFinishedCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAnimationFinished() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IRemoteAnimationFinishedCallback {
         public static final java.lang.String DESCRIPTOR = "android.view.IRemoteAnimationFinishedCallback";
         static final int TRANSACTION_onAnimationFinished = 1;
@@ -26,5 +20,11 @@ public interface IRemoteAnimationFinishedCallback extends android.os.IInterface 
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAnimationFinished() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IRemoteAnimationFinishedCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAnimationFinished() throws android.os.RemoteException {}
     }
 }

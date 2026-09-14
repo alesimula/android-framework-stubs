@@ -121,38 +121,6 @@ public final class CameraExtensionSessionImpl extends android.hardware.camera2.C
         public void onCaptureProcessProgressed(int p0) {}
     }
 
-    private class CloseRequestHandler extends android.hardware.camera2.CameraCaptureSession.CaptureCallback {
-        private final android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback mImageCallback = null;
-        public CloseRequestHandler(android.hardware.camera2.impl.CameraExtensionSessionImpl p0, android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback p1) { super(); }
-        public void onCaptureStarted(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, long p2, long p3) {}
-    }
-
-    private class ImageLoopbackCallback implements android.hardware.camera2.impl.CameraExtensionSessionImpl.OnImageAvailableListener {
-        private ImageLoopbackCallback(android.hardware.camera2.impl.CameraExtensionSessionImpl p0) {}
-        public void onImageAvailable(android.media.ImageReader p0, android.media.Image p1) {}
-        public void onImageDropped(long p0) {}
-    }
-
-    private class InitializeSessionHandler extends android.hardware.camera2.extension.IInitializeSessionCallback.Stub {
-        private InitializeSessionHandler(android.hardware.camera2.impl.CameraExtensionSessionImpl p0) { super(); }
-        public void onFailure() {}
-        public void onSuccess() {}
-    }
-
-    private class InitialRequestHandler extends android.hardware.camera2.CameraCaptureSession.CaptureCallback {
-        private final android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback mImageCallback = null;
-        public InitialRequestHandler(android.hardware.camera2.impl.CameraExtensionSessionImpl p0, android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback p1) { super(); }
-        public void onCaptureFailed(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, android.hardware.camera2.CaptureFailure p2) {}
-        public void onCaptureSequenceAborted(android.hardware.camera2.CameraCaptureSession p0, int p1) {}
-        public void onCaptureSequenceCompleted(android.hardware.camera2.CameraCaptureSession p0, int p1, long p2) {}
-        public void onCaptureStarted(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, long p2, long p3) {}
-    }
-
-    private static interface OnImageAvailableListener {
-        public void onImageAvailable(android.media.ImageReader p0, android.media.Image p1);
-        public void onImageDropped(long p0);
-    }
-
     private class PreviewRequestHandler extends android.hardware.camera2.CameraCaptureSession.CaptureCallback {
         private final android.hardware.camera2.CameraExtensionSession.ExtensionCaptureCallback mCallbacks = null;
         private android.hardware.camera2.impl.CameraExtensionSessionImpl.CaptureResultHandler mCaptureResultHandler;
@@ -194,5 +162,37 @@ public final class CameraExtensionSessionImpl extends android.hardware.camera2.C
         public void onClosed(android.hardware.camera2.CameraCaptureSession p0) {}
         public void onConfigureFailed(android.hardware.camera2.CameraCaptureSession p0) {}
         public void onConfigured(android.hardware.camera2.CameraCaptureSession p0) {}
+    }
+
+    private class ImageLoopbackCallback implements android.hardware.camera2.impl.CameraExtensionSessionImpl.OnImageAvailableListener {
+        private ImageLoopbackCallback(android.hardware.camera2.impl.CameraExtensionSessionImpl p0) {}
+        public void onImageAvailable(android.media.ImageReader p0, android.media.Image p1) {}
+        public void onImageDropped(long p0) {}
+    }
+
+    private static interface OnImageAvailableListener {
+        public void onImageAvailable(android.media.ImageReader p0, android.media.Image p1);
+        public void onImageDropped(long p0);
+    }
+
+    private class InitializeSessionHandler extends android.hardware.camera2.extension.IInitializeSessionCallback.Stub {
+        private InitializeSessionHandler(android.hardware.camera2.impl.CameraExtensionSessionImpl p0) { super(); }
+        public void onFailure() {}
+        public void onSuccess() {}
+    }
+
+    private class InitialRequestHandler extends android.hardware.camera2.CameraCaptureSession.CaptureCallback {
+        private final android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback mImageCallback = null;
+        public InitialRequestHandler(android.hardware.camera2.impl.CameraExtensionSessionImpl p0, android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback p1) { super(); }
+        public void onCaptureFailed(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, android.hardware.camera2.CaptureFailure p2) {}
+        public void onCaptureSequenceAborted(android.hardware.camera2.CameraCaptureSession p0, int p1) {}
+        public void onCaptureSequenceCompleted(android.hardware.camera2.CameraCaptureSession p0, int p1, long p2) {}
+        public void onCaptureStarted(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, long p2, long p3) {}
+    }
+
+    private class CloseRequestHandler extends android.hardware.camera2.CameraCaptureSession.CaptureCallback {
+        private final android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback mImageCallback = null;
+        public CloseRequestHandler(android.hardware.camera2.impl.CameraExtensionSessionImpl p0, android.hardware.camera2.impl.CameraExtensionSessionImpl.CameraOutputImageCallback p1) { super(); }
+        public void onCaptureStarted(android.hardware.camera2.CameraCaptureSession p0, android.hardware.camera2.CaptureRequest p1, long p2, long p3) {}
     }
 }

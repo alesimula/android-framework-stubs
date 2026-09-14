@@ -4,12 +4,6 @@ public interface IBrightnessListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.display.IBrightnessListener";
     public void onBrightnessChanged(float p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.display.IBrightnessListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onBrightnessChanged(float p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.display.IBrightnessListener {
         static final int TRANSACTION_onBrightnessChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IBrightnessListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onBrightnessChanged(float p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.display.IBrightnessListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onBrightnessChanged(float p0) throws android.os.RemoteException {}
     }
 }

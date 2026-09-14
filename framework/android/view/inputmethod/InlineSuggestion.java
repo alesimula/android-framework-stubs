@@ -28,6 +28,18 @@ public final class InlineSuggestion implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    private static class InlineContentCallbackImplParceling implements com.android.internal.util.Parcelling<android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl> {
+        private InlineContentCallbackImplParceling() {}
+        public void parcel(android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl p0, android.os.Parcel p1, int p2) {}
+        public android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl unparcel(android.os.Parcel p0) { return null; }
+    }
+
+    private static class InlineTooltipUiParceling implements com.android.internal.util.Parcelling<com.android.internal.view.inline.InlineTooltipUi> {
+        private InlineTooltipUiParceling() {}
+        public void parcel(com.android.internal.view.inline.InlineTooltipUi p0, android.os.Parcel p1, int p2) {}
+        public com.android.internal.view.inline.InlineTooltipUi unparcel(android.os.Parcel p0) { return null; }
+    }
+
     private static final class InlineContentCallbackImpl {
         private final java.util.function.Consumer<android.widget.inline.InlineContentView> mCallback = null;
         private final java.util.concurrent.Executor mCallbackExecutor = null;
@@ -51,23 +63,11 @@ public final class InlineSuggestion implements android.os.Parcelable {
         public void onLongClick() {}
     }
 
-    private static class InlineContentCallbackImplParceling implements com.android.internal.util.Parcelling<android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl> {
-        private InlineContentCallbackImplParceling() {}
-        public void parcel(android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl p0, android.os.Parcel p1, int p2) {}
-        public android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl unparcel(android.os.Parcel p0) { return null; }
-    }
-
     private static final class InlineContentCallbackWrapper extends com.android.internal.view.inline.IInlineContentCallback.Stub {
         private final java.lang.ref.WeakReference<android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl> mCallbackImpl = null;
         InlineContentCallbackWrapper(android.view.inputmethod.InlineSuggestion.InlineContentCallbackImpl p0) { super(); }
         public void onClick() {}
         public void onContent(android.view.SurfaceControlViewHost.SurfacePackage p0, int p1, int p2) {}
         public void onLongClick() {}
-    }
-
-    private static class InlineTooltipUiParceling implements com.android.internal.util.Parcelling<com.android.internal.view.inline.InlineTooltipUi> {
-        private InlineTooltipUiParceling() {}
-        public void parcel(com.android.internal.view.inline.InlineTooltipUi p0, android.os.Parcel p1, int p2) {}
-        public com.android.internal.view.inline.InlineTooltipUi unparcel(android.os.Parcel p0) { return null; }
     }
 }

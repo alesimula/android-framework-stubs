@@ -29,6 +29,7 @@ public final class UsageStatsManager {
     public static final int REASON_SUB_FORCED_SYSTEM_FLAG_ABUSE = 2;
     public static final int REASON_SUB_FORCED_SYSTEM_FLAG_BACKGROUND_RESOURCE_USAGE = 1;
     public static final int REASON_SUB_FORCED_SYSTEM_FLAG_BUGGY = 4;
+    public static final int REASON_SUB_FORCED_SYSTEM_FLAG_MIN_BUCKET = 8;
     public static final int REASON_SUB_FORCED_SYSTEM_FLAG_UNDEFINED = 0;
     public static final int REASON_SUB_FORCED_USER_FLAG_INTERACTION = 2;
     public static final int REASON_SUB_MASK = 255;

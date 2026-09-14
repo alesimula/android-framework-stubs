@@ -8,10 +8,6 @@ public interface SplashScreen {
     public void setOnExitAnimationListener(android.window.SplashScreen.OnExitAnimationListener p0);
     public void setSplashScreenTheme(int p0);
 
-    public static interface OnExitAnimationListener {
-        public void onSplashScreenExit(android.window.SplashScreenView p0);
-    }
-
     public static class SplashScreenImpl implements android.window.SplashScreen {
         private static final java.lang.String TAG = "SplashScreenImpl";
         private final android.os.IBinder mActivityToken = null;
@@ -21,6 +17,14 @@ public interface SplashScreen {
         public void clearOnExitAnimationListener() {}
         public void setOnExitAnimationListener(android.window.SplashScreen.OnExitAnimationListener p0) {}
         public void setSplashScreenTheme(int p0) {}
+    }
+
+    public static interface OnExitAnimationListener {
+        public void onSplashScreenExit(android.window.SplashScreenView p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SplashScreenStyle {
     }
 
     public static class SplashScreenManagerGlobal {
@@ -37,9 +41,5 @@ public interface SplashScreen {
         public boolean containsExitListener(android.os.IBinder p0) { return false; }
         public void handOverSplashScreenView(android.os.IBinder p0, android.window.SplashScreenView p1) {}
         public void tokenDestroyed(android.os.IBinder p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SplashScreenStyle {
     }
 }

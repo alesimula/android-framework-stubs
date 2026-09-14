@@ -3,12 +3,6 @@ package android.content;
 public interface ISyncStatusObserver extends android.os.IInterface {
     public void onStatusChanged(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.content.ISyncStatusObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onStatusChanged(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.ISyncStatusObserver {
         public static final java.lang.String DESCRIPTOR = "android.content.ISyncStatusObserver";
         static final int TRANSACTION_onStatusChanged = 1;
@@ -26,5 +20,11 @@ public interface ISyncStatusObserver extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onStatusChanged(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.ISyncStatusObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onStatusChanged(int p0) throws android.os.RemoteException {}
     }
 }

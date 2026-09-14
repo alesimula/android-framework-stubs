@@ -4,12 +4,6 @@ public interface IClassificationsCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.contentsuggestions.IClassificationsCallback";
     public void onContentClassificationsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentClassification> p1) throws android.os.RemoteException;
 
-    public static class Default implements android.app.contentsuggestions.IClassificationsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onContentClassificationsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentClassification> p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.contentsuggestions.IClassificationsCallback {
         static final int TRANSACTION_onContentClassificationsAvailable = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IClassificationsCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onContentClassificationsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentClassification> p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.contentsuggestions.IClassificationsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onContentClassificationsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentClassification> p1) throws android.os.RemoteException {}
     }
 }

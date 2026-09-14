@@ -3,12 +3,10 @@ package com.android.internal.hidden_from_bootclasspath.com.android.server.teleco
 public final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootclasspath.com.android.server.telecom.flags.FeatureFlags {
     public FeatureFlagsImpl() {}
     public boolean addCallUriForMissedCalls() { return false; }
-    public boolean bulkStateUpdateCall() { return false; }
     public boolean businessCallComposer() { return false; }
     public boolean callDetailsIdChanges() { return false; }
     public boolean callSequencingCallResumeFailed() { return false; }
     public boolean callSequencingMetrics() { return false; }
-    public boolean conferenceModifyMergeFail() { return false; }
     public boolean ensureAudioModeUpdatesOnForegroundCallChange() { return false; }
     public boolean filterVoipCallLogs() { return false; }
     public boolean getRegisteredPhoneAccounts() { return false; }

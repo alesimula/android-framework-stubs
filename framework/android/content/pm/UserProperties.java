@@ -2,6 +2,7 @@ package android.content.pm;
 
 @android.annotation.SystemApi
 public final class UserProperties implements android.os.Parcelable {
+    private static final java.lang.String ATTR_ACCEPT_SHARED_TOKENS = "acceptSharedTokens";
     private static final java.lang.String ATTR_ALLOW_STOPPING_USER_WITH_DELAYED_LOCKING = "allowStoppingUserWithDelayedLocking";
     private static final java.lang.String ATTR_ALWAYS_VISIBLE = "alwaysVisible";
     private static final java.lang.String ATTR_AUTH_ALWAYS_REQUIRED_TO_DISABLE_QUIET_MODE = "authAlwaysRequiredToDisableQuietMode";
@@ -31,6 +32,7 @@ public final class UserProperties implements android.os.Parcelable {
     public static final int CROSS_PROFILE_INTENT_FILTER_ACCESS_LEVEL_SYSTEM_ADD_ONLY = 20;
     public static final int CROSS_PROFILE_INTENT_RESOLUTION_STRATEGY_DEFAULT = 0;
     public static final int CROSS_PROFILE_INTENT_RESOLUTION_STRATEGY_NO_FILTERING = 1;
+    private static final int INDEX_ACCEPT_SHARED_TOKENS = 20;
     private static final int INDEX_ALLOW_STOPPING_USER_WITH_DELAYED_LOCKING = 16;
     private static final int INDEX_ALWAYS_VISIBLE = 11;
     private static final int INDEX_AUTH_ALWAYS_REQUIRED_TO_DISABLE_QUIET_MODE = 13;
@@ -53,7 +55,7 @@ public final class UserProperties implements android.os.Parcelable {
     private static final int INDEX_USE_PARENTS_CONTACTS = 4;
     public static final int INHERIT_DEVICE_POLICY_FROM_PARENT = 1;
     public static final int INHERIT_DEVICE_POLICY_NO = 0;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "UserProperties";
     public static final int PROFILE_API_VISIBILITY_HIDDEN = 1;
     public static final int PROFILE_API_VISIBILITY_UNKNOWN = -1;
     public static final int PROFILE_API_VISIBILITY_VISIBLE = 0;
@@ -75,6 +77,7 @@ public final class UserProperties implements android.os.Parcelable {
     public static final int SHOW_IN_SHARING_SURFACES_WITH_PARENT = 0;
     public static final int SHOW_IN_USER_SWITCHER_NO = 0;
     public static final int SHOW_IN_USER_SWITCHER_YES = 1;
+    private boolean mAcceptSharedTokens;
     private boolean mAllowStoppingUserWithDelayedLocking;
     private boolean mAlwaysVisible;
     private boolean mAuthAlwaysRequiredToDisableQuietMode;
@@ -97,7 +100,7 @@ public final class UserProperties implements android.os.Parcelable {
     private boolean mStartWithParent;
     private boolean mUpdateCrossProfileIntentFiltersOnOTA;
     private boolean mUseParentsContacts;
-    private UserProperties(int p0, boolean p1, int p2, int p3, int p4, int p5, int p6, boolean p7, boolean p8, int p9, int p10, boolean p11, boolean p12, boolean p13, boolean p14, boolean p15, boolean p16, int p17, int p18, boolean p19) {}
+    private UserProperties(int p0, boolean p1, int p2, int p3, int p4, int p5, int p6, boolean p7, boolean p8, int p9, int p10, boolean p11, boolean p12, boolean p13, boolean p14, boolean p15, boolean p16, int p17, int p18, boolean p19, boolean p20) {}
     public UserProperties(android.content.pm.UserProperties p0) {}
     public UserProperties(android.content.pm.UserProperties p0, boolean p1, boolean p2, boolean p3) {}
     private UserProperties(android.os.Parcel p0) {}
@@ -107,6 +110,7 @@ public final class UserProperties implements android.os.Parcelable {
     private void setPresent(long p0) {}
     public boolean areItemsRestrictedOnHomeScreen() { return false; }
     public int describeContents() { return 0; }
+    public boolean getAcceptSharedTokens() { return false; }
     public boolean getAllowStoppingUserWithDelayedLocking() { return false; }
     public boolean getAlwaysVisible() { return false; }
     public int getCrossProfileContentSharingStrategy() { return 0; }
@@ -128,6 +132,7 @@ public final class UserProperties implements android.os.Parcelable {
     public boolean isCredentialShareableWithParent() { return false; }
     public boolean isMediaSharedWithParent() { return false; }
     public void println(java.io.PrintWriter p0, java.lang.String p1) {}
+    public void setAcceptSharedTokens(boolean p0) {}
     public void setAllowStoppingUserWithDelayedLocking(boolean p0) {}
     public void setAlwaysVisible(boolean p0) {}
     public void setAuthAlwaysRequiredToDisableQuietMode(boolean p0) {}
@@ -154,6 +159,7 @@ public final class UserProperties implements android.os.Parcelable {
     public void writeToXml(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException {}
 
     public static final class Builder {
+        private boolean mAcceptSharedTokens;
         private boolean mAllowStoppingUserWithDelayedLocking;
         private boolean mAlwaysVisible;
         private boolean mAuthAlwaysRequiredToDisableQuietMode;
@@ -176,6 +182,7 @@ public final class UserProperties implements android.os.Parcelable {
         private boolean mUseParentsContacts;
         public Builder() {}
         public android.content.pm.UserProperties build() { return null; }
+        public android.content.pm.UserProperties.Builder setAcceptSharedTokens(boolean p0) { return null; }
         public android.content.pm.UserProperties.Builder setAllowStoppingUserWithDelayedLocking(boolean p0) { return null; }
         public android.content.pm.UserProperties.Builder setAlwaysVisible(boolean p0) { return null; }
         public android.content.pm.UserProperties.Builder setAuthAlwaysRequiredToDisableQuietMode(boolean p0) { return null; }

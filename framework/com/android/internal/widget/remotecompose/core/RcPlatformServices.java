@@ -10,6 +10,11 @@ public interface RcPlatformServices {
     public java.lang.Object parsePath(java.lang.String p0);
     public float[] pathToFloatArray(java.lang.Object p0);
 
+    public static interface RcPathArrayCreator {
+        public float[] createFloatArray();
+        default public int winding() { return 0; }
+    }
+
     public static interface ComputedTextLayout {
         public float getHeight();
         public int getVisibleLineCount();
@@ -25,9 +30,5 @@ public interface RcPlatformServices {
         WARN;
         private static final com.android.internal.widget.remotecompose.core.RcPlatformServices.LogCategory[] $VALUES = null;
         private LogCategory() {}
-    }
-
-    public static interface RcPathArrayCreator {
-        public float[] createFloatArray();
     }
 }

@@ -2,7 +2,6 @@ package android.gesture;
 
 public class GestureOverlayView extends android.widget.FrameLayout {
     private static final boolean DITHER_FLAG = true;
-    private static final int FADE_ANIMATION_RATE = 16;
     private static final boolean GESTURE_RENDERING_ANTIALIAS = true;
     public static final int GESTURE_STROKE_TYPE_MULTIPLE = 1;
     public static final int GESTURE_STROKE_TYPE_SINGLE = 0;

@@ -21,30 +21,6 @@ public interface IWindow extends android.os.IInterface {
     public void resized(android.view.WindowRelayoutResult p0, boolean p1, boolean p2, int p3, boolean p4, boolean p5) throws android.os.RemoteException;
     public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IWindow {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void closeSystemDialogs(java.lang.String p0) throws android.os.RemoteException {}
-        public void dispatchAppVisibility(boolean p0, int p1) throws android.os.RemoteException {}
-        public void dispatchDragEvent(android.view.DragEvent p0) throws android.os.RemoteException {}
-        public void dispatchGetNewSurface() throws android.os.RemoteException {}
-        public void dispatchScrollToTop(int p0) throws android.os.RemoteException {}
-        public void dispatchWallpaperCommand(java.lang.String p0, int p1, int p2, int p3, android.os.Bundle p4) throws android.os.RemoteException {}
-        public void dispatchWallpaperOffsets(float p0, float p1, float p2, float p3, float p4) throws android.os.RemoteException {}
-        public void dumpWindow(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
-        public void executeCommand(java.lang.String p0, java.lang.String p1, android.os.ParcelFileDescriptor p2) throws android.os.RemoteException {}
-        public void hideInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
-        public void insetsControlChanged(android.view.InsetsState p0, android.view.InsetsSourceControl.Array p1) throws android.os.RemoteException {}
-        public void moved(int p0, int p1) throws android.os.RemoteException {}
-        public void requestAccessibilityEmbeddedConnection(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
-        public void requestAppKeyboardShortcuts(com.android.internal.os.IResultReceiver p0, int p1) throws android.os.RemoteException {}
-        public void requestHardwareRendererOutputDisabled(boolean p0) throws android.os.RemoteException {}
-        public void requestScrollCapture(android.view.IScrollCaptureResponseListener p0) throws android.os.RemoteException {}
-        public void requestViewAnimationsDisabled(boolean p0) throws android.os.RemoteException {}
-        public void resized(android.view.WindowRelayoutResult p0, boolean p1, boolean p2, int p3, boolean p4, boolean p5) throws android.os.RemoteException {}
-        public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IWindow {
         public static final java.lang.String DESCRIPTOR = "android.view.IWindow";
         static final int TRANSACTION_closeSystemDialogs = 9;
@@ -98,5 +74,29 @@ public interface IWindow extends android.os.IInterface {
             public void resized(android.view.WindowRelayoutResult p0, boolean p1, boolean p2, int p3, boolean p4, boolean p5) throws android.os.RemoteException {}
             public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IWindow {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void closeSystemDialogs(java.lang.String p0) throws android.os.RemoteException {}
+        public void dispatchAppVisibility(boolean p0, int p1) throws android.os.RemoteException {}
+        public void dispatchDragEvent(android.view.DragEvent p0) throws android.os.RemoteException {}
+        public void dispatchGetNewSurface() throws android.os.RemoteException {}
+        public void dispatchScrollToTop(int p0) throws android.os.RemoteException {}
+        public void dispatchWallpaperCommand(java.lang.String p0, int p1, int p2, int p3, android.os.Bundle p4) throws android.os.RemoteException {}
+        public void dispatchWallpaperOffsets(float p0, float p1, float p2, float p3, float p4) throws android.os.RemoteException {}
+        public void dumpWindow(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
+        public void executeCommand(java.lang.String p0, java.lang.String p1, android.os.ParcelFileDescriptor p2) throws android.os.RemoteException {}
+        public void hideInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
+        public void insetsControlChanged(android.view.InsetsState p0, android.view.InsetsSourceControl.Array p1) throws android.os.RemoteException {}
+        public void moved(int p0, int p1) throws android.os.RemoteException {}
+        public void requestAccessibilityEmbeddedConnection(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
+        public void requestAppKeyboardShortcuts(com.android.internal.os.IResultReceiver p0, int p1) throws android.os.RemoteException {}
+        public void requestHardwareRendererOutputDisabled(boolean p0) throws android.os.RemoteException {}
+        public void requestScrollCapture(android.view.IScrollCaptureResponseListener p0) throws android.os.RemoteException {}
+        public void requestViewAnimationsDisabled(boolean p0) throws android.os.RemoteException {}
+        public void resized(android.view.WindowRelayoutResult p0, boolean p1, boolean p2, int p3, boolean p4, boolean p5) throws android.os.RemoteException {}
+        public void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
     }
 }

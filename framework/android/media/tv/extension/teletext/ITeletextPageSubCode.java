@@ -11,19 +11,6 @@ public interface ITeletextPageSubCode extends android.os.IInterface {
     public void setTeletextPageNumber(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void setTeletextPageSubCode(java.lang.String p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.teletext.ITeletextPageSubCode {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean getTeletextHasTopInfo(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public int getTeletextPageNumber(java.lang.String p0) throws android.os.RemoteException { return 0; }
-        public int getTeletextPageSubCode(java.lang.String p0) throws android.os.RemoteException { return 0; }
-        public android.os.Bundle getTeletextTopBlockList(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public android.os.Bundle getTeletextTopGroupList(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.os.Bundle getTeletextTopPageList(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public void setTeletextPageNumber(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void setTeletextPageSubCode(java.lang.String p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.teletext.ITeletextPageSubCode {
         static final int TRANSACTION_getTeletextHasTopInfo = 5;
         static final int TRANSACTION_getTeletextPageNumber = 1;
@@ -54,5 +41,18 @@ public interface ITeletextPageSubCode extends android.os.IInterface {
             public void setTeletextPageNumber(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void setTeletextPageSubCode(java.lang.String p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.teletext.ITeletextPageSubCode {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean getTeletextHasTopInfo(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public int getTeletextPageNumber(java.lang.String p0) throws android.os.RemoteException { return 0; }
+        public int getTeletextPageSubCode(java.lang.String p0) throws android.os.RemoteException { return 0; }
+        public android.os.Bundle getTeletextTopBlockList(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.os.Bundle getTeletextTopGroupList(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public android.os.Bundle getTeletextTopPageList(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public void setTeletextPageNumber(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void setTeletextPageSubCode(java.lang.String p0, int p1) throws android.os.RemoteException {}
     }
 }

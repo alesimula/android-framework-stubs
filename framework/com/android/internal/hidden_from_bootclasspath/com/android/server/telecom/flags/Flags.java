@@ -3,12 +3,10 @@ package com.android.internal.hidden_from_bootclasspath.com.android.server.teleco
 public final class Flags {
     private static com.android.internal.hidden_from_bootclasspath.com.android.server.telecom.flags.FeatureFlags FEATURE_FLAGS;
     public static final java.lang.String FLAG_ADD_CALL_URI_FOR_MISSED_CALLS = "com.android.server.telecom.flags.add_call_uri_for_missed_calls";
-    public static final java.lang.String FLAG_BULK_STATE_UPDATE_CALL = "com.android.server.telecom.flags.bulk_state_update_call";
     public static final java.lang.String FLAG_BUSINESS_CALL_COMPOSER = "com.android.server.telecom.flags.business_call_composer";
     public static final java.lang.String FLAG_CALL_DETAILS_ID_CHANGES = "com.android.server.telecom.flags.call_details_id_changes";
     public static final java.lang.String FLAG_CALL_SEQUENCING_CALL_RESUME_FAILED = "com.android.server.telecom.flags.call_sequencing_call_resume_failed";
     public static final java.lang.String FLAG_CALL_SEQUENCING_METRICS = "com.android.server.telecom.flags.call_sequencing_metrics";
-    public static final java.lang.String FLAG_CONFERENCE_MODIFY_MERGE_FAIL = "com.android.server.telecom.flags.conference_modify_merge_fail";
     public static final java.lang.String FLAG_ENSURE_AUDIO_MODE_UPDATES_ON_FOREGROUND_CALL_CHANGE = "com.android.server.telecom.flags.ensure_audio_mode_updates_on_foreground_call_change";
     public static final java.lang.String FLAG_FILTER_VOIP_CALL_LOGS = "com.android.server.telecom.flags.filter_voip_call_logs";
     public static final java.lang.String FLAG_GET_REGISTERED_PHONE_ACCOUNTS = "com.android.server.telecom.flags.get_registered_phone_accounts";
@@ -33,12 +31,10 @@ public final class Flags {
     public static final java.lang.String FLAG_VOIP_DND_FOCUS = "com.android.server.telecom.flags.voip_dnd_focus";
     public Flags() {}
     public static boolean addCallUriForMissedCalls() { return false; }
-    public static boolean bulkStateUpdateCall() { return false; }
     public static boolean businessCallComposer() { return false; }
     public static boolean callDetailsIdChanges() { return false; }
     public static boolean callSequencingCallResumeFailed() { return false; }
     public static boolean callSequencingMetrics() { return false; }
-    public static boolean conferenceModifyMergeFail() { return false; }
     public static boolean ensureAudioModeUpdatesOnForegroundCallChange() { return false; }
     public static boolean filterVoipCallLogs() { return false; }
     public static boolean getRegisteredPhoneAccounts() { return false; }

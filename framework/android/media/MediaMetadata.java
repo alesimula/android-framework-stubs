@@ -66,7 +66,19 @@ public final class MediaMetadata implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LongKey {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface BitmapKey {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RatingKey {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TextKey {
     }
 
     public static final class Builder {
@@ -76,23 +88,12 @@ public final class MediaMetadata implements android.os.Parcelable {
         public Builder(android.media.MediaMetadata p0) {}
         private android.graphics.Bitmap scaleBitmap(android.graphics.Bitmap p0, int p1) { return null; }
         public android.media.MediaMetadata build() { return null; }
+        public android.media.MediaMetadata build(boolean p0) { return null; }
         public android.media.MediaMetadata.Builder putBitmap(java.lang.String p0, android.graphics.Bitmap p1) { return null; }
         public android.media.MediaMetadata.Builder putLong(java.lang.String p0, long p1) { return null; }
         public android.media.MediaMetadata.Builder putRating(java.lang.String p0, android.media.Rating p1) { return null; }
         public android.media.MediaMetadata.Builder putString(java.lang.String p0, java.lang.String p1) { return null; }
         public android.media.MediaMetadata.Builder putText(java.lang.String p0, java.lang.CharSequence p1) { return null; }
         public android.media.MediaMetadata.Builder setBitmapDimensionLimit(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LongKey {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RatingKey {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TextKey {
     }
 }

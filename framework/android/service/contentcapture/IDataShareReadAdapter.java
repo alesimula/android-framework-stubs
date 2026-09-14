@@ -6,14 +6,6 @@ public interface IDataShareReadAdapter extends android.os.IInterface {
     public void finish() throws android.os.RemoteException;
     public void start(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentcapture.IDataShareReadAdapter {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void error(int p0) throws android.os.RemoteException {}
-        public void finish() throws android.os.RemoteException {}
-        public void start(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentcapture.IDataShareReadAdapter {
         static final int TRANSACTION_error = 2;
         static final int TRANSACTION_finish = 3;
@@ -34,5 +26,13 @@ public interface IDataShareReadAdapter extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void start(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentcapture.IDataShareReadAdapter {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void error(int p0) throws android.os.RemoteException {}
+        public void finish() throws android.os.RemoteException {}
+        public void start(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
     }
 }

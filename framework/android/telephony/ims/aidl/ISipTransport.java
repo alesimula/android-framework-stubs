@@ -5,13 +5,6 @@ public interface ISipTransport extends android.os.IInterface {
     public void createSipDelegate(int p0, android.telephony.ims.DelegateRequest p1, android.telephony.ims.aidl.ISipDelegateStateCallback p2, android.telephony.ims.aidl.ISipDelegateMessageCallback p3) throws android.os.RemoteException;
     public void destroySipDelegate(android.telephony.ims.aidl.ISipDelegate p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.ISipTransport {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void createSipDelegate(int p0, android.telephony.ims.DelegateRequest p1, android.telephony.ims.aidl.ISipDelegateStateCallback p2, android.telephony.ims.aidl.ISipDelegateMessageCallback p3) throws android.os.RemoteException {}
-        public void destroySipDelegate(android.telephony.ims.aidl.ISipDelegate p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.ISipTransport {
         static final int TRANSACTION_createSipDelegate = 1;
         static final int TRANSACTION_destroySipDelegate = 2;
@@ -30,5 +23,12 @@ public interface ISipTransport extends android.os.IInterface {
             public void destroySipDelegate(android.telephony.ims.aidl.ISipDelegate p0, int p1) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.ISipTransport {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void createSipDelegate(int p0, android.telephony.ims.DelegateRequest p1, android.telephony.ims.aidl.ISipDelegateStateCallback p2, android.telephony.ims.aidl.ISipDelegateMessageCallback p3) throws android.os.RemoteException {}
+        public void destroySipDelegate(android.telephony.ims.aidl.ISipDelegate p0, int p1) throws android.os.RemoteException {}
     }
 }

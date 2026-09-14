@@ -7,8 +7,10 @@ public final class PublishedContextInsight {
     private final android.service.personalcontext.insight.ContextInsight mInsight = null;
     public PublishedContextInsight(android.service.personalcontext.insight.ContextInsight p0) {}
     public PublishedContextInsight(android.service.personalcontext.insight.ContextInsight p0, java.util.UUID p1) {}
-    public static android.service.personalcontext.insight.PublishedContextInsight createPublishedInsightFromBundle(android.os.Bundle p0) { return null; }
+    static android.service.personalcontext.insight.PublishedContextInsight createPublishedInsightFromBundle(android.os.Bundle p0) { return null; }
+    static android.service.personalcontext.insight.PublishedContextInsight readFromParcel(android.os.Parcel p0) { return null; }
     public android.service.personalcontext.insight.ContextInsight getInsight() { return null; }
     public java.util.UUID getPublisherComponentId() { return null; }
-    public android.os.Bundle toBundle() { return null; }
+    android.os.Bundle toBundle() { return null; }
+    void writeToParcel(android.os.Parcel p0, int p1) {}
 }

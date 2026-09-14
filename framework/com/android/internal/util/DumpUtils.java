@@ -24,15 +24,15 @@ public final class DumpUtils {
     public static boolean isPlatformPackage(java.lang.String p0) { return false; }
     private static void logMessage(java.io.PrintWriter p0, java.lang.String p1) {}
 
-    public static interface Dump {
-        public void dump(java.io.PrintWriter p0, java.lang.String p1);
+    public static interface ValueDumper<T extends java.lang.Object> {
+        public void dump(T p0);
     }
 
     public static interface KeyDumper {
         public void dump(int p0, int p1);
     }
 
-    public static interface ValueDumper<T extends java.lang.Object> {
-        public void dump(T p0);
+    public static interface Dump {
+        public void dump(java.io.PrintWriter p0, java.lang.String p1);
     }
 }

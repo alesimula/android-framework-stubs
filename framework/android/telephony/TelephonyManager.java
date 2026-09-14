@@ -34,6 +34,7 @@ public class TelephonyManager {
     public static final java.lang.String ACTION_RESPOND_VIA_MESSAGE = "android.intent.action.RESPOND_VIA_MESSAGE";
     public static final java.lang.String ACTION_SECRET_CODE = "android.telephony.action.SECRET_CODE";
     public static final java.lang.String ACTION_SERVICE_PROVIDERS_UPDATED = "android.telephony.action.SERVICE_PROVIDERS_UPDATED";
+    public static final java.lang.String ACTION_SHOW_AUTO_SIM_PIN_MANAGEMENT = "android.telephony.action.SHOW_AUTO_SIM_PIN_MANAGEMENT";
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS = "android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS";
     public static final java.lang.String ACTION_SHOW_VOICEMAIL_NOTIFICATION = "android.telephony.action.SHOW_VOICEMAIL_NOTIFICATION";
@@ -148,6 +149,8 @@ public class TelephonyManager {
     public static final int DATA_DISCONNECTED = 0;
     public static final int DATA_DISCONNECTING = 4;
     public static final int DATA_ENABLED_REASON_CARRIER = 2;
+    @android.annotation.SystemApi
+    public static final int DATA_ENABLED_REASON_DEVICE_POLICY = 5;
     public static final int DATA_ENABLED_REASON_OVERRIDE = 4;
     public static final int DATA_ENABLED_REASON_POLICY = 1;
     public static final int DATA_ENABLED_REASON_THERMAL = 3;
@@ -235,6 +238,10 @@ public class TelephonyManager {
     public static final java.lang.String EXTRA_LAST_KNOWN_NETWORK_COUNTRY = "android.telephony.extra.LAST_KNOWN_NETWORK_COUNTRY";
     public static final java.lang.String EXTRA_LAUNCH_VOICEMAIL_SETTINGS_INTENT = "android.telephony.extra.LAUNCH_VOICEMAIL_SETTINGS_INTENT";
     public static final java.lang.String EXTRA_NETWORK_COUNTRY = "android.telephony.extra.NETWORK_COUNTRY";
+    @android.annotation.SystemApi
+    public static final java.lang.String EXTRA_NETWORK_SECURITY_EVENT = "android.telephony.extra.NETWORK_SECURITY_EVENT";
+    @android.annotation.SystemApi
+    public static final java.lang.String EXTRA_NETWORK_SECURITY_EVENT_ALERT_CATEGORY = "android.telephony.extra.NETWORK_SECURITY_EVENT_ALERT_CATEGORY";
     public static final java.lang.String EXTRA_NOTIFICATION_CODE = "android.telephony.extra.NOTIFICATION_CODE";
     public static final java.lang.String EXTRA_NOTIFICATION_COUNT = "android.telephony.extra.NOTIFICATION_COUNT";
     public static final java.lang.String EXTRA_NOTIFICATION_MESSAGE = "android.telephony.extra.NOTIFICATION_MESSAGE";
@@ -252,6 +259,7 @@ public class TelephonyManager {
     public static final java.lang.String EXTRA_REDIRECTION_URL = "android.telephony.extra.REDIRECTION_URL";
     @android.annotation.SystemApi
     public static final java.lang.String EXTRA_SETUP_EVENT_LIST = "android.telephony.extra.SETUP_EVENT_LIST";
+    public static final java.lang.String EXTRA_SHOW_PIN_DIALOG = "android.telephony.extra.SHOW_PIN_DIALOG";
     public static final java.lang.String EXTRA_SHOW_PLMN = "android.telephony.extra.SHOW_PLMN";
     public static final java.lang.String EXTRA_SHOW_SPN = "android.telephony.extra.SHOW_SPN";
     public static final java.lang.String EXTRA_SIM_COMBINATION_NAMES = "android.telephony.extra.SIM_COMBINATION_NAMES";
@@ -643,6 +651,7 @@ public class TelephonyManager {
     public static final int UPDATE_AVAILABLE_NETWORKS_SIM_PORT_NOT_AVAILABLE = 11;
     public static final int UPDATE_AVAILABLE_NETWORKS_SUCCESS = 0;
     public static final int UPDATE_AVAILABLE_NETWORKS_UNKNOWN_FAILURE = 1;
+    public static final int USSD_ERROR_NOT_ALLOWED = -3;
     public static final int USSD_ERROR_SERVICE_UNAVAIL = -2;
     public static final java.lang.String USSD_RESPONSE = "USSD_RESPONSE";
     public static final int USSD_RETURN_FAILURE = -1;
@@ -654,11 +663,12 @@ public class TelephonyManager {
     private static com.android.internal.telephony.ISms sISms;
     private static com.android.internal.telephony.ISub sISub;
     private static com.android.internal.telephony.ITelephony sITelephony;
+    private static boolean sITelephonySetForTest;
     private static android.telephony.TelephonyManager sInstance;
+    private static final android.app.PropertyInvalidatedCache<android.telephony.TelephonyManager.PhoneAccountHandleCacheQuery, java.lang.Integer> sPhoneAccountHandleToSubIdCache = null;
     private static final android.telephony.TelephonyManager.DeathRecipient sServiceDeath = null;
     private static boolean sServiceHandleCacheEnabled;
     private final android.content.Context mContext = null;
-    private android.app.PropertyInvalidatedCache<android.telecom.PhoneAccountHandle, java.lang.Integer> mPhoneAccountHandleToSubIdCache;
     private final int mSubId = 0;
     private android.telephony.SubscriptionManager mSubscriptionManager;
     private android.telephony.TelephonyScanManager mTelephonyScanManager;
@@ -666,6 +676,7 @@ public class TelephonyManager {
     public TelephonyManager(android.content.Context p0) {}
     public TelephonyManager(android.content.Context p0, int p1) {}
     private long checkNetworkTypeBitmask(long p0) { return 0L; }
+    public static void clearITelephonyForTest() {}
     public static java.lang.String convertNetworkTypeBitmaskToString(long p0) { return null; }
     public static java.lang.String convertPremiumCapabilityToString(int p0) { return null; }
     public static java.lang.String convertPurchaseResultToString(int p0) { return null; }
@@ -692,6 +703,7 @@ public class TelephonyManager {
     private java.lang.String getNaiBySubscriberId(int p0) { return null; }
     public static java.lang.String getNetworkTypeName(int p0) { return null; }
     private java.lang.String getOpPackageName() { return null; }
+    private android.telephony.OpportunisticNetworkManager getOpportunisticNetworkManager() { return null; }
     private int getPhoneId() { return 0; }
     private int getPhoneId(int p0) { return 0; }
     private java.util.Set<java.lang.String> getRenouncedPermissions() { return null; }
@@ -712,6 +724,7 @@ public class TelephonyManager {
     public static java.lang.String getTelephonyProperty(java.lang.String p0, java.lang.String p1) { return null; }
     private boolean hasCapability(java.lang.String p0, int p1) { return false; }
     private boolean isDataEnabledForReason(int p0, int p1) { return false; }
+    private static boolean isITelephonySetForTest() { return false; }
     private boolean isImsiEncryptionRequired(int p0, int p1) { return false; }
     private static boolean isKeyEnabled(int p0, int p1) { return false; }
     public static boolean isNetworkTypeValid(int p0) { return false; }
@@ -1469,6 +1482,8 @@ public class TelephonyManager {
     @android.annotation.SystemApi
     public void toggleRadioOnOff() {}
     @android.annotation.SystemApi
+    public void unenrollSimFromAutoPinManagement(java.lang.String p0, java.util.concurrent.Executor p1, android.os.OutcomeReceiver<java.lang.Void, android.telephony.TelephonyManager.SimAutoPinManagementException> p2) {}
+    @android.annotation.SystemApi
     public void unenrollSimFromAutoPinManagement(java.util.concurrent.Executor p0, android.os.OutcomeReceiver<java.lang.Void, android.telephony.TelephonyManager.SimAutoPinManagementException> p1) {}
     @android.annotation.SystemApi
     public void unregisterCarrierPrivilegesCallback(android.telephony.TelephonyManager.CarrierPrivilegesCallback p0) {}
@@ -1481,23 +1496,20 @@ public class TelephonyManager {
     public void uploadCallComposerPicture(java.io.InputStream p0, java.lang.String p1, java.util.concurrent.Executor p2, android.os.OutcomeReceiver<android.os.ParcelUuid, android.telephony.TelephonyManager.CallComposerException> p3) {}
     public void uploadCallComposerPicture(java.nio.file.Path p0, java.lang.String p1, java.util.concurrent.Executor p2, android.os.OutcomeReceiver<android.os.ParcelUuid, android.telephony.TelephonyManager.CallComposerException> p3) {}
 
+    private static final class PhoneAccountHandleCacheQuery {
+        public final java.lang.String callingFeatureId = null;
+        public final java.lang.String callingPackage = null;
+        PhoneAccountHandleCacheQuery(android.telecom.PhoneAccountHandle p0, java.lang.String p1, java.lang.String p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PurchasePremiumCapabilityResult {
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AllowedNetworkTypesReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AuthenticationFailureReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AuthType {
-    }
-
-    @android.annotation.SystemApi
-    public static class BootstrapAuthenticationCallback {
-        public BootstrapAuthenticationCallback() {}
-        public void onAuthenticationFailure(int p0) {}
-        public void onKeysAvailable(byte[] p0, java.lang.String p1) {}
     }
 
     public static class CallComposerException extends java.lang.Exception {
@@ -1520,8 +1532,105 @@ public class TelephonyManager {
         }
     }
 
+    @android.annotation.SystemApi
+    public static final class SimAutoPinManagementException extends java.lang.Exception {
+        @android.annotation.SystemApi
+        public static final int NOT_APPLICABLE = -1;
+        private final int mAttemptsRemaining = 0;
+        private final int mErrorCode = 0;
+        public SimAutoPinManagementException(int p0) { super(); }
+        public SimAutoPinManagementException(int p0, int p1) { super(); }
+        @android.annotation.SystemApi
+        public int getAttemptsRemaining() { return 0; }
+        @android.annotation.SystemApi
+        public int getErrorCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface GetAutoManagedPinResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DomainSelectionEmergencyType {
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface CallComposerStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HalService {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DefaultSubscriptionSelectType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface NrDualConnectivityState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AuthType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SetOpportunisticSubscriptionResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IsMultiSimSupportedResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface KeyType {
+    }
+
+    public static interface WifiCallingChoices {
+        public static final int ALWAYS_USE = 0;
+        public static final int ASK_EVERY_TIME = 1;
+        public static final int NEVER_USE = 2;
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SimPinUnenrollmentResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CarrierRestrictionStatus {
+    }
+
+    private static class DeathRecipient implements android.os.IBinder.DeathRecipient {
+        private DeathRecipient() {}
+        public void binderDied() {}
+    }
+
+    public static abstract class CellInfoCallback {
+        public static final int ERROR_MODEM_ERROR = 2;
+        public static final int ERROR_TIMEOUT = 1;
+        public CellInfoCallback() {}
+        public abstract void onCellInfo(java.util.List<android.telephony.CellInfo> p0);
+        public void onError(int p0, java.lang.Throwable p1) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface CellInfoCallbackError {
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PrefNetworkMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SimPowerState {
+    }
+
+    public class ModemErrorException extends android.telephony.TelephonyManager.NetworkSlicingException {
+        public ModemErrorException(android.telephony.TelephonyManager p0, int p1) { super(0); }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EmergencyCallbackModeType {
     }
 
     @android.annotation.SystemApi
@@ -1539,43 +1648,40 @@ public class TelephonyManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CallWaitingStatus {
-    }
-
-    @android.annotation.SystemApi
-    public static interface CarrierPrivilegesCallback {
-        public void onCarrierPrivilegesChanged(java.util.Set<java.lang.String> p0, java.util.Set<java.lang.Integer> p1);
-        default public void onCarrierServiceChanged(java.lang.String p0, int p1) {}
+    public static @interface SimType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CarrierRestrictionStatus {
+    public static @interface SimPinEnrollmentResult {
     }
 
-    @java.lang.Deprecated
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CdmaRoamingMode {
-    }
-
-    @java.lang.Deprecated
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CdmaSubscription {
+    public static @interface RadioInterfaceCapability {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface CellBroadcastResult {
     }
 
-    public static abstract class CellInfoCallback {
-        public static final int ERROR_MODEM_ERROR = 2;
-        public static final int ERROR_TIMEOUT = 1;
-        public CellInfoCallback() {}
-        public abstract void onCellInfo(java.util.List<android.telephony.CellInfo> p0);
-        public void onError(int p0, java.lang.Throwable p1) {}
+    @android.annotation.SystemApi
+    public static class ModemActivityInfoException extends java.lang.Exception {
+        public static final int ERROR_INVALID_INFO_RECEIVED = 2;
+        public static final int ERROR_MODEM_RESPONSE_ERROR = 3;
+        public static final int ERROR_NOT_SUPPORTED = 4;
+        public static final int ERROR_PHONE_NOT_AVAILABLE = 1;
+        public static final int ERROR_UNKNOWN = 0;
+        private final int mErrorCode = 0;
+        public ModemActivityInfoException(int p0) { super(); }
+        public int getErrorCode() { return 0; }
+        public java.lang.String toString() { return null; }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface CellInfoCallbackError {
+        public static @interface ModemActivityInfoError {
         }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MobileDataPolicy {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -1587,28 +1693,15 @@ public class TelephonyManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DataState {
-    }
-
-    private static class DeathRecipient implements android.os.IBinder.DeathRecipient {
-        private DeathRecipient() {}
-        public void binderDied() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DefaultSubscriptionSelectType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DomainSelectionEmergencyType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface EmergencyCallbackModeStopReason {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EmergencyCallbackModeType {
+    public static @interface NetworkSelectionMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IncludeLocationData {
     }
 
     @android.annotation.SystemApi
@@ -1637,17 +1730,41 @@ public class TelephonyManager {
         }
     }
 
+    public static abstract class UssdResponseCallback {
+        public UssdResponseCallback() {}
+        public void onReceiveUssdResponse(android.telephony.TelephonyManager p0, java.lang.String p1, java.lang.CharSequence p2) {}
+        public void onReceiveUssdResponseFailed(android.telephony.TelephonyManager p0, java.lang.String p1, int p2) {}
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EnableNrDualConnectivityResult {
+    public static @interface AuthenticationFailureReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SetSimPowerStateResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PremiumCapability {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UpdateAvailableNetworksResult {
+    }
+
+    public class TimeoutException extends android.telephony.TelephonyManager.NetworkSlicingException {
+        public TimeoutException(android.telephony.TelephonyManager p0, int p1) { super(0); }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface EnableVoNrResult {
     }
 
-    @java.lang.Deprecated
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EriIconIndex {
+    @android.annotation.SystemApi
+    public static class BootstrapAuthenticationCallback {
+        public BootstrapAuthenticationCallback() {}
+        public void onAuthenticationFailure(int p0) {}
+        public void onKeysAvailable(byte[] p0, java.lang.String p1) {}
     }
 
     @java.lang.Deprecated
@@ -1656,51 +1773,28 @@ public class TelephonyManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GetAutoManagedPinResult {
+    public static @interface SimPinEnrollmentStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HalService {
+    public static @interface CallWaitingStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IncludeLocationData {
+    public static @interface NetworkTypeBitMask {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IsMultiSimSupportedResult {
+    public static @interface EnableNrDualConnectivityResult {
+    }
+
+    @java.lang.Deprecated
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SimCombinationWarningType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface KeyType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MobileDataPolicy {
-    }
-
-    @android.annotation.SystemApi
-    public static class ModemActivityInfoException extends java.lang.Exception {
-        public static final int ERROR_INVALID_INFO_RECEIVED = 2;
-        public static final int ERROR_MODEM_RESPONSE_ERROR = 3;
-        public static final int ERROR_PHONE_NOT_AVAILABLE = 1;
-        public static final int ERROR_UNKNOWN = 0;
-        private final int mErrorCode = 0;
-        public ModemActivityInfoException(int p0) { super(); }
-        public int getErrorCode() { return 0; }
-        public java.lang.String toString() { return null; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ModemActivityInfoError {
-        }
-    }
-
-    public class ModemErrorException extends android.telephony.TelephonyManager.NetworkSlicingException {
-        public ModemErrorException(android.telephony.TelephonyManager p0, int p1) { super(0); }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NetworkSelectionMode {
+    public static @interface SimState {
     }
 
     public static class NetworkSlicingException extends java.lang.Exception {
@@ -1717,19 +1811,22 @@ public class TelephonyManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NetworkTypeBitMask {
+    public static @interface SatellitePurchaseModeState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NrDualConnectivityState {
+    public static @interface RadioPowerReason {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PrefNetworkMode {
+    @android.annotation.SystemApi
+    public static interface CarrierPrivilegesCallback {
+        public void onCarrierPrivilegesChanged(java.util.Set<java.lang.String> p0, java.util.Set<java.lang.Integer> p1);
+        default public void onCarrierServiceChanged(java.lang.String p0, int p1) {}
     }
 
+    @java.lang.Deprecated
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PremiumCapability {
+    public static @interface EriIconIndex {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -1737,93 +1834,20 @@ public class TelephonyManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PurchasePremiumCapabilityResult {
+    public static @interface DataState {
     }
 
+    @java.lang.Deprecated
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RadioInterfaceCapability {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RadioPowerReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SatellitePurchaseModeState {
+    public static @interface CdmaRoamingMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SetCarrierRestrictionResult {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SetOpportunisticSubscriptionResult {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SetSimPowerStateResult {
-    }
-
-    @android.annotation.SystemApi
-    public static final class SimAutoPinManagementException extends java.lang.Exception {
-        @android.annotation.SystemApi
-        public static final int NOT_APPLICABLE = -1;
-        private final int mAttemptsRemaining = 0;
-        private final int mErrorCode = 0;
-        public SimAutoPinManagementException(int p0) { super(); }
-        public SimAutoPinManagementException(int p0, int p1) { super(); }
-        @android.annotation.SystemApi
-        public int getAttemptsRemaining() { return 0; }
-        @android.annotation.SystemApi
-        public int getErrorCode() { return 0; }
-    }
-
     @java.lang.Deprecated
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimCombinationWarningType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimPinEnrollmentResult {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimPinEnrollmentStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimPinUnenrollmentResult {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimPowerState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimType {
-    }
-
-    public class TimeoutException extends android.telephony.TelephonyManager.NetworkSlicingException {
-        public TimeoutException(android.telephony.TelephonyManager p0, int p1) { super(0); }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UpdateAvailableNetworksResult {
-    }
-
-    public static abstract class UssdResponseCallback {
-        public UssdResponseCallback() {}
-        public void onReceiveUssdResponse(android.telephony.TelephonyManager p0, java.lang.String p1, java.lang.CharSequence p2) {}
-        public void onReceiveUssdResponseFailed(android.telephony.TelephonyManager p0, java.lang.String p1, int p2) {}
-    }
-
-    public static interface WifiCallingChoices {
-        public static final int ALWAYS_USE = 0;
-        public static final int ASK_EVERY_TIME = 1;
-        public static final int NEVER_USE = 2;
+    public static @interface CdmaSubscription {
     }
 }

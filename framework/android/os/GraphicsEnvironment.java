@@ -63,6 +63,7 @@ public class GraphicsEnvironment {
     private int getVulkanVersion(android.content.pm.PackageManager p0) { return 0; }
     public static native void hintActivityLaunch();
     private static native boolean isDebuggable();
+    static boolean isDeniedPackageStringMatch(java.lang.String p0, java.lang.String p1) { return false; }
     private static native void nativeEarlyInitEgl();
     private static native java.lang.String nativeGetPersistGraphicsEgl();
     private static native void nativeSetAngleInfo(java.lang.String p0, boolean p1, java.lang.String p2, java.lang.String[] p3);
@@ -71,6 +72,7 @@ public class GraphicsEnvironment {
     private static native void setDebugLayers(java.lang.String p0);
     private static native void setDebugLayersGLES(java.lang.String p0);
     private static native void setDriverPathAndSphalLibraries(java.lang.String p0, java.lang.String p1);
+    private static native void setExplicitAndImplicitLayerPaths(java.lang.ClassLoader p0, java.lang.String p1, java.lang.String p2);
     private static native void setGpuStats(java.lang.String p0, java.lang.String p1, long p2, long p3, java.lang.String p4, int p5);
     private static native boolean setInjectLayersPrSetDumpable();
     private static native void setLayerPaths(java.lang.ClassLoader p0, java.lang.String p1);

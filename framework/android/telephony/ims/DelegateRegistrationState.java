@@ -30,6 +30,10 @@ public final class DelegateRegistrationState implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DeregisteringReason {
+    }
+
     public static final class Builder {
         private final android.telephony.ims.DelegateRegistrationState mState = null;
         public Builder() {}
@@ -43,9 +47,5 @@ public final class DelegateRegistrationState implements android.os.Parcelable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DeregisteredReason {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeregisteringReason {
     }
 }

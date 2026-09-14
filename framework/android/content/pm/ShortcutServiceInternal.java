@@ -12,7 +12,7 @@ public abstract class ShortcutServiceInternal {
     public abstract int getShortcutIconResId(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4);
     public abstract java.lang.String getShortcutIconUri(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4);
     public abstract java.lang.String getShortcutStartingThemeResName(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4);
-    public abstract java.util.List<android.content.pm.ShortcutInfo> getShortcuts(int p0, java.lang.String p1, long p2, java.lang.String p3, java.util.List<java.lang.String> p4, java.util.List<android.content.LocusId> p5, android.content.ComponentName p6, int p7, int p8, int p9, int p10);
+    public abstract java.util.List<android.content.pm.ShortcutInfo> getShortcuts(int p0, java.lang.String p1, long p2, java.lang.String p3, java.util.List<java.lang.String> p4, java.util.List<android.content.LocusId> p5, android.content.ComponentName p6, java.lang.String p7, int p8, int p9, int p10, int p11);
     public abstract boolean hasShortcutHostPermission(int p0, java.lang.String p1, int p2, int p3);
     public abstract boolean isForegroundDefaultLauncher(java.lang.String p0, int p1);
     public abstract boolean isPinnedByCaller(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4);

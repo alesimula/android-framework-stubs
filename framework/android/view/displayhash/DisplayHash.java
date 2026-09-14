@@ -11,7 +11,6 @@ public final class DisplayHash implements android.os.Parcelable {
     public DisplayHash(long p0, android.graphics.Rect p1, java.lang.String p2, byte[] p3, byte[] p4) {}
     private DisplayHash(android.os.Parcel p0) {}
     private java.lang.String byteArrayToString(byte[] p0) { return null; }
-    @android.annotation.SystemApi
     public int describeContents() { return 0; }
     @android.annotation.SystemApi
     public android.graphics.Rect getBoundsInWindow() { return null; }
@@ -24,6 +23,5 @@ public final class DisplayHash implements android.os.Parcelable {
     @android.annotation.SystemApi
     public long getTimeMillis() { return 0L; }
     public java.lang.String toString() { return null; }
-    @android.annotation.SystemApi
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 }

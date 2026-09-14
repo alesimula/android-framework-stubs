@@ -4,12 +4,6 @@ public interface IBroadcastTimeListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.time.IBroadcastTimeListener";
     public void onBroadcastTimeChanged() throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.time.IBroadcastTimeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onBroadcastTimeChanged() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.time.IBroadcastTimeListener {
         static final int TRANSACTION_onBroadcastTimeChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IBroadcastTimeListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onBroadcastTimeChanged() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.time.IBroadcastTimeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onBroadcastTimeChanged() throws android.os.RemoteException {}
     }
 }

@@ -4,12 +4,6 @@ public interface ISpatializerOutputCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.ISpatializerOutputCallback";
     public void dispatchSpatializerOutputChanged(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ISpatializerOutputCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchSpatializerOutputChanged(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ISpatializerOutputCallback {
         static final int TRANSACTION_dispatchSpatializerOutputChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISpatializerOutputCallback extends android.os.IInterface {
             public void dispatchSpatializerOutputChanged(int p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.ISpatializerOutputCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchSpatializerOutputChanged(int p0) throws android.os.RemoteException {}
     }
 }

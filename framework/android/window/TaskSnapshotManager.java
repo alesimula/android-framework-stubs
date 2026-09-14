@@ -50,15 +50,6 @@ public class TaskSnapshotManager {
         }
     }
 
-    private static final class NoPreloadHolder {
-        private static final android.window.TaskSnapshotManager sInstance = null;
-        private NoPreloadHolder() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Resolution {
-    }
-
     static class SnapshotTracker extends android.util.AndroidRuntimeException {
         private static final int ROOT_STACK_TRACE_COUNT = 4;
         final long mCaptureTime = 0L;
@@ -73,5 +64,14 @@ public class TaskSnapshotManager {
         void dump(java.io.PrintWriter p0) {}
         public java.lang.String getMessage() { return null; }
         void increaseReference() {}
+    }
+
+    private static final class NoPreloadHolder {
+        private static final android.window.TaskSnapshotManager sInstance = null;
+        private NoPreloadHolder() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Resolution {
     }
 }

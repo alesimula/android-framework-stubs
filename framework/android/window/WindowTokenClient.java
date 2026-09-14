@@ -1,7 +1,7 @@
 package android.window;
 
 public class WindowTokenClient extends android.os.Binder {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "WindowTokenClient";
     private final android.content.res.Configuration mConfiguration = null;
     private java.lang.ref.WeakReference<android.content.Context> mContextRef;
     private final android.os.Handler mHandler = null;

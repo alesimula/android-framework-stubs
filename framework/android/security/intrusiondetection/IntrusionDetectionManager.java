@@ -24,11 +24,11 @@ public class IntrusionDetectionManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IntrusionDetectionError {
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+    public static @interface IntrusionDetectionState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-    public static @interface IntrusionDetectionState {
+    public static @interface IntrusionDetectionError {
     }
 }

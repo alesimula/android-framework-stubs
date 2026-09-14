@@ -84,6 +84,14 @@ public abstract class AdapterViewAnimator extends android.widget.AdapterView<and
     void showTapFeedback(android.view.View p0) {}
     void transformViewForTransition(int p0, int p1, android.view.View p2, boolean p3) {}
 
+    class ViewAndMetaData {
+        int adapterPosition;
+        long itemId;
+        int relativeIndex;
+        android.view.View view;
+        ViewAndMetaData(android.widget.AdapterViewAnimator p0, android.view.View p1, int p2, int p3, long p4) {}
+    }
+
     final class CheckForTap implements java.lang.Runnable {
         CheckForTap(android.widget.AdapterViewAnimator p0) {}
         public void run() {}
@@ -96,13 +104,5 @@ public abstract class AdapterViewAnimator extends android.widget.AdapterView<and
         SavedState(android.os.Parcelable p0, int p1) { super((android.os.Parcel)null); }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    class ViewAndMetaData {
-        int adapterPosition;
-        long itemId;
-        int relativeIndex;
-        android.view.View view;
-        ViewAndMetaData(android.widget.AdapterViewAnimator p0, android.view.View p1, int p2, int p3, long p4) {}
     }
 }

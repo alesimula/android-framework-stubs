@@ -8,15 +8,6 @@ public interface IIncidentReportStatusListener extends android.os.IInterface {
     public void onReportSectionStatus(int p0, int p1) throws android.os.RemoteException;
     public void onReportStarted() throws android.os.RemoteException;
 
-    public static class Default implements android.os.IIncidentReportStatusListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onReportFailed() throws android.os.RemoteException {}
-        public void onReportFinished() throws android.os.RemoteException {}
-        public void onReportSectionStatus(int p0, int p1) throws android.os.RemoteException {}
-        public void onReportStarted() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IIncidentReportStatusListener {
         public static final java.lang.String DESCRIPTOR = "android.os.IIncidentReportStatusListener";
         static final int TRANSACTION_onReportFailed = 4;
@@ -40,5 +31,14 @@ public interface IIncidentReportStatusListener extends android.os.IInterface {
             public void onReportSectionStatus(int p0, int p1) throws android.os.RemoteException {}
             public void onReportStarted() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IIncidentReportStatusListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onReportFailed() throws android.os.RemoteException {}
+        public void onReportFinished() throws android.os.RemoteException {}
+        public void onReportSectionStatus(int p0, int p1) throws android.os.RemoteException {}
+        public void onReportStarted() throws android.os.RemoteException {}
     }
 }

@@ -23,31 +23,6 @@ public interface ISensorPrivacyManager extends android.os.IInterface {
     public boolean supportsSensorToggle(int p0, int p1) throws android.os.RemoteException;
     public void suppressToggleSensorPrivacyReminders(int p0, int p1, android.os.IBinder p2, boolean p3) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.ISensorPrivacyManager {
-        public Default() {}
-        public void addSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
-        public void addToggleSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.util.List<java.lang.String> getCameraPrivacyAllowlist() throws android.os.RemoteException { return null; }
-        public int getToggleSensorPrivacyState(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public boolean isCameraPrivacyEnabled(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean isCombinedToggleSensorPrivacyEnabled(int p0) throws android.os.RemoteException { return false; }
-        public boolean isSensorPrivacyEnabled() throws android.os.RemoteException { return false; }
-        public boolean isToggleSensorPrivacyEnabled(int p0, int p1) throws android.os.RemoteException { return false; }
-        public void removeSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
-        public void removeToggleSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
-        public boolean requiresAuthentication() throws android.os.RemoteException { return false; }
-        public void setCameraPrivacyAllowlist(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
-        public void setSensorPrivacy(boolean p0) throws android.os.RemoteException {}
-        public void setToggleSensorPrivacy(int p0, int p1, int p2, boolean p3) throws android.os.RemoteException {}
-        public void setToggleSensorPrivacyForProfileGroup(int p0, int p1, int p2, boolean p3) throws android.os.RemoteException {}
-        public void setToggleSensorPrivacyState(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void setToggleSensorPrivacyStateForProfileGroup(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void showSensorUseDialog(int p0) throws android.os.RemoteException {}
-        public boolean supportsSensorToggle(int p0, int p1) throws android.os.RemoteException { return false; }
-        public void suppressToggleSensorPrivacyReminders(int p0, int p1, android.os.IBinder p2, boolean p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.ISensorPrivacyManager {
         static final int TRANSACTION_addSensorPrivacyListener = 2;
         static final int TRANSACTION_addToggleSensorPrivacyListener = 3;
@@ -102,5 +77,30 @@ public interface ISensorPrivacyManager extends android.os.IInterface {
             public boolean supportsSensorToggle(int p0, int p1) throws android.os.RemoteException { return false; }
             public void suppressToggleSensorPrivacyReminders(int p0, int p1, android.os.IBinder p2, boolean p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.ISensorPrivacyManager {
+        public Default() {}
+        public void addSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
+        public void addToggleSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.util.List<java.lang.String> getCameraPrivacyAllowlist() throws android.os.RemoteException { return null; }
+        public int getToggleSensorPrivacyState(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public boolean isCameraPrivacyEnabled(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean isCombinedToggleSensorPrivacyEnabled(int p0) throws android.os.RemoteException { return false; }
+        public boolean isSensorPrivacyEnabled() throws android.os.RemoteException { return false; }
+        public boolean isToggleSensorPrivacyEnabled(int p0, int p1) throws android.os.RemoteException { return false; }
+        public void removeSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
+        public void removeToggleSensorPrivacyListener(android.hardware.ISensorPrivacyListener p0) throws android.os.RemoteException {}
+        public boolean requiresAuthentication() throws android.os.RemoteException { return false; }
+        public void setCameraPrivacyAllowlist(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
+        public void setSensorPrivacy(boolean p0) throws android.os.RemoteException {}
+        public void setToggleSensorPrivacy(int p0, int p1, int p2, boolean p3) throws android.os.RemoteException {}
+        public void setToggleSensorPrivacyForProfileGroup(int p0, int p1, int p2, boolean p3) throws android.os.RemoteException {}
+        public void setToggleSensorPrivacyState(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void setToggleSensorPrivacyStateForProfileGroup(int p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void showSensorUseDialog(int p0) throws android.os.RemoteException {}
+        public boolean supportsSensorToggle(int p0, int p1) throws android.os.RemoteException { return false; }
+        public void suppressToggleSensorPrivacyReminders(int p0, int p1, android.os.IBinder p2, boolean p3) throws android.os.RemoteException {}
     }
 }

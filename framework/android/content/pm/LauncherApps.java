@@ -27,7 +27,7 @@ public class LauncherApps {
     private java.lang.String getShortcutIconUri(java.lang.String p0, java.lang.String p1, int p2) { return null; }
     private android.os.ParcelFileDescriptor getUriShortcutIconFd(java.lang.String p0, java.lang.String p1, int p2) { return null; }
     private android.graphics.drawable.Drawable loadDrawableFromFileDescriptor(android.os.ParcelFileDescriptor p0, boolean p1) { return null; }
-    private android.graphics.drawable.Drawable loadDrawableResourceFromPackage(java.lang.String p0, int p1, android.os.UserHandle p2, int p3) { return null; }
+    private android.graphics.drawable.Drawable loadIconResourceFromPackage(java.lang.String p0, int p1, android.os.UserHandle p2, int p3) { return null; }
     private void logErrorForInvalidProfileAccess(android.os.UserHandle p0) {}
     private java.util.List<android.content.pm.ShortcutInfo> maybeUpdateDisabledMessage(java.util.List<android.content.pm.ShortcutInfo> p0) { return null; }
     private void removeCallbackLocked(android.content.pm.LauncherApps.Callback p0) {}
@@ -228,6 +228,7 @@ public class LauncherApps {
         long mChangedSince;
         java.util.List<android.content.LocusId> mLocusIds;
         java.lang.String mPackage;
+        java.lang.String mPrefix;
         int mQueryFlags;
         java.util.List<java.lang.String> mShortcutIds;
         public ShortcutQuery() {}
@@ -235,6 +236,8 @@ public class LauncherApps {
         public android.content.pm.LauncherApps.ShortcutQuery setChangedSince(long p0) { return null; }
         public android.content.pm.LauncherApps.ShortcutQuery setLocusIds(java.util.List<android.content.LocusId> p0) { return null; }
         public android.content.pm.LauncherApps.ShortcutQuery setPackage(java.lang.String p0) { return null; }
+        @android.annotation.SystemApi
+        public android.content.pm.LauncherApps.ShortcutQuery setPrefix(java.lang.String p0) { return null; }
         public android.content.pm.LauncherApps.ShortcutQuery setQueryFlags(int p0) { return null; }
         public android.content.pm.LauncherApps.ShortcutQuery setShortcutIds(java.util.List<java.lang.String> p0) { return null; }
 

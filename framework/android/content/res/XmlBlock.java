@@ -6,15 +6,14 @@ public final class XmlBlock implements java.lang.AutoCloseable {
     private static final int ERROR_BAD_DOCUMENT = Integer.valueOf(0);
     private static final int ERROR_NULL_DOCUMENT = -2147483640;
     private final android.content.res.AssetManager mAssets = null;
-    private long mNative;
+    private final java.lang.ref.Cleaner.Cleanable mCleanable = null;
     private boolean mOpen;
-    private int mOpenCount;
+    private final android.content.res.XmlBlock.NativeState mState = null;
     final android.content.res.StringBlock mStrings = null;
     private final boolean mUsesFeatureFlags = false;
     XmlBlock(android.content.res.AssetManager p0, long p1, boolean p2) {}
     public XmlBlock(byte[] p0) {}
     public XmlBlock(byte[] p0, int p1, int p2) {}
-    private void decOpenCountLocked() {}
     private static final native long nativeCreate(byte[] p0, int p1, int p2);
     private static final native long nativeCreateParseState(long p0, int p1);
     private static final native void nativeDestroy(long p0);
@@ -39,10 +38,15 @@ public final class XmlBlock implements java.lang.AutoCloseable {
     private static final native int nativeGetText(long p0);
     static final native int nativeNext(long p0);
     public void close() {}
-    protected void finalize() throws java.lang.Throwable {}
     public android.content.res.XmlResourceParser newParser() { return null; }
     public android.content.res.XmlResourceParser newParser(int p0) { return null; }
     public android.content.res.XmlResourceParser newParser(int p0, android.content.res.Validator p1) { return null; }
+
+    private static final class Destroyer implements java.lang.Runnable {
+        private final android.content.res.XmlBlock.NativeState mState = null;
+        Destroyer(android.content.res.XmlBlock.NativeState p0) {}
+        public void run() {}
+    }
 
     private static class FlagInfo {
         private int mNameIndex;
@@ -50,20 +54,30 @@ public final class XmlBlock implements java.lang.AutoCloseable {
         private FlagInfo(int p0, boolean p1) {}
     }
 
+    private static final class NativeState {
+        final android.content.res.AssetManager mAssets = null;
+        final int mHashCode = 0;
+        long mNative;
+        int mOpenCount;
+        final android.content.res.StringBlock mStrings = null;
+        NativeState(long p0, android.content.res.AssetManager p1, int p2, android.content.res.StringBlock p3) {}
+        void decOpenCount() {}
+    }
+
     public final class Parser implements android.content.res.XmlResourceParser {
-        private final android.content.res.XmlBlock mBlock = null;
+        private final java.lang.ref.Cleaner.Cleanable mCleanable = null;
         private boolean mDecNextDepth;
         private int mDepth;
         private int mEventType;
         long mParseState;
         private boolean mStarted;
+        private final android.content.res.XmlBlock.NativeState mState = null;
         android.content.res.Validator mValidator;
         Parser(android.content.res.XmlBlock p0, long p1, android.content.res.XmlBlock p2) {}
         Parser(android.content.res.XmlBlock p0, long p1, android.content.res.XmlBlock p2, android.content.res.Validator p3) {}
         private java.lang.String getSequenceString(java.lang.CharSequence p0) { return null; }
         public void close() {}
         public void defineEntityReplacementText(java.lang.String p0, java.lang.String p1) throws org.xmlpull.v1.XmlPullParserException {}
-        protected void finalize() throws java.lang.Throwable {}
         public boolean getAttributeBooleanValue(int p0, boolean p1) { return false; }
         public boolean getAttributeBooleanValue(java.lang.String p0, java.lang.String p1, boolean p2) { return false; }
         public int getAttributeCount() { return 0; }
@@ -119,5 +133,12 @@ public final class XmlBlock implements java.lang.AutoCloseable {
         public void setInput(java.io.InputStream p0, java.lang.String p1) throws org.xmlpull.v1.XmlPullParserException {}
         public void setInput(java.io.Reader p0) throws org.xmlpull.v1.XmlPullParserException {}
         public void setProperty(java.lang.String p0, java.lang.Object p1) throws org.xmlpull.v1.XmlPullParserException {}
+
+        private static final class ParserDestroyer implements java.lang.Runnable {
+            private final long mParseState = 0L;
+            private final android.content.res.XmlBlock.NativeState mState = null;
+            ParserDestroyer(long p0, android.content.res.XmlBlock.NativeState p1) {}
+            public void run() {}
+        }
     }
 }

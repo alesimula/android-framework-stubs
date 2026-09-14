@@ -3,6 +3,13 @@ package com.android.internal.tracing.winscope.protos;
 public final class Inputmethodeditor {
     public Inputmethodeditor() {}
 
+    public final class InputMethodServiceTraceProto {
+        public static final long ELAPSED_REALTIME_NANOS = 1125281431553L;
+        public static final long INPUT_METHOD_SERVICE = 1146756268035L;
+        public static final long WHERE = 1138166333442L;
+        public InputMethodServiceTraceProto(com.android.internal.tracing.winscope.protos.Inputmethodeditor p0) {}
+    }
+
     public final class InputMethodClientsTraceFileProto {
         public static final long ENTRY = 2246267895810L;
         public static final int INVALID = 0;
@@ -33,16 +40,6 @@ public final class Inputmethodeditor {
         }
     }
 
-    public final class InputMethodManagerServiceTraceFileProto {
-        public static final long ENTRY = 2246267895810L;
-        public static final int INVALID = 0;
-        public static final long MAGIC_NUMBER = 1125281431553L;
-        public static final int MAGIC_NUMBER_H = 1162035538;
-        public static final int MAGIC_NUMBER_L = 1414352201;
-        public static final long REAL_TO_ELAPSED_TIME_OFFSET_NANOS = 1125281431555L;
-        public InputMethodManagerServiceTraceFileProto(com.android.internal.tracing.winscope.protos.Inputmethodeditor p0) {}
-    }
-
     public final class InputMethodManagerServiceTraceProto {
         public static final long ELAPSED_REALTIME_NANOS = 1125281431553L;
         public static final long INPUT_METHOD_MANAGER_SERVICE = 1146756268035L;
@@ -60,10 +57,13 @@ public final class Inputmethodeditor {
         public InputMethodServiceTraceFileProto(com.android.internal.tracing.winscope.protos.Inputmethodeditor p0) {}
     }
 
-    public final class InputMethodServiceTraceProto {
-        public static final long ELAPSED_REALTIME_NANOS = 1125281431553L;
-        public static final long INPUT_METHOD_SERVICE = 1146756268035L;
-        public static final long WHERE = 1138166333442L;
-        public InputMethodServiceTraceProto(com.android.internal.tracing.winscope.protos.Inputmethodeditor p0) {}
+    public final class InputMethodManagerServiceTraceFileProto {
+        public static final long ENTRY = 2246267895810L;
+        public static final int INVALID = 0;
+        public static final long MAGIC_NUMBER = 1125281431553L;
+        public static final int MAGIC_NUMBER_H = 1162035538;
+        public static final int MAGIC_NUMBER_L = 1414352201;
+        public static final long REAL_TO_ELAPSED_TIME_OFFSET_NANOS = 1125281431555L;
+        public InputMethodManagerServiceTraceFileProto(com.android.internal.tracing.winscope.protos.Inputmethodeditor p0) {}
     }
 }

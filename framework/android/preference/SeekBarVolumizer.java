@@ -87,6 +87,11 @@ public class SeekBarVolumizer implements android.widget.SeekBar.OnSeekBarChangeL
     public void stopSample() {}
     protected void updateSeekBar() {}
 
+    private final class Observer extends android.database.ContentObserver {
+        public Observer(android.preference.SeekBarVolumizer p0, android.os.Handler p1) { super((android.os.Handler)null); }
+        public void onChange(boolean p0) {}
+    }
+
     public static interface Callback {
         public void onMuted(boolean p0, boolean p1);
         public void onProgressChanged(android.widget.SeekBar p0, int p1, boolean p2);
@@ -100,11 +105,6 @@ public class SeekBarVolumizer implements android.widget.SeekBar.OnSeekBarChangeL
         private H(android.preference.SeekBarVolumizer p0) { super(); }
         public void handleMessage(android.os.Message p0) {}
         public void postUpdateSlider(int p0, int p1, boolean p2) {}
-    }
-
-    private final class Observer extends android.database.ContentObserver {
-        public Observer(android.preference.SeekBarVolumizer p0, android.os.Handler p1) { super((android.os.Handler)null); }
-        public void onChange(boolean p0) {}
     }
 
     private final class Receiver extends android.content.BroadcastReceiver {

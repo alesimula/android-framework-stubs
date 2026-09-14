@@ -4,12 +4,6 @@ public interface ICapturePresetDevicesRoleDispatcher extends android.os.IInterfa
     public static final java.lang.String DESCRIPTOR = "android.media.ICapturePresetDevicesRoleDispatcher";
     public void dispatchDevicesRoleChanged(int p0, int p1, java.util.List<android.media.AudioDeviceAttributes> p2) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ICapturePresetDevicesRoleDispatcher {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchDevicesRoleChanged(int p0, int p1, java.util.List<android.media.AudioDeviceAttributes> p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ICapturePresetDevicesRoleDispatcher {
         static final int TRANSACTION_dispatchDevicesRoleChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICapturePresetDevicesRoleDispatcher extends android.os.IInterfa
             public void dispatchDevicesRoleChanged(int p0, int p1, java.util.List<android.media.AudioDeviceAttributes> p2) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.ICapturePresetDevicesRoleDispatcher {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchDevicesRoleChanged(int p0, int p1, java.util.List<android.media.AudioDeviceAttributes> p2) throws android.os.RemoteException {}
     }
 }

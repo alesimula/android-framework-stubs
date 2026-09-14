@@ -14,19 +14,16 @@ public final class IntervalStatsProto {
     public static final long STRINGPOOL = 1146756268034L;
     public IntervalStatsProto() {}
 
-    public final class Configuration {
-        public static final long ACTIVE = 1133871366149L;
-        public static final long CONFIG = 1146756268033L;
-        public static final long COUNT = 1120986464260L;
-        public static final long LAST_TIME_ACTIVE_MS = 1112396529666L;
-        public static final long TOTAL_TIME_ACTIVE_MS = 1112396529667L;
-        public Configuration(com.android.server.usage.IntervalStatsProto p0) {}
-    }
-
     public final class CountAndTime {
         public static final long COUNT = 1120986464257L;
         public static final long TIME_MS = 1112396529666L;
         public CountAndTime(com.android.server.usage.IntervalStatsProto p0) {}
+    }
+
+    public final class StringPool {
+        public static final long SIZE = 1120986464257L;
+        public static final long STRINGS = 2237677961218L;
+        public StringPool(com.android.server.usage.IntervalStatsProto p0) {}
     }
 
     public final class Event {
@@ -49,10 +46,13 @@ public final class IntervalStatsProto {
         public Event(com.android.server.usage.IntervalStatsProto p0) {}
     }
 
-    public final class StringPool {
-        public static final long SIZE = 1120986464257L;
-        public static final long STRINGS = 2237677961218L;
-        public StringPool(com.android.server.usage.IntervalStatsProto p0) {}
+    public final class Configuration {
+        public static final long ACTIVE = 1133871366149L;
+        public static final long CONFIG = 1146756268033L;
+        public static final long COUNT = 1120986464260L;
+        public static final long LAST_TIME_ACTIVE_MS = 1112396529666L;
+        public static final long TOTAL_TIME_ACTIVE_MS = 1112396529667L;
+        public Configuration(com.android.server.usage.IntervalStatsProto p0) {}
     }
 
     public final class UsageStats {

@@ -13,22 +13,6 @@ public interface INetworkManagementEventObserver extends android.os.IInterface {
     public void routeRemoved(android.net.RouteInfo p0) throws android.os.RemoteException;
     public void routeUpdated(android.net.RouteInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.net.INetworkManagementEventObserver {
-        public Default() {}
-        public void addressRemoved(java.lang.String p0, android.net.LinkAddress p1) throws android.os.RemoteException {}
-        public void addressUpdated(java.lang.String p0, android.net.LinkAddress p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void interfaceAdded(java.lang.String p0) throws android.os.RemoteException {}
-        public void interfaceClassDataActivityChanged(int p0, boolean p1, long p2, int p3) throws android.os.RemoteException {}
-        public void interfaceDnsServerInfo(java.lang.String p0, long p1, java.lang.String[] p2) throws android.os.RemoteException {}
-        public void interfaceLinkStateChanged(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
-        public void interfaceRemoved(java.lang.String p0) throws android.os.RemoteException {}
-        public void interfaceStatusChanged(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
-        public void limitReached(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void routeRemoved(android.net.RouteInfo p0) throws android.os.RemoteException {}
-        public void routeUpdated(android.net.RouteInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.INetworkManagementEventObserver {
         public static final java.lang.String DESCRIPTOR = "android.net.INetworkManagementEventObserver";
         static final int TRANSACTION_addressRemoved = 6;
@@ -66,5 +50,21 @@ public interface INetworkManagementEventObserver extends android.os.IInterface {
             public void routeRemoved(android.net.RouteInfo p0) throws android.os.RemoteException {}
             public void routeUpdated(android.net.RouteInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.net.INetworkManagementEventObserver {
+        public Default() {}
+        public void addressRemoved(java.lang.String p0, android.net.LinkAddress p1) throws android.os.RemoteException {}
+        public void addressUpdated(java.lang.String p0, android.net.LinkAddress p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void interfaceAdded(java.lang.String p0) throws android.os.RemoteException {}
+        public void interfaceClassDataActivityChanged(int p0, boolean p1, long p2, int p3) throws android.os.RemoteException {}
+        public void interfaceDnsServerInfo(java.lang.String p0, long p1, java.lang.String[] p2) throws android.os.RemoteException {}
+        public void interfaceLinkStateChanged(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
+        public void interfaceRemoved(java.lang.String p0) throws android.os.RemoteException {}
+        public void interfaceStatusChanged(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
+        public void limitReached(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void routeRemoved(android.net.RouteInfo p0) throws android.os.RemoteException {}
+        public void routeUpdated(android.net.RouteInfo p0) throws android.os.RemoteException {}
     }
 }

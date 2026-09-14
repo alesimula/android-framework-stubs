@@ -91,10 +91,8 @@ public final class DocumentsContract {
     public static java.lang.String getDocumentId(android.net.Uri p0) { return null; }
     public static android.os.Bundle getDocumentMetadata(android.content.ContentResolver p0, android.net.Uri p1) throws java.io.FileNotFoundException { return null; }
     public static android.graphics.Bitmap getDocumentThumbnail(android.content.ContentResolver p0, android.net.Uri p1, android.graphics.Point p2, android.os.CancellationSignal p3) throws java.io.FileNotFoundException { return null; }
-    public static java.lang.String[] getHandledQueryArguments(android.os.Bundle p0) { return null; }
     public static java.lang.String getRootId(android.net.Uri p0) { return null; }
     public static java.lang.String getSearchDocumentsQuery(android.net.Uri p0) { return null; }
-    public static java.lang.String getSearchDocumentsQuery(android.os.Bundle p0) { return null; }
     public static java.lang.String getTreeDocumentId(android.net.Uri p0) { return null; }
     public static boolean isChildDocument(android.content.ContentResolver p0, android.net.Uri p1, android.net.Uri p2) throws java.io.FileNotFoundException { return false; }
     public static boolean isContentUri(android.net.Uri p0) { return false; }
@@ -106,9 +104,7 @@ public final class DocumentsContract {
     private static boolean isRootUri(android.content.Context p0, android.net.Uri p1, int p2) { return false; }
     public static boolean isRootsUri(android.content.Context p0, android.net.Uri p1) { return false; }
     public static boolean isTreeUri(android.net.Uri p0) { return false; }
-    public static boolean matchSearchQueryArguments(android.os.Bundle p0, java.lang.String p1, java.lang.String p2, long p3, long p4) { return false; }
     public static android.net.Uri moveDocument(android.content.ContentResolver p0, android.net.Uri p1, android.net.Uri p2, android.net.Uri p3) throws java.io.FileNotFoundException { return null; }
-    public static android.content.res.AssetFileDescriptor openImageThumbnail(java.io.File p0) throws java.io.FileNotFoundException { return null; }
     public static boolean removeDocument(android.content.ContentResolver p0, android.net.Uri p1, android.net.Uri p2) throws java.io.FileNotFoundException { return false; }
     public static android.net.Uri renameDocument(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2) throws java.io.FileNotFoundException { return null; }
     public static android.net.Uri restoreDocumentFromTrash(android.content.ContentResolver p0, android.net.Uri p1, android.net.Uri p2) throws java.io.FileNotFoundException { return null; }
@@ -116,6 +112,7 @@ public final class DocumentsContract {
     @android.annotation.SystemApi
     public static android.net.Uri setManageMode(android.net.Uri p0) { return null; }
     public static android.net.Uri trashDocument(android.content.ContentResolver p0, android.net.Uri p1) throws java.io.FileNotFoundException { return null; }
+    private static void validateAuthority(android.net.Uri p0, android.net.Uri p1) {}
 
     public static final class Document {
         public static final java.lang.String COLUMN_CONTENT_SYNC_STATE_FLAGS = "content_sync_state_flags";
@@ -157,20 +154,6 @@ public final class DocumentsContract {
         private Document() {}
     }
 
-    public static final class Path implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.provider.DocumentsContract.Path> CREATOR = null;
-        private final java.util.List<java.lang.String> mPath = null;
-        private final java.lang.String mRootId = null;
-        public Path(java.lang.String p0, java.util.List<java.lang.String> p1) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public java.util.List<java.lang.String> getPath() { return null; }
-        public java.lang.String getRootId() { return null; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static final class Root {
         public static final java.lang.String COLUMN_AVAILABLE_BYTES = "available_bytes";
         public static final java.lang.String COLUMN_CAPACITY_BYTES = "capacity_bytes";
@@ -199,7 +182,23 @@ public final class DocumentsContract {
         public static final int FLAG_SUPPORTS_QUERY_TRASH = 1048576;
         public static final int FLAG_SUPPORTS_RECENTS = 4;
         public static final int FLAG_SUPPORTS_SEARCH = 8;
+        @android.annotation.SystemApi
+        public static final int FLAG_UNMOUNTABLE = 4194304;
         public static final java.lang.String MIME_TYPE_ITEM = "vnd.android.document/root";
         private Root() {}
+    }
+
+    public static final class Path implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.provider.DocumentsContract.Path> CREATOR = null;
+        private final java.util.List<java.lang.String> mPath = null;
+        private final java.lang.String mRootId = null;
+        public Path(java.lang.String p0, java.util.List<java.lang.String> p1) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public java.util.List<java.lang.String> getPath() { return null; }
+        public java.lang.String getRootId() { return null; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

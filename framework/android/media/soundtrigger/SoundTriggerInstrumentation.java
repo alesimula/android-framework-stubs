@@ -15,6 +15,33 @@ public final class SoundTriggerInstrumentation {
     public void triggerOnResourcesAvailable() {}
     public void triggerRestart() {}
 
+    public static interface ModelCallback {
+        default public void onModelUnloaded() {}
+        default public void onParamSet(int p0, int p1) {}
+        public void onRecognitionStarted(android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionSession p0);
+    }
+
+    public class RecognitionSession {
+        private final int mAudioSession = 0;
+        private final java.util.List<java.util.function.Consumer<android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback>> mDroppedConsumerList = null;
+        private final android.media.soundtrigger_middleware.IInjectRecognitionEvent mInjectRecognitionEvent = null;
+        private android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback mRecognitionCallback;
+        private final android.hardware.soundtrigger.SoundTrigger.RecognitionConfig mRecognitionConfig = null;
+        private java.util.concurrent.Executor mRecognitionExecutor;
+        private RecognitionSession(android.media.soundtrigger.SoundTriggerInstrumentation p0, int p1, android.media.soundtrigger.RecognitionConfig p2, android.media.soundtrigger_middleware.IInjectRecognitionEvent p3) {}
+        private void wrap(java.util.function.Consumer<android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback> p0) {}
+        public void clearRecognitionCallback() {}
+        public int getAudioSession() { return 0; }
+        public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig getRecognitionConfig() { return null; }
+        public void setRecognitionCallback(java.util.concurrent.Executor p0, android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback p1) {}
+        public void triggerAbortRecognition() {}
+        public void triggerRecognitionEvent(byte[] p0, java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p1) {}
+    }
+
+    public static interface RecognitionCallback {
+        public void onRecognitionStopped();
+    }
+
     public static interface GlobalCallback {
         default public void onClientAttached() {}
         default public void onClientDetached() {}
@@ -39,12 +66,6 @@ public final class SoundTriggerInstrumentation {
         public void registerGlobalEventInjection(android.media.soundtrigger_middleware.IInjectGlobalEvent p0) {}
     }
 
-    public static interface ModelCallback {
-        default public void onModelUnloaded() {}
-        default public void onParamSet(int p0, int p1) {}
-        public void onRecognitionStarted(android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionSession p0);
-    }
-
     public class ModelSession {
         private final java.util.List<java.util.function.Consumer<android.media.soundtrigger.SoundTriggerInstrumentation.ModelCallback>> mDroppedConsumerList = null;
         private final android.media.soundtrigger_middleware.IInjectModelEvent mInjectModelEvent = null;
@@ -60,26 +81,5 @@ public final class SoundTriggerInstrumentation {
         public boolean isKeyphrase() { return false; }
         public void setModelCallback(java.util.concurrent.Executor p0, android.media.soundtrigger.SoundTriggerInstrumentation.ModelCallback p1) {}
         public void triggerUnloadModel() {}
-    }
-
-    public static interface RecognitionCallback {
-        public void onRecognitionStopped();
-    }
-
-    public class RecognitionSession {
-        private final int mAudioSession = 0;
-        private final java.util.List<java.util.function.Consumer<android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback>> mDroppedConsumerList = null;
-        private final android.media.soundtrigger_middleware.IInjectRecognitionEvent mInjectRecognitionEvent = null;
-        private android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback mRecognitionCallback;
-        private final android.hardware.soundtrigger.SoundTrigger.RecognitionConfig mRecognitionConfig = null;
-        private java.util.concurrent.Executor mRecognitionExecutor;
-        private RecognitionSession(android.media.soundtrigger.SoundTriggerInstrumentation p0, int p1, android.media.soundtrigger.RecognitionConfig p2, android.media.soundtrigger_middleware.IInjectRecognitionEvent p3) {}
-        private void wrap(java.util.function.Consumer<android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback> p0) {}
-        public void clearRecognitionCallback() {}
-        public int getAudioSession() { return 0; }
-        public android.hardware.soundtrigger.SoundTrigger.RecognitionConfig getRecognitionConfig() { return null; }
-        public void setRecognitionCallback(java.util.concurrent.Executor p0, android.media.soundtrigger.SoundTriggerInstrumentation.RecognitionCallback p1) {}
-        public void triggerAbortRecognition() {}
-        public void triggerRecognitionEvent(byte[] p0, java.util.List<android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionExtra> p1) {}
     }
 }

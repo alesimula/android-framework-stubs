@@ -45,12 +45,12 @@ public class Utils {
         public void notify(int p0, V p1) {}
         public void remove(java.lang.Object p0) {}
 
-        public static interface Listener<V extends java.lang.Object> {
-            public void onEvent(int p0, V p1);
-        }
-
         private static interface ListenerWithCancellation<V extends java.lang.Object> extends android.media.Utils.ListenerList.Listener<V> {
             public void cancel();
+        }
+
+        public static interface Listener<V extends java.lang.Object> {
+            public void onEvent(int p0, V p1);
         }
     }
 }

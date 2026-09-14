@@ -4,12 +4,6 @@ public interface ITextToSpeechManager extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.speech.tts.ITextToSpeechManager";
     public void createSession(java.lang.String p0, android.speech.tts.ITextToSpeechSessionCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.speech.tts.ITextToSpeechManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void createSession(java.lang.String p0, android.speech.tts.ITextToSpeechSessionCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.speech.tts.ITextToSpeechManager {
         static final int TRANSACTION_createSession = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ITextToSpeechManager extends android.os.IInterface {
             public void createSession(java.lang.String p0, android.speech.tts.ITextToSpeechSessionCallback p1) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.speech.tts.ITextToSpeechManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void createSession(java.lang.String p0, android.speech.tts.ITextToSpeechSessionCallback p1) throws android.os.RemoteException {}
     }
 }

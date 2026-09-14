@@ -38,10 +38,6 @@ public class WebChromeClient {
     @java.lang.Deprecated
     public void openFileChooser(android.webkit.ValueCallback<android.net.Uri> p0, java.lang.String p1, java.lang.String p2) {}
 
-    public static interface CustomViewCallback {
-        public void onCustomViewHidden();
-    }
-
     public static abstract class FileChooserParams {
         @android.annotation.SystemApi
         public static final long ENABLE_FILE_SYSTEM_ACCESS = 364980165L;
@@ -68,5 +64,9 @@ public class WebChromeClient {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface PermissionMode {
         }
+    }
+
+    public static interface CustomViewCallback {
+        public void onCustomViewHidden();
     }
 }

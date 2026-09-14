@@ -112,24 +112,6 @@ public class StateMachine {
         public void update(com.android.internal.util.StateMachine p0, android.os.Message p1, java.lang.String p2, com.android.internal.util.IState p3, com.android.internal.util.IState p4, com.android.internal.util.IState p5) {}
     }
 
-    private static class LogRecords {
-        private static final int DEFAULT_SIZE = 20;
-        private int mCount;
-        private boolean mLogOnlyTransitions;
-        private java.util.Vector<com.android.internal.util.StateMachine.LogRec> mLogRecVector;
-        private int mMaxSize;
-        private int mOldestIndex;
-        private LogRecords() {}
-        void add(com.android.internal.util.StateMachine p0, android.os.Message p1, java.lang.String p2, com.android.internal.util.IState p3, com.android.internal.util.IState p4, com.android.internal.util.IState p5) {}
-        void cleanup() {}
-        int count() { return 0; }
-        com.android.internal.util.StateMachine.LogRec get(int p0) { return null; }
-        boolean logOnlyTransitions() { return false; }
-        void setLogOnlyTransitions(boolean p0) {}
-        void setSize(int p0) {}
-        int size() { return 0; }
-    }
-
     private static class SmHandler extends android.os.Handler {
         private static final java.lang.Object mSmHandlerObj = null;
         private boolean mDbg;
@@ -174,6 +156,14 @@ public class StateMachine {
         private final void transitionTo(com.android.internal.util.IState p0) {}
         public final void handleMessage(android.os.Message p0) {}
 
+        private static class StateInfo {
+            boolean active;
+            final com.android.internal.util.StateMachine.SmHandler.StateInfo parentStateInfo = null;
+            final com.android.internal.util.State state = null;
+            StateInfo(com.android.internal.util.State p0, com.android.internal.util.StateMachine.SmHandler.StateInfo p1) {}
+            public java.lang.String toString() { return null; }
+        }
+
         private class HaltingState extends com.android.internal.util.State {
             private HaltingState(com.android.internal.util.StateMachine.SmHandler p0) { super(); }
             public boolean processMessage(android.os.Message p0) { return false; }
@@ -183,13 +173,23 @@ public class StateMachine {
             private QuittingState() { super(); }
             public boolean processMessage(android.os.Message p0) { return false; }
         }
+    }
 
-        private static class StateInfo {
-            boolean active;
-            final com.android.internal.util.StateMachine.SmHandler.StateInfo parentStateInfo = null;
-            final com.android.internal.util.State state = null;
-            StateInfo(com.android.internal.util.State p0, com.android.internal.util.StateMachine.SmHandler.StateInfo p1) {}
-            public java.lang.String toString() { return null; }
-        }
+    private static class LogRecords {
+        private static final int DEFAULT_SIZE = 20;
+        private int mCount;
+        private boolean mLogOnlyTransitions;
+        private java.util.Vector<com.android.internal.util.StateMachine.LogRec> mLogRecVector;
+        private int mMaxSize;
+        private int mOldestIndex;
+        private LogRecords() {}
+        void add(com.android.internal.util.StateMachine p0, android.os.Message p1, java.lang.String p2, com.android.internal.util.IState p3, com.android.internal.util.IState p4, com.android.internal.util.IState p5) {}
+        void cleanup() {}
+        int count() { return 0; }
+        com.android.internal.util.StateMachine.LogRec get(int p0) { return null; }
+        boolean logOnlyTransitions() { return false; }
+        void setLogOnlyTransitions(boolean p0) {}
+        void setSize(int p0) {}
+        int size() { return 0; }
     }
 }

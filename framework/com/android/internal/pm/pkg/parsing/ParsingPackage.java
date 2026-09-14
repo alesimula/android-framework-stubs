@@ -12,7 +12,7 @@ public interface ParsingPackage {
     public com.android.internal.pm.pkg.parsing.ParsingPackage addInstrumentation(com.android.internal.pm.pkg.component.ParsedInstrumentation p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage addKeySet(java.lang.String p0, java.security.PublicKey p1);
     public com.android.internal.pm.pkg.parsing.ParsingPackage addLibraryName(java.lang.String p0);
-    public com.android.internal.pm.pkg.parsing.ParsingPackage addMemoryBudget(android.content.pm.MemoryBudget p0);
+    public com.android.internal.pm.pkg.parsing.ParsingPackage addMemoryBudget(android.content.pm.MemoryBudgetInfo p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage addOriginalPackage(java.lang.String p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage addOverlayable(java.lang.String p0, java.lang.String p1);
     public com.android.internal.pm.pkg.parsing.ParsingPackage addPermission(com.android.internal.pm.pkg.component.ParsedPermission p0);
@@ -47,7 +47,7 @@ public interface ParsingPackage {
     public java.util.List<java.lang.String> getLibraryNames();
     public float getMaxAspectRatio();
     public int getMaxSdkVersion();
-    public java.util.List<android.content.pm.MemoryBudget> getMemoryBudgets();
+    public java.util.List<android.content.pm.MemoryBudgetInfo> getMemoryBudgets();
     public android.os.Bundle getMetaData();
     public float getMinAspectRatio();
     public int getMinSdkVersion();
@@ -185,6 +185,7 @@ public interface ParsingPackage {
     public com.android.internal.pm.pkg.parsing.ParsingPackage setProcesses(java.util.Map<java.lang.String, com.android.internal.pm.pkg.component.ParsedProcess> p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage setProfileable(boolean p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage setProfileableByShell(boolean p0);
+    public com.android.internal.pm.pkg.parsing.ParsingPackage setRegisteredAppStoreCandidate(boolean p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage setRequestForegroundServiceExemption(boolean p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage setRequestLegacyExternalStorage(boolean p0);
     public com.android.internal.pm.pkg.parsing.ParsingPackage setRequestRawExternalStorageAccess(java.lang.Boolean p0);

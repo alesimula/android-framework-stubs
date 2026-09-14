@@ -26,6 +26,13 @@ public class V4Signature {
     public boolean isVersionSupported() { return false; }
     public byte[] toByteArray() { return null; }
 
+    public static class SigningInfoBlock {
+        public final int blockId = 0;
+        public final byte[] signingInfo = null;
+        public SigningInfoBlock(int p0, byte[] p1) {}
+        static android.os.incremental.V4Signature.SigningInfoBlock fromByteBuffer(java.nio.ByteBuffer p0) throws java.io.IOException { return null; }
+    }
+
     public static class HashingInfo {
         public final int hashAlgorithm = 0;
         public final byte log2BlockSize = 0;
@@ -33,6 +40,14 @@ public class V4Signature {
         public final byte[] salt = null;
         HashingInfo(int p0, byte p1, byte[] p2, byte[] p3) {}
         public static android.os.incremental.V4Signature.HashingInfo fromByteArray(byte[] p0) throws java.io.IOException { return null; }
+    }
+
+    public static class SigningInfos {
+        public final android.os.incremental.V4Signature.SigningInfo signingInfo = null;
+        public final android.os.incremental.V4Signature.SigningInfoBlock[] signingInfoBlocks = null;
+        public SigningInfos(android.os.incremental.V4Signature.SigningInfo p0) {}
+        public SigningInfos(android.os.incremental.V4Signature.SigningInfo p0, android.os.incremental.V4Signature.SigningInfoBlock... p1) {}
+        public static android.os.incremental.V4Signature.SigningInfos fromByteArray(byte[] p0) throws java.io.IOException { return null; }
     }
 
     public static class SigningInfo {
@@ -45,20 +60,5 @@ public class V4Signature {
         SigningInfo(byte[] p0, byte[] p1, byte[] p2, byte[] p3, int p4, byte[] p5) {}
         public static android.os.incremental.V4Signature.SigningInfo fromByteArray(byte[] p0) throws java.io.IOException { return null; }
         public static android.os.incremental.V4Signature.SigningInfo fromByteBuffer(java.nio.ByteBuffer p0) throws java.io.IOException { return null; }
-    }
-
-    public static class SigningInfoBlock {
-        public final int blockId = 0;
-        public final byte[] signingInfo = null;
-        public SigningInfoBlock(int p0, byte[] p1) {}
-        static android.os.incremental.V4Signature.SigningInfoBlock fromByteBuffer(java.nio.ByteBuffer p0) throws java.io.IOException { return null; }
-    }
-
-    public static class SigningInfos {
-        public final android.os.incremental.V4Signature.SigningInfo signingInfo = null;
-        public final android.os.incremental.V4Signature.SigningInfoBlock[] signingInfoBlocks = null;
-        public SigningInfos(android.os.incremental.V4Signature.SigningInfo p0) {}
-        public SigningInfos(android.os.incremental.V4Signature.SigningInfo p0, android.os.incremental.V4Signature.SigningInfoBlock... p1) {}
-        public static android.os.incremental.V4Signature.SigningInfos fromByteArray(byte[] p0) throws java.io.IOException { return null; }
     }
 }

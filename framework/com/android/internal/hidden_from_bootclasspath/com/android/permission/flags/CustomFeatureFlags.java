@@ -13,7 +13,6 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean crossUserRoleEnabled() { return false; }
     public boolean crossUserRoleUxBugfixEnabled() { return false; }
     public boolean defaultAppsRecommendationEnabled() { return false; }
-    public boolean enableCoarseFineLocationPromptForAaos() { return false; }
     public boolean enhancedConfirmationBackportEnabled() { return false; }
     public boolean expressiveDesignEnabled() { return false; }
     public boolean fixSafetyCenterTouchTarget() { return false; }

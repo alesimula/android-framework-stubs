@@ -84,6 +84,13 @@ public final class MediaCas implements java.lang.AutoCloseable {
     @android.annotation.SystemApi
     public boolean updateResourcePriority(int p0, int p1) { return false; }
 
+    public static interface EventListener {
+        public void onEvent(android.media.MediaCas p0, int p1, int p2, byte[] p3);
+        default public void onPluginStatusUpdate(android.media.MediaCas p0, int p1, int p2) {}
+        default public void onResourceLost(android.media.MediaCas p0) {}
+        default public void onSessionEvent(android.media.MediaCas p0, android.media.MediaCas.Session p1, int p2, int p3, byte[] p4) {}
+    }
+
     private class EventHandler extends android.os.Handler {
         private static final java.lang.String DATA_KEY = "data";
         private static final int MSG_CAS_EVENT = 0;
@@ -95,24 +102,14 @@ public final class MediaCas implements java.lang.AutoCloseable {
         public void handleMessage(android.os.Message p0) {}
     }
 
-    public static interface EventListener {
-        public void onEvent(android.media.MediaCas p0, int p1, int p2, byte[] p3);
-        default public void onPluginStatusUpdate(android.media.MediaCas p0, int p1, int p2) {}
-        default public void onResourceLost(android.media.MediaCas p0) {}
-        default public void onSessionEvent(android.media.MediaCas p0, android.media.MediaCas.Session p1, int p2, int p3, byte[] p4) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PluginStatus {
     }
 
     private class OpenSessionCallback implements android.hardware.cas.V1_0.ICas.openSessionCallback {
         public android.media.MediaCas.Session mSession;
         public int mStatus;
         private OpenSessionCallback(android.media.MediaCas p0) {}
-        public void onValues(int p0, java.util.ArrayList<java.lang.Byte> p1) {}
-    }
-
-    private class OpenSession_1_2_Callback implements android.hardware.cas.V1_2.ICas.openSession_1_2Callback {
-        public android.media.MediaCas.Session mSession;
-        public int mStatus;
-        private OpenSession_1_2_Callback(android.media.MediaCas p0) {}
         public void onValues(int p0, java.util.ArrayList<java.lang.Byte> p1) {}
     }
 
@@ -125,14 +122,6 @@ public final class MediaCas implements java.lang.AutoCloseable {
         public java.lang.String getName() { return null; }
         public int getSystemId() { return 0; }
         public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PluginStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScramblingMode {
     }
 
     public final class Session implements java.lang.AutoCloseable {
@@ -151,5 +140,16 @@ public final class MediaCas implements java.lang.AutoCloseable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SessionUsage {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScramblingMode {
+    }
+
+    private class OpenSession_1_2_Callback implements android.hardware.cas.V1_2.ICas.openSession_1_2Callback {
+        public android.media.MediaCas.Session mSession;
+        public int mStatus;
+        private OpenSession_1_2_Callback(android.media.MediaCas p0) {}
+        public void onValues(int p0, java.util.ArrayList<java.lang.Byte> p1) {}
     }
 }

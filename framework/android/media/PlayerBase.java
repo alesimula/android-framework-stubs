@@ -52,18 +52,6 @@ public abstract class PlayerBase {
     public void setStartDelayMs(int p0) {}
     void setVolumeMultiplier(float p0) {}
 
-    private static class IPlayerWrapper extends android.media.IPlayer.Stub {
-        private final java.lang.ref.WeakReference<android.media.PlayerBase> mWeakPB = null;
-        public IPlayerWrapper(android.media.PlayerBase p0) { super(); }
-        public void applyVolumeShaper(android.media.VolumeShaperConfiguration p0, android.media.VolumeShaperOperation p1) {}
-        public void pause() {}
-        public void setPan(float p0) {}
-        public void setStartDelayMs(int p0) {}
-        public void setVolume(float p0) {}
-        public void start() {}
-        public void stop() {}
-    }
-
     public static class PlayerIdCard implements android.os.Parcelable {
         public static final int AUDIO_ATTRIBUTES_DEFINED = 1;
         public static final int AUDIO_ATTRIBUTES_NONE = 0;
@@ -78,5 +66,17 @@ public abstract class PlayerBase {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static class IPlayerWrapper extends android.media.IPlayer.Stub {
+        private final java.lang.ref.WeakReference<android.media.PlayerBase> mWeakPB = null;
+        public IPlayerWrapper(android.media.PlayerBase p0) { super(); }
+        public void applyVolumeShaper(android.media.VolumeShaperConfiguration p0, android.media.VolumeShaperOperation p1) {}
+        public void pause() {}
+        public void setPan(float p0) {}
+        public void setStartDelayMs(int p0) {}
+        public void setVolume(float p0) {}
+        public void start() {}
+        public void stop() {}
     }
 }

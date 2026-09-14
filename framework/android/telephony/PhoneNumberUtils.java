@@ -164,13 +164,13 @@ public class PhoneNumberUtils {
     @java.lang.Deprecated
     public static void ttsSpanAsPhoneNumber(android.text.Spannable p0, int p1, int p2) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BcdExtendType {
-    }
-
     private static class CountryCallingCodeAndNewIndex {
         public final int countryCallingCode = 0;
         public final int newIndex = 0;
         public CountryCallingCodeAndNewIndex(int p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BcdExtendType {
     }
 }

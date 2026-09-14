@@ -1,7 +1,7 @@
 package android.window;
 
 public class WindowTokenClientController {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "WindowTokenClientController";
     private static android.window.WindowTokenClientController sController;
     private final android.app.IApplicationThread mAppThread = null;
     private final android.os.Handler mHandler = null;

@@ -5,13 +5,6 @@ public interface IPinnedTaskListener extends android.os.IInterface {
     public void onImeVisibilityChanged(boolean p0, int p1) throws android.os.RemoteException;
     public void onMovementBoundsChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IPinnedTaskListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onImeVisibilityChanged(boolean p0, int p1) throws android.os.RemoteException {}
-        public void onMovementBoundsChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IPinnedTaskListener {
         static final int TRANSACTION_onImeVisibilityChanged = 2;
         static final int TRANSACTION_onMovementBoundsChanged = 1;
@@ -30,5 +23,12 @@ public interface IPinnedTaskListener extends android.os.IInterface {
             public void onImeVisibilityChanged(boolean p0, int p1) throws android.os.RemoteException {}
             public void onMovementBoundsChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IPinnedTaskListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onImeVisibilityChanged(boolean p0, int p1) throws android.os.RemoteException {}
+        public void onMovementBoundsChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

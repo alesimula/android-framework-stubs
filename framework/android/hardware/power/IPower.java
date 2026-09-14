@@ -21,27 +21,6 @@ public interface IPower extends android.os.IInterface {
     public void setBoost(int p0, int p1) throws android.os.RemoteException;
     public void setMode(int p0, boolean p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.power.IPower {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void closeSessionChannel(int p0, int p1) throws android.os.RemoteException {}
-        public android.hardware.power.IPowerHintSession createHintSession(int p0, int p1, int[] p2, long p3) throws android.os.RemoteException { return null; }
-        public android.hardware.power.IPowerHintSession createHintSessionWithConfig(int p0, int p1, int[] p2, long p3, int p4, android.hardware.power.SessionConfig p5) throws android.os.RemoteException { return null; }
-        public android.hardware.power.CpuHeadroomResult getCpuHeadroom(android.hardware.power.CpuHeadroomParams p0) throws android.os.RemoteException { return null; }
-        public android.hardware.power.GpuHeadroomResult getGpuHeadroom(android.hardware.power.GpuHeadroomParams p0) throws android.os.RemoteException { return null; }
-        public long getHintSessionPreferredRate() throws android.os.RemoteException { return 0L; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public android.hardware.power.ChannelConfig getSessionChannel(int p0, int p1) throws android.os.RemoteException { return null; }
-        public android.hardware.power.SupportInfo getSupportInfo() throws android.os.RemoteException { return null; }
-        public boolean isBoostSupported(int p0) throws android.os.RemoteException { return false; }
-        public boolean isModeSupported(int p0) throws android.os.RemoteException { return false; }
-        public void sendCompositionData(android.hardware.power.CompositionData[] p0) throws android.os.RemoteException {}
-        public void sendCompositionUpdate(android.hardware.power.CompositionUpdate p0) throws android.os.RemoteException {}
-        public void setBoost(int p0, int p1) throws android.os.RemoteException {}
-        public void setMode(int p0, boolean p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.power.IPower {
         static final int TRANSACTION_closeSessionChannel = 9;
         static final int TRANSACTION_createHintSession = 5;
@@ -90,5 +69,26 @@ public interface IPower extends android.os.IInterface {
             public void setBoost(int p0, int p1) throws android.os.RemoteException {}
             public void setMode(int p0, boolean p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.power.IPower {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void closeSessionChannel(int p0, int p1) throws android.os.RemoteException {}
+        public android.hardware.power.IPowerHintSession createHintSession(int p0, int p1, int[] p2, long p3) throws android.os.RemoteException { return null; }
+        public android.hardware.power.IPowerHintSession createHintSessionWithConfig(int p0, int p1, int[] p2, long p3, int p4, android.hardware.power.SessionConfig p5) throws android.os.RemoteException { return null; }
+        public android.hardware.power.CpuHeadroomResult getCpuHeadroom(android.hardware.power.CpuHeadroomParams p0) throws android.os.RemoteException { return null; }
+        public android.hardware.power.GpuHeadroomResult getGpuHeadroom(android.hardware.power.GpuHeadroomParams p0) throws android.os.RemoteException { return null; }
+        public long getHintSessionPreferredRate() throws android.os.RemoteException { return 0L; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public android.hardware.power.ChannelConfig getSessionChannel(int p0, int p1) throws android.os.RemoteException { return null; }
+        public android.hardware.power.SupportInfo getSupportInfo() throws android.os.RemoteException { return null; }
+        public boolean isBoostSupported(int p0) throws android.os.RemoteException { return false; }
+        public boolean isModeSupported(int p0) throws android.os.RemoteException { return false; }
+        public void sendCompositionData(android.hardware.power.CompositionData[] p0) throws android.os.RemoteException {}
+        public void sendCompositionUpdate(android.hardware.power.CompositionUpdate p0) throws android.os.RemoteException {}
+        public void setBoost(int p0, int p1) throws android.os.RemoteException {}
+        public void setMode(int p0, boolean p1) throws android.os.RemoteException {}
     }
 }

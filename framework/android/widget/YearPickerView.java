@@ -15,12 +15,8 @@ class YearPickerView extends android.widget.ListView {
     public void setSelectionCentered(int p0) {}
     public void setYear(int p0) {}
 
-    public static interface OnYearSelectedListener {
-        public void onYearChanged(android.widget.YearPickerView p0, int p1);
-    }
-
     private static class YearAdapter extends android.widget.BaseAdapter {
-        private static final int ITEM_LAYOUT = 17367412;
+        private static final int ITEM_LAYOUT = 17367416;
         private static final int ITEM_TEXT_ACTIVATED_APPEARANCE = 16974807;
         private static final int ITEM_TEXT_APPEARANCE = 16974806;
         private int mActivatedYear;
@@ -42,5 +38,9 @@ class YearPickerView extends android.widget.ListView {
         public boolean isEnabled(int p0) { return false; }
         public void setRange(android.icu.util.Calendar p0, android.icu.util.Calendar p1) {}
         public boolean setSelection(int p0) { return false; }
+    }
+
+    public static interface OnYearSelectedListener {
+        public void onYearChanged(android.widget.YearPickerView p0, int p1);
     }
 }

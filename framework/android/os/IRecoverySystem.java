@@ -12,21 +12,6 @@ public interface IRecoverySystem extends android.os.IInterface {
     public boolean setupBcb(java.lang.String p0) throws android.os.RemoteException;
     public boolean uncrypt(java.lang.String p0, android.os.IRecoverySystemProgressListener p1) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IRecoverySystem {
-        public Default() {}
-        public boolean allocateSpaceForUpdate(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public boolean clearBcb() throws android.os.RemoteException { return false; }
-        public boolean clearLskf(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean isLskfCaptured(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public void rebootRecoveryWithCommand(java.lang.String p0) throws android.os.RemoteException {}
-        public int rebootWithLskf(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return 0; }
-        public int rebootWithLskfAssumeSlotSwitch(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return 0; }
-        public boolean requestLskf(java.lang.String p0, android.content.IntentSender p1) throws android.os.RemoteException { return false; }
-        public boolean setupBcb(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean uncrypt(java.lang.String p0, android.os.IRecoverySystemProgressListener p1) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IRecoverySystem {
         public static final java.lang.String DESCRIPTOR = "android.os.IRecoverySystem";
         static final int TRANSACTION_allocateSpaceForUpdate = 1;
@@ -67,5 +52,20 @@ public interface IRecoverySystem extends android.os.IInterface {
             public boolean setupBcb(java.lang.String p0) throws android.os.RemoteException { return false; }
             public boolean uncrypt(java.lang.String p0, android.os.IRecoverySystemProgressListener p1) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.os.IRecoverySystem {
+        public Default() {}
+        public boolean allocateSpaceForUpdate(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean clearBcb() throws android.os.RemoteException { return false; }
+        public boolean clearLskf(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean isLskfCaptured(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public void rebootRecoveryWithCommand(java.lang.String p0) throws android.os.RemoteException {}
+        public int rebootWithLskf(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return 0; }
+        public int rebootWithLskfAssumeSlotSwitch(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return 0; }
+        public boolean requestLskf(java.lang.String p0, android.content.IntentSender p1) throws android.os.RemoteException { return false; }
+        public boolean setupBcb(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean uncrypt(java.lang.String p0, android.os.IRecoverySystemProgressListener p1) throws android.os.RemoteException { return false; }
     }
 }

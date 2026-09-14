@@ -48,34 +48,9 @@ public class ImageWriter implements java.lang.AutoCloseable {
     public void queueInputImage(android.media.Image p0) {}
     public void setOnImageReleasedListener(android.media.ImageWriter.OnImageReleasedListener p0, android.os.Handler p1) {}
 
-    public static final class Builder {
-        private int mDataSpace;
-        private int mHardwareBufferFormat;
-        private int mHeight;
-        private int mImageFormat;
-        private int mMaxImages;
-        private android.view.Surface mSurface;
-        private long mUsage;
-        private boolean mUseLegacyImageFormat;
-        private boolean mUseSurfaceImageFormatInfo;
-        private int mWidth;
-        public Builder(android.view.Surface p0) {}
-        public android.media.ImageWriter build() { return null; }
-        public android.media.ImageWriter.Builder setDataSpace(int p0) { return null; }
-        public android.media.ImageWriter.Builder setHardwareBufferFormat(int p0) { return null; }
-        public android.media.ImageWriter.Builder setImageFormat(int p0) { return null; }
-        public android.media.ImageWriter.Builder setMaxImages(int p0) { return null; }
-        public android.media.ImageWriter.Builder setUsage(long p0) { return null; }
-        public android.media.ImageWriter.Builder setWidthAndHeight(int p0, int p1) { return null; }
-    }
-
     private final class ListenerHandler extends android.os.Handler {
         public ListenerHandler(android.media.ImageWriter p0, android.os.Looper p1) { super(); }
         public void handleMessage(android.os.Message p0) {}
-    }
-
-    public static interface OnImageReleasedListener {
-        public void onImageReleased(android.media.ImageWriter p0);
     }
 
     private static class WriterSurfaceImage extends android.media.Image {
@@ -129,5 +104,30 @@ public class ImageWriter implements java.lang.AutoCloseable {
             public int getPixelStride() { return 0; }
             public int getRowStride() { return 0; }
         }
+    }
+
+    public static interface OnImageReleasedListener {
+        public void onImageReleased(android.media.ImageWriter p0);
+    }
+
+    public static final class Builder {
+        private int mDataSpace;
+        private int mHardwareBufferFormat;
+        private int mHeight;
+        private int mImageFormat;
+        private int mMaxImages;
+        private android.view.Surface mSurface;
+        private long mUsage;
+        private boolean mUseLegacyImageFormat;
+        private boolean mUseSurfaceImageFormatInfo;
+        private int mWidth;
+        public Builder(android.view.Surface p0) {}
+        public android.media.ImageWriter build() { return null; }
+        public android.media.ImageWriter.Builder setDataSpace(int p0) { return null; }
+        public android.media.ImageWriter.Builder setHardwareBufferFormat(int p0) { return null; }
+        public android.media.ImageWriter.Builder setImageFormat(int p0) { return null; }
+        public android.media.ImageWriter.Builder setMaxImages(int p0) { return null; }
+        public android.media.ImageWriter.Builder setUsage(long p0) { return null; }
+        public android.media.ImageWriter.Builder setWidthAndHeight(int p0, int p1) { return null; }
     }
 }

@@ -6,14 +6,6 @@ public interface IRecordedContents extends android.os.IInterface {
     public void getRecordedContentsLockInfoAsync(java.lang.String p0, android.media.tv.extension.pvr.IGetInfoRecordedContentsCallback p1) throws android.os.RemoteException;
     public int getRecordedContentsLockInfoSync(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.pvr.IRecordedContents {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void deleteRecordedContents(java.lang.String[] p0, android.media.tv.extension.pvr.IDeleteRecordedContentsCallback p1) throws android.os.RemoteException {}
-        public void getRecordedContentsLockInfoAsync(java.lang.String p0, android.media.tv.extension.pvr.IGetInfoRecordedContentsCallback p1) throws android.os.RemoteException {}
-        public int getRecordedContentsLockInfoSync(java.lang.String p0) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.pvr.IRecordedContents {
         static final int TRANSACTION_deleteRecordedContents = 1;
         static final int TRANSACTION_getRecordedContentsLockInfoAsync = 3;
@@ -34,5 +26,13 @@ public interface IRecordedContents extends android.os.IInterface {
             public void getRecordedContentsLockInfoAsync(java.lang.String p0, android.media.tv.extension.pvr.IGetInfoRecordedContentsCallback p1) throws android.os.RemoteException {}
             public int getRecordedContentsLockInfoSync(java.lang.String p0) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.pvr.IRecordedContents {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void deleteRecordedContents(java.lang.String[] p0, android.media.tv.extension.pvr.IDeleteRecordedContentsCallback p1) throws android.os.RemoteException {}
+        public void getRecordedContentsLockInfoAsync(java.lang.String p0, android.media.tv.extension.pvr.IGetInfoRecordedContentsCallback p1) throws android.os.RemoteException {}
+        public int getRecordedContentsLockInfoSync(java.lang.String p0) throws android.os.RemoteException { return 0; }
     }
 }

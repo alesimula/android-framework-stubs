@@ -3,12 +3,6 @@ package android.service.euicc;
 public interface IGetEidCallback extends android.os.IInterface {
     public void onSuccess(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.euicc.IGetEidCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.euicc.IGetEidCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.euicc.IGetEidCallback";
         static final int TRANSACTION_onSuccess = 1;
@@ -26,5 +20,11 @@ public interface IGetEidCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.euicc.IGetEidCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSuccess(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

@@ -25,6 +25,10 @@ public final class TranslationRequest implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RequestFlags {
+    }
+
     static abstract class BaseBuilder {
         BaseBuilder() {}
         @java.lang.Deprecated
@@ -48,9 +52,5 @@ public final class TranslationRequest implements android.os.Parcelable {
         public android.view.translation.TranslationRequest.Builder setFlags(int p0) { return null; }
         public android.view.translation.TranslationRequest.Builder setTranslationRequestValues(java.util.List<android.view.translation.TranslationRequestValue> p0) { return null; }
         public android.view.translation.TranslationRequest.Builder setViewTranslationRequests(java.util.List<android.view.translation.ViewTranslationRequest> p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RequestFlags {
     }
 }

@@ -30,12 +30,12 @@ public final class HdmiTvClient extends android.hardware.hdmi.HdmiClient {
     public void startTimerRecording(int p0, int p1, android.hardware.hdmi.HdmiTimerRecordSources.TimerRecordSource p2) {}
     public void stopOneTouchRecord(int p0) {}
 
-    public static interface HdmiMhlVendorCommandListener {
-        public void onReceived(int p0, int p1, int p2, byte[] p3);
-    }
-
     public static interface InputChangeListener {
         public void onChanged(android.hardware.hdmi.HdmiDeviceInfo p0);
+    }
+
+    public static interface HdmiMhlVendorCommandListener {
+        public void onReceived(int p0, int p1, int p2, byte[] p3);
     }
 
     public static interface SelectCallback {

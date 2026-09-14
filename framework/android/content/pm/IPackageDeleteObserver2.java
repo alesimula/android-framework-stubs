@@ -4,13 +4,6 @@ public interface IPackageDeleteObserver2 extends android.os.IInterface {
     public void onPackageDeleted(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException;
     public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.IPackageDeleteObserver2 {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPackageDeleted(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.IPackageDeleteObserver2 {
         public static final java.lang.String DESCRIPTOR = "android.content.pm.IPackageDeleteObserver2";
         static final int TRANSACTION_onPackageDeleted = 2;
@@ -30,5 +23,12 @@ public interface IPackageDeleteObserver2 extends android.os.IInterface {
             public void onPackageDeleted(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
             public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.IPackageDeleteObserver2 {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPackageDeleted(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException {}
     }
 }

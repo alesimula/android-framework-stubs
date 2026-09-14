@@ -276,17 +276,8 @@ public final class AutofillManager {
     public boolean showAutofillDialog(android.view.View p0, int p1) { return false; }
     public void unregisterCallback(android.view.autofill.AutofillManager.AutofillCallback p0) {}
 
-    private static final class AugmentedAutofillManagerClient extends android.view.autofill.IAugmentedAutofillManagerClient.Stub {
-        private final java.lang.ref.WeakReference<android.view.autofill.AutofillManager> mAfm = null;
-        private AugmentedAutofillManagerClient(android.view.autofill.AutofillManager p0) { super(); }
-        private android.view.View getView(android.view.autofill.AutofillManager p0, android.view.autofill.AutofillId p1) { return null; }
-        private android.graphics.Rect getViewCoordinates(android.view.autofill.AutofillManager p0, android.view.autofill.AutofillId p1) { return null; }
-        public void autofill(int p0, java.util.List<android.view.autofill.AutofillId> p1, java.util.List<android.view.autofill.AutofillValue> p2, boolean p3) {}
-        public android.graphics.Rect getViewCoordinates(android.view.autofill.AutofillId p0) { return null; }
-        public android.app.assist.AssistStructure.ViewNodeParcelable getViewNodeParcelable(android.view.autofill.AutofillId p0) { return null; }
-        public boolean requestAutofill(int p0, android.view.autofill.AutofillId p1) { return false; }
-        public void requestHideFillUi(int p0, android.view.autofill.AutofillId p1) {}
-        public void requestShowFillUi(int p0, android.view.autofill.AutofillId p1, int p2, int p3, android.graphics.Rect p4, android.view.autofill.IAutofillWindowPresenter p5) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SmartSuggestionMode {
     }
 
     public static abstract class AutofillCallback {
@@ -302,30 +293,27 @@ public final class AutofillManager {
         }
     }
 
-    public static interface AutofillClient {
-        public void autofillClientAuthenticate(int p0, android.content.IntentSender p1, android.content.Intent p2, boolean p3);
-        public void autofillClientDispatchUnhandledKey(android.view.View p0, android.view.KeyEvent p1);
-        public java.util.List<android.view.View> autofillClientFindAutofillableViewsByTraversal();
-        public android.view.View autofillClientFindViewByAccessibilityIdTraversal(int p0, int p1);
-        public android.view.View autofillClientFindViewByAutofillIdTraversal(android.view.autofill.AutofillId p0);
-        public android.view.View[] autofillClientFindViewsByAutofillIdTraversal(android.view.autofill.AutofillId[] p0);
-        public android.os.IBinder autofillClientGetActivityToken();
-        public android.content.ComponentName autofillClientGetComponentName();
-        public android.view.autofill.AutofillId autofillClientGetNextAutofillId();
-        public boolean[] autofillClientGetViewVisibility(android.view.autofill.AutofillId[] p0);
-        public boolean autofillClientIsCompatibilityModeEnabled();
-        public boolean autofillClientIsFillUiShowing();
-        public boolean autofillClientIsVisibleForAutofill();
-        public boolean autofillClientRequestHideFillUi();
-        public boolean autofillClientRequestShowFillUi(android.view.View p0, int p1, int p2, android.graphics.Rect p3, android.view.autofill.IAutofillWindowPresenter p4);
-        public void autofillClientResetableStateAvailable();
-        public void autofillClientRunOnUiThread(java.lang.Runnable p0);
-        public boolean isActivityResumed();
-        public boolean isDisablingEnterExitEventForAutofill();
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AutofillCommitReason {
+    private final class CompatibilityBridge implements android.view.accessibility.AccessibilityManager.AccessibilityPolicy {
+        android.accessibilityservice.AccessibilityServiceInfo mCompatServiceInfo;
+        private final android.graphics.Rect mFocusedBounds = null;
+        private long mFocusedNodeId;
+        private int mFocusedWindowId;
+        private final android.graphics.Rect mTempBounds = null;
+        CompatibilityBridge(android.view.autofill.AutofillManager p0) {}
+        private android.view.View findViewByAccessibilityId(int p0, long p1) { return null; }
+        private android.view.accessibility.AccessibilityNodeInfo findVirtualNodeByAccessibilityId(android.view.View p0, int p1) { return null; }
+        private android.accessibilityservice.AccessibilityServiceInfo getCompatServiceInfo() { return null; }
+        private boolean isVirtualNode(int p0) { return false; }
+        private void notifyValueChanged(int p0, long p1) {}
+        private void notifyViewClicked(int p0, long p1) {}
+        private boolean notifyViewEntered(int p0, long p1, android.graphics.Rect p2) { return false; }
+        private void notifyViewExited(int p0, long p1) {}
+        private void updateTrackedViewsLocked() {}
+        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getEnabledAccessibilityServiceList(int p0, java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p1) { return null; }
+        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getInstalledAccessibilityServiceList(java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p0) { return null; }
+        public int getRelevantEventTypes(int p0) { return 0; }
+        public boolean isEnabled(boolean p0) { return false; }
+        public android.view.accessibility.AccessibilityEvent onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, boolean p1, int p2) { return null; }
     }
 
     private static final class AutofillManagerClient extends android.view.autofill.IAutoFillManagerClient.Stub {
@@ -354,31 +342,17 @@ public final class AutofillManager {
         public void startIntentSender(android.content.IntentSender p0, android.content.Intent p1) {}
     }
 
-    private final class CompatibilityBridge implements android.view.accessibility.AccessibilityManager.AccessibilityPolicy {
-        android.accessibilityservice.AccessibilityServiceInfo mCompatServiceInfo;
-        private final android.graphics.Rect mFocusedBounds = null;
-        private long mFocusedNodeId;
-        private int mFocusedWindowId;
-        private final android.graphics.Rect mTempBounds = null;
-        CompatibilityBridge(android.view.autofill.AutofillManager p0) {}
-        private android.view.View findViewByAccessibilityId(int p0, long p1) { return null; }
-        private android.view.accessibility.AccessibilityNodeInfo findVirtualNodeByAccessibilityId(android.view.View p0, int p1) { return null; }
-        private android.accessibilityservice.AccessibilityServiceInfo getCompatServiceInfo() { return null; }
-        private boolean isVirtualNode(int p0) { return false; }
-        private void notifyValueChanged(int p0, long p1) {}
-        private void notifyViewClicked(int p0, long p1) {}
-        private boolean notifyViewEntered(int p0, long p1, android.graphics.Rect p2) { return false; }
-        private void notifyViewExited(int p0, long p1) {}
-        private void updateTrackedViewsLocked() {}
-        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getEnabledAccessibilityServiceList(int p0, java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p1) { return null; }
-        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getInstalledAccessibilityServiceList(java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p0) { return null; }
-        public int getRelevantEventTypes(int p0) { return 0; }
-        public boolean isEnabled(boolean p0) { return false; }
-        public android.view.accessibility.AccessibilityEvent onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, boolean p1, int p2) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SmartSuggestionMode {
+    private static final class AugmentedAutofillManagerClient extends android.view.autofill.IAugmentedAutofillManagerClient.Stub {
+        private final java.lang.ref.WeakReference<android.view.autofill.AutofillManager> mAfm = null;
+        private AugmentedAutofillManagerClient(android.view.autofill.AutofillManager p0) { super(); }
+        private android.view.View getView(android.view.autofill.AutofillManager p0, android.view.autofill.AutofillId p1) { return null; }
+        private android.graphics.Rect getViewCoordinates(android.view.autofill.AutofillManager p0, android.view.autofill.AutofillId p1) { return null; }
+        public void autofill(int p0, java.util.List<android.view.autofill.AutofillId> p1, java.util.List<android.view.autofill.AutofillValue> p2, boolean p3) {}
+        public android.graphics.Rect getViewCoordinates(android.view.autofill.AutofillId p0) { return null; }
+        public android.app.assist.AssistStructure.ViewNodeParcelable getViewNodeParcelable(android.view.autofill.AutofillId p0) { return null; }
+        public boolean requestAutofill(int p0, android.view.autofill.AutofillId p1) { return false; }
+        public void requestHideFillUi(int p0, android.view.autofill.AutofillId p1) {}
+        public void requestShowFillUi(int p0, android.view.autofill.AutofillId p1, int p2, int p3, android.graphics.Rect p4, android.view.autofill.IAutofillWindowPresenter p5) {}
     }
 
     private class TrackedViews {
@@ -398,5 +372,31 @@ public final class AutofillManager {
         void notifyViewVisibilityChangedLocked(android.view.autofill.AutofillId p0, boolean p1) {}
         void onVisibleForAutofillChangedInternalLocked(android.util.ArraySet<android.view.autofill.AutofillId> p0, android.util.ArraySet<android.view.autofill.AutofillId> p1) {}
         void onVisibleForAutofillChangedLocked() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AutofillCommitReason {
+    }
+
+    public static interface AutofillClient {
+        public void autofillClientAuthenticate(int p0, android.content.IntentSender p1, android.content.Intent p2, boolean p3);
+        public void autofillClientDispatchUnhandledKey(android.view.View p0, android.view.KeyEvent p1);
+        public java.util.List<android.view.View> autofillClientFindAutofillableViewsByTraversal();
+        public android.view.View autofillClientFindViewByAccessibilityIdTraversal(int p0, int p1);
+        public android.view.View autofillClientFindViewByAutofillIdTraversal(android.view.autofill.AutofillId p0);
+        public android.view.View[] autofillClientFindViewsByAutofillIdTraversal(android.view.autofill.AutofillId[] p0);
+        public android.os.IBinder autofillClientGetActivityToken();
+        public android.content.ComponentName autofillClientGetComponentName();
+        public android.view.autofill.AutofillId autofillClientGetNextAutofillId();
+        public boolean[] autofillClientGetViewVisibility(android.view.autofill.AutofillId[] p0);
+        public boolean autofillClientIsCompatibilityModeEnabled();
+        public boolean autofillClientIsFillUiShowing();
+        public boolean autofillClientIsVisibleForAutofill();
+        public boolean autofillClientRequestHideFillUi();
+        public boolean autofillClientRequestShowFillUi(android.view.View p0, int p1, int p2, android.graphics.Rect p3, android.view.autofill.IAutofillWindowPresenter p4);
+        public void autofillClientResetableStateAvailable();
+        public void autofillClientRunOnUiThread(java.lang.Runnable p0);
+        public boolean isActivityResumed();
+        public boolean isDisablingEnterExitEventForAutofill();
     }
 }

@@ -16,7 +16,6 @@ public final class HdmiProperties {
     public static java.util.Optional<android.sysprop.HdmiProperties.playback_device_action_on_routing_control_values> playback_device_action_on_routing_control() { return null; }
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -24,6 +23,18 @@ public final class HdmiProperties {
     private static java.lang.String tryParseString(java.lang.String p0) { return null; }
     private static java.lang.Integer tryParseUInt(java.lang.String p0) { return null; }
     private static java.lang.Long tryParseULong(java.lang.String p0) { return null; }
+
+    public static enum playback_device_action_on_routing_control_values {
+        NONE,
+        WAKE_UP_AND_SEND_ACTIVE_SOURCE,
+        WAKE_UP_ONLY;
+        private static final android.sysprop.HdmiProperties.playback_device_action_on_routing_control_values[] $VALUES = null;
+        private static final android.sysprop.HdmiProperties.playback_device_action_on_routing_control_values[] VALUES = null;
+        private final java.lang.String propValue = null;
+        private playback_device_action_on_routing_control_values() {}
+        public static android.sysprop.HdmiProperties.playback_device_action_on_routing_control_values fromPropValue(java.lang.String p0) { return null; }
+        public java.lang.String getPropValue() { return null; }
+    }
 
     public static enum cec_device_types_values {
         AUDIO_SYSTEM,
@@ -35,18 +46,10 @@ public final class HdmiProperties {
         TV,
         VIDEO_PROCESSOR;
         private static final android.sysprop.HdmiProperties.cec_device_types_values[] $VALUES = null;
+        private static final android.sysprop.HdmiProperties.cec_device_types_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private cec_device_types_values() {}
-        public java.lang.String getPropValue() { return null; }
-    }
-
-    public static enum playback_device_action_on_routing_control_values {
-        NONE,
-        WAKE_UP_AND_SEND_ACTIVE_SOURCE,
-        WAKE_UP_ONLY;
-        private static final android.sysprop.HdmiProperties.playback_device_action_on_routing_control_values[] $VALUES = null;
-        private final java.lang.String propValue = null;
-        private playback_device_action_on_routing_control_values() {}
+        public static android.sysprop.HdmiProperties.cec_device_types_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 }

@@ -8,6 +8,8 @@ public class SupervisionManager {
     public static final java.lang.String ACTION_DISABLE_SUPERVISION = "android.app.supervision.action.DISABLE_SUPERVISION";
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_ENABLE_SUPERVISION = "android.app.supervision.action.ENABLE_SUPERVISION";
+    @android.annotation.SystemApi
+    public static final java.lang.String EXTRA_RESTRICT_APPROVAL_METHODS = "android.app.supervision.extra.RESTRICT_APPROVAL_METHODS";
     private static final java.lang.String GET_POLICIES_API = "get_supervision_policies";
     private static final java.lang.String GET_POLICIES_CACHE_NAME = "SupervisionManagerPolicies";
     private static final int GET_POLICIES_CACHE_SIZE = 8;
@@ -25,6 +27,7 @@ public class SupervisionManager {
     @android.annotation.SystemApi
     public java.util.List<android.app.supervision.Policy> getPolicies() { return null; }
     public android.app.supervision.SupervisionRecoveryInfo getSupervisionRecoveryInfo() { return null; }
+    @android.annotation.SystemApi
     public boolean hasSupervisionCredentials() { return false; }
     @android.annotation.SystemApi
     public boolean isSupervisionEnabled() { return false; }
@@ -37,6 +40,7 @@ public class SupervisionManager {
     public void setSupervisionEnabled(boolean p0) {}
     public void setSupervisionEnabledForUser(int p0, boolean p1) {}
     public void setSupervisionRecoveryInfo(android.app.supervision.SupervisionRecoveryInfo p0) {}
+    public void setUserRestrictionForUser(int p0, java.lang.String p1, boolean p2) {}
     @android.annotation.SystemApi
     public boolean shouldAllowBypassingSupervisionRoleQualification() { return false; }
     public void unregisterSupervisionListener(android.app.supervision.SupervisionManager.SupervisionListener p0) {}

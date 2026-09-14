@@ -136,10 +136,16 @@ public class PackageInstaller {
     @android.annotation.SystemApi
     public android.content.pm.PackageInstaller.DeveloperVerificationUserConfirmationInfo getDeveloperVerificationUserConfirmationInfo(int p0) { return null; }
     public java.util.List<android.content.pm.PackageInstaller.SessionInfo> getMySessions() { return null; }
+    @android.annotation.SystemApi
+    public android.content.pm.PackageInstaller.RegisteredAppStoreInfo getRegisteredAppStoreInfo(android.content.pm.PackageInfo p0) { return null; }
     public android.content.pm.PackageInstaller.SessionInfo getSessionInfo(int p0) { return null; }
     public java.util.List<android.content.pm.PackageInstaller.SessionInfo> getStagedSessions() { return null; }
     public void installExistingPackage(java.lang.String p0, int p1, android.content.IntentSender p2) {}
     public void installPackageArchived(android.content.pm.ArchivedPackageInfo p0, android.content.pm.PackageInstaller.SessionParams p1, android.content.IntentSender p2) {}
+    @android.annotation.SystemApi
+    public boolean isInstallingRegisteredAppStore(int p0) { return false; }
+    @android.annotation.SystemApi
+    public boolean isInstallingRegisteredAppStore(android.content.pm.PackageInstaller.InstallInfo p0) { return false; }
     public android.content.pm.PackageInstaller.Session openSession(int p0) throws java.io.IOException { return null; }
     @android.annotation.SystemApi
     public android.content.pm.PackageInstaller.InstallInfo readInstallInfo(android.os.ParcelFileDescriptor p0, java.lang.String p1, int p2) throws android.content.pm.PackageInstaller.PackageParsingException { return null; }
@@ -159,6 +165,8 @@ public class PackageInstaller {
     public void setDeveloperVerificationUserResponse(int p0, int p1) {}
     @android.annotation.SystemApi
     public void setPermissionsResult(int p0, boolean p1) {}
+    @android.annotation.SystemApi
+    public void setSessionAllowedForUnknownSources(int p0) {}
     public void uninstall(android.content.pm.VersionedPackage p0, int p1, android.content.IntentSender p2) {}
     public void uninstall(android.content.pm.VersionedPackage p0, android.content.IntentSender p1) {}
     public void uninstall(java.lang.String p0, int p1, android.content.IntentSender p2) {}
@@ -265,6 +273,7 @@ public class PackageInstaller {
         public long calculateInstalledSize(android.content.pm.PackageInstaller.SessionParams p0, android.os.ParcelFileDescriptor p1) throws java.io.IOException { return 0L; }
         public int getInstallLocation() { return 0; }
         public java.lang.String getPackageName() { return null; }
+        public boolean isRegisteredAppStoreCandidate() { return false; }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface InstallLocation {
@@ -323,6 +332,21 @@ public class PackageInstaller {
             public android.content.pm.PackageInstaller.PreapprovalDetails.Builder setLocale(android.icu.util.ULocale p0) { return null; }
             public android.content.pm.PackageInstaller.PreapprovalDetails.Builder setPackageName(java.lang.String p0) { return null; }
         }
+    }
+
+    @android.annotation.SystemApi
+    public static final class RegisteredAppStoreInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.content.pm.PackageInstaller.RegisteredAppStoreInfo> CREATOR = null;
+        private final java.lang.String mDeveloperName = null;
+        private final android.net.Uri mDeveloperUri = null;
+        RegisteredAppStoreInfo(android.os.Parcel p0) {}
+        public RegisteredAppStoreInfo(java.lang.String p0, android.net.Uri p1) {}
+        @java.lang.Deprecated
+        private void __metadata() {}
+        public int describeContents() { return 0; }
+        public java.lang.String getDeveloperName() { return null; }
+        public android.net.Uri getDeveloperUri() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static class Session implements java.io.Closeable {
@@ -432,6 +456,7 @@ public class PackageInstaller {
         public int installLocation;
         public int installReason;
         public int installScenario;
+        public android.content.pm.InstallSourceInfo installSourceInfo;
         public java.lang.String installerAttributionTag;
         public java.lang.String installerPackageName;
         public int installerUid;
@@ -497,6 +522,8 @@ public class PackageInstaller {
         public boolean getInstallAsVirtualPreload() { return false; }
         public int getInstallLocation() { return 0; }
         public int getInstallReason() { return 0; }
+        @android.annotation.SystemApi
+        public android.content.pm.InstallSourceInfo getInstallSourceInfo() { return null; }
         public java.lang.String getInstallerAttributionTag() { return null; }
         public java.lang.String getInstallerPackageName() { return null; }
         public int getInstallerUid() { return 0; }

@@ -23,50 +23,6 @@ public interface IGnssNavigationMessageCallback extends android.internal.hidl.ba
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class GnssNavigationMessage {
-        public java.util.ArrayList<java.lang.Byte> data;
-        public short messageId;
-        public short status;
-        public short submessageId;
-        public short svid;
-        public short type;
-        public GnssNavigationMessage() {}
-        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IGnssNavigationMessageCallback.GnssNavigationMessage> readVectorFromParcel(android.os.HwParcel p0) { return null; }
-        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IGnssNavigationMessageCallback.GnssNavigationMessage> p1) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
-        public final void readFromParcel(android.os.HwParcel p0) {}
-        public final java.lang.String toString() { return null; }
-        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
-        public final void writeToParcel(android.os.HwParcel p0) {}
-    }
-
-    public static final class GnssNavigationMessageType {
-        public static final short BDS_D1 = 1281;
-        public static final short BDS_D2 = 1282;
-        public static final short GAL_F = 1538;
-        public static final short GAL_I = 1537;
-        public static final short GLO_L1CA = 769;
-        public static final short GPS_CNAV2 = 260;
-        public static final short GPS_L1CA = 257;
-        public static final short GPS_L2CNAV = 258;
-        public static final short GPS_L5CNAV = 259;
-        public static final short UNKNOWN = 0;
-        public GnssNavigationMessageType() {}
-        public static final java.lang.String dumpBitfield(short p0) { return null; }
-        public static final java.lang.String toString(short p0) { return null; }
-    }
-
-    public static final class NavigationMessageStatus {
-        public static final short PARITY_PASSED = 1;
-        public static final short PARITY_REBUILT = 2;
-        public static final short UNKNOWN = 0;
-        public NavigationMessageStatus() {}
-        public static final java.lang.String dumpBitfield(short p0) { return null; }
-        public static final java.lang.String toString(short p0) { return null; }
-    }
-
     public static final class Proxy implements android.hardware.gnss.V1_0.IGnssNavigationMessageCallback {
         private android.os.IHwBinder mRemote;
         public Proxy(android.os.IHwBinder p0) {}
@@ -87,6 +43,34 @@ public interface IGnssNavigationMessageCallback extends android.internal.hidl.ba
         public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
     }
 
+    public static final class NavigationMessageStatus {
+        public static final short PARITY_PASSED = 1;
+        public static final short PARITY_REBUILT = 2;
+        public static final short UNKNOWN = 0;
+        public NavigationMessageStatus() {}
+        public static final java.lang.String dumpBitfield(short p0) { return null; }
+        public static final java.lang.String toString(short p0) { return null; }
+    }
+
+    public static final class GnssNavigationMessage {
+        public java.util.ArrayList<java.lang.Byte> data;
+        public short messageId;
+        public short status;
+        public short submessageId;
+        public short svid;
+        public short type;
+        public GnssNavigationMessage() {}
+        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IGnssNavigationMessageCallback.GnssNavigationMessage> readVectorFromParcel(android.os.HwParcel p0) { return null; }
+        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IGnssNavigationMessageCallback.GnssNavigationMessage> p1) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
+        public final void readFromParcel(android.os.HwParcel p0) {}
+        public final java.lang.String toString() { return null; }
+        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
+        public final void writeToParcel(android.os.HwParcel p0) {}
+    }
+
     public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IGnssNavigationMessageCallback {
         public Stub() { super(); }
         public android.os.IHwBinder asBinder() { return null; }
@@ -104,5 +88,21 @@ public interface IGnssNavigationMessageCallback extends android.internal.hidl.ba
         public final void setHALInstrumentation() {}
         public java.lang.String toString() { return null; }
         public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    }
+
+    public static final class GnssNavigationMessageType {
+        public static final short BDS_D1 = 1281;
+        public static final short BDS_D2 = 1282;
+        public static final short GAL_F = 1538;
+        public static final short GAL_I = 1537;
+        public static final short GLO_L1CA = 769;
+        public static final short GPS_CNAV2 = 260;
+        public static final short GPS_L1CA = 257;
+        public static final short GPS_L2CNAV = 258;
+        public static final short GPS_L5CNAV = 259;
+        public static final short UNKNOWN = 0;
+        public GnssNavigationMessageType() {}
+        public static final java.lang.String dumpBitfield(short p0) { return null; }
+        public static final java.lang.String toString(short p0) { return null; }
     }
 }

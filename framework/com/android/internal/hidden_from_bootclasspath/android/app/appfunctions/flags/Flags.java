@@ -1,6 +1,7 @@
 package com.android.internal.hidden_from_bootclasspath.android.app.appfunctions.flags;
 
 public final class Flags {
+    public static final java.lang.String FLAG_CANCEL_EXECUTION_ON_CALLER_DEATH = "android.app.appfunctions.flags.cancel_execution_on_caller_death";
     public static final java.lang.String FLAG_CLOSE_OBSERVER_SESSION_IN_ROUTER = "android.app.appfunctions.flags.close_observer_session_in_router";
     public static final java.lang.String FLAG_ENABLE_ALLOWLIST_IN_GET_STATE_API = "android.app.appfunctions.flags.enable_allowlist_in_get_state_api";
     public static final java.lang.String FLAG_ENABLE_APP_FUNCTION_MANAGER = "android.app.appfunctions.flags.enable_app_function_manager";
@@ -11,7 +12,10 @@ public final class Flags {
     public static final java.lang.String FLAG_ENABLE_DYNAMIC_APP_FUNCTIONS = "android.app.appfunctions.flags.enable_dynamic_app_functions";
     public static final java.lang.String FLAG_ENABLE_RESTRICTING_FUNCTION_CALLERS = "android.app.appfunctions.flags.enable_restricting_function_callers";
     public static final java.lang.String FLAG_ENABLE_USER_CHECK_IN_SET_ENABLED_API = "android.app.appfunctions.flags.enable_user_check_in_set_enabled_api";
+    public static final java.lang.String FLAG_FIX_GET_PACKAGE_UID_IN_LOGGING = "android.app.appfunctions.flags.fix_get_package_uid_in_logging";
+    public static final java.lang.String FLAG_FIX_IS_APP_FUNCTION_ENABLED_EXCEPTION = "android.app.appfunctions.flags.fix_is_app_function_enabled_exception";
     public Flags() {}
+    public static boolean cancelExecutionOnCallerDeath() { return false; }
     public static boolean closeObserverSessionInRouter() { return false; }
     public static boolean enableAllowlistInGetStateApi() { return false; }
     public static boolean enableAppFunctionManager() { return false; }
@@ -22,4 +26,6 @@ public final class Flags {
     public static boolean enableDynamicAppFunctions() { return false; }
     public static boolean enableRestrictingFunctionCallers() { return false; }
     public static boolean enableUserCheckInSetEnabledApi() { return false; }
+    public static boolean fixGetPackageUidInLogging() { return false; }
+    public static boolean fixIsAppFunctionEnabledException() { return false; }
 }

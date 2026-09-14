@@ -6,14 +6,6 @@ public interface IDeviceStateManagerCallback extends android.os.IInterface {
     public void onRequestActive(android.os.IBinder p0) throws android.os.RemoteException;
     public void onRequestCanceled(android.os.IBinder p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.devicestate.IDeviceStateManagerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDeviceStateInfoChanged(android.hardware.devicestate.DeviceStateInfo p0) throws android.os.RemoteException {}
-        public void onRequestActive(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void onRequestCanceled(android.os.IBinder p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.devicestate.IDeviceStateManagerCallback {
         static final int TRANSACTION_onDeviceStateInfoChanged = 1;
         static final int TRANSACTION_onRequestActive = 2;
@@ -34,5 +26,13 @@ public interface IDeviceStateManagerCallback extends android.os.IInterface {
             public void onRequestActive(android.os.IBinder p0) throws android.os.RemoteException {}
             public void onRequestCanceled(android.os.IBinder p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.devicestate.IDeviceStateManagerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDeviceStateInfoChanged(android.hardware.devicestate.DeviceStateInfo p0) throws android.os.RemoteException {}
+        public void onRequestActive(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void onRequestCanceled(android.os.IBinder p0) throws android.os.RemoteException {}
     }
 }

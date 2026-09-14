@@ -6,14 +6,6 @@ public interface IInlineContentCallback extends android.os.IInterface {
     public void onContent(android.view.SurfaceControlViewHost.SurfacePackage p0, int p1, int p2) throws android.os.RemoteException;
     public void onLongClick() throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.view.inline.IInlineContentCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onClick() throws android.os.RemoteException {}
-        public void onContent(android.view.SurfaceControlViewHost.SurfacePackage p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onLongClick() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.view.inline.IInlineContentCallback {
         static final int TRANSACTION_onClick = 2;
         static final int TRANSACTION_onContent = 1;
@@ -34,5 +26,13 @@ public interface IInlineContentCallback extends android.os.IInterface {
             public void onContent(android.view.SurfaceControlViewHost.SurfacePackage p0, int p1, int p2) throws android.os.RemoteException {}
             public void onLongClick() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.view.inline.IInlineContentCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onClick() throws android.os.RemoteException {}
+        public void onContent(android.view.SurfaceControlViewHost.SurfacePackage p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onLongClick() throws android.os.RemoteException {}
     }
 }

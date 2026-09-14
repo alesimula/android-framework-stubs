@@ -20,30 +20,6 @@ final class SmartSelectSprite {
     public boolean isAnimationActive() { return false; }
     public void startAnimation(android.graphics.PointF p0, java.util.List<android.widget.SmartSelectSprite.RectangleWithTextSelectionLayout> p1, java.lang.Runnable p2) {}
 
-    private static final class RectangleList extends android.graphics.drawable.shapes.Shape {
-        private static final java.lang.String PROPERTY_LEFT_BOUNDARY = "leftBoundary";
-        private static final java.lang.String PROPERTY_RIGHT_BOUNDARY = "rightBoundary";
-        private int mDisplayType;
-        private final android.graphics.Path mOutlinePolygonPath = null;
-        private final java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> mRectangles = null;
-        private final java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> mReversedRectangles = null;
-        private RectangleList(java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> p0) { super(); }
-        private void drawPolygon(android.graphics.Canvas p0, android.graphics.Paint p1) {}
-        private void drawRectangles(android.graphics.Canvas p0, android.graphics.Paint p1) {}
-        private static android.graphics.Path generateOutlinePolygonPath(java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> p0) { return null; }
-        private int getTotalWidth() { return 0; }
-        private void setLeftBoundary(float p0) {}
-        private void setRightBoundary(float p0) {}
-        public void draw(android.graphics.Canvas p0, android.graphics.Paint p1) {}
-        void setDisplayType(int p0) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        private static @interface DisplayType {
-            public static final int POLYGON = 1;
-            public static final int RECTANGLES = 0;
-        }
-    }
-
     static final class RectangleWithTextSelectionLayout {
         private final android.graphics.RectF mRectangle = null;
         private final int mTextSelectionLayout = 0;
@@ -79,6 +55,30 @@ final class SmartSelectSprite {
             public static final int CENTER = 0;
             public static final int LEFT = -1;
             public static final int RIGHT = 1;
+        }
+    }
+
+    private static final class RectangleList extends android.graphics.drawable.shapes.Shape {
+        private static final java.lang.String PROPERTY_LEFT_BOUNDARY = "leftBoundary";
+        private static final java.lang.String PROPERTY_RIGHT_BOUNDARY = "rightBoundary";
+        private int mDisplayType;
+        private final android.graphics.Path mOutlinePolygonPath = null;
+        private final java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> mRectangles = null;
+        private final java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> mReversedRectangles = null;
+        private RectangleList(java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> p0) { super(); }
+        private void drawPolygon(android.graphics.Canvas p0, android.graphics.Paint p1) {}
+        private void drawRectangles(android.graphics.Canvas p0, android.graphics.Paint p1) {}
+        private static android.graphics.Path generateOutlinePolygonPath(java.util.List<android.widget.SmartSelectSprite.RoundedRectangleShape> p0) { return null; }
+        private int getTotalWidth() { return 0; }
+        private void setLeftBoundary(float p0) {}
+        private void setRightBoundary(float p0) {}
+        public void draw(android.graphics.Canvas p0, android.graphics.Paint p1) {}
+        void setDisplayType(int p0) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        private static @interface DisplayType {
+            public static final int POLYGON = 1;
+            public static final int RECTANGLES = 0;
         }
     }
 }

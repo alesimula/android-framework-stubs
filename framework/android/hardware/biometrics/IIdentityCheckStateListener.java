@@ -4,10 +4,11 @@ public interface IIdentityCheckStateListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.biometrics.IIdentityCheckStateListener";
     public void onWatchRangingStateChanged(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.IIdentityCheckStateListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onWatchRangingStateChanged(int p0, int p1) throws android.os.RemoteException {}
+    public static @interface WatchRangingState {
+        public static final int WATCH_RANGING_IDLE = 0;
+        public static final int WATCH_RANGING_STARTED = 2;
+        public static final int WATCH_RANGING_STOPPED = 3;
+        public static final int WATCH_RANGING_SUCCESSFUL = 1;
     }
 
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.IIdentityCheckStateListener {
@@ -28,10 +29,9 @@ public interface IIdentityCheckStateListener extends android.os.IInterface {
         }
     }
 
-    public static @interface WatchRangingState {
-        public static final int WATCH_RANGING_IDLE = 0;
-        public static final int WATCH_RANGING_STARTED = 2;
-        public static final int WATCH_RANGING_STOPPED = 3;
-        public static final int WATCH_RANGING_SUCCESSFUL = 1;
+    public static class Default implements android.hardware.biometrics.IIdentityCheckStateListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onWatchRangingStateChanged(int p0, int p1) throws android.os.RemoteException {}
     }
 }

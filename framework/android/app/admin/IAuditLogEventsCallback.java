@@ -2,13 +2,7 @@ package android.app.admin;
 
 public interface IAuditLogEventsCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.admin.IAuditLogEventsCallback";
-    public void onNewAuditLogEvents(java.util.List<android.app.admin.SecurityLog.SecurityEvent> p0) throws android.os.RemoteException;
-
-    public static class Default implements android.app.admin.IAuditLogEventsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onNewAuditLogEvents(java.util.List<android.app.admin.SecurityLog.SecurityEvent> p0) throws android.os.RemoteException {}
-    }
+    public void onNewAuditLogEvents(android.content.pm.ParceledListSlice<android.app.admin.SecurityLog.SecurityEvent> p0) throws android.os.RemoteException;
 
     public static abstract class Stub extends android.os.Binder implements android.app.admin.IAuditLogEventsCallback {
         static final int TRANSACTION_onNewAuditLogEvents = 1;
@@ -24,7 +18,13 @@ public interface IAuditLogEventsCallback extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void onNewAuditLogEvents(java.util.List<android.app.admin.SecurityLog.SecurityEvent> p0) throws android.os.RemoteException {}
+            public void onNewAuditLogEvents(android.content.pm.ParceledListSlice<android.app.admin.SecurityLog.SecurityEvent> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.admin.IAuditLogEventsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onNewAuditLogEvents(android.content.pm.ParceledListSlice<android.app.admin.SecurityLog.SecurityEvent> p0) throws android.os.RemoteException {}
     }
 }

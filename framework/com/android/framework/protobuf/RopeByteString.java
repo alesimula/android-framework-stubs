@@ -39,15 +39,6 @@ final class RopeByteString extends com.android.framework.protobuf.ByteString {
     void writeToInternal(java.io.OutputStream p0, int p1, int p2) throws java.io.IOException {}
     void writeToReverse(com.android.framework.protobuf.ByteOutput p0) throws java.io.IOException {}
 
-    private static class Balancer {
-        private final java.util.ArrayDeque<com.android.framework.protobuf.ByteString> prefixesStack = null;
-        private Balancer() {}
-        private com.android.framework.protobuf.ByteString balance(com.android.framework.protobuf.ByteString p0, com.android.framework.protobuf.ByteString p1) { return null; }
-        private void doBalance(com.android.framework.protobuf.ByteString p0) {}
-        private int getDepthBinForLength(int p0) { return 0; }
-        private void insert(com.android.framework.protobuf.ByteString p0) {}
-    }
-
     private static final class PieceIterator implements java.util.Iterator<com.android.framework.protobuf.ByteString.LeafByteString> {
         private final java.util.ArrayDeque<com.android.framework.protobuf.RopeByteString> breadCrumbs = null;
         private com.android.framework.protobuf.ByteString.LeafByteString next;
@@ -78,5 +69,14 @@ final class RopeByteString extends com.android.framework.protobuf.ByteString {
         public int read(byte[] p0, int p1, int p2) { return 0; }
         public void reset() {}
         public long skip(long p0) { return 0L; }
+    }
+
+    private static class Balancer {
+        private final java.util.ArrayDeque<com.android.framework.protobuf.ByteString> prefixesStack = null;
+        private Balancer() {}
+        private com.android.framework.protobuf.ByteString balance(com.android.framework.protobuf.ByteString p0, com.android.framework.protobuf.ByteString p1) { return null; }
+        private void doBalance(com.android.framework.protobuf.ByteString p0) {}
+        private int getDepthBinForLength(int p0) { return 0; }
+        private void insert(com.android.framework.protobuf.ByteString p0) {}
     }
 }

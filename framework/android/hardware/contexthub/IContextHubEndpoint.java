@@ -37,35 +37,6 @@ public interface IContextHubEndpoint extends android.os.IInterface {
         public void unregisterDataFlowHostSource(int p0) throws android.os.RemoteException {}
     }
 
-    public static interface IRegisterOffloadSinkCallback extends android.os.IInterface {
-        public static final java.lang.String DESCRIPTOR = "android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback";
-        public long addSinkInRegion(android.hardware.contexthub.SharedDataRegion p0) throws android.os.RemoteException;
-
-        public static class Default implements android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback {
-            public Default() {}
-            public long addSinkInRegion(android.hardware.contexthub.SharedDataRegion p0) throws android.os.RemoteException { return 0L; }
-            public android.os.IBinder asBinder() { return null; }
-        }
-
-        public static abstract class Stub extends android.os.Binder implements android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback {
-            static final int TRANSACTION_addSinkInRegion = 1;
-            public Stub() { super(); }
-            public static android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback asInterface(android.os.IBinder p0) { return null; }
-            public static java.lang.String getDefaultTransactionName(int p0) { return null; }
-            public android.os.IBinder asBinder() { return null; }
-            public java.lang.String getTransactionName(int p0) { return null; }
-            public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
-
-            private static final class Proxy implements android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback {
-                private android.os.IBinder mRemote;
-                Proxy(android.os.IBinder p0) {}
-                public long addSinkInRegion(android.hardware.contexthub.SharedDataRegion p0) throws android.os.RemoteException { return 0L; }
-                public android.os.IBinder asBinder() { return null; }
-                public final java.lang.String getInterfaceDescriptor() { return null; }
-            }
-        }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.contexthub.IContextHubEndpoint {
         static final int TRANSACTION_allocateSharedDataRegion = 9;
         static final int TRANSACTION_closeSession = 3;
@@ -123,6 +94,35 @@ public interface IContextHubEndpoint extends android.os.IInterface {
             public void unregister() throws android.os.RemoteException {}
             public void unregisterDataFlowHostSink(android.hardware.contexthub.DataFlowId p0) throws android.os.RemoteException {}
             public void unregisterDataFlowHostSource(int p0) throws android.os.RemoteException {}
+        }
+    }
+
+    public static interface IRegisterOffloadSinkCallback extends android.os.IInterface {
+        public static final java.lang.String DESCRIPTOR = "android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback";
+        public long addSinkInRegion(android.hardware.contexthub.SharedDataRegion p0) throws android.os.RemoteException;
+
+        public static abstract class Stub extends android.os.Binder implements android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback {
+            static final int TRANSACTION_addSinkInRegion = 1;
+            public Stub() { super(); }
+            public static android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback asInterface(android.os.IBinder p0) { return null; }
+            public static java.lang.String getDefaultTransactionName(int p0) { return null; }
+            public android.os.IBinder asBinder() { return null; }
+            public java.lang.String getTransactionName(int p0) { return null; }
+            public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+
+            private static final class Proxy implements android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback {
+                private android.os.IBinder mRemote;
+                Proxy(android.os.IBinder p0) {}
+                public long addSinkInRegion(android.hardware.contexthub.SharedDataRegion p0) throws android.os.RemoteException { return 0L; }
+                public android.os.IBinder asBinder() { return null; }
+                public final java.lang.String getInterfaceDescriptor() { return null; }
+            }
+        }
+
+        public static class Default implements android.hardware.contexthub.IContextHubEndpoint.IRegisterOffloadSinkCallback {
+            public Default() {}
+            public long addSinkInRegion(android.hardware.contexthub.SharedDataRegion p0) throws android.os.RemoteException { return 0L; }
+            public android.os.IBinder asBinder() { return null; }
         }
     }
 }

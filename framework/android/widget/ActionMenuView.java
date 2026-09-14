@@ -26,15 +26,15 @@ public class ActionMenuView extends android.widget.LinearLayout implements com.a
     protected android.widget.ActionMenuView.LayoutParams generateDefaultLayoutParams() { return null; }
     public android.widget.ActionMenuView.LayoutParams generateLayoutParams(android.util.AttributeSet p0) { return null; }
     protected android.widget.ActionMenuView.LayoutParams generateLayoutParams(android.view.ViewGroup.LayoutParams p0) { return null; }
-    public android.widget.ActionMenuView.LayoutParams generateOverflowButtonLayoutParams() { return null; }
+    public final android.widget.ActionMenuView.LayoutParams generateOverflowButtonLayoutParams() { return null; }
     public android.view.Menu getMenu() { return null; }
     public android.graphics.drawable.Drawable getOverflowIcon() { return null; }
     public int getPopupTheme() { return 0; }
     public int getWindowAnimations() { return 0; }
     protected boolean hasDividerBeforeChildAt(int p0) { return false; }
     public boolean hideOverflowMenu() { return false; }
-    public void initialize(com.android.internal.view.menu.MenuBuilder p0) {}
-    public boolean invokeItem(com.android.internal.view.menu.MenuItemImpl p0) { return false; }
+    public final void initialize(com.android.internal.view.menu.MenuBuilder p0) {}
+    public final boolean invokeItem(com.android.internal.view.menu.MenuItemImpl p0) { return false; }
     public boolean isOverflowMenuShowPending() { return false; }
     public boolean isOverflowMenuShowing() { return false; }
     public boolean isOverflowReserved() { return false; }
@@ -42,7 +42,7 @@ public class ActionMenuView extends android.widget.LinearLayout implements com.a
     public void onDetachedFromWindow() {}
     protected void onLayout(boolean p0, int p1, int p2, int p3, int p4) {}
     protected void onMeasure(int p0, int p1) {}
-    public com.android.internal.view.menu.MenuBuilder peekMenu() { return null; }
+    public final com.android.internal.view.menu.MenuBuilder peekMenu() { return null; }
     public void setExpandedActionViewsExclusive(boolean p0) {}
     public void setMenuCallbacks(com.android.internal.view.menu.MenuPresenter.Callback p0, com.android.internal.view.menu.MenuBuilder.Callback p1) {}
     public void setOnMenuItemClickListener(android.widget.ActionMenuView.OnMenuItemClickListener p0) {}
@@ -51,11 +51,6 @@ public class ActionMenuView extends android.widget.LinearLayout implements com.a
     public void setPopupTheme(int p0) {}
     public void setPresenter(android.widget.ActionMenuPresenter p0) {}
     public boolean showOverflowMenu() { return false; }
-
-    public static interface ActionMenuChildView {
-        public boolean needsDividerAfter();
-        public boolean needsDividerBefore();
-    }
 
     private class ActionMenuPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
         private ActionMenuPresenterCallback(android.widget.ActionMenuView p0) {}
@@ -80,16 +75,21 @@ public class ActionMenuView extends android.widget.LinearLayout implements com.a
         public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
         public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
         public LayoutParams(android.widget.ActionMenuView.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
-        protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
+        protected final void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
+    }
+
+    public static interface OnMenuItemClickListener {
+        public boolean onMenuItemClick(android.view.MenuItem p0);
+    }
+
+    public static interface ActionMenuChildView {
+        public boolean needsDividerAfter();
+        public boolean needsDividerBefore();
     }
 
     private class MenuBuilderCallback implements com.android.internal.view.menu.MenuBuilder.Callback {
         private MenuBuilderCallback(android.widget.ActionMenuView p0) {}
         public boolean onMenuItemSelected(com.android.internal.view.menu.MenuBuilder p0, android.view.MenuItem p1) { return false; }
         public void onMenuModeChange(com.android.internal.view.menu.MenuBuilder p0) {}
-    }
-
-    public static interface OnMenuItemClickListener {
-        public boolean onMenuItemClick(android.view.MenuItem p0);
     }
 }

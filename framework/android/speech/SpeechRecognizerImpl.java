@@ -48,11 +48,11 @@ class SpeechRecognizerImpl extends android.speech.SpeechRecognizer {
     public void triggerModelDownload(android.content.Intent p0) {}
     public void triggerModelDownload(android.content.Intent p0, java.util.concurrent.Executor p1, android.speech.ModelDownloadListener p2) {}
 
-    private static class CheckRecognitionSupportArgs {
-        final android.speech.RecognitionSupportCallback mCallback = null;
-        final java.util.concurrent.Executor mCallbackExecutor = null;
+    private static class ModelDownloadListenerArgs {
+        final java.util.concurrent.Executor mExecutor = null;
         final android.content.Intent mIntent = null;
-        private CheckRecognitionSupportArgs(android.content.Intent p0, java.util.concurrent.Executor p1, android.speech.RecognitionSupportCallback p2) {}
+        final android.speech.ModelDownloadListener mModelDownloadListener = null;
+        private ModelDownloadListenerArgs(android.content.Intent p0, java.util.concurrent.Executor p1, android.speech.ModelDownloadListener p2) {}
     }
 
     private static class InternalModelDownloadListener extends android.speech.IModelDownloadListener.Stub {
@@ -63,6 +63,13 @@ class SpeechRecognizerImpl extends android.speech.SpeechRecognizer {
         public void onProgress(int p0) throws android.os.RemoteException {}
         public void onScheduled() throws android.os.RemoteException {}
         public void onSuccess() throws android.os.RemoteException {}
+    }
+
+    private static class CheckRecognitionSupportArgs {
+        final android.speech.RecognitionSupportCallback mCallback = null;
+        final java.util.concurrent.Executor mCallbackExecutor = null;
+        final android.content.Intent mIntent = null;
+        private CheckRecognitionSupportArgs(android.content.Intent p0, java.util.concurrent.Executor p1, android.speech.RecognitionSupportCallback p2) {}
     }
 
     private static class InternalRecognitionListener extends android.speech.IRecognitionListener.Stub {
@@ -101,12 +108,5 @@ class SpeechRecognizerImpl extends android.speech.SpeechRecognizer {
         private InternalSupportCallback(java.util.concurrent.Executor p0, android.speech.RecognitionSupportCallback p1) { super(); }
         public void onError(int p0) throws android.os.RemoteException {}
         public void onSupportResult(android.speech.RecognitionSupport p0) throws android.os.RemoteException {}
-    }
-
-    private static class ModelDownloadListenerArgs {
-        final java.util.concurrent.Executor mExecutor = null;
-        final android.content.Intent mIntent = null;
-        final android.speech.ModelDownloadListener mModelDownloadListener = null;
-        private ModelDownloadListenerArgs(android.content.Intent p0, java.util.concurrent.Executor p1, android.speech.ModelDownloadListener p2) {}
     }
 }

@@ -8,6 +8,7 @@ public final class InputMethodPrivilegedOperations {
     public void hideMySoftInput(android.view.inputmethod.ImeTracker.Token p0, int p1, int p2) {}
     public void notifyUserActionAsync() {}
     public void onImeSwitchButtonClickFromClient(int p0) {}
+    public void onImeSwitchButtonLongClickFromClient(int p0) {}
     public void onStylusHandwritingReady(int p0, int p1) {}
     public void reportFullscreenModeAsync(boolean p0) {}
     public void reportStartInputAsync(android.os.IBinder p0) {}

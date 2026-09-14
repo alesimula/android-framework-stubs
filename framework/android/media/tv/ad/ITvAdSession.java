@@ -20,28 +20,6 @@ public interface ITvAdSession extends android.os.IInterface {
     public void startAdService() throws android.os.RemoteException;
     public void stopAdService() throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.ad.ITvAdSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void createMediaView(android.os.IBinder p0, android.graphics.Rect p1) throws android.os.RemoteException {}
-        public void dispatchSurfaceChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void notifyError(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void notifyTvInputSessionData(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void notifyTvMessage(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void relayoutMediaView(android.graphics.Rect p0) throws android.os.RemoteException {}
-        public void release() throws android.os.RemoteException {}
-        public void removeMediaView() throws android.os.RemoteException {}
-        public void resetAdService() throws android.os.RemoteException {}
-        public void sendCurrentChannelUri(android.net.Uri p0) throws android.os.RemoteException {}
-        public void sendCurrentTvInputId(java.lang.String p0) throws android.os.RemoteException {}
-        public void sendCurrentVideoBounds(android.graphics.Rect p0) throws android.os.RemoteException {}
-        public void sendSigningResult(java.lang.String p0, byte[] p1) throws android.os.RemoteException {}
-        public void sendTrackInfoList(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
-        public void setSurface(android.view.Surface p0) throws android.os.RemoteException {}
-        public void startAdService() throws android.os.RemoteException {}
-        public void stopAdService() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.ad.ITvAdSession {
         static final int TRANSACTION_createMediaView = 14;
         static final int TRANSACTION_dispatchSurfaceChanged = 6;
@@ -90,5 +68,27 @@ public interface ITvAdSession extends android.os.IInterface {
             public void startAdService() throws android.os.RemoteException {}
             public void stopAdService() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.ad.ITvAdSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void createMediaView(android.os.IBinder p0, android.graphics.Rect p1) throws android.os.RemoteException {}
+        public void dispatchSurfaceChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void notifyError(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void notifyTvInputSessionData(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void notifyTvMessage(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void relayoutMediaView(android.graphics.Rect p0) throws android.os.RemoteException {}
+        public void release() throws android.os.RemoteException {}
+        public void removeMediaView() throws android.os.RemoteException {}
+        public void resetAdService() throws android.os.RemoteException {}
+        public void sendCurrentChannelUri(android.net.Uri p0) throws android.os.RemoteException {}
+        public void sendCurrentTvInputId(java.lang.String p0) throws android.os.RemoteException {}
+        public void sendCurrentVideoBounds(android.graphics.Rect p0) throws android.os.RemoteException {}
+        public void sendSigningResult(java.lang.String p0, byte[] p1) throws android.os.RemoteException {}
+        public void sendTrackInfoList(java.util.List<android.media.tv.TvTrackInfo> p0) throws android.os.RemoteException {}
+        public void setSurface(android.view.Surface p0) throws android.os.RemoteException {}
+        public void startAdService() throws android.os.RemoteException {}
+        public void stopAdService() throws android.os.RemoteException {}
     }
 }

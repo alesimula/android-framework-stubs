@@ -30,10 +30,15 @@ public class IccUtils {
     public static byte[] encodeFplmns(java.util.List<java.lang.String> p0, int p1) { return null; }
     private static int[] getCLUT(byte[] p0, int p1, int p2) { return null; }
     public static java.lang.String getDecimalSubstring(java.lang.String p0) { return null; }
+    public static java.lang.String getFormattedAid(java.lang.String p0) { return null; }
     public static int gsmBcdByteToInt(byte p0) { return 0; }
     public static int hexCharToInt(char p0) { return 0; }
     public static byte[] hexStringToBytes(java.lang.String p0) { return null; }
     private static int intToBytes(int p0, byte[] p1, int p2, boolean p3) { return 0; }
+    public static boolean isEitherPrefixMatch(java.lang.String p0, java.lang.String p1) { return false; }
+    public static boolean isEitherPrefixMatch(byte[] p0, byte[] p1) { return false; }
+    public static boolean isRestrictedAid(java.lang.String p0) { return false; }
+    public static boolean isRestrictedAid(byte[] p0) { return false; }
     private static int[] mapTo2OrderBitColor(byte[] p0, int p1, int p2, int[] p3, int p4) { return null; }
     private static int[] mapToNon2OrderBitColor(byte[] p0, int p1, int p2, int[] p3, int p4) { return null; }
     public static java.lang.String networkNameToString(byte[] p0, int p1, int p2) { return null; }

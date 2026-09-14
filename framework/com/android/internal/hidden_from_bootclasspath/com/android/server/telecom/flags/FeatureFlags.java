@@ -2,12 +2,10 @@ package com.android.internal.hidden_from_bootclasspath.com.android.server.teleco
 
 public interface FeatureFlags {
     public boolean addCallUriForMissedCalls();
-    public boolean bulkStateUpdateCall();
     public boolean businessCallComposer();
     public boolean callDetailsIdChanges();
     public boolean callSequencingCallResumeFailed();
     public boolean callSequencingMetrics();
-    public boolean conferenceModifyMergeFail();
     public boolean ensureAudioModeUpdatesOnForegroundCallChange();
     public boolean filterVoipCallLogs();
     public boolean getRegisteredPhoneAccounts();

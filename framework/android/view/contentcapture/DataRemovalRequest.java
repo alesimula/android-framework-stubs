@@ -14,6 +14,10 @@ public final class DataRemovalRequest implements android.os.Parcelable {
     public boolean isForEverything() { return false; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface Flags {
+    }
+
     public static final class Builder {
         private boolean mDestroyed;
         private android.util.IntArray mFlags;
@@ -24,10 +28,6 @@ public final class DataRemovalRequest implements android.os.Parcelable {
         public android.view.contentcapture.DataRemovalRequest.Builder addLocusId(android.content.LocusId p0, int p1) { return null; }
         public android.view.contentcapture.DataRemovalRequest build() { return null; }
         public android.view.contentcapture.DataRemovalRequest.Builder forEverything() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface Flags {
     }
 
     public final class LocusIdRequest {

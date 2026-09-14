@@ -2,7 +2,7 @@ package android.hardware.camera2.utils;
 
 public class ExtensionSessionStatsAggregator {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ExtensionSessionStatsAggregator";
     private final java.util.concurrent.ExecutorService mExecutor = null;
     private boolean mIsDone;
     private final java.lang.Object mLock = null;

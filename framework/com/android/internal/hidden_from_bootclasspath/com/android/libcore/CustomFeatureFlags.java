@@ -25,6 +25,7 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean openjdk21V2Apis() { return false; }
     public boolean openjdk25V1Apis() { return false; }
     public boolean openjdk25V2Apis() { return false; }
+    public boolean openjdk25V3Apis() { return false; }
     public boolean osNoThrowApis() { return false; }
     public boolean postCleanupApis() { return false; }
     public boolean readOnlyDynamicCodeLoad() { return false; }

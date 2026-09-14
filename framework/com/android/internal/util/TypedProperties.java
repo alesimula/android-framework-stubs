@@ -41,11 +41,11 @@ public class TypedProperties extends java.util.HashMap<java.lang.String, java.la
     public int getStringInfo(java.lang.String p0) { return 0; }
     public void load(java.io.Reader p0) throws java.io.IOException {}
 
-    public static class ParseException extends java.lang.IllegalArgumentException {
-        ParseException(java.io.StreamTokenizer p0, java.lang.String p1) { super(); }
-    }
-
     public static class TypeException extends java.lang.IllegalArgumentException {
         TypeException(java.lang.String p0, java.lang.Object p1, java.lang.String p2) { super(); }
+    }
+
+    public static class ParseException extends java.lang.IllegalArgumentException {
+        ParseException(java.io.StreamTokenizer p0, java.lang.String p1) { super(); }
     }
 }

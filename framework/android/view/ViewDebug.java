@@ -105,43 +105,26 @@ public class ViewDebug {
     private static void writeExportedProperties(android.content.Context p0, java.lang.Object p1, java.io.BufferedWriter p2, java.lang.Class<?> p3, java.lang.String p4) throws java.io.IOException {}
     private static void writeValue(java.io.BufferedWriter p0, java.lang.Object p1) throws java.io.IOException {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
+    public static @interface IntToString {
+        public int from();
+        public java.lang.String to();
+    }
+
     public static interface CanvasProvider {
         public android.graphics.Bitmap createBitmap();
         public android.graphics.Canvas getCanvas(android.view.View p0, int p1, int p2);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.METHOD})
-    public static @interface CapturedViewProperty {
-        public boolean retrieveReturn() default false;
+    public static interface HierarchyHandler {
+        public void dumpViewHierarchyWithProperties(java.io.BufferedWriter p0, int p1);
+        public android.view.View findHierarchyView(java.lang.String p0, int p1);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.METHOD})
-    public static @interface ExportedProperty {
-        public java.lang.String category() default "";
-        public boolean deepExport() default false;
-        public android.view.ViewDebug.FlagToString[] flagMapping() default {};
-        public boolean formatToHexString() default false;
-        public boolean hasAdjacentMapping() default false;
-        public android.view.ViewDebug.IntToString[] indexMapping() default {};
-        public android.view.ViewDebug.IntToString[] mapping() default {};
-        public java.lang.String prefix() default "";
-        public boolean resolveId() default false;
-    }
-
-    private static class FieldPI<T extends java.lang.annotation.Annotation> extends android.view.ViewDebug.PropertyInfo<T, java.lang.reflect.Field> {
-        FieldPI(java.lang.reflect.Field p0, java.lang.Class<T> p1) { super(null, null, null); }
+    private static class MethodPI<T extends java.lang.annotation.Annotation> extends android.view.ViewDebug.PropertyInfo<T, java.lang.reflect.Method> {
+        MethodPI(java.lang.reflect.Method p0, java.lang.Class<T> p1) { super(null, null, null); }
         public java.lang.Object invoke(java.lang.Object p0) throws java.lang.Exception { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
-    public static @interface FlagToString {
-        public int equals();
-        public int mask();
-        public java.lang.String name();
-        public boolean outputIf() default true;
     }
 
     public static class HardwareCanvasProvider implements android.view.ViewDebug.CanvasProvider {
@@ -151,9 +134,62 @@ public class ViewDebug {
         public android.graphics.Canvas getCanvas(android.view.View p0, int p1, int p2) { return null; }
     }
 
-    public static interface HierarchyHandler {
-        public void dumpViewHierarchyWithProperties(java.io.BufferedWriter p0, int p1);
-        public android.view.View findHierarchyView(java.lang.String p0, int p1);
+    private static class FieldPI<T extends java.lang.annotation.Annotation> extends android.view.ViewDebug.PropertyInfo<T, java.lang.reflect.Field> {
+        FieldPI(java.lang.reflect.Field p0, java.lang.Class<T> p1) { super(null, null, null); }
+        public java.lang.Object invoke(java.lang.Object p0) throws java.lang.Exception { return null; }
+    }
+
+    public static class ViewMethodInvocationSerializationException extends java.lang.Exception {
+        ViewMethodInvocationSerializationException(java.lang.String p0) { super(); }
+    }
+
+    @java.lang.Deprecated
+    public static enum RecyclerTraceType {
+        BIND_VIEW,
+        MOVE_FROM_ACTIVE_TO_SCRAP_HEAP,
+        MOVE_TO_SCRAP_HEAP,
+        NEW_VIEW,
+        RECYCLE_FROM_ACTIVE_HEAP,
+        RECYCLE_FROM_SCRAP_HEAP;
+        private static final android.view.ViewDebug.RecyclerTraceType[] $VALUES = null;
+        private RecyclerTraceType() {}
+    }
+
+    private static class StreamingPictureCallbackHandler implements java.lang.AutoCloseable, android.graphics.HardwareRenderer.PictureCapturedCallback, java.lang.Runnable {
+        private final java.util.concurrent.Callable<java.io.OutputStream> mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final java.util.concurrent.locks.ReentrantLock mLock = null;
+        private final java.util.ArrayDeque<android.graphics.Picture> mQueue = null;
+        private java.lang.Thread mRenderThread;
+        private final android.graphics.HardwareRenderer mRenderer = null;
+        private boolean mStopListening;
+        private StreamingPictureCallbackHandler(android.graphics.HardwareRenderer p0, java.util.concurrent.Callable<java.io.OutputStream> p1, java.util.concurrent.Executor p2) {}
+        public void close() {}
+        public void onPictureCaptured(android.graphics.Picture p0) {}
+        public void run() {}
+    }
+
+    private static class PictureCallbackHandler implements java.lang.AutoCloseable, android.graphics.HardwareRenderer.PictureCapturedCallback, java.lang.Runnable {
+        private final java.util.function.Function<android.graphics.Picture, java.lang.Boolean> mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final java.util.concurrent.locks.ReentrantLock mLock = null;
+        private final java.util.ArrayDeque<android.graphics.Picture> mQueue = null;
+        private java.lang.Thread mRenderThread;
+        private final android.graphics.HardwareRenderer mRenderer = null;
+        private boolean mStopListening;
+        private PictureCallbackHandler(android.graphics.HardwareRenderer p0, java.util.function.Function<android.graphics.Picture, java.lang.Boolean> p1, java.util.concurrent.Executor p2) {}
+        public void close() {}
+        public void onPictureCaptured(android.graphics.Picture p0) {}
+        public void run() {}
+    }
+
+    public static class SoftwareCanvasProvider implements android.view.ViewDebug.CanvasProvider {
+        private android.graphics.Bitmap mBitmap;
+        private android.graphics.Canvas mCanvas;
+        private boolean mEnabledHwFeaturesInSwMode;
+        public SoftwareCanvasProvider() {}
+        public android.graphics.Bitmap createBitmap() { return null; }
+        public android.graphics.Canvas getCanvas(android.view.View p0, int p1, int p2) { return null; }
     }
 
     @java.lang.Deprecated
@@ -171,29 +207,23 @@ public class ViewDebug {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
-    public static @interface IntToString {
-        public int from();
-        public java.lang.String to();
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.METHOD})
+    public static @interface ExportedProperty {
+        public java.lang.String category() default "";
+        public boolean deepExport() default false;
+        public android.view.ViewDebug.FlagToString[] flagMapping() default {};
+        public boolean formatToHexString() default false;
+        public boolean hasAdjacentMapping() default false;
+        public android.view.ViewDebug.IntToString[] indexMapping() default {};
+        public android.view.ViewDebug.IntToString[] mapping() default {};
+        public java.lang.String prefix() default "";
+        public boolean resolveId() default false;
     }
 
-    private static class MethodPI<T extends java.lang.annotation.Annotation> extends android.view.ViewDebug.PropertyInfo<T, java.lang.reflect.Method> {
-        MethodPI(java.lang.reflect.Method p0, java.lang.Class<T> p1) { super(null, null, null); }
-        public java.lang.Object invoke(java.lang.Object p0) throws java.lang.Exception { return null; }
-    }
-
-    private static class PictureCallbackHandler implements java.lang.AutoCloseable, android.graphics.HardwareRenderer.PictureCapturedCallback, java.lang.Runnable {
-        private final java.util.function.Function<android.graphics.Picture, java.lang.Boolean> mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final java.util.concurrent.locks.ReentrantLock mLock = null;
-        private final java.util.ArrayDeque<android.graphics.Picture> mQueue = null;
-        private java.lang.Thread mRenderThread;
-        private final android.graphics.HardwareRenderer mRenderer = null;
-        private boolean mStopListening;
-        private PictureCallbackHandler(android.graphics.HardwareRenderer p0, java.util.function.Function<android.graphics.Picture, java.lang.Boolean> p1, java.util.concurrent.Executor p2) {}
-        public void close() {}
-        public void onPictureCaptured(android.graphics.Picture p0) {}
-        public void run() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.METHOD})
+    public static @interface CapturedViewProperty {
+        public boolean retrieveReturn() default false;
     }
 
     private static abstract class PropertyInfo<T extends java.lang.annotation.Annotation, R extends java.lang.reflect.AccessibleObject & java.lang.reflect.Member> {
@@ -209,47 +239,17 @@ public class ViewDebug {
         public abstract java.lang.Object invoke(java.lang.Object p0) throws java.lang.Exception;
     }
 
-    @java.lang.Deprecated
-    public static enum RecyclerTraceType {
-        BIND_VIEW,
-        MOVE_FROM_ACTIVE_TO_SCRAP_HEAP,
-        MOVE_TO_SCRAP_HEAP,
-        NEW_VIEW,
-        RECYCLE_FROM_ACTIVE_HEAP,
-        RECYCLE_FROM_SCRAP_HEAP;
-        private static final android.view.ViewDebug.RecyclerTraceType[] $VALUES = null;
-        private RecyclerTraceType() {}
-    }
-
-    public static class SoftwareCanvasProvider implements android.view.ViewDebug.CanvasProvider {
-        private android.graphics.Bitmap mBitmap;
-        private android.graphics.Canvas mCanvas;
-        private boolean mEnabledHwFeaturesInSwMode;
-        public SoftwareCanvasProvider() {}
-        public android.graphics.Bitmap createBitmap() { return null; }
-        public android.graphics.Canvas getCanvas(android.view.View p0, int p1, int p2) { return null; }
-    }
-
-    private static class StreamingPictureCallbackHandler implements java.lang.AutoCloseable, android.graphics.HardwareRenderer.PictureCapturedCallback, java.lang.Runnable {
-        private final java.util.concurrent.Callable<java.io.OutputStream> mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final java.util.concurrent.locks.ReentrantLock mLock = null;
-        private final java.util.ArrayDeque<android.graphics.Picture> mQueue = null;
-        private java.lang.Thread mRenderThread;
-        private final android.graphics.HardwareRenderer mRenderer = null;
-        private boolean mStopListening;
-        private StreamingPictureCallbackHandler(android.graphics.HardwareRenderer p0, java.util.concurrent.Callable<java.io.OutputStream> p1, java.util.concurrent.Executor p2) {}
-        public void close() {}
-        public void onPictureCaptured(android.graphics.Picture p0) {}
-        public void run() {}
-    }
-
-    public static class ViewMethodInvocationSerializationException extends java.lang.Exception {
-        ViewMethodInvocationSerializationException(java.lang.String p0) { super(); }
-    }
-
     static interface ViewOperation {
         default public void pre() {}
         public void run();
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
+    public static @interface FlagToString {
+        public int equals();
+        public int mask();
+        public java.lang.String name();
+        public boolean outputIf() default true;
     }
 }

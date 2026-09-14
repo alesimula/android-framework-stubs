@@ -11,6 +11,7 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean addRatRelatedSuggestedActionToImsRegistration() { return false; }
     public boolean allowNonStandaloneOpportunisticAdsPolicy() { return false; }
     public boolean allowSkipPasswordValidationForCallBarring() { return false; }
+    public boolean allowUnsupportedModemActivityInfo() { return false; }
     public boolean astSkyloFallback() { return false; }
     public boolean cacheSmsApplicationData() { return false; }
     public boolean cancelObsoleteDataRetryOnApnChange() { return false; }
@@ -19,6 +20,7 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean carrierPrivilegeSegmentation() { return false; }
     public boolean carrierRestrictionStatus() { return false; }
     public boolean carrierRoamingNbIotNtn() { return false; }
+    public boolean catServiceCoarseLockDeadlockFix() { return false; }
     public boolean cellIdentityForBarringInfo() { return false; }
     public boolean cleanupCarrierAppUpdateEnabledStateLogic() { return false; }
     public boolean configForEnablingCarrier() { return false; }
@@ -26,16 +28,18 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean dataOnlyCellularService() { return false; }
     public boolean dataServiceNotifyImsDataNetwork() { return false; }
     public boolean dataServiceUserDataToggleNotify() { return false; }
+    public boolean deferEmergencyDialWhenHoldPending() { return false; }
     public boolean deleteCdma() { return false; }
     public boolean disconnectOtherDomainCallsOnEmergencyRedial() { return false; }
     public boolean domainSelectionMetricsEnabled() { return false; }
-    public boolean downloadableSubscriptionIncludeCarrierIdentifierInternal() { return false; }
+    public boolean downloadableSubscriptionIncludeCarrierIdentifier() { return false; }
     public boolean drbSecurityTransparency() { return false; }
     public boolean dsdaAdhocFiltering() { return false; }
+    public boolean dynamicDropsFgCallExtra() { return false; }
     public boolean emergencyCallbackModeNotification() { return false; }
     public boolean emergencyMessagingRoutingForInternationalRoaming() { return false; }
-    public boolean emergencyOverNrRequiresVonrEnabled() { return false; }
     public boolean emergencyRegistrationState() { return false; }
+    public boolean enable5gPlusSaIcon() { return false; }
     public boolean enableAeadAlgorithms() { return false; }
     public boolean enableCarrierConfigApnStringRestriction() { return false; }
     public boolean enableDataStallRecoveryRandomization() { return false; }
@@ -58,8 +62,10 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean fixGetCfnryTimeWhenTimerNotSupported() { return false; }
     public boolean fixImsPdnDisconnectUponSimRemoval() { return false; }
     public boolean fixInconsistentRefreshState() { return false; }
+    public boolean fixRegistryServiceNullCrash() { return false; }
     public boolean fixSatelliteProvisionStateOutOfSync() { return false; }
     public boolean fixSqlInjectionHbpcd() { return false; }
+    public boolean gamingAndStreamingSlice() { return false; }
     public boolean geofenceEnhancementForBetterUx() { return false; }
     public java.util.List<java.lang.String> getFlagNames() { return null; }
     protected <T extends java.lang.Object> T getGenericValue(java.lang.String p0, java.util.function.Function<com.android.internal.hidden_from_bootclasspath.com.android.internal.telephony.flags.FeatureFlags, T> p1) { return null; }
@@ -67,23 +73,30 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean getPreferredDataSubIsOpportunisticSetDataSub() { return false; }
     public boolean getServiceStateForSlot() { return false; }
     protected boolean getValue(java.lang.String p0, java.util.function.Predicate<com.android.internal.hidden_from_bootclasspath.com.android.internal.telephony.flags.FeatureFlags> p1) { return false; }
+    public boolean handleQosUpdateDuringHandover() { return false; }
     public boolean hideDefaultOutgoingAccountIfNotMultiple() { return false; }
     public boolean hideNonActiveOpportunisticSubscriptions() { return false; }
     public boolean hidePrefer3gItem() { return false; }
+    public boolean ignoreEcbmExitOnSecondEmergencyCall() { return false; }
     public boolean ignoreIncallMmiForEmergency() { return false; }
     public boolean ignoreNetworkSuggestedRetryFallback() { return false; }
+    public boolean ignoreVonrUserPreferenceWhenToggleHidden() { return false; }
+    public boolean imsConnectionRetryAndCleanupFix() { return false; }
     public boolean incallHandoverPolicy() { return false; }
+    public boolean initImsProvisioningControllerAsync() { return false; }
     public boolean initRcsProvisioningMonitorAsync() { return false; }
     public boolean initializeTelecomAccountRegistryAsync() { return false; }
     public boolean isFlagReadOnlyOptimized(java.lang.String p0) { return false; }
+    public boolean keepPreferredOpportunisticSubStickyWhenRoaming() { return false; }
     public boolean keepWfcOnApm() { return false; }
     public boolean key2gToggleEmergency() { return false; }
-    public boolean keyCarrier2gToggle() { return false; }
+    public boolean keyEnableCellularSecurityApi() { return false; }
     public boolean loadGidEfsEarly() { return false; }
     public boolean logCallsAnsweredElsewhere() { return false; }
     public boolean logMmsSmsDatabaseAccessInfo() { return false; }
     public boolean macroBasedOpportunisticNetworks() { return false; }
     public boolean makeMeteredUnmeteredConfigurableForSliceNetwork() { return false; }
+    public boolean mapCsRemoteHoldEvents() { return false; }
     public boolean mccMncLocaleResolution() { return false; }
     public boolean messagePromotion() { return false; }
     public boolean mmsDisabledError() { return false; }
@@ -97,32 +110,37 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean oemEnabledSatellitePhase2() { return false; }
     public boolean offloadStartupBinderCalls() { return false; }
     public boolean onsHandlerThread() { return false; }
-    public boolean onsThreadConsolidation() { return false; }
     public boolean passCopiedCallStateList() { return false; }
     public boolean pcscfAddress() { return false; }
+    public boolean pollSignalStrengthOnWake() { return false; }
     public boolean powerDownRaceFix() { return false; }
     public boolean preventDialingDuringResume() { return false; }
     public boolean propagateConferenceVideoStateToParticipants() { return false; }
+    public boolean radioPowerRaceFix() { return false; }
     public boolean redactGenericOtpSms() { return false; }
     public boolean redactOtpSms() { return false; }
     public boolean redactOtpSmsApi() { return false; }
     public boolean redactWebotpSms() { return false; }
+    public boolean reenableUiccApplicationsOnEmbeddedSubscriptions() { return false; }
     public boolean refactorUiccProfileToUseCorrectCardState() { return false; }
     public boolean remapDisconnectCauseSipRequestCancelled() { return false; }
-    public boolean removeTetheringConditionWhenEnablingIndications() { return false; }
     public boolean requestSignalStrength() { return false; }
     public boolean resetCarrierIdOnSimRefresh() { return false; }
     public boolean resetImsRegistrationOnInvalidSubid() { return false; }
     public boolean resetMobileNetworkSettings() { return false; }
+    public boolean resetTimersOnSaToLteTransit() { return false; }
     public boolean restrictSendUssdRequest() { return false; }
     public boolean robustNumberVerification() { return false; }
+    public boolean rttTerminationAsync() { return false; }
     public boolean satellite25q4Apis() { return false; }
     public boolean satellite26q2Apis() { return false; }
     public boolean satellite26q4Apis() { return false; }
     public boolean satelliteDataMetricsEnhancement() { return false; }
+    public boolean satelliteDataSaverMode() { return false; }
     public boolean satelliteExitP2pSessionOutsideGeofence() { return false; }
     public boolean satelliteImproveMultiThreadDesign() { return false; }
     public boolean satelliteMetricsEnhancement() { return false; }
+    public boolean satelliteRetrySuspendAndDeferIdleExit() { return false; }
     public boolean satelliteSignalHysteresisThresholds() { return false; }
     public boolean satelliteStateChangeListener() { return false; }
     public boolean satelliteSuspend() { return false; }
@@ -135,7 +153,6 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean simultaneousCallingIndications() { return false; }
     public boolean skipStkShortCodeCheck() { return false; }
     public boolean slicingAdditionalErrorCodes() { return false; }
-    public boolean slotPortSwitchFailureFix() { return false; }
     public boolean smsNetworkSecurityEvents() { return false; }
     public boolean stkSendSmsTerminalResponseOnSendSuccess() { return false; }
     public boolean stkSmsPacking() { return false; }
@@ -155,19 +172,23 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean supportSameUriConferenceSrvcc() { return false; }
     public boolean supportSlotSwitching2psim1esimConfig() { return false; }
     public boolean supportSmsOverImsApis() { return false; }
-    public boolean supportStkCommandUssdAndCall() { return false; }
     public boolean supportTargetedHoldActions() { return false; }
     public boolean supportThrottleTimeForDeregistration() { return false; }
     public boolean synchronousRcsUceCallbackRegistration() { return false; }
     public boolean systemSelectionSpecifierEnhancement() { return false; }
+    public boolean telephonyInjectionSingleClassLoader() { return false; }
     public boolean telephonySatelliteApis() { return false; }
     public boolean telephonySatelliteMainlinePhase1() { return false; }
     public boolean temporaryFailuresInCarrierMessagingService() { return false; }
+    public boolean unwantedCallIndication() { return false; }
     public boolean updateCarrierNameAfterSimReady() { return false; }
     public boolean updateDeviceSatellitePlmnByConfigupdater() { return false; }
+    public boolean updateEmergencyRegistrationResultWithScanResults() { return false; }
     public boolean useAospDomainSelectionService() { return false; }
     public boolean useEmergencyOverImsSupported3gppNetworkTypesForEmergencySmsOnNr() { return false; }
     public boolean useOemDomainSelectionService() { return false; }
+    public boolean useOnsMainline() { return false; }
+    public boolean usePinStateForGetIccLockEnabled() { return false; }
     public boolean useSubscriptionManagerForPstnPhoneNumber() { return false; }
     public boolean vendorSpecificCellularIdentifierDisclosureIndications() { return false; }
     public boolean vzwAstSkyloFallback() { return false; }

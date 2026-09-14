@@ -1,7 +1,7 @@
 package android.widget;
 
 public abstract class AbsSpinner extends android.widget.AdapterView<android.widget.SpinnerAdapter> {
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "AbsSpinner";
     android.widget.SpinnerAdapter mAdapter;
     private android.database.DataSetObserver mDataSetObserver;
     int mHeightMeasureSpec;
@@ -42,14 +42,6 @@ public abstract class AbsSpinner extends android.widget.AdapterView<android.widg
     public void setSelection(int p0, boolean p1) {}
     void setSelectionInt(int p0, boolean p1) {}
 
-    class RecycleBin {
-        private final android.util.SparseArray<android.view.View> mScrapHeap = null;
-        RecycleBin(android.widget.AbsSpinner p0) {}
-        void clear() {}
-        android.view.View get(int p0) { return null; }
-        public void put(int p0, android.view.View p1) {}
-    }
-
     static class SavedState extends android.view.View.BaseSavedState {
         public static final android.os.Parcelable.Creator<android.widget.AbsSpinner.SavedState> CREATOR = null;
         int position;
@@ -58,5 +50,13 @@ public abstract class AbsSpinner extends android.widget.AdapterView<android.widg
         SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    class RecycleBin {
+        private final android.util.SparseArray<android.view.View> mScrapHeap = null;
+        RecycleBin(android.widget.AbsSpinner p0) {}
+        void clear() {}
+        android.view.View get(int p0) { return null; }
+        public void put(int p0, android.view.View p1) {}
     }
 }

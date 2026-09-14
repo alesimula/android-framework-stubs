@@ -43,22 +43,6 @@ public final class Log {
     static void wtfQuiet(int p0, java.lang.String p1, java.lang.String p2, boolean p3) {}
     public static int wtfStack(java.lang.String p0, java.lang.String p1) { return 0; }
 
-    private static class ImmediateLogWriter extends java.io.Writer {
-        private int bufID;
-        private int priority;
-        private java.lang.String tag;
-        private int written;
-        public ImmediateLogWriter(int p0, int p1, java.lang.String p2) { super(); }
-        public void close() {}
-        public void flush() {}
-        public int getWritten() { return 0; }
-        public void write(char[] p0, int p1, int p2) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Level {
-    }
-
     static class PreloadHolder {
         public static final int LOGGER_ENTRY_MAX_PAYLOAD = Integer.valueOf(0);
         PreloadHolder() {}
@@ -70,5 +54,21 @@ public final class Log {
 
     public static interface TerribleFailureHandler {
         public void onTerribleFailure(java.lang.String p0, android.util.Log.TerribleFailure p1, boolean p2);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Level {
+    }
+
+    private static class ImmediateLogWriter extends java.io.Writer {
+        private int bufID;
+        private int priority;
+        private java.lang.String tag;
+        private int written;
+        public ImmediateLogWriter(int p0, int p1, java.lang.String p2) { super(); }
+        public void close() {}
+        public void flush() {}
+        public int getWritten() { return 0; }
+        public void write(char[] p0, int p1, int p2) {}
     }
 }

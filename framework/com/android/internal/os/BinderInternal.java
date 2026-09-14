@@ -31,28 +31,10 @@ public class BinderInternal {
         default public void onWarningThresholdReached(int p0) {}
     }
 
-    private static class BinderProxyCountEventListenerDelegate {
-        private com.android.internal.os.BinderInternal.BinderProxyCountEventListener mBinderProxyCountEventListener;
-        private android.os.Handler mHandler;
-        private BinderProxyCountEventListenerDelegate() {}
-        void notifyLimitReached(int p0) {}
-        void notifyWarningReached(int p0) {}
-        void setListener(com.android.internal.os.BinderInternal.BinderProxyCountEventListener p0, android.os.Handler p1) {}
-    }
-
-    public static class CallSession {
-        public java.lang.Class<? extends android.os.Binder> binderClass;
-        long cpuTimeStarted;
-        boolean exceptionThrown;
-        public boolean recordedCall;
-        long timeStarted;
-        public int transactionCode;
-        public CallSession() {}
-    }
-
-    public static interface CallStatsObserver {
-        public void noteBinderThreadNativeIds(int[] p0);
-        public void noteCallStats(int p0, long p1, java.util.Collection<com.android.internal.os.BinderCallsStats.CallStat> p2);
+    public static interface Observer {
+        public void callEnded(com.android.internal.os.BinderInternal.CallSession p0, int p1, int p2, int p3);
+        public com.android.internal.os.BinderInternal.CallSession callStarted(android.os.Binder p0, int p1, int p2);
+        public void callThrewException(com.android.internal.os.BinderInternal.CallSession p0, java.lang.Exception p1);
     }
 
     static final class GcWatcher {
@@ -60,14 +42,33 @@ public class BinderInternal {
         protected void finalize() throws java.lang.Throwable {}
     }
 
-    public static interface Observer {
-        public void callEnded(com.android.internal.os.BinderInternal.CallSession p0, int p1, int p2, int p3);
-        public com.android.internal.os.BinderInternal.CallSession callStarted(android.os.Binder p0, int p1, int p2);
-        public void callThrewException(com.android.internal.os.BinderInternal.CallSession p0, java.lang.Exception p1);
+    public static interface CallStatsObserver {
+        public void noteBinderThreadNativeIds(int[] p0);
+        public void noteCallStats(int p0, long p1, java.util.Collection<com.android.internal.os.BinderCallsStats.CallStat> p2);
+    }
+
+    public static class CallSession {
+        public java.lang.Class<? extends android.os.Binder> binderClass;
+        long cpuTimeStarted;
+        boolean exceptionThrown;
+        public boolean latencySampled;
+        public boolean recordedCall;
+        long timeStarted;
+        public int transactionCode;
+        public CallSession() {}
     }
 
     @java.lang.FunctionalInterface
     public static interface WorkSourceProvider {
         public int resolveWorkSourceUid(int p0);
+    }
+
+    private static class BinderProxyCountEventListenerDelegate {
+        private com.android.internal.os.BinderInternal.BinderProxyCountEventListener mBinderProxyCountEventListener;
+        private android.os.Handler mHandler;
+        private BinderProxyCountEventListenerDelegate() {}
+        void notifyLimitReached(int p0) {}
+        void notifyWarningReached(int p0) {}
+        void setListener(com.android.internal.os.BinderInternal.BinderProxyCountEventListener p0, android.os.Handler p1) {}
     }
 }

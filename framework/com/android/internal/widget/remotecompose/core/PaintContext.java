@@ -62,6 +62,7 @@ public abstract class PaintContext {
     public abstract void savePaint();
     public abstract void scale(float p0, float p1);
     public void setContext(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
+    public void setCustomSupport(com.android.internal.widget.remotecompose.core.CustomContext p0) {}
     public abstract void setGraphicsLayer(java.util.HashMap<java.lang.Integer, java.lang.Object> p0);
     public void setMeasureVersion(int p0) {}
     public abstract void startGraphicsLayer(int p0, int p1);

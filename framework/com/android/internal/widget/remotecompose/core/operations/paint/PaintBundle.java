@@ -85,6 +85,8 @@ public class PaintBundle implements com.android.internal.widget.remotecompose.co
     private int fixFloatVar(int p0, com.android.internal.widget.remotecompose.core.RemoteContext p1) { return 0; }
     private static java.util.Map<java.lang.String, java.lang.Object> getVariable(int p0) { return null; }
     private void registerFloat(int p0, com.android.internal.widget.remotecompose.core.RemoteContext p1, com.android.internal.widget.remotecompose.core.VariableSupport p2) {}
+    private int resolveFloatId(int p0, com.android.internal.widget.remotecompose.core.WireBuffer p1) { return 0; }
+    private int resolveGradientIds(int p0, int[] p1, int p2, com.android.internal.widget.remotecompose.core.WireBuffer p3) { return 0; }
     private static int serializeGradient(int p0, int[] p1, int p2, java.util.List<java.util.Map<java.lang.String, java.lang.Object>> p3) { return 0; }
     public void applyPaintChange(com.android.internal.widget.remotecompose.core.PaintContext p0, com.android.internal.widget.remotecompose.core.operations.paint.PaintChanges p1) {}
     int callPrintGradient(int p0, int[] p1, int p2, java.lang.StringBuilder p3) { return 0; }
@@ -95,6 +97,7 @@ public class PaintBundle implements com.android.internal.widget.remotecompose.co
     public void readBundle(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}
     public void registerVars(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.VariableSupport p1) {}
     public void reset() {}
+    public void resolveIds(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
     public void setAlpha(float p0) {}
     public void setAntiAlias(boolean p0) {}

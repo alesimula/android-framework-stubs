@@ -24,15 +24,15 @@ public class TestLooperManager {
     public void recycle(android.os.Message p0) {}
     public void release() {}
 
-    private class LooperHolder implements java.lang.Runnable {
-        private LooperHolder(android.os.TestLooperManager p0) {}
-        private void processMessage(android.os.TestLooperManager.MessageExecution p0) {}
-        public void run() {}
-    }
-
     private static class MessageExecution {
         private android.os.Message m;
         private java.lang.Throwable response;
         private MessageExecution() {}
+    }
+
+    private class LooperHolder implements java.lang.Runnable {
+        private LooperHolder(android.os.TestLooperManager p0) {}
+        private void processMessage(android.os.TestLooperManager.MessageExecution p0) {}
+        public void run() {}
     }
 }

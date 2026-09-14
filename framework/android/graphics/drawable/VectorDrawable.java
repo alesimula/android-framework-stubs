@@ -1,7 +1,7 @@
 package android.graphics.drawable;
 
 public class VectorDrawable extends android.graphics.drawable.Drawable {
-    private static final java.lang.String LOGTAG = null;
+    private static final java.lang.String LOGTAG = "VectorDrawable";
     private static final java.lang.String SHAPE_CLIP_PATH = "clip-path";
     private static final java.lang.String SHAPE_GROUP = "group";
     private static final java.lang.String SHAPE_PATH = "path";
@@ -109,6 +109,35 @@ public class VectorDrawable extends android.graphics.drawable.Drawable {
     public void setTintBlendMode(android.graphics.BlendMode p0) {}
     public void setTintList(android.content.res.ColorStateList p0) {}
 
+    static abstract class VObject {
+        com.android.internal.util.VirtualRefBasePtr mTreePtr;
+        VObject() {}
+        abstract void applyTheme(android.content.res.Resources.Theme p0);
+        abstract boolean canApplyTheme();
+        abstract long getNativePtr();
+        abstract int getNativeSize();
+        abstract android.util.Property getProperty(java.lang.String p0);
+        abstract boolean hasFocusStateSpecified();
+        abstract void inflate(android.content.res.Resources p0, android.util.AttributeSet p1, android.content.res.Resources.Theme p2);
+        abstract boolean isStateful();
+        boolean isTreeValid() { return false; }
+        abstract boolean onStateChange(int[] p0);
+        void setTree(com.android.internal.util.VirtualRefBasePtr p0) {}
+    }
+
+    static abstract class VPath extends android.graphics.drawable.VectorDrawable.VObject {
+        private static final android.util.Property<android.graphics.drawable.VectorDrawable.VPath, android.util.PathParser.PathData> PATH_DATA = null;
+        int mChangingConfigurations;
+        protected android.util.PathParser.PathData mPathData;
+        java.lang.String mPathName;
+        public VPath() { super(); }
+        public VPath(android.graphics.drawable.VectorDrawable.VPath p0) { super(); }
+        public android.util.PathParser.PathData getPathData() { return null; }
+        public java.lang.String getPathName() { return null; }
+        android.util.Property getProperty(java.lang.String p0) { return null; }
+        public void setPathData(android.util.PathParser.PathData p0) {}
+    }
+
     private static class VClipPath extends android.graphics.drawable.VectorDrawable.VPath {
         private static final int NATIVE_ALLOCATION_SIZE = 120;
         private final long mNativePtr = 0L;
@@ -123,56 +152,6 @@ public class VectorDrawable extends android.graphics.drawable.Drawable {
         public void inflate(android.content.res.Resources p0, android.util.AttributeSet p1, android.content.res.Resources.Theme p2) {}
         public boolean isStateful() { return false; }
         public boolean onStateChange(int[] p0) { return false; }
-    }
-
-    static class VectorDrawableState extends android.graphics.drawable.Drawable.ConstantState {
-        static final android.util.Property<android.graphics.drawable.VectorDrawable.VectorDrawableState, java.lang.Float> ALPHA = null;
-        private static final int NATIVE_ALLOCATION_SIZE = 316;
-        private int mAllocationOfAllNodes;
-        boolean mAutoMirrored;
-        int mBaseHeight;
-        int mBaseWidth;
-        android.graphics.BlendMode mBlendMode;
-        boolean mCacheDirty;
-        boolean mCachedAutoMirrored;
-        android.graphics.BlendMode mCachedBlendMode;
-        int[] mCachedThemeAttrs;
-        android.content.res.ColorStateList mCachedTint;
-        int mChangingConfigurations;
-        int mDensity;
-        int mLastHWCachePixelCount;
-        int mLastSWCachePixelCount;
-        com.android.internal.util.VirtualRefBasePtr mNativeTree;
-        android.graphics.Insets mOpticalInsets;
-        android.graphics.drawable.VectorDrawable.VGroup mRootGroup;
-        java.lang.String mRootName;
-        int[] mThemeAttrs;
-        android.content.res.ColorStateList mTint;
-        final android.util.ArrayMap<java.lang.String, java.lang.Object> mVGTargetsMap = null;
-        float mViewportHeight;
-        float mViewportWidth;
-        public VectorDrawableState(android.graphics.drawable.VectorDrawable.VectorDrawableState p0) { super(); }
-        private void applyDensityScaling(int p0, int p1) {}
-        private void createNativeTree(android.graphics.drawable.VectorDrawable.VGroup p0) {}
-        private void createNativeTreeFromCopy(android.graphics.drawable.VectorDrawable.VectorDrawableState p0, android.graphics.drawable.VectorDrawable.VGroup p1) {}
-        public void applyTheme(android.content.res.Resources.Theme p0) {}
-        public boolean canApplyTheme() { return false; }
-        public boolean canReuseCache() { return false; }
-        public void finalize() throws java.lang.Throwable {}
-        public float getAlpha() { return 0.0f; }
-        public int getChangingConfigurations() { return 0; }
-        long getNativeRenderer() { return 0L; }
-        android.util.Property getProperty(java.lang.String p0) { return null; }
-        public boolean hasFocusStateSpecified() { return false; }
-        public boolean isStateful() { return false; }
-        public android.graphics.drawable.Drawable newDrawable() { return null; }
-        public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
-        public boolean onStateChange(int[] p0) { return false; }
-        void onTreeConstructionFinished() {}
-        public boolean setAlpha(float p0) { return false; }
-        public final boolean setDensity(int p0) { return false; }
-        void setViewportSize(float p0, float p1) {}
-        public void updateCacheStates() {}
     }
 
     static class VFullPath extends android.graphics.drawable.VectorDrawable.VPath {
@@ -295,32 +274,53 @@ public class VectorDrawable extends android.graphics.drawable.Drawable {
         void updateStateFromTypedArray(android.content.res.TypedArray p0) {}
     }
 
-    static abstract class VObject {
-        com.android.internal.util.VirtualRefBasePtr mTreePtr;
-        VObject() {}
-        abstract void applyTheme(android.content.res.Resources.Theme p0);
-        abstract boolean canApplyTheme();
-        abstract long getNativePtr();
-        abstract int getNativeSize();
-        abstract android.util.Property getProperty(java.lang.String p0);
-        abstract boolean hasFocusStateSpecified();
-        abstract void inflate(android.content.res.Resources p0, android.util.AttributeSet p1, android.content.res.Resources.Theme p2);
-        abstract boolean isStateful();
-        boolean isTreeValid() { return false; }
-        abstract boolean onStateChange(int[] p0);
-        void setTree(com.android.internal.util.VirtualRefBasePtr p0) {}
-    }
-
-    static abstract class VPath extends android.graphics.drawable.VectorDrawable.VObject {
-        private static final android.util.Property<android.graphics.drawable.VectorDrawable.VPath, android.util.PathParser.PathData> PATH_DATA = null;
+    static class VectorDrawableState extends android.graphics.drawable.Drawable.ConstantState {
+        static final android.util.Property<android.graphics.drawable.VectorDrawable.VectorDrawableState, java.lang.Float> ALPHA = null;
+        private static final int NATIVE_ALLOCATION_SIZE = 316;
+        private int mAllocationOfAllNodes;
+        boolean mAutoMirrored;
+        int mBaseHeight;
+        int mBaseWidth;
+        android.graphics.BlendMode mBlendMode;
+        boolean mCacheDirty;
+        boolean mCachedAutoMirrored;
+        android.graphics.BlendMode mCachedBlendMode;
+        int[] mCachedThemeAttrs;
+        android.content.res.ColorStateList mCachedTint;
         int mChangingConfigurations;
-        protected android.util.PathParser.PathData mPathData;
-        java.lang.String mPathName;
-        public VPath() { super(); }
-        public VPath(android.graphics.drawable.VectorDrawable.VPath p0) { super(); }
-        public android.util.PathParser.PathData getPathData() { return null; }
-        public java.lang.String getPathName() { return null; }
+        int mDensity;
+        int mLastHWCachePixelCount;
+        int mLastSWCachePixelCount;
+        com.android.internal.util.VirtualRefBasePtr mNativeTree;
+        android.graphics.Insets mOpticalInsets;
+        android.graphics.drawable.VectorDrawable.VGroup mRootGroup;
+        java.lang.String mRootName;
+        int[] mThemeAttrs;
+        android.content.res.ColorStateList mTint;
+        final android.util.ArrayMap<java.lang.String, java.lang.Object> mVGTargetsMap = null;
+        float mViewportHeight;
+        float mViewportWidth;
+        public VectorDrawableState(android.graphics.drawable.VectorDrawable.VectorDrawableState p0) { super(); }
+        private void applyDensityScaling(int p0, int p1) {}
+        private void createNativeTree(android.graphics.drawable.VectorDrawable.VGroup p0) {}
+        private void createNativeTreeFromCopy(android.graphics.drawable.VectorDrawable.VectorDrawableState p0, android.graphics.drawable.VectorDrawable.VGroup p1) {}
+        public void applyTheme(android.content.res.Resources.Theme p0) {}
+        public boolean canApplyTheme() { return false; }
+        public boolean canReuseCache() { return false; }
+        public void finalize() throws java.lang.Throwable {}
+        public float getAlpha() { return 0.0f; }
+        public int getChangingConfigurations() { return 0; }
+        long getNativeRenderer() { return 0L; }
         android.util.Property getProperty(java.lang.String p0) { return null; }
-        public void setPathData(android.util.PathParser.PathData p0) {}
+        public boolean hasFocusStateSpecified() { return false; }
+        public boolean isStateful() { return false; }
+        public android.graphics.drawable.Drawable newDrawable() { return null; }
+        public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
+        public boolean onStateChange(int[] p0) { return false; }
+        void onTreeConstructionFinished() {}
+        public boolean setAlpha(float p0) { return false; }
+        public final boolean setDensity(int p0) { return false; }
+        void setViewportSize(float p0, float p1) {}
+        public void updateCacheStates() {}
     }
 }

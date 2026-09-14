@@ -46,15 +46,6 @@ public abstract class LauncherActivity extends android.app.ListActivity {
         }
     }
 
-    public class IconResizer {
-        private android.graphics.Canvas mCanvas;
-        private int mIconHeight;
-        private int mIconWidth;
-        private final android.graphics.Rect mOldBounds = null;
-        public IconResizer(android.app.LauncherActivity p0) {}
-        public android.graphics.drawable.Drawable createIconThumbnail(android.graphics.drawable.Drawable p0) { return null; }
-    }
-
     public static class ListItem {
         public java.lang.String className;
         public android.os.Bundle extras;
@@ -64,5 +55,14 @@ public abstract class LauncherActivity extends android.app.ListActivity {
         public android.content.pm.ResolveInfo resolveInfo;
         public ListItem() {}
         ListItem(android.content.pm.PackageManager p0, android.content.pm.ResolveInfo p1, android.app.LauncherActivity.IconResizer p2) {}
+    }
+
+    public class IconResizer {
+        private android.graphics.Canvas mCanvas;
+        private int mIconHeight;
+        private int mIconWidth;
+        private final android.graphics.Rect mOldBounds = null;
+        public IconResizer(android.app.LauncherActivity p0) {}
+        public android.graphics.drawable.Drawable createIconThumbnail(android.graphics.drawable.Drawable p0) { return null; }
     }
 }

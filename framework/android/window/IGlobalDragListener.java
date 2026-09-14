@@ -5,13 +5,6 @@ public interface IGlobalDragListener extends android.os.IInterface {
     public void onCrossWindowDrop(android.app.ActivityManager.RunningTaskInfo p0) throws android.os.RemoteException;
     public void onUnhandledDrop(android.view.DragEvent p0, android.window.IUnhandledDragCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IGlobalDragListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCrossWindowDrop(android.app.ActivityManager.RunningTaskInfo p0) throws android.os.RemoteException {}
-        public void onUnhandledDrop(android.view.DragEvent p0, android.window.IUnhandledDragCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IGlobalDragListener {
         static final int TRANSACTION_onCrossWindowDrop = 1;
         static final int TRANSACTION_onUnhandledDrop = 2;
@@ -30,5 +23,12 @@ public interface IGlobalDragListener extends android.os.IInterface {
             public void onCrossWindowDrop(android.app.ActivityManager.RunningTaskInfo p0) throws android.os.RemoteException {}
             public void onUnhandledDrop(android.view.DragEvent p0, android.window.IUnhandledDragCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.IGlobalDragListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCrossWindowDrop(android.app.ActivityManager.RunningTaskInfo p0) throws android.os.RemoteException {}
+        public void onUnhandledDrop(android.view.DragEvent p0, android.window.IUnhandledDragCallback p1) throws android.os.RemoteException {}
     }
 }

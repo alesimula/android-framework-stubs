@@ -3,7 +3,7 @@ package android.service.voice;
 abstract class AbstractDetector implements android.service.voice.HotwordDetector {
     private static final boolean DEBUG = false;
     static final boolean IS_IDENTITY_WITH_ATTRIBUTION_TAG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AbstractDetector";
     private final android.service.voice.HotwordDetector.Callback mCallback = null;
     private final java.util.concurrent.Executor mExecutor = null;
     private final java.util.concurrent.atomic.AtomicBoolean mIsDetectorActive = null;

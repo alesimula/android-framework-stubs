@@ -85,6 +85,11 @@ public final class TelecomProtoEnums {
     public static final int CALL_AUDIO_UNSPECIFIED = 0;
     public static final int CALL_AUDIO_WATCH_SPEAKER = 2;
     public static final int CALL_AUDIO_WIRED_HEADSET = 6;
+    public static final int CALL_FORWARDING_DIALOG_CANCEL = 1202;
+    public static final int CALL_FORWARDING_DIALOG_DISMISSED = 1203;
+    public static final int CALL_FORWARDING_DIALOG_OK = 1201;
+    public static final int CALL_FORWARDING_DIALOG_SHOWN = 1200;
+    public static final int CALL_FORWARDING_DIALOG_UNKNOWN = 1204;
     public static final int CALL_LOG_OPT_IN = 1101;
     public static final int CALL_LOG_OPT_IN_EXCLUDED = 1103;
     public static final int CALL_LOG_OPT_OUT = 1100;
@@ -153,9 +158,11 @@ public final class TelecomProtoEnums {
     public static final int ERROR_TRANSACTION_UNKNOWN = 25;
     public static final int ERROR_UNKNOWN = 0;
     public static final int ERROR_VIDEO_PROVIDER_SET_FAILURE = 14;
+    public static final int ERROR_VOIP_APP = 1000;
     public static final int ERROR_WIRED_HEADSET_NOT_AVAILABLE = 15;
     public static final int EVENT_ADD_CALL = 3;
     public static final int EVENT_CALL_BACK = 8;
+    public static final int EVENT_CALL_FORWARDING_CONFIRMATION_DIALOG = 9;
     public static final int EVENT_DEFAULT_DIALER_CHANGED = 2;
     public static final int EVENT_INIT = 1;
     public static final int EVENT_LOG_VOIP_CALL_INCOMING_VIDEO = 5;

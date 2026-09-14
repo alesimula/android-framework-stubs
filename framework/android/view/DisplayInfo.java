@@ -2,8 +2,10 @@ package android.view;
 
 public final class DisplayInfo implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.view.DisplayInfo> CREATOR = null;
+    private static final float TOLERANCE = 9.99999993922529e-09f;
     public android.view.DisplayAddress address;
     public int appHeight;
+    public android.view.SurfaceControl.RefreshRateRange appRequestRenderRefreshRateRange;
     public long appVsyncOffsetNanos;
     public int appWidth;
     public float brightnessDefault;

@@ -3,7 +3,7 @@ package android.service.remotelockscreenvalidation;
 @android.annotation.SystemApi
 public abstract class RemoteLockscreenValidationService extends android.app.Service {
     public static final java.lang.String SERVICE_INTERFACE = "android.service.remotelockscreenvalidation.RemoteLockscreenValidationService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "RemoteLockscreenValidationService";
     private final android.os.Handler mHandler = null;
     private final android.service.remotelockscreenvalidation.IRemoteLockscreenValidationService mInterface = null;
     public RemoteLockscreenValidationService() { super(); }

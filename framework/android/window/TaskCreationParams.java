@@ -30,7 +30,6 @@ public final class TaskCreationParams implements android.os.Parcelable {
 
     static abstract class BaseBuilder {
         BaseBuilder() {}
-        abstract android.window.TaskCreationParams.Builder setLaunchCookie(android.os.IBinder p0);
     }
 
     public static final class Builder extends android.window.TaskCreationParams.BaseBuilder {
@@ -47,7 +46,6 @@ public final class TaskCreationParams implements android.os.Parcelable {
         private void checkNotUsed() {}
         public android.window.TaskCreationParams build() { return null; }
         public android.window.TaskCreationParams.Builder setDisplayId(int p0) { return null; }
-        android.window.TaskCreationParams.Builder setLaunchCookie(android.os.IBinder p0) { return null; }
         public android.window.TaskCreationParams.Builder setName(java.lang.String p0) { return null; }
         public android.window.TaskCreationParams.Builder setOnTop(boolean p0) { return null; }
         public android.window.TaskCreationParams.Builder setParentContainer(android.window.WindowContainerToken p0) { return null; }

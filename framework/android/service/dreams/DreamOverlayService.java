@@ -13,6 +13,7 @@ public abstract class DreamOverlayService extends android.app.Service {
     private void endDream(android.service.dreams.DreamOverlayService.OverlayClient p0) {}
     private void endDreamInternal(android.service.dreams.DreamOverlayService.OverlayClient p0) {}
     private void startDream(android.service.dreams.DreamOverlayService.OverlayClient p0, android.view.WindowManager.LayoutParams p1) {}
+    private void triggerDreamSwitcherDialog(android.service.dreams.DreamOverlayService.OverlayClient p0) {}
     private void wakeUp(android.service.dreams.DreamOverlayService.OverlayClient p0) {}
     public final android.content.ComponentName getDreamComponent() { return null; }
     public final boolean isDreamInPreviewMode() { return false; }
@@ -27,12 +28,7 @@ public abstract class DreamOverlayService extends android.app.Service {
     public final void redirectWake(boolean p0) {}
     public final void requestExit() {}
     public final boolean shouldShowComplications() { return false; }
-
-    private static class DreamOverlay extends android.service.dreams.IDreamOverlay.Stub {
-        private final java.lang.ref.WeakReference<android.service.dreams.DreamOverlayService> mService = null;
-        DreamOverlay(android.service.dreams.DreamOverlayService p0) { super(); }
-        public void getClient(android.service.dreams.IDreamOverlayClientCallback p0) {}
-    }
+    public void triggerDreamSwitcherDialog() {}
 
     private static class OverlayClient extends android.service.dreams.IDreamOverlayClient.Stub {
         private android.content.ComponentName mDreamComponent;
@@ -51,6 +47,13 @@ public abstract class DreamOverlayService extends android.app.Service {
         public void endDream() {}
         public void onWakeRequested() {}
         public void startDream(android.view.WindowManager.LayoutParams p0, android.service.dreams.IDreamOverlayCallback p1, java.lang.String p2, boolean p3, boolean p4) throws android.os.RemoteException {}
+        public void triggerDreamSwitcherDialog() {}
         public void wakeUp() {}
+    }
+
+    private static class DreamOverlay extends android.service.dreams.IDreamOverlay.Stub {
+        private final java.lang.ref.WeakReference<android.service.dreams.DreamOverlayService> mService = null;
+        DreamOverlay(android.service.dreams.DreamOverlayService p0) { super(); }
+        public void getClient(android.service.dreams.IDreamOverlayClientCallback p0) {}
     }
 }

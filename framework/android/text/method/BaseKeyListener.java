@@ -8,9 +8,9 @@ public abstract class BaseKeyListener extends android.text.method.MetaKeyKeyList
     private final java.lang.Object mLock = null;
     public BaseKeyListener() { super(); }
     private static int adjustReplacementSpan(java.lang.CharSequence p0, int p1, boolean p2) { return 0; }
-    private boolean backspaceOrForwardDelete(android.view.View p0, android.text.Editable p1, int p2, android.view.KeyEvent p3, boolean p4) { return false; }
+    private boolean backspaceOrForwardDelete(android.view.View p0, android.text.Editable p1, android.view.KeyEvent p2, boolean p3) { return false; }
     private boolean deleteLineFromCursor(android.view.View p0, android.text.Editable p1, boolean p2) { return false; }
-    private boolean deleteSelection(android.view.View p0, android.text.Editable p1) { return false; }
+    private boolean deleteSelection(android.text.Editable p0) { return false; }
     private boolean deleteUntilWordBoundary(android.view.View p0, android.text.Editable p1, boolean p2) { return false; }
     private static int getOffsetForBackspaceKey(java.lang.CharSequence p0, int p1) { return 0; }
     private static int getOffsetForForwardDeleteKey(java.lang.CharSequence p0, int p1, android.graphics.Paint p2) { return 0; }

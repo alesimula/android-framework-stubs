@@ -4,12 +4,6 @@ public interface IEventDownload extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.event.IEventDownload";
     public android.os.IBinder createSession(android.os.Bundle p0, android.media.tv.extension.event.IEventDownloadListener p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.event.IEventDownload {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.IBinder createSession(android.os.Bundle p0, android.media.tv.extension.event.IEventDownloadListener p1) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.event.IEventDownload {
         static final int TRANSACTION_createSession = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IEventDownload extends android.os.IInterface {
             public android.os.IBinder createSession(android.os.Bundle p0, android.media.tv.extension.event.IEventDownloadListener p1) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.event.IEventDownload {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.IBinder createSession(android.os.Bundle p0, android.media.tv.extension.event.IEventDownloadListener p1) throws android.os.RemoteException { return null; }
     }
 }

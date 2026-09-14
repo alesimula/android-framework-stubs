@@ -39,7 +39,9 @@ public class BinderLatencyObserver {
     public void setSamplingInterval(int p0) {}
     public void setShardingModulo(int p0) {}
     protected boolean shouldCollect(com.android.internal.os.BinderLatencyObserver.LatencyDims p0) { return false; }
+    protected boolean shouldCollect(java.lang.Class<? extends android.os.Binder> p0, int p1) { return false; }
     protected boolean shouldKeepSample() { return false; }
+    public boolean shouldSample(java.lang.Class<? extends android.os.Binder> p0, int p1) { return false; }
     protected void writeAtomToStatsd(android.util.proto.ProtoOutputStream p0) {}
 
     public static class Injector {
@@ -54,6 +56,7 @@ public class BinderLatencyObserver {
         private int mTransactionCode;
         private LatencyDims(java.lang.Class<? extends android.os.Binder> p0, int p1) {}
         public static com.android.internal.os.BinderLatencyObserver.LatencyDims create(java.lang.Class<? extends android.os.Binder> p0, int p1) { return null; }
+        public static int getHashCode(java.lang.Class<? extends android.os.Binder> p0, int p1) { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
         public java.lang.Class<? extends android.os.Binder> getBinderClass() { return null; }
         public int getTransactionCode() { return 0; }

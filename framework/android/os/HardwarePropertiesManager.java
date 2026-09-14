@@ -5,7 +5,7 @@ public class HardwarePropertiesManager {
     public static final int DEVICE_TEMPERATURE_CPU = 0;
     public static final int DEVICE_TEMPERATURE_GPU = 1;
     public static final int DEVICE_TEMPERATURE_SKIN = 3;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "HardwarePropertiesManager";
     public static final int TEMPERATURE_CURRENT = 0;
     public static final int TEMPERATURE_SHUTDOWN = 2;
     public static final int TEMPERATURE_THROTTLING = 1;
@@ -19,10 +19,10 @@ public class HardwarePropertiesManager {
     public float[] getFanSpeeds() { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeviceTemperatureType {
+    public static @interface TemperatureSource {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TemperatureSource {
+    public static @interface DeviceTemperatureType {
     }
 }

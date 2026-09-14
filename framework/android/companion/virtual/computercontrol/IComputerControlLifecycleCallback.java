@@ -6,14 +6,6 @@ public interface IComputerControlLifecycleCallback extends android.os.IInterface
     public void onBlocked(int p0, java.lang.String p1) throws android.os.RemoteException;
     public void onClosed(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.virtual.computercontrol.IComputerControlLifecycleCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onActive() throws android.os.RemoteException {}
-        public void onBlocked(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onClosed(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.virtual.computercontrol.IComputerControlLifecycleCallback {
         static final int TRANSACTION_onActive = 1;
         static final int TRANSACTION_onBlocked = 2;
@@ -34,5 +26,13 @@ public interface IComputerControlLifecycleCallback extends android.os.IInterface
             public void onBlocked(int p0, java.lang.String p1) throws android.os.RemoteException {}
             public void onClosed(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.virtual.computercontrol.IComputerControlLifecycleCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onActive() throws android.os.RemoteException {}
+        public void onBlocked(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onClosed(int p0) throws android.os.RemoteException {}
     }
 }

@@ -22,10 +22,10 @@ public class ThemeSupport {
         int[] mId;
         java.lang.String[] mName;
         AndroidColors() {}
-        private static long[] $d2j$hex$9bfe34d5$decode_J(java.lang.String p0) { return null; }
-        private static int[] $d2j$hex$9bfe34d5$decode_I(java.lang.String p0) { return null; }
-        private static short[] $d2j$hex$9bfe34d5$decode_S(java.lang.String p0) { return null; }
-        private static byte[] $d2j$hex$9bfe34d5$decode_B(java.lang.String p0) { return null; }
+        private static long[] $d2j$hex$e63033f3$decode_J(java.lang.String p0) { return null; }
+        private static int[] $d2j$hex$e63033f3$decode_I(java.lang.String p0) { return null; }
+        private static short[] $d2j$hex$e63033f3$decode_S(java.lang.String p0) { return null; }
+        private static byte[] $d2j$hex$e63033f3$decode_B(java.lang.String p0) { return null; }
     }
 
     static interface ColorEngine {

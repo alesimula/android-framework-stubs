@@ -4,12 +4,6 @@ public interface ISecurityStateManager extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.os.ISecurityStateManager";
     public android.os.Bundle getGlobalSecurityState() throws android.os.RemoteException;
 
-    public static class Default implements android.os.ISecurityStateManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.Bundle getGlobalSecurityState() throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.ISecurityStateManager {
         static final int TRANSACTION_getGlobalSecurityState = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISecurityStateManager extends android.os.IInterface {
             public android.os.Bundle getGlobalSecurityState() throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.os.ISecurityStateManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.Bundle getGlobalSecurityState() throws android.os.RemoteException { return null; }
     }
 }

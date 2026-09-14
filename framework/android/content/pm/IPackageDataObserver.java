@@ -3,12 +3,6 @@ package android.content.pm;
 public interface IPackageDataObserver extends android.os.IInterface {
     public void onRemoveCompleted(java.lang.String p0, boolean p1) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.IPackageDataObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onRemoveCompleted(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.IPackageDataObserver {
         public static final java.lang.String DESCRIPTOR = "android.content.pm.IPackageDataObserver";
         static final int TRANSACTION_onRemoveCompleted = 1;
@@ -26,5 +20,11 @@ public interface IPackageDataObserver extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onRemoveCompleted(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.IPackageDataObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onRemoveCompleted(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
     }
 }

@@ -17,12 +17,33 @@ public final class ScriptGroup extends android.renderscript.BaseObj {
     public void setInput(android.renderscript.Script.KernelID p0, android.renderscript.Allocation p1) {}
     public void setOutput(android.renderscript.Script.KernelID p0, android.renderscript.Allocation p1) {}
 
+    public static final class Builder2 {
+        private static final java.lang.String TAG = "ScriptGroup.Builder2";
+        java.util.List<android.renderscript.ScriptGroup.Closure> mClosures;
+        java.util.List<android.renderscript.ScriptGroup.Input> mInputs;
+        android.renderscript.RenderScript mRS;
+        public Builder2(android.renderscript.RenderScript p0) {}
+        private android.renderscript.ScriptGroup.Closure addInvokeInternal(android.renderscript.Script.InvokeID p0, java.lang.Object[] p1, java.util.Map<android.renderscript.Script.FieldID, java.lang.Object> p2) { return null; }
+        private android.renderscript.ScriptGroup.Closure addKernelInternal(android.renderscript.Script.KernelID p0, android.renderscript.Type p1, java.lang.Object[] p2, java.util.Map<android.renderscript.Script.FieldID, java.lang.Object> p3) { return null; }
+        private boolean seperateArgsAndBindings(java.lang.Object[] p0, java.util.ArrayList<java.lang.Object> p1, java.util.Map<android.renderscript.Script.FieldID, java.lang.Object> p2) { return false; }
+        public android.renderscript.ScriptGroup.Input addInput() { return null; }
+        public android.renderscript.ScriptGroup.Closure addInvoke(android.renderscript.Script.InvokeID p0, java.lang.Object... p1) { return null; }
+        public android.renderscript.ScriptGroup.Closure addKernel(android.renderscript.Script.KernelID p0, android.renderscript.Type p1, java.lang.Object... p2) { return null; }
+        public android.renderscript.ScriptGroup create(java.lang.String p0, android.renderscript.ScriptGroup.Future... p1) { return null; }
+    }
+
     public static final class Binding {
         private final android.renderscript.Script.FieldID mField = null;
         private final java.lang.Object mValue = null;
         public Binding(android.renderscript.Script.FieldID p0, java.lang.Object p1) {}
         android.renderscript.Script.FieldID getField() { return null; }
         java.lang.Object getValue() { return null; }
+    }
+
+    static class IO {
+        android.renderscript.Allocation mAllocation;
+        android.renderscript.Script.KernelID mKID;
+        IO(android.renderscript.Script.KernelID p0) {}
     }
 
     public static final class Builder {
@@ -43,19 +64,14 @@ public final class ScriptGroup extends android.renderscript.BaseObj {
         public android.renderscript.ScriptGroup create() { return null; }
     }
 
-    public static final class Builder2 {
-        private static final java.lang.String TAG = "ScriptGroup.Builder2";
-        java.util.List<android.renderscript.ScriptGroup.Closure> mClosures;
-        java.util.List<android.renderscript.ScriptGroup.Input> mInputs;
-        android.renderscript.RenderScript mRS;
-        public Builder2(android.renderscript.RenderScript p0) {}
-        private android.renderscript.ScriptGroup.Closure addInvokeInternal(android.renderscript.Script.InvokeID p0, java.lang.Object[] p1, java.util.Map<android.renderscript.Script.FieldID, java.lang.Object> p2) { return null; }
-        private android.renderscript.ScriptGroup.Closure addKernelInternal(android.renderscript.Script.KernelID p0, android.renderscript.Type p1, java.lang.Object[] p2, java.util.Map<android.renderscript.Script.FieldID, java.lang.Object> p3) { return null; }
-        private boolean seperateArgsAndBindings(java.lang.Object[] p0, java.util.ArrayList<java.lang.Object> p1, java.util.Map<android.renderscript.Script.FieldID, java.lang.Object> p2) { return false; }
-        public android.renderscript.ScriptGroup.Input addInput() { return null; }
-        public android.renderscript.ScriptGroup.Closure addInvoke(android.renderscript.Script.InvokeID p0, java.lang.Object... p1) { return null; }
-        public android.renderscript.ScriptGroup.Closure addKernel(android.renderscript.Script.KernelID p0, android.renderscript.Type p1, java.lang.Object... p2) { return null; }
-        public android.renderscript.ScriptGroup create(java.lang.String p0, android.renderscript.ScriptGroup.Future... p1) { return null; }
+    static class Node {
+        int dagNumber;
+        java.util.ArrayList<android.renderscript.ScriptGroup.ConnectLine> mInputs;
+        java.util.ArrayList<android.renderscript.Script.KernelID> mKernels;
+        android.renderscript.ScriptGroup.Node mNext;
+        java.util.ArrayList<android.renderscript.ScriptGroup.ConnectLine> mOutputs;
+        android.renderscript.Script mScript;
+        Node(android.renderscript.Script p0) {}
     }
 
     public static final class Closure extends android.renderscript.BaseObj {
@@ -112,21 +128,5 @@ public final class ScriptGroup extends android.renderscript.BaseObj {
         void addReference(android.renderscript.ScriptGroup.Closure p0, android.renderscript.Script.FieldID p1) {}
         java.lang.Object get() { return null; }
         void set(java.lang.Object p0) {}
-    }
-
-    static class IO {
-        android.renderscript.Allocation mAllocation;
-        android.renderscript.Script.KernelID mKID;
-        IO(android.renderscript.Script.KernelID p0) {}
-    }
-
-    static class Node {
-        int dagNumber;
-        java.util.ArrayList<android.renderscript.ScriptGroup.ConnectLine> mInputs;
-        java.util.ArrayList<android.renderscript.Script.KernelID> mKernels;
-        android.renderscript.ScriptGroup.Node mNext;
-        java.util.ArrayList<android.renderscript.ScriptGroup.ConnectLine> mOutputs;
-        android.renderscript.Script mScript;
-        Node(android.renderscript.Script p0) {}
     }
 }

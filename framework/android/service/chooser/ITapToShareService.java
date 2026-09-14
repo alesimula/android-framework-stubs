@@ -5,13 +5,6 @@ public interface ITapToShareService extends android.os.IInterface {
     public void registerCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException;
     public void unregisterCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.chooser.ITapToShareService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void registerCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException {}
-        public void unregisterCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.chooser.ITapToShareService {
         static final int TRANSACTION_registerCallback = 1;
         static final int TRANSACTION_unregisterCallback = 2;
@@ -30,5 +23,12 @@ public interface ITapToShareService extends android.os.IInterface {
             public void registerCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException {}
             public void unregisterCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.chooser.ITapToShareService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void registerCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException {}
+        public void unregisterCallback(android.service.chooser.ITapToShareCallback p0) throws android.os.RemoteException {}
     }
 }

@@ -27,39 +27,32 @@ public interface IAGnssRil extends android.internal.hidl.base.V1_0.IBase {
     public boolean updateNetworkAvailability(boolean p0, java.lang.String p1) throws android.os.RemoteException;
     public boolean updateNetworkState(boolean p0, byte p1, boolean p2) throws android.os.RemoteException;
 
-    public static final class AGnssRefLocation {
-        public android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocationCellID cellID;
-        public byte type;
-        public AGnssRefLocation() {}
-        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocation> readVectorFromParcel(android.os.HwParcel p0) { return null; }
-        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocation> p1) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
-        public final void readFromParcel(android.os.HwParcel p0) {}
-        public final java.lang.String toString() { return null; }
-        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
-        public final void writeToParcel(android.os.HwParcel p0) {}
+    public static final class SetIDType {
+        public static final byte IMSI = 1;
+        public static final byte MSISDM = 2;
+        public static final byte NONE = 0;
+        public SetIDType() {}
+        public static final java.lang.String dumpBitfield(byte p0) { return null; }
+        public static final java.lang.String toString(byte p0) { return null; }
     }
 
-    public static final class AGnssRefLocationCellID {
-        public int cid;
-        public short lac;
-        public short mcc;
-        public short mnc;
-        public short pcid;
-        public short tac;
-        public byte type;
-        public AGnssRefLocationCellID() {}
-        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocationCellID> readVectorFromParcel(android.os.HwParcel p0) { return null; }
-        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocationCellID> p1) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
-        public final void readFromParcel(android.os.HwParcel p0) {}
-        public final java.lang.String toString() { return null; }
-        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
-        public final void writeToParcel(android.os.HwParcel p0) {}
+    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IAGnssRil {
+        public Stub() { super(); }
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
+        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
+        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
+        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
+        public final java.lang.String interfaceDescriptor() { return null; }
+        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
+        public final void notifySyspropsChanged() {}
+        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
+        public final void ping() {}
+        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
+        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
+        public final void setHALInstrumentation() {}
+        public java.lang.String toString() { return null; }
+        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
     }
 
     public static final class AGnssRefLocationType {
@@ -67,19 +60,6 @@ public interface IAGnssRil extends android.internal.hidl.base.V1_0.IBase {
         public static final byte LTE_CELLID = 4;
         public static final byte UMTS_CELLID = 2;
         public AGnssRefLocationType() {}
-        public static final java.lang.String dumpBitfield(byte p0) { return null; }
-        public static final java.lang.String toString(byte p0) { return null; }
-    }
-
-    public static final class NetworkType {
-        public static final byte DUN = 4;
-        public static final byte HIPRI = 5;
-        public static final byte MMS = 2;
-        public static final byte MOBILE = 0;
-        public static final byte SUPL = 3;
-        public static final byte WIFI = 1;
-        public static final byte WIMAX = 6;
-        public NetworkType() {}
         public static final java.lang.String dumpBitfield(byte p0) { return null; }
         public static final java.lang.String toString(byte p0) { return null; }
     }
@@ -108,31 +88,51 @@ public interface IAGnssRil extends android.internal.hidl.base.V1_0.IBase {
         public boolean updateNetworkState(boolean p0, byte p1, boolean p2) throws android.os.RemoteException { return false; }
     }
 
-    public static final class SetIDType {
-        public static final byte IMSI = 1;
-        public static final byte MSISDM = 2;
-        public static final byte NONE = 0;
-        public SetIDType() {}
+    public static final class NetworkType {
+        public static final byte DUN = 4;
+        public static final byte HIPRI = 5;
+        public static final byte MMS = 2;
+        public static final byte MOBILE = 0;
+        public static final byte SUPL = 3;
+        public static final byte WIFI = 1;
+        public static final byte WIMAX = 6;
+        public NetworkType() {}
         public static final java.lang.String dumpBitfield(byte p0) { return null; }
         public static final java.lang.String toString(byte p0) { return null; }
     }
 
-    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IAGnssRil {
-        public Stub() { super(); }
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
-        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
-        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
-        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
-        public final java.lang.String interfaceDescriptor() { return null; }
-        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
-        public final void notifySyspropsChanged() {}
-        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
-        public final void ping() {}
-        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
-        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
-        public final void setHALInstrumentation() {}
-        public java.lang.String toString() { return null; }
-        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    public static final class AGnssRefLocationCellID {
+        public int cid;
+        public short lac;
+        public short mcc;
+        public short mnc;
+        public short pcid;
+        public short tac;
+        public byte type;
+        public AGnssRefLocationCellID() {}
+        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocationCellID> readVectorFromParcel(android.os.HwParcel p0) { return null; }
+        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocationCellID> p1) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
+        public final void readFromParcel(android.os.HwParcel p0) {}
+        public final java.lang.String toString() { return null; }
+        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
+        public final void writeToParcel(android.os.HwParcel p0) {}
+    }
+
+    public static final class AGnssRefLocation {
+        public android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocationCellID cellID;
+        public byte type;
+        public AGnssRefLocation() {}
+        public static final java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocation> readVectorFromParcel(android.os.HwParcel p0) { return null; }
+        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.hardware.gnss.V1_0.IAGnssRil.AGnssRefLocation> p1) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
+        public final void readFromParcel(android.os.HwParcel p0) {}
+        public final java.lang.String toString() { return null; }
+        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
+        public final void writeToParcel(android.os.HwParcel p0) {}
     }
 }

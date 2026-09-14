@@ -299,8 +299,8 @@ public class PhoneWindow extends android.view.Window implements com.android.inte
     public void unregisterScrollCaptureCallback(android.view.ScrollCaptureCallback p0) {}
     protected final void updateDrawable(int p0, boolean p1) {}
 
-    private final class ActionMenuPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
-        private ActionMenuPresenterCallback(com.android.internal.policy.PhoneWindow p0) {}
+    private class PanelMenuPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
+        private PanelMenuPresenterCallback(com.android.internal.policy.PhoneWindow p0) {}
         public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
         public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
     }
@@ -316,6 +316,11 @@ public class PhoneWindow extends android.view.Window implements com.android.inte
         int resid;
         android.net.Uri uri;
         DrawableFeatureState(int p0) {}
+    }
+
+    static class WindowManagerHolder {
+        static final android.view.IWindowManager sWindowManager = null;
+        WindowManagerHolder() {}
     }
 
     static final class PanelFeatureState {
@@ -370,24 +375,10 @@ public class PhoneWindow extends android.view.Window implements com.android.inte
         }
     }
 
-    private class PanelMenuPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
-        private PanelMenuPresenterCallback(com.android.internal.policy.PhoneWindow p0) {}
+    private final class ActionMenuPresenterCallback implements com.android.internal.view.menu.MenuPresenter.Callback {
+        private ActionMenuPresenterCallback(com.android.internal.policy.PhoneWindow p0) {}
         public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
         public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
-    }
-
-    public static final class PhoneWindowMenuCallback implements com.android.internal.view.menu.MenuBuilder.Callback, com.android.internal.view.menu.MenuPresenter.Callback {
-        private static final int FEATURE_ID = 6;
-        private boolean mShowDialogForSubmenu;
-        private com.android.internal.view.menu.MenuDialogHelper mSubMenuHelper;
-        private final com.android.internal.policy.PhoneWindow mWindow = null;
-        public PhoneWindowMenuCallback(com.android.internal.policy.PhoneWindow p0) {}
-        private void onCloseSubMenu(com.android.internal.view.menu.MenuBuilder p0) {}
-        public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
-        public boolean onMenuItemSelected(com.android.internal.view.menu.MenuBuilder p0, android.view.MenuItem p1) { return false; }
-        public void onMenuModeChange(com.android.internal.view.menu.MenuBuilder p0) {}
-        public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
-        public void setShowDialogForSubmenu(boolean p0) {}
     }
 
     static class RotationWatcher extends android.view.IRotationWatcher.Stub {
@@ -402,8 +393,17 @@ public class PhoneWindow extends android.view.Window implements com.android.inte
         public void removeWindow(com.android.internal.policy.PhoneWindow p0) {}
     }
 
-    static class WindowManagerHolder {
-        static final android.view.IWindowManager sWindowManager = null;
-        WindowManagerHolder() {}
+    public static final class PhoneWindowMenuCallback implements com.android.internal.view.menu.MenuBuilder.Callback, com.android.internal.view.menu.MenuPresenter.Callback {
+        private static final int FEATURE_ID = 6;
+        private boolean mShowDialogForSubmenu;
+        private com.android.internal.view.menu.MenuDialogHelper mSubMenuHelper;
+        private final com.android.internal.policy.PhoneWindow mWindow = null;
+        public PhoneWindowMenuCallback(com.android.internal.policy.PhoneWindow p0) {}
+        private void onCloseSubMenu(com.android.internal.view.menu.MenuBuilder p0) {}
+        public void onCloseMenu(com.android.internal.view.menu.MenuBuilder p0, boolean p1) {}
+        public boolean onMenuItemSelected(com.android.internal.view.menu.MenuBuilder p0, android.view.MenuItem p1) { return false; }
+        public void onMenuModeChange(com.android.internal.view.menu.MenuBuilder p0) {}
+        public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
+        public void setShowDialogForSubmenu(boolean p0) {}
     }
 }

@@ -73,6 +73,7 @@ public class ActivityInfo extends android.content.pm.ComponentInfo implements an
     public static final int FLAG_SYSTEM_USER_ONLY = 536870912;
     public static final int FLAG_TURN_SCREEN_ON = 16777216;
     public static final int FLAG_VISIBLE_TO_INSTANT_APP = 1048576;
+    public static final long FORCE_CONSOLIDATE_SIZE_CONFIG_CHANGES = 527717849L;
     public static final long FORCE_LAUNCH_FULLSCREEN_FROM_DESKTOP = 492280747L;
     public static final long FORCE_NON_RESIZE_APP = 181136395L;
     public static final long FORCE_RESIZE_APP = 174042936L;
@@ -130,6 +131,7 @@ public class ActivityInfo extends android.content.pm.ComponentInfo implements an
     public static final int PRIVATE_FLAG_DISABLE_ON_BACK_INVOKED_CALLBACK = 8;
     public static final int PRIVATE_FLAG_ENABLE_ON_BACK_INVOKED_CALLBACK = 4;
     public static final int PRIVATE_FLAG_HOME_TRANSITION_SOUND = 2;
+    public static final java.lang.String PROPERTY_COMPAT_CONSOLIDATE_SIZE_CONFIG_CHANGES = "android.window.PROPERTY_COMPAT_CONSOLIDATE_SIZE_CONFIG_CHANGES";
     public static final int RESIZE_MODE_FORCE_RESIZABLE_LANDSCAPE_ONLY = 5;
     public static final int RESIZE_MODE_FORCE_RESIZABLE_PORTRAIT_ONLY = 6;
     public static final int RESIZE_MODE_FORCE_RESIZABLE_PRESERVE_ORIENTATION = 7;
@@ -159,6 +161,7 @@ public class ActivityInfo extends android.content.pm.ComponentInfo implements an
     public static final int SIZE_CHANGES_SUPPORTED_OVERRIDE = 3;
     public static final int SIZE_CHANGES_UNSUPPORTED_METADATA = 0;
     public static final int SIZE_CHANGES_UNSUPPORTED_OVERRIDE = 1;
+    public static final int SIZE_CONFIG_MASK = 3456;
     public static final long SKIP_ACTIVITY_RECREATION_ON_CONFIG_CHANGE = 454795633L;
     public static final int UIOPTION_SPLIT_ACTION_BAR_WHEN_NARROW = 1;
     public static final long UNIVERSAL_RESIZABLE_BY_DEFAULT = 357141415L;

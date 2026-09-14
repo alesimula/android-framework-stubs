@@ -87,22 +87,6 @@ public final class WindowManagerGlobal {
     public void unregisterTrustedPresentationListener(java.util.function.Consumer<java.lang.Boolean> p0) {}
     public void updateViewLayout(android.view.View p0, android.view.ViewGroup.LayoutParams p1) {}
 
-    private static class ProposedRotationListenerDelegate extends android.view.IRotationWatcher.Stub {
-        int mLastRotation;
-        private volatile android.view.WindowManagerGlobal.ProposedRotationListenerDelegate.ListenerWrapper[] mListenerArray;
-        private final java.util.ArrayList<android.view.WindowManagerGlobal.ProposedRotationListenerDelegate.ListenerWrapper> mListeners = null;
-        private ProposedRotationListenerDelegate() { super(); }
-        boolean add(java.util.concurrent.Executor p0, java.util.function.IntConsumer p1) { return false; }
-        public void onRotationChanged(int p0) {}
-        boolean remove(java.util.function.IntConsumer p0) { return false; }
-
-        static class ListenerWrapper {
-            final java.util.concurrent.Executor mExecutor = null;
-            final java.lang.ref.WeakReference<java.util.function.IntConsumer> mListener = null;
-            ListenerWrapper(java.util.concurrent.Executor p0, java.util.function.IntConsumer p1) {}
-        }
-    }
-
     private static class SurfaceControlInputReceiverInfo {
         final android.os.IBinder mClientToken = null;
         final android.view.InputEventReceiver mInputEventReceiver = null;
@@ -117,5 +101,21 @@ public final class WindowManagerGlobal {
         private void addListener(android.os.IBinder p0, android.window.TrustedPresentationThresholds p1, java.util.function.Consumer<java.lang.Boolean> p2, java.util.concurrent.Executor p3) {}
         private void removeListener(java.util.function.Consumer<java.lang.Boolean> p0) {}
         public void onTrustedPresentationChanged(int[] p0, int[] p1) {}
+    }
+
+    private static class ProposedRotationListenerDelegate extends android.view.IRotationWatcher.Stub {
+        int mLastRotation;
+        private volatile android.view.WindowManagerGlobal.ProposedRotationListenerDelegate.ListenerWrapper[] mListenerArray;
+        private final java.util.ArrayList<android.view.WindowManagerGlobal.ProposedRotationListenerDelegate.ListenerWrapper> mListeners = null;
+        private ProposedRotationListenerDelegate() { super(); }
+        boolean add(java.util.concurrent.Executor p0, java.util.function.IntConsumer p1) { return false; }
+        public void onRotationChanged(int p0) {}
+        boolean remove(java.util.function.IntConsumer p0) { return false; }
+
+        static class ListenerWrapper {
+            final java.util.concurrent.Executor mExecutor = null;
+            final java.lang.ref.WeakReference<java.util.function.IntConsumer> mListener = null;
+            ListenerWrapper(java.util.concurrent.Executor p0, java.util.function.IntConsumer p1) {}
+        }
     }
 }

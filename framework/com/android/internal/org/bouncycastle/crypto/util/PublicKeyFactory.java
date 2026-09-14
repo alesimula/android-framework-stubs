@@ -9,18 +9,13 @@ public class PublicKeyFactory {
     public static com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter createKey(byte[] p0) throws java.io.IOException { return null; }
     private static byte[] getRawKey(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) { return null; }
 
-    private static class DHAgreementConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
-        private DHAgreementConverter() { super(); }
-        com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException { return null; }
-    }
-
-    private static class DHPublicNumberConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
-        private DHPublicNumberConverter() { super(); }
-        com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException { return null; }
-    }
-
     private static class DSAConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
         private DSAConverter() { super(); }
+        com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException { return null; }
+    }
+
+    private static class DHAgreementConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
+        private DHAgreementConverter() { super(); }
         com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException { return null; }
     }
 
@@ -29,13 +24,18 @@ public class PublicKeyFactory {
         com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) { return null; }
     }
 
-    private static class RSAConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
-        private RSAConverter() { super(); }
+    private static class DHPublicNumberConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
+        private DHPublicNumberConverter() { super(); }
         com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException { return null; }
     }
 
     private static abstract class SubjectPublicKeyInfoConverter {
         private SubjectPublicKeyInfoConverter() {}
         abstract com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException;
+    }
+
+    private static class RSAConverter extends com.android.internal.org.bouncycastle.crypto.util.PublicKeyFactory.SubjectPublicKeyInfoConverter {
+        private RSAConverter() { super(); }
+        com.android.internal.org.bouncycastle.crypto.params.AsymmetricKeyParameter getPublicKeyParameters(com.android.internal.org.bouncycastle.asn1.x509.SubjectPublicKeyInfo p0, java.lang.Object p1) throws java.io.IOException { return null; }
     }
 }

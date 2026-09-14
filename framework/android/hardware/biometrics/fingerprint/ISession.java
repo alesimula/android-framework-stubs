@@ -32,38 +32,6 @@ public interface ISession extends android.os.IInterface {
     @java.lang.Deprecated
     public void setIgnoreDisplayTouches(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.fingerprint.ISession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.biometrics.common.ICancellationSignal authenticate(long p0) throws android.os.RemoteException { return null; }
-        public android.hardware.biometrics.common.ICancellationSignal authenticateWithContext(long p0, android.hardware.biometrics.common.OperationContext p1) throws android.os.RemoteException { return null; }
-        public void close() throws android.os.RemoteException {}
-        public android.hardware.biometrics.common.ICancellationSignal detectInteraction() throws android.os.RemoteException { return null; }
-        public android.hardware.biometrics.common.ICancellationSignal detectInteractionWithContext(android.hardware.biometrics.common.OperationContext p0) throws android.os.RemoteException { return null; }
-        public android.hardware.biometrics.common.ICancellationSignal enroll(android.hardware.keymaster.HardwareAuthToken p0) throws android.os.RemoteException { return null; }
-        public android.hardware.biometrics.common.ICancellationSignal enrollWithContext(android.hardware.keymaster.HardwareAuthToken p0, android.hardware.biometrics.common.OperationContext p1) throws android.os.RemoteException { return null; }
-        public void enumerateEnrollments() throws android.os.RemoteException {}
-        public void generateChallenge() throws android.os.RemoteException {}
-        public void getAuthenticatorId() throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void invalidateAuthenticatorId() throws android.os.RemoteException {}
-        public void onContextChanged(android.hardware.biometrics.common.OperationContext p0) throws android.os.RemoteException {}
-        public void onPointerCancelWithContext(android.hardware.biometrics.fingerprint.PointerContext p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void onPointerDown(int p0, int p1, int p2, float p3, float p4) throws android.os.RemoteException {}
-        public void onPointerDownWithContext(android.hardware.biometrics.fingerprint.PointerContext p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void onPointerUp(int p0) throws android.os.RemoteException {}
-        public void onPointerUpWithContext(android.hardware.biometrics.fingerprint.PointerContext p0) throws android.os.RemoteException {}
-        public void onUiReady() throws android.os.RemoteException {}
-        public void removeEnrollments(int[] p0) throws android.os.RemoteException {}
-        public void resetLockout(android.hardware.keymaster.HardwareAuthToken p0) throws android.os.RemoteException {}
-        public void revokeChallenge(long p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setIgnoreDisplayTouches(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.fingerprint.ISession {
         static final int TRANSACTION_authenticate = 4;
         static final int TRANSACTION_authenticateWithContext = 15;
@@ -131,5 +99,37 @@ public interface ISession extends android.os.IInterface {
             @java.lang.Deprecated
             public void setIgnoreDisplayTouches(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.fingerprint.ISession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.biometrics.common.ICancellationSignal authenticate(long p0) throws android.os.RemoteException { return null; }
+        public android.hardware.biometrics.common.ICancellationSignal authenticateWithContext(long p0, android.hardware.biometrics.common.OperationContext p1) throws android.os.RemoteException { return null; }
+        public void close() throws android.os.RemoteException {}
+        public android.hardware.biometrics.common.ICancellationSignal detectInteraction() throws android.os.RemoteException { return null; }
+        public android.hardware.biometrics.common.ICancellationSignal detectInteractionWithContext(android.hardware.biometrics.common.OperationContext p0) throws android.os.RemoteException { return null; }
+        public android.hardware.biometrics.common.ICancellationSignal enroll(android.hardware.keymaster.HardwareAuthToken p0) throws android.os.RemoteException { return null; }
+        public android.hardware.biometrics.common.ICancellationSignal enrollWithContext(android.hardware.keymaster.HardwareAuthToken p0, android.hardware.biometrics.common.OperationContext p1) throws android.os.RemoteException { return null; }
+        public void enumerateEnrollments() throws android.os.RemoteException {}
+        public void generateChallenge() throws android.os.RemoteException {}
+        public void getAuthenticatorId() throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void invalidateAuthenticatorId() throws android.os.RemoteException {}
+        public void onContextChanged(android.hardware.biometrics.common.OperationContext p0) throws android.os.RemoteException {}
+        public void onPointerCancelWithContext(android.hardware.biometrics.fingerprint.PointerContext p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void onPointerDown(int p0, int p1, int p2, float p3, float p4) throws android.os.RemoteException {}
+        public void onPointerDownWithContext(android.hardware.biometrics.fingerprint.PointerContext p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void onPointerUp(int p0) throws android.os.RemoteException {}
+        public void onPointerUpWithContext(android.hardware.biometrics.fingerprint.PointerContext p0) throws android.os.RemoteException {}
+        public void onUiReady() throws android.os.RemoteException {}
+        public void removeEnrollments(int[] p0) throws android.os.RemoteException {}
+        public void resetLockout(android.hardware.keymaster.HardwareAuthToken p0) throws android.os.RemoteException {}
+        public void revokeChallenge(long p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setIgnoreDisplayTouches(boolean p0) throws android.os.RemoteException {}
     }
 }

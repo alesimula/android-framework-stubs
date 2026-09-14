@@ -19,11 +19,11 @@ public final class Looper {
     final java.lang.Thread mThread = null;
     private long mTraceTag;
     private Looper(boolean p0) {}
+    private static java.lang.String callbackToString(java.lang.Runnable p0) { return null; }
     public static void clearMainLooperForTest() {}
     public static android.os.Looper getMainLooper() { return null; }
     private static int getThreadGroup() { return 0; }
     private static int getThresholdOverride() { return 0; }
-    private static boolean isLooperClearsThreadInterruptedEnabled() { return false; }
     public static void loop() {}
     private static boolean loopOnce(android.os.Looper p0, long p1, int p2) { return false; }
     public static android.os.Looper myLooper() { return null; }
@@ -51,14 +51,14 @@ public final class Looper {
     public void setTraceTag(long p0) {}
     public java.lang.String toString() { return null; }
 
-    private static class NoImagePreloadHolder {
-        private static final boolean sVerboseLogging = Boolean.valueOf(false);
-        private NoImagePreloadHolder() {}
-    }
-
     public static interface Observer {
         public void dispatchingThrewException(java.lang.Object p0, android.os.Message p1, java.lang.Exception p2);
         public java.lang.Object messageDispatchStarting();
         public void messageDispatched(java.lang.Object p0, android.os.Message p1);
+    }
+
+    private static class NoImagePreloadHolder {
+        private static final boolean sVerboseLogging = Boolean.valueOf(false);
+        private NoImagePreloadHolder() {}
     }
 }

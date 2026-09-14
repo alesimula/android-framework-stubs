@@ -44,10 +44,8 @@ public class Loader<D extends java.lang.Object> {
     public void unregisterOnLoadCanceledListener(android.content.Loader.OnLoadCanceledListener<D> p0) {}
 
     @java.lang.Deprecated
-    public final class ForceLoadContentObserver extends android.database.ContentObserver {
-        public ForceLoadContentObserver(android.content.Loader p0) { super((android.os.Handler)null); }
-        public boolean deliverSelfNotifications() { return false; }
-        public void onChange(boolean p0) {}
+    public static interface OnLoadCompleteListener<D extends java.lang.Object> {
+        public void onLoadComplete(android.content.Loader<D> p0, D p1);
     }
 
     @java.lang.Deprecated
@@ -56,7 +54,9 @@ public class Loader<D extends java.lang.Object> {
     }
 
     @java.lang.Deprecated
-    public static interface OnLoadCompleteListener<D extends java.lang.Object> {
-        public void onLoadComplete(android.content.Loader<D> p0, D p1);
+    public final class ForceLoadContentObserver extends android.database.ContentObserver {
+        public ForceLoadContentObserver(android.content.Loader p0) { super((android.os.Handler)null); }
+        public boolean deliverSelfNotifications() { return false; }
+        public void onChange(boolean p0) {}
     }
 }

@@ -8,6 +8,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public int addOverrideApn(android.content.ComponentName p0, android.telephony.data.ApnSetting p1) throws android.os.RemoteException;
     public void addPersistentPreferredActivity(android.content.ComponentName p0, java.lang.String p1, android.content.IntentFilter p2, android.content.ComponentName p3) throws android.os.RemoteException;
     public void addResolvedDeviceWidePolicyCallback(java.lang.String p0, java.lang.String p1, android.app.admin.IDevicePolicyValueCallback p2) throws android.os.RemoteException;
+    public void addResolvedPerUserPolicyCallback(java.lang.String p0, int p1, java.lang.String p2, android.app.admin.IDevicePolicyValueCallback p3) throws android.os.RemoteException;
     public boolean approveCaCert(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException;
     public boolean bindDeviceAdminServiceAsUser(android.content.ComponentName p0, android.app.IApplicationThread p1, android.os.IBinder p2, android.content.Intent p3, android.app.IServiceConnection p4, long p5, int p6) throws android.os.RemoteException;
     public void calculateHasIncompatibleAccounts() throws android.os.RemoteException;
@@ -77,6 +78,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public java.util.List<java.lang.String> getCrossProfilePackages(android.content.ComponentName p0) throws android.os.RemoteException;
     public java.util.List<java.lang.String> getCrossProfileWidgetProviders(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException;
     public int getCurrentFailedPasswordAttempts(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException;
+    public android.app.admin.dataleakprevention.DataLeakPreventionRules getDataLeakPreventionRules(java.lang.String p0) throws android.os.RemoteException;
     public java.util.List<java.lang.String> getDefaultCrossProfilePackages() throws android.os.RemoteException;
     public java.util.List<java.lang.String> getDelegatePackages(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException;
     public java.util.List<java.lang.String> getDelegatedScopes(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException;
@@ -95,6 +97,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public android.app.admin.EnforcingAdmin getEnforcingAdmin(int p0, java.lang.String p1) throws android.os.RemoteException;
     public android.os.Bundle getEnforcingAdminAndUserDetails(int p0, java.lang.String p1) throws android.os.RemoteException;
     public java.util.List<android.app.admin.EnforcingAdmin> getEnforcingAdminsForPolicy(java.lang.String p0, int p1) throws android.os.RemoteException;
+    public java.util.List<android.app.admin.EnforcingAdmin> getEnforcingAdminsForPolicyIdentifier(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException;
     public java.lang.String getEnrollmentSpecificId(java.lang.String p0) throws android.os.RemoteException;
     public android.app.admin.FactoryResetProtectionPolicy getFactoryResetProtectionPolicy(android.content.ComponentName p0) throws android.os.RemoteException;
     public java.lang.String getFinancedDeviceKioskRoleHolder(java.lang.String p0) throws android.os.RemoteException;
@@ -105,6 +108,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public int getHeadlessDeviceOwnerMode(java.lang.String p0) throws android.os.RemoteException;
     public java.util.List<java.lang.String> getKeepUninstalledPackages(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException;
     public android.app.admin.ParcelableGranteeMap getKeyPairGrants(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
+    public android.app.admin.ParcelableGranteeMap getKeyPairGrantsWithScope(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public int getKeyguardDisabledFeatures(android.content.ComponentName p0, int p1, boolean p2) throws android.os.RemoteException;
     public long getLastBugReportRequestTime() throws android.os.RemoteException;
     public long getLastNetworkLogRetrievalTime() throws android.os.RemoteException;
@@ -225,6 +229,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public boolean isFactoryResetProtectionPolicySupported() throws android.os.RemoteException;
     public boolean isInputMethodPermittedByAdmin(android.content.ComponentName p0, java.lang.String p1, int p2, boolean p3) throws android.os.RemoteException;
     public boolean isKeyPairGrantedToWifiAuth(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
+    public boolean isKeyPairGrantedToWifiAuthWithScope(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public boolean isLockTaskPermitted(java.lang.String p0) throws android.os.RemoteException;
     public boolean isLogoutEnabled() throws android.os.RemoteException;
     public boolean isManagedKiosk() throws android.os.RemoteException;
@@ -235,7 +240,8 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public boolean isNewUserDisclaimerAcknowledged(int p0) throws android.os.RemoteException;
     public boolean isNotificationListenerServicePermitted(java.lang.String p0, int p1) throws android.os.RemoteException;
     public boolean isOrganizationOwnedDeviceWithManagedProfile() throws android.os.RemoteException;
-    public boolean isOutgoingTransferAllowedForSubscription(java.lang.String p0, int p1) throws android.os.RemoteException;
+    public boolean isOrganizationOwnedManagedProfileProvisioningSupported() throws android.os.RemoteException;
+    public boolean isOutgoingEsimTransferAllowed(java.lang.String p0, int p1) throws android.os.RemoteException;
     public boolean isOverrideApnEnabled(android.content.ComponentName p0) throws android.os.RemoteException;
     public boolean isPackageAllowedToAccessCalendarForUser(java.lang.String p0, int p1) throws android.os.RemoteException;
     public boolean isPackageAllowedToBypassDevicePolicyManagementRoleQualification(java.lang.String p0, int p1) throws android.os.RemoteException;
@@ -274,6 +280,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public boolean removeManagedProfile(int p0) throws android.os.RemoteException;
     public boolean removeOverrideApn(android.content.ComponentName p0, int p1) throws android.os.RemoteException;
     public void removeResolvedDeviceWidePolicyCallback(java.lang.String p0, java.lang.String p1, android.app.admin.IDevicePolicyValueCallback p2) throws android.os.RemoteException;
+    public void removeResolvedPerUserPolicyCallback(java.lang.String p0, int p1, java.lang.String p2, android.app.admin.IDevicePolicyValueCallback p3) throws android.os.RemoteException;
     public boolean removeUser(android.content.ComponentName p0, android.os.UserHandle p1) throws android.os.RemoteException;
     public void reportFailedBiometricAttempt(int p0) throws android.os.RemoteException;
     public void reportFailedPasswordAttempt(int p0, boolean p1) throws android.os.RemoteException;
@@ -282,6 +289,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public void reportPasswordChanged(android.app.admin.PasswordMetrics p0, int p1) throws android.os.RemoteException;
     public void reportSuccessfulBiometricAttempt(int p0) throws android.os.RemoteException;
     public void reportSuccessfulPasswordAttempt(int p0) throws android.os.RemoteException;
+    public void reportUserLoginAttempt(int p0, int p1) throws android.os.RemoteException;
     public boolean requestBugreport(android.content.ComponentName p0) throws android.os.RemoteException;
     public void resetDefaultCrossProfileIntentFilters(int p0) throws android.os.RemoteException;
     public void resetDrawables(java.util.List<java.lang.String> p0) throws android.os.RemoteException;
@@ -323,6 +331,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public void setCrossProfileContactsSearchDisabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException;
     public void setCrossProfilePackages(android.content.ComponentName p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException;
     public void setCrossProfileWidgetProviders(java.lang.String p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException;
+    public void setDataLeakPreventionRules(java.lang.String p0, android.app.admin.dataleakprevention.DataLeakPreventionRules p1) throws android.os.RemoteException;
     public void setDefaultDialerApplication(java.lang.String p0) throws android.os.RemoteException;
     public void setDefaultSmsApplication(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException;
     public void setDelegatedScopes(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) throws android.os.RemoteException;
@@ -340,8 +349,11 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public void setGlobalSetting(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
     public void setKeepUninstalledPackages(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) throws android.os.RemoteException;
     public boolean setKeyGrantForApp(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4) throws android.os.RemoteException;
+    public boolean setKeyGrantForAppWithScope(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5) throws android.os.RemoteException;
     public boolean setKeyGrantToWifiAuth(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException;
+    public boolean setKeyGrantToWifiAuthWithScope(java.lang.String p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException;
     public boolean setKeyPairCertificate(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, byte[] p3, byte[] p4, boolean p5) throws android.os.RemoteException;
+    public boolean setKeyPairCertificateWithScope(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, byte[] p3, byte[] p4, boolean p5, int p6) throws android.os.RemoteException;
     public boolean setKeyguardDisabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException;
     public void setKeyguardDisabledFeatures(android.content.ComponentName p0, java.lang.String p1, int p2, boolean p3) throws android.os.RemoteException;
     public void setLocationEnabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException;
@@ -363,6 +375,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
     public void setMtePolicyBySystem(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void setNearbyAppStreamingPolicy(int p0, boolean p1) throws android.os.RemoteException;
     public void setNearbyNotificationStreamingPolicy(int p0) throws android.os.RemoteException;
+    public void setNetworkLogEventsCallback(java.lang.String p0, android.app.admin.INetworkLogEventsCallback p1) throws android.os.RemoteException;
     public void setNetworkLoggingEnabled(android.content.ComponentName p0, java.lang.String p1, boolean p2) throws android.os.RemoteException;
     public void setNextOperationSafety(int p0, int p1) throws android.os.RemoteException;
     public void setOrganizationColor(android.content.ComponentName p0, int p1) throws android.os.RemoteException;
@@ -445,6 +458,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public int addOverrideApn(android.content.ComponentName p0, android.telephony.data.ApnSetting p1) throws android.os.RemoteException { return 0; }
         public void addPersistentPreferredActivity(android.content.ComponentName p0, java.lang.String p1, android.content.IntentFilter p2, android.content.ComponentName p3) throws android.os.RemoteException {}
         public void addResolvedDeviceWidePolicyCallback(java.lang.String p0, java.lang.String p1, android.app.admin.IDevicePolicyValueCallback p2) throws android.os.RemoteException {}
+        public void addResolvedPerUserPolicyCallback(java.lang.String p0, int p1, java.lang.String p2, android.app.admin.IDevicePolicyValueCallback p3) throws android.os.RemoteException {}
         public boolean approveCaCert(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return false; }
         public android.os.IBinder asBinder() { return null; }
         public boolean bindDeviceAdminServiceAsUser(android.content.ComponentName p0, android.app.IApplicationThread p1, android.os.IBinder p2, android.content.Intent p3, android.app.IServiceConnection p4, long p5, int p6) throws android.os.RemoteException { return false; }
@@ -515,6 +529,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public java.util.List<java.lang.String> getCrossProfilePackages(android.content.ComponentName p0) throws android.os.RemoteException { return null; }
         public java.util.List<java.lang.String> getCrossProfileWidgetProviders(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
         public int getCurrentFailedPasswordAttempts(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return 0; }
+        public android.app.admin.dataleakprevention.DataLeakPreventionRules getDataLeakPreventionRules(java.lang.String p0) throws android.os.RemoteException { return null; }
         public java.util.List<java.lang.String> getDefaultCrossProfilePackages() throws android.os.RemoteException { return null; }
         public java.util.List<java.lang.String> getDelegatePackages(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
         public java.util.List<java.lang.String> getDelegatedScopes(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
@@ -533,6 +548,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public android.app.admin.EnforcingAdmin getEnforcingAdmin(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
         public android.os.Bundle getEnforcingAdminAndUserDetails(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
         public java.util.List<android.app.admin.EnforcingAdmin> getEnforcingAdminsForPolicy(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.app.admin.EnforcingAdmin> getEnforcingAdminsForPolicyIdentifier(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return null; }
         public java.lang.String getEnrollmentSpecificId(java.lang.String p0) throws android.os.RemoteException { return null; }
         public android.app.admin.FactoryResetProtectionPolicy getFactoryResetProtectionPolicy(android.content.ComponentName p0) throws android.os.RemoteException { return null; }
         public java.lang.String getFinancedDeviceKioskRoleHolder(java.lang.String p0) throws android.os.RemoteException { return null; }
@@ -543,6 +559,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public int getHeadlessDeviceOwnerMode(java.lang.String p0) throws android.os.RemoteException { return 0; }
         public java.util.List<java.lang.String> getKeepUninstalledPackages(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
         public android.app.admin.ParcelableGranteeMap getKeyPairGrants(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public android.app.admin.ParcelableGranteeMap getKeyPairGrantsWithScope(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return null; }
         public int getKeyguardDisabledFeatures(android.content.ComponentName p0, int p1, boolean p2) throws android.os.RemoteException { return 0; }
         public long getLastBugReportRequestTime() throws android.os.RemoteException { return 0L; }
         public long getLastNetworkLogRetrievalTime() throws android.os.RemoteException { return 0L; }
@@ -663,6 +680,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public boolean isFactoryResetProtectionPolicySupported() throws android.os.RemoteException { return false; }
         public boolean isInputMethodPermittedByAdmin(android.content.ComponentName p0, java.lang.String p1, int p2, boolean p3) throws android.os.RemoteException { return false; }
         public boolean isKeyPairGrantedToWifiAuth(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public boolean isKeyPairGrantedToWifiAuthWithScope(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return false; }
         public boolean isLockTaskPermitted(java.lang.String p0) throws android.os.RemoteException { return false; }
         public boolean isLogoutEnabled() throws android.os.RemoteException { return false; }
         public boolean isManagedKiosk() throws android.os.RemoteException { return false; }
@@ -673,7 +691,8 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public boolean isNewUserDisclaimerAcknowledged(int p0) throws android.os.RemoteException { return false; }
         public boolean isNotificationListenerServicePermitted(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
         public boolean isOrganizationOwnedDeviceWithManagedProfile() throws android.os.RemoteException { return false; }
-        public boolean isOutgoingTransferAllowedForSubscription(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean isOrganizationOwnedManagedProfileProvisioningSupported() throws android.os.RemoteException { return false; }
+        public boolean isOutgoingEsimTransferAllowed(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
         public boolean isOverrideApnEnabled(android.content.ComponentName p0) throws android.os.RemoteException { return false; }
         public boolean isPackageAllowedToAccessCalendarForUser(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
         public boolean isPackageAllowedToBypassDevicePolicyManagementRoleQualification(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
@@ -712,6 +731,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public boolean removeManagedProfile(int p0) throws android.os.RemoteException { return false; }
         public boolean removeOverrideApn(android.content.ComponentName p0, int p1) throws android.os.RemoteException { return false; }
         public void removeResolvedDeviceWidePolicyCallback(java.lang.String p0, java.lang.String p1, android.app.admin.IDevicePolicyValueCallback p2) throws android.os.RemoteException {}
+        public void removeResolvedPerUserPolicyCallback(java.lang.String p0, int p1, java.lang.String p2, android.app.admin.IDevicePolicyValueCallback p3) throws android.os.RemoteException {}
         public boolean removeUser(android.content.ComponentName p0, android.os.UserHandle p1) throws android.os.RemoteException { return false; }
         public void reportFailedBiometricAttempt(int p0) throws android.os.RemoteException {}
         public void reportFailedPasswordAttempt(int p0, boolean p1) throws android.os.RemoteException {}
@@ -720,6 +740,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public void reportPasswordChanged(android.app.admin.PasswordMetrics p0, int p1) throws android.os.RemoteException {}
         public void reportSuccessfulBiometricAttempt(int p0) throws android.os.RemoteException {}
         public void reportSuccessfulPasswordAttempt(int p0) throws android.os.RemoteException {}
+        public void reportUserLoginAttempt(int p0, int p1) throws android.os.RemoteException {}
         public boolean requestBugreport(android.content.ComponentName p0) throws android.os.RemoteException { return false; }
         public void resetDefaultCrossProfileIntentFilters(int p0) throws android.os.RemoteException {}
         public void resetDrawables(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
@@ -761,6 +782,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public void setCrossProfileContactsSearchDisabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException {}
         public void setCrossProfilePackages(android.content.ComponentName p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException {}
         public void setCrossProfileWidgetProviders(java.lang.String p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException {}
+        public void setDataLeakPreventionRules(java.lang.String p0, android.app.admin.dataleakprevention.DataLeakPreventionRules p1) throws android.os.RemoteException {}
         public void setDefaultDialerApplication(java.lang.String p0) throws android.os.RemoteException {}
         public void setDefaultSmsApplication(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException {}
         public void setDelegatedScopes(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) throws android.os.RemoteException {}
@@ -778,8 +800,11 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public void setGlobalSetting(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
         public void setKeepUninstalledPackages(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) throws android.os.RemoteException {}
         public boolean setKeyGrantForApp(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4) throws android.os.RemoteException { return false; }
+        public boolean setKeyGrantForAppWithScope(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5) throws android.os.RemoteException { return false; }
         public boolean setKeyGrantToWifiAuth(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return false; }
+        public boolean setKeyGrantToWifiAuthWithScope(java.lang.String p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException { return false; }
         public boolean setKeyPairCertificate(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, byte[] p3, byte[] p4, boolean p5) throws android.os.RemoteException { return false; }
+        public boolean setKeyPairCertificateWithScope(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, byte[] p3, byte[] p4, boolean p5, int p6) throws android.os.RemoteException { return false; }
         public boolean setKeyguardDisabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException { return false; }
         public void setKeyguardDisabledFeatures(android.content.ComponentName p0, java.lang.String p1, int p2, boolean p3) throws android.os.RemoteException {}
         public void setLocationEnabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException {}
@@ -801,6 +826,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         public void setMtePolicyBySystem(java.lang.String p0, int p1) throws android.os.RemoteException {}
         public void setNearbyAppStreamingPolicy(int p0, boolean p1) throws android.os.RemoteException {}
         public void setNearbyNotificationStreamingPolicy(int p0) throws android.os.RemoteException {}
+        public void setNetworkLogEventsCallback(java.lang.String p0, android.app.admin.INetworkLogEventsCallback p1) throws android.os.RemoteException {}
         public void setNetworkLoggingEnabled(android.content.ComponentName p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
         public void setNextOperationSafety(int p0, int p1) throws android.os.RemoteException {}
         public void setOrganizationColor(android.content.ComponentName p0, int p1) throws android.os.RemoteException {}
@@ -877,138 +903,142 @@ public interface IDevicePolicyManager extends android.os.IInterface {
 
     public static abstract class Stub extends android.os.Binder implements android.app.admin.IDevicePolicyManager {
         public static final java.lang.String DESCRIPTOR = "android.app.admin.IDevicePolicyManager";
-        static final int TRANSACTION_acknowledgeDeviceCompliant = 362;
-        static final int TRANSACTION_acknowledgeNewUserDisclaimer = 174;
-        static final int TRANSACTION_addCrossProfileIntentFilter = 146;
-        static final int TRANSACTION_addCrossProfileWidgetProvider = 224;
-        static final int TRANSACTION_addOverrideApn = 327;
-        static final int TRANSACTION_addPersistentPreferredActivity = 127;
-        static final int TRANSACTION_addResolvedDeviceWidePolicyCallback = 433;
-        static final int TRANSACTION_approveCaCert = 108;
-        static final int TRANSACTION_bindDeviceAdminServiceAsUser = 303;
-        static final int TRANSACTION_calculateHasIncompatibleAccounts = 414;
-        static final int TRANSACTION_canAdminGrantSensorsPermissions = 380;
-        static final int TRANSACTION_canProfileOwnerResetPasswordWhenLocked = 364;
-        static final int TRANSACTION_canUsbDataSignalingBeDisabled = 383;
-        static final int TRANSACTION_checkDeviceIdentifierAccess = 99;
-        static final int TRANSACTION_checkProvisioningPrecondition = 256;
-        static final int TRANSACTION_choosePrivateKeyAlias = 115;
-        static final int TRANSACTION_clearApplicationUserData = 315;
-        static final int TRANSACTION_clearCrossProfileIntentFilters = 147;
-        static final int TRANSACTION_clearDeviceOwner = 84;
+        static final int TRANSACTION_acknowledgeDeviceCompliant = 369;
+        static final int TRANSACTION_acknowledgeNewUserDisclaimer = 176;
+        static final int TRANSACTION_addCrossProfileIntentFilter = 147;
+        static final int TRANSACTION_addCrossProfileWidgetProvider = 226;
+        static final int TRANSACTION_addOverrideApn = 330;
+        static final int TRANSACTION_addPersistentPreferredActivity = 128;
+        static final int TRANSACTION_addResolvedDeviceWidePolicyCallback = 440;
+        static final int TRANSACTION_addResolvedPerUserPolicyCallback = 443;
+        static final int TRANSACTION_approveCaCert = 109;
+        static final int TRANSACTION_bindDeviceAdminServiceAsUser = 306;
+        static final int TRANSACTION_calculateHasIncompatibleAccounts = 421;
+        static final int TRANSACTION_canAdminGrantSensorsPermissions = 387;
+        static final int TRANSACTION_canProfileOwnerResetPasswordWhenLocked = 371;
+        static final int TRANSACTION_canUsbDataSignalingBeDisabled = 390;
+        static final int TRANSACTION_checkDeviceIdentifierAccess = 100;
+        static final int TRANSACTION_checkProvisioningPrecondition = 258;
+        static final int TRANSACTION_choosePrivateKeyAlias = 116;
+        static final int TRANSACTION_clearApplicationUserData = 318;
+        static final int TRANSACTION_clearCrossProfileIntentFilters = 148;
+        static final int TRANSACTION_clearDeviceOwner = 85;
         static final int TRANSACTION_clearMultiuserDeviceManagement = 70;
-        static final int TRANSACTION_clearOrganizationIdForUser = 270;
-        static final int TRANSACTION_clearPackagePersistentPreferredActivities = 128;
-        static final int TRANSACTION_clearProfileOwner = 96;
-        static final int TRANSACTION_clearResetPasswordToken = 310;
-        static final int TRANSACTION_clearSystemUpdatePolicyFreezePeriodRecord = 244;
-        static final int TRANSACTION_createAdminSupportIntent = 159;
-        static final int TRANSACTION_createAndManageUser = 165;
-        static final int TRANSACTION_createAndProvisionManagedProfile = 369;
-        static final int TRANSACTION_createManagedProfile = 370;
-        static final int TRANSACTION_enableSystemApp = 176;
-        static final int TRANSACTION_enableSystemAppWithIntent = 177;
-        static final int TRANSACTION_enforceCanManageCaCerts = 107;
-        static final int TRANSACTION_finalizeCreateManagedProfile = 371;
-        static final int TRANSACTION_finalizeWorkProfileProvisioning = 375;
-        static final int TRANSACTION_forceNetworkLogs = 287;
+        static final int TRANSACTION_clearOrganizationIdForUser = 272;
+        static final int TRANSACTION_clearPackagePersistentPreferredActivities = 129;
+        static final int TRANSACTION_clearProfileOwner = 97;
+        static final int TRANSACTION_clearResetPasswordToken = 313;
+        static final int TRANSACTION_clearSystemUpdatePolicyFreezePeriodRecord = 246;
+        static final int TRANSACTION_createAdminSupportIntent = 160;
+        static final int TRANSACTION_createAndManageUser = 167;
+        static final int TRANSACTION_createAndProvisionManagedProfile = 376;
+        static final int TRANSACTION_createManagedProfile = 377;
+        static final int TRANSACTION_enableSystemApp = 178;
+        static final int TRANSACTION_enableSystemAppWithIntent = 179;
+        static final int TRANSACTION_enforceCanManageCaCerts = 108;
+        static final int TRANSACTION_finalizeCreateManagedProfile = 378;
+        static final int TRANSACTION_finalizeWorkProfileProvisioning = 382;
+        static final int TRANSACTION_forceNetworkLogs = 289;
         static final int TRANSACTION_forceRemoveActiveAdmin = 69;
-        static final int TRANSACTION_forceSecurityLogs = 288;
-        static final int TRANSACTION_forceSetMaxPolicyStorageLimit = 419;
-        static final int TRANSACTION_forceUpdateUserSetupComplete = 297;
-        static final int TRANSACTION_generateKeyPair = 113;
-        static final int TRANSACTION_generateKeyPairWithScope = 430;
-        static final int TRANSACTION_getAccountTypesWithManagementDisabled = 180;
-        static final int TRANSACTION_getAccountTypesWithManagementDisabledAsUser = 181;
+        static final int TRANSACTION_forceSecurityLogs = 290;
+        static final int TRANSACTION_forceSetMaxPolicyStorageLimit = 426;
+        static final int TRANSACTION_forceUpdateUserSetupComplete = 300;
+        static final int TRANSACTION_generateKeyPair = 114;
+        static final int TRANSACTION_generateKeyPairWithScope = 437;
+        static final int TRANSACTION_getAccountTypesWithManagementDisabled = 182;
+        static final int TRANSACTION_getAccountTypesWithManagementDisabledAsUser = 183;
         static final int TRANSACTION_getActiveAdmins = 65;
-        static final int TRANSACTION_getAffiliationIds = 280;
+        static final int TRANSACTION_getAffiliationIds = 282;
         static final int TRANSACTION_getAggregatedPasswordComplexityForUser = 29;
-        static final int TRANSACTION_getAllCrossProfilePackages = 345;
-        static final int TRANSACTION_getAlwaysOnVpnLockdownAllowlist = 126;
-        static final int TRANSACTION_getAlwaysOnVpnPackage = 122;
-        static final int TRANSACTION_getAlwaysOnVpnPackageForUser = 123;
-        static final int TRANSACTION_getAppFunctionsPolicy = 425;
-        static final int TRANSACTION_getApplicationExemptions = 403;
-        static final int TRANSACTION_getApplicationRestrictions = 132;
-        static final int TRANSACTION_getApplicationRestrictionsBySystem = 136;
-        static final int TRANSACTION_getApplicationRestrictionsManagingPackage = 134;
-        static final int TRANSACTION_getAutoTimeEnabled = 231;
-        static final int TRANSACTION_getAutoTimePolicy = 233;
-        static final int TRANSACTION_getAutoTimeRequired = 229;
-        static final int TRANSACTION_getAutoTimeZoneEnabled = 235;
-        static final int TRANSACTION_getAutoTimeZonePolicy = 237;
-        static final int TRANSACTION_getBindDeviceAdminTargetUsers = 304;
-        static final int TRANSACTION_getBluetoothContactSharingDisabled = 220;
-        static final int TRANSACTION_getBluetoothContactSharingDisabledForUser = 221;
+        static final int TRANSACTION_getAllCrossProfilePackages = 348;
+        static final int TRANSACTION_getAlwaysOnVpnLockdownAllowlist = 127;
+        static final int TRANSACTION_getAlwaysOnVpnPackage = 123;
+        static final int TRANSACTION_getAlwaysOnVpnPackageForUser = 124;
+        static final int TRANSACTION_getAppFunctionsPolicy = 432;
+        static final int TRANSACTION_getApplicationExemptions = 410;
+        static final int TRANSACTION_getApplicationRestrictions = 133;
+        static final int TRANSACTION_getApplicationRestrictionsBySystem = 137;
+        static final int TRANSACTION_getApplicationRestrictionsManagingPackage = 135;
+        static final int TRANSACTION_getAutoTimeEnabled = 233;
+        static final int TRANSACTION_getAutoTimePolicy = 235;
+        static final int TRANSACTION_getAutoTimeRequired = 231;
+        static final int TRANSACTION_getAutoTimeZoneEnabled = 237;
+        static final int TRANSACTION_getAutoTimeZonePolicy = 239;
+        static final int TRANSACTION_getBindDeviceAdminTargetUsers = 307;
+        static final int TRANSACTION_getBluetoothContactSharingDisabled = 222;
+        static final int TRANSACTION_getBluetoothContactSharingDisabledForUser = 223;
         static final int TRANSACTION_getCameraDisabled = 54;
-        static final int TRANSACTION_getCertInstallerPackage = 120;
-        static final int TRANSACTION_getContentProtectionPolicy = 416;
-        static final int TRANSACTION_getCredentialManagerPolicy = 215;
-        static final int TRANSACTION_getCrossProfileCalendarPackages = 340;
-        static final int TRANSACTION_getCrossProfileCalendarPackagesForUser = 342;
-        static final int TRANSACTION_getCrossProfileCallerIdDisabled = 205;
-        static final int TRANSACTION_getCrossProfileCallerIdDisabledForUser = 206;
-        static final int TRANSACTION_getCrossProfileContactsSearchDisabled = 208;
-        static final int TRANSACTION_getCrossProfileContactsSearchDisabledForUser = 209;
-        static final int TRANSACTION_getCrossProfilePackages = 344;
-        static final int TRANSACTION_getCrossProfileWidgetProviders = 227;
+        static final int TRANSACTION_getCertInstallerPackage = 121;
+        static final int TRANSACTION_getContentProtectionPolicy = 423;
+        static final int TRANSACTION_getCredentialManagerPolicy = 217;
+        static final int TRANSACTION_getCrossProfileCalendarPackages = 343;
+        static final int TRANSACTION_getCrossProfileCalendarPackagesForUser = 345;
+        static final int TRANSACTION_getCrossProfileCallerIdDisabled = 207;
+        static final int TRANSACTION_getCrossProfileCallerIdDisabledForUser = 208;
+        static final int TRANSACTION_getCrossProfileContactsSearchDisabled = 210;
+        static final int TRANSACTION_getCrossProfileContactsSearchDisabledForUser = 211;
+        static final int TRANSACTION_getCrossProfilePackages = 347;
+        static final int TRANSACTION_getCrossProfileWidgetProviders = 229;
         static final int TRANSACTION_getCurrentFailedPasswordAttempts = 31;
-        static final int TRANSACTION_getDefaultCrossProfilePackages = 346;
-        static final int TRANSACTION_getDelegatePackages = 118;
-        static final int TRANSACTION_getDelegatedScopes = 117;
-        static final int TRANSACTION_getDeviceOwnerComponent = 80;
-        static final int TRANSACTION_getDeviceOwnerComponentOnUser = 81;
-        static final int TRANSACTION_getDeviceOwnerLockScreenInfo = 101;
-        static final int TRANSACTION_getDeviceOwnerName = 83;
-        static final int TRANSACTION_getDeviceOwnerOrganizationName = 275;
-        static final int TRANSACTION_getDeviceOwnerType = 378;
-        static final int TRANSACTION_getDeviceOwnerUserId = 85;
-        static final int TRANSACTION_getDevicePolicyState = 410;
-        static final int TRANSACTION_getDisallowedSystemApps = 318;
-        static final int TRANSACTION_getDoNotAskCredentialsOnBoot = 248;
-        static final int TRANSACTION_getDrawable = 392;
-        static final int TRANSACTION_getEndUserSessionMessage = 324;
-        static final int TRANSACTION_getEnforcingAdmin = 161;
-        static final int TRANSACTION_getEnforcingAdminAndUserDetails = 160;
-        static final int TRANSACTION_getEnforcingAdminsForPolicy = 162;
-        static final int TRANSACTION_getEnrollmentSpecificId = 367;
+        static final int TRANSACTION_getDataLeakPreventionRules = 446;
+        static final int TRANSACTION_getDefaultCrossProfilePackages = 349;
+        static final int TRANSACTION_getDelegatePackages = 119;
+        static final int TRANSACTION_getDelegatedScopes = 118;
+        static final int TRANSACTION_getDeviceOwnerComponent = 81;
+        static final int TRANSACTION_getDeviceOwnerComponentOnUser = 82;
+        static final int TRANSACTION_getDeviceOwnerLockScreenInfo = 102;
+        static final int TRANSACTION_getDeviceOwnerName = 84;
+        static final int TRANSACTION_getDeviceOwnerOrganizationName = 277;
+        static final int TRANSACTION_getDeviceOwnerType = 385;
+        static final int TRANSACTION_getDeviceOwnerUserId = 86;
+        static final int TRANSACTION_getDevicePolicyState = 417;
+        static final int TRANSACTION_getDisallowedSystemApps = 321;
+        static final int TRANSACTION_getDoNotAskCredentialsOnBoot = 250;
+        static final int TRANSACTION_getDrawable = 399;
+        static final int TRANSACTION_getEndUserSessionMessage = 327;
+        static final int TRANSACTION_getEnforcingAdmin = 162;
+        static final int TRANSACTION_getEnforcingAdminAndUserDetails = 161;
+        static final int TRANSACTION_getEnforcingAdminsForPolicy = 163;
+        static final int TRANSACTION_getEnforcingAdminsForPolicyIdentifier = 164;
+        static final int TRANSACTION_getEnrollmentSpecificId = 374;
         static final int TRANSACTION_getFactoryResetProtectionPolicy = 43;
-        static final int TRANSACTION_getFinancedDeviceKioskRoleHolder = 413;
-        static final int TRANSACTION_getForceEphemeralUsers = 239;
-        static final int TRANSACTION_getGlobalPrivateDnsHost = 336;
-        static final int TRANSACTION_getGlobalPrivateDnsMode = 335;
+        static final int TRANSACTION_getFinancedDeviceKioskRoleHolder = 420;
+        static final int TRANSACTION_getForceEphemeralUsers = 241;
+        static final int TRANSACTION_getGlobalPrivateDnsHost = 339;
+        static final int TRANSACTION_getGlobalPrivateDnsMode = 338;
         static final int TRANSACTION_getGlobalProxyAdmin = 47;
-        static final int TRANSACTION_getHeadlessDeviceOwnerMode = 422;
-        static final int TRANSACTION_getKeepUninstalledPackages = 258;
-        static final int TRANSACTION_getKeyPairGrants = 351;
+        static final int TRANSACTION_getHeadlessDeviceOwnerMode = 429;
+        static final int TRANSACTION_getKeepUninstalledPackages = 260;
+        static final int TRANSACTION_getKeyPairGrants = 355;
+        static final int TRANSACTION_getKeyPairGrantsWithScope = 356;
         static final int TRANSACTION_getKeyguardDisabledFeatures = 62;
-        static final int TRANSACTION_getLastBugReportRequestTime = 307;
-        static final int TRANSACTION_getLastNetworkLogRetrievalTime = 308;
-        static final int TRANSACTION_getLastSecurityLogRetrievalTime = 306;
-        static final int TRANSACTION_getLockTaskFeatures = 190;
-        static final int TRANSACTION_getLockTaskPackages = 187;
-        static final int TRANSACTION_getLogoutUserId = 172;
-        static final int TRANSACTION_getLongSupportMessage = 265;
-        static final int TRANSACTION_getLongSupportMessageForUser = 267;
-        static final int TRANSACTION_getManagedProfileCallerIdAccessPolicy = 212;
-        static final int TRANSACTION_getManagedProfileContactsAccessPolicy = 217;
-        static final int TRANSACTION_getManagedProfileMaximumTimeOff = 360;
-        static final int TRANSACTION_getManagedSubscriptionsPolicy = 408;
-        static final int TRANSACTION_getMaxPolicyStorageLimit = 420;
+        static final int TRANSACTION_getLastBugReportRequestTime = 310;
+        static final int TRANSACTION_getLastNetworkLogRetrievalTime = 311;
+        static final int TRANSACTION_getLastSecurityLogRetrievalTime = 309;
+        static final int TRANSACTION_getLockTaskFeatures = 192;
+        static final int TRANSACTION_getLockTaskPackages = 189;
+        static final int TRANSACTION_getLogoutUserId = 174;
+        static final int TRANSACTION_getLongSupportMessage = 267;
+        static final int TRANSACTION_getLongSupportMessageForUser = 269;
+        static final int TRANSACTION_getManagedProfileCallerIdAccessPolicy = 214;
+        static final int TRANSACTION_getManagedProfileContactsAccessPolicy = 219;
+        static final int TRANSACTION_getManagedProfileMaximumTimeOff = 367;
+        static final int TRANSACTION_getManagedSubscriptionsPolicy = 415;
+        static final int TRANSACTION_getMaxPolicyStorageLimit = 427;
         static final int TRANSACTION_getMaximumFailedPasswordsForWipe = 34;
         static final int TRANSACTION_getMaximumTimeToLock = 37;
-        static final int TRANSACTION_getMeteredDataDisabledPackages = 326;
-        static final int TRANSACTION_getMinimumRequiredWifiSecurityLevel = 385;
-        static final int TRANSACTION_getMtePolicy = 406;
-        static final int TRANSACTION_getMultiuserManagedDeviceProvisioningState = 87;
+        static final int TRANSACTION_getMeteredDataDisabledPackages = 329;
+        static final int TRANSACTION_getMinimumRequiredWifiSecurityLevel = 392;
+        static final int TRANSACTION_getMtePolicy = 413;
+        static final int TRANSACTION_getMultiuserManagedDeviceProvisioningState = 88;
         static final int TRANSACTION_getNearbyAppStreamingPolicy = 60;
         static final int TRANSACTION_getNearbyNotificationStreamingPolicy = 58;
-        static final int TRANSACTION_getOrganizationColor = 271;
-        static final int TRANSACTION_getOrganizationColorForUser = 272;
-        static final int TRANSACTION_getOrganizationName = 274;
-        static final int TRANSACTION_getOrganizationNameForUser = 276;
-        static final int TRANSACTION_getOverrideApns = 330;
-        static final int TRANSACTION_getOwnerInstalledCaCerts = 314;
+        static final int TRANSACTION_getOrganizationColor = 273;
+        static final int TRANSACTION_getOrganizationColorForUser = 274;
+        static final int TRANSACTION_getOrganizationName = 276;
+        static final int TRANSACTION_getOrganizationNameForUser = 278;
+        static final int TRANSACTION_getOverrideApns = 333;
+        static final int TRANSACTION_getOwnerInstalledCaCerts = 317;
         static final int TRANSACTION_getPasswordComplexity = 26;
         static final int TRANSACTION_getPasswordExpiration = 22;
         static final int TRANSACTION_getPasswordExpirationTimeout = 21;
@@ -1022,135 +1052,138 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         static final int TRANSACTION_getPasswordMinimumSymbols = 14;
         static final int TRANSACTION_getPasswordMinimumUpperCase = 6;
         static final int TRANSACTION_getPasswordQuality = 2;
-        static final int TRANSACTION_getPendingSystemUpdate = 250;
-        static final int TRANSACTION_getPermissionGrantState = 254;
-        static final int TRANSACTION_getPermissionPolicy = 252;
-        static final int TRANSACTION_getPermittedAccessibilityServices = 149;
-        static final int TRANSACTION_getPermittedAccessibilityServicesForUser = 150;
-        static final int TRANSACTION_getPermittedCrossProfileNotificationListeners = 157;
-        static final int TRANSACTION_getPermittedInputMethods = 153;
-        static final int TRANSACTION_getPermittedInputMethodsAsUser = 154;
-        static final int TRANSACTION_getPersonalAppsSuspendedReasons = 358;
-        static final int TRANSACTION_getPolicy = 427;
-        static final int TRANSACTION_getPolicyManagedProfiles = 401;
-        static final int TRANSACTION_getPolicySizeForAdmin = 421;
-        static final int TRANSACTION_getPreferentialNetworkServiceConfigs = 185;
-        static final int TRANSACTION_getProfileOwnerAsUser = 90;
-        static final int TRANSACTION_getProfileOwnerName = 93;
-        static final int TRANSACTION_getProfileOwnerOrDeviceOwnerSupervisionComponent = 91;
+        static final int TRANSACTION_getPendingSystemUpdate = 252;
+        static final int TRANSACTION_getPermissionGrantState = 256;
+        static final int TRANSACTION_getPermissionPolicy = 254;
+        static final int TRANSACTION_getPermittedAccessibilityServices = 150;
+        static final int TRANSACTION_getPermittedAccessibilityServicesForUser = 151;
+        static final int TRANSACTION_getPermittedCrossProfileNotificationListeners = 158;
+        static final int TRANSACTION_getPermittedInputMethods = 154;
+        static final int TRANSACTION_getPermittedInputMethodsAsUser = 155;
+        static final int TRANSACTION_getPersonalAppsSuspendedReasons = 365;
+        static final int TRANSACTION_getPolicy = 434;
+        static final int TRANSACTION_getPolicyManagedProfiles = 408;
+        static final int TRANSACTION_getPolicySizeForAdmin = 428;
+        static final int TRANSACTION_getPreferentialNetworkServiceConfigs = 187;
+        static final int TRANSACTION_getProfileOwnerAsUser = 91;
+        static final int TRANSACTION_getProfileOwnerName = 94;
+        static final int TRANSACTION_getProfileOwnerOrDeviceOwnerSupervisionComponent = 92;
         static final int TRANSACTION_getProfileWithMinimumFailedPasswordsForWipe = 32;
         static final int TRANSACTION_getRemoveWarning = 67;
         static final int TRANSACTION_getRequiredPasswordComplexity = 28;
         static final int TRANSACTION_getRequiredStrongAuthTimeout = 39;
-        static final int TRANSACTION_getResolvedDeviceWidePolicy = 428;
-        static final int TRANSACTION_getResolvedPerUserPolicy = 429;
-        static final int TRANSACTION_getRestrictionsProvider = 139;
+        static final int TRANSACTION_getResolvedDeviceWidePolicy = 435;
+        static final int TRANSACTION_getResolvedPerUserPolicy = 436;
+        static final int TRANSACTION_getRestrictionsProvider = 140;
         static final int TRANSACTION_getScreenCaptureDisabled = 56;
-        static final int TRANSACTION_getSecondaryUsers = 173;
-        static final int TRANSACTION_getShortSupportMessage = 263;
-        static final int TRANSACTION_getShortSupportMessageForUser = 266;
-        static final int TRANSACTION_getStartUserSessionMessage = 323;
+        static final int TRANSACTION_getSecondaryUsers = 175;
+        static final int TRANSACTION_getShortSupportMessage = 265;
+        static final int TRANSACTION_getShortSupportMessageForUser = 268;
+        static final int TRANSACTION_getStartUserSessionMessage = 326;
         static final int TRANSACTION_getStorageEncryption = 50;
         static final int TRANSACTION_getStorageEncryptionStatus = 51;
-        static final int TRANSACTION_getString = 397;
-        static final int TRANSACTION_getSubscriptionIds = 417;
-        static final int TRANSACTION_getSystemUpdatePolicy = 243;
-        static final int TRANSACTION_getTransferOwnershipBundle = 320;
-        static final int TRANSACTION_getTrustAgentConfiguration = 223;
-        static final int TRANSACTION_getUserControlDisabledPackages = 355;
-        static final int TRANSACTION_getUserProvisioningState = 277;
-        static final int TRANSACTION_getUserRestrictions = 144;
-        static final int TRANSACTION_getUserRestrictionsGlobally = 145;
-        static final int TRANSACTION_getWifiMacAddress = 260;
-        static final int TRANSACTION_getWifiSsidPolicy = 387;
-        static final int TRANSACTION_hasDeviceOwner = 82;
+        static final int TRANSACTION_getString = 404;
+        static final int TRANSACTION_getSubscriptionIds = 424;
+        static final int TRANSACTION_getSystemUpdatePolicy = 245;
+        static final int TRANSACTION_getTransferOwnershipBundle = 323;
+        static final int TRANSACTION_getTrustAgentConfiguration = 225;
+        static final int TRANSACTION_getUserControlDisabledPackages = 362;
+        static final int TRANSACTION_getUserProvisioningState = 279;
+        static final int TRANSACTION_getUserRestrictions = 145;
+        static final int TRANSACTION_getUserRestrictionsGlobally = 146;
+        static final int TRANSACTION_getWifiMacAddress = 262;
+        static final int TRANSACTION_getWifiSsidPolicy = 394;
+        static final int TRANSACTION_hasDeviceOwner = 83;
         static final int TRANSACTION_hasGrantedPolicy = 71;
-        static final int TRANSACTION_hasKeyPair = 112;
-        static final int TRANSACTION_hasKeyPairWithScope = 432;
-        static final int TRANSACTION_hasLockdownAdminConfiguredNetworks = 195;
-        static final int TRANSACTION_hasManagedProfileCallerIdAccess = 213;
-        static final int TRANSACTION_hasManagedProfileContactsAccess = 218;
-        static final int TRANSACTION_hasUserSetupCompleted = 97;
-        static final int TRANSACTION_installCaCert = 105;
-        static final int TRANSACTION_installExistingPackage = 178;
-        static final int TRANSACTION_installKeyPair = 110;
-        static final int TRANSACTION_installUpdateFromFile = 338;
-        static final int TRANSACTION_isAccessibilityServicePermittedByAdmin = 151;
+        static final int TRANSACTION_hasKeyPair = 113;
+        static final int TRANSACTION_hasKeyPairWithScope = 439;
+        static final int TRANSACTION_hasLockdownAdminConfiguredNetworks = 197;
+        static final int TRANSACTION_hasManagedProfileCallerIdAccess = 215;
+        static final int TRANSACTION_hasManagedProfileContactsAccess = 220;
+        static final int TRANSACTION_hasUserSetupCompleted = 98;
+        static final int TRANSACTION_installCaCert = 106;
+        static final int TRANSACTION_installExistingPackage = 180;
+        static final int TRANSACTION_installKeyPair = 111;
+        static final int TRANSACTION_installUpdateFromFile = 341;
+        static final int TRANSACTION_isAccessibilityServicePermittedByAdmin = 152;
         static final int TRANSACTION_isActivePasswordSufficient = 23;
         static final int TRANSACTION_isActivePasswordSufficientForDeviceRequirement = 24;
         static final int TRANSACTION_isAdminActive = 64;
-        static final int TRANSACTION_isAffiliatedUser = 282;
-        static final int TRANSACTION_isAlwaysOnVpnLockdownEnabled = 124;
-        static final int TRANSACTION_isAlwaysOnVpnLockdownEnabledForUser = 125;
-        static final int TRANSACTION_isApplicationHidden = 164;
-        static final int TRANSACTION_isAuditLogEnabled = 290;
-        static final int TRANSACTION_isBackupServiceEnabled = 299;
-        static final int TRANSACTION_isCaCertApproved = 109;
-        static final int TRANSACTION_isCallerApplicationRestrictionsManagingPackage = 137;
-        static final int TRANSACTION_isCallingUserAffiliated = 281;
-        static final int TRANSACTION_isCommonCriteriaModeEnabled = 357;
-        static final int TRANSACTION_isComplianceAcknowledgementRequired = 363;
-        static final int TRANSACTION_isCurrentInputMethodSetByOwner = 313;
-        static final int TRANSACTION_isDeviceFinanced = 412;
-        static final int TRANSACTION_isDeviceManaged = 86;
-        static final int TRANSACTION_isDevicePotentiallyStolen = 388;
-        static final int TRANSACTION_isDeviceProvisioned = 294;
-        static final int TRANSACTION_isDeviceProvisioningConfigApplied = 295;
-        static final int TRANSACTION_isDpcDownloaded = 393;
-        static final int TRANSACTION_isEphemeralUser = 305;
+        static final int TRANSACTION_isAffiliatedUser = 284;
+        static final int TRANSACTION_isAlwaysOnVpnLockdownEnabled = 125;
+        static final int TRANSACTION_isAlwaysOnVpnLockdownEnabledForUser = 126;
+        static final int TRANSACTION_isApplicationHidden = 166;
+        static final int TRANSACTION_isAuditLogEnabled = 292;
+        static final int TRANSACTION_isBackupServiceEnabled = 302;
+        static final int TRANSACTION_isCaCertApproved = 110;
+        static final int TRANSACTION_isCallerApplicationRestrictionsManagingPackage = 138;
+        static final int TRANSACTION_isCallingUserAffiliated = 283;
+        static final int TRANSACTION_isCommonCriteriaModeEnabled = 364;
+        static final int TRANSACTION_isComplianceAcknowledgementRequired = 370;
+        static final int TRANSACTION_isCurrentInputMethodSetByOwner = 316;
+        static final int TRANSACTION_isDeviceFinanced = 419;
+        static final int TRANSACTION_isDeviceManaged = 87;
+        static final int TRANSACTION_isDevicePotentiallyStolen = 395;
+        static final int TRANSACTION_isDeviceProvisioned = 297;
+        static final int TRANSACTION_isDeviceProvisioningConfigApplied = 298;
+        static final int TRANSACTION_isDpcDownloaded = 400;
+        static final int TRANSACTION_isEphemeralUser = 308;
         static final int TRANSACTION_isFactoryResetProtectionPolicySupported = 44;
-        static final int TRANSACTION_isInputMethodPermittedByAdmin = 155;
-        static final int TRANSACTION_isKeyPairGrantedToWifiAuth = 353;
-        static final int TRANSACTION_isLockTaskPermitted = 188;
-        static final int TRANSACTION_isLogoutEnabled = 317;
-        static final int TRANSACTION_isManagedKiosk = 347;
-        static final int TRANSACTION_isManagedProfile = 259;
-        static final int TRANSACTION_isMasterVolumeMuted = 200;
-        static final int TRANSACTION_isMeteredDataDisabledPackageForUser = 333;
-        static final int TRANSACTION_isNetworkLoggingEnabled = 301;
-        static final int TRANSACTION_isNewUserDisclaimerAcknowledged = 175;
-        static final int TRANSACTION_isNotificationListenerServicePermitted = 158;
-        static final int TRANSACTION_isOrganizationOwnedDeviceWithManagedProfile = 98;
-        static final int TRANSACTION_isOutgoingTransferAllowedForSubscription = 423;
-        static final int TRANSACTION_isOverrideApnEnabled = 332;
-        static final int TRANSACTION_isPackageAllowedToAccessCalendarForUser = 341;
-        static final int TRANSACTION_isPackageAllowedToBypassDevicePolicyManagementRoleQualification = 400;
-        static final int TRANSACTION_isPackageSuspended = 103;
+        static final int TRANSACTION_isInputMethodPermittedByAdmin = 156;
+        static final int TRANSACTION_isKeyPairGrantedToWifiAuth = 359;
+        static final int TRANSACTION_isKeyPairGrantedToWifiAuthWithScope = 360;
+        static final int TRANSACTION_isLockTaskPermitted = 190;
+        static final int TRANSACTION_isLogoutEnabled = 320;
+        static final int TRANSACTION_isManagedKiosk = 350;
+        static final int TRANSACTION_isManagedProfile = 261;
+        static final int TRANSACTION_isMasterVolumeMuted = 202;
+        static final int TRANSACTION_isMeteredDataDisabledPackageForUser = 336;
+        static final int TRANSACTION_isNetworkLoggingEnabled = 304;
+        static final int TRANSACTION_isNewUserDisclaimerAcknowledged = 177;
+        static final int TRANSACTION_isNotificationListenerServicePermitted = 159;
+        static final int TRANSACTION_isOrganizationOwnedDeviceWithManagedProfile = 99;
+        static final int TRANSACTION_isOrganizationOwnedManagedProfileProvisioningSupported = 447;
+        static final int TRANSACTION_isOutgoingEsimTransferAllowed = 430;
+        static final int TRANSACTION_isOverrideApnEnabled = 335;
+        static final int TRANSACTION_isPackageAllowedToAccessCalendarForUser = 344;
+        static final int TRANSACTION_isPackageAllowedToBypassDevicePolicyManagementRoleQualification = 407;
+        static final int TRANSACTION_isPackageSuspended = 104;
         static final int TRANSACTION_isPasswordSufficientAfterProfileUnification = 25;
-        static final int TRANSACTION_isProvisioningAllowed = 255;
-        static final int TRANSACTION_isRemovingAdmin = 240;
-        static final int TRANSACTION_isResetPasswordTokenActive = 311;
-        static final int TRANSACTION_isSafeOperation = 366;
-        static final int TRANSACTION_isSecondaryLockscreenEnabled = 183;
-        static final int TRANSACTION_isSecurityLoggingEnabled = 284;
-        static final int TRANSACTION_isStatusBarDisabled = 247;
-        static final int TRANSACTION_isSubscriptionEnterpriseManaged = 409;
-        static final int TRANSACTION_isSupervisionComponent = 92;
-        static final int TRANSACTION_isUnattendedManagedKiosk = 348;
-        static final int TRANSACTION_isUninstallBlocked = 203;
-        static final int TRANSACTION_isUninstallInQueue = 292;
-        static final int TRANSACTION_isUsbDataSignalingEnabled = 382;
+        static final int TRANSACTION_isProvisioningAllowed = 257;
+        static final int TRANSACTION_isRemovingAdmin = 242;
+        static final int TRANSACTION_isResetPasswordTokenActive = 314;
+        static final int TRANSACTION_isSafeOperation = 373;
+        static final int TRANSACTION_isSecondaryLockscreenEnabled = 185;
+        static final int TRANSACTION_isSecurityLoggingEnabled = 286;
+        static final int TRANSACTION_isStatusBarDisabled = 249;
+        static final int TRANSACTION_isSubscriptionEnterpriseManaged = 416;
+        static final int TRANSACTION_isSupervisionComponent = 93;
+        static final int TRANSACTION_isUnattendedManagedKiosk = 351;
+        static final int TRANSACTION_isUninstallBlocked = 205;
+        static final int TRANSACTION_isUninstallInQueue = 295;
+        static final int TRANSACTION_isUsbDataSignalingEnabled = 389;
         static final int TRANSACTION_isUsingUnifiedPassword = 30;
-        static final int TRANSACTION_listForegroundAffiliatedUsers = 389;
-        static final int TRANSACTION_listPolicyExemptApps = 104;
+        static final int TRANSACTION_listForegroundAffiliatedUsers = 396;
+        static final int TRANSACTION_listPolicyExemptApps = 105;
         static final int TRANSACTION_lockNow = 40;
-        static final int TRANSACTION_logoutUser = 170;
-        static final int TRANSACTION_logoutUserInternal = 171;
-        static final int TRANSACTION_notifyLockTaskModeChanged = 201;
-        static final int TRANSACTION_notifyPendingSystemUpdate = 249;
+        static final int TRANSACTION_logoutUser = 172;
+        static final int TRANSACTION_logoutUserInternal = 173;
+        static final int TRANSACTION_notifyLockTaskModeChanged = 203;
+        static final int TRANSACTION_notifyPendingSystemUpdate = 251;
         static final int TRANSACTION_packageHasActiveAdmins = 66;
-        static final int TRANSACTION_provisionFullyManagedDevice = 372;
-        static final int TRANSACTION_provisionMultiuserManagedDevice = 373;
-        static final int TRANSACTION_provisionMultiuserManagedUser = 374;
-        static final int TRANSACTION_reboot = 261;
+        static final int TRANSACTION_provisionFullyManagedDevice = 379;
+        static final int TRANSACTION_provisionMultiuserManagedDevice = 380;
+        static final int TRANSACTION_provisionMultiuserManagedUser = 381;
+        static final int TRANSACTION_reboot = 263;
         static final int TRANSACTION_removeActiveAdmin = 68;
-        static final int TRANSACTION_removeCrossProfileWidgetProvider = 226;
-        static final int TRANSACTION_removeKeyPair = 111;
-        static final int TRANSACTION_removeKeyPairWithScope = 431;
-        static final int TRANSACTION_removeManagedProfile = 376;
-        static final int TRANSACTION_removeOverrideApn = 329;
-        static final int TRANSACTION_removeResolvedDeviceWidePolicyCallback = 434;
-        static final int TRANSACTION_removeUser = 166;
+        static final int TRANSACTION_removeCrossProfileWidgetProvider = 228;
+        static final int TRANSACTION_removeKeyPair = 112;
+        static final int TRANSACTION_removeKeyPairWithScope = 438;
+        static final int TRANSACTION_removeManagedProfile = 383;
+        static final int TRANSACTION_removeOverrideApn = 332;
+        static final int TRANSACTION_removeResolvedDeviceWidePolicyCallback = 441;
+        static final int TRANSACTION_removeResolvedPerUserPolicyCallback = 444;
+        static final int TRANSACTION_removeUser = 168;
         static final int TRANSACTION_reportFailedBiometricAttempt = 75;
         static final int TRANSACTION_reportFailedPasswordAttempt = 73;
         static final int TRANSACTION_reportKeyguardDismissed = 77;
@@ -1158,95 +1191,101 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         static final int TRANSACTION_reportPasswordChanged = 72;
         static final int TRANSACTION_reportSuccessfulBiometricAttempt = 76;
         static final int TRANSACTION_reportSuccessfulPasswordAttempt = 74;
+        static final int TRANSACTION_reportUserLoginAttempt = 79;
         static final int TRANSACTION_requestBugreport = 52;
-        static final int TRANSACTION_resetDefaultCrossProfileIntentFilters = 379;
-        static final int TRANSACTION_resetDrawables = 391;
+        static final int TRANSACTION_resetDefaultCrossProfileIntentFilters = 386;
+        static final int TRANSACTION_resetDrawables = 398;
         static final int TRANSACTION_resetPassword = 35;
-        static final int TRANSACTION_resetPasswordWithToken = 312;
-        static final int TRANSACTION_resetShouldAllowBypassingDevicePolicyManagementRoleQualificationState = 398;
-        static final int TRANSACTION_resetStrings = 396;
-        static final int TRANSACTION_retrieveNetworkLogs = 302;
-        static final int TRANSACTION_retrievePreRebootSecurityLogs = 286;
-        static final int TRANSACTION_retrieveSecurityLogs = 285;
+        static final int TRANSACTION_resetPasswordWithToken = 315;
+        static final int TRANSACTION_resetShouldAllowBypassingDevicePolicyManagementRoleQualificationState = 405;
+        static final int TRANSACTION_resetStrings = 403;
+        static final int TRANSACTION_retrieveNetworkLogs = 305;
+        static final int TRANSACTION_retrievePreRebootSecurityLogs = 288;
+        static final int TRANSACTION_retrieveSecurityLogs = 287;
         static final int TRANSACTION_sendLostModeLocationUpdate = 45;
-        static final int TRANSACTION_setAccountManagementDisabled = 179;
+        static final int TRANSACTION_setAccountManagementDisabled = 181;
         static final int TRANSACTION_setActiveAdmin = 63;
-        static final int TRANSACTION_setAffiliationIds = 279;
-        static final int TRANSACTION_setAlwaysOnVpnPackage = 121;
-        static final int TRANSACTION_setAppFunctionsPolicy = 424;
-        static final int TRANSACTION_setApplicationExemptions = 402;
-        static final int TRANSACTION_setApplicationHidden = 163;
-        static final int TRANSACTION_setApplicationRestrictions = 131;
-        static final int TRANSACTION_setApplicationRestrictionsBySystem = 135;
-        static final int TRANSACTION_setApplicationRestrictionsManagingPackage = 133;
-        static final int TRANSACTION_setAuditLogEnabled = 289;
-        static final int TRANSACTION_setAuditLogEventsCallback = 291;
-        static final int TRANSACTION_setAutoTimeEnabled = 230;
-        static final int TRANSACTION_setAutoTimePolicy = 232;
-        static final int TRANSACTION_setAutoTimeRequired = 228;
-        static final int TRANSACTION_setAutoTimeZoneEnabled = 234;
-        static final int TRANSACTION_setAutoTimeZonePolicy = 236;
-        static final int TRANSACTION_setBackupServiceEnabled = 298;
-        static final int TRANSACTION_setBluetoothContactSharingDisabled = 219;
+        static final int TRANSACTION_setAffiliationIds = 281;
+        static final int TRANSACTION_setAlwaysOnVpnPackage = 122;
+        static final int TRANSACTION_setAppFunctionsPolicy = 431;
+        static final int TRANSACTION_setApplicationExemptions = 409;
+        static final int TRANSACTION_setApplicationHidden = 165;
+        static final int TRANSACTION_setApplicationRestrictions = 132;
+        static final int TRANSACTION_setApplicationRestrictionsBySystem = 136;
+        static final int TRANSACTION_setApplicationRestrictionsManagingPackage = 134;
+        static final int TRANSACTION_setAuditLogEnabled = 291;
+        static final int TRANSACTION_setAuditLogEventsCallback = 293;
+        static final int TRANSACTION_setAutoTimeEnabled = 232;
+        static final int TRANSACTION_setAutoTimePolicy = 234;
+        static final int TRANSACTION_setAutoTimeRequired = 230;
+        static final int TRANSACTION_setAutoTimeZoneEnabled = 236;
+        static final int TRANSACTION_setAutoTimeZonePolicy = 238;
+        static final int TRANSACTION_setBackupServiceEnabled = 301;
+        static final int TRANSACTION_setBluetoothContactSharingDisabled = 221;
         static final int TRANSACTION_setCameraDisabled = 53;
-        static final int TRANSACTION_setCertInstallerPackage = 119;
-        static final int TRANSACTION_setCommonCriteriaModeEnabled = 356;
-        static final int TRANSACTION_setConfiguredNetworksLockdownState = 194;
-        static final int TRANSACTION_setContentProtectionPolicy = 415;
-        static final int TRANSACTION_setCredentialManagerPolicy = 214;
-        static final int TRANSACTION_setCrossProfileCalendarPackages = 339;
-        static final int TRANSACTION_setCrossProfileCallerIdDisabled = 204;
-        static final int TRANSACTION_setCrossProfileContactsSearchDisabled = 207;
-        static final int TRANSACTION_setCrossProfilePackages = 343;
-        static final int TRANSACTION_setCrossProfileWidgetProviders = 225;
-        static final int TRANSACTION_setDefaultDialerApplication = 130;
-        static final int TRANSACTION_setDefaultSmsApplication = 129;
-        static final int TRANSACTION_setDelegatedScopes = 116;
-        static final int TRANSACTION_setDeviceOwner = 79;
-        static final int TRANSACTION_setDeviceOwnerLockScreenInfo = 100;
-        static final int TRANSACTION_setDeviceOwnerType = 377;
-        static final int TRANSACTION_setDeviceProvisioningConfigApplied = 296;
-        static final int TRANSACTION_setDpcDownloaded = 394;
-        static final int TRANSACTION_setDrawables = 390;
-        static final int TRANSACTION_setEndUserSessionMessage = 322;
+        static final int TRANSACTION_setCertInstallerPackage = 120;
+        static final int TRANSACTION_setCommonCriteriaModeEnabled = 363;
+        static final int TRANSACTION_setConfiguredNetworksLockdownState = 196;
+        static final int TRANSACTION_setContentProtectionPolicy = 422;
+        static final int TRANSACTION_setCredentialManagerPolicy = 216;
+        static final int TRANSACTION_setCrossProfileCalendarPackages = 342;
+        static final int TRANSACTION_setCrossProfileCallerIdDisabled = 206;
+        static final int TRANSACTION_setCrossProfileContactsSearchDisabled = 209;
+        static final int TRANSACTION_setCrossProfilePackages = 346;
+        static final int TRANSACTION_setCrossProfileWidgetProviders = 227;
+        static final int TRANSACTION_setDataLeakPreventionRules = 445;
+        static final int TRANSACTION_setDefaultDialerApplication = 131;
+        static final int TRANSACTION_setDefaultSmsApplication = 130;
+        static final int TRANSACTION_setDelegatedScopes = 117;
+        static final int TRANSACTION_setDeviceOwner = 80;
+        static final int TRANSACTION_setDeviceOwnerLockScreenInfo = 101;
+        static final int TRANSACTION_setDeviceOwnerType = 384;
+        static final int TRANSACTION_setDeviceProvisioningConfigApplied = 299;
+        static final int TRANSACTION_setDpcDownloaded = 401;
+        static final int TRANSACTION_setDrawables = 397;
+        static final int TRANSACTION_setEndUserSessionMessage = 325;
         static final int TRANSACTION_setFactoryResetProtectionPolicy = 42;
-        static final int TRANSACTION_setForceEphemeralUsers = 238;
-        static final int TRANSACTION_setGlobalPrivateDns = 334;
+        static final int TRANSACTION_setForceEphemeralUsers = 240;
+        static final int TRANSACTION_setGlobalPrivateDns = 337;
         static final int TRANSACTION_setGlobalProxy = 46;
-        static final int TRANSACTION_setGlobalSetting = 191;
-        static final int TRANSACTION_setKeepUninstalledPackages = 257;
-        static final int TRANSACTION_setKeyGrantForApp = 350;
-        static final int TRANSACTION_setKeyGrantToWifiAuth = 352;
-        static final int TRANSACTION_setKeyPairCertificate = 114;
-        static final int TRANSACTION_setKeyguardDisabled = 245;
+        static final int TRANSACTION_setGlobalSetting = 193;
+        static final int TRANSACTION_setKeepUninstalledPackages = 259;
+        static final int TRANSACTION_setKeyGrantForApp = 353;
+        static final int TRANSACTION_setKeyGrantForAppWithScope = 354;
+        static final int TRANSACTION_setKeyGrantToWifiAuth = 357;
+        static final int TRANSACTION_setKeyGrantToWifiAuthWithScope = 358;
+        static final int TRANSACTION_setKeyPairCertificate = 115;
+        static final int TRANSACTION_setKeyPairCertificateWithScope = 442;
+        static final int TRANSACTION_setKeyguardDisabled = 247;
         static final int TRANSACTION_setKeyguardDisabledFeatures = 61;
-        static final int TRANSACTION_setLocationEnabled = 196;
-        static final int TRANSACTION_setLockTaskFeatures = 189;
-        static final int TRANSACTION_setLockTaskPackages = 186;
-        static final int TRANSACTION_setLogoutEnabled = 316;
-        static final int TRANSACTION_setLongSupportMessage = 264;
-        static final int TRANSACTION_setManagedProfileCallerIdAccessPolicy = 211;
-        static final int TRANSACTION_setManagedProfileContactsAccessPolicy = 216;
-        static final int TRANSACTION_setManagedProfileMaximumTimeOff = 361;
-        static final int TRANSACTION_setManagedSubscriptionsPolicy = 407;
-        static final int TRANSACTION_setMasterVolumeMuted = 199;
-        static final int TRANSACTION_setMaxPolicyStorageLimit = 418;
+        static final int TRANSACTION_setLocationEnabled = 198;
+        static final int TRANSACTION_setLockTaskFeatures = 191;
+        static final int TRANSACTION_setLockTaskPackages = 188;
+        static final int TRANSACTION_setLogoutEnabled = 319;
+        static final int TRANSACTION_setLongSupportMessage = 266;
+        static final int TRANSACTION_setManagedProfileCallerIdAccessPolicy = 213;
+        static final int TRANSACTION_setManagedProfileContactsAccessPolicy = 218;
+        static final int TRANSACTION_setManagedProfileMaximumTimeOff = 368;
+        static final int TRANSACTION_setManagedSubscriptionsPolicy = 414;
+        static final int TRANSACTION_setMasterVolumeMuted = 201;
+        static final int TRANSACTION_setMaxPolicyStorageLimit = 425;
         static final int TRANSACTION_setMaximumFailedPasswordsForWipe = 33;
         static final int TRANSACTION_setMaximumTimeToLock = 36;
-        static final int TRANSACTION_setMeteredDataDisabledPackages = 325;
-        static final int TRANSACTION_setMinimumRequiredWifiSecurityLevel = 384;
-        static final int TRANSACTION_setMtePolicy = 404;
-        static final int TRANSACTION_setMtePolicyBySystem = 405;
+        static final int TRANSACTION_setMeteredDataDisabledPackages = 328;
+        static final int TRANSACTION_setMinimumRequiredWifiSecurityLevel = 391;
+        static final int TRANSACTION_setMtePolicy = 411;
+        static final int TRANSACTION_setMtePolicyBySystem = 412;
         static final int TRANSACTION_setNearbyAppStreamingPolicy = 59;
         static final int TRANSACTION_setNearbyNotificationStreamingPolicy = 57;
-        static final int TRANSACTION_setNetworkLoggingEnabled = 300;
-        static final int TRANSACTION_setNextOperationSafety = 365;
-        static final int TRANSACTION_setOrganizationColor = 268;
-        static final int TRANSACTION_setOrganizationColorForUser = 269;
-        static final int TRANSACTION_setOrganizationIdForUser = 368;
-        static final int TRANSACTION_setOrganizationName = 273;
-        static final int TRANSACTION_setOverrideApnsEnabled = 331;
-        static final int TRANSACTION_setPackagesSuspended = 102;
+        static final int TRANSACTION_setNetworkLogEventsCallback = 294;
+        static final int TRANSACTION_setNetworkLoggingEnabled = 303;
+        static final int TRANSACTION_setNextOperationSafety = 372;
+        static final int TRANSACTION_setOrganizationColor = 270;
+        static final int TRANSACTION_setOrganizationColorForUser = 271;
+        static final int TRANSACTION_setOrganizationIdForUser = 375;
+        static final int TRANSACTION_setOrganizationName = 275;
+        static final int TRANSACTION_setOverrideApnsEnabled = 334;
+        static final int TRANSACTION_setPackagesSuspended = 103;
         static final int TRANSACTION_setPasswordExpirationTimeout = 20;
         static final int TRANSACTION_setPasswordHistoryLength = 18;
         static final int TRANSACTION_setPasswordMinimumLength = 3;
@@ -1257,59 +1296,59 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         static final int TRANSACTION_setPasswordMinimumSymbols = 13;
         static final int TRANSACTION_setPasswordMinimumUpperCase = 5;
         static final int TRANSACTION_setPasswordQuality = 1;
-        static final int TRANSACTION_setPermissionGrantState = 253;
-        static final int TRANSACTION_setPermissionPolicy = 251;
-        static final int TRANSACTION_setPermittedAccessibilityServices = 148;
-        static final int TRANSACTION_setPermittedCrossProfileNotificationListeners = 156;
-        static final int TRANSACTION_setPermittedInputMethods = 152;
-        static final int TRANSACTION_setPersonalAppsSuspended = 359;
-        static final int TRANSACTION_setPolicy = 426;
-        static final int TRANSACTION_setPreferentialNetworkServiceConfigs = 184;
-        static final int TRANSACTION_setProfileEnabled = 94;
-        static final int TRANSACTION_setProfileName = 95;
-        static final int TRANSACTION_setProfileOwner = 89;
-        static final int TRANSACTION_setProfileOwnerOnOrganizationOwnedDevice = 337;
+        static final int TRANSACTION_setPermissionGrantState = 255;
+        static final int TRANSACTION_setPermissionPolicy = 253;
+        static final int TRANSACTION_setPermittedAccessibilityServices = 149;
+        static final int TRANSACTION_setPermittedCrossProfileNotificationListeners = 157;
+        static final int TRANSACTION_setPermittedInputMethods = 153;
+        static final int TRANSACTION_setPersonalAppsSuspended = 366;
+        static final int TRANSACTION_setPolicy = 433;
+        static final int TRANSACTION_setPreferentialNetworkServiceConfigs = 186;
+        static final int TRANSACTION_setProfileEnabled = 95;
+        static final int TRANSACTION_setProfileName = 96;
+        static final int TRANSACTION_setProfileOwner = 90;
+        static final int TRANSACTION_setProfileOwnerOnOrganizationOwnedDevice = 340;
         static final int TRANSACTION_setRecommendedGlobalProxy = 48;
         static final int TRANSACTION_setRequiredPasswordComplexity = 27;
         static final int TRANSACTION_setRequiredStrongAuthTimeout = 38;
-        static final int TRANSACTION_setResetPasswordToken = 309;
-        static final int TRANSACTION_setRestrictionsProvider = 138;
+        static final int TRANSACTION_setResetPasswordToken = 312;
+        static final int TRANSACTION_setRestrictionsProvider = 139;
         static final int TRANSACTION_setScreenCaptureDisabled = 55;
-        static final int TRANSACTION_setSecondaryLockscreenEnabled = 182;
-        static final int TRANSACTION_setSecureSetting = 193;
-        static final int TRANSACTION_setSecurityLoggingEnabled = 283;
-        static final int TRANSACTION_setShortSupportMessage = 262;
-        static final int TRANSACTION_setStartUserSessionMessage = 321;
-        static final int TRANSACTION_setStatusBarDisabled = 246;
+        static final int TRANSACTION_setSecondaryLockscreenEnabled = 184;
+        static final int TRANSACTION_setSecureSetting = 195;
+        static final int TRANSACTION_setSecurityLoggingEnabled = 285;
+        static final int TRANSACTION_setShortSupportMessage = 264;
+        static final int TRANSACTION_setStartUserSessionMessage = 324;
+        static final int TRANSACTION_setStatusBarDisabled = 248;
         static final int TRANSACTION_setStorageEncryption = 49;
-        static final int TRANSACTION_setStrings = 395;
-        static final int TRANSACTION_setSystemSetting = 192;
-        static final int TRANSACTION_setSystemUpdatePolicy = 242;
-        static final int TRANSACTION_setTime = 197;
-        static final int TRANSACTION_setTimeZone = 198;
-        static final int TRANSACTION_setTrustAgentConfiguration = 222;
-        static final int TRANSACTION_setUninstallBlocked = 202;
-        static final int TRANSACTION_setUsbDataSignalingEnabled = 381;
-        static final int TRANSACTION_setUserControlDisabledPackages = 354;
-        static final int TRANSACTION_setUserIcon = 241;
-        static final int TRANSACTION_setUserProvisioningState = 278;
-        static final int TRANSACTION_setUserRestriction = 140;
-        static final int TRANSACTION_setUserRestrictionForUser = 141;
-        static final int TRANSACTION_setUserRestrictionGlobally = 142;
-        static final int TRANSACTION_setUserRestrictionGloballyFromSystem = 143;
-        static final int TRANSACTION_setWifiSsidPolicy = 386;
-        static final int TRANSACTION_shouldAllowBypassingDevicePolicyManagementRoleQualification = 399;
-        static final int TRANSACTION_startManagedQuickContact = 210;
-        static final int TRANSACTION_startMultiuserManagedDeviceProvisioning = 88;
-        static final int TRANSACTION_startUserInBackground = 168;
-        static final int TRANSACTION_startViewCalendarEventInManagedProfile = 349;
-        static final int TRANSACTION_stopUser = 169;
-        static final int TRANSACTION_switchUser = 167;
-        static final int TRANSACTION_transferOwnership = 319;
-        static final int TRANSACTION_triggerDevicePolicyEngineMigration = 411;
-        static final int TRANSACTION_uninstallCaCerts = 106;
-        static final int TRANSACTION_uninstallPackageWithActiveAdmins = 293;
-        static final int TRANSACTION_updateOverrideApn = 328;
+        static final int TRANSACTION_setStrings = 402;
+        static final int TRANSACTION_setSystemSetting = 194;
+        static final int TRANSACTION_setSystemUpdatePolicy = 244;
+        static final int TRANSACTION_setTime = 199;
+        static final int TRANSACTION_setTimeZone = 200;
+        static final int TRANSACTION_setTrustAgentConfiguration = 224;
+        static final int TRANSACTION_setUninstallBlocked = 204;
+        static final int TRANSACTION_setUsbDataSignalingEnabled = 388;
+        static final int TRANSACTION_setUserControlDisabledPackages = 361;
+        static final int TRANSACTION_setUserIcon = 243;
+        static final int TRANSACTION_setUserProvisioningState = 280;
+        static final int TRANSACTION_setUserRestriction = 141;
+        static final int TRANSACTION_setUserRestrictionForUser = 142;
+        static final int TRANSACTION_setUserRestrictionGlobally = 143;
+        static final int TRANSACTION_setUserRestrictionGloballyFromSystem = 144;
+        static final int TRANSACTION_setWifiSsidPolicy = 393;
+        static final int TRANSACTION_shouldAllowBypassingDevicePolicyManagementRoleQualification = 406;
+        static final int TRANSACTION_startManagedQuickContact = 212;
+        static final int TRANSACTION_startMultiuserManagedDeviceProvisioning = 89;
+        static final int TRANSACTION_startUserInBackground = 170;
+        static final int TRANSACTION_startViewCalendarEventInManagedProfile = 352;
+        static final int TRANSACTION_stopUser = 171;
+        static final int TRANSACTION_switchUser = 169;
+        static final int TRANSACTION_transferOwnership = 322;
+        static final int TRANSACTION_triggerDevicePolicyEngineMigration = 418;
+        static final int TRANSACTION_uninstallCaCerts = 107;
+        static final int TRANSACTION_uninstallPackageWithActiveAdmins = 296;
+        static final int TRANSACTION_updateOverrideApn = 331;
         static final int TRANSACTION_wipeDataWithReason = 41;
         public Stub() { super(); }
         public static android.app.admin.IDevicePolicyManager asInterface(android.os.IBinder p0) { return null; }
@@ -1318,6 +1357,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$addCrossProfileWidgetProvider$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$addPersistentPreferredActivity$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$addResolvedDeviceWidePolicyCallback$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$addResolvedPerUserPolicyCallback$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$approveCaCert$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$bindDeviceAdminServiceAsUser$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$checkDeviceIdentifierAccess$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1325,8 +1365,11 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$clearApplicationUserData$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$clearPackagePersistentPreferredActivities$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$createAndManageUser$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$createAndProvisionManagedProfile$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$createManagedProfile$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$enableSystemApp$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$enableSystemAppWithIntent$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$finalizeCreateManagedProfile$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$finalizeWorkProfileProvisioning$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$forceSetMaxPolicyStorageLimit$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$generateKeyPair$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1340,6 +1383,8 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$getCurrentFailedPasswordAttempts$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$getDisallowedSystemApps$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$getDrawable$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$getEnforcingAdminsForPolicyIdentifier$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$getKeyPairGrantsWithScope$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$getKeyguardDisabledFeatures$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$getMaximumFailedPasswordsForWipe$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$getMaximumTimeToLock$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1375,8 +1420,9 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$isActivePasswordSufficient$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$isApplicationHidden$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$isInputMethodPermittedByAdmin$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$isKeyPairGrantedToWifiAuthWithScope$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$isMeteredDataDisabledPackageForUser$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
-        private boolean onTransact$isOutgoingTransferAllowedForSubscription$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$isOutgoingEsimTransferAllowed$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$isPackageAllowedToBypassDevicePolicyManagementRoleQualification$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$isPackageSuspended$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$isSubscriptionEnterpriseManaged$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1389,6 +1435,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$removeKeyPair$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$removeKeyPairWithScope$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$removeResolvedDeviceWidePolicyCallback$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$removeResolvedPerUserPolicyCallback$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$resetPasswordWithToken$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$retrieveNetworkLogs$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setAccountManagementDisabled$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1405,6 +1452,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$setCommonCriteriaModeEnabled$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setConfiguredNetworksLockdownState$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setContentProtectionPolicy$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setDataLeakPreventionRules$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setDefaultSmsApplication$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setDelegatedScopes$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setDeviceOwner$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1416,8 +1464,11 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$setGlobalSetting$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setKeepUninstalledPackages$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setKeyGrantForApp$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setKeyGrantForAppWithScope$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setKeyGrantToWifiAuth$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setKeyGrantToWifiAuthWithScope$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setKeyPairCertificate$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setKeyPairCertificateWithScope$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setKeyguardDisabledFeatures$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setLockTaskFeatures$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setLockTaskPackages$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1428,6 +1479,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
         private boolean onTransact$setMtePolicy$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setMtePolicyBySystem$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setNetworkLoggingEnabled$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
+        private boolean onTransact$setNextOperationSafety$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setOrganizationIdForUser$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setOrganizationName$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
         private boolean onTransact$setPackagesSuspended$(android.os.Parcel p0, android.os.Parcel p1) throws android.os.RemoteException { return false; }
@@ -1487,6 +1539,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public int addOverrideApn(android.content.ComponentName p0, android.telephony.data.ApnSetting p1) throws android.os.RemoteException { return 0; }
             public void addPersistentPreferredActivity(android.content.ComponentName p0, java.lang.String p1, android.content.IntentFilter p2, android.content.ComponentName p3) throws android.os.RemoteException {}
             public void addResolvedDeviceWidePolicyCallback(java.lang.String p0, java.lang.String p1, android.app.admin.IDevicePolicyValueCallback p2) throws android.os.RemoteException {}
+            public void addResolvedPerUserPolicyCallback(java.lang.String p0, int p1, java.lang.String p2, android.app.admin.IDevicePolicyValueCallback p3) throws android.os.RemoteException {}
             public boolean approveCaCert(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return false; }
             public android.os.IBinder asBinder() { return null; }
             public boolean bindDeviceAdminServiceAsUser(android.content.ComponentName p0, android.app.IApplicationThread p1, android.os.IBinder p2, android.content.Intent p3, android.app.IServiceConnection p4, long p5, int p6) throws android.os.RemoteException { return false; }
@@ -1557,6 +1610,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public java.util.List<java.lang.String> getCrossProfilePackages(android.content.ComponentName p0) throws android.os.RemoteException { return null; }
             public java.util.List<java.lang.String> getCrossProfileWidgetProviders(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public int getCurrentFailedPasswordAttempts(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return 0; }
+            public android.app.admin.dataleakprevention.DataLeakPreventionRules getDataLeakPreventionRules(java.lang.String p0) throws android.os.RemoteException { return null; }
             public java.util.List<java.lang.String> getDefaultCrossProfilePackages() throws android.os.RemoteException { return null; }
             public java.util.List<java.lang.String> getDelegatePackages(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public java.util.List<java.lang.String> getDelegatedScopes(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
@@ -1575,6 +1629,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public android.app.admin.EnforcingAdmin getEnforcingAdmin(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public android.os.Bundle getEnforcingAdminAndUserDetails(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public java.util.List<android.app.admin.EnforcingAdmin> getEnforcingAdminsForPolicy(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+            public java.util.List<android.app.admin.EnforcingAdmin> getEnforcingAdminsForPolicyIdentifier(java.lang.String p0, int p1, boolean p2) throws android.os.RemoteException { return null; }
             public java.lang.String getEnrollmentSpecificId(java.lang.String p0) throws android.os.RemoteException { return null; }
             public android.app.admin.FactoryResetProtectionPolicy getFactoryResetProtectionPolicy(android.content.ComponentName p0) throws android.os.RemoteException { return null; }
             public java.lang.String getFinancedDeviceKioskRoleHolder(java.lang.String p0) throws android.os.RemoteException { return null; }
@@ -1586,6 +1641,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public java.util.List<java.lang.String> getKeepUninstalledPackages(android.content.ComponentName p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public android.app.admin.ParcelableGranteeMap getKeyPairGrants(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+            public android.app.admin.ParcelableGranteeMap getKeyPairGrantsWithScope(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return null; }
             public int getKeyguardDisabledFeatures(android.content.ComponentName p0, int p1, boolean p2) throws android.os.RemoteException { return 0; }
             public long getLastBugReportRequestTime() throws android.os.RemoteException { return 0L; }
             public long getLastNetworkLogRetrievalTime() throws android.os.RemoteException { return 0L; }
@@ -1706,6 +1762,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public boolean isFactoryResetProtectionPolicySupported() throws android.os.RemoteException { return false; }
             public boolean isInputMethodPermittedByAdmin(android.content.ComponentName p0, java.lang.String p1, int p2, boolean p3) throws android.os.RemoteException { return false; }
             public boolean isKeyPairGrantedToWifiAuth(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+            public boolean isKeyPairGrantedToWifiAuthWithScope(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return false; }
             public boolean isLockTaskPermitted(java.lang.String p0) throws android.os.RemoteException { return false; }
             public boolean isLogoutEnabled() throws android.os.RemoteException { return false; }
             public boolean isManagedKiosk() throws android.os.RemoteException { return false; }
@@ -1716,7 +1773,8 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public boolean isNewUserDisclaimerAcknowledged(int p0) throws android.os.RemoteException { return false; }
             public boolean isNotificationListenerServicePermitted(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
             public boolean isOrganizationOwnedDeviceWithManagedProfile() throws android.os.RemoteException { return false; }
-            public boolean isOutgoingTransferAllowedForSubscription(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+            public boolean isOrganizationOwnedManagedProfileProvisioningSupported() throws android.os.RemoteException { return false; }
+            public boolean isOutgoingEsimTransferAllowed(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
             public boolean isOverrideApnEnabled(android.content.ComponentName p0) throws android.os.RemoteException { return false; }
             public boolean isPackageAllowedToAccessCalendarForUser(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
             public boolean isPackageAllowedToBypassDevicePolicyManagementRoleQualification(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
@@ -1755,6 +1813,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public boolean removeManagedProfile(int p0) throws android.os.RemoteException { return false; }
             public boolean removeOverrideApn(android.content.ComponentName p0, int p1) throws android.os.RemoteException { return false; }
             public void removeResolvedDeviceWidePolicyCallback(java.lang.String p0, java.lang.String p1, android.app.admin.IDevicePolicyValueCallback p2) throws android.os.RemoteException {}
+            public void removeResolvedPerUserPolicyCallback(java.lang.String p0, int p1, java.lang.String p2, android.app.admin.IDevicePolicyValueCallback p3) throws android.os.RemoteException {}
             public boolean removeUser(android.content.ComponentName p0, android.os.UserHandle p1) throws android.os.RemoteException { return false; }
             public void reportFailedBiometricAttempt(int p0) throws android.os.RemoteException {}
             public void reportFailedPasswordAttempt(int p0, boolean p1) throws android.os.RemoteException {}
@@ -1763,6 +1822,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public void reportPasswordChanged(android.app.admin.PasswordMetrics p0, int p1) throws android.os.RemoteException {}
             public void reportSuccessfulBiometricAttempt(int p0) throws android.os.RemoteException {}
             public void reportSuccessfulPasswordAttempt(int p0) throws android.os.RemoteException {}
+            public void reportUserLoginAttempt(int p0, int p1) throws android.os.RemoteException {}
             public boolean requestBugreport(android.content.ComponentName p0) throws android.os.RemoteException { return false; }
             public void resetDefaultCrossProfileIntentFilters(int p0) throws android.os.RemoteException {}
             public void resetDrawables(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
@@ -1804,6 +1864,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public void setCrossProfileContactsSearchDisabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException {}
             public void setCrossProfilePackages(android.content.ComponentName p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException {}
             public void setCrossProfileWidgetProviders(java.lang.String p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException {}
+            public void setDataLeakPreventionRules(java.lang.String p0, android.app.admin.dataleakprevention.DataLeakPreventionRules p1) throws android.os.RemoteException {}
             public void setDefaultDialerApplication(java.lang.String p0) throws android.os.RemoteException {}
             public void setDefaultSmsApplication(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException {}
             public void setDelegatedScopes(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) throws android.os.RemoteException {}
@@ -1821,8 +1882,11 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public void setGlobalSetting(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
             public void setKeepUninstalledPackages(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) throws android.os.RemoteException {}
             public boolean setKeyGrantForApp(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4) throws android.os.RemoteException { return false; }
+            public boolean setKeyGrantForAppWithScope(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5) throws android.os.RemoteException { return false; }
             public boolean setKeyGrantToWifiAuth(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return false; }
+            public boolean setKeyGrantToWifiAuthWithScope(java.lang.String p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException { return false; }
             public boolean setKeyPairCertificate(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, byte[] p3, byte[] p4, boolean p5) throws android.os.RemoteException { return false; }
+            public boolean setKeyPairCertificateWithScope(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2, byte[] p3, byte[] p4, boolean p5, int p6) throws android.os.RemoteException { return false; }
             public boolean setKeyguardDisabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException { return false; }
             public void setKeyguardDisabledFeatures(android.content.ComponentName p0, java.lang.String p1, int p2, boolean p3) throws android.os.RemoteException {}
             public void setLocationEnabled(android.content.ComponentName p0, boolean p1) throws android.os.RemoteException {}
@@ -1844,6 +1908,7 @@ public interface IDevicePolicyManager extends android.os.IInterface {
             public void setMtePolicyBySystem(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void setNearbyAppStreamingPolicy(int p0, boolean p1) throws android.os.RemoteException {}
             public void setNearbyNotificationStreamingPolicy(int p0) throws android.os.RemoteException {}
+            public void setNetworkLogEventsCallback(java.lang.String p0, android.app.admin.INetworkLogEventsCallback p1) throws android.os.RemoteException {}
             public void setNetworkLoggingEnabled(android.content.ComponentName p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
             public void setNextOperationSafety(int p0, int p1) throws android.os.RemoteException {}
             public void setOrganizationColor(android.content.ComponentName p0, int p1) throws android.os.RemoteException {}

@@ -5,13 +5,6 @@ public interface IAmbientContextObserver extends android.os.IInterface {
     public void onEvents(java.util.List<android.app.ambientcontext.AmbientContextEvent> p0) throws android.os.RemoteException;
     public void onRegistrationComplete(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.ambientcontext.IAmbientContextObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onEvents(java.util.List<android.app.ambientcontext.AmbientContextEvent> p0) throws android.os.RemoteException {}
-        public void onRegistrationComplete(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.ambientcontext.IAmbientContextObserver {
         static final int TRANSACTION_onEvents = 1;
         static final int TRANSACTION_onRegistrationComplete = 2;
@@ -30,5 +23,12 @@ public interface IAmbientContextObserver extends android.os.IInterface {
             public void onEvents(java.util.List<android.app.ambientcontext.AmbientContextEvent> p0) throws android.os.RemoteException {}
             public void onRegistrationComplete(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.ambientcontext.IAmbientContextObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onEvents(java.util.List<android.app.ambientcontext.AmbientContextEvent> p0) throws android.os.RemoteException {}
+        public void onRegistrationComplete(int p0) throws android.os.RemoteException {}
     }
 }

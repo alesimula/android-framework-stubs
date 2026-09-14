@@ -11,6 +11,8 @@ public class PendingInsetsController implements android.view.WindowInsetsControl
     private final java.util.ArrayList<android.view.WindowInsetsController.OnControllableInsetsChangedListener> mControllableInsetsChangedListeners = null;
     private final android.view.InsetsState mDummyState = null;
     private int mImeCaptionBarInsetsHeight;
+    private long mImeHideAnimationDurationOverride;
+    private long mImeShowAnimationDurationOverride;
     private android.view.WindowInsetsAnimationControlListener mLoggingListener;
     private android.view.InsetsController mReplayedInsetsController;
     private int mRequestedVisibleTypes;
@@ -19,6 +21,8 @@ public class PendingInsetsController implements android.view.WindowInsetsControl
     public void addOnControllableInsetsChangedListener(android.view.WindowInsetsController.OnControllableInsetsChangedListener p0) {}
     public void controlWindowInsetsAnimation(int p0, long p1, android.view.animation.Interpolator p2, android.os.CancellationSignal p3, android.view.WindowInsetsAnimationControlListener p4) {}
     public void detach() {}
+    public long getImeHideAnimationDurationOverride() { return 0L; }
+    public long getImeShowAnimationDurationOverride() { return 0L; }
     public int getRequestedVisibleTypes() { return 0; }
     public android.view.InsetsState getState() { return null; }
     public int getSystemBarsAppearance() { return 0; }
@@ -28,15 +32,17 @@ public class PendingInsetsController implements android.view.WindowInsetsControl
     public void replayAndAttach(android.view.InsetsController p0) {}
     public void setAnimationsDisabled(boolean p0) {}
     public void setImeCaptionBarInsetsHeight(int p0) {}
+    public void setImeHideAnimationDurationOverride(long p0) {}
+    public void setImeShowAnimationDurationOverride(long p0) {}
     public void setSystemBarsAppearance(int p0, int p1) {}
     public void setSystemBarsAppearanceFromResource(int p0, int p1) {}
     public void setSystemBarsBehavior(int p0) {}
     public void setSystemDrivenInsetsAnimationLoggingListener(android.view.WindowInsetsAnimationControlListener p0) {}
     public void show(int p0) {}
 
-    private static final class HideRequest implements android.view.PendingInsetsController.PendingRequest {
+    private static final class ShowRequest implements android.view.PendingInsetsController.PendingRequest {
         private final int mTypes = 0;
-        HideRequest(int p0) {}
+        ShowRequest(int p0) {}
         public void replay(android.view.InsetsController p0) {}
     }
 
@@ -44,9 +50,9 @@ public class PendingInsetsController implements android.view.WindowInsetsControl
         public void replay(android.view.InsetsController p0);
     }
 
-    private static final class ShowRequest implements android.view.PendingInsetsController.PendingRequest {
+    private static final class HideRequest implements android.view.PendingInsetsController.PendingRequest {
         private final int mTypes = 0;
-        ShowRequest(int p0) {}
+        HideRequest(int p0) {}
         public void replay(android.view.InsetsController p0) {}
     }
 }

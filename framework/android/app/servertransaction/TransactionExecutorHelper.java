@@ -3,7 +3,7 @@ package android.app.servertransaction;
 public class TransactionExecutorHelper {
     private static final int DESTRUCTION_PENALTY = 10;
     private static final int[] ON_RESUME_PRE_EXCUTION_STATES = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "TransactionExecutorHelper";
     private final android.util.IntArray mLifecycleSequence = null;
     public TransactionExecutorHelper() {}
     private static int findNextLifecycleItemIndex(java.util.List<android.app.servertransaction.ClientTransactionItem> p0, int p1, android.os.IBinder p2) { return 0; }

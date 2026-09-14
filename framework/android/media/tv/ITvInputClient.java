@@ -33,42 +33,6 @@ public interface ITvInputClient extends android.os.IInterface {
     public void onVideoFreezeUpdated(boolean p0, int p1) throws android.os.RemoteException;
     public void onVideoUnavailable(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.ITvInputClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAdBufferConsumed(android.media.tv.AdBuffer p0, int p1) throws android.os.RemoteException {}
-        public void onAdResponse(android.media.tv.AdResponse p0, int p1) throws android.os.RemoteException {}
-        public void onAitInfoUpdated(android.media.tv.AitInfo p0, int p1) throws android.os.RemoteException {}
-        public void onAudioPresentationSelected(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onAudioPresentationsChanged(java.util.List<android.media.AudioPresentation> p0, int p1) throws android.os.RemoteException {}
-        public void onAvailableSpeeds(float[] p0, int p1) throws android.os.RemoteException {}
-        public void onBroadcastInfoResponse(android.media.tv.BroadcastInfoResponse p0, int p1) throws android.os.RemoteException {}
-        public void onChannelRetuned(android.net.Uri p0, int p1) throws android.os.RemoteException {}
-        public void onChannelRetunedWithExtraInfo(android.net.Uri p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
-        public void onContentAllowed(int p0) throws android.os.RemoteException {}
-        public void onContentBlocked(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onCueingMessageAvailability(boolean p0, int p1) throws android.os.RemoteException {}
-        public void onError(int p0, int p1) throws android.os.RemoteException {}
-        public void onLayoutSurface(int p0, int p1, int p2, int p3, int p4) throws android.os.RemoteException {}
-        public void onRecordingStopped(android.net.Uri p0, int p1) throws android.os.RemoteException {}
-        public void onSessionCreated(java.lang.String p0, android.os.IBinder p1, android.view.InputChannel p2, int p3) throws android.os.RemoteException {}
-        public void onSessionEvent(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
-        public void onSessionReleased(int p0) throws android.os.RemoteException {}
-        public void onSignalStrength(int p0, int p1) throws android.os.RemoteException {}
-        public void onTimeShiftCurrentPositionChanged(long p0, int p1) throws android.os.RemoteException {}
-        public void onTimeShiftMode(int p0, int p1) throws android.os.RemoteException {}
-        public void onTimeShiftStartPositionChanged(long p0, int p1) throws android.os.RemoteException {}
-        public void onTimeShiftStatusChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void onTrackSelected(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void onTracksChanged(java.util.List<android.media.tv.TvTrackInfo> p0, int p1) throws android.os.RemoteException {}
-        public void onTuned(android.net.Uri p0, int p1) throws android.os.RemoteException {}
-        public void onTvInputSessionData(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
-        public void onTvMessage(int p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
-        public void onVideoAvailable(int p0) throws android.os.RemoteException {}
-        public void onVideoFreezeUpdated(boolean p0, int p1) throws android.os.RemoteException {}
-        public void onVideoUnavailable(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.ITvInputClient {
         public static final java.lang.String DESCRIPTOR = "android.media.tv.ITvInputClient";
         static final int TRANSACTION_onAdBufferConsumed = 30;
@@ -146,5 +110,41 @@ public interface ITvInputClient extends android.os.IInterface {
             public void onVideoFreezeUpdated(boolean p0, int p1) throws android.os.RemoteException {}
             public void onVideoUnavailable(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.ITvInputClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAdBufferConsumed(android.media.tv.AdBuffer p0, int p1) throws android.os.RemoteException {}
+        public void onAdResponse(android.media.tv.AdResponse p0, int p1) throws android.os.RemoteException {}
+        public void onAitInfoUpdated(android.media.tv.AitInfo p0, int p1) throws android.os.RemoteException {}
+        public void onAudioPresentationSelected(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onAudioPresentationsChanged(java.util.List<android.media.AudioPresentation> p0, int p1) throws android.os.RemoteException {}
+        public void onAvailableSpeeds(float[] p0, int p1) throws android.os.RemoteException {}
+        public void onBroadcastInfoResponse(android.media.tv.BroadcastInfoResponse p0, int p1) throws android.os.RemoteException {}
+        public void onChannelRetuned(android.net.Uri p0, int p1) throws android.os.RemoteException {}
+        public void onChannelRetunedWithExtraInfo(android.net.Uri p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
+        public void onContentAllowed(int p0) throws android.os.RemoteException {}
+        public void onContentBlocked(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onCueingMessageAvailability(boolean p0, int p1) throws android.os.RemoteException {}
+        public void onError(int p0, int p1) throws android.os.RemoteException {}
+        public void onLayoutSurface(int p0, int p1, int p2, int p3, int p4) throws android.os.RemoteException {}
+        public void onRecordingStopped(android.net.Uri p0, int p1) throws android.os.RemoteException {}
+        public void onSessionCreated(java.lang.String p0, android.os.IBinder p1, android.view.InputChannel p2, int p3) throws android.os.RemoteException {}
+        public void onSessionEvent(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
+        public void onSessionReleased(int p0) throws android.os.RemoteException {}
+        public void onSignalStrength(int p0, int p1) throws android.os.RemoteException {}
+        public void onTimeShiftCurrentPositionChanged(long p0, int p1) throws android.os.RemoteException {}
+        public void onTimeShiftMode(int p0, int p1) throws android.os.RemoteException {}
+        public void onTimeShiftStartPositionChanged(long p0, int p1) throws android.os.RemoteException {}
+        public void onTimeShiftStatusChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void onTrackSelected(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void onTracksChanged(java.util.List<android.media.tv.TvTrackInfo> p0, int p1) throws android.os.RemoteException {}
+        public void onTuned(android.net.Uri p0, int p1) throws android.os.RemoteException {}
+        public void onTvInputSessionData(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
+        public void onTvMessage(int p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
+        public void onVideoAvailable(int p0) throws android.os.RemoteException {}
+        public void onVideoFreezeUpdated(boolean p0, int p1) throws android.os.RemoteException {}
+        public void onVideoUnavailable(int p0, int p1) throws android.os.RemoteException {}
     }
 }

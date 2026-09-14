@@ -24,11 +24,6 @@ public class ImeBackCallbackProxy {
     public void undoPreliminaryClear() {}
     public void updateReceivingDispatcher(android.window.WindowOnBackInvokedDispatcher p0) {}
 
-    public static class DefaultImeOnBackAnimationCallback extends android.window.ImeBackCallbackProxy.ImeOnBackInvokedCallback {
-        DefaultImeOnBackAnimationCallback(android.window.IOnBackInvokedCallback p0, int p1, int p2) { super(null, 0, 0); }
-        public java.lang.String toString() { return null; }
-    }
-
     public static class ImeOnBackInvokedCallback implements android.window.OnBackAnimationCallback {
         protected final android.window.IOnBackInvokedCallback mIOnBackInvokedCallback = null;
         protected final int mId = 0;
@@ -39,6 +34,11 @@ public class ImeBackCallbackProxy {
         public void onBackInvoked() {}
         public void onBackProgressed(android.window.BackEvent p0) {}
         public void onBackStarted(android.window.BackEvent p0) {}
+        public java.lang.String toString() { return null; }
+    }
+
+    public static class DefaultImeOnBackAnimationCallback extends android.window.ImeBackCallbackProxy.ImeOnBackInvokedCallback {
+        DefaultImeOnBackAnimationCallback(android.window.IOnBackInvokedCallback p0, int p1, int p2) { super(null, 0, 0); }
         public java.lang.String toString() { return null; }
     }
 }

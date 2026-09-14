@@ -88,10 +88,6 @@ public class ProcessCpuTracker {
     public final java.lang.String printCurrentState(long p0, int p1) { return null; }
     public void update() {}
 
-    public static interface FilterStats {
-        public boolean needed(com.android.internal.os.ProcessCpuTracker.Stats p0);
-    }
-
     public static class Stats {
         public boolean active;
         public boolean added;
@@ -122,5 +118,9 @@ public class ProcessCpuTracker {
         final java.util.ArrayList<com.android.internal.os.ProcessCpuTracker.Stats> workingThreads = null;
         Stats(int p0, int p1, boolean p2) {}
         private static int getUid(java.lang.String p0) { return 0; }
+    }
+
+    public static interface FilterStats {
+        public boolean needed(com.android.internal.os.ProcessCpuTracker.Stats p0);
     }
 }

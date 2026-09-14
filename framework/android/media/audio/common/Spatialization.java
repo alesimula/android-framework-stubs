@@ -11,14 +11,14 @@ public class Spatialization implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static @interface Mode {
+        public static final byte BINAURAL = 0;
+        public static final byte TRANSAURAL = 1;
+    }
+
     public static @interface Level {
         public static final byte BED_PLUS_OBJECTS = 2;
         public static final byte MULTICHANNEL = 1;
         public static final byte NONE = 0;
-    }
-
-    public static @interface Mode {
-        public static final byte BINAURAL = 0;
-        public static final byte TRANSAURAL = 1;
     }
 }

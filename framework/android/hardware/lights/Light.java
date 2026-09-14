@@ -41,6 +41,14 @@ public final class Light implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LightType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LightCapability {
+    }
+
     public static final class Builder {
         private int mCapabilities;
         private int mId;
@@ -55,13 +63,5 @@ public final class Light implements android.os.Parcelable {
         public android.hardware.lights.Light.Builder setMinUpdatePeriodMillis(long p0) { return null; }
         public android.hardware.lights.Light.Builder setName(java.lang.String p0) { return null; }
         public android.hardware.lights.Light.Builder setPreferredBrightnessLevels(int[] p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LightCapability {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LightType {
     }
 }

@@ -3,12 +3,6 @@ package com.android.ims.internal.uce.uceservice;
 public interface IUceListener extends android.os.IInterface {
     public void setStatus(int p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.uce.uceservice.IUceListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void setStatus(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.uce.uceservice.IUceListener {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.uce.uceservice.IUceListener";
         static final int TRANSACTION_setStatus = 1;
@@ -26,5 +20,11 @@ public interface IUceListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void setStatus(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.uce.uceservice.IUceListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void setStatus(int p0) throws android.os.RemoteException {}
     }
 }

@@ -83,6 +83,7 @@ public final class ShortcutInfo implements android.os.Parcelable {
     private final int mUserId = 0;
     public ShortcutInfo(int p0, java.lang.String p1, java.lang.String p2, android.content.ComponentName p3, android.graphics.drawable.Icon p4, java.lang.CharSequence p5, int p6, java.lang.String p7, java.lang.CharSequence p8, int p9, java.lang.String p10, java.lang.CharSequence p11, int p12, java.lang.String p13, java.util.Set<java.lang.String> p14, android.content.Intent[] p15, int p16, android.os.PersistableBundle p17, long p18, int p19, int p20, java.lang.String p21, java.lang.String p22, java.lang.String p23, int p24, android.app.Person[] p25, android.content.LocusId p26, java.lang.String p27, java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.util.List<java.lang.String>>> p28) {}
     private ShortcutInfo(android.content.pm.ShortcutInfo.Builder p0) {}
+    public ShortcutInfo(android.content.pm.ShortcutInfo p0) {}
     private ShortcutInfo(android.content.pm.ShortcutInfo p0, int p1) {}
     private ShortcutInfo(android.os.Parcel p0) {}
     private void addIndentOrComma(java.lang.StringBuilder p0, java.lang.String p1) {}
@@ -210,6 +211,7 @@ public final class ShortcutInfo implements android.os.Parcelable {
     public void setDisabledMessageResId(int p0) {}
     public void setDisabledMessageResName(java.lang.String p0) {}
     public void setDisabledReason(int p0) {}
+    public void setExtras(android.os.PersistableBundle p0) {}
     public void setIconPendingSave() {}
     public void setIconResName(java.lang.String p0) {}
     public void setIconResourceId(int p0) {}
@@ -217,6 +219,7 @@ public final class ShortcutInfo implements android.os.Parcelable {
     public void setImplicitRank(int p0) {}
     public void setIntents(android.content.Intent[] p0) throws java.lang.IllegalArgumentException {}
     public void setLongLived() {}
+    public void setPersons(android.app.Person[] p0) {}
     public void setRank(int p0) {}
     public void setRankChanged() {}
     public void setReturnedByServer() {}
@@ -248,12 +251,14 @@ public final class ShortcutInfo implements android.os.Parcelable {
         private android.app.Person[] mPersons;
         private int mRank;
         private int mStartingThemeResId;
+        private java.lang.String mStartingThemeResName;
         private java.lang.CharSequence mText;
         private int mTextResId;
         private java.lang.CharSequence mTitle;
         private int mTitleResId;
         @java.lang.Deprecated
         public Builder(android.content.Context p0) {}
+        public Builder(android.content.Context p0, android.content.pm.ShortcutInfo p1) {}
         public Builder(android.content.Context p0, java.lang.String p1) {}
         public android.content.pm.ShortcutInfo.Builder addCapabilityBinding(android.content.pm.Capability p0, android.content.pm.CapabilityParams p1) { return null; }
         public android.content.pm.ShortcutInfo build() { return null; }

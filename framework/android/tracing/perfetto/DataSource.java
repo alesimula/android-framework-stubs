@@ -39,6 +39,11 @@ public abstract class DataSource<DataSourceInstanceType extends android.tracing.
     public void unregisterOnStopCallback(android.tracing.perfetto.DataSource.TracingInstanceStopCallback p0) {}
 
     @java.lang.FunctionalInterface
+    public static interface TracingInstanceStopCallback {
+        public void onTracingInstanceStop(int p0);
+    }
+
+    @java.lang.FunctionalInterface
     public static interface TracingInstanceFlushCallback {
         public void onTracingFlush();
     }
@@ -46,10 +51,5 @@ public abstract class DataSource<DataSourceInstanceType extends android.tracing.
     @java.lang.FunctionalInterface
     public static interface TracingInstanceStartCallback {
         public void onTracingInstanceStart(int p0);
-    }
-
-    @java.lang.FunctionalInterface
-    public static interface TracingInstanceStopCallback {
-        public void onTracingInstanceStop(int p0);
     }
 }

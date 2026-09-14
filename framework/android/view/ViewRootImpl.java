@@ -38,6 +38,11 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private static final int LOGTAG_INPUT_FOCUS = 62001;
     private static final int LOGTAG_VIEWROOT_DRAW_EVENT = 60004;
     private static final long LONG_CUJ_TIMEOUT_MS = Long.valueOf(0L);
+    private static final long MASK_HAS_BARRIER = -9223372036854775808L;
+    private static final long MASK_STATE_SCHEDULED = 4611686018427387904L;
+    private static final long MASK_TOKEN = 4294967295L;
+    private static final long MASK_VERSION = 4611686014132420608L;
+    private static final long MASK_VERSION_NUMBER = 1073741823L;
     private static final int MAX_QUEUED_INPUT_EVENT_POOL_SIZE = 10;
     static final int MAX_TRACKBALL_DELAY = 250;
     private static final int MSG_CHECK_FOCUS = 13;
@@ -90,7 +95,6 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private static final int SCROLL_CAPTURE_REQUEST_TIMEOUT_MILLIS = 2500;
     private static final java.lang.String TAG = "ViewRootImpl";
     private static final int UNSET_SYNC_ID = -1;
-    private static final long UNSET_TRAVERSAL_BARRIER = 9223372036854775807L;
     private static final int WMS_SYNC_MERGED = 3;
     private static final int WMS_SYNC_NONE = 0;
     private static final int WMS_SYNC_PENDING = 1;
@@ -122,6 +126,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     android.view.AccessibilityInteractionController mAccessibilityInteractionController;
     final android.view.accessibility.AccessibilityManager mAccessibilityManager = null;
     private android.view.accessibility.AccessibilityWindowAttributes mAccessibilityWindowAttributes;
+    private float mAccumulatedRotaryEncoderScroll;
     private android.window.SurfaceSyncGroup mActiveSurfaceSyncGroup;
     private android.view.ViewRootImpl.ActivityConfigCallback mActivityConfigCallback;
     boolean mAdded;
@@ -131,7 +136,6 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private boolean mAppVisibilityChanged;
     boolean mAppVisible;
     boolean mApplyInsetsRequested;
-    private final boolean mAtomicTraversalBarrier = false;
     final android.view.View.AttachInfo mAttachInfo = null;
     android.media.AudioManager mAudioManager;
     final java.lang.String mBasePackageName = null;
@@ -154,6 +158,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     boolean mConsumeBatchedInputImmediatelyScheduled;
     boolean mConsumeBatchedInputScheduled;
     final android.view.ViewRootImpl.ConsumeBatchedInputCallback mConsumedBatchedInputCallback = null;
+    final java.lang.Runnable mContentCapture2CommitListener = null;
     int mContentCaptureEnabled;
     public final android.content.Context mContext = null;
     private android.view.ViewRootImpl.CornerRadii mCornerRadii;
@@ -169,12 +174,15 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     android.view.Display mDisplay;
     boolean mDisplayDecorationCached;
     private final android.hardware.display.DisplayManager.DisplayListener mDisplayListener = null;
+    private float mDownX;
+    private float mDownY;
     android.content.ClipDescription mDragDescription;
     final android.graphics.PointF mDragPoint = null;
     private boolean mDragResizing;
     private boolean mDragResizingCujBegun;
     private java.lang.String mDrawTrace;
     private boolean mDrawnThisFrame;
+    private boolean mDrawnThisTraversal;
     private boolean mDrewOnceForSync;
     private boolean mEnforceThreadChecksCompat;
     final java.util.concurrent.Executor mExecutor = null;
@@ -236,6 +244,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private boolean mIpcRenderingEnabled;
     boolean mIsAmbientMode;
     public boolean mIsAnimating;
+    boolean mIsContentCaptureCallbackRegistered;
     private boolean mIsDisablingViewAnimationsRequested;
     private boolean mIsDragResizeCropSet;
     boolean mIsDrawing;
@@ -270,6 +279,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private final android.window.ClientWindowFrames mLastReportedFrames = null;
     private int mLastReportedInsetsStateSeq;
     private final android.util.MergedConfiguration mLastReportedMergedConfiguration = null;
+    private long mLastRotaryEncoderEventTime;
     java.lang.ref.WeakReference<android.view.View> mLastScrolledFocus;
     int mLastSeqId;
     private android.graphics.RectF mLastSetClientDrawnRadiiBounds;
@@ -297,6 +307,8 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private boolean mNeedsRendererSetup;
     boolean mNewSurfaceNeeded;
     private final int mNoncompatDensity = 0;
+    private boolean mNotifiedOnActionMove;
+    private boolean mNotifyRendererOfFirstFrame;
     private int mNumPausedForSync;
     private final android.window.WindowOnBackInvokedDispatcher mOnBackInvokedDispatcher = null;
     int mOrigWindowType;
@@ -368,7 +380,6 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private java.lang.String mTag;
     final int mTargetSdkVersion = 0;
     java.util.HashSet<android.view.View> mTempHashSet;
-    private final android.view.InsetsState mTempInsets = null;
     private final android.graphics.Rect mTempRect = null;
     private final android.app.WindowConfiguration mTempWinConfig = null;
     final java.lang.Thread mThread = null;
@@ -378,20 +389,22 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     final int[] mTmpLocation = null;
     final android.util.TypedValue mTmpValue = null;
     private boolean mTouchAndDrawn;
+    private final double mTouchSlopThreshold = 0.0;
     android.graphics.Region mTouchableRegion;
     private final android.view.SurfaceControl.Transaction mTransaction = null;
     private java.util.ArrayList<android.view.AttachedSurfaceControl.OnBufferTransformHintChangedListener> mTransformHintListeners;
     android.content.res.CompatibilityInfo.Translator mTranslator;
     final android.graphics.Region mTransparentRegion = null;
-    int mTraversalBarrier;
-    private final java.util.concurrent.atomic.AtomicLong mTraversalBarrierAtomic = null;
     final android.view.ViewRootImpl.TraversalCallback mTraversalCallback = null;
+    @java.lang.Deprecated
     public boolean mTraversalScheduled;
+    private final java.util.concurrent.atomic.AtomicLong mTraversalState = null;
     private int mTypesHiddenByFlags;
     boolean mUnbufferedInputDispatch;
     int mUnbufferedInputSource;
     private final android.view.ViewRootImpl.UnhandledKeyManager mUnhandledKeyManager = null;
     private final android.view.ViewRootRectTracker mUnrestrictedKeepClearRectsTracker = null;
+    int mUpcomingFocusDirection;
     boolean mUpcomingInTouchMode;
     boolean mUpcomingWindowFocus;
     private boolean mUpdateSurfaceNeeded;
@@ -417,6 +430,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     final java.util.ArrayList<android.view.WindowCallbacks> mWindowCallbacks = null;
     java.util.concurrent.CountDownLatch mWindowDrawCountDown;
     boolean mWindowFocusChanged;
+    private final java.lang.Object mWindowFocusLock = null;
     private int mWindowInsetsAnimationCount;
     private final android.view.WindowLayout mWindowLayout = null;
     final android.view.IWindowSession mWindowSession = null;
@@ -451,8 +465,9 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private void destroyHardwareRenderer() {}
     private void destroySurface() {}
     private int determineForceInvertDarkOverride(boolean p0) { return 0; }
+    private void dispatchContentCapture2Flush() {}
     private void dispatchDispatchSystemUiVisibilityChanged() {}
-    private void dispatchFocusEvent(boolean p0, boolean p1) {}
+    private void dispatchFocusEvent(boolean p0, boolean p1, int p2) {}
     private void dispatchInsetsControlChanged(android.view.InsetsState p0, android.view.InsetsSourceControl.Array p1) {}
     private void dispatchPointerCaptureChanged(boolean p0) {}
     private void dispatchResized(android.view.WindowRelayoutResult p0, boolean p1, boolean p2, int p3, boolean p4, boolean p5) {}
@@ -503,6 +518,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private void handleWindowContentChangedEvent(android.view.accessibility.AccessibilityEvent p0) {}
     private void handleWindowFocusChanged() {}
     private void handleWindowTouchModeChanged() {}
+    private static boolean hasBarrier(long p0) { return false; }
     private boolean hasSystemApplicationOverlayAppOp() { return false; }
     private void hideInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) {}
     private void initializeProtoLogInProcess() {}
@@ -514,8 +530,11 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private boolean isInTouchMode() { return false; }
     private boolean isInputWindow() { return false; }
     private static boolean isNavigationKey(android.view.KeyEvent p0) { return false; }
+    private static boolean isScheduledNoBarrier(long p0) { return false; }
     static boolean isTerminalInputEvent(android.view.InputEvent p0) { return false; }
+    private boolean isTraversalScheduled() { return false; }
     private static boolean isTypingKey(android.view.KeyEvent p0) { return false; }
+    private static boolean isUnset(long p0) { return false; }
     public static boolean isViewDescendantOf(android.view.View p0, android.view.View p1) { return false; }
     private boolean leaveTouchMode() { return false; }
     private void logAndTrace(java.lang.String p0) {}
@@ -526,6 +545,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private void maybeSendAppStartTimes() {}
     private void maybeUpdateTooltip(android.view.MotionEvent p0) {}
     private boolean measureHierarchy(android.view.View p0, android.view.WindowManager.LayoutParams p1, android.content.res.Resources p2, int p3, int p4, boolean p5) { return false; }
+    private boolean moveFocusToAdjacentWindow(int p0) { return false; }
     private android.view.ViewRootImpl.CalledFromWrongThreadException newCalledFromWrongThreadException(boolean p0) { return null; }
     private void notifyContentCaptureEvents() {}
     private void notifyDrawStarted(boolean p0) {}
@@ -537,6 +557,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private void onActiveControlsChanged(android.view.InsetsSourceControl.Array p0) {}
     private void onClientWindowFramesChanged(android.window.ClientWindowFrames p0) {}
     private void onInsetsStateChanged(android.view.InsetsState p0) {}
+    private static long pack(int p0, boolean p1, boolean p2, int p3) { return 0L; }
     private void performConfigurationChange(android.util.MergedConfiguration p0, boolean p1, int p2, android.window.ActivityWindowInfo p3) {}
     private void performContentCaptureInitialReport() {}
     private boolean performDraw(android.window.SurfaceSyncGroup p0) { return false; }
@@ -561,7 +582,7 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private int relayoutWindow(android.view.WindowManager.LayoutParams p0, int p1, boolean p2) throws android.os.RemoteException { return 0; }
     public static void removeConfigCallback(android.view.ViewRootImpl.ConfigChangedCallback p0) {}
     private void removeSendWindowContentChangedCallback() {}
-    private void removeTraversalBarrier() {}
+    private void removeSyncBarrier(int p0) {}
     private void removeVrrMessages() {}
     private void reportDrawFinished(android.view.SurfaceControl.Transaction p0, int p1) {}
     private void reportNextDraw(java.lang.String p0) {}
@@ -591,6 +612,8 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     private void showInsets(int p0, android.view.inputmethod.ImeTracker.Token p1) {}
     private void startDragResizing() {}
     private void throwCalledFromWrongThreadException() {}
+    private static int unpackToken(long p0) { return 0; }
+    private static int unpackVersion(long p0) { return 0; }
     private void unregisterListeners() {}
     private boolean updateBoundsLayer(android.view.SurfaceControl.Transaction p0) { return false; }
     private void updateColorModeIfNeeded(int p0, float p1) {}
@@ -781,6 +804,8 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     public void notifyRendererOfExpensiveFrame() {}
     public void notifyRendererOfExpensiveFrame(java.lang.String p0) {}
     void notifyRendererOfFramePending() {}
+    void notifyRendererOfFrameVsyncId(long p0) {}
+    void notifyRendererOfNoFrame() {}
     public void notifySubtreeAccessibilityStateChanged(android.view.View p0, android.view.View p1, int p2) {}
     public void onDescendantInvalidated(android.view.View p0, android.view.View p1) {}
     public void onDescendantUnbufferedRequested() {}
@@ -797,6 +822,8 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     public void onStopNestedScroll(android.view.View p0) {}
     public void onWindowTitleChanged() {}
     void outputDisplayList(android.view.View p0) {}
+    boolean performFocusNavigation(int p0) { return false; }
+    boolean performFocusNavigation(int p0, boolean p1) { return false; }
     public boolean performHapticFeedback(int p0, int p1, int p2, int p3) { return false; }
     public void performHapticFeedbackForInputDevice(int p0, int p1, int p2, int p3, int p4) {}
     public void playSoundEffect(int p0) {}
@@ -885,6 +912,56 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
     public void votePreferredFrameRateCategory(int p0, int p1, android.view.View p2) {}
     boolean wasRelayoutRequested() { return false; }
     public void windowFocusChanged(boolean p0) {}
+    public void windowFocusChanged(boolean p0, int p1) {}
+
+    private class SendWindowContentChangedAccessibilityEvent implements java.lang.Runnable {
+        public java.util.OptionalInt mAction;
+        private int mChangeTypes;
+        public long mLastEventTimeMillis;
+        public java.lang.StackTraceElement[] mOrigin;
+        public android.view.View mSource;
+        private SendWindowContentChangedAccessibilityEvent(android.view.ViewRootImpl p0) {}
+        private boolean canContinueThrottle(android.view.View p0, int p1) { return false; }
+        public void removeCallbacksAndRun() {}
+        public void run() {}
+        public void runOrPost(android.view.View p0, int p1) {}
+    }
+
+    static final class CornerRadii {
+        public float bottomLeft;
+        public float bottomRight;
+        public float topLeft;
+        public float topRight;
+        CornerRadii() {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        boolean isEmpty() { return false; }
+        public java.lang.String toString() { return null; }
+    }
+
+    final class AccessibilityInteractionConnectionManager implements android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener {
+        private int mDirectConnectionId;
+        AccessibilityInteractionConnectionManager(android.view.ViewRootImpl p0) {}
+        public void ensureConnection() {}
+        public int ensureDirectConnection() { return 0; }
+        public void ensureNoConnection() {}
+        public void ensureNoDirectConnection() {}
+        public void onAccessibilityStateChanged(boolean p0) {}
+    }
+
+    final class ViewPostImeInputStage extends android.view.ViewRootImpl.InputStage {
+        public ViewPostImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) { super(null, null); }
+        private boolean handleRotaryFocusNavigation(android.view.MotionEvent p0, int p1) { return false; }
+        private void maybeUpdatePointerIcon(android.view.MotionEvent p0) {}
+        private boolean performFocusNavigation(android.view.KeyEvent p0) { return false; }
+        private boolean performKeyboardGroupNavigation(int p0) { return false; }
+        private int processGenericMotionEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        private int processKeyEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        private int processPointerEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        private int processTrackballEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        protected void onDeliverToNext(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+    }
 
     static final class AccessibilityInteractionConnection extends android.view.accessibility.IAccessibilityInteractionConnection.Stub {
         private final java.lang.ref.WeakReference<android.view.ViewRootImpl> mViewRootImpl = null;
@@ -902,190 +979,6 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
         public void takeScreenshotOfWindow(int p0, android.window.ScreenCaptureInternal.ScreenCaptureListener p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) {}
     }
 
-    final class AccessibilityInteractionConnectionManager implements android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener {
-        private int mDirectConnectionId;
-        AccessibilityInteractionConnectionManager(android.view.ViewRootImpl p0) {}
-        public void ensureConnection() {}
-        public int ensureDirectConnection() { return 0; }
-        public void ensureNoConnection() {}
-        public void ensureNoDirectConnection() {}
-        public void onAccessibilityStateChanged(boolean p0) {}
-    }
-
-    public static interface ActivityConfigCallback {
-        default public void onConfigurationChanged(android.content.res.Configuration p0, int p1) {}
-        default public void onConfigurationChanged(android.content.res.Configuration p0, int p1, android.window.ActivityWindowInfo p2) {}
-    }
-
-    abstract class AsyncInputStage extends android.view.ViewRootImpl.InputStage {
-        protected static final int DEFER = 3;
-        private android.view.ViewRootImpl.QueuedInputEvent mQueueHead;
-        private int mQueueLength;
-        private android.view.ViewRootImpl.QueuedInputEvent mQueueTail;
-        private final java.lang.String mTraceCounter = null;
-        public AsyncInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null); }
-        private void dequeue(android.view.ViewRootImpl.QueuedInputEvent p0, android.view.ViewRootImpl.QueuedInputEvent p1) {}
-        private void enqueue(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        protected void apply(android.view.ViewRootImpl.QueuedInputEvent p0, int p1) {}
-        protected void defer(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        void dump(java.lang.String p0, java.io.PrintWriter p1) {}
-        protected void forward(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-    }
-
-    public static final class CalledFromWrongThreadException extends android.util.AndroidRuntimeException {
-        public CalledFromWrongThreadException(java.lang.String p0) { super(); }
-        public CalledFromWrongThreadException(java.lang.String p0, java.lang.Throwable p1) { super(); }
-    }
-
-    public static interface ConfigChangedCallback {
-        public void onConfigurationChanged(android.content.res.Configuration p0);
-    }
-
-    final class ConsumeBatchedInputCallback implements android.view.Choreographer.VsyncCallback {
-        ConsumeBatchedInputCallback(android.view.ViewRootImpl p0) {}
-        public void onVsync(android.view.Choreographer.FrameData p0) {}
-    }
-
-    final class ConsumeBatchedInputImmediatelyRunnable implements java.lang.Runnable {
-        ConsumeBatchedInputImmediatelyRunnable(android.view.ViewRootImpl p0) {}
-        public void run() {}
-    }
-
-    static final class CornerRadii {
-        public float bottomLeft;
-        public float bottomRight;
-        public float topLeft;
-        public float topRight;
-        CornerRadii() {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        boolean isEmpty() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
-    final class EarlyPostImeInputStage extends android.view.ViewRootImpl.InputStage {
-        public EarlyPostImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) { super(null, null); }
-        private int processKeyEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        private int processMotionEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        private int processPointerEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-    }
-
-    static final class GfxInfo {
-        public long renderNodeMemoryAllocated;
-        public long renderNodeMemoryUsage;
-        public int viewCount;
-        GfxInfo() {}
-        void add(android.view.ViewRootImpl.GfxInfo p0) {}
-    }
-
-    final class HighContrastTextManager implements android.view.accessibility.AccessibilityManager.HighContrastTextStateChangeListener {
-        HighContrastTextManager(android.view.ViewRootImpl p0) {}
-        public void onHighContrastTextStateChanged(boolean p0) {}
-    }
-
-    final class ImeInputStage extends android.view.ViewRootImpl.AsyncInputStage implements android.view.inputmethod.InputMethodManager.FinishedInputEventCallback {
-        public ImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null, null); }
-        public void onFinishedInputEvent(java.lang.Object p0, boolean p1) {}
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-    }
-
-    abstract class InputStage {
-        protected static final int FINISH_HANDLED = 1;
-        protected static final int FINISH_NOT_HANDLED = 2;
-        protected static final int FORWARD = 0;
-        private final android.view.ViewRootImpl.InputStage mNext = null;
-        private java.lang.String mTracePrefix;
-        public InputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) {}
-        private void traceEvent(android.view.ViewRootImpl.QueuedInputEvent p0, long p1) {}
-        protected void apply(android.view.ViewRootImpl.QueuedInputEvent p0, int p1) {}
-        public final void deliver(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        void dump(java.lang.String p0, java.io.PrintWriter p1) {}
-        protected void finish(android.view.ViewRootImpl.QueuedInputEvent p0, boolean p1) {}
-        protected void forward(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        boolean isBack(android.view.InputEvent p0) { return false; }
-        protected void onDeliverToNext(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        protected void onDetachedFromWindow() {}
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        protected void onWindowFocusChanged(boolean p0) {}
-        protected boolean shouldDropInputEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return false; }
-    }
-
-    final class InvalidateOnAnimationRunnable implements java.lang.Runnable {
-        private boolean mPosted;
-        private android.view.View.AttachInfo.InvalidateInfo[] mTempViewRects;
-        private android.view.View[] mTempViews;
-        private final java.util.ArrayList<android.view.View.AttachInfo.InvalidateInfo> mViewRects = null;
-        private final java.util.ArrayList<android.view.View> mViews = null;
-        InvalidateOnAnimationRunnable(android.view.ViewRootImpl p0) {}
-        private void postIfNeededLocked() {}
-        public void addView(android.view.View p0) {}
-        public void addViewRect(android.view.View.AttachInfo.InvalidateInfo p0) {}
-        public void removeView(android.view.View p0) {}
-        public void run() {}
-    }
-
-    final class NativePostImeInputStage extends android.view.ViewRootImpl.AsyncInputStage implements android.view.InputQueue.FinishedInputEventCallback {
-        public NativePostImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null, null); }
-        public void onFinishedInputEvent(java.lang.Object p0, boolean p1) {}
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-    }
-
-    final class NativePreImeInputStage extends android.view.ViewRootImpl.AsyncInputStage implements android.view.InputQueue.FinishedInputEventCallback {
-        public NativePreImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null, null); }
-        private int doOnBackKeyEvent(android.view.KeyEvent p0) { return 0; }
-        private static boolean isImeCallback(android.window.OnBackInvokedCallback p0) { return false; }
-        protected void onDeliverToNext(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        public void onFinishedInputEvent(java.lang.Object p0, boolean p1) {}
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-    }
-
-    public static final class NoPreloadHolder {
-        public static final boolean sAlwaysSeqId = Boolean.valueOf(false);
-        public NoPreloadHolder() {}
-    }
-
-    private static final class QueuedInputEvent {
-        public static final int FLAG_DEFERRED = 2;
-        public static final int FLAG_FINISHED = 4;
-        public static final int FLAG_FINISHED_HANDLED = 8;
-        public static final int FLAG_MODIFIED_FOR_COMPATIBILITY = 64;
-        public static final int FLAG_PRE_IME_ONLY = 128;
-        public static final int FLAG_RESYNTHESIZED = 16;
-        public static final int FLAG_SKIP_IME = 1;
-        public static final int FLAG_UNHANDLED = 32;
-        public android.view.InputEvent mEvent;
-        public int mFlags;
-        public android.view.ViewRootImpl.QueuedInputEvent mNext;
-        public android.view.InputEventReceiver mReceiver;
-        private QueuedInputEvent() {}
-        private boolean flagToString(java.lang.String p0, int p1, boolean p2, java.lang.StringBuilder p3) { return false; }
-        public boolean forPreImeOnly() { return false; }
-        public boolean shouldSendToSynthesizer() { return false; }
-        public boolean shouldSkipIme() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
-    private class SendWindowContentChangedAccessibilityEvent implements java.lang.Runnable {
-        public java.util.OptionalInt mAction;
-        private int mChangeTypes;
-        public long mLastEventTimeMillis;
-        public java.lang.StackTraceElement[] mOrigin;
-        public android.view.View mSource;
-        private SendWindowContentChangedAccessibilityEvent(android.view.ViewRootImpl p0) {}
-        private boolean canContinueThrottle(android.view.View p0, int p1) { return false; }
-        public void removeCallbacksAndRun() {}
-        public void run() {}
-        public void runOrPost(android.view.View p0, int p1) {}
-    }
-
-    public static interface SurfaceChangedCallback {
-        public void surfaceCreated(android.view.SurfaceControl.Transaction p0);
-        public void surfaceDestroyed();
-        public void surfaceReplaced(android.view.SurfaceControl.Transaction p0);
-        default public void vriDrawStarted(boolean p0) {}
-    }
-
     final class SyntheticInputStage extends android.view.ViewRootImpl.InputStage {
         private final android.view.ViewRootImpl.SyntheticJoystickHandler mJoystick = null;
         private final android.view.ViewRootImpl.SyntheticKeyboardHandler mKeyboard = null;
@@ -1096,6 +989,28 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
         protected void onDetachedFromWindow() {}
         protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
         protected void onWindowFocusChanged(boolean p0) {}
+    }
+
+    final class EarlyPostImeInputStage extends android.view.ViewRootImpl.InputStage {
+        public EarlyPostImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) { super(null, null); }
+        private int processKeyEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        private int processMotionEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        private int processPointerEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+    }
+
+    class TakenSurfaceHolder extends com.android.internal.view.BaseSurfaceHolder {
+        boolean mDrawingAllowed;
+        boolean mIsCreating;
+        TakenSurfaceHolder(android.view.ViewRootImpl p0) { super(); }
+        public boolean isCreating() { return false; }
+        public boolean onAllowLockCanvas() { return false; }
+        public void onRelayoutContainer() {}
+        public void onUpdateSurface() {}
+        public void setFixedSize(int p0, int p1) {}
+        public void setFormat(int p0) {}
+        public void setKeepScreenOn(boolean p0) {}
+        public void setType(int p0) {}
     }
 
     final class SyntheticJoystickHandler extends android.os.Handler {
@@ -1125,6 +1040,82 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
         }
     }
 
+    private static final class QueuedInputEvent {
+        public static final int FLAG_DEFERRED = 2;
+        public static final int FLAG_FINISHED = 4;
+        public static final int FLAG_FINISHED_HANDLED = 8;
+        public static final int FLAG_MODIFIED_FOR_COMPATIBILITY = 64;
+        public static final int FLAG_PRE_IME_ONLY = 128;
+        public static final int FLAG_RESYNTHESIZED = 16;
+        public static final int FLAG_SKIP_IME = 1;
+        public static final int FLAG_UNHANDLED = 32;
+        public android.view.InputEvent mEvent;
+        public int mFlags;
+        public android.view.ViewRootImpl.QueuedInputEvent mNext;
+        public android.view.InputEventReceiver mReceiver;
+        private QueuedInputEvent() {}
+        private boolean flagToString(java.lang.String p0, int p1, boolean p2, java.lang.StringBuilder p3) { return false; }
+        public boolean forPreImeOnly() { return false; }
+        public boolean shouldSendToSynthesizer() { return false; }
+        public boolean shouldSkipIme() { return false; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static final class CalledFromWrongThreadException extends android.util.AndroidRuntimeException {
+        public CalledFromWrongThreadException(java.lang.String p0) { super(); }
+        public CalledFromWrongThreadException(java.lang.String p0, java.lang.Throwable p1) { super(); }
+    }
+
+    final class ConsumeBatchedInputCallback implements android.view.Choreographer.VsyncCallback {
+        ConsumeBatchedInputCallback(android.view.ViewRootImpl p0) {}
+        public void onVsync(android.view.Choreographer.FrameData p0) {}
+    }
+
+    final class NativePostImeInputStage extends android.view.ViewRootImpl.AsyncInputStage implements android.view.InputQueue.FinishedInputEventCallback {
+        public NativePostImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null, null); }
+        public void onFinishedInputEvent(java.lang.Object p0, boolean p1) {}
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+    }
+
+    static final class GfxInfo {
+        public long renderNodeMemoryAllocated;
+        public long renderNodeMemoryUsage;
+        public int viewCount;
+        GfxInfo() {}
+        void add(android.view.ViewRootImpl.GfxInfo p0) {}
+    }
+
+    public static interface ConfigChangedCallback {
+        public void onConfigurationChanged(android.content.res.Configuration p0);
+    }
+
+    abstract class InputStage {
+        protected static final int FINISH_HANDLED = 1;
+        protected static final int FINISH_NOT_HANDLED = 2;
+        protected static final int FORWARD = 0;
+        private final android.view.ViewRootImpl.InputStage mNext = null;
+        private java.lang.String mTracePrefix;
+        public InputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) {}
+        private void traceEvent(android.view.ViewRootImpl.QueuedInputEvent p0, long p1) {}
+        protected void apply(android.view.ViewRootImpl.QueuedInputEvent p0, int p1) {}
+        public final void deliver(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        void dump(java.lang.String p0, java.io.PrintWriter p1) {}
+        protected void finish(android.view.ViewRootImpl.QueuedInputEvent p0, boolean p1) {}
+        protected void forward(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        boolean isBack(android.view.InputEvent p0) { return false; }
+        protected void onDeliverToNext(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        protected void onDetachedFromWindow() {}
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        protected void onWindowFocusChanged(boolean p0) {}
+        protected boolean shouldDropInputEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return false; }
+    }
+
+    final class ViewPreImeInputStage extends android.view.ViewRootImpl.InputStage {
+        public ViewPreImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) { super(null, null); }
+        private int processKeyEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+    }
+
     final class SyntheticKeyboardHandler {
         SyntheticKeyboardHandler(android.view.ViewRootImpl p0) {}
         public void process(android.view.KeyEvent p0) {}
@@ -1143,34 +1134,45 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
         public void process(android.view.MotionEvent p0) {}
     }
 
-    final class SyntheticTrackballHandler {
-        private long mLastTime;
-        private final android.view.ViewRootImpl.TrackballAxis mX = null;
-        private final android.view.ViewRootImpl.TrackballAxis mY = null;
-        SyntheticTrackballHandler(android.view.ViewRootImpl p0) {}
-        public void cancel() {}
-        public void process(android.view.MotionEvent p0) {}
+    final class NativePreImeInputStage extends android.view.ViewRootImpl.AsyncInputStage implements android.view.InputQueue.FinishedInputEventCallback {
+        public NativePreImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null, null); }
+        private int doOnBackKeyEvent(android.view.KeyEvent p0) { return 0; }
+        private static boolean isImeCallback(android.window.OnBackInvokedCallback p0) { return false; }
+        protected void onDeliverToNext(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        public void onFinishedInputEvent(java.lang.Object p0, boolean p1) {}
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
     }
 
-    static final class SystemUiVisibilityInfo {
-        int globalVisibility;
-        int localChanges;
-        int localValue;
-        SystemUiVisibilityInfo() {}
+    private static class UnhandledKeyManager {
+        private final android.util.SparseArray<java.lang.ref.WeakReference<android.view.View>> mCapturedKeys = null;
+        private java.lang.ref.WeakReference<android.view.View> mCurrentReceiver;
+        private boolean mDispatched;
+        private UnhandledKeyManager() {}
+        boolean dispatch(android.view.View p0, android.view.KeyEvent p1) { return false; }
+        void preDispatch(android.view.KeyEvent p0) {}
+        boolean preViewDispatch(android.view.KeyEvent p0) { return false; }
     }
 
-    class TakenSurfaceHolder extends com.android.internal.view.BaseSurfaceHolder {
-        boolean mDrawingAllowed;
-        boolean mIsCreating;
-        TakenSurfaceHolder(android.view.ViewRootImpl p0) { super(); }
-        public boolean isCreating() { return false; }
-        public boolean onAllowLockCanvas() { return false; }
-        public void onRelayoutContainer() {}
-        public void onUpdateSurface() {}
-        public void setFixedSize(int p0, int p1) {}
-        public void setFormat(int p0) {}
-        public void setKeepScreenOn(boolean p0) {}
-        public void setType(int p0) {}
+    public static final class NoPreloadHolder {
+        public static final boolean sAlwaysSeqId = Boolean.valueOf(false);
+        public NoPreloadHolder() {}
+    }
+
+    final class WindowInputEventReceiver extends android.view.InputEventReceiver {
+        private final android.graphics.HardwareRenderer mRenderer = null;
+        WindowInputEventReceiver(android.view.ViewRootImpl p0, android.view.InputChannel p1, android.os.Looper p2, android.graphics.HardwareRenderer p3) { super(null, null); }
+        public void dispose() {}
+        public void onBatchedInputEventPending(int p0) {}
+        public void onDragEvent(boolean p0, float p1, float p2, int p3, int p4, int p5) {}
+        public void onFocusEvent(boolean p0, int p1) {}
+        public void onInputEvent(android.view.InputEvent p0) {}
+        public void onPointerCaptureEvent(boolean p0) {}
+        public void onTouchModeChanged(boolean p0) {}
+    }
+
+    public static interface ActivityConfigCallback {
+        default public void onConfigurationChanged(android.content.res.Configuration p0, int p1) {}
+        default public void onConfigurationChanged(android.content.res.Configuration p0, int p1, android.window.ActivityWindowInfo p2) {}
     }
 
     static final class TrackballAxis {
@@ -1192,39 +1194,71 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
         void reset(int p0) {}
     }
 
+    final class HighContrastTextManager implements android.view.accessibility.AccessibilityManager.HighContrastTextStateChangeListener {
+        HighContrastTextManager(android.view.ViewRootImpl p0) {}
+        public void onHighContrastTextStateChanged(boolean p0) {}
+    }
+
+    final class SyntheticTrackballHandler {
+        private long mLastTime;
+        private final android.view.ViewRootImpl.TrackballAxis mX = null;
+        private final android.view.ViewRootImpl.TrackballAxis mY = null;
+        SyntheticTrackballHandler(android.view.ViewRootImpl p0) {}
+        public void cancel() {}
+        public void process(android.view.MotionEvent p0) {}
+    }
+
+    final class ConsumeBatchedInputImmediatelyRunnable implements java.lang.Runnable {
+        ConsumeBatchedInputImmediatelyRunnable(android.view.ViewRootImpl p0) {}
+        public void run() {}
+    }
+
+    static final class SystemUiVisibilityInfo {
+        int globalVisibility;
+        int localChanges;
+        int localValue;
+        SystemUiVisibilityInfo() {}
+    }
+
+    public static interface SurfaceChangedCallback {
+        public void surfaceCreated(android.view.SurfaceControl.Transaction p0);
+        public void surfaceDestroyed();
+        public void surfaceReplaced(android.view.SurfaceControl.Transaction p0);
+        default public void vriDrawStarted(boolean p0) {}
+    }
+
     final class TraversalCallback implements android.view.Choreographer.VsyncCallback {
         TraversalCallback(android.view.ViewRootImpl p0) {}
         public void onVsync(android.view.Choreographer.FrameData p0) {}
     }
 
-    private static class UnhandledKeyManager {
-        private final android.util.SparseArray<java.lang.ref.WeakReference<android.view.View>> mCapturedKeys = null;
-        private java.lang.ref.WeakReference<android.view.View> mCurrentReceiver;
-        private boolean mDispatched;
-        private UnhandledKeyManager() {}
-        boolean dispatch(android.view.View p0, android.view.KeyEvent p1) { return false; }
-        void preDispatch(android.view.KeyEvent p0) {}
-        boolean preViewDispatch(android.view.KeyEvent p0) { return false; }
+    abstract class AsyncInputStage extends android.view.ViewRootImpl.InputStage {
+        protected static final int DEFER = 3;
+        private android.view.ViewRootImpl.QueuedInputEvent mQueueHead;
+        private int mQueueLength;
+        private android.view.ViewRootImpl.QueuedInputEvent mQueueTail;
+        private final java.lang.String mTraceCounter = null;
+        public AsyncInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null); }
+        private void dequeue(android.view.ViewRootImpl.QueuedInputEvent p0, android.view.ViewRootImpl.QueuedInputEvent p1) {}
+        private void enqueue(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        protected void apply(android.view.ViewRootImpl.QueuedInputEvent p0, int p1) {}
+        protected void defer(android.view.ViewRootImpl.QueuedInputEvent p0) {}
+        void dump(java.lang.String p0, java.io.PrintWriter p1) {}
+        protected void forward(android.view.ViewRootImpl.QueuedInputEvent p0) {}
     }
 
-    final class ViewPostImeInputStage extends android.view.ViewRootImpl.InputStage {
-        public ViewPostImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) { super(null, null); }
-        private void maybeUpdatePointerIcon(android.view.MotionEvent p0) {}
-        private boolean moveFocusToAdjacentWindow(int p0) { return false; }
-        private boolean performFocusNavigation(android.view.KeyEvent p0) { return false; }
-        private boolean performKeyboardGroupNavigation(int p0) { return false; }
-        private int processGenericMotionEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        private int processKeyEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        private int processPointerEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        private int processTrackballEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        protected void onDeliverToNext(android.view.ViewRootImpl.QueuedInputEvent p0) {}
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-    }
-
-    final class ViewPreImeInputStage extends android.view.ViewRootImpl.InputStage {
-        public ViewPreImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1) { super(null, null); }
-        private int processKeyEvent(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
-        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
+    final class InvalidateOnAnimationRunnable implements java.lang.Runnable {
+        private boolean mPosted;
+        private android.view.View.AttachInfo.InvalidateInfo[] mTempViewRects;
+        private android.view.View[] mTempViews;
+        private final java.util.ArrayList<android.view.View.AttachInfo.InvalidateInfo> mViewRects = null;
+        private final java.util.ArrayList<android.view.View> mViews = null;
+        InvalidateOnAnimationRunnable(android.view.ViewRootImpl p0) {}
+        private void postIfNeededLocked() {}
+        public void addView(android.view.View p0) {}
+        public void addViewRect(android.view.View.AttachInfo.InvalidateInfo p0) {}
+        public void removeView(android.view.View p0) {}
+        public void run() {}
     }
 
     final class ViewRootHandler extends android.os.Handler {
@@ -1284,15 +1318,9 @@ public final class ViewRootImpl implements android.view.ViewParent, android.view
         }
     }
 
-    final class WindowInputEventReceiver extends android.view.InputEventReceiver {
-        private final android.graphics.HardwareRenderer mRenderer = null;
-        WindowInputEventReceiver(android.view.ViewRootImpl p0, android.view.InputChannel p1, android.os.Looper p2, android.graphics.HardwareRenderer p3) { super(null, null); }
-        public void dispose() {}
-        public void onBatchedInputEventPending(int p0) {}
-        public void onDragEvent(boolean p0, float p1, float p2, int p3, int p4, int p5) {}
-        public void onFocusEvent(boolean p0) {}
-        public void onInputEvent(android.view.InputEvent p0) {}
-        public void onPointerCaptureEvent(boolean p0) {}
-        public void onTouchModeChanged(boolean p0) {}
+    final class ImeInputStage extends android.view.ViewRootImpl.AsyncInputStage implements android.view.inputmethod.InputMethodManager.FinishedInputEventCallback {
+        public ImeInputStage(android.view.ViewRootImpl p0, android.view.ViewRootImpl.InputStage p1, java.lang.String p2) { super(null, null, null); }
+        public void onFinishedInputEvent(java.lang.Object p0, boolean p1) {}
+        protected int onProcess(android.view.ViewRootImpl.QueuedInputEvent p0) { return 0; }
     }
 }

@@ -4,7 +4,6 @@ final class SoftInputWindow extends android.app.Dialog {
     private static final boolean DEBUG = false;
     private static final java.lang.String TAG = "SoftInputWindow";
     private final android.view.KeyEvent.DispatcherState mDispatcherState = null;
-    private final android.inputmethodservice.InputMethodService mService = null;
     private int mWindowState;
     SoftInputWindow(android.inputmethodservice.InputMethodService p0, int p1, android.view.KeyEvent.DispatcherState p2) { super((android.content.Context)null); }
     private static java.lang.String stateToString(int p0) { return null; }

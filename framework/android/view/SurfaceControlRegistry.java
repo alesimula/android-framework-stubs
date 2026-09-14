@@ -2,7 +2,7 @@ package android.view;
 
 public class SurfaceControlRegistry {
     static final java.lang.String APPLY = "apply";
-    private static final java.lang.String DEBUG_CALL_FORMAT_STRING = "%s (tx: %s, sc: %s) details: %s";
+    private static final java.lang.String DEBUG_CALL_FORMAT_STRING = "%s (tx: %s%s, sc: %s) details: %s";
     private static final int DUMP_LIMIT = 256;
     private static final int MAX_LAYERS_REPORTING_THRESHOLD = 1024;
     private static final android.view.SurfaceControlRegistry NO_OP_REGISTRY = null;
@@ -11,7 +11,9 @@ public class SurfaceControlRegistry {
     static boolean sCallStackDebuggingEnabled;
     static boolean sCallStackDebuggingInitialized;
     private static java.lang.String sCallStackDebuggingMatchCall;
+    private static java.lang.String sCallStackDebuggingMatchCallOverride;
     private static java.lang.String sCallStackDebuggingMatchName;
+    private static java.lang.String sCallStackDebuggingMatchNameOverride;
     private static final android.view.SurfaceControlRegistry.DefaultReporter sDefaultReporter = null;
     private static final java.lang.Object sLock = null;
     static boolean sLogAllTxCallsOnApply;
@@ -28,7 +30,7 @@ public class SurfaceControlRegistry {
     public static android.view.SurfaceControlRegistry getProcessInstance() { return null; }
     static final void initializeCallStackDebugging() {}
     static final boolean isCallStackDebuggingEnabled() { return false; }
-    private static void logCallStack(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) {}
+    private static void logCallStack(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4) {}
     private static void runGcAndFinalizers() {}
     private static void updateCallStackDebuggingParams() {}
     void add(android.view.SurfaceControl p0) {}
@@ -44,14 +46,14 @@ public class SurfaceControlRegistry {
         public void onMaxLayersExceeded(java.util.WeakHashMap<android.view.SurfaceControl, java.lang.Long> p0, int p1, java.io.PrintWriter p2) {}
     }
 
+    public static interface Reporter {
+        public void onMaxLayersExceeded(java.util.WeakHashMap<android.view.SurfaceControl, java.lang.Long> p0, int p1, java.io.PrintWriter p2);
+    }
+
     private static class NoOpRegistry extends android.view.SurfaceControlRegistry {
         private NoOpRegistry() { super(); }
         void add(android.view.SurfaceControl p0) {}
         void remove(android.view.SurfaceControl p0) {}
         public void setReportingThresholds(int p0, int p1, android.view.SurfaceControlRegistry.Reporter p2) {}
-    }
-
-    public static interface Reporter {
-        public void onMaxLayersExceeded(java.util.WeakHashMap<android.view.SurfaceControl, java.lang.Long> p0, int p1, java.io.PrintWriter p2);
     }
 }

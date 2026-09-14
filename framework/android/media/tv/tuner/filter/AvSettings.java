@@ -51,6 +51,10 @@ public class AvSettings extends android.media.tv.tuner.filter.Settings {
     public static @interface AudioStreamType {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VideoStreamType {
+    }
+
     public static class Builder {
         private int mAudioStreamType;
         private final boolean mIsAudio = false;
@@ -64,9 +68,5 @@ public class AvSettings extends android.media.tv.tuner.filter.Settings {
         public android.media.tv.tuner.filter.AvSettings.Builder setPassthrough(boolean p0) { return null; }
         public android.media.tv.tuner.filter.AvSettings.Builder setUseSecureMemory(boolean p0) { return null; }
         public android.media.tv.tuner.filter.AvSettings.Builder setVideoStreamType(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VideoStreamType {
     }
 }

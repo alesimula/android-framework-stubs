@@ -14,8 +14,9 @@ public class JcaSignerInfoVerifierBuilder {
     public com.android.internal.org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder setSignatureAlgorithmFinder(com.android.internal.org.bouncycastle.operator.SignatureAlgorithmIdentifierFinder p0) { return null; }
     public com.android.internal.org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder setSignatureAlgorithmNameGenerator(com.android.internal.org.bouncycastle.cms.CMSSignatureAlgorithmNameGenerator p0) { return null; }
 
-    private static class Helper {
-        private Helper() {}
+    private static class ProviderHelper extends com.android.internal.org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder.Helper {
+        private final java.security.Provider provider = null;
+        public ProviderHelper(java.security.Provider p0) { super(); }
         com.android.internal.org.bouncycastle.operator.ContentVerifierProvider createContentVerifierProvider(com.android.internal.org.bouncycastle.cert.X509CertificateHolder p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException, java.security.cert.CertificateException { return null; }
         com.android.internal.org.bouncycastle.operator.ContentVerifierProvider createContentVerifierProvider(java.security.PublicKey p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException { return null; }
         com.android.internal.org.bouncycastle.operator.ContentVerifierProvider createContentVerifierProvider(java.security.cert.X509Certificate p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException { return null; }
@@ -31,9 +32,8 @@ public class JcaSignerInfoVerifierBuilder {
         com.android.internal.org.bouncycastle.operator.DigestCalculatorProvider createDigestCalculatorProvider() throws com.android.internal.org.bouncycastle.operator.OperatorCreationException { return null; }
     }
 
-    private static class ProviderHelper extends com.android.internal.org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder.Helper {
-        private final java.security.Provider provider = null;
-        public ProviderHelper(java.security.Provider p0) { super(); }
+    private static class Helper {
+        private Helper() {}
         com.android.internal.org.bouncycastle.operator.ContentVerifierProvider createContentVerifierProvider(com.android.internal.org.bouncycastle.cert.X509CertificateHolder p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException, java.security.cert.CertificateException { return null; }
         com.android.internal.org.bouncycastle.operator.ContentVerifierProvider createContentVerifierProvider(java.security.PublicKey p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException { return null; }
         com.android.internal.org.bouncycastle.operator.ContentVerifierProvider createContentVerifierProvider(java.security.cert.X509Certificate p0) throws com.android.internal.org.bouncycastle.operator.OperatorCreationException { return null; }

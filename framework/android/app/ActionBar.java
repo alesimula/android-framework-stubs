@@ -108,6 +108,19 @@ public abstract class ActionBar {
     public abstract void show();
     public android.view.ActionMode startActionMode(android.view.ActionMode.Callback p0) { return null; }
 
+    public static interface OnMenuVisibilityListener {
+        public void onMenuVisibilityChanged(boolean p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface NavigationMode {
+    }
+
+    @java.lang.Deprecated
+    public static interface OnNavigationListener {
+        public boolean onNavigationItemSelected(int p0, long p1);
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DisplayOptions {
     }
@@ -130,19 +143,6 @@ public abstract class ActionBar {
             public void mapProperties(android.view.inspector.PropertyMapper p0) {}
             public void readProperties(android.app.ActionBar.LayoutParams p0, android.view.inspector.PropertyReader p1) {}
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NavigationMode {
-    }
-
-    public static interface OnMenuVisibilityListener {
-        public void onMenuVisibilityChanged(boolean p0);
-    }
-
-    @java.lang.Deprecated
-    public static interface OnNavigationListener {
-        public boolean onNavigationItemSelected(int p0, long p1);
     }
 
     @java.lang.Deprecated

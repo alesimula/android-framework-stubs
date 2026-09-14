@@ -6,14 +6,6 @@ public interface ITkgsInfoListener extends android.os.IInterface {
     public void onTableVersionUpdate(int p0) throws android.os.RemoteException;
     public void onUserMessage(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.scan.ITkgsInfoListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onServiceList(java.lang.String[] p0) throws android.os.RemoteException {}
-        public void onTableVersionUpdate(int p0) throws android.os.RemoteException {}
-        public void onUserMessage(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.scan.ITkgsInfoListener {
         static final int TRANSACTION_onServiceList = 1;
         static final int TRANSACTION_onTableVersionUpdate = 2;
@@ -34,5 +26,13 @@ public interface ITkgsInfoListener extends android.os.IInterface {
             public void onTableVersionUpdate(int p0) throws android.os.RemoteException {}
             public void onUserMessage(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.scan.ITkgsInfoListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onServiceList(java.lang.String[] p0) throws android.os.RemoteException {}
+        public void onTableVersionUpdate(int p0) throws android.os.RemoteException {}
+        public void onUserMessage(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

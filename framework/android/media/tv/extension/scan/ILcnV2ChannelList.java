@@ -6,14 +6,6 @@ public interface ILcnV2ChannelList extends android.os.IInterface {
     public int setLcnV2ChannelList(android.os.Bundle p0) throws android.os.RemoteException;
     public int setListener(android.media.tv.extension.scan.ILcnV2ChannelListListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.scan.ILcnV2ChannelList {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.Bundle[] getLcnV2ChannelLists() throws android.os.RemoteException { return null; }
-        public int setLcnV2ChannelList(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
-        public int setListener(android.media.tv.extension.scan.ILcnV2ChannelListListener p0) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.scan.ILcnV2ChannelList {
         static final int TRANSACTION_getLcnV2ChannelLists = 1;
         static final int TRANSACTION_setLcnV2ChannelList = 2;
@@ -34,5 +26,13 @@ public interface ILcnV2ChannelList extends android.os.IInterface {
             public int setLcnV2ChannelList(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
             public int setListener(android.media.tv.extension.scan.ILcnV2ChannelListListener p0) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.scan.ILcnV2ChannelList {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.Bundle[] getLcnV2ChannelLists() throws android.os.RemoteException { return null; }
+        public int setLcnV2ChannelList(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
+        public int setListener(android.media.tv.extension.scan.ILcnV2ChannelListListener p0) throws android.os.RemoteException { return 0; }
     }
 }

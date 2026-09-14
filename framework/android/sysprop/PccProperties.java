@@ -14,6 +14,8 @@ public final class PccProperties {
     public static void audit_mode_max_batch_size(java.lang.Integer p0) {}
     public static java.util.Optional<java.lang.Integer> audit_mode_max_log_files() { return null; }
     public static void audit_mode_max_log_files(java.lang.Integer p0) {}
+    public static java.util.Optional<android.sysprop.PccProperties.audit_mode_status_values> audit_mode_status() { return null; }
+    public static void audit_mode_status(android.sysprop.PccProperties.audit_mode_status_values p0) {}
     private static java.lang.String escape(java.lang.String p0) { return null; }
     private static <T extends java.lang.Enum<T>> java.lang.String formatEnumList(java.util.List<T> p0, java.util.function.Function<T, java.lang.String> p1) { return null; }
     private static <T extends java.lang.Object> java.lang.String formatList(java.util.List<T> p0) { return null; }
@@ -21,7 +23,6 @@ public final class PccProperties {
     private static java.lang.String formatULongList(java.util.List<java.lang.Long> p0) { return null; }
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -29,4 +30,16 @@ public final class PccProperties {
     private static java.lang.String tryParseString(java.lang.String p0) { return null; }
     private static java.lang.Integer tryParseUInt(java.lang.String p0) { return null; }
     private static java.lang.Long tryParseULong(java.lang.String p0) { return null; }
+
+    public static enum audit_mode_status_values {
+        ALL,
+        LIMITED,
+        OFF;
+        private static final android.sysprop.PccProperties.audit_mode_status_values[] $VALUES = null;
+        private static final android.sysprop.PccProperties.audit_mode_status_values[] VALUES = null;
+        private final java.lang.String propValue = null;
+        private audit_mode_status_values() {}
+        public static android.sysprop.PccProperties.audit_mode_status_values fromPropValue(java.lang.String p0) { return null; }
+        public java.lang.String getPropValue() { return null; }
+    }
 }

@@ -2,12 +2,16 @@ package android.telephony;
 
 @android.annotation.SystemApi
 public class TelephonyRegistryManager {
+    private static final long ANOMALY_REPORT_RATE_LIMIT_MS = 60000L;
     private static final long LISTEN_CODE_CHANGE = 147600208L;
+    private static final java.util.UUID REGISTRY_NULL_ANOMALY_UUID = null;
     public static final int SIM_ACTIVATION_TYPE_DATA = 1;
     public static final int SIM_ACTIVATION_TYPE_VOICE = 0;
     private static final java.lang.String TAG = "TelephonyRegistryManager";
     private static final java.util.WeakHashMap<android.telephony.TelephonyManager.CarrierPrivilegesCallback, java.lang.ref.WeakReference<android.telephony.TelephonyRegistryManager.CarrierPrivilegesCallbackWrapper>> sCarrierPrivilegeCallbacks = null;
-    private static com.android.internal.telephony.ITelephonyRegistry sRegistry;
+    private static long sLastAnomalyReportTimeMs;
+    private static final java.lang.Object sLock = null;
+    private static volatile com.android.internal.telephony.ITelephonyRegistry sRegistry;
     private static final java.util.Map<android.telephony.satellite.SatelliteStateChangeListener, java.lang.ref.WeakReference<android.telephony.TelephonyRegistryManager.SatelliteStateChangeListenerWrapper>> sSatelliteStateChangeListeners = null;
     private final java.util.concurrent.ConcurrentHashMap<android.telephony.CarrierConfigManager.CarrierConfigChangeListener, com.android.internal.telephony.ICarrierConfigChangeListener> mCarrierConfigChangeListenerMap = null;
     private final android.content.Context mContext = null;
@@ -15,6 +19,8 @@ public class TelephonyRegistryManager {
     private final java.util.concurrent.ConcurrentHashMap<android.telephony.SubscriptionManager.OnSubscriptionsChangedListener, com.android.internal.telephony.IOnSubscriptionsChangedListener> mSubscriptionChangedListenerMap = null;
     public TelephonyRegistryManager(android.content.Context p0) {}
     private java.util.Set<java.lang.Integer> getEventsFromBitmask(int p0) { return null; }
+    private static com.android.internal.telephony.ITelephonyRegistry getRegistry() { return null; }
+    private static boolean isValidRegistry(com.android.internal.telephony.ITelephonyRegistry p0) { return false; }
     private void listenFromCallback(boolean p0, boolean p1, int p2, java.lang.String p3, java.lang.String p4, android.telephony.TelephonyCallback p5, int[] p6, boolean p7) {}
     public void addCarrierConfigChangedListener(java.util.concurrent.Executor p0, android.telephony.CarrierConfigManager.CarrierConfigChangeListener p1) {}
     public void addCarrierPrivilegesCallback(int p0, java.util.concurrent.Executor p1, android.telephony.TelephonyManager.CarrierPrivilegesCallback p2) {}
@@ -71,6 +77,7 @@ public class TelephonyRegistryManager {
     public void notifyPreciseCallState(int p0, int p1, int[] p2, java.lang.String[] p3, int[] p4, int[] p5) {}
     public void notifyRadioPowerStateChanged(int p0, int p1, int p2) {}
     public void notifyRegistrationFailed(int p0, int p1, android.telephony.CellIdentity p2, java.lang.String p3, int p4, int p5, int p6) {}
+    public void notifySatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) {}
     public void notifySatellitePurchaseModeChanged(int p0, boolean p1, int p2) {}
     public void notifySatelliteStateChanged(boolean p0) {}
     public void notifySecurityAlgorithmsChanged(int p0, int p1, android.telephony.SecurityAlgorithmUpdate p2) {}
@@ -89,18 +96,18 @@ public class TelephonyRegistryManager {
     public void removeSatelliteStateChangeListener(android.telephony.satellite.SatelliteStateChangeListener p0) {}
     public void unregisterTelephonyCallback(int p0, java.lang.String p1, java.lang.String p2, android.telephony.TelephonyCallback p3, boolean p4) {}
 
+    private static class SatelliteStateChangeListenerWrapper extends com.android.internal.telephony.ISatelliteStateChangeListener.Stub implements com.android.internal.listeners.ListenerExecutor {
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final java.lang.ref.WeakReference<android.telephony.satellite.SatelliteStateChangeListener> mListener = null;
+        SatelliteStateChangeListenerWrapper(java.util.concurrent.Executor p0, android.telephony.satellite.SatelliteStateChangeListener p1) { super(); }
+        public void onSatelliteEnabledStateChanged(boolean p0) {}
+    }
+
     private static class CarrierPrivilegesCallbackWrapper extends com.android.internal.telephony.ICarrierPrivilegesCallback.Stub implements com.android.internal.listeners.ListenerExecutor {
         private final java.lang.ref.WeakReference<android.telephony.TelephonyManager.CarrierPrivilegesCallback> mCallback = null;
         private final java.util.concurrent.Executor mExecutor = null;
         CarrierPrivilegesCallbackWrapper(android.telephony.TelephonyManager.CarrierPrivilegesCallback p0, java.util.concurrent.Executor p1) { super(); }
         public void onCarrierPrivilegesChanged(java.util.List<java.lang.String> p0, int[] p1) {}
         public void onCarrierServiceChanged(java.lang.String p0, int p1) {}
-    }
-
-    private static class SatelliteStateChangeListenerWrapper extends com.android.internal.telephony.ISatelliteStateChangeListener.Stub implements com.android.internal.listeners.ListenerExecutor {
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final java.lang.ref.WeakReference<android.telephony.satellite.SatelliteStateChangeListener> mListener = null;
-        SatelliteStateChangeListenerWrapper(java.util.concurrent.Executor p0, android.telephony.satellite.SatelliteStateChangeListener p1) { super(); }
-        public void onSatelliteEnabledStateChanged(boolean p0) {}
     }
 }

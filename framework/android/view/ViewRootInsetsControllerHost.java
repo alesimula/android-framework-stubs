@@ -10,7 +10,9 @@ public class ViewRootInsetsControllerHost implements android.view.InsetsControll
     public void applySurfaceParams(android.view.SyncRtSurfaceTransactionApplier.SurfaceParams... p0) {}
     public int dipToPx(int p0) { return 0; }
     public void dispatchWindowInsetsAnimationEnd(android.view.WindowInsetsAnimation p0, boolean p1, boolean p2, boolean p3) {}
+    public void dispatchWindowInsetsAnimationEndToObserver(android.view.WindowInsetsAnimation p0) {}
     public void dispatchWindowInsetsAnimationPrepare(android.view.WindowInsetsAnimation p0, boolean p1, boolean p2, boolean p3) {}
+    public void dispatchWindowInsetsAnimationPrepareToObserver(android.view.WindowInsetsAnimation p0) {}
     public android.view.WindowInsets dispatchWindowInsetsAnimationProgress(android.view.WindowInsets p0, android.view.InsetsState p1, java.util.List<android.view.WindowInsetsAnimation> p2, boolean p3, boolean p4, boolean p5, int p6) { return null; }
     public android.view.WindowInsetsAnimation.Bounds dispatchWindowInsetsAnimationStart(android.view.WindowInsetsAnimation p0, android.view.WindowInsetsAnimation.Bounds p1, boolean p2, boolean p3, boolean p4) { return null; }
     public android.os.Handler getHandler() { return null; }

@@ -12,18 +12,6 @@ public interface IMediaCasService extends android.os.IInterface {
     public boolean isDescramblerSupported(int p0) throws android.os.RemoteException;
     public boolean isSystemIdSupported(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.cas.IMediaCasService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.cas.IDescrambler createDescrambler(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.cas.ICas createPlugin(int p0, android.hardware.cas.ICasListener p1) throws android.os.RemoteException { return null; }
-        public android.hardware.cas.AidlCasPluginDescriptor[] enumeratePlugins() throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public boolean isDescramblerSupported(int p0) throws android.os.RemoteException { return false; }
-        public boolean isSystemIdSupported(int p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.cas.IMediaCasService {
         static final int TRANSACTION_createDescrambler = 1;
         static final int TRANSACTION_createPlugin = 2;
@@ -52,5 +40,17 @@ public interface IMediaCasService extends android.os.IInterface {
             public boolean isDescramblerSupported(int p0) throws android.os.RemoteException { return false; }
             public boolean isSystemIdSupported(int p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.hardware.cas.IMediaCasService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.cas.IDescrambler createDescrambler(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.cas.ICas createPlugin(int p0, android.hardware.cas.ICasListener p1) throws android.os.RemoteException { return null; }
+        public android.hardware.cas.AidlCasPluginDescriptor[] enumeratePlugins() throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public boolean isDescramblerSupported(int p0) throws android.os.RemoteException { return false; }
+        public boolean isSystemIdSupported(int p0) throws android.os.RemoteException { return false; }
     }
 }

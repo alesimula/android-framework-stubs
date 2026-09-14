@@ -93,6 +93,72 @@ abstract class BinaryWriter extends com.android.framework.protobuf.ByteOutput im
     abstract void writeVarint32(int p0);
     abstract void writeVarint64(long p0);
 
+    private static final class UnsafeDirectWriter extends com.android.framework.protobuf.BinaryWriter {
+        private java.nio.ByteBuffer buffer;
+        private long bufferOffset;
+        private long limitMinusOne;
+        private long pos;
+        UnsafeDirectWriter(com.android.framework.protobuf.BufferAllocator p0, int p1) { super(null, 0); }
+        private int bufferPos() { return 0; }
+        private int bytesWrittenToCurrentBuffer() { return 0; }
+        private static boolean isSupported() { return false; }
+        private void nextBuffer() {}
+        private void nextBuffer(int p0) {}
+        private void nextBuffer(com.android.framework.protobuf.AllocatedBuffer p0) {}
+        private int spaceLeft() { return 0; }
+        private void writeVarint32FiveBytes(int p0) {}
+        private void writeVarint32FourBytes(int p0) {}
+        private void writeVarint32OneByte(int p0) {}
+        private void writeVarint32ThreeBytes(int p0) {}
+        private void writeVarint32TwoBytes(int p0) {}
+        private void writeVarint64EightBytes(long p0) {}
+        private void writeVarint64FiveBytes(long p0) {}
+        private void writeVarint64FourBytes(long p0) {}
+        private void writeVarint64NineBytes(long p0) {}
+        private void writeVarint64OneByte(long p0) {}
+        private void writeVarint64SevenBytes(long p0) {}
+        private void writeVarint64SixBytes(long p0) {}
+        private void writeVarint64TenBytes(long p0) {}
+        private void writeVarint64ThreeBytes(long p0) {}
+        private void writeVarint64TwoBytes(long p0) {}
+        void finishCurrentBuffer() {}
+        public int getTotalBytesWritten() { return 0; }
+        void requireSpace(int p0) {}
+        public void write(byte p0) {}
+        public void write(java.nio.ByteBuffer p0) {}
+        public void write(byte[] p0, int p1, int p2) {}
+        public void writeBool(int p0, boolean p1) {}
+        void writeBool(boolean p0) {}
+        public void writeBytes(int p0, com.android.framework.protobuf.ByteString p1) {}
+        @java.lang.Deprecated
+        public void writeEndGroup(int p0) {}
+        void writeFixed32(int p0) {}
+        public void writeFixed32(int p0, int p1) {}
+        public void writeFixed64(int p0, long p1) {}
+        void writeFixed64(long p0) {}
+        public void writeGroup(int p0, java.lang.Object p1) throws java.io.IOException {}
+        public void writeGroup(int p0, java.lang.Object p1, com.android.framework.protobuf.Schema p2) throws java.io.IOException {}
+        void writeInt32(int p0) {}
+        public void writeInt32(int p0, int p1) {}
+        public void writeLazy(java.nio.ByteBuffer p0) {}
+        public void writeLazy(byte[] p0, int p1, int p2) {}
+        public void writeMessage(int p0, java.lang.Object p1) throws java.io.IOException {}
+        public void writeMessage(int p0, java.lang.Object p1, com.android.framework.protobuf.Schema p2) throws java.io.IOException {}
+        void writeSInt32(int p0) {}
+        public void writeSInt32(int p0, int p1) {}
+        public void writeSInt64(int p0, long p1) {}
+        void writeSInt64(long p0) {}
+        @java.lang.Deprecated
+        public void writeStartGroup(int p0) {}
+        public void writeString(int p0, java.lang.String p1) {}
+        void writeString(java.lang.String p0) {}
+        void writeTag(int p0, int p1) {}
+        public void writeUInt32(int p0, int p1) {}
+        public void writeUInt64(int p0, long p1) {}
+        void writeVarint32(int p0) {}
+        void writeVarint64(long p0) {}
+    }
+
     private static final class SafeDirectWriter extends com.android.framework.protobuf.BinaryWriter {
         private java.nio.ByteBuffer buffer;
         private int limitMinusOne;
@@ -220,72 +286,6 @@ abstract class BinaryWriter extends com.android.framework.protobuf.ByteOutput im
         void writeTag(int p0, int p1) {}
         public void writeUInt32(int p0, int p1) throws java.io.IOException {}
         public void writeUInt64(int p0, long p1) throws java.io.IOException {}
-        void writeVarint32(int p0) {}
-        void writeVarint64(long p0) {}
-    }
-
-    private static final class UnsafeDirectWriter extends com.android.framework.protobuf.BinaryWriter {
-        private java.nio.ByteBuffer buffer;
-        private long bufferOffset;
-        private long limitMinusOne;
-        private long pos;
-        UnsafeDirectWriter(com.android.framework.protobuf.BufferAllocator p0, int p1) { super(null, 0); }
-        private int bufferPos() { return 0; }
-        private int bytesWrittenToCurrentBuffer() { return 0; }
-        private static boolean isSupported() { return false; }
-        private void nextBuffer() {}
-        private void nextBuffer(int p0) {}
-        private void nextBuffer(com.android.framework.protobuf.AllocatedBuffer p0) {}
-        private int spaceLeft() { return 0; }
-        private void writeVarint32FiveBytes(int p0) {}
-        private void writeVarint32FourBytes(int p0) {}
-        private void writeVarint32OneByte(int p0) {}
-        private void writeVarint32ThreeBytes(int p0) {}
-        private void writeVarint32TwoBytes(int p0) {}
-        private void writeVarint64EightBytes(long p0) {}
-        private void writeVarint64FiveBytes(long p0) {}
-        private void writeVarint64FourBytes(long p0) {}
-        private void writeVarint64NineBytes(long p0) {}
-        private void writeVarint64OneByte(long p0) {}
-        private void writeVarint64SevenBytes(long p0) {}
-        private void writeVarint64SixBytes(long p0) {}
-        private void writeVarint64TenBytes(long p0) {}
-        private void writeVarint64ThreeBytes(long p0) {}
-        private void writeVarint64TwoBytes(long p0) {}
-        void finishCurrentBuffer() {}
-        public int getTotalBytesWritten() { return 0; }
-        void requireSpace(int p0) {}
-        public void write(byte p0) {}
-        public void write(java.nio.ByteBuffer p0) {}
-        public void write(byte[] p0, int p1, int p2) {}
-        public void writeBool(int p0, boolean p1) {}
-        void writeBool(boolean p0) {}
-        public void writeBytes(int p0, com.android.framework.protobuf.ByteString p1) {}
-        @java.lang.Deprecated
-        public void writeEndGroup(int p0) {}
-        void writeFixed32(int p0) {}
-        public void writeFixed32(int p0, int p1) {}
-        public void writeFixed64(int p0, long p1) {}
-        void writeFixed64(long p0) {}
-        public void writeGroup(int p0, java.lang.Object p1) throws java.io.IOException {}
-        public void writeGroup(int p0, java.lang.Object p1, com.android.framework.protobuf.Schema p2) throws java.io.IOException {}
-        void writeInt32(int p0) {}
-        public void writeInt32(int p0, int p1) {}
-        public void writeLazy(java.nio.ByteBuffer p0) {}
-        public void writeLazy(byte[] p0, int p1, int p2) {}
-        public void writeMessage(int p0, java.lang.Object p1) throws java.io.IOException {}
-        public void writeMessage(int p0, java.lang.Object p1, com.android.framework.protobuf.Schema p2) throws java.io.IOException {}
-        void writeSInt32(int p0) {}
-        public void writeSInt32(int p0, int p1) {}
-        public void writeSInt64(int p0, long p1) {}
-        void writeSInt64(long p0) {}
-        @java.lang.Deprecated
-        public void writeStartGroup(int p0) {}
-        public void writeString(int p0, java.lang.String p1) {}
-        void writeString(java.lang.String p0) {}
-        void writeTag(int p0, int p1) {}
-        public void writeUInt32(int p0, int p1) {}
-        public void writeUInt64(int p0, long p1) {}
         void writeVarint32(int p0) {}
         void writeVarint64(long p0) {}
     }

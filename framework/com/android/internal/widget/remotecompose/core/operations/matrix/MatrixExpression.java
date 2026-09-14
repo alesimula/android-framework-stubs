@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations.matrix;
 
-public class MatrixExpression extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.MatrixAccess, com.android.internal.widget.remotecompose.core.serialize.Serializable {
+public class MatrixExpression extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.MatrixAccess, com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.VariableProvider, com.android.internal.widget.remotecompose.core.operations.ComponentData {
     private static final java.lang.String CLASS_NAME = "MatrixExpression";
     private static final int OP_CODE = 187;
     private final float[] mExpression = null;
@@ -18,8 +18,10 @@ public class MatrixExpression extends com.android.internal.widget.remotecompose.
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
     public float[] get() { return null; }
+    public int getId() { return 0; }
     public void registerListening(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
+    public void setId(int p0) {}
     public java.lang.String toString() { return null; }
     public void update(com.android.internal.widget.remotecompose.core.operations.matrix.MatrixExpression p0) {}
     public void updateVariables(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}

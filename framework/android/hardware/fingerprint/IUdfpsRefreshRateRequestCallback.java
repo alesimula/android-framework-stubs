@@ -6,14 +6,6 @@ public interface IUdfpsRefreshRateRequestCallback extends android.os.IInterface 
     public void onRequestDisabled(int p0) throws android.os.RemoteException;
     public void onRequestEnabled(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAuthenticationPossible(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onRequestDisabled(int p0) throws android.os.RemoteException {}
-        public void onRequestEnabled(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback {
         static final int TRANSACTION_onAuthenticationPossible = 3;
         static final int TRANSACTION_onRequestDisabled = 2;
@@ -34,5 +26,13 @@ public interface IUdfpsRefreshRateRequestCallback extends android.os.IInterface 
             public void onRequestDisabled(int p0) throws android.os.RemoteException {}
             public void onRequestEnabled(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAuthenticationPossible(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onRequestDisabled(int p0) throws android.os.RemoteException {}
+        public void onRequestEnabled(int p0) throws android.os.RemoteException {}
     }
 }

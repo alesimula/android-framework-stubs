@@ -41,6 +41,12 @@ public class SubtitleController {
     public void setAnchor(android.media.SubtitleController.Anchor p0) {}
     public void show() {}
 
+    public static abstract class Renderer {
+        public Renderer() {}
+        public abstract android.media.SubtitleTrack createTrack(android.media.MediaFormat p0);
+        public abstract boolean supports(android.media.MediaFormat p0);
+    }
+
     public static interface Anchor {
         public android.os.Looper getSubtitleLooper();
         public void setSubtitleWidget(android.media.SubtitleTrack.RenderingWidget p0);
@@ -48,11 +54,5 @@ public class SubtitleController {
 
     public static interface Listener {
         public void onSubtitleTrackSelected(android.media.SubtitleTrack p0);
-    }
-
-    public static abstract class Renderer {
-        public Renderer() {}
-        public abstract android.media.SubtitleTrack createTrack(android.media.MediaFormat p0);
-        public abstract boolean supports(android.media.MediaFormat p0);
     }
 }

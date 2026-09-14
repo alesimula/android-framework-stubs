@@ -283,6 +283,60 @@ public class AudioTrack extends android.media.PlayerBase implements android.medi
     public int write(short[] p0, int p1, int p2) { return 0; }
     public int write(short[] p0, int p1, int p2, int p3) { return 0; }
 
+    public static abstract class StreamEventCallback {
+        public StreamEventCallback() {}
+        public void onDataRequest(android.media.AudioTrack p0, int p1) {}
+        public void onPresentationEnded(android.media.AudioTrack p0) {}
+        public void onTearDown(android.media.AudioTrack p0) {}
+    }
+
+    @java.lang.Deprecated
+    public static interface OnRoutingChangedListener extends android.media.AudioRouting.OnRoutingChangedListener {
+        default public void onRoutingChanged(android.media.AudioRouting p0) {}
+        public void onRoutingChanged(android.media.AudioTrack p0);
+    }
+
+    @android.annotation.SystemApi
+    public static class TunerConfiguration {
+        public static final int CONTENT_ID_NONE = 0;
+        private final int mContentId = 0;
+        private final int mSyncId = 0;
+        public TunerConfiguration(int p0, int p1) {}
+        public int getContentId() { return 0; }
+        public int getSyncId() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EncapsulationMetadataType {
+    }
+
+    private class StreamEventHandler extends android.os.Handler {
+        StreamEventHandler(android.media.AudioTrack p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    public static final class MetricsConstants {
+        public static final java.lang.String ATTRIBUTES = "android.media.audiotrack.attributes";
+        @java.lang.Deprecated
+        public static final java.lang.String CHANNELMASK = "android.media.audiorecord.channelmask";
+        public static final java.lang.String CHANNEL_MASK = "android.media.audiotrack.channelMask";
+        public static final java.lang.String CONTENTTYPE = "android.media.audiotrack.type";
+        public static final java.lang.String ENCODING = "android.media.audiotrack.encoding";
+        public static final java.lang.String FRAME_COUNT = "android.media.audiotrack.frameCount";
+        private static final java.lang.String MM_PREFIX = "android.media.audiotrack.";
+        public static final java.lang.String PORT_ID = "android.media.audiotrack.portId";
+        @java.lang.Deprecated
+        public static final java.lang.String SAMPLERATE = "android.media.audiorecord.samplerate";
+        public static final java.lang.String SAMPLE_RATE = "android.media.audiotrack.sampleRate";
+        public static final java.lang.String STREAMTYPE = "android.media.audiotrack.streamtype";
+        public static final java.lang.String USAGE = "android.media.audiotrack.usage";
+        private MetricsConstants() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DualMonoMode {
+    }
+
     public static class Builder {
         private android.media.AudioAttributes mAttributes;
         private int mBufferSizeInBytes;
@@ -315,16 +369,8 @@ public class AudioTrack extends android.media.PlayerBase implements android.medi
         public android.media.AudioTrack.Builder setTunerConfiguration(android.media.AudioTrack.TunerConfiguration p0) { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DualMonoMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EncapsulationMetadataType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EncapsulationMode {
+    public static interface OnCodecFormatChangedListener {
+        public void onCodecFormatChanged(android.media.AudioTrack p0, android.media.AudioMetadataReadMap p1);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -332,35 +378,19 @@ public class AudioTrack extends android.media.PlayerBase implements android.medi
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface WriteMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SupplementaryAudioPlacement {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EncapsulationMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FlushWrittenFramesSupport {
-    }
-
-    public static final class MetricsConstants {
-        public static final java.lang.String ATTRIBUTES = "android.media.audiotrack.attributes";
-        @java.lang.Deprecated
-        public static final java.lang.String CHANNELMASK = "android.media.audiorecord.channelmask";
-        public static final java.lang.String CHANNEL_MASK = "android.media.audiotrack.channelMask";
-        public static final java.lang.String CONTENTTYPE = "android.media.audiotrack.type";
-        public static final java.lang.String ENCODING = "android.media.audiotrack.encoding";
-        public static final java.lang.String FRAME_COUNT = "android.media.audiotrack.frameCount";
-        private static final java.lang.String MM_PREFIX = "android.media.audiotrack.";
-        public static final java.lang.String PORT_ID = "android.media.audiotrack.portId";
-        @java.lang.Deprecated
-        public static final java.lang.String SAMPLERATE = "android.media.audiorecord.samplerate";
-        public static final java.lang.String SAMPLE_RATE = "android.media.audiotrack.sampleRate";
-        public static final java.lang.String STREAMTYPE = "android.media.audiotrack.streamtype";
-        public static final java.lang.String USAGE = "android.media.audiotrack.usage";
-        private MetricsConstants() {}
-    }
-
-    private class NativePositionEventHandlerDelegate {
-        private final android.os.Handler mHandler = null;
-        NativePositionEventHandlerDelegate(android.media.AudioTrack p0, android.media.AudioTrack p1, android.media.AudioTrack.OnPlaybackPositionUpdateListener p2, android.os.Handler p3) {}
-        android.os.Handler getHandler() { return null; }
-    }
-
-    public static interface OnCodecFormatChangedListener {
-        public void onCodecFormatChanged(android.media.AudioTrack p0, android.media.AudioMetadataReadMap p1);
     }
 
     public static interface OnPlaybackPositionUpdateListener {
@@ -368,21 +398,8 @@ public class AudioTrack extends android.media.PlayerBase implements android.medi
         public void onPeriodicNotification(android.media.AudioTrack p0);
     }
 
-    @java.lang.Deprecated
-    public static interface OnRoutingChangedListener extends android.media.AudioRouting.OnRoutingChangedListener {
-        default public void onRoutingChanged(android.media.AudioRouting p0) {}
-        public void onRoutingChanged(android.media.AudioTrack p0);
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PerformanceMode {
-    }
-
-    public static abstract class StreamEventCallback {
-        public StreamEventCallback() {}
-        public void onDataRequest(android.media.AudioTrack p0, int p1) {}
-        public void onPresentationEnded(android.media.AudioTrack p0) {}
-        public void onTearDown(android.media.AudioTrack p0) {}
+    public static @interface TransferMode {
     }
 
     private static class StreamEventCbInfo {
@@ -391,30 +408,13 @@ public class AudioTrack extends android.media.PlayerBase implements android.medi
         StreamEventCbInfo(java.util.concurrent.Executor p0, android.media.AudioTrack.StreamEventCallback p1) {}
     }
 
-    private class StreamEventHandler extends android.os.Handler {
-        StreamEventHandler(android.media.AudioTrack p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SupplementaryAudioPlacement {
+    public static @interface PerformanceMode {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransferMode {
-    }
-
-    @android.annotation.SystemApi
-    public static class TunerConfiguration {
-        public static final int CONTENT_ID_NONE = 0;
-        private final int mContentId = 0;
-        private final int mSyncId = 0;
-        public TunerConfiguration(int p0, int p1) {}
-        public int getContentId() { return 0; }
-        public int getSyncId() { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface WriteMode {
+    private class NativePositionEventHandlerDelegate {
+        private final android.os.Handler mHandler = null;
+        NativePositionEventHandlerDelegate(android.media.AudioTrack p0, android.media.AudioTrack p1, android.media.AudioTrack.OnPlaybackPositionUpdateListener p2, android.os.Handler p3) {}
+        android.os.Handler getHandler() { return null; }
     }
 }

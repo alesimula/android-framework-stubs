@@ -4,13 +4,6 @@ public interface IResolverRankerService extends android.os.IInterface {
     public void predict(java.util.List<android.service.resolver.ResolverTarget> p0, android.service.resolver.IResolverRankerResult p1) throws android.os.RemoteException;
     public void train(java.util.List<android.service.resolver.ResolverTarget> p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.resolver.IResolverRankerService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void predict(java.util.List<android.service.resolver.ResolverTarget> p0, android.service.resolver.IResolverRankerResult p1) throws android.os.RemoteException {}
-        public void train(java.util.List<android.service.resolver.ResolverTarget> p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.resolver.IResolverRankerService {
         public static final java.lang.String DESCRIPTOR = "android.service.resolver.IResolverRankerService";
         static final int TRANSACTION_predict = 1;
@@ -30,5 +23,12 @@ public interface IResolverRankerService extends android.os.IInterface {
             public void predict(java.util.List<android.service.resolver.ResolverTarget> p0, android.service.resolver.IResolverRankerResult p1) throws android.os.RemoteException {}
             public void train(java.util.List<android.service.resolver.ResolverTarget> p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.resolver.IResolverRankerService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void predict(java.util.List<android.service.resolver.ResolverTarget> p0, android.service.resolver.IResolverRankerResult p1) throws android.os.RemoteException {}
+        public void train(java.util.List<android.service.resolver.ResolverTarget> p0, int p1) throws android.os.RemoteException {}
     }
 }

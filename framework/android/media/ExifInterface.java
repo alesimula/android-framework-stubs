@@ -417,6 +417,67 @@ public class ExifInterface {
     public void saveAttributes() throws java.io.IOException {}
     public void setAttribute(java.lang.String p0, java.lang.String p1) {}
 
+    private static class ExifAttribute {
+        public static final long BYTES_OFFSET_UNKNOWN = -1L;
+        public final byte[] bytes = null;
+        public final long bytesOffset = 0L;
+        public final int format = 0;
+        public final int numberOfComponents = 0;
+        private ExifAttribute(int p0, int p1, long p2, byte[] p3) {}
+        private ExifAttribute(int p0, int p1, byte[] p2) {}
+        public static android.media.ExifInterface.ExifAttribute createByte(java.lang.String p0) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createDouble(double p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createDouble(double[] p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createSLong(int p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createSLong(int[] p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createSRational(android.media.ExifInterface.Rational p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createSRational(android.media.ExifInterface.Rational[] p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createString(java.lang.String p0) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createULong(long p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createULong(long[] p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createURational(android.media.ExifInterface.Rational p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createURational(android.media.ExifInterface.Rational[] p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createUShort(int p0, java.nio.ByteOrder p1) { return null; }
+        public static android.media.ExifInterface.ExifAttribute createUShort(int[] p0, java.nio.ByteOrder p1) { return null; }
+        private java.lang.Object getValue(java.nio.ByteOrder p0) { return null; }
+        public double getDoubleValue(java.nio.ByteOrder p0) { return 0.0; }
+        public int getIntValue(java.nio.ByteOrder p0) { return 0; }
+        public java.lang.String getStringValue(java.nio.ByteOrder p0) { return null; }
+        public int size() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    private static class ExifTag {
+        public final java.lang.String name = null;
+        public final int number = 0;
+        public final int primaryFormat = 0;
+        public final int secondaryFormat = 0;
+        private ExifTag(java.lang.String p0, int p1, int p2) {}
+        private ExifTag(java.lang.String p0, int p1, int p2, int p3) {}
+    }
+
+    private static class ByteOrderedDataOutputStream extends java.io.FilterOutputStream {
+        private java.nio.ByteOrder mByteOrder;
+        final java.io.OutputStream mOutputStream = null;
+        public ByteOrderedDataOutputStream(java.io.OutputStream p0, java.nio.ByteOrder p1) { super((java.io.OutputStream)null); }
+        public void setByteOrder(java.nio.ByteOrder p0) {}
+        public void write(byte[] p0) throws java.io.IOException {}
+        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeByte(int p0) throws java.io.IOException {}
+        public void writeInt(int p0) throws java.io.IOException {}
+        public void writeShort(short p0) throws java.io.IOException {}
+        public void writeUnsignedInt(long p0) throws java.io.IOException {}
+        public void writeUnsignedShort(int p0) throws java.io.IOException {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IfdType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ExifStreamType {
+    }
+
     private static class ByteOrderedDataInputStream extends java.io.InputStream implements java.io.DataInput {
         private static final java.nio.ByteOrder BIG_ENDIAN = null;
         private static final java.nio.ByteOrder LITTLE_ENDIAN = null;
@@ -450,67 +511,6 @@ public class ExifInterface {
         public void seek(long p0) throws java.io.IOException {}
         public void setByteOrder(java.nio.ByteOrder p0) {}
         public int skipBytes(int p0) throws java.io.IOException { return 0; }
-    }
-
-    private static class ByteOrderedDataOutputStream extends java.io.FilterOutputStream {
-        private java.nio.ByteOrder mByteOrder;
-        final java.io.OutputStream mOutputStream = null;
-        public ByteOrderedDataOutputStream(java.io.OutputStream p0, java.nio.ByteOrder p1) { super((java.io.OutputStream)null); }
-        public void setByteOrder(java.nio.ByteOrder p0) {}
-        public void write(byte[] p0) throws java.io.IOException {}
-        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeByte(int p0) throws java.io.IOException {}
-        public void writeInt(int p0) throws java.io.IOException {}
-        public void writeShort(short p0) throws java.io.IOException {}
-        public void writeUnsignedInt(long p0) throws java.io.IOException {}
-        public void writeUnsignedShort(int p0) throws java.io.IOException {}
-    }
-
-    private static class ExifAttribute {
-        public static final long BYTES_OFFSET_UNKNOWN = -1L;
-        public final byte[] bytes = null;
-        public final long bytesOffset = 0L;
-        public final int format = 0;
-        public final int numberOfComponents = 0;
-        private ExifAttribute(int p0, int p1, long p2, byte[] p3) {}
-        private ExifAttribute(int p0, int p1, byte[] p2) {}
-        public static android.media.ExifInterface.ExifAttribute createByte(java.lang.String p0) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createDouble(double p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createDouble(double[] p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createSLong(int p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createSLong(int[] p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createSRational(android.media.ExifInterface.Rational p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createSRational(android.media.ExifInterface.Rational[] p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createString(java.lang.String p0) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createULong(long p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createULong(long[] p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createURational(android.media.ExifInterface.Rational p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createURational(android.media.ExifInterface.Rational[] p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createUShort(int p0, java.nio.ByteOrder p1) { return null; }
-        public static android.media.ExifInterface.ExifAttribute createUShort(int[] p0, java.nio.ByteOrder p1) { return null; }
-        private java.lang.Object getValue(java.nio.ByteOrder p0) { return null; }
-        public double getDoubleValue(java.nio.ByteOrder p0) { return 0.0; }
-        public int getIntValue(java.nio.ByteOrder p0) { return 0; }
-        public java.lang.String getStringValue(java.nio.ByteOrder p0) { return null; }
-        public int size() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ExifStreamType {
-    }
-
-    private static class ExifTag {
-        public final java.lang.String name = null;
-        public final int number = 0;
-        public final int primaryFormat = 0;
-        public final int secondaryFormat = 0;
-        private ExifTag(java.lang.String p0, int p1, int p2) {}
-        private ExifTag(java.lang.String p0, int p1, int p2, int p3) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IfdType {
     }
 
     private static class Rational {

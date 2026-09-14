@@ -15,23 +15,6 @@ public interface ITradeInMode extends android.os.IInterface {
     public void startTesting() throws android.os.RemoteException;
     public void stopTesting() throws android.os.RemoteException;
 
-    public static class Default implements android.os.ITradeInMode {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean enterEvaluationMode() throws android.os.RemoteException { return false; }
-        public int getFoldCount(int p0) throws android.os.RemoteException { return 0; }
-        public int getHingeCount() throws android.os.RemoteException { return 0; }
-        public int getHingeLifeSpan(int p0) throws android.os.RemoteException { return 0; }
-        public int getMoistureIntrusionDetected(long p0) throws android.os.RemoteException { return 0; }
-        public int[] getScreenPartStatus() throws android.os.RemoteException { return null; }
-        public boolean isEvaluationModeAllowed() throws android.os.RemoteException { return false; }
-        public boolean isTesting() throws android.os.RemoteException { return false; }
-        public void scheduleWipeForTesting() throws android.os.RemoteException {}
-        public boolean start() throws android.os.RemoteException { return false; }
-        public void startTesting() throws android.os.RemoteException {}
-        public void stopTesting() throws android.os.RemoteException {}
-    }
-
     public static @interface MoistureIntrusionStatus {
         public static final int DETECTED = 1;
         public static final int UNDETECTED = 0;
@@ -82,5 +65,22 @@ public interface ITradeInMode extends android.os.IInterface {
             public void startTesting() throws android.os.RemoteException {}
             public void stopTesting() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.ITradeInMode {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean enterEvaluationMode() throws android.os.RemoteException { return false; }
+        public int getFoldCount(int p0) throws android.os.RemoteException { return 0; }
+        public int getHingeCount() throws android.os.RemoteException { return 0; }
+        public int getHingeLifeSpan(int p0) throws android.os.RemoteException { return 0; }
+        public int getMoistureIntrusionDetected(long p0) throws android.os.RemoteException { return 0; }
+        public int[] getScreenPartStatus() throws android.os.RemoteException { return null; }
+        public boolean isEvaluationModeAllowed() throws android.os.RemoteException { return false; }
+        public boolean isTesting() throws android.os.RemoteException { return false; }
+        public void scheduleWipeForTesting() throws android.os.RemoteException {}
+        public boolean start() throws android.os.RemoteException { return false; }
+        public void startTesting() throws android.os.RemoteException {}
+        public void stopTesting() throws android.os.RemoteException {}
     }
 }

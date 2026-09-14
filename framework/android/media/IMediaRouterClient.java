@@ -5,14 +5,6 @@ public interface IMediaRouterClient extends android.os.IInterface {
     public void onRestoreRoute() throws android.os.RemoteException;
     public void onStateChanged() throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMediaRouterClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onGroupRouteSelected(java.lang.String p0) throws android.os.RemoteException {}
-        public void onRestoreRoute() throws android.os.RemoteException {}
-        public void onStateChanged() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMediaRouterClient {
         public static final java.lang.String DESCRIPTOR = "android.media.IMediaRouterClient";
         static final int TRANSACTION_onGroupRouteSelected = 3;
@@ -34,5 +26,13 @@ public interface IMediaRouterClient extends android.os.IInterface {
             public void onRestoreRoute() throws android.os.RemoteException {}
             public void onStateChanged() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IMediaRouterClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onGroupRouteSelected(java.lang.String p0) throws android.os.RemoteException {}
+        public void onRestoreRoute() throws android.os.RemoteException {}
+        public void onStateChanged() throws android.os.RemoteException {}
     }
 }

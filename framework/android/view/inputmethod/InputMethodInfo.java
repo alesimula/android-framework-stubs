@@ -75,12 +75,6 @@ public final class InputMethodInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static final class MetadataReadBytesTracker {
-        private int mRemainingBytes;
-        public MetadataReadBytesTracker() {}
-        private void onReadBytes(int p0) throws org.xmlpull.v1.XmlPullParserException {}
-    }
-
     public static final class TypedArrayWrapper implements java.lang.AutoCloseable {
         private final boolean mIsReadingSubtype = false;
         private final android.view.inputmethod.InputMethodInfo.MetadataReadBytesTracker mReadTracker = null;
@@ -94,5 +88,11 @@ public final class InputMethodInfo implements android.os.Parcelable {
         public int getInt(int p0, int p1) throws org.xmlpull.v1.XmlPullParserException { return 0; }
         public int getResourceId(int p0, int p1) throws org.xmlpull.v1.XmlPullParserException { return 0; }
         public java.lang.String getString(int p0) throws org.xmlpull.v1.XmlPullParserException { return null; }
+    }
+
+    public static final class MetadataReadBytesTracker {
+        private int mRemainingBytes;
+        public MetadataReadBytesTracker() {}
+        private void onReadBytes(int p0) throws org.xmlpull.v1.XmlPullParserException {}
     }
 }

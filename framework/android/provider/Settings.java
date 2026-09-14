@@ -2,6 +2,7 @@ package android.provider;
 
 public final class Settings {
     public static final java.lang.String ACTION_ACCESSIBILITY_COLOR_CONTRAST_SETTINGS = "android.settings.ACCESSIBILITY_COLOR_CONTRAST_SETTINGS";
+    public static final java.lang.String ACTION_ACCESSIBILITY_COLOR_FILTER_SETTINGS = "com.android.settings.ACCESSIBILITY_COLOR_FILTER_SETTINGS";
     public static final java.lang.String ACTION_ACCESSIBILITY_COLOR_MOTION_SETTINGS = "android.settings.ACCESSIBILITY_COLOR_MOTION_SETTINGS";
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_ACCESSIBILITY_DETAILS_SETTINGS = "android.settings.ACCESSIBILITY_DETAILS_SETTINGS";
@@ -54,6 +55,8 @@ public final class Settings {
     public static final java.lang.String ACTION_DATA_SAVER_SETTINGS = "android.settings.DATA_SAVER_SETTINGS";
     public static final java.lang.String ACTION_DATA_USAGE_SETTINGS = "android.settings.DATA_USAGE_SETTINGS";
     public static final java.lang.String ACTION_DATE_SETTINGS = "android.settings.DATE_SETTINGS";
+    @android.annotation.SystemApi
+    public static final java.lang.String ACTION_DEFAULT_SEARCH_ENGINE_SETTINGS = "android.settings.DEFAULT_SEARCH_ENGINE_SETTINGS";
     public static final java.lang.String ACTION_DEVICE_CONTROLS_SETTINGS = "android.settings.ACTION_DEVICE_CONTROLS_SETTINGS";
     public static final java.lang.String ACTION_DEVICE_INFO_SETTINGS = "android.settings.DEVICE_INFO_SETTINGS";
     public static final java.lang.String ACTION_DISPLAY_SETTINGS = "android.settings.DISPLAY_SETTINGS";
@@ -95,7 +98,9 @@ public final class Settings {
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_MANAGE_APP_OVERLAY_PERMISSION = "android.settings.MANAGE_APP_OVERLAY_PERMISSION";
     public static final java.lang.String ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT = "android.settings.MANAGE_APP_USE_FULL_SCREEN_INTENT";
+    public static final java.lang.String ACTION_MANAGE_ASSISTANT_AUDIO = "android.settings.MANAGE_ASSISTANT_AUDIO";
     public static final java.lang.String ACTION_MANAGE_CLONED_APPS_SETTINGS = "android.settings.MANAGE_CLONED_APPS_SETTINGS";
+    public static final java.lang.String ACTION_MANAGE_CONTACTS = "android.settings.MANAGE_CONTACTS";
     public static final java.lang.String ACTION_MANAGE_CROSS_PROFILE_ACCESS = "android.settings.MANAGE_CROSS_PROFILE_ACCESS";
     public static final java.lang.String ACTION_MANAGE_DEFAULT_APPS_SETTINGS = "android.settings.MANAGE_DEFAULT_APPS_SETTINGS";
     @android.annotation.SystemApi
@@ -105,6 +110,7 @@ public final class Settings {
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_MANAGE_OTHER_NFC_SERVICES_SETTINGS = "android.settings.MANAGE_OTHER_NFC_SERVICES_SETTINGS";
     public static final java.lang.String ACTION_MANAGE_OVERLAY_PERMISSION = "android.settings.action.MANAGE_OVERLAY_PERMISSION";
+    public static final java.lang.String ACTION_MANAGE_PERIPHERAL_CUSTOMIZATION = "android.settings.MANAGE_PERIPHERAL_CUSTOMIZATION";
     public static final java.lang.String ACTION_MANAGE_SUPERVISOR_RESTRICTED_SETTING = "android.settings.MANAGE_SUPERVISOR_RESTRICTED_SETTING";
     public static final java.lang.String ACTION_MANAGE_UNKNOWN_APP_SOURCES = "android.settings.MANAGE_UNKNOWN_APP_SOURCES";
     public static final java.lang.String ACTION_MANAGE_USER_ASPECT_RATIO_SETTINGS = "android.settings.MANAGE_USER_ASPECT_RATIO_SETTINGS";
@@ -139,6 +145,8 @@ public final class Settings {
     public static final java.lang.String ACTION_PRINT_SETTINGS = "android.settings.ACTION_PRINT_SETTINGS";
     public static final java.lang.String ACTION_PRIVACY_CONTROLS = "android.settings.PRIVACY_CONTROLS";
     public static final java.lang.String ACTION_PRIVACY_SETTINGS = "android.settings.PRIVACY_SETTINGS";
+    @android.annotation.SystemApi
+    public static final java.lang.String ACTION_PRIVATE_COMPUTE_CORE_AUDIT_LOG_DASHBOARD = "android.settings.PRIVATE_COMPUTE_CORE_AUDIT_LOG_DASHBOARD";
     public static final java.lang.String ACTION_PROCESS_WIFI_EASY_CONNECT_URI = "android.settings.PROCESS_WIFI_EASY_CONNECT_URI";
     public static final java.lang.String ACTION_QUICK_ACCESS_WALLET_SETTINGS = "android.settings.QUICK_ACCESS_WALLET_SETTINGS";
     public static final java.lang.String ACTION_QUICK_LAUNCH_SETTINGS = "android.settings.QUICK_LAUNCH_SETTINGS";
@@ -347,10 +355,6 @@ public final class Settings {
     private static long parseLongSettingWithDefault(java.lang.String p0, long p1) { return 0L; }
     public static void setInSystemServer() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AddWifiResult {
-    }
-
     public static final class Bookmarks implements android.provider.BaseColumns {
         public static final android.net.Uri CONTENT_URI = null;
         public static final java.lang.String FOLDER = "folder";
@@ -370,59 +374,1368 @@ public final class Settings {
         public static java.lang.CharSequence getTitle(android.content.Context p0, android.database.Cursor p1) { return null; }
     }
 
-    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-    public static final class Config extends android.provider.Settings.NameValueTable {
+    public static class NameValueTable implements android.provider.BaseColumns {
+        public static final java.lang.String IS_PRESERVED_IN_RESTORE = "is_preserved_in_restore";
+        public static final java.lang.String NAME = "name";
+        public static final java.lang.String VALUE = "value";
+        public NameValueTable() {}
+        public static android.net.Uri getUriFor(android.net.Uri p0, java.lang.String p1) { return null; }
+        protected static boolean putString(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2, java.lang.String p3) { return false; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SupervisorVerificationSetting {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
+    private static @interface Readable {
+        public int maxTargetSdk() default 0;
+        public java.lang.String redactedValue() default "";
+    }
+
+    public static class SettingNotFoundException extends android.util.AndroidException {
+        public SettingNotFoundException(java.lang.String p0) { super(); }
+    }
+
+    private static final class SettingsKey {
+        private final int mDeviceId = 0;
+        private final java.lang.String mName = null;
+        SettingsKey(java.lang.String p0, int p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    public static final class Secure extends android.provider.Settings.NameValueTable {
+        public static final java.lang.String AAPM_USB_DATA_PROTECTION = "aapm_usb_data_protection";
+        public static final java.lang.String ACCESSIBILITY_ALLOW_DIAGONAL_SCROLLING = "accessibility_allow_diagonal_scrolling";
+        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_CURSOR_AREA_SIZE = "accessibility_autoclick_cursor_area_size";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_DELAY = "accessibility_autoclick_delay";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_ENABLED = "accessibility_autoclick_enabled";
+        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_IGNORE_MINOR_CURSOR_MOVEMENT = "accessibility_autoclick_ignore_minor_cursor_movement";
+        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_PANEL_POSITION = "accessibility_autoclick_panel_position";
+        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_REVERT_TO_LEFT_CLICK = "accessibility_autoclick_revert_to_left_click";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_BOUNCE_KEYS = "accessibility_bounce_keys";
+        public static final java.lang.String ACCESSIBILITY_BUTTON_MODE = "accessibility_button_mode";
+        public static final int ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU = 1;
+        public static final int ACCESSIBILITY_BUTTON_MODE_GESTURE = 2;
+        public static final int ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR = 0;
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_BUTTON_TARGETS = "accessibility_button_targets";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_BUTTON_TARGET_COMPONENT = "accessibility_button_target_component";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_BACKGROUND_COLOR = "accessibility_captioning_background_color";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_EASY_READER_ENABLED = "accessibility_captioning_easy_reader_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_EDGE_COLOR = "accessibility_captioning_edge_color";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_EDGE_TYPE = "accessibility_captioning_edge_type";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_ENABLED = "accessibility_captioning_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_FONT_SCALE = "accessibility_captioning_font_scale";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_FOREGROUND_COLOR = "accessibility_captioning_foreground_color";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_LOCALE = "accessibility_captioning_locale";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_PRESET = "accessibility_captioning_preset";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_TYPEFACE = "accessibility_captioning_typeface";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_CAPTIONING_WINDOW_COLOR = "accessibility_captioning_window_color";
+        public static final java.lang.String ACCESSIBILITY_COLOR_CORRECTION_PROMPT_STATUS = "accessibility_color_correction_prompt_status";
+        public static final int ACCESSIBILITY_COLOR_CORRECTION_PROMPT_STATUS_SHOWN = 1;
+        public static final int ACCESSIBILITY_COLOR_CORRECTION_PROMPT_STATUS_UNKNOWN = 0;
+        public static final int ACCESSIBILITY_COLOR_CORRECTION_PROMPT_STATUS_UNNECESSARY = 2;
+        public static final java.lang.String ACCESSIBILITY_COLOR_FILTER = "accessibility_color_filter";
+        public static final java.lang.String ACCESSIBILITY_COLOR_FILTER_ENABLED = "accessibility_color_filter_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_DALTONIZER = "accessibility_display_daltonizer";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_DALTONIZER_ENABLED = "accessibility_display_daltonizer_enabled";
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_DALTONIZER_SATURATION_LEVEL = "accessibility_display_daltonizer_saturation_level";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_INVERSION_ENABLED = "accessibility_display_inversion_enabled";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_AUTO_UPDATE = "accessibility_display_magnification_auto_update";
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_EDGE_HAPTIC_ENABLED = "accessibility_display_magnification_edge_haptic_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_ENABLED = "accessibility_display_magnification_enabled";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_NAVBAR_ENABLED = "accessibility_display_magnification_navbar_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_SCALE = "accessibility_display_magnification_scale";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_ENABLED = "accessibility_enabled";
+        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_FADE_ENABLED = "accessibility_floating_menu_fade_enabled";
+        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_ICON_TYPE = "accessibility_floating_menu_icon_type";
+        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_MIGRATION_TOOLTIP_PROMPT = "accessibility_floating_menu_migration_tooltip_prompt";
+        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_OPACITY = "accessibility_floating_menu_opacity";
+        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_SIZE = "accessibility_floating_menu_size";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_FONT_SCALING_HAS_BEEN_CHANGED = "accessibility_font_scaling_has_been_changed";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_FORCE_INVERT_COLOR_ENABLED = "accessibility_force_invert_color_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_GESTURE_TARGETS = "accessibility_gesture_targets";
+        public static final java.lang.String ACCESSIBILITY_HCT_RECT_PROMPT_STATUS = "accessibility_hct_rect_prompt_status";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_HIGH_TEXT_CONTRAST_ENABLED = "high_text_contrast_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_INTERACTIVE_UI_TIMEOUT_MS = "accessibility_interactive_ui_timeout_ms";
+        public static final java.lang.String ACCESSIBILITY_KEY_GESTURE_TARGETS = "accessibility_key_gesture_targets";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ACCESSIBILITY_LARGE_POINTER_ICON = "accessibility_large_pointer_icon";
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_ALWAYS_ON_ENABLED = "accessibility_magnification_always_on_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_CAPABILITY = "accessibility_magnification_capability";
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE = "accessibility_magnification_cursor_following_mode";
+        public static final int ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE_CENTER = 1;
+        public static final int ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE_CONTINUOUS = 0;
+        public static final int ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE_EDGE = 2;
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_FOLLOW_KEYBOARD_ENABLED = "accessibility_magnification_follow_keyboard_enabled";
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_FOLLOW_TYPING_ENABLED = "accessibility_magnification_follow_typing_enabled";
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_JOYSTICK_ENABLED = "accessibility_magnification_joystick_enabled";
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_MAGNIFY_NAV_AND_IME = "accessibility_magnification_magnify_nav_and_ime";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_MODE = "accessibility_magnification_mode";
+        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_ALL = 3;
+        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_FULLSCREEN = 1;
+        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_NONE = 0;
+        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_WINDOW = 2;
+        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_PANEL_BUTTON_ENABLED = "accessibility_magnification_panel_button_enabled";
+        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_ACCELERATION = "accessibility_mouse_keys_acceleration";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_ENABLED = "accessibility_mouse_keys_enabled";
+        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_MAX_SPEED = "accessibility_mouse_keys_max_speed";
+        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_USE_PRIMARY_KEYS = "accessibility_mouse_keys_use_primary_keys";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_NON_INTERACTIVE_UI_TIMEOUT_MS = "accessibility_non_interactive_ui_timeout_ms";
+        public static final java.lang.String ACCESSIBILITY_PINCH_TO_ZOOM_ANYWHERE_ENABLED = "accessibility_pinch_to_zoom_anywhere_enabled";
+        public static final java.lang.String ACCESSIBILITY_QS_TARGETS = "accessibility_qs_targets";
+        public static final java.lang.String ACCESSIBILITY_QUICK_ACCESS_TARGETS = "accessibility_quick_access_targets";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_SHORTCUT_DIALOG_SHOWN = "accessibility_shortcut_dialog_shown";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_SHORTCUT_ON_LOCK_SCREEN = "accessibility_shortcut_on_lock_screen";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_SHORTCUT_TARGET_MAGNIFICATION_CONTROLLER = "com.android.server.accessibility.MagnificationController";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_SHORTCUT_TARGET_SERVICE = "accessibility_shortcut_target_service";
+        public static final java.lang.String ACCESSIBILITY_SHOW_WINDOW_MAGNIFICATION_PROMPT = "accessibility_show_window_magnification_prompt";
+        public static final java.lang.String ACCESSIBILITY_SINGLE_FINGER_PANNING_ENABLED = "accessibility_single_finger_panning_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_SLOW_KEYS = "accessibility_slow_keys";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_SOFT_KEYBOARD_MODE = "accessibility_soft_keyboard_mode";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ACCESSIBILITY_SPEAK_PASSWORD = "speak_password";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_STICKY_KEYS = "accessibility_sticky_keys";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ACCESSIBILITY_TEXT_CURSOR_BLINK_INTERVAL_MS = "accessibility_text_cursor_blink_interval_ms";
+        public static final java.lang.String ACCESSIBILITY_TOP_ROW_KEY_TARGETS = "accessibility_top_row_key_targets";
+        public static final int ACTION_CORNER_ACTION_HOME = 1;
+        public static final int ACTION_CORNER_ACTION_LOCKSCREEN = 5;
+        public static final int ACTION_CORNER_ACTION_NONE = 0;
+        public static final int ACTION_CORNER_ACTION_NOTE = 6;
+        public static final int ACTION_CORNER_ACTION_NOTIFICATIONS = 3;
+        public static final int ACTION_CORNER_ACTION_OVERVIEW = 2;
+        public static final int ACTION_CORNER_ACTION_PEEK = 7;
+        public static final int ACTION_CORNER_ACTION_QUICK_SETTINGS = 4;
+        public static final java.lang.String ACTION_CORNER_BOTTOM_LEFT_ACTION = "action_corner_bottom_left_action";
+        public static final java.lang.String ACTION_CORNER_BOTTOM_RIGHT_ACTION = "action_corner_bottom_right_action";
+        public static final java.lang.String ACTION_CORNER_TOP_LEFT_ACTION = "action_corner_top_left_action";
+        public static final java.lang.String ACTION_CORNER_TOP_RIGHT_ACTION = "action_corner_top_right_action";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_BIOMETRIC_FAIL = "active_unlock_on_biometric_fail";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_FACE_ACQUIRE_INFO = "active_unlock_on_face_acquire_info";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_FACE_ERRORS = "active_unlock_on_face_errors";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_UNLOCK_INTENT = "active_unlock_on_unlock_intent";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_UNLOCK_INTENT_LEGACY = "active_unlock_on_unlock_intent_legacy";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_UNLOCK_INTENT_WHEN_BIOMETRIC_ENROLLED = "active_unlock_on_unlock_intent_when_biometric_enrolled";
+        public static final java.lang.String ACTIVE_UNLOCK_ON_WAKE = "active_unlock_on_wake";
+        public static final java.lang.String ACTIVE_UNLOCK_WAKEUPS_CONSIDERED_UNLOCK_INTENTS = "active_unlock_wakeups_considered_unlock_intents";
+        public static final java.lang.String ACTIVE_UNLOCK_WAKEUPS_TO_FORCE_DISMISS_KEYGUARD = "active_unlock_wakeups_to_force_dismiss_keyguard";
+        public static final java.lang.String ADAPTIVE_CHARGING_ENABLED = "adaptive_charging_enabled";
+        public static final java.lang.String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
+        public static final java.lang.String ADAPTIVE_CONNECTIVITY_MOBILE_NETWORK_ENABLED = "adaptive_connectivity_mobile_network_enabled";
+        public static final java.lang.String ADAPTIVE_CONNECTIVITY_WIFI_ENABLED = "adaptive_connectivity_wifi_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ADAPTIVE_SLEEP = "adaptive_sleep";
+        @java.lang.Deprecated
+        public static final java.lang.String ADB_ENABLED = "adb_enabled";
+        public static final java.lang.String ADVANCED_PROTECTION_MODE = "advanced_protection_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ALLOWED_GEOLOCATION_ORIGINS = "allowed_geolocation_origins";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ALLOW_MOCK_LOCATION = "mock_location";
+        public static final java.lang.String ALLOW_PRIMARY_GAIA_ACCOUNT_REMOVAL_FOR_TESTS = "allow_primary_gaia_account_removal_for_tests";
+        public static final java.lang.String ALWAYS_ON_VPN_APP = "always_on_vpn_app";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ALWAYS_ON_VPN_LOCKDOWN = "always_on_vpn_lockdown";
+        @android.provider.Settings.Readable(maxTargetSdk=31)
+        public static final java.lang.String ALWAYS_ON_VPN_LOCKDOWN_WHITELIST = "always_on_vpn_lockdown_whitelist";
+        public static final java.lang.String AMBIENT_CONTEXT_CONSENT_COMPONENT = "ambient_context_consent_component";
+        public static final java.lang.String AMBIENT_CONTEXT_EVENT_ARRAY_EXTRA_KEY = "ambient_context_event_array_key";
+        public static final java.lang.String AMBIENT_CONTEXT_PACKAGE_NAME_EXTRA_KEY = "ambient_context_package_name_key";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ANDROID_ID = "android_id";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ANR_SHOW_BACKGROUND = "anr_show_background";
+        public static final java.lang.String APP_FUNCTION_ADDITIONAL_AGENT_ALLOWLIST = "app_function_additional_agent_allowlist";
+        public static final java.lang.String APP_LOCK_SETTINGS_DISCOVERED = "app_lock_settings_discovered";
+        public static final int APP_LOCK_SETTINGS_DISCOVERED_STATE_DISCOVERED = -1;
+        public static final int APP_LOCK_SETTINGS_DISCOVERED_STATE_INITIAL = 0;
+        public static final int APP_LOCK_SETTINGS_DISCOVERED_STATE_THRESHOLD = 2;
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSISTANT = "assistant";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_DISCLOSURE_ENABLED = "assist_disclosure_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_GESTURE_ENABLED = "assist_gesture_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_GESTURE_SENSITIVITY = "assist_gesture_sensitivity";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_GESTURE_SETUP_COMPLETE = "assist_gesture_setup_complete";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_GESTURE_SILENCE_ALERTS_ENABLED = "assist_gesture_silence_alerts_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_GESTURE_WAKE_ENABLED = "assist_gesture_wake_enabled";
+        public static final java.lang.String ASSIST_HANDLES_LEARNING_EVENT_COUNT = "reminder_exp_learning_event_count";
+        public static final java.lang.String ASSIST_HANDLES_LEARNING_TIME_ELAPSED_MILLIS = "reminder_exp_learning_time_elapsed";
+        public static final java.lang.String ASSIST_LONG_PRESS_HOME_ENABLED = "assist_long_press_home_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_SCREENSHOT_ENABLED = "assist_screenshot_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ASSIST_STRUCTURE_ENABLED = "assist_structure_enabled";
+        public static final java.lang.String ASSIST_TOUCH_GESTURE_ENABLED = "assist_touch_gesture_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ATTENTIVE_TIMEOUT = "attentive_timeout";
+        public static final java.lang.String AUDIO_DEVICE_INVENTORY = "audio_device_inventory";
+        public static final java.lang.String AUDIO_SAFE_CSD_AS_A_FEATURE_ENABLED = "audio_safe_csd_as_a_feature_enabled";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_FEATURE_FIELD_CLASSIFICATION = "autofill_field_classification";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_SERVICE = "autofill_service";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_SERVICE_SEARCH_URI = "autofill_service_search_uri";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_USER_DATA_MAX_CATEGORY_COUNT = "autofill_user_data_max_category_count";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_USER_DATA_MAX_FIELD_CLASSIFICATION_IDS_SIZE = "autofill_user_data_max_field_classification_size";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_USER_DATA_MAX_USER_DATA_SIZE = "autofill_user_data_max_user_data_size";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_USER_DATA_MAX_VALUE_LENGTH = "autofill_user_data_max_value_length";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOFILL_USER_DATA_MIN_VALUE_LENGTH = "autofill_user_data_min_value_length";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_BYTES_CLEARED = "automatic_storage_manager_bytes_cleared";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_DAYS_TO_RETAIN = "automatic_storage_manager_days_to_retain";
+        public static final int AUTOMATIC_STORAGE_MANAGER_DAYS_TO_RETAIN_DEFAULT = 90;
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_ENABLED = "automatic_storage_manager_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_LAST_RUN = "automatic_storage_manager_last_run";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_TURNED_OFF_BY_POLICY = "automatic_storage_manager_turned_off_by_policy";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String AUTO_REVOKE_DISABLED = "auto_revoke_disabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AWARE_ENABLED = "aware_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AWARE_LOCK_ENABLED = "aware_lock_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AWARE_TAP_PAUSE_GESTURE_COUNT = "aware_tap_pause_gesture_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String AWARE_TAP_PAUSE_TOUCH_COUNT = "aware_tap_pause_touch_count";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String BACKGROUND_DATA = "background_data";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACKUP_AUTO_RESTORE = "backup_auto_restore";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACKUP_ENABLED = "backup_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACKUP_LOCAL_TRANSPORT_PARAMETERS = "backup_local_transport_parameters";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACKUP_MANAGER_CONSTANTS = "backup_manager_constants";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACKUP_PROVISIONED = "backup_provisioned";
+        public static final java.lang.String BACKUP_SCHEDULING_ENABLED = "backup_scheduling_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACKUP_TRANSPORT = "backup_transport";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACK_GESTURE_INSET_SCALE_LEFT = "back_gesture_inset_scale_left";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BACK_GESTURE_INSET_SCALE_RIGHT = "back_gesture_inset_scale_right";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BATTERY_ADVANCE_INFO_SETTINGS_ENABLED = "battery_advance_info_settings_enabled";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String BIOMETRIC_APP_ENABLED = "biometric_app_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BIOMETRIC_DEBUG_ENABLED = "biometric_debug_enabled";
+        public static final java.lang.String BIOMETRIC_FACE_VIRTUAL_ENABLED = "biometric_face_virtual_enabled";
+        public static final java.lang.String BIOMETRIC_FINGERPRINT_VIRTUAL_ENABLED = "biometric_fingerprint_virtual_enabled";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String BIOMETRIC_KEYGUARD_ENABLED = "biometric_keyguard_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BIOMETRIC_VIRTUAL_ENABLED = "biometric_virtual_enabled";
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        @android.provider.Settings.Readable(maxTargetSdk=31)
+        public static final java.lang.String BLUETOOTH_ADDRESS = "bluetooth_address";
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        @android.provider.Settings.Readable(maxTargetSdk=31)
+        public static final java.lang.String BLUETOOTH_ADDR_VALID = "bluetooth_addr_valid";
+        public static final java.lang.String BLUETOOTH_LE_BROADCAST_APP_SOURCE_NAME = "bluetooth_le_broadcast_app_source_name";
+        public static final java.lang.String BLUETOOTH_LE_BROADCAST_CODE = "bluetooth_le_broadcast_code";
+        public static final java.lang.String BLUETOOTH_LE_BROADCAST_FALLBACK_ACTIVE_DEVICE_ADDRESS = "bluetooth_le_broadcast_fallback_active_device_address";
+        public static final java.lang.String BLUETOOTH_LE_BROADCAST_IMPROVE_COMPATIBILITY = "bluetooth_le_broadcast_improve_compatibility";
+        public static final java.lang.String BLUETOOTH_LE_BROADCAST_NAME = "bluetooth_le_broadcast_name";
+        public static final java.lang.String BLUETOOTH_LE_BROADCAST_PROGRAM_INFO = "bluetooth_le_broadcast_program_info";
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        @android.provider.Settings.Readable(maxTargetSdk=31)
+        public static final java.lang.String BLUETOOTH_NAME = "bluetooth_name";
+        @java.lang.Deprecated
+        public static final java.lang.String BLUETOOTH_ON = "bluetooth_on";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BLUETOOTH_ON_WHILE_DRIVING = "bluetooth_on_while_driving";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BROWSER_CONTENT_FILTERS_ENABLED = "browser_content_filters_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BUBBLE_IMPORTANT_CONVERSATIONS = "bubble_important_conversations";
+        @android.provider.Settings.Readable
+        public static final java.lang.String BUGREPORT_IN_POWER_MENU = "bugreport_in_power_menu";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CALL_SCREENING_DEFAULT_COMPONENT = "call_screening_default_component";
+        public static final java.lang.String CAMERA_AUTOROTATE = "camera_autorotate";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED = "camera_double_tap_power_gesture_disabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED = "camera_double_twist_to_flip_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CAMERA_EXTENSIONS_FALLBACK = "camera_extensions_fallback";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CAMERA_GESTURE_DISABLED = "camera_gesture_disabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CAMERA_LIFT_TRIGGER_ENABLED = "camera_lift_trigger_enabled";
+        public static final int CAMERA_LIFT_TRIGGER_ENABLED_DEFAULT = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String CARRIER_APPS_HANDLED = "carrier_apps_handled";
+        public static final java.lang.String CHARGE_OPTIMIZATION_MODE = "charge_optimization_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CHARGING_SOUNDS_ENABLED = "charging_sounds_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CHARGING_VIBRATION_ENABLED = "charging_vibration_enabled";
+        public static final java.lang.String CLIPBOARD_SHOW_ACCESS_NOTIFICATIONS = "clipboard_show_access_notifications";
+        private static final java.util.Set<java.lang.String> CLONE_TO_MANAGED_PROFILE = null;
+        @android.provider.Settings.Readable
+        public static final java.lang.String CMAS_ADDITIONAL_BROADCAST_PKG = "cmas_additional_broadcast_pkg";
+        public static final java.lang.String COMMUNAL_MODE_ENABLED = "communal_mode_enabled";
+        public static final java.lang.String COMMUNAL_MODE_TRUSTED_NETWORKS = "communal_mode_trusted_networks";
+        public static final java.lang.String COMPAT_UI_EDUCATION_SHOWING = "compat_ui_education_showing";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String COMPLETED_CATEGORY_PREFIX = "suggested.completed_category.";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CONNECTIVITY_RELEASE_PENDING_INTENT_DELAY_MS = "connectivity_release_pending_intent_delay_ms";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CONTENT_CAPTURE_ENABLED = "content_capture_enabled";
+        public static final java.lang.String CONTENT_SAFETY_IDLE_TIMEOUT_MS = "content_safety_idle_timeout_ms";
+        public static final java.lang.String CONTENT_SAFETY_SANDBOXED_IDLE_TIMEOUT_MS = "content_safety_sandboxed_idle_timeout_ms";
+        public static final java.lang.String CONTENT_SAFETY_SANDBOXED_UNBIND_TIMEOUT_MS = "content_safety_sandboxed_unbind_timeout_ms";
+        public static final java.lang.String CONTENT_SAFETY_SETTINGS_IDLE_TIMEOUT_MS = "content_safety_settings_idle_timeout_ms";
+        public static final java.lang.String CONTENT_SAFETY_SETTINGS_UNBIND_TIMEOUT_MS = "content_safety_settings_unbind_timeout_ms";
+        public static final java.lang.String CONTENT_SAFETY_UNBIND_TIMEOUT_MS = "content_safety_unbind_timeout_ms";
         public static final android.net.Uri CONTENT_URI = null;
+        @android.provider.Settings.Readable
+        public static final java.lang.String CONTEXTUAL_CURSOR_MOUSE_ENTRYPOINT = "contextual_cursor_mouse_entrypoint";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CONTEXTUAL_CURSOR_SPEED = "contextual_cursor_speed";
+        public static final java.lang.String CONTEXTUAL_MODE_SYNC_ENABLED = "contextual_mode_sync_enabled";
+        public static final java.lang.String CONTEXTUAL_SCREEN_TIMEOUT_ENABLED = "contextual_screen_timeout_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CONTEXTUAL_SEARCH_PACKAGE = "contextual_search_package";
+        public static final java.lang.String CONTRAST_LEVEL = "contrast_level";
+        @android.provider.Settings.Readable
         @java.lang.Deprecated
-        public static final int SYNC_DISABLED_MODE_NONE = 0;
+        public static final java.lang.String CONTROLS_ENABLED = "controls_enabled";
+        public static final java.lang.String CREDENTIAL_SERVICE = "credential_service";
+        public static final java.lang.String CREDENTIAL_SERVICE_PRIMARY = "credential_service_primary";
+        @android.provider.Settings.Readable
+        public static final java.lang.String CROSS_PROFILE_CALENDAR_ENABLED = "cross_profile_calendar_enabled";
+        public static final java.lang.String CUSTOM_BUGREPORT_HANDLER_APP = "custom_bugreport_handler_app";
+        public static final java.lang.String CUSTOM_BUGREPORT_HANDLER_USER = "custom_bugreport_handler_user";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DARK_MODE_DIALOG_SEEN = "dark_mode_dialog_seen";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DARK_THEME_CUSTOM_END_TIME = "dark_theme_custom_end_time";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DARK_THEME_CUSTOM_START_TIME = "dark_theme_custom_start_time";
         @java.lang.Deprecated
-        public static final int SYNC_DISABLED_MODE_PERSISTENT = 1;
+        public static final java.lang.String DATA_ROAMING = "data_roaming";
+        public static final java.lang.String DEFAULT_DEVICE_INPUT_METHOD = "default_device_input_method";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DEFAULT_INPUT_METHOD = "default_input_method";
+        public static final java.lang.String DEFAULT_NOTE_TASK_PROFILE = "default_note_task_profile";
+        public static final java.lang.String DEFAULT_VOICE_INPUT_METHOD = "default_voice_input_method";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_BLUR_LEVEL = "desktop-effects-blur-level";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_CAMERA_FRAMING = "desktop-effects-camera-framing";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_DIRECTIONAL_AUDIO_ISOLATION = "desktop-effects-directional-audio-isolation";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_FACE_RETOUCH = "desktop-effects-face-retouch";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_NOISE_CANCELLATION = "desktop-effects-noise-cancellation";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_PORTRAIT_RELIGHT = "desktop-effects-portrait-relight";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_STUDIO_MIC = "desktop-effects-studio-mic";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DESKTOP_EFFECTS_STUDIO_QUALITY_MIC = "desktop-effects-studio-quality-mic";
         @java.lang.Deprecated
-        public static final int SYNC_DISABLED_MODE_UNTIL_REBOOT = 2;
+        public static final java.lang.String DEVELOPMENT_SETTINGS_ENABLED = "development_settings_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DEVICE_PAIRED = "device_paired";
+        @java.lang.Deprecated
+        public static final java.lang.String DEVICE_PROVISIONED = "device_provisioned";
+        public static final int DEVICE_STATE_ROTATION_KEY_FOLDED = 0;
+        public static final int DEVICE_STATE_ROTATION_KEY_HALF_FOLDED = 1;
+        public static final int DEVICE_STATE_ROTATION_KEY_REAR_DISPLAY = 3;
+        public static final int DEVICE_STATE_ROTATION_KEY_UNFOLDED = 2;
+        public static final int DEVICE_STATE_ROTATION_KEY_UNKNOWN = -1;
+        public static final java.lang.String DEVICE_STATE_ROTATION_LOCK = "device_state_rotation_lock";
+        public static final int DEVICE_STATE_ROTATION_LOCK_IGNORED = 0;
+        public static final int DEVICE_STATE_ROTATION_LOCK_LOCKED = 1;
+        public static final int DEVICE_STATE_ROTATION_LOCK_UNLOCKED = 2;
+        @android.provider.Settings.Readable
+        public static final java.lang.String DIALER_DEFAULT_APPLICATION = "dialer_default_application";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DISABLED_PRINT_SERVICES = "disabled_print_services";
+        @android.provider.Settings.Readable(maxTargetSdk=33)
+        public static final java.lang.String DISABLED_SYSTEM_INPUT_METHODS = "disabled_system_input_methods";
+        public static final java.lang.String DISABLE_ADAPTIVE_AUTH_LIMIT_LOCK = "disable_adaptive_auth_limit_lock";
+        public static final java.lang.String DISABLE_SECURE_WINDOWS = "disable_secure_windows";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DISPLAY_DENSITY_FORCED = "display_density_forced";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DISPLAY_WHITE_BALANCE_ENABLED = "display_white_balance_enabled";
+        public static final java.lang.String DND_CONFIGS_MIGRATED = "dnd_settings_migrated";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOCKED_CLOCK_FACE = "docked_clock_face";
+        public static final int DOCK_SETUP_COMPLETED = 10;
+        public static final int DOCK_SETUP_INCOMPLETE = 4;
+        public static final int DOCK_SETUP_NOT_STARTED = 0;
+        public static final int DOCK_SETUP_PAUSED = 2;
+        public static final int DOCK_SETUP_PROMPTED = 3;
+        public static final int DOCK_SETUP_STARTED = 1;
+        public static final java.lang.String DOCK_SETUP_STATE = "dock_setup_state";
+        public static final int DOCK_SETUP_TIMED_OUT = 11;
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOUBLE_TAP_POWER_BUTTON_GESTURE = "double_tap_power_button_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOUBLE_TAP_POWER_BUTTON_GESTURE_ENABLED = "double_tap_power_button_gesture_enabled";
+        public static final java.lang.String DOUBLE_TAP_TO_SLEEP = "double_tap_to_sleep";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOUBLE_TAP_TO_WAKE = "double_tap_to_wake";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_ALWAYS_ON = "doze_always_on";
+        public static final java.lang.String DOZE_ALWAYS_ON_INACTIVITY_DETECTION = "doze_always_on_inactivity_detection";
+        public static final java.lang.String DOZE_ALWAYS_ON_WALLPAPER_ENABLED = "doze_always_on_wallpaper_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_DOUBLE_TAP_GESTURE = "doze_pulse_on_double_tap";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_ENABLED = "doze_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_PICK_UP_GESTURE = "doze_pulse_on_pick_up";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_PULSE_ON_LONG_PRESS = "doze_pulse_on_long_press";
+        public static final java.lang.String DOZE_QUICK_PICKUP_GESTURE = "doze_quick_pickup_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_TAP_SCREEN_GESTURE = "doze_tap_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_WAKE_DISPLAY_GESTURE = "doze_wake_display_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DOZE_WAKE_LOCK_SCREEN_GESTURE = "doze_wake_screen_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String DUAL_SHADE = "dual_shade";
+        @android.provider.Settings.Readable
+        public static final java.lang.String EMERGENCY_ASSISTANCE_APPLICATION = "emergency_assistance_application";
+        public static final java.lang.String EMERGENCY_GESTURE_ENABLED = "emergency_gesture_enabled";
+        public static final java.lang.String EMERGENCY_GESTURE_SOUND_ENABLED = "emergency_gesture_sound_enabled";
+        public static final java.lang.String EMERGENCY_GESTURE_UI_LAST_STARTED_MILLIS = "emergency_gesture_ui_last_started_millis";
+        public static final java.lang.String EMERGENCY_GESTURE_UI_SHOWING = "emergency_gesture_ui_showing";
+        public static final java.lang.String EMERGENCY_THERMAL_ALERT_DISABLED = "emergency_thermal_alert_disabled";
+        public static final java.lang.String EM_VALUE = "em_value";
+        public static final java.lang.String ENABLED_ACCESSIBILITY_AUDIO_DESCRIPTION_BY_DEFAULT = "enabled_accessibility_audio_description_by_default";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ENABLED_ACCESSIBILITY_SERVICES = "enabled_accessibility_services";
+        @android.provider.Settings.Readable(maxTargetSdk=33)
+        public static final java.lang.String ENABLED_INPUT_METHODS = "enabled_input_methods";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ENABLED_NOTIFICATION_ASSISTANT = "enabled_notification_assistant";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String ENABLED_NOTIFICATION_POLICY_ACCESS_PACKAGES = "enabled_notification_policy_access_packages";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ENABLED_PRINT_SERVICES = "enabled_print_services";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ENABLED_VR_LISTENERS = "enabled_vr_listeners";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ENHANCED_VOICE_PRIVACY_ENABLED = "enhanced_voice_privacy_enabled";
+        public static final java.lang.String EXTERNAL_DISPLAY_NAVBAR_MODE = "external_display_navbar_mode";
+        public static final int EXTERNAL_DISPLAY_NAVBAR_MODE_ALWAYS = 1;
+        public static final int EXTERNAL_DISPLAY_NAVBAR_MODE_AUTO = 0;
+        public static final int EXTERNAL_DISPLAY_NAVBAR_MODE_NEVER = 2;
+        public static final java.lang.String EXTRA_AUTOMATIC_POWER_SAVE_MODE = "extra_automatic_power_save_mode";
+        public static final java.lang.String EXTRA_LOW_POWER_WARNING_ACKNOWLEDGED = "extra_low_power_warning_acknowledged";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_APP_ENABLED = "face_app_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_KEYGUARD_ENABLED = "face_keyguard_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION = "face_unlock_always_require_confirmation";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_APP_ENABLED = "face_unlock_app_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_ATTENTION_REQUIRED = "face_unlock_attention_required";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_DISMISSES_KEYGUARD = "face_unlock_dismisses_keyguard";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_DIVERSITY_REQUIRED = "face_unlock_diversity_required";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_KEYGUARD_ENABLED = "face_unlock_keyguard_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FACE_UNLOCK_RE_ENROLL = "face_unlock_re_enroll";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FINGERPRINT_APP_ENABLED = "fingerptint_app_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FINGERPRINT_KEYGUARD_ENABLED = "fingerprint_keyguard_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FINGERPRINT_SIDE_FPS_AUTH_DOWNTIME = "fingerprint_side_fps_auth_downtime";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FINGERPRINT_SIDE_FPS_BP_POWER_WINDOW = "fingerprint_side_fps_bp_power_window";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FINGERPRINT_SIDE_FPS_ENROLL_TAP_WINDOW = "fingerprint_side_fps_enroll_tap_window";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FINGERPRINT_SIDE_FPS_KG_POWER_WINDOW = "fingerprint_side_fps_kg_power_window";
+        public static final java.lang.String FIRST_ON_DEVICE_MODELS_DOWNLOADED_TIME = "first_on_device_models_downloaded_time";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FLASHLIGHT_AVAILABLE = "flashlight_available";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FLASHLIGHT_ENABLED = "flashlight_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String FONT_WEIGHT_ADJUSTMENT = "font_weight_adjustment";
+        @android.provider.Settings.Readable
+        public static final java.lang.String GAME_DASHBOARD_ALWAYS_ON = "game_dashboard_always_on";
+        @android.provider.Settings.Readable
+        public static final java.lang.String GLANCEABLE_HUB_ENABLED = "glanceable_hub_enabled";
+        public static final java.lang.String GLANCEABLE_HUB_RESTRICT_TO_WIRELESS_CHARGING = "glanceable_hub_restrict_to_writeless_charging";
+        @android.provider.Settings.Readable
+        public static final java.lang.String GLOBAL_ACTIONS_PANEL_AVAILABLE = "global_actions_panel_available";
+        @android.provider.Settings.Readable
+        public static final java.lang.String GLOBAL_ACTIONS_PANEL_DEBUG_ENABLED = "global_actions_panel_debug_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String GLOBAL_ACTIONS_PANEL_ENABLED = "global_actions_panel_enabled";
+        public static final java.lang.String HBM_SETTING_KEY = "com.android.server.display.HBM_SETTING_KEY";
+        public static final java.lang.String HDMI_CEC_SET_MENU_LANGUAGE_DENYLIST = "hdmi_cec_set_menu_language_denylist";
+        public static final java.lang.String HDR_BRIGHTNESS_BOOST_LEVEL = "hdr_brightness_boost_level";
+        public static final java.lang.String HDR_BRIGHTNESS_ENABLED = "hdr_brightness_enabled";
+        public static final java.lang.String HEARING_AID_CALL_ROUTING = "hearing_aid_call_routing";
+        public static final java.lang.String HEARING_AID_MEDIA_ROUTING = "hearing_aid_media_routing";
+        public static final java.lang.String HEARING_AID_NOTIFICATION_ROUTING = "hearing_aid_notification_routing";
+        public static final java.lang.String HEARING_AID_RINGTONE_ROUTING = "hearing_aid_ringtone_routing";
+        public static final java.lang.String HIDE_PRIVATESPACE_ENTRY_POINT = "hide_privatespace_entry_point";
+        public static final java.lang.String HINGE_ANGLE_LIDEVENT_ENABLED = "hinge_angle_lidevent_enabled";
+        @java.lang.Deprecated
+        public static final java.lang.String HTTP_PROXY = "http_proxy";
+        public static final int HUB_MODE_TUTORIAL_COMPLETED = 10;
+        public static final int HUB_MODE_TUTORIAL_NOT_STARTED = 0;
+        public static final int HUB_MODE_TUTORIAL_STARTED = 1;
+        public static final java.lang.String HUB_MODE_TUTORIAL_STATE = "hub_mode_tutorial_state";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String HUSH_GESTURE_USED = "hush_gesture_used";
+        public static final java.lang.String IDENTITY_CHECK_NOTIFICATION_VIEW_DETAILS_CLICKED = "identity_check_notification_view_details_clicked";
+        public static final java.lang.String IDENTITY_CHECK_PROMO_CARD_SHOWN = "identity_check_promo_card_shown";
+        public static final java.lang.String IDENTITY_CHECK_WATCH_NOTIFICATION_VIEW_DETAILS_CLICKED = "identity_check_watch_notification_view_details_clicked";
+        public static final java.lang.String IDENTITY_CHECK_WATCH_PROMO_CARD_SHOWN = "identity_check_watch_promo_card_shown";
+        @android.provider.Settings.Readable
+        public static final java.lang.String IME_SWITCHER_BUTTON_IN_NAVBAR_ENABLED = "ime_switcher_in_navbar_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String IMMERSIVE_MODE_CONFIRMATIONS = "immersive_mode_confirmations";
+        @android.provider.Settings.Readable
+        public static final java.lang.String INCALL_BACK_BUTTON_BEHAVIOR = "incall_back_button_behavior";
+        public static final int INCALL_BACK_BUTTON_BEHAVIOR_DEFAULT = 0;
+        public static final int INCALL_BACK_BUTTON_BEHAVIOR_HANGUP = 1;
+        public static final int INCALL_BACK_BUTTON_BEHAVIOR_NONE = 0;
+        @android.provider.Settings.Readable
+        public static final java.lang.String INCALL_POWER_BUTTON_BEHAVIOR = "incall_power_button_behavior";
+        public static final int INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT = 1;
+        public static final int INCALL_POWER_BUTTON_BEHAVIOR_HANGUP = 2;
+        public static final int INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String INCLUDE_DEFAULT_DISPLAY_IN_TOPOLOGY = "include_default_display_in_topology";
+        @android.provider.Settings.Readable
+        public static final java.lang.String INCOMPATIBLE_CHARGER_WARNING_DISABLED = "incompatible_charger_warning_disabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String INELIGIBLE_TO_USE_CONTEXTUAL_CURSOR = "ineligible_to_use_contextual_cursor";
+        @android.provider.Settings.Readable
+        public static final java.lang.String INPUT_METHODS_SUBTYPE_HISTORY = "input_methods_subtype_history";
+        @android.provider.Settings.Readable
+        public static final java.lang.String INPUT_METHOD_SELECTOR_VISIBILITY = "input_method_selector_visibility";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String INSTALL_NON_MARKET_APPS = "install_non_market_apps";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String INSTANT_APPS_ENABLED = "instant_apps_enabled";
+        public static final java.util.Set<java.lang.String> INSTANT_APP_SETTINGS = null;
+        @android.provider.Settings.Readable
+        public static final java.lang.String IN_CALL_NOTIFICATION_ENABLED = "in_call_notification_enabled";
+        public static final java.lang.String IS_WALLET_SERVICE_AVAILABLE = "is_wallet_service_available";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEYGUARD_SLICE_URI = "keyguard_slice_uri";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEY_REPEAT_DELAY_MS = "key_repeat_delay";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEY_REPEAT_ENABLED = "key_repeat_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEY_REPEAT_TIMEOUT_MS = "key_repeat_timeout";
+        public static final java.lang.String KNOWN_TRUST_AGENTS_INITIALIZED = "known_trust_agents_initialized";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String LAST_SETUP_SHOWN = "last_setup_shown";
+        public static final java.lang.String LAUNCHER_TASKBAR_EDUCATION_SHOWING = "launcher_taskbar_education_showing";
+        @android.provider.Settings.Readable
+        public static final java.lang.String[] LEGACY_RESTORE_SETTINGS = null;
+        public static final java.lang.String LIGHT_ANIMATION_FAVORITE_CALLS_ENABLED = "light_animation_favorite_calls_enabled";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCATION_ACCESS_CHECK_DELAY_MILLIS = "location_access_check_delay_millis";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCATION_ACCESS_CHECK_INTERVAL_MILLIS = "location_access_check_interval_millis";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCATION_CHANGER = "location_changer";
+        public static final int LOCATION_CHANGER_QUICK_SETTINGS = 2;
+        public static final int LOCATION_CHANGER_SYSTEM_SETTINGS = 1;
+        public static final int LOCATION_CHANGER_UNKNOWN = 0;
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCATION_COARSE_ACCURACY_M = "locationCoarseAccuracy";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCATION_MODE = "location_mode";
+        @java.lang.Deprecated
+        public static final int LOCATION_MODE_BATTERY_SAVING = 2;
+        @java.lang.Deprecated
+        public static final int LOCATION_MODE_HIGH_ACCURACY = 3;
+        public static final int LOCATION_MODE_OFF = 0;
+        @android.annotation.SystemApi
+        public static final int LOCATION_MODE_ON = 3;
+        @java.lang.Deprecated
+        public static final int LOCATION_MODE_SENSORS_ONLY = 1;
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCATION_PERMISSIONS_UPGRADE_TO_Q_MODE = "location_permissions_upgrade_to_q_mode";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCATION_PROVIDERS_ALLOWED = "location_providers_allowed";
+        public static final java.lang.String LOCATION_SHOW_SYSTEM_OPS = "locationShowSystemOps";
+        public static final java.lang.String LOCATION_TIME_ZONE_DETECTION_ENABLED = "location_time_zone_detection_enabled";
+        public static final java.lang.String LOCKSCREEN_ALLOW_TRIVIAL_CONTROLS = "lockscreen_allow_trivial_controls";
+        public static final java.lang.String LOCKSCREEN_SHOW_CONTROLS = "lockscreen_show_controls";
+        public static final java.lang.String LOCKSCREEN_SHOW_WALLET = "lockscreen_show_wallet";
+        public static final java.lang.String LOCKSCREEN_USE_DOUBLE_LINE_CLOCK = "lockscreen_use_double_line_clock";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_BIOMETRIC_WEAK_FLAGS = "lock_biometric_weak_flags";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_PATTERN_ENABLED = "lock_pattern_autolock";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED = "lock_pattern_tactile_feedback_enabled";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_PATTERN_VISIBLE = "lock_pattern_visible_pattern";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS = "lock_screen_allow_private_notifications";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_SCREEN_ALLOW_REMOTE_INPUT = "lock_screen_allow_remote_input";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_SCREEN_APPWIDGET_IDS = "lock_screen_appwidget_ids";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_SCREEN_CUSTOM_CLOCK_FACE = "lock_screen_custom_clock_face";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_SCREEN_FALLBACK_APPWIDGET_ID = "lock_screen_fallback_appwidget_id";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_SCREEN_LOCK_AFTER_TIMEOUT = "lock_screen_lock_after_timeout";
+        public static final java.lang.String LOCK_SCREEN_NOTE_TAKING_CONSENT = "lock_screen_note_taking_consent";
+        public static final java.lang.String LOCK_SCREEN_NOTIFICATION_MINIMALISM = "lock_screen_notification_minimalism";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_SCREEN_OWNER_INFO = "lock_screen_owner_info";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_SCREEN_OWNER_INFO_ENABLED = "lock_screen_owner_info_enabled";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_SCREEN_SHOW_NOTIFICATIONS = "lock_screen_show_notifications";
+        public static final java.lang.String LOCK_SCREEN_SHOW_ONLY_UNSEEN_NOTIFICATIONS = "lock_screen_show_only_unseen_notifications";
+        public static final java.lang.String LOCK_SCREEN_SHOW_QR_CODE_SCANNER = "lock_screen_show_qr_code_scanner";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_SCREEN_SHOW_SILENT_NOTIFICATIONS = "lock_screen_show_silent_notifications";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOCK_SCREEN_STICKY_APPWIDGET = "lock_screen_sticky_appwidget";
+        public static final java.lang.String LOCK_SCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOCK_TO_APP_EXIT_LOCKED = "lock_to_app_exit_locked";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String LOGGING_ID = "logging_id";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LONG_PRESS_TIMEOUT = "long_press_timeout";
+        public static final java.lang.String LOW_LIGHT_DISPLAY_BEHAVIOR = "low_light_display_behavior";
+        public static final java.lang.String LOW_LIGHT_DISPLAY_BEHAVIOR_ENABLED = "low_light_display_behavior_enabled";
+        public static final int LOW_LIGHT_DISPLAY_BEHAVIOR_LOW_LIGHT_CLOCK_DREAM = 2;
+        public static final int LOW_LIGHT_DISPLAY_BEHAVIOR_NONE = 0;
+        public static final int LOW_LIGHT_DISPLAY_BEHAVIOR_NO_DREAM = 3;
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOW_POWER_MANUAL_ACTIVATION_COUNT = "low_power_manual_activation_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String LOW_POWER_WARNING_ACKNOWLEDGED = "low_power_warning_acknowledged";
+        public static final java.lang.String LSKF_RECOVERY_ENABLED = "lskf_recovery_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MANAGED_PROFILE_CONTACT_REMOTE_SEARCH = "managed_profile_contact_remote_search";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MANAGED_PROVISIONING_DPC_DOWNLOADED = "managed_provisioning_dpc_downloaded";
+        public static final java.lang.String MANDATORY_BIOMETRICS = "mandatory_biometrics";
+        public static final java.lang.String MANDATORY_BIOMETRICS_REQUIREMENTS_SATISFIED = "mandatory_biometrics_requirements_satisfied";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MANUAL_RINGER_TOGGLE_COUNT = "manual_ringer_toggle_count";
+        public static final int MATCH_CONTENT_FRAMERATE_ALWAYS = 2;
+        public static final int MATCH_CONTENT_FRAMERATE_NEVER = 0;
+        public static final int MATCH_CONTENT_FRAMERATE_SEAMLESSS_ONLY = 1;
+        public static final java.lang.String MATCH_CONTENT_FRAME_RATE = "match_content_frame_rate";
+        public static final java.lang.String MEDIA_CONTROLS_LOCK_SCREEN = "media_controls_lock_screen";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MEDIA_CONTROLS_RESUME = "qs_media_resumption";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MINIMAL_POST_PROCESSING_ALLOWED = "minimal_post_processing_allowed";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MIRROR_BUILT_IN_DISPLAY = "mirror_built_in_display";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MOUNT_PLAY_NOTIFICATION_SND = "mount_play_not_snd";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MOUNT_UMS_AUTOSTART = "mount_ums_autostart";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MOUNT_UMS_NOTIFY_ENABLED = "mount_ums_notify_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String MOUNT_UMS_PROMPT = "mount_ums_prompt";
+        private static final java.util.HashSet<java.lang.String> MOVED_TO_GLOBAL = null;
+        private static final java.util.HashSet<java.lang.String> MOVED_TO_LOCK_SETTINGS = null;
+        @android.provider.Settings.Readable
+        public static final java.lang.String MULTI_PRESS_TIMEOUT = "multi_press_timeout";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NAS_SETTINGS_UPDATED = "nas_settings_updated";
+        public static final java.lang.String NAVIGATIONBAR_KEY_ORDER = "navigationbar_key_order";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NAVIGATION_MODE = "navigation_mode";
+        public static final java.lang.String NAVIGATION_MODE_RESTORE = "navigation_mode_restore";
+        public static final java.lang.String NAV_BAR_FORCE_VISIBLE = "nav_bar_force_visible";
+        public static final java.lang.String NAV_BAR_KIDS_MODE = "nav_bar_kids_mode";
+        public static final java.lang.String NEARBY_FAST_PAIR_SETTINGS_DEVICES_COMPONENT = "nearby_fast_pair_settings_devices_component";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NEARBY_SHARING_COMPONENT = "nearby_sharing_component";
+        public static final java.lang.String NEARBY_SHARING_SLICE_URI = "nearby_sharing_slice_uri";
+        @java.lang.Deprecated
+        public static final java.lang.String NETWORK_PREFERENCE = "network_preference";
+        @java.lang.Deprecated
+        public static final java.lang.String NFC_PAYMENT_DEFAULT_COMPONENT = "nfc_payment_default_component";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NFC_PAYMENT_FOREGROUND = "nfc_payment_foreground";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NIGHT_DISPLAY_ACTIVATED = "night_display_activated";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NIGHT_DISPLAY_AUTO_MODE = "night_display_auto_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NIGHT_DISPLAY_COLOR_TEMPERATURE = "night_display_color_temperature";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NIGHT_DISPLAY_CUSTOM_END_TIME = "night_display_custom_end_time";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NIGHT_DISPLAY_CUSTOM_START_TIME = "night_display_custom_start_time";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NIGHT_DISPLAY_LAST_ACTIVATED_TIME = "night_display_last_activated_time";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NOTIFICATION_BADGING = "notification_badging";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NOTIFICATION_BUBBLES = "notification_bubbles";
+        public static final java.lang.String NOTIFICATION_BUNDLES_ALWAYS_EXPAND = "notification_bundles_always_expand";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NOTIFICATION_DISMISS_RTL = "notification_dismiss_rtl";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NOTIFICATION_HISTORY_ENABLED = "notification_history_enabled";
+        public static final int NOTIFICATION_ICONS_HIDE_SILENT = 1;
+        public static final int NOTIFICATION_ICONS_SHOW_ALL = 0;
+        public static final int NOTIFICATION_ICONS_SHOW_NONE = 2;
+        public static final java.lang.String NOTIFICATION_ICONS_STATUS = "notification_icons_status";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NOTIFIED_NON_ACCESSIBILITY_CATEGORY_SERVICES = "notified_non_accessibility_category_services";
+        @android.provider.Settings.Readable
+        public static final java.lang.String NUM_ROTATION_SUGGESTIONS_ACCEPTED = "num_rotation_suggestions_accepted";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String ODI_CAPTIONS_ENABLED = "odi_captions_enabled";
+        public static final java.lang.String ODI_CAPTIONS_VOLUME_UI_ENABLED = "odi_captions_volume_ui_enabled";
+        public static final java.lang.String ONE_HANDED_MODE_ACTIVATED = "one_handed_mode_activated";
+        public static final java.lang.String ONE_HANDED_MODE_ENABLED = "one_handed_mode_enabled";
+        public static final java.lang.String ONE_HANDED_MODE_TIMEOUT = "one_handed_mode_timeout";
+        public static final java.lang.String ONE_HANDED_TUTORIAL_SHOW_COUNT = "one_handed_tutorial_show_count";
+        public static final java.lang.String ON_DEVICE_INFERENCE_UNBIND_TIMEOUT_MS = "on_device_inference_unbind_timeout_ms";
+        public static final java.lang.String ON_DEVICE_INTELLIGENCE_GATEWAY_SESSION_TIMEOUT_MS = "on_device_intelligence_gateway_session_timeout_ms";
+        public static final java.lang.String ON_DEVICE_INTELLIGENCE_IDLE_TIMEOUT_MS = "on_device_intelligence_idle_timeout_ms";
+        public static final java.lang.String ON_DEVICE_INTELLIGENCE_UNBIND_TIMEOUT_MS = "on_device_intelligence_unbind_timeout_ms";
+        public static final java.lang.String OTP_NOTIFICATION_REDACTION_LOCK_TIME = "otp_redaction_lock_time";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PACKAGES_TO_CLEAR_DATA_BEFORE_FULL_RESTORE = "packages_to_clear_data_before_full_restore";
+        public static final java.lang.String PACK_THEME_FEATURE_ENABLED = "pack_theme_feature_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PARENTAL_CONTROL_ENABLED = "parental_control_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PARENTAL_CONTROL_LAST_UPDATE = "parental_control_last_update";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PARENTAL_CONTROL_REDIRECT_URL = "parental_control_redirect_url";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PAYMENT_SERVICE_SEARCH_URI = "payment_service_search_uri";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PEOPLE_STRIP = "people_strip";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PERSONAL_CONTEXT_ENABLED = "personal_context_enabled";
+        public static final java.lang.String PERSONAL_CONTEXT_ENABLED_UNDERSTANDER_COMPONENTS = "personal_context_enabled_understander_components";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PERSONAL_CONTEXT_MODE_ENABLED_DEFAULT = "personal_context_mode_enabled_default";
+        public static final java.lang.String PERSONAL_CONTEXT_PREVIOUSLY_ENABLED_UNDERSTANDER_COMPONENTS = "personal_context_previously_enabled_understander_components";
+        @android.provider.Settings.Readable
+        public static final java.lang.String POWER_MENU_LOCKED_SHOW_CONTENT = "power_menu_locked_show_content";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PREFERRED_TTY_MODE = "preferred_tty_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String PRINT_SERVICE_SEARCH_URI = "print_service_search_uri";
+        public static final java.lang.String PRIVATE_SPACE_AUTO_LOCK = "private_space_auto_lock";
+        public static final int PRIVATE_SPACE_AUTO_LOCK_AFTER_DEVICE_RESTART = 2;
+        public static final int PRIVATE_SPACE_AUTO_LOCK_AFTER_INACTIVITY = 1;
+        public static final int PRIVATE_SPACE_AUTO_LOCK_ON_DEVICE_LOCK = 0;
+        @android.provider.Settings.Readable
+        public static final java.lang.String QS_AUTO_ADDED_TILES = "qs_auto_tiles";
+        @android.provider.Settings.Readable(maxTargetSdk=33)
+        public static final java.lang.String QS_TILES = "sysui_qs_tiles";
+        public static final java.lang.String QS_TILES_DISALLOW_LOCKED = "sysui_qs_tiles_disallow_locked";
+        public static final java.lang.String RAISE_TRIGGER_DEFAULT_ASSISTANT = "raise_trigger_default_assistant";
+        public static final java.lang.String READ_SCREEN_CONTEXT_REQUEST_DENIED_COUNT = "read_screen_context_request_denied_count";
+        public static final java.lang.String REDACT_OTP_NOTIFICATION_WHILE_CONNECTED_TO_WIFI = "redact_otp_on_wifi";
+        public static final java.lang.String REDUCE_BRIGHT_COLORS_ACTIVATED = "reduce_bright_colors_activated";
+        public static final java.lang.String REDUCE_BRIGHT_COLORS_LEVEL = "reduce_bright_colors_level";
+        public static final java.lang.String REDUCE_BRIGHT_COLORS_PERSIST_ACROSS_REBOOTS = "reduce_bright_colors_persist_across_reboots";
+        public static final java.lang.String RELEASE_COMPRESS_BLOCKS_ON_INSTALL = "release_compress_blocks_on_install";
+        public static final int RESOLUTION_MODE_FULL = 2;
+        public static final int RESOLUTION_MODE_HIGH = 1;
+        public static final int RESOLUTION_MODE_UNKNOWN = 0;
+        @android.provider.Settings.Readable
+        public static final java.lang.String RTT_CALLING_MODE = "rtt_calling_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_ACTIVATE_ON_DOCK = "screensaver_activate_on_dock";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_ACTIVATE_ON_POSTURED = "screensaver_activate_on_postured";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_ACTIVATE_ON_SLEEP = "screensaver_activate_on_sleep";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_ACTIVE_COMPONENT = "screensaver_active_component";
+        public static final java.lang.String SCREENSAVER_COMPLICATIONS_ENABLED = "screensaver_complications_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_COMPONENTS = "screensaver_components";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_DEFAULT_COMPONENT = "screensaver_default_component";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREENSAVER_ENABLED = "screensaver_enabled";
+        public static final java.lang.String SCREENSAVER_HOME_CONTROLS_ENABLED = "screensaver_home_controls_enabled";
+        public static final java.lang.String SCREENSAVER_RESTRICT_TO_WIRELESS_CHARGING = "screensaver_restrict_to_writeless_charging";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREEN_OFF_UNLOCK_UDFPS_ENABLED = "screen_off_udfps_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SCREEN_RESOLUTION_MODE = "screen_resolution_mode";
+        public static final java.lang.String SEARCH_ALL_ENTRYPOINTS_ENABLED = "search_all_entrypoints_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_CONTENT_FILTERS_ENABLED = "search_content_filters_enabled";
+        public static final java.lang.String SEARCH_ENGINE_ROLE_AVAILABLE = "search_engine_role_available";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_GLOBAL_SEARCH_ACTIVITY = "search_global_search_activity";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MAX_RESULTS_PER_SOURCE = "search_max_results_per_source";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MAX_RESULTS_TO_DISPLAY = "search_max_results_to_display";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MAX_SHORTCUTS_RETURNED = "search_max_shortcuts_returned";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MAX_SOURCE_EVENT_AGE_MILLIS = "search_max_source_event_age_millis";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MAX_STAT_AGE_MILLIS = "search_max_stat_age_millis";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MIN_CLICKS_FOR_SOURCE_RANKING = "search_min_clicks_for_source_ranking";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_MIN_IMPRESSIONS_FOR_SOURCE_RANKING = "search_min_impressions_for_source_ranking";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_NUM_PROMOTED_SOURCES = "search_num_promoted_sources";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_PER_SOURCE_CONCURRENT_QUERY_LIMIT = "search_per_source_concurrent_query_limit";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_PREFILL_MILLIS = "search_prefill_millis";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_PROMOTED_SOURCE_DEADLINE_MILLIS = "search_promoted_source_deadline_millis";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_QUERY_THREAD_CORE_POOL_SIZE = "search_query_thread_core_pool_size";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_QUERY_THREAD_MAX_POOL_SIZE = "search_query_thread_max_pool_size";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_SHORTCUT_REFRESH_CORE_POOL_SIZE = "search_shortcut_refresh_core_pool_size";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_SHORTCUT_REFRESH_MAX_POOL_SIZE = "search_shortcut_refresh_max_pool_size";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_SOURCE_TIMEOUT_MILLIS = "search_source_timeout_millis";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_THREAD_KEEPALIVE_SECONDS = "search_thread_keepalive_seconds";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SEARCH_WEB_RESULTS_OVERRIDE_LIMIT = "search_web_results_override_limit";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String SECURE_FRP_MODE = "secure_frp_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SELECTED_INPUT_METHOD_SUBTYPE = "selected_input_method_subtype";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SELECTED_SPELL_CHECKER = "selected_spell_checker";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SELECTED_SPELL_CHECKER_SUBTYPE = "selected_spell_checker_subtype";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SETTINGS_CLASSNAME = "settings_classname";
+        public static final java.lang.String SFPS_PERFORMANT_AUTH_ENABLED = "sfps_performant_auth_enabled_v2";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SHOW_FIRST_CRASH_DIALOG_DEV_OPTION = "show_first_crash_dialog_dev_option";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SHOW_IME_WITH_HARD_KEYBOARD = "show_ime_with_hard_keyboard";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SHOW_MEDIA_WHEN_BYPASSING = "show_media_when_bypassing";
+        public static final int SHOW_MODE_AUTO = 0;
+        public static final int SHOW_MODE_HIDDEN = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String SHOW_NOTE_ABOUT_NOTIFICATION_HIDING = "show_note_about_notification_hiding";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SHOW_NOTIFICATION_SNOOZE = "show_notification_snooze";
+        public static final java.lang.String SHOW_QR_CODE_SCANNER_SETTING = "show_qr_code_scanner_setting";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SHOW_ROTATION_SUGGESTIONS = "show_rotation_suggestions";
+        public static final int SHOW_ROTATION_SUGGESTIONS_DEFAULT = 1;
+        public static final int SHOW_ROTATION_SUGGESTIONS_DISABLED = 0;
+        public static final int SHOW_ROTATION_SUGGESTIONS_ENABLED = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_ALARMS_GESTURE_COUNT = "silence_alarms_gesture_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_ALARMS_TOUCH_COUNT = "silence_alarms_touch_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_CALL_GESTURE_COUNT = "silence_call_gesture_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_CALL_TOUCH_COUNT = "silence_call_touch_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_GESTURE = "silence_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_TIMER_GESTURE_COUNT = "silence_timer_gesture_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SILENCE_TIMER_TOUCH_COUNT = "silence_timer_touch_count";
+        public static final java.lang.String SKIP_ACCESSIBILITY_SHORTCUT_DIALOG_TIMEOUT_RESTRICTION = "skip_accessibility_shortcut_dialog_timeout_restriction";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SKIP_DIRECTION = "skip_gesture_direction";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SKIP_FIRST_USE_HINTS = "skip_first_use_hints";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SKIP_GESTURE = "skip_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SKIP_GESTURE_COUNT = "skip_gesture_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SKIP_TOUCH_COUNT = "skip_touch_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SLEEP_TIMEOUT = "sleep_timeout";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SMS_DEFAULT_APPLICATION = "sms_default_application";
+        public static final java.lang.String SPATIAL_AUDIO_ENABLED = "spatial_audio_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SPELL_CHECKER_ENABLED = "spell_checker_enabled";
+        public static final java.lang.String STATUS_BAR_AGENT_ICON_ENABLED = "status_bar_agent_icon_enabled";
+        public static final java.lang.String STATUS_BAR_SHOW_MUTE_ICON = "status_bar_show_mute_icon";
+        public static final java.lang.String STATUS_BAR_SHOW_VIBRATE_ICON = "status_bar_show_vibrate_icon";
+        @android.provider.Settings.Readable
+        public static final java.lang.String STYLUS_BUTTONS_ENABLED = "stylus_buttons_enabled";
+        @android.provider.Settings.Readable
+        public static final int STYLUS_HANDWRITING_DEFAULT_VALUE = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String STYLUS_HANDWRITING_ENABLED = "stylus_handwriting_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String STYLUS_POINTER_ICON_ENABLED = "stylus_pointer_icon_enabled";
+        public static final java.lang.String SUGGESTED_THEME_FEATURE_ENABLED = "suggested_theme_feature_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SUPPRESS_AUTO_BATTERY_SAVER_SUGGESTION = "suppress_auto_battery_saver_suggestion";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SUPPRESS_DOZE = "suppress_doze";
+        public static final java.lang.String SWIPE_BOTTOM_TO_NOTIFICATION_ENABLED = "swipe_bottom_to_notification_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SYNC_PARENT_SOUNDS = "sync_parent_sounds";
+        @android.provider.Settings.Readable
+        public static final java.lang.String SYSTEM_NAVIGATION_KEYS_ENABLED = "system_navigation_keys_enabled";
+        public static final java.lang.String TAPS_APP_TO_EXIT = "taps_app_to_exit";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TAP_EVENT_SERVICE_COMPONENT = "tap_event_service_component";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TAP_GESTURE = "tap_gesture";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TAP_SHARE_FULFILLMENT_ACTIVITY_COMPONENT = "tap_share_fulfillment_activity_component";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TEXT_SHOW_PASSWORD_PHYSICAL = "show_password_physical";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TEXT_SHOW_PASSWORD_TOUCH = "show_password_touch";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String THEME_CUSTOMIZATION_OVERLAY_PACKAGES = "theme_customization_overlay_packages";
+        public static final java.lang.String TIMEOUT_TO_DOCK_USER = "timeout_to_dock_user";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TOUCH_EXPLORATION_ENABLED = "touch_exploration_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TOUCH_EXPLORATION_GRANTED_ACCESSIBILITY_SERVICES = "touch_exploration_granted_accessibility_services";
+        public static final java.lang.String TRUSTED_LOCATIONS_COUNT = "trusted_locations_count";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TRUST_AGENTS_INITIALIZED = "trust_agents_initialized";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String TTS_DEFAULT_COUNTRY = "tts_default_country";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String TTS_DEFAULT_LANG = "tts_default_lang";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TTS_DEFAULT_LOCALE = "tts_default_locale";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TTS_DEFAULT_PITCH = "tts_default_pitch";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TTS_DEFAULT_RATE = "tts_default_rate";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TTS_DEFAULT_SYNTH = "tts_default_synth";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String TTS_DEFAULT_VARIANT = "tts_default_variant";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TTS_ENABLED_PLUGINS = "tts_enabled_plugins";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String TTS_USE_DEFAULTS = "tts_use_defaults";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TTY_MODE_ENABLED = "tty_mode_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TV_APP_USES_NON_SYSTEM_INPUTS = "tv_app_uses_non_system_inputs";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TV_INPUT_CUSTOM_LABELS = "tv_input_custom_labels";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TV_INPUT_HIDDEN_INPUTS = "tv_input_hidden_inputs";
+        @android.provider.Settings.Readable
+        public static final java.lang.String TV_USER_SETUP_COMPLETE = "tv_user_setup_complete";
+        @android.provider.Settings.Readable
+        public static final java.lang.String UI_NIGHT_MODE = "ui_night_mode";
+        @android.provider.Settings.Readable
+        public static final java.lang.String UI_NIGHT_MODE_CUSTOM_TYPE = "ui_night_mode_custom_type";
+        public static final java.lang.String UI_NIGHT_MODE_LAST_COMPUTED = "ui_night_mode_last_computed";
+        @android.provider.Settings.Readable
+        public static final java.lang.String UI_NIGHT_MODE_OVERRIDE_OFF = "ui_night_mode_override_off";
+        @android.provider.Settings.Readable
+        public static final java.lang.String UI_NIGHT_MODE_OVERRIDE_ON = "ui_night_mode_override_on";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String UI_TRANSLATION_ENABLED = "ui_translation_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String UNKNOWN_SOURCES_DEFAULT_REVERSED = "unknown_sources_default_reversed";
+        @android.provider.Settings.Readable
+        public static final java.lang.String UNSAFE_VOLUME_MUSIC_ACTIVE_MS = "unsafe_volume_music_active_ms";
+        @android.provider.Settings.Readable
+        public static final java.lang.String USB_AUDIO_AUTOMATIC_ROUTING_DISABLED = "usb_audio_automatic_routing_disabled";
+        @java.lang.Deprecated
+        public static final java.lang.String USB_MASS_STORAGE_ENABLED = "usb_mass_storage_enabled";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String USER_SETUP_COMPLETE = "user_setup_complete";
+        @android.annotation.SystemApi
+        public static final int USER_SETUP_PERSONALIZATION_COMPLETE = 10;
+        @android.annotation.SystemApi
+        public static final int USER_SETUP_PERSONALIZATION_NOT_STARTED = 0;
+        @android.annotation.SystemApi
+        public static final int USER_SETUP_PERSONALIZATION_PAUSED = 2;
+        @android.annotation.SystemApi
+        public static final int USER_SETUP_PERSONALIZATION_STARTED = 1;
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String USER_SETUP_PERSONALIZATION_STATE = "user_setup_personalization_state";
+        public static final java.lang.String USER_SETUP_SEARCH_ENGINE = "user_setup_search_engine";
+        @android.provider.Settings.Readable
+        public static final java.lang.String USE_CONTEXTUAL_CURSOR = "use_contextual_cursor";
+        @java.lang.Deprecated
+        public static final java.lang.String USE_GOOGLE_MAIL = "use_google_mail";
+        public static final java.lang.String VISUAL_QUERY_ACCESSIBILITY_DETECTION_ENABLED = "visual_query_accessibility_detection_enabled";
+        @android.provider.Settings.Readable
+        public static final java.lang.String VOICE_INTERACTION_SERVICE = "voice_interaction_service";
+        @android.provider.Settings.Readable
+        public static final java.lang.String VOICE_RECOGNITION_SERVICE = "voice_recognition_service";
+        public static final java.lang.String VOLUME_DIALOG_DISMISS_TIMEOUT = "volume_dialog_dismiss_timeout";
+        @android.annotation.SystemApi
+        @android.provider.Settings.Readable
+        public static final java.lang.String VOLUME_HUSH_GESTURE = "volume_hush_gesture";
+        @android.annotation.SystemApi
+        public static final int VOLUME_HUSH_MUTE = 2;
+        @android.annotation.SystemApi
+        public static final int VOLUME_HUSH_OFF = 0;
+        @android.annotation.SystemApi
+        public static final int VOLUME_HUSH_VIBRATE = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String VR_DISPLAY_MODE = "vr_display_mode";
+        public static final int VR_DISPLAY_MODE_LOW_PERSISTENCE = 0;
+        public static final int VR_DISPLAY_MODE_OFF = 1;
+        public static final java.lang.String V_TO_U_RESTORE_ALLOWLIST = "v_to_u_restore_allowlist";
+        public static final java.lang.String V_TO_U_RESTORE_DENYLIST = "v_to_u_restore_denylist";
+        @android.provider.Settings.Readable
+        public static final java.lang.String WAKE_GESTURE_ENABLED = "wake_gesture_enabled";
+        public static final java.lang.String WEAR_TALKBACK_ENABLED = "wear_talkback_enabled";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_IDLE_MS = "wifi_idle_ms";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_MAX_DHCP_RETRY_COUNT = "wifi_max_dhcp_retry_count";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS = "wifi_mobile_data_transition_wakelock_timeout_ms";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON = "wifi_networks_available_notification_on";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY = "wifi_networks_available_repeat_delay";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_NUM_OPEN_NETWORKS_KEPT = "wifi_num_open_networks_kept";
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_ON = "wifi_on";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_ACCEPTABLE_PACKET_LOSS_PERCENTAGE = "wifi_watchdog_acceptable_packet_loss_percentage";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_AP_COUNT = "wifi_watchdog_ap_count";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_BACKGROUND_CHECK_DELAY_MS = "wifi_watchdog_background_check_delay_ms";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_BACKGROUND_CHECK_ENABLED = "wifi_watchdog_background_check_enabled";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_BACKGROUND_CHECK_TIMEOUT_MS = "wifi_watchdog_background_check_timeout_ms";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_INITIAL_IGNORED_PING_COUNT = "wifi_watchdog_initial_ignored_ping_count";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_MAX_AP_CHECKS = "wifi_watchdog_max_ap_checks";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_ON = "wifi_watchdog_on";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_PING_COUNT = "wifi_watchdog_ping_count";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_PING_DELAY_MS = "wifi_watchdog_ping_delay_ms";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_PING_TIMEOUT_MS = "wifi_watchdog_ping_timeout_ms";
+        @android.provider.Settings.Readable
+        @java.lang.Deprecated
+        public static final java.lang.String WIFI_WATCHDOG_WATCH_LIST = "wifi_watchdog_watch_list";
+        @android.provider.Settings.Readable
+        public static final java.lang.String ZEN_DURATION = "zen_duration";
+        public static final int ZEN_DURATION_FOREVER = 0;
+        public static final int ZEN_DURATION_PROMPT = -1;
         private static final android.provider.Settings.NameValueCache sNameValueCache = null;
         private static final android.provider.Settings.ContentProviderHolder sProviderHolder = null;
-        private Config() { super(); }
-        public static int checkCallingOrSelfPermission(java.lang.String p0) { return 0; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static void clearMonitorCallback(android.content.ContentResolver p0) {}
+        public Secure() { super(); }
         public static void clearProviderForTest() {}
-        static java.lang.String createCompositeName(java.lang.String p0, java.lang.String p1) { return null; }
-        private static android.net.Uri createNamespaceUri(java.lang.String p0) { return null; }
-        private static java.lang.String createPrefix(java.lang.String p0) { return null; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static boolean deleteString(java.lang.String p0, java.lang.String p1) { return false; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static java.util.Map<java.lang.String, java.lang.String> getAllStrings() { return null; }
-        private static android.content.ContentResolver getContentResolver() { return null; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static java.lang.String getString(java.lang.String p0) { return null; }
-        public static java.util.Map<java.lang.String, java.lang.String> getStrings(android.content.ContentResolver p0, java.lang.String p1, java.util.List<java.lang.String> p2) { return null; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static java.util.Map<java.lang.String, java.lang.String> getStrings(java.lang.String p0, java.util.List<java.lang.String> p1) { return null; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static int getSyncDisabledMode() { return 0; }
-        private static void handleMonitorCallback(android.os.Bundle p0, java.util.concurrent.Executor p1, android.provider.DeviceConfig.MonitorCallback p2) {}
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static boolean putString(java.lang.String p0, java.lang.String p1, java.lang.String p2, boolean p3) { return false; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static void registerContentObserver(java.lang.String p0, boolean p1, android.database.ContentObserver p2) {}
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static void resetToDefaults(int p0, java.lang.String p1) {}
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static void setMonitorCallback(android.content.ContentResolver p0, java.util.concurrent.Executor p1, android.provider.DeviceConfig.MonitorCallback p2) {}
-        private static void setMonitorCallbackAsUser(java.util.concurrent.Executor p0, android.content.ContentResolver p1, int p2, android.provider.DeviceConfig.MonitorCallback p3) {}
-        public static boolean setStrings(android.content.ContentResolver p0, java.lang.String p1, java.util.Map<java.lang.String, java.lang.String> p2) throws android.provider.DeviceConfig.BadConfigException { return false; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static boolean setStrings(java.lang.String p0, java.util.Map<java.lang.String, java.lang.String> p1) throws android.provider.DeviceConfig.BadConfigException { return false; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static void setSyncDisabledMode(int p0) {}
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public static void unregisterContentObserver(android.database.ContentObserver p0) {}
+        public static void getCloneToManagedProfileSettings(java.util.Set<java.lang.String> p0) {}
+        public static float getFloat(android.content.ContentResolver p0, java.lang.String p1) throws android.provider.Settings.SettingNotFoundException { return 0.0f; }
+        public static float getFloat(android.content.ContentResolver p0, java.lang.String p1, float p2) { return 0.0f; }
+        public static float getFloatForUser(android.content.ContentResolver p0, java.lang.String p1, float p2, int p3) { return 0.0f; }
+        public static float getFloatForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) throws android.provider.Settings.SettingNotFoundException { return 0.0f; }
+        public static int getInt(android.content.ContentResolver p0, java.lang.String p1) throws android.provider.Settings.SettingNotFoundException { return 0; }
+        public static int getInt(android.content.ContentResolver p0, java.lang.String p1, int p2) { return 0; }
+        public static int getIntForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) throws android.provider.Settings.SettingNotFoundException { return 0; }
+        public static int getIntForUser(android.content.ContentResolver p0, java.lang.String p1, int p2, int p3) { return 0; }
+        public static long getLong(android.content.ContentResolver p0, java.lang.String p1) throws android.provider.Settings.SettingNotFoundException { return 0L; }
+        public static long getLong(android.content.ContentResolver p0, java.lang.String p1, long p2) { return 0L; }
+        public static long getLongForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) throws android.provider.Settings.SettingNotFoundException { return 0L; }
+        public static long getLongForUser(android.content.ContentResolver p0, java.lang.String p1, long p2, int p3) { return 0L; }
+        public static void getMovedToGlobalSettings(java.util.Set<java.lang.String> p0) {}
+        public static void getMovedToSystemSettings(java.util.Set<java.lang.String> p0) {}
+        public static void getPublicSettings(java.util.Set<java.lang.String> p0, java.util.Set<java.lang.String> p1, android.util.ArrayMap<java.lang.String, java.lang.Integer> p2, android.util.ArrayMap<java.lang.String, java.lang.String> p3) {}
+        public static java.lang.String getString(android.content.ContentResolver p0, java.lang.String p1) { return null; }
+        public static java.lang.String getStringForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) { return null; }
+        public static android.net.Uri getUriFor(java.lang.String p0) { return null; }
+        @java.lang.Deprecated
+        public static boolean isLocationProviderEnabled(android.content.ContentResolver p0, java.lang.String p1) { return false; }
+        public static boolean putFloat(android.content.ContentResolver p0, java.lang.String p1, float p2) { return false; }
+        public static boolean putFloatForUser(android.content.ContentResolver p0, java.lang.String p1, float p2, int p3) { return false; }
+        public static boolean putInt(android.content.ContentResolver p0, java.lang.String p1, int p2) { return false; }
+        public static boolean putIntForUser(android.content.ContentResolver p0, java.lang.String p1, int p2, int p3) { return false; }
+        public static boolean putLong(android.content.ContentResolver p0, java.lang.String p1, long p2) { return false; }
+        public static boolean putLongForUser(android.content.ContentResolver p0, java.lang.String p1, long p2, int p3) { return false; }
+        public static boolean putString(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2) { return false; }
+        @android.annotation.SystemApi
+        public static boolean putString(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4) { return false; }
+        public static boolean putString(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, boolean p3) { return false; }
+        public static boolean putStringForUser(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, int p3) { return false; }
+        public static boolean putStringForUser(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5, boolean p6) { return false; }
+        @android.annotation.SystemApi
+        public static void resetToDefaults(android.content.ContentResolver p0, java.lang.String p1) {}
+        public static void resetToDefaultsAsUser(android.content.ContentResolver p0, java.lang.String p1, int p2, int p3) {}
+        @java.lang.Deprecated
+        public static void setLocationProviderEnabled(android.content.ContentResolver p0, java.lang.String p1, boolean p2) {}
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
-        public static @interface SyncDisabledMode {
+        public static @interface PrivateSpaceAutoLockOption {
         }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface ActionCornerActionType {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface HubModeTutorialState {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface DockSetupState {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface ResolutionMode {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface AccessibilityMagnificationCursorFollowingMode {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface DeviceStateRotationLockSetting {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface DeviceStateRotationLockKey {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface LowLightDisplayBehavior {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface UserSetupPersonalization {
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AddWifiResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
+    public static @interface SetAllResult {
+    }
+
+    private static class NameValueCache {
+        private static final boolean DEBUG = false;
+        private static final java.lang.String NAME_EQ_PLACEHOLDER = "name=?";
+        private static final java.lang.String[] SELECT_VALUE_PROJECTION = null;
+        private final android.util.ArraySet<java.lang.String> mAllFields = null;
+        private final java.lang.String mCallDeleteCommand = null;
+        private final java.lang.String mCallGetCommand = null;
+        private final java.lang.String mCallListCommand = null;
+        private final java.lang.String mCallSetAllCommand = null;
+        private final java.lang.String mCallSetCommand = null;
+        private final boolean mConcurrentCacheEnabled = false;
+        private final android.provider.GenerationCache<java.lang.String, android.util.ArrayMap<java.lang.String, java.lang.String>> mPrefixToValues = null;
+        private final android.provider.Settings.ContentProviderHolder mProviderHolder = null;
+        private final android.util.ArraySet<java.lang.String> mReadableFields = null;
+        private final android.util.ArrayMap<java.lang.String, java.lang.Integer> mReadableFieldsWithMaxTargetSdk = null;
+        private final android.util.ArrayMap<java.lang.String, java.lang.String> mReadableFieldsWithRedactedValue = null;
+        private final android.net.Uri mUri = null;
+        private final android.provider.GenerationCache<android.provider.Settings.SettingsKey, java.lang.String> mValues = null;
+        <T extends android.provider.Settings.NameValueTable> NameValueCache(android.net.Uri p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, android.provider.Settings.ContentProviderHolder p4, java.lang.Class<T> p5) {}
+        private <T extends android.provider.Settings.NameValueTable> NameValueCache(android.net.Uri p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, android.provider.Settings.ContentProviderHolder p6, java.lang.Class<T> p7) {}
+        private android.os.Bundle callProvider(android.content.ContentResolver p0, android.content.IContentProvider p1, java.lang.String p2, java.lang.String p3, android.os.Bundle p4) throws android.os.RemoteException { return null; }
+        private java.lang.String fetchAndCacheString(android.content.ContentResolver p0, java.lang.String p1, android.provider.Settings.SettingsKey p2, int p3) { return null; }
+        private java.lang.String fetchWithoutCache(android.content.ContentResolver p0, java.lang.String p1, int p2) { return null; }
+        private java.util.Map<java.lang.String, java.lang.String> getStringsForPrefixStripPrefix(android.content.ContentResolver p0, java.lang.String p1, java.util.List<java.lang.String> p2) { return null; }
+        private void populateKeyValues(android.util.ArrayMap<java.lang.String, java.lang.String> p0, java.util.List<java.lang.String> p1, android.util.ArrayMap<java.lang.String, java.lang.String> p2) {}
+        private android.database.Cursor queryProvider(android.content.ContentResolver p0, android.content.IContentProvider p1, android.net.Uri p2, java.lang.String[] p3, android.os.Bundle p4) throws android.os.RemoteException { return null; }
+        void clearGenerationTrackerForTest() {}
+        public boolean deleteStringForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) { return false; }
+        public java.lang.String getStringForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) { return null; }
+        public boolean putStringForUser(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5, boolean p6) { return false; }
+        public int setStringsForPrefix(android.content.ContentResolver p0, java.lang.String p1, java.util.HashMap<java.lang.String, java.lang.String> p2) { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EnableMmsDataReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ResetMode {
+    }
+
+    public static final class Panel {
+        public static final java.lang.String ACTION_INTERNET_CONNECTIVITY = "android.settings.panel.action.INTERNET_CONNECTIVITY";
+        public static final java.lang.String ACTION_NFC = "android.settings.panel.action.NFC";
+        public static final java.lang.String ACTION_VOLUME = "android.settings.panel.action.VOLUME";
+        public static final java.lang.String ACTION_WIFI = "android.settings.panel.action.WIFI";
+        private Panel() {}
     }
 
     private static final class ContentProviderHolder {
@@ -432,32 +1745,6 @@ public final class Settings {
         public ContentProviderHolder(android.net.Uri p0) {}
         public void clearProviderForTest() {}
         public android.content.IContentProvider getProvider(android.content.ContentResolver p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EnableMmsDataReason {
-    }
-
-    private static final class GenerationTracker {
-        private final android.util.MemoryIntArray mArray = null;
-        private int mCurrentGeneration;
-        private final java.util.function.Consumer<android.provider.Settings.GenerationTracker.Key> mErrorHandler = null;
-        private final int mIndex = 0;
-        private final android.provider.Settings.GenerationTracker.Key mKey = null;
-        GenerationTracker(android.provider.Settings.GenerationTracker.Key p0, android.util.MemoryIntArray p1, int p2, int p3, java.util.function.Consumer<android.provider.Settings.GenerationTracker.Key> p4) {}
-        private int readCurrentGeneration() { return 0; }
-        public void destroy() {}
-        protected void finalize() throws java.lang.Throwable {}
-        public int getCurrentGeneration() { return 0; }
-        public boolean isGenerationChanged() { return false; }
-
-        private static final class Key {
-            private final int mDeviceId = 0;
-            private final java.lang.String mName = null;
-            Key(java.lang.String p0, int p1) {}
-            public boolean equals(java.lang.Object p0) { return false; }
-            public int hashCode() { return 0; }
-        }
     }
 
     public static final class Global extends android.provider.Settings.NameValueTable {
@@ -639,6 +1926,7 @@ public final class Settings {
         public static final java.lang.String BLUETOOTH_BTSNOOP_DEFAULT_MODE = "bluetooth_btsnoop_default_mode";
         @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
         @android.provider.Settings.Readable
+        @java.lang.Deprecated
         public static final java.lang.String BLUETOOTH_CLASS_OF_DEVICE = "bluetooth_class_of_device";
         @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
         @android.provider.Settings.Readable
@@ -1038,6 +2326,14 @@ public final class Settings {
         @android.provider.Settings.Readable
         public static final java.lang.String KERNEL_CPU_THREAD_READER = "kernel_cpu_thread_reader";
         @android.provider.Settings.Readable
+        public static final java.lang.String KEYPRESS_DELETE_SOUND = "keypress_delete_sound";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEYPRESS_RETURN_SOUND = "keypress_return_sound";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEYPRESS_SPACEBAR_SOUND = "keypress_spacebar_sound";
+        @android.provider.Settings.Readable
+        public static final java.lang.String KEYPRESS_STANDARD_SOUND = "keypress_standard_sound";
+        @android.provider.Settings.Readable
         public static final java.lang.String KEY_CHORD_POWER_VOLUME_UP = "key_chord_power_volume_up";
         @android.provider.Settings.Readable
         public static final java.lang.String LANG_ID_UPDATE_CONTENT_URL = "lang_id_content_url";
@@ -1230,6 +2526,8 @@ public final class Settings {
         public static final java.lang.String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
         public static final int ONE_HANDED_KEYGUARD_SIDE_LEFT = 0;
         public static final int ONE_HANDED_KEYGUARD_SIDE_RIGHT = 1;
+        @android.provider.Settings.Readable
+        public static final java.lang.String OPENXR_RUNTIME_PACKAGE = "openxr_runtime_package";
         @android.annotation.SystemApi
         @android.provider.Settings.Readable
         public static final java.lang.String OTA_DISABLE_AUTOMATIC_UPDATE = "ota_disable_automatic_update";
@@ -1436,6 +2734,8 @@ public final class Settings {
         @android.provider.Settings.Readable
         public static final java.lang.String SYS_UIDCPUPOWER = "sys_uidcpupower";
         @android.provider.Settings.Readable
+        public static final java.lang.String TAP_LOW_EMPHASIS_SOUND = "tap_low_emphasis_sound";
+        @android.provider.Settings.Readable
         public static final java.lang.String TCP_DEFAULT_INIT_RWND = "tcp_default_init_rwnd";
         @android.provider.Settings.Readable
         public static final java.lang.String TETHER_DUN_APN = "tether_dun_apn";
@@ -1501,6 +2801,8 @@ public final class Settings {
         public static final java.lang.String UPDATABLE_DRIVER_PRODUCTION_OPT_OUT_APPS = "updatable_driver_production_opt_out_apps";
         @android.provider.Settings.Readable
         public static final java.lang.String UPDATABLE_DRIVER_SPHAL_LIBRARIES = "updatable_driver_sphal_libraries";
+        @android.provider.Settings.Readable
+        public static final java.lang.String USAGE_AND_DIAGNOSTICS_ENABLED = "multi_cb";
         @android.provider.Settings.Readable
         public static final java.lang.String USB_MASS_STORAGE_ENABLED = "usb_mass_storage_enabled";
         @android.provider.Settings.Readable
@@ -1994,1310 +3296,6 @@ public final class Settings {
         }
     }
 
-    private static class NameValueCache {
-        private static final boolean DEBUG = false;
-        private static final java.lang.String NAME_EQ_PLACEHOLDER = "name=?";
-        private static final java.lang.String[] SELECT_VALUE_PROJECTION = null;
-        private final android.util.ArraySet<java.lang.String> mAllFields = null;
-        private final java.lang.String mCallDeleteCommand = null;
-        private final java.lang.String mCallGetCommand = null;
-        private final java.lang.String mCallListCommand = null;
-        private final java.lang.String mCallSetAllCommand = null;
-        private final java.lang.String mCallSetCommand = null;
-        private final java.util.function.Consumer<android.provider.Settings.GenerationTracker.Key> mGenerationTrackerErrorHandler = null;
-        private final android.util.ArrayMap<android.provider.Settings.GenerationTracker.Key, android.provider.Settings.GenerationTracker> mGenerationTrackers = null;
-        private final android.util.ArrayMap<java.lang.String, android.util.ArrayMap<java.lang.String, java.lang.String>> mPrefixToValues = null;
-        private final android.provider.Settings.ContentProviderHolder mProviderHolder = null;
-        private final android.util.ArraySet<java.lang.String> mReadableFields = null;
-        private final android.util.ArrayMap<java.lang.String, java.lang.Integer> mReadableFieldsWithMaxTargetSdk = null;
-        private final android.util.ArrayMap<java.lang.String, java.lang.String> mReadableFieldsWithRedactedValue = null;
-        private final android.net.Uri mUri = null;
-        private final android.util.ArrayMap<android.provider.Settings.GenerationTracker.Key, java.lang.String> mValues = null;
-        <T extends android.provider.Settings.NameValueTable> NameValueCache(android.net.Uri p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, android.provider.Settings.ContentProviderHolder p4, java.lang.Class<T> p5) {}
-        private <T extends android.provider.Settings.NameValueTable> NameValueCache(android.net.Uri p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, android.provider.Settings.ContentProviderHolder p6, java.lang.Class<T> p7) {}
-        private java.util.Map<java.lang.String, java.lang.String> getStringsForPrefixStripPrefix(android.content.ContentResolver p0, java.lang.String p1, java.util.List<java.lang.String> p2) { return null; }
-        public void clearGenerationTrackerForTest() {}
-        public boolean deleteStringForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) { return false; }
-        public java.lang.String getStringForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) { return null; }
-        public boolean putStringForUser(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5, boolean p6) { return false; }
-        public int setStringsForPrefix(android.content.ContentResolver p0, java.lang.String p1, java.util.HashMap<java.lang.String, java.lang.String> p2) { return 0; }
-    }
-
-    public static class NameValueTable implements android.provider.BaseColumns {
-        public static final java.lang.String IS_PRESERVED_IN_RESTORE = "is_preserved_in_restore";
-        public static final java.lang.String NAME = "name";
-        public static final java.lang.String VALUE = "value";
-        public NameValueTable() {}
-        public static android.net.Uri getUriFor(android.net.Uri p0, java.lang.String p1) { return null; }
-        protected static boolean putString(android.content.ContentResolver p0, android.net.Uri p1, java.lang.String p2, java.lang.String p3) { return false; }
-    }
-
-    public static final class Panel {
-        public static final java.lang.String ACTION_INTERNET_CONNECTIVITY = "android.settings.panel.action.INTERNET_CONNECTIVITY";
-        public static final java.lang.String ACTION_NFC = "android.settings.panel.action.NFC";
-        public static final java.lang.String ACTION_VOLUME = "android.settings.panel.action.VOLUME";
-        public static final java.lang.String ACTION_WIFI = "android.settings.panel.action.WIFI";
-        private Panel() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
-    private static @interface Readable {
-        public int maxTargetSdk() default 0;
-        public java.lang.String redactedValue() default "";
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ResetMode {
-    }
-
-    public static final class Secure extends android.provider.Settings.NameValueTable {
-        public static final java.lang.String AAPM_USB_DATA_PROTECTION = "aapm_usb_data_protection";
-        public static final java.lang.String ACCESSIBILITY_ALLOW_DIAGONAL_SCROLLING = "accessibility_allow_diagonal_scrolling";
-        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_CURSOR_AREA_SIZE = "accessibility_autoclick_cursor_area_size";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_DELAY = "accessibility_autoclick_delay";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_ENABLED = "accessibility_autoclick_enabled";
-        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_IGNORE_MINOR_CURSOR_MOVEMENT = "accessibility_autoclick_ignore_minor_cursor_movement";
-        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_PANEL_POSITION = "accessibility_autoclick_panel_position";
-        public static final java.lang.String ACCESSIBILITY_AUTOCLICK_REVERT_TO_LEFT_CLICK = "accessibility_autoclick_revert_to_left_click";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_BOUNCE_KEYS = "accessibility_bounce_keys";
-        public static final java.lang.String ACCESSIBILITY_BUTTON_MODE = "accessibility_button_mode";
-        public static final int ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU = 1;
-        public static final int ACCESSIBILITY_BUTTON_MODE_GESTURE = 2;
-        public static final int ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR = 0;
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_BUTTON_TARGETS = "accessibility_button_targets";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_BUTTON_TARGET_COMPONENT = "accessibility_button_target_component";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_BACKGROUND_COLOR = "accessibility_captioning_background_color";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_EASY_READER_ENABLED = "accessibility_captioning_easy_reader_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_EDGE_COLOR = "accessibility_captioning_edge_color";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_EDGE_TYPE = "accessibility_captioning_edge_type";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_ENABLED = "accessibility_captioning_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_FONT_SCALE = "accessibility_captioning_font_scale";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_FOREGROUND_COLOR = "accessibility_captioning_foreground_color";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_LOCALE = "accessibility_captioning_locale";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_PRESET = "accessibility_captioning_preset";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_TYPEFACE = "accessibility_captioning_typeface";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_CAPTIONING_WINDOW_COLOR = "accessibility_captioning_window_color";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_DALTONIZER = "accessibility_display_daltonizer";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_DALTONIZER_ENABLED = "accessibility_display_daltonizer_enabled";
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_DALTONIZER_SATURATION_LEVEL = "accessibility_display_daltonizer_saturation_level";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_INVERSION_ENABLED = "accessibility_display_inversion_enabled";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_AUTO_UPDATE = "accessibility_display_magnification_auto_update";
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_EDGE_HAPTIC_ENABLED = "accessibility_display_magnification_edge_haptic_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_ENABLED = "accessibility_display_magnification_enabled";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_NAVBAR_ENABLED = "accessibility_display_magnification_navbar_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_DISPLAY_MAGNIFICATION_SCALE = "accessibility_display_magnification_scale";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_ENABLED = "accessibility_enabled";
-        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_FADE_ENABLED = "accessibility_floating_menu_fade_enabled";
-        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_ICON_TYPE = "accessibility_floating_menu_icon_type";
-        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_MIGRATION_TOOLTIP_PROMPT = "accessibility_floating_menu_migration_tooltip_prompt";
-        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_OPACITY = "accessibility_floating_menu_opacity";
-        public static final java.lang.String ACCESSIBILITY_FLOATING_MENU_SIZE = "accessibility_floating_menu_size";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_FONT_SCALING_HAS_BEEN_CHANGED = "accessibility_font_scaling_has_been_changed";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_FORCE_INVERT_COLOR_ENABLED = "accessibility_force_invert_color_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_GESTURE_TARGETS = "accessibility_gesture_targets";
-        public static final java.lang.String ACCESSIBILITY_HCT_RECT_PROMPT_STATUS = "accessibility_hct_rect_prompt_status";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_HIGH_TEXT_CONTRAST_ENABLED = "high_text_contrast_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_INTERACTIVE_UI_TIMEOUT_MS = "accessibility_interactive_ui_timeout_ms";
-        public static final java.lang.String ACCESSIBILITY_KEY_GESTURE_TARGETS = "accessibility_key_gesture_targets";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ACCESSIBILITY_LARGE_POINTER_ICON = "accessibility_large_pointer_icon";
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_ALWAYS_ON_ENABLED = "accessibility_magnification_always_on_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_CAPABILITY = "accessibility_magnification_capability";
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE = "accessibility_magnification_cursor_following_mode";
-        public static final int ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE_CENTER = 1;
-        public static final int ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE_CONTINUOUS = 0;
-        public static final int ACCESSIBILITY_MAGNIFICATION_CURSOR_FOLLOWING_MODE_EDGE = 2;
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_FOLLOW_KEYBOARD_ENABLED = "accessibility_magnification_follow_keyboard_enabled";
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_FOLLOW_TYPING_ENABLED = "accessibility_magnification_follow_typing_enabled";
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_JOYSTICK_ENABLED = "accessibility_magnification_joystick_enabled";
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_MAGNIFY_NAV_AND_IME = "accessibility_magnification_magnify_nav_and_ime";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_MAGNIFICATION_MODE = "accessibility_magnification_mode";
-        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_ALL = 3;
-        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_FULLSCREEN = 1;
-        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_NONE = 0;
-        public static final int ACCESSIBILITY_MAGNIFICATION_MODE_WINDOW = 2;
-        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_ACCELERATION = "accessibility_mouse_keys_acceleration";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_ENABLED = "accessibility_mouse_keys_enabled";
-        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_MAX_SPEED = "accessibility_mouse_keys_max_speed";
-        public static final java.lang.String ACCESSIBILITY_MOUSE_KEYS_USE_PRIMARY_KEYS = "accessibility_mouse_keys_use_primary_keys";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_NON_INTERACTIVE_UI_TIMEOUT_MS = "accessibility_non_interactive_ui_timeout_ms";
-        public static final java.lang.String ACCESSIBILITY_PINCH_TO_ZOOM_ANYWHERE_ENABLED = "accessibility_pinch_to_zoom_anywhere_enabled";
-        public static final java.lang.String ACCESSIBILITY_QS_TARGETS = "accessibility_qs_targets";
-        public static final java.lang.String ACCESSIBILITY_QUICK_ACCESS_TARGETS = "accessibility_quick_access_targets";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_SHORTCUT_DIALOG_SHOWN = "accessibility_shortcut_dialog_shown";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_SHORTCUT_ON_LOCK_SCREEN = "accessibility_shortcut_on_lock_screen";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_SHORTCUT_TARGET_MAGNIFICATION_CONTROLLER = "com.android.server.accessibility.MagnificationController";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_SHORTCUT_TARGET_SERVICE = "accessibility_shortcut_target_service";
-        public static final java.lang.String ACCESSIBILITY_SHOW_WINDOW_MAGNIFICATION_PROMPT = "accessibility_show_window_magnification_prompt";
-        public static final java.lang.String ACCESSIBILITY_SINGLE_FINGER_PANNING_ENABLED = "accessibility_single_finger_panning_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_SLOW_KEYS = "accessibility_slow_keys";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_SOFT_KEYBOARD_MODE = "accessibility_soft_keyboard_mode";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ACCESSIBILITY_SPEAK_PASSWORD = "speak_password";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_STICKY_KEYS = "accessibility_sticky_keys";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ACCESSIBILITY_TEXT_CURSOR_BLINK_INTERVAL_MS = "accessibility_text_cursor_blink_interval_ms";
-        public static final java.lang.String ACCESSIBILITY_TOP_ROW_KEY_TARGETS = "accessibility_top_row_key_targets";
-        public static final int ACTION_CORNER_ACTION_HOME = 1;
-        public static final int ACTION_CORNER_ACTION_LOCKSCREEN = 5;
-        public static final int ACTION_CORNER_ACTION_NONE = 0;
-        public static final int ACTION_CORNER_ACTION_NOTE = 6;
-        public static final int ACTION_CORNER_ACTION_NOTIFICATIONS = 3;
-        public static final int ACTION_CORNER_ACTION_OVERVIEW = 2;
-        public static final int ACTION_CORNER_ACTION_PEEK = 7;
-        public static final int ACTION_CORNER_ACTION_QUICK_SETTINGS = 4;
-        public static final java.lang.String ACTION_CORNER_BOTTOM_LEFT_ACTION = "action_corner_bottom_left_action";
-        public static final java.lang.String ACTION_CORNER_BOTTOM_RIGHT_ACTION = "action_corner_bottom_right_action";
-        public static final java.lang.String ACTION_CORNER_TOP_LEFT_ACTION = "action_corner_top_left_action";
-        public static final java.lang.String ACTION_CORNER_TOP_RIGHT_ACTION = "action_corner_top_right_action";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_BIOMETRIC_FAIL = "active_unlock_on_biometric_fail";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_FACE_ACQUIRE_INFO = "active_unlock_on_face_acquire_info";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_FACE_ERRORS = "active_unlock_on_face_errors";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_UNLOCK_INTENT = "active_unlock_on_unlock_intent";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_UNLOCK_INTENT_LEGACY = "active_unlock_on_unlock_intent_legacy";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_UNLOCK_INTENT_WHEN_BIOMETRIC_ENROLLED = "active_unlock_on_unlock_intent_when_biometric_enrolled";
-        public static final java.lang.String ACTIVE_UNLOCK_ON_WAKE = "active_unlock_on_wake";
-        public static final java.lang.String ACTIVE_UNLOCK_WAKEUPS_CONSIDERED_UNLOCK_INTENTS = "active_unlock_wakeups_considered_unlock_intents";
-        public static final java.lang.String ACTIVE_UNLOCK_WAKEUPS_TO_FORCE_DISMISS_KEYGUARD = "active_unlock_wakeups_to_force_dismiss_keyguard";
-        public static final java.lang.String ADAPTIVE_CHARGING_ENABLED = "adaptive_charging_enabled";
-        public static final java.lang.String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
-        public static final java.lang.String ADAPTIVE_CONNECTIVITY_MOBILE_NETWORK_ENABLED = "adaptive_connectivity_mobile_network_enabled";
-        public static final java.lang.String ADAPTIVE_CONNECTIVITY_WIFI_ENABLED = "adaptive_connectivity_wifi_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ADAPTIVE_SLEEP = "adaptive_sleep";
-        @java.lang.Deprecated
-        public static final java.lang.String ADB_ENABLED = "adb_enabled";
-        public static final java.lang.String ADVANCED_PROTECTION_MODE = "advanced_protection_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ALLOWED_GEOLOCATION_ORIGINS = "allowed_geolocation_origins";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ALLOW_MOCK_LOCATION = "mock_location";
-        public static final java.lang.String ALLOW_PRIMARY_GAIA_ACCOUNT_REMOVAL_FOR_TESTS = "allow_primary_gaia_account_removal_for_tests";
-        public static final java.lang.String ALWAYS_ON_VPN_APP = "always_on_vpn_app";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ALWAYS_ON_VPN_LOCKDOWN = "always_on_vpn_lockdown";
-        @android.provider.Settings.Readable(maxTargetSdk=31)
-        public static final java.lang.String ALWAYS_ON_VPN_LOCKDOWN_WHITELIST = "always_on_vpn_lockdown_whitelist";
-        public static final java.lang.String AMBIENT_CONTEXT_CONSENT_COMPONENT = "ambient_context_consent_component";
-        public static final java.lang.String AMBIENT_CONTEXT_EVENT_ARRAY_EXTRA_KEY = "ambient_context_event_array_key";
-        public static final java.lang.String AMBIENT_CONTEXT_PACKAGE_NAME_EXTRA_KEY = "ambient_context_package_name_key";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ANDROID_ID = "android_id";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ANR_SHOW_BACKGROUND = "anr_show_background";
-        public static final java.lang.String APP_FUNCTION_ADDITIONAL_AGENT_ALLOWLIST = "app_function_additional_agent_allowlist";
-        public static final java.lang.String APP_LOCK_SETTINGS_DISCOVERED = "app_lock_settings_discovered";
-        public static final int APP_LOCK_SETTINGS_DISCOVERED_STATE_DISCOVERED = -1;
-        public static final int APP_LOCK_SETTINGS_DISCOVERED_STATE_INITIAL = 0;
-        public static final int APP_LOCK_SETTINGS_DISCOVERED_STATE_THRESHOLD = 2;
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSISTANT = "assistant";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_DISCLOSURE_ENABLED = "assist_disclosure_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_GESTURE_ENABLED = "assist_gesture_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_GESTURE_SENSITIVITY = "assist_gesture_sensitivity";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_GESTURE_SETUP_COMPLETE = "assist_gesture_setup_complete";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_GESTURE_SILENCE_ALERTS_ENABLED = "assist_gesture_silence_alerts_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_GESTURE_WAKE_ENABLED = "assist_gesture_wake_enabled";
-        public static final java.lang.String ASSIST_HANDLES_LEARNING_EVENT_COUNT = "reminder_exp_learning_event_count";
-        public static final java.lang.String ASSIST_HANDLES_LEARNING_TIME_ELAPSED_MILLIS = "reminder_exp_learning_time_elapsed";
-        public static final java.lang.String ASSIST_LONG_PRESS_HOME_ENABLED = "assist_long_press_home_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_SCREENSHOT_ENABLED = "assist_screenshot_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ASSIST_STRUCTURE_ENABLED = "assist_structure_enabled";
-        public static final java.lang.String ASSIST_TOUCH_GESTURE_ENABLED = "assist_touch_gesture_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ATTENTIVE_TIMEOUT = "attentive_timeout";
-        public static final java.lang.String AUDIO_DEVICE_INVENTORY = "audio_device_inventory";
-        public static final java.lang.String AUDIO_SAFE_CSD_AS_A_FEATURE_ENABLED = "audio_safe_csd_as_a_feature_enabled";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_FEATURE_FIELD_CLASSIFICATION = "autofill_field_classification";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_SERVICE = "autofill_service";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_SERVICE_SEARCH_URI = "autofill_service_search_uri";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_USER_DATA_MAX_CATEGORY_COUNT = "autofill_user_data_max_category_count";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_USER_DATA_MAX_FIELD_CLASSIFICATION_IDS_SIZE = "autofill_user_data_max_field_classification_size";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_USER_DATA_MAX_USER_DATA_SIZE = "autofill_user_data_max_user_data_size";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_USER_DATA_MAX_VALUE_LENGTH = "autofill_user_data_max_value_length";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOFILL_USER_DATA_MIN_VALUE_LENGTH = "autofill_user_data_min_value_length";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_BYTES_CLEARED = "automatic_storage_manager_bytes_cleared";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_DAYS_TO_RETAIN = "automatic_storage_manager_days_to_retain";
-        public static final int AUTOMATIC_STORAGE_MANAGER_DAYS_TO_RETAIN_DEFAULT = 90;
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_ENABLED = "automatic_storage_manager_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_LAST_RUN = "automatic_storage_manager_last_run";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTOMATIC_STORAGE_MANAGER_TURNED_OFF_BY_POLICY = "automatic_storage_manager_turned_off_by_policy";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String AUTO_REVOKE_DISABLED = "auto_revoke_disabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AWARE_ENABLED = "aware_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AWARE_LOCK_ENABLED = "aware_lock_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AWARE_TAP_PAUSE_GESTURE_COUNT = "aware_tap_pause_gesture_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String AWARE_TAP_PAUSE_TOUCH_COUNT = "aware_tap_pause_touch_count";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String BACKGROUND_DATA = "background_data";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACKUP_AUTO_RESTORE = "backup_auto_restore";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACKUP_ENABLED = "backup_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACKUP_LOCAL_TRANSPORT_PARAMETERS = "backup_local_transport_parameters";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACKUP_MANAGER_CONSTANTS = "backup_manager_constants";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACKUP_PROVISIONED = "backup_provisioned";
-        public static final java.lang.String BACKUP_SCHEDULING_ENABLED = "backup_scheduling_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACKUP_TRANSPORT = "backup_transport";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACK_GESTURE_INSET_SCALE_LEFT = "back_gesture_inset_scale_left";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BACK_GESTURE_INSET_SCALE_RIGHT = "back_gesture_inset_scale_right";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String BIOMETRIC_APP_ENABLED = "biometric_app_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BIOMETRIC_DEBUG_ENABLED = "biometric_debug_enabled";
-        public static final java.lang.String BIOMETRIC_FACE_VIRTUAL_ENABLED = "biometric_face_virtual_enabled";
-        public static final java.lang.String BIOMETRIC_FINGERPRINT_VIRTUAL_ENABLED = "biometric_fingerprint_virtual_enabled";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String BIOMETRIC_KEYGUARD_ENABLED = "biometric_keyguard_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BIOMETRIC_VIRTUAL_ENABLED = "biometric_virtual_enabled";
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        @android.provider.Settings.Readable(maxTargetSdk=31)
-        public static final java.lang.String BLUETOOTH_ADDRESS = "bluetooth_address";
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        @android.provider.Settings.Readable(maxTargetSdk=31)
-        public static final java.lang.String BLUETOOTH_ADDR_VALID = "bluetooth_addr_valid";
-        public static final java.lang.String BLUETOOTH_LE_BROADCAST_APP_SOURCE_NAME = "bluetooth_le_broadcast_app_source_name";
-        public static final java.lang.String BLUETOOTH_LE_BROADCAST_CODE = "bluetooth_le_broadcast_code";
-        public static final java.lang.String BLUETOOTH_LE_BROADCAST_FALLBACK_ACTIVE_DEVICE_ADDRESS = "bluetooth_le_broadcast_fallback_active_device_address";
-        public static final java.lang.String BLUETOOTH_LE_BROADCAST_IMPROVE_COMPATIBILITY = "bluetooth_le_broadcast_improve_compatibility";
-        public static final java.lang.String BLUETOOTH_LE_BROADCAST_NAME = "bluetooth_le_broadcast_name";
-        public static final java.lang.String BLUETOOTH_LE_BROADCAST_PROGRAM_INFO = "bluetooth_le_broadcast_program_info";
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        @android.provider.Settings.Readable(maxTargetSdk=31)
-        public static final java.lang.String BLUETOOTH_NAME = "bluetooth_name";
-        @java.lang.Deprecated
-        public static final java.lang.String BLUETOOTH_ON = "bluetooth_on";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BLUETOOTH_ON_WHILE_DRIVING = "bluetooth_on_while_driving";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BROWSER_CONTENT_FILTERS_ENABLED = "browser_content_filters_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BUBBLE_IMPORTANT_CONVERSATIONS = "bubble_important_conversations";
-        @android.provider.Settings.Readable
-        public static final java.lang.String BUGREPORT_IN_POWER_MENU = "bugreport_in_power_menu";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CALL_SCREENING_DEFAULT_COMPONENT = "call_screening_default_component";
-        public static final java.lang.String CAMERA_AUTOROTATE = "camera_autorotate";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED = "camera_double_tap_power_gesture_disabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED = "camera_double_twist_to_flip_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CAMERA_EXTENSIONS_FALLBACK = "camera_extensions_fallback";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CAMERA_GESTURE_DISABLED = "camera_gesture_disabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CAMERA_LIFT_TRIGGER_ENABLED = "camera_lift_trigger_enabled";
-        public static final int CAMERA_LIFT_TRIGGER_ENABLED_DEFAULT = 1;
-        @android.provider.Settings.Readable
-        public static final java.lang.String CARRIER_APPS_HANDLED = "carrier_apps_handled";
-        public static final java.lang.String CHARGE_OPTIMIZATION_MODE = "charge_optimization_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CHARGING_SOUNDS_ENABLED = "charging_sounds_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CHARGING_VIBRATION_ENABLED = "charging_vibration_enabled";
-        public static final java.lang.String CLIPBOARD_SHOW_ACCESS_NOTIFICATIONS = "clipboard_show_access_notifications";
-        private static final java.util.Set<java.lang.String> CLONE_TO_MANAGED_PROFILE = null;
-        @android.provider.Settings.Readable
-        public static final java.lang.String CMAS_ADDITIONAL_BROADCAST_PKG = "cmas_additional_broadcast_pkg";
-        public static final java.lang.String COMMUNAL_MODE_ENABLED = "communal_mode_enabled";
-        public static final java.lang.String COMMUNAL_MODE_TRUSTED_NETWORKS = "communal_mode_trusted_networks";
-        public static final java.lang.String COMPAT_UI_EDUCATION_SHOWING = "compat_ui_education_showing";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String COMPLETED_CATEGORY_PREFIX = "suggested.completed_category.";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CONNECTIVITY_RELEASE_PENDING_INTENT_DELAY_MS = "connectivity_release_pending_intent_delay_ms";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CONTENT_CAPTURE_ENABLED = "content_capture_enabled";
-        public static final java.lang.String CONTENT_SAFETY_IDLE_TIMEOUT_MS = "content_safety_idle_timeout_ms";
-        public static final java.lang.String CONTENT_SAFETY_SANDBOXED_IDLE_TIMEOUT_MS = "content_safety_sandboxed_idle_timeout_ms";
-        public static final java.lang.String CONTENT_SAFETY_SANDBOXED_UNBIND_TIMEOUT_MS = "content_safety_sandboxed_unbind_timeout_ms";
-        public static final java.lang.String CONTENT_SAFETY_SETTINGS_IDLE_TIMEOUT_MS = "content_safety_settings_idle_timeout_ms";
-        public static final java.lang.String CONTENT_SAFETY_SETTINGS_UNBIND_TIMEOUT_MS = "content_safety_settings_unbind_timeout_ms";
-        public static final java.lang.String CONTENT_SAFETY_UNBIND_TIMEOUT_MS = "content_safety_unbind_timeout_ms";
-        public static final android.net.Uri CONTENT_URI = null;
-        @android.provider.Settings.Readable
-        public static final java.lang.String CONTEXTUAL_CURSOR_MOUSE_ENTRYPOINT = "contextual_cursor_mouse_entrypoint";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CONTEXTUAL_CURSOR_SPEED = "contextual_cursor_speed";
-        public static final java.lang.String CONTEXTUAL_MODE_SYNC_ENABLED = "contextual_mode_sync_enabled";
-        public static final java.lang.String CONTEXTUAL_SCREEN_TIMEOUT_ENABLED = "contextual_screen_timeout_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CONTEXTUAL_SEARCH_PACKAGE = "contextual_search_package";
-        public static final java.lang.String CONTRAST_LEVEL = "contrast_level";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String CONTROLS_ENABLED = "controls_enabled";
-        public static final java.lang.String CREDENTIAL_SERVICE = "credential_service";
-        public static final java.lang.String CREDENTIAL_SERVICE_PRIMARY = "credential_service_primary";
-        @android.provider.Settings.Readable
-        public static final java.lang.String CROSS_PROFILE_CALENDAR_ENABLED = "cross_profile_calendar_enabled";
-        public static final java.lang.String CUSTOM_BUGREPORT_HANDLER_APP = "custom_bugreport_handler_app";
-        public static final java.lang.String CUSTOM_BUGREPORT_HANDLER_USER = "custom_bugreport_handler_user";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DARK_MODE_DIALOG_SEEN = "dark_mode_dialog_seen";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DARK_THEME_CUSTOM_END_TIME = "dark_theme_custom_end_time";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DARK_THEME_CUSTOM_START_TIME = "dark_theme_custom_start_time";
-        @java.lang.Deprecated
-        public static final java.lang.String DATA_ROAMING = "data_roaming";
-        public static final java.lang.String DEFAULT_DEVICE_INPUT_METHOD = "default_device_input_method";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DEFAULT_INPUT_METHOD = "default_input_method";
-        public static final java.lang.String DEFAULT_NOTE_TASK_PROFILE = "default_note_task_profile";
-        public static final java.lang.String DEFAULT_VOICE_INPUT_METHOD = "default_voice_input_method";
-        @java.lang.Deprecated
-        public static final java.lang.String DEVELOPMENT_SETTINGS_ENABLED = "development_settings_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DEVICE_PAIRED = "device_paired";
-        @java.lang.Deprecated
-        public static final java.lang.String DEVICE_PROVISIONED = "device_provisioned";
-        public static final int DEVICE_STATE_ROTATION_KEY_FOLDED = 0;
-        public static final int DEVICE_STATE_ROTATION_KEY_HALF_FOLDED = 1;
-        public static final int DEVICE_STATE_ROTATION_KEY_REAR_DISPLAY = 3;
-        public static final int DEVICE_STATE_ROTATION_KEY_UNFOLDED = 2;
-        public static final int DEVICE_STATE_ROTATION_KEY_UNKNOWN = -1;
-        public static final java.lang.String DEVICE_STATE_ROTATION_LOCK = "device_state_rotation_lock";
-        public static final int DEVICE_STATE_ROTATION_LOCK_IGNORED = 0;
-        public static final int DEVICE_STATE_ROTATION_LOCK_LOCKED = 1;
-        public static final int DEVICE_STATE_ROTATION_LOCK_UNLOCKED = 2;
-        @android.provider.Settings.Readable
-        public static final java.lang.String DIALER_DEFAULT_APPLICATION = "dialer_default_application";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DISABLED_PRINT_SERVICES = "disabled_print_services";
-        @android.provider.Settings.Readable(maxTargetSdk=33)
-        public static final java.lang.String DISABLED_SYSTEM_INPUT_METHODS = "disabled_system_input_methods";
-        public static final java.lang.String DISABLE_ADAPTIVE_AUTH_LIMIT_LOCK = "disable_adaptive_auth_limit_lock";
-        public static final java.lang.String DISABLE_SECURE_WINDOWS = "disable_secure_windows";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DISPLAY_DENSITY_FORCED = "display_density_forced";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DISPLAY_WHITE_BALANCE_ENABLED = "display_white_balance_enabled";
-        public static final java.lang.String DND_CONFIGS_MIGRATED = "dnd_settings_migrated";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOCKED_CLOCK_FACE = "docked_clock_face";
-        public static final int DOCK_SETUP_COMPLETED = 10;
-        public static final int DOCK_SETUP_INCOMPLETE = 4;
-        public static final int DOCK_SETUP_NOT_STARTED = 0;
-        public static final int DOCK_SETUP_PAUSED = 2;
-        public static final int DOCK_SETUP_PROMPTED = 3;
-        public static final int DOCK_SETUP_STARTED = 1;
-        public static final java.lang.String DOCK_SETUP_STATE = "dock_setup_state";
-        public static final int DOCK_SETUP_TIMED_OUT = 11;
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOUBLE_TAP_POWER_BUTTON_GESTURE = "double_tap_power_button_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOUBLE_TAP_POWER_BUTTON_GESTURE_ENABLED = "double_tap_power_button_gesture_enabled";
-        public static final java.lang.String DOUBLE_TAP_TO_SLEEP = "double_tap_to_sleep";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOUBLE_TAP_TO_WAKE = "double_tap_to_wake";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_ALWAYS_ON = "doze_always_on";
-        public static final java.lang.String DOZE_ALWAYS_ON_INACTIVITY_DETECTION = "doze_always_on_inactivity_detection";
-        public static final java.lang.String DOZE_ALWAYS_ON_WALLPAPER_ENABLED = "doze_always_on_wallpaper_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_DOUBLE_TAP_GESTURE = "doze_pulse_on_double_tap";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_ENABLED = "doze_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_PICK_UP_GESTURE = "doze_pulse_on_pick_up";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_PULSE_ON_LONG_PRESS = "doze_pulse_on_long_press";
-        public static final java.lang.String DOZE_QUICK_PICKUP_GESTURE = "doze_quick_pickup_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_TAP_SCREEN_GESTURE = "doze_tap_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_WAKE_DISPLAY_GESTURE = "doze_wake_display_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DOZE_WAKE_LOCK_SCREEN_GESTURE = "doze_wake_screen_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String DUAL_SHADE = "dual_shade";
-        @android.provider.Settings.Readable
-        public static final java.lang.String EMERGENCY_ASSISTANCE_APPLICATION = "emergency_assistance_application";
-        public static final java.lang.String EMERGENCY_GESTURE_ENABLED = "emergency_gesture_enabled";
-        public static final java.lang.String EMERGENCY_GESTURE_SOUND_ENABLED = "emergency_gesture_sound_enabled";
-        public static final java.lang.String EMERGENCY_GESTURE_UI_LAST_STARTED_MILLIS = "emergency_gesture_ui_last_started_millis";
-        public static final java.lang.String EMERGENCY_GESTURE_UI_SHOWING = "emergency_gesture_ui_showing";
-        public static final java.lang.String EMERGENCY_THERMAL_ALERT_DISABLED = "emergency_thermal_alert_disabled";
-        public static final java.lang.String EM_VALUE = "em_value";
-        public static final java.lang.String ENABLED_ACCESSIBILITY_AUDIO_DESCRIPTION_BY_DEFAULT = "enabled_accessibility_audio_description_by_default";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ENABLED_ACCESSIBILITY_SERVICES = "enabled_accessibility_services";
-        @android.provider.Settings.Readable(maxTargetSdk=33)
-        public static final java.lang.String ENABLED_INPUT_METHODS = "enabled_input_methods";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ENABLED_NOTIFICATION_ASSISTANT = "enabled_notification_assistant";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String ENABLED_NOTIFICATION_POLICY_ACCESS_PACKAGES = "enabled_notification_policy_access_packages";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ENABLED_PRINT_SERVICES = "enabled_print_services";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ENABLED_VR_LISTENERS = "enabled_vr_listeners";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ENHANCED_VOICE_PRIVACY_ENABLED = "enhanced_voice_privacy_enabled";
-        public static final java.lang.String EXTRA_AUTOMATIC_POWER_SAVE_MODE = "extra_automatic_power_save_mode";
-        public static final java.lang.String EXTRA_LOW_POWER_WARNING_ACKNOWLEDGED = "extra_low_power_warning_acknowledged";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_APP_ENABLED = "face_app_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_KEYGUARD_ENABLED = "face_keyguard_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION = "face_unlock_always_require_confirmation";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_APP_ENABLED = "face_unlock_app_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_ATTENTION_REQUIRED = "face_unlock_attention_required";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_DISMISSES_KEYGUARD = "face_unlock_dismisses_keyguard";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_DIVERSITY_REQUIRED = "face_unlock_diversity_required";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_KEYGUARD_ENABLED = "face_unlock_keyguard_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FACE_UNLOCK_RE_ENROLL = "face_unlock_re_enroll";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FINGERPRINT_APP_ENABLED = "fingerptint_app_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FINGERPRINT_KEYGUARD_ENABLED = "fingerprint_keyguard_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FINGERPRINT_SIDE_FPS_AUTH_DOWNTIME = "fingerprint_side_fps_auth_downtime";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FINGERPRINT_SIDE_FPS_BP_POWER_WINDOW = "fingerprint_side_fps_bp_power_window";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FINGERPRINT_SIDE_FPS_ENROLL_TAP_WINDOW = "fingerprint_side_fps_enroll_tap_window";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FINGERPRINT_SIDE_FPS_KG_POWER_WINDOW = "fingerprint_side_fps_kg_power_window";
-        public static final java.lang.String FIRST_ON_DEVICE_MODELS_DOWNLOADED_TIME = "first_on_device_models_downloaded_time";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FLASHLIGHT_AVAILABLE = "flashlight_available";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FLASHLIGHT_ENABLED = "flashlight_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String FONT_WEIGHT_ADJUSTMENT = "font_weight_adjustment";
-        @android.provider.Settings.Readable
-        public static final java.lang.String GAME_DASHBOARD_ALWAYS_ON = "game_dashboard_always_on";
-        @android.provider.Settings.Readable
-        public static final java.lang.String GLANCEABLE_HUB_ENABLED = "glanceable_hub_enabled";
-        public static final java.lang.String GLANCEABLE_HUB_RESTRICT_TO_WIRELESS_CHARGING = "glanceable_hub_restrict_to_writeless_charging";
-        @android.provider.Settings.Readable
-        public static final java.lang.String GLOBAL_ACTIONS_PANEL_AVAILABLE = "global_actions_panel_available";
-        @android.provider.Settings.Readable
-        public static final java.lang.String GLOBAL_ACTIONS_PANEL_DEBUG_ENABLED = "global_actions_panel_debug_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String GLOBAL_ACTIONS_PANEL_ENABLED = "global_actions_panel_enabled";
-        public static final java.lang.String HBM_SETTING_KEY = "com.android.server.display.HBM_SETTING_KEY";
-        public static final java.lang.String HDMI_CEC_SET_MENU_LANGUAGE_DENYLIST = "hdmi_cec_set_menu_language_denylist";
-        public static final java.lang.String HDR_BRIGHTNESS_BOOST_LEVEL = "hdr_brightness_boost_level";
-        public static final java.lang.String HDR_BRIGHTNESS_ENABLED = "hdr_brightness_enabled";
-        public static final java.lang.String HEARING_AID_CALL_ROUTING = "hearing_aid_call_routing";
-        public static final java.lang.String HEARING_AID_MEDIA_ROUTING = "hearing_aid_media_routing";
-        public static final java.lang.String HEARING_AID_NOTIFICATION_ROUTING = "hearing_aid_notification_routing";
-        public static final java.lang.String HEARING_AID_RINGTONE_ROUTING = "hearing_aid_ringtone_routing";
-        public static final java.lang.String HIDE_PRIVATESPACE_ENTRY_POINT = "hide_privatespace_entry_point";
-        public static final java.lang.String HINGE_ANGLE_LIDEVENT_ENABLED = "hinge_angle_lidevent_enabled";
-        @java.lang.Deprecated
-        public static final java.lang.String HTTP_PROXY = "http_proxy";
-        public static final int HUB_MODE_TUTORIAL_COMPLETED = 10;
-        public static final int HUB_MODE_TUTORIAL_NOT_STARTED = 0;
-        public static final int HUB_MODE_TUTORIAL_STARTED = 1;
-        public static final java.lang.String HUB_MODE_TUTORIAL_STATE = "hub_mode_tutorial_state";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String HUSH_GESTURE_USED = "hush_gesture_used";
-        public static final java.lang.String IDENTITY_CHECK_NOTIFICATION_VIEW_DETAILS_CLICKED = "identity_check_notification_view_details_clicked";
-        public static final java.lang.String IDENTITY_CHECK_PROMO_CARD_SHOWN = "identity_check_promo_card_shown";
-        public static final java.lang.String IDENTITY_CHECK_WATCH_NOTIFICATION_VIEW_DETAILS_CLICKED = "identity_check_watch_notification_view_details_clicked";
-        public static final java.lang.String IDENTITY_CHECK_WATCH_PROMO_CARD_SHOWN = "identity_check_watch_promo_card_shown";
-        @android.provider.Settings.Readable
-        public static final java.lang.String IME_SWITCHER_BUTTON_IN_NAVBAR_ENABLED = "ime_switcher_in_navbar_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String IMMERSIVE_MODE_CONFIRMATIONS = "immersive_mode_confirmations";
-        @android.provider.Settings.Readable
-        public static final java.lang.String INCALL_BACK_BUTTON_BEHAVIOR = "incall_back_button_behavior";
-        public static final int INCALL_BACK_BUTTON_BEHAVIOR_DEFAULT = 0;
-        public static final int INCALL_BACK_BUTTON_BEHAVIOR_HANGUP = 1;
-        public static final int INCALL_BACK_BUTTON_BEHAVIOR_NONE = 0;
-        @android.provider.Settings.Readable
-        public static final java.lang.String INCALL_POWER_BUTTON_BEHAVIOR = "incall_power_button_behavior";
-        public static final int INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT = 1;
-        public static final int INCALL_POWER_BUTTON_BEHAVIOR_HANGUP = 2;
-        public static final int INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF = 1;
-        @android.provider.Settings.Readable
-        public static final java.lang.String INCLUDE_DEFAULT_DISPLAY_IN_TOPOLOGY = "include_default_display_in_topology";
-        @android.provider.Settings.Readable
-        public static final java.lang.String INELIGIBLE_TO_USE_CONTEXTUAL_CURSOR = "ineligible_to_use_contexual_cursor";
-        @android.provider.Settings.Readable
-        public static final java.lang.String INPUT_METHODS_SUBTYPE_HISTORY = "input_methods_subtype_history";
-        @android.provider.Settings.Readable
-        public static final java.lang.String INPUT_METHOD_SELECTOR_VISIBILITY = "input_method_selector_visibility";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String INSTALL_NON_MARKET_APPS = "install_non_market_apps";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String INSTANT_APPS_ENABLED = "instant_apps_enabled";
-        public static final java.util.Set<java.lang.String> INSTANT_APP_SETTINGS = null;
-        @android.provider.Settings.Readable
-        public static final java.lang.String IN_CALL_NOTIFICATION_ENABLED = "in_call_notification_enabled";
-        public static final java.lang.String IS_WALLET_SERVICE_AVAILABLE = "is_wallet_service_available";
-        @android.provider.Settings.Readable
-        public static final java.lang.String KEYGUARD_SLICE_URI = "keyguard_slice_uri";
-        @android.provider.Settings.Readable
-        public static final java.lang.String KEY_REPEAT_DELAY_MS = "key_repeat_delay";
-        @android.provider.Settings.Readable
-        public static final java.lang.String KEY_REPEAT_ENABLED = "key_repeat_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String KEY_REPEAT_TIMEOUT_MS = "key_repeat_timeout";
-        public static final java.lang.String KNOWN_TRUST_AGENTS_INITIALIZED = "known_trust_agents_initialized";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String LAST_SETUP_SHOWN = "last_setup_shown";
-        public static final java.lang.String LAUNCHER_TASKBAR_EDUCATION_SHOWING = "launcher_taskbar_education_showing";
-        @android.provider.Settings.Readable
-        public static final java.lang.String[] LEGACY_RESTORE_SETTINGS = null;
-        public static final java.lang.String LIGHT_ANIMATION_FAVORITE_CALLS_ENABLED = "light_animation_favorite_calls_enabled";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCATION_ACCESS_CHECK_DELAY_MILLIS = "location_access_check_delay_millis";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCATION_ACCESS_CHECK_INTERVAL_MILLIS = "location_access_check_interval_millis";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCATION_CHANGER = "location_changer";
-        public static final int LOCATION_CHANGER_QUICK_SETTINGS = 2;
-        public static final int LOCATION_CHANGER_SYSTEM_SETTINGS = 1;
-        public static final int LOCATION_CHANGER_UNKNOWN = 0;
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCATION_COARSE_ACCURACY_M = "locationCoarseAccuracy";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCATION_MODE = "location_mode";
-        @java.lang.Deprecated
-        public static final int LOCATION_MODE_BATTERY_SAVING = 2;
-        @java.lang.Deprecated
-        public static final int LOCATION_MODE_HIGH_ACCURACY = 3;
-        public static final int LOCATION_MODE_OFF = 0;
-        @android.annotation.SystemApi
-        public static final int LOCATION_MODE_ON = 3;
-        @java.lang.Deprecated
-        public static final int LOCATION_MODE_SENSORS_ONLY = 1;
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCATION_PERMISSIONS_UPGRADE_TO_Q_MODE = "location_permissions_upgrade_to_q_mode";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCATION_PROVIDERS_ALLOWED = "location_providers_allowed";
-        public static final java.lang.String LOCATION_SHOW_SYSTEM_OPS = "locationShowSystemOps";
-        public static final java.lang.String LOCATION_TIME_ZONE_DETECTION_ENABLED = "location_time_zone_detection_enabled";
-        public static final java.lang.String LOCKSCREEN_ALLOW_TRIVIAL_CONTROLS = "lockscreen_allow_trivial_controls";
-        public static final java.lang.String LOCKSCREEN_SHOW_CONTROLS = "lockscreen_show_controls";
-        public static final java.lang.String LOCKSCREEN_SHOW_WALLET = "lockscreen_show_wallet";
-        public static final java.lang.String LOCKSCREEN_USE_DOUBLE_LINE_CLOCK = "lockscreen_use_double_line_clock";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_BIOMETRIC_WEAK_FLAGS = "lock_biometric_weak_flags";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_PATTERN_ENABLED = "lock_pattern_autolock";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED = "lock_pattern_tactile_feedback_enabled";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_PATTERN_VISIBLE = "lock_pattern_visible_pattern";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS = "lock_screen_allow_private_notifications";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_SCREEN_ALLOW_REMOTE_INPUT = "lock_screen_allow_remote_input";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_SCREEN_APPWIDGET_IDS = "lock_screen_appwidget_ids";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_SCREEN_CUSTOM_CLOCK_FACE = "lock_screen_custom_clock_face";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_SCREEN_FALLBACK_APPWIDGET_ID = "lock_screen_fallback_appwidget_id";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_SCREEN_LOCK_AFTER_TIMEOUT = "lock_screen_lock_after_timeout";
-        public static final java.lang.String LOCK_SCREEN_NOTE_TAKING_CONSENT = "lock_screen_note_taking_consent";
-        public static final java.lang.String LOCK_SCREEN_NOTIFICATION_MINIMALISM = "lock_screen_notification_minimalism";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_SCREEN_OWNER_INFO = "lock_screen_owner_info";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_SCREEN_OWNER_INFO_ENABLED = "lock_screen_owner_info_enabled";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_SCREEN_SHOW_NOTIFICATIONS = "lock_screen_show_notifications";
-        public static final java.lang.String LOCK_SCREEN_SHOW_ONLY_UNSEEN_NOTIFICATIONS = "lock_screen_show_only_unseen_notifications";
-        public static final java.lang.String LOCK_SCREEN_SHOW_QR_CODE_SCANNER = "lock_screen_show_qr_code_scanner";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_SCREEN_SHOW_SILENT_NOTIFICATIONS = "lock_screen_show_silent_notifications";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOCK_SCREEN_STICKY_APPWIDGET = "lock_screen_sticky_appwidget";
-        public static final java.lang.String LOCK_SCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOCK_TO_APP_EXIT_LOCKED = "lock_to_app_exit_locked";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String LOGGING_ID = "logging_id";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LONG_PRESS_TIMEOUT = "long_press_timeout";
-        public static final java.lang.String LOW_LIGHT_DISPLAY_BEHAVIOR = "low_light_display_behavior";
-        public static final java.lang.String LOW_LIGHT_DISPLAY_BEHAVIOR_ENABLED = "low_light_display_behavior_enabled";
-        public static final int LOW_LIGHT_DISPLAY_BEHAVIOR_LOW_LIGHT_CLOCK_DREAM = 2;
-        public static final int LOW_LIGHT_DISPLAY_BEHAVIOR_NONE = 0;
-        public static final int LOW_LIGHT_DISPLAY_BEHAVIOR_NO_DREAM = 3;
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOW_POWER_MANUAL_ACTIVATION_COUNT = "low_power_manual_activation_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String LOW_POWER_WARNING_ACKNOWLEDGED = "low_power_warning_acknowledged";
-        public static final java.lang.String LSKF_RECOVERY_ENABLED = "lskf_recovery_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MANAGED_PROFILE_CONTACT_REMOTE_SEARCH = "managed_profile_contact_remote_search";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MANAGED_PROVISIONING_DPC_DOWNLOADED = "managed_provisioning_dpc_downloaded";
-        public static final java.lang.String MANDATORY_BIOMETRICS = "mandatory_biometrics";
-        public static final java.lang.String MANDATORY_BIOMETRICS_REQUIREMENTS_SATISFIED = "mandatory_biometrics_requirements_satisfied";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MANUAL_RINGER_TOGGLE_COUNT = "manual_ringer_toggle_count";
-        public static final int MATCH_CONTENT_FRAMERATE_ALWAYS = 2;
-        public static final int MATCH_CONTENT_FRAMERATE_NEVER = 0;
-        public static final int MATCH_CONTENT_FRAMERATE_SEAMLESSS_ONLY = 1;
-        public static final java.lang.String MATCH_CONTENT_FRAME_RATE = "match_content_frame_rate";
-        public static final java.lang.String MEDIA_CONTROLS_LOCK_SCREEN = "media_controls_lock_screen";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MEDIA_CONTROLS_RESUME = "qs_media_resumption";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MINIMAL_POST_PROCESSING_ALLOWED = "minimal_post_processing_allowed";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MIRROR_BUILT_IN_DISPLAY = "mirror_built_in_display";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MOUNT_PLAY_NOTIFICATION_SND = "mount_play_not_snd";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MOUNT_UMS_AUTOSTART = "mount_ums_autostart";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MOUNT_UMS_NOTIFY_ENABLED = "mount_ums_notify_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String MOUNT_UMS_PROMPT = "mount_ums_prompt";
-        private static final java.util.HashSet<java.lang.String> MOVED_TO_GLOBAL = null;
-        private static final java.util.HashSet<java.lang.String> MOVED_TO_LOCK_SETTINGS = null;
-        @android.provider.Settings.Readable
-        public static final java.lang.String MULTI_PRESS_TIMEOUT = "multi_press_timeout";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NAS_SETTINGS_UPDATED = "nas_settings_updated";
-        public static final java.lang.String NAVIGATIONBAR_KEY_ORDER = "navigationbar_key_order";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NAVIGATION_MODE = "navigation_mode";
-        public static final java.lang.String NAVIGATION_MODE_RESTORE = "navigation_mode_restore";
-        public static final java.lang.String NAV_BAR_FORCE_VISIBLE = "nav_bar_force_visible";
-        public static final java.lang.String NAV_BAR_KIDS_MODE = "nav_bar_kids_mode";
-        public static final java.lang.String NEARBY_FAST_PAIR_SETTINGS_DEVICES_COMPONENT = "nearby_fast_pair_settings_devices_component";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NEARBY_SHARING_COMPONENT = "nearby_sharing_component";
-        public static final java.lang.String NEARBY_SHARING_SLICE_URI = "nearby_sharing_slice_uri";
-        @java.lang.Deprecated
-        public static final java.lang.String NETWORK_PREFERENCE = "network_preference";
-        @java.lang.Deprecated
-        public static final java.lang.String NFC_PAYMENT_DEFAULT_COMPONENT = "nfc_payment_default_component";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NFC_PAYMENT_FOREGROUND = "nfc_payment_foreground";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NIGHT_DISPLAY_ACTIVATED = "night_display_activated";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NIGHT_DISPLAY_AUTO_MODE = "night_display_auto_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NIGHT_DISPLAY_COLOR_TEMPERATURE = "night_display_color_temperature";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NIGHT_DISPLAY_CUSTOM_END_TIME = "night_display_custom_end_time";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NIGHT_DISPLAY_CUSTOM_START_TIME = "night_display_custom_start_time";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NIGHT_DISPLAY_LAST_ACTIVATED_TIME = "night_display_last_activated_time";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NOTIFICATION_BADGING = "notification_badging";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NOTIFICATION_BUBBLES = "notification_bubbles";
-        public static final java.lang.String NOTIFICATION_BUNDLES_ALWAYS_EXPAND = "notification_bundles_always_expand";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NOTIFICATION_DISMISS_RTL = "notification_dismiss_rtl";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NOTIFICATION_HISTORY_ENABLED = "notification_history_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NOTIFIED_NON_ACCESSIBILITY_CATEGORY_SERVICES = "notified_non_accessibility_category_services";
-        @android.provider.Settings.Readable
-        public static final java.lang.String NUM_ROTATION_SUGGESTIONS_ACCEPTED = "num_rotation_suggestions_accepted";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String ODI_CAPTIONS_ENABLED = "odi_captions_enabled";
-        public static final java.lang.String ODI_CAPTIONS_VOLUME_UI_ENABLED = "odi_captions_volume_ui_enabled";
-        public static final java.lang.String ONE_HANDED_MODE_ACTIVATED = "one_handed_mode_activated";
-        public static final java.lang.String ONE_HANDED_MODE_ENABLED = "one_handed_mode_enabled";
-        public static final java.lang.String ONE_HANDED_MODE_TIMEOUT = "one_handed_mode_timeout";
-        public static final java.lang.String ONE_HANDED_TUTORIAL_SHOW_COUNT = "one_handed_tutorial_show_count";
-        public static final java.lang.String ON_DEVICE_INFERENCE_UNBIND_TIMEOUT_MS = "on_device_inference_unbind_timeout_ms";
-        public static final java.lang.String ON_DEVICE_INTELLIGENCE_IDLE_TIMEOUT_MS = "on_device_intelligence_idle_timeout_ms";
-        public static final java.lang.String ON_DEVICE_INTELLIGENCE_UNBIND_TIMEOUT_MS = "on_device_intelligence_unbind_timeout_ms";
-        public static final java.lang.String OTP_NOTIFICATION_REDACTION_LOCK_TIME = "otp_redaction_lock_time";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PACKAGES_TO_CLEAR_DATA_BEFORE_FULL_RESTORE = "packages_to_clear_data_before_full_restore";
-        public static final java.lang.String PACK_THEME_FEATURE_ENABLED = "pack_theme_feature_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PARENTAL_CONTROL_ENABLED = "parental_control_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PARENTAL_CONTROL_LAST_UPDATE = "parental_control_last_update";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PARENTAL_CONTROL_REDIRECT_URL = "parental_control_redirect_url";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PAYMENT_SERVICE_SEARCH_URI = "payment_service_search_uri";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PEOPLE_STRIP = "people_strip";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PERSONAL_CONTEXT_ENABLED = "personal_context_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PERSONAL_CONTEXT_MODE_ENABLED_DEFAULT = "personal_context_mode_enabled_default";
-        @android.provider.Settings.Readable
-        public static final java.lang.String POWER_MENU_LOCKED_SHOW_CONTENT = "power_menu_locked_show_content";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PREFERRED_TTY_MODE = "preferred_tty_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String PRINT_SERVICE_SEARCH_URI = "print_service_search_uri";
-        public static final java.lang.String PRIVATE_SPACE_AUTO_LOCK = "private_space_auto_lock";
-        public static final int PRIVATE_SPACE_AUTO_LOCK_AFTER_DEVICE_RESTART = 2;
-        public static final int PRIVATE_SPACE_AUTO_LOCK_AFTER_INACTIVITY = 1;
-        public static final int PRIVATE_SPACE_AUTO_LOCK_ON_DEVICE_LOCK = 0;
-        @android.provider.Settings.Readable
-        public static final java.lang.String QS_AUTO_ADDED_TILES = "qs_auto_tiles";
-        @android.provider.Settings.Readable(maxTargetSdk=33)
-        public static final java.lang.String QS_TILES = "sysui_qs_tiles";
-        public static final java.lang.String QS_TILES_DISALLOW_LOCKED = "sysui_qs_tiles_disallow_locked";
-        public static final java.lang.String RAISE_TRIGGER_DEFAULT_ASSISTANT = "raise_trigger_default_assistant";
-        public static final java.lang.String READ_SCREEN_CONTEXT_REQUEST_DENIED_COUNT = "read_screen_context_request_denied_count";
-        public static final java.lang.String REDACT_OTP_NOTIFICATION_WHILE_CONNECTED_TO_WIFI = "redact_otp_on_wifi";
-        public static final java.lang.String REDUCE_BRIGHT_COLORS_ACTIVATED = "reduce_bright_colors_activated";
-        public static final java.lang.String REDUCE_BRIGHT_COLORS_LEVEL = "reduce_bright_colors_level";
-        public static final java.lang.String REDUCE_BRIGHT_COLORS_PERSIST_ACROSS_REBOOTS = "reduce_bright_colors_persist_across_reboots";
-        public static final java.lang.String RELEASE_COMPRESS_BLOCKS_ON_INSTALL = "release_compress_blocks_on_install";
-        public static final int RESOLUTION_MODE_FULL = 2;
-        public static final int RESOLUTION_MODE_HIGH = 1;
-        public static final int RESOLUTION_MODE_UNKNOWN = 0;
-        @android.provider.Settings.Readable
-        public static final java.lang.String RTT_CALLING_MODE = "rtt_calling_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_ACTIVATE_ON_DOCK = "screensaver_activate_on_dock";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_ACTIVATE_ON_POSTURED = "screensaver_activate_on_postured";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_ACTIVATE_ON_SLEEP = "screensaver_activate_on_sleep";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_ACTIVE_COMPONENT = "screensaver_active_component";
-        public static final java.lang.String SCREENSAVER_COMPLICATIONS_ENABLED = "screensaver_complications_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_COMPONENTS = "screensaver_components";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_DEFAULT_COMPONENT = "screensaver_default_component";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREENSAVER_ENABLED = "screensaver_enabled";
-        public static final java.lang.String SCREENSAVER_HOME_CONTROLS_ENABLED = "screensaver_home_controls_enabled";
-        public static final java.lang.String SCREENSAVER_RESTRICT_TO_WIRELESS_CHARGING = "screensaver_restrict_to_writeless_charging";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREEN_OFF_UNLOCK_UDFPS_ENABLED = "screen_off_udfps_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SCREEN_RESOLUTION_MODE = "screen_resolution_mode";
-        public static final java.lang.String SEARCH_ALL_ENTRYPOINTS_ENABLED = "search_all_entrypoints_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_CONTENT_FILTERS_ENABLED = "search_content_filters_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_GLOBAL_SEARCH_ACTIVITY = "search_global_search_activity";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MAX_RESULTS_PER_SOURCE = "search_max_results_per_source";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MAX_RESULTS_TO_DISPLAY = "search_max_results_to_display";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MAX_SHORTCUTS_RETURNED = "search_max_shortcuts_returned";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MAX_SOURCE_EVENT_AGE_MILLIS = "search_max_source_event_age_millis";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MAX_STAT_AGE_MILLIS = "search_max_stat_age_millis";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MIN_CLICKS_FOR_SOURCE_RANKING = "search_min_clicks_for_source_ranking";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_MIN_IMPRESSIONS_FOR_SOURCE_RANKING = "search_min_impressions_for_source_ranking";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_NUM_PROMOTED_SOURCES = "search_num_promoted_sources";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_PER_SOURCE_CONCURRENT_QUERY_LIMIT = "search_per_source_concurrent_query_limit";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_PREFILL_MILLIS = "search_prefill_millis";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_PROMOTED_SOURCE_DEADLINE_MILLIS = "search_promoted_source_deadline_millis";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_QUERY_THREAD_CORE_POOL_SIZE = "search_query_thread_core_pool_size";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_QUERY_THREAD_MAX_POOL_SIZE = "search_query_thread_max_pool_size";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_SHORTCUT_REFRESH_CORE_POOL_SIZE = "search_shortcut_refresh_core_pool_size";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_SHORTCUT_REFRESH_MAX_POOL_SIZE = "search_shortcut_refresh_max_pool_size";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_SOURCE_TIMEOUT_MILLIS = "search_source_timeout_millis";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_THREAD_KEEPALIVE_SECONDS = "search_thread_keepalive_seconds";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SEARCH_WEB_RESULTS_OVERRIDE_LIMIT = "search_web_results_override_limit";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String SECURE_FRP_MODE = "secure_frp_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SELECTED_INPUT_METHOD_SUBTYPE = "selected_input_method_subtype";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SELECTED_SPELL_CHECKER = "selected_spell_checker";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SELECTED_SPELL_CHECKER_SUBTYPE = "selected_spell_checker_subtype";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SETTINGS_CLASSNAME = "settings_classname";
-        public static final java.lang.String SFPS_PERFORMANT_AUTH_ENABLED = "sfps_performant_auth_enabled_v2";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SHOW_FIRST_CRASH_DIALOG_DEV_OPTION = "show_first_crash_dialog_dev_option";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SHOW_IME_WITH_HARD_KEYBOARD = "show_ime_with_hard_keyboard";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SHOW_MEDIA_WHEN_BYPASSING = "show_media_when_bypassing";
-        public static final int SHOW_MODE_AUTO = 0;
-        public static final int SHOW_MODE_HIDDEN = 1;
-        @android.provider.Settings.Readable
-        public static final java.lang.String SHOW_NOTE_ABOUT_NOTIFICATION_HIDING = "show_note_about_notification_hiding";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SHOW_NOTIFICATION_SNOOZE = "show_notification_snooze";
-        public static final java.lang.String SHOW_QR_CODE_SCANNER_SETTING = "show_qr_code_scanner_setting";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SHOW_ROTATION_SUGGESTIONS = "show_rotation_suggestions";
-        public static final int SHOW_ROTATION_SUGGESTIONS_DEFAULT = 1;
-        public static final int SHOW_ROTATION_SUGGESTIONS_DISABLED = 0;
-        public static final int SHOW_ROTATION_SUGGESTIONS_ENABLED = 1;
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_ALARMS_GESTURE_COUNT = "silence_alarms_gesture_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_ALARMS_TOUCH_COUNT = "silence_alarms_touch_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_CALL_GESTURE_COUNT = "silence_call_gesture_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_CALL_TOUCH_COUNT = "silence_call_touch_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_GESTURE = "silence_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_TIMER_GESTURE_COUNT = "silence_timer_gesture_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SILENCE_TIMER_TOUCH_COUNT = "silence_timer_touch_count";
-        public static final java.lang.String SKIP_ACCESSIBILITY_SHORTCUT_DIALOG_TIMEOUT_RESTRICTION = "skip_accessibility_shortcut_dialog_timeout_restriction";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SKIP_DIRECTION = "skip_gesture_direction";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SKIP_FIRST_USE_HINTS = "skip_first_use_hints";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SKIP_GESTURE = "skip_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SKIP_GESTURE_COUNT = "skip_gesture_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SKIP_TOUCH_COUNT = "skip_touch_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SLEEP_TIMEOUT = "sleep_timeout";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SMS_DEFAULT_APPLICATION = "sms_default_application";
-        public static final java.lang.String SPATIAL_AUDIO_ENABLED = "spatial_audio_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SPELL_CHECKER_ENABLED = "spell_checker_enabled";
-        public static final java.lang.String STATUS_BAR_AGENT_ICON_ENABLED = "status_bar_agent_icon_enabled";
-        public static final java.lang.String STATUS_BAR_SHOW_MUTE_ICON = "status_bar_show_mute_icon";
-        public static final java.lang.String STATUS_BAR_SHOW_VIBRATE_ICON = "status_bar_show_vibrate_icon";
-        @android.provider.Settings.Readable
-        public static final java.lang.String STYLUS_BUTTONS_ENABLED = "stylus_buttons_enabled";
-        @android.provider.Settings.Readable
-        public static final int STYLUS_HANDWRITING_DEFAULT_VALUE = 1;
-        @android.provider.Settings.Readable
-        public static final java.lang.String STYLUS_HANDWRITING_ENABLED = "stylus_handwriting_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String STYLUS_POINTER_ICON_ENABLED = "stylus_pointer_icon_enabled";
-        public static final java.lang.String SUGGESTED_THEME_FEATURE_ENABLED = "suggested_theme_feature_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SUPPRESS_AUTO_BATTERY_SAVER_SUGGESTION = "suppress_auto_battery_saver_suggestion";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SUPPRESS_DOZE = "suppress_doze";
-        public static final java.lang.String SWIPE_BOTTOM_TO_NOTIFICATION_ENABLED = "swipe_bottom_to_notification_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SYNC_PARENT_SOUNDS = "sync_parent_sounds";
-        @android.provider.Settings.Readable
-        public static final java.lang.String SYSTEM_NAVIGATION_KEYS_ENABLED = "system_navigation_keys_enabled";
-        public static final java.lang.String TAPS_APP_TO_EXIT = "taps_app_to_exit";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TAP_EVENT_SERVICE_COMPONENT = "tap_event_service_component";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TAP_GESTURE = "tap_gesture";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TAP_SHARE_FULFILLMENT_ACTIVITY_COMPONENT = "tap_share_fulfillment_activity_component";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TEXT_SHOW_PASSWORD_PHYSICAL = "show_password_physical";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TEXT_SHOW_PASSWORD_TOUCH = "show_password_touch";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String THEME_CUSTOMIZATION_OVERLAY_PACKAGES = "theme_customization_overlay_packages";
-        public static final java.lang.String TIMEOUT_TO_DOCK_USER = "timeout_to_dock_user";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TOUCH_EXPLORATION_ENABLED = "touch_exploration_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TOUCH_EXPLORATION_GRANTED_ACCESSIBILITY_SERVICES = "touch_exploration_granted_accessibility_services";
-        public static final java.lang.String TRUSTED_LOCATIONS_COUNT = "trusted_locations_count";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TRUST_AGENTS_INITIALIZED = "trust_agents_initialized";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String TTS_DEFAULT_COUNTRY = "tts_default_country";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String TTS_DEFAULT_LANG = "tts_default_lang";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TTS_DEFAULT_LOCALE = "tts_default_locale";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TTS_DEFAULT_PITCH = "tts_default_pitch";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TTS_DEFAULT_RATE = "tts_default_rate";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TTS_DEFAULT_SYNTH = "tts_default_synth";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String TTS_DEFAULT_VARIANT = "tts_default_variant";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TTS_ENABLED_PLUGINS = "tts_enabled_plugins";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String TTS_USE_DEFAULTS = "tts_use_defaults";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TTY_MODE_ENABLED = "tty_mode_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TV_APP_USES_NON_SYSTEM_INPUTS = "tv_app_uses_non_system_inputs";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TV_INPUT_CUSTOM_LABELS = "tv_input_custom_labels";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TV_INPUT_HIDDEN_INPUTS = "tv_input_hidden_inputs";
-        @android.provider.Settings.Readable
-        public static final java.lang.String TV_USER_SETUP_COMPLETE = "tv_user_setup_complete";
-        @android.provider.Settings.Readable
-        public static final java.lang.String UI_NIGHT_MODE = "ui_night_mode";
-        @android.provider.Settings.Readable
-        public static final java.lang.String UI_NIGHT_MODE_CUSTOM_TYPE = "ui_night_mode_custom_type";
-        public static final java.lang.String UI_NIGHT_MODE_LAST_COMPUTED = "ui_night_mode_last_computed";
-        @android.provider.Settings.Readable
-        public static final java.lang.String UI_NIGHT_MODE_OVERRIDE_OFF = "ui_night_mode_override_off";
-        @android.provider.Settings.Readable
-        public static final java.lang.String UI_NIGHT_MODE_OVERRIDE_ON = "ui_night_mode_override_on";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String UI_TRANSLATION_ENABLED = "ui_translation_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String UNKNOWN_SOURCES_DEFAULT_REVERSED = "unknown_sources_default_reversed";
-        @android.provider.Settings.Readable
-        public static final java.lang.String UNSAFE_VOLUME_MUSIC_ACTIVE_MS = "unsafe_volume_music_active_ms";
-        @android.provider.Settings.Readable
-        public static final java.lang.String USB_AUDIO_AUTOMATIC_ROUTING_DISABLED = "usb_audio_automatic_routing_disabled";
-        @java.lang.Deprecated
-        public static final java.lang.String USB_MASS_STORAGE_ENABLED = "usb_mass_storage_enabled";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String USER_SETUP_COMPLETE = "user_setup_complete";
-        @android.annotation.SystemApi
-        public static final int USER_SETUP_PERSONALIZATION_COMPLETE = 10;
-        @android.annotation.SystemApi
-        public static final int USER_SETUP_PERSONALIZATION_NOT_STARTED = 0;
-        @android.annotation.SystemApi
-        public static final int USER_SETUP_PERSONALIZATION_PAUSED = 2;
-        @android.annotation.SystemApi
-        public static final int USER_SETUP_PERSONALIZATION_STARTED = 1;
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String USER_SETUP_PERSONALIZATION_STATE = "user_setup_personalization_state";
-        @android.provider.Settings.Readable
-        public static final java.lang.String USE_CONTEXTUAL_CURSOR = "use_contextual_cursor";
-        @java.lang.Deprecated
-        public static final java.lang.String USE_GOOGLE_MAIL = "use_google_mail";
-        public static final java.lang.String VISUAL_QUERY_ACCESSIBILITY_DETECTION_ENABLED = "visual_query_accessibility_detection_enabled";
-        @android.provider.Settings.Readable
-        public static final java.lang.String VOICE_INTERACTION_SERVICE = "voice_interaction_service";
-        @android.provider.Settings.Readable
-        public static final java.lang.String VOICE_RECOGNITION_SERVICE = "voice_recognition_service";
-        public static final java.lang.String VOLUME_DIALOG_DISMISS_TIMEOUT = "volume_dialog_dismiss_timeout";
-        @android.annotation.SystemApi
-        @android.provider.Settings.Readable
-        public static final java.lang.String VOLUME_HUSH_GESTURE = "volume_hush_gesture";
-        @android.annotation.SystemApi
-        public static final int VOLUME_HUSH_MUTE = 2;
-        @android.annotation.SystemApi
-        public static final int VOLUME_HUSH_OFF = 0;
-        @android.annotation.SystemApi
-        public static final int VOLUME_HUSH_VIBRATE = 1;
-        @android.provider.Settings.Readable
-        public static final java.lang.String VR_DISPLAY_MODE = "vr_display_mode";
-        public static final int VR_DISPLAY_MODE_LOW_PERSISTENCE = 0;
-        public static final int VR_DISPLAY_MODE_OFF = 1;
-        public static final java.lang.String V_TO_U_RESTORE_ALLOWLIST = "v_to_u_restore_allowlist";
-        public static final java.lang.String V_TO_U_RESTORE_DENYLIST = "v_to_u_restore_denylist";
-        @android.provider.Settings.Readable
-        public static final java.lang.String WAKE_GESTURE_ENABLED = "wake_gesture_enabled";
-        public static final java.lang.String WEAR_TALKBACK_ENABLED = "wear_talkback_enabled";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_IDLE_MS = "wifi_idle_ms";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_MAX_DHCP_RETRY_COUNT = "wifi_max_dhcp_retry_count";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS = "wifi_mobile_data_transition_wakelock_timeout_ms";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON = "wifi_networks_available_notification_on";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY = "wifi_networks_available_repeat_delay";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_NUM_OPEN_NETWORKS_KEPT = "wifi_num_open_networks_kept";
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_ON = "wifi_on";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_ACCEPTABLE_PACKET_LOSS_PERCENTAGE = "wifi_watchdog_acceptable_packet_loss_percentage";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_AP_COUNT = "wifi_watchdog_ap_count";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_BACKGROUND_CHECK_DELAY_MS = "wifi_watchdog_background_check_delay_ms";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_BACKGROUND_CHECK_ENABLED = "wifi_watchdog_background_check_enabled";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_BACKGROUND_CHECK_TIMEOUT_MS = "wifi_watchdog_background_check_timeout_ms";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_INITIAL_IGNORED_PING_COUNT = "wifi_watchdog_initial_ignored_ping_count";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_MAX_AP_CHECKS = "wifi_watchdog_max_ap_checks";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_ON = "wifi_watchdog_on";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_PING_COUNT = "wifi_watchdog_ping_count";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_PING_DELAY_MS = "wifi_watchdog_ping_delay_ms";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_PING_TIMEOUT_MS = "wifi_watchdog_ping_timeout_ms";
-        @android.provider.Settings.Readable
-        @java.lang.Deprecated
-        public static final java.lang.String WIFI_WATCHDOG_WATCH_LIST = "wifi_watchdog_watch_list";
-        @android.provider.Settings.Readable
-        public static final java.lang.String ZEN_DURATION = "zen_duration";
-        public static final int ZEN_DURATION_FOREVER = 0;
-        public static final int ZEN_DURATION_PROMPT = -1;
-        private static final android.provider.Settings.NameValueCache sNameValueCache = null;
-        private static final android.provider.Settings.ContentProviderHolder sProviderHolder = null;
-        public Secure() { super(); }
-        public static void clearProviderForTest() {}
-        public static void getCloneToManagedProfileSettings(java.util.Set<java.lang.String> p0) {}
-        public static float getFloat(android.content.ContentResolver p0, java.lang.String p1) throws android.provider.Settings.SettingNotFoundException { return 0.0f; }
-        public static float getFloat(android.content.ContentResolver p0, java.lang.String p1, float p2) { return 0.0f; }
-        public static float getFloatForUser(android.content.ContentResolver p0, java.lang.String p1, float p2, int p3) { return 0.0f; }
-        public static float getFloatForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) throws android.provider.Settings.SettingNotFoundException { return 0.0f; }
-        public static int getInt(android.content.ContentResolver p0, java.lang.String p1) throws android.provider.Settings.SettingNotFoundException { return 0; }
-        public static int getInt(android.content.ContentResolver p0, java.lang.String p1, int p2) { return 0; }
-        public static int getIntForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) throws android.provider.Settings.SettingNotFoundException { return 0; }
-        public static int getIntForUser(android.content.ContentResolver p0, java.lang.String p1, int p2, int p3) { return 0; }
-        public static long getLong(android.content.ContentResolver p0, java.lang.String p1) throws android.provider.Settings.SettingNotFoundException { return 0L; }
-        public static long getLong(android.content.ContentResolver p0, java.lang.String p1, long p2) { return 0L; }
-        public static long getLongForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) throws android.provider.Settings.SettingNotFoundException { return 0L; }
-        public static long getLongForUser(android.content.ContentResolver p0, java.lang.String p1, long p2, int p3) { return 0L; }
-        public static void getMovedToGlobalSettings(java.util.Set<java.lang.String> p0) {}
-        public static void getMovedToSystemSettings(java.util.Set<java.lang.String> p0) {}
-        public static void getPublicSettings(java.util.Set<java.lang.String> p0, java.util.Set<java.lang.String> p1, android.util.ArrayMap<java.lang.String, java.lang.Integer> p2, android.util.ArrayMap<java.lang.String, java.lang.String> p3) {}
-        public static java.lang.String getString(android.content.ContentResolver p0, java.lang.String p1) { return null; }
-        public static java.lang.String getStringForUser(android.content.ContentResolver p0, java.lang.String p1, int p2) { return null; }
-        public static android.net.Uri getUriFor(java.lang.String p0) { return null; }
-        @java.lang.Deprecated
-        public static boolean isLocationProviderEnabled(android.content.ContentResolver p0, java.lang.String p1) { return false; }
-        public static boolean putFloat(android.content.ContentResolver p0, java.lang.String p1, float p2) { return false; }
-        public static boolean putFloatForUser(android.content.ContentResolver p0, java.lang.String p1, float p2, int p3) { return false; }
-        public static boolean putInt(android.content.ContentResolver p0, java.lang.String p1, int p2) { return false; }
-        public static boolean putIntForUser(android.content.ContentResolver p0, java.lang.String p1, int p2, int p3) { return false; }
-        public static boolean putLong(android.content.ContentResolver p0, java.lang.String p1, long p2) { return false; }
-        public static boolean putLongForUser(android.content.ContentResolver p0, java.lang.String p1, long p2, int p3) { return false; }
-        public static boolean putString(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2) { return false; }
-        @android.annotation.SystemApi
-        public static boolean putString(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4) { return false; }
-        public static boolean putString(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, boolean p3) { return false; }
-        public static boolean putStringForUser(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, int p3) { return false; }
-        public static boolean putStringForUser(android.content.ContentResolver p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5, boolean p6) { return false; }
-        @android.annotation.SystemApi
-        public static void resetToDefaults(android.content.ContentResolver p0, java.lang.String p1) {}
-        public static void resetToDefaultsAsUser(android.content.ContentResolver p0, java.lang.String p1, int p2, int p3) {}
-        @java.lang.Deprecated
-        public static void setLocationProviderEnabled(android.content.ContentResolver p0, java.lang.String p1, boolean p2) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface AccessibilityMagnificationCursorFollowingMode {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ActionCornerActionType {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface DeviceStateRotationLockKey {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface DeviceStateRotationLockSetting {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface DockSetupState {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface HubModeTutorialState {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface LowLightDisplayBehavior {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface PrivateSpaceAutoLockOption {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ResolutionMode {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface UserSetupPersonalization {
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
-    public static @interface SetAllResult {
-    }
-
-    public static class SettingNotFoundException extends android.util.AndroidException {
-        public SettingNotFoundException(java.lang.String p0) { super(); }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SupervisorVerificationSetting {
-    }
-
     public static final class System extends android.provider.Settings.NameValueTable {
         @android.provider.Settings.Readable
         public static final java.lang.String ACCELEROMETER_ROTATION = "accelerometer_rotation";
@@ -3591,6 +3589,7 @@ public final class Settings {
         @android.provider.Settings.Readable
         public static final java.lang.String TEXT_AUTO_REPLACE = "auto_replace";
         @android.provider.Settings.Readable
+        @java.lang.Deprecated
         public static final java.lang.String TEXT_SHOW_PASSWORD = "show_password";
         @android.provider.Settings.Readable
         public static final java.lang.String TIME_12_24 = "time_12_24";
@@ -3787,5 +3786,60 @@ public final class Settings {
         public static void setShowGTalkServiceStatus(android.content.ContentResolver p0, boolean p1) {}
         @java.lang.Deprecated
         public static void setShowGTalkServiceStatusForUser(android.content.ContentResolver p0, boolean p1, int p2) {}
+    }
+
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static final class Config extends android.provider.Settings.NameValueTable {
+        public static final android.net.Uri CONTENT_URI = null;
+        @java.lang.Deprecated
+        public static final int SYNC_DISABLED_MODE_NONE = 0;
+        @java.lang.Deprecated
+        public static final int SYNC_DISABLED_MODE_PERSISTENT = 1;
+        @java.lang.Deprecated
+        public static final int SYNC_DISABLED_MODE_UNTIL_REBOOT = 2;
+        private static final android.provider.Settings.NameValueCache sNameValueCache = null;
+        private static final android.provider.Settings.ContentProviderHolder sProviderHolder = null;
+        private Config() { super(); }
+        public static int checkCallingOrSelfPermission(java.lang.String p0) { return 0; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static void clearMonitorCallback(android.content.ContentResolver p0) {}
+        public static void clearProviderForTest() {}
+        static java.lang.String createCompositeName(java.lang.String p0, java.lang.String p1) { return null; }
+        private static android.net.Uri createNamespaceUri(java.lang.String p0) { return null; }
+        private static java.lang.String createPrefix(java.lang.String p0) { return null; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static boolean deleteString(java.lang.String p0, java.lang.String p1) { return false; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static java.util.Map<java.lang.String, java.lang.String> getAllStrings() { return null; }
+        private static android.content.ContentResolver getContentResolver() { return null; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static java.lang.String getString(java.lang.String p0) { return null; }
+        public static java.util.Map<java.lang.String, java.lang.String> getStrings(android.content.ContentResolver p0, java.lang.String p1, java.util.List<java.lang.String> p2) { return null; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static java.util.Map<java.lang.String, java.lang.String> getStrings(java.lang.String p0, java.util.List<java.lang.String> p1) { return null; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static int getSyncDisabledMode() { return 0; }
+        private static void handleMonitorCallback(android.os.Bundle p0, java.util.concurrent.Executor p1, android.provider.DeviceConfig.MonitorCallback p2) {}
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static boolean putString(java.lang.String p0, java.lang.String p1, java.lang.String p2, boolean p3) { return false; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static void registerContentObserver(java.lang.String p0, boolean p1, android.database.ContentObserver p2) {}
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static void resetToDefaults(int p0, java.lang.String p1) {}
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static void setMonitorCallback(android.content.ContentResolver p0, java.util.concurrent.Executor p1, android.provider.DeviceConfig.MonitorCallback p2) {}
+        private static void setMonitorCallbackAsUser(java.util.concurrent.Executor p0, android.content.ContentResolver p1, int p2, android.provider.DeviceConfig.MonitorCallback p3) {}
+        public static boolean setStrings(android.content.ContentResolver p0, java.lang.String p1, java.util.Map<java.lang.String, java.lang.String> p2) throws android.provider.DeviceConfig.BadConfigException { return false; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static boolean setStrings(java.lang.String p0, java.util.Map<java.lang.String, java.lang.String> p1) throws android.provider.DeviceConfig.BadConfigException { return false; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static void setSyncDisabledMode(int p0) {}
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public static void unregisterContentObserver(android.database.ContentObserver p0) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
+        public static @interface SyncDisabledMode {
+        }
     }
 }

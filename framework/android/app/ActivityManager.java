@@ -92,6 +92,12 @@ public class ActivityManager {
     public static final int PROCESS_CAPABILITY_NONE = 0;
     public static final int PROCESS_CAPABILITY_POWER_RESTRICTED_NETWORK = 8;
     public static final int PROCESS_CAPABILITY_USER_RESTRICTED_NETWORK = 32;
+    public static final int PROCESS_OBSERVER_ALL_FLAGS = 15;
+    public static final int PROCESS_OBSERVER_DEFAULT = 15;
+    public static final int PROCESS_OBSERVER_DIED = 8;
+    public static final int PROCESS_OBSERVER_FOREGROUND_ACTIVITIES = 2;
+    public static final int PROCESS_OBSERVER_FOREGROUND_SERVICES = 4;
+    public static final int PROCESS_OBSERVER_STARTED = 1;
     public static final int PROCESS_STATE_BACKUP = 9;
     public static final int PROCESS_STATE_BOUND_FOREGROUND_SERVICE = 5;
     public static final int PROCESS_STATE_BOUND_TOP = 3;
@@ -520,6 +526,10 @@ public class ActivityManager {
         public int describeContents() { return 0; }
         public void readFromParcel(android.os.Parcel p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ProcessObserverFlags {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

@@ -5,12 +5,12 @@ public interface IMediaRouterService extends android.os.IInterface {
     public void deselectRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException;
     public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException;
     public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithRouter2(android.media.IMediaRouter2 p0) throws android.os.RemoteException;
+    public java.util.List<android.media.AppId> getGlobalSessionOverridesAppIds(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException;
     public java.util.List<android.media.RoutingSessionInfo> getRemoteSessions(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException;
     public android.media.MediaRouterClientState getState(android.media.IMediaRouterClient p0) throws android.os.RemoteException;
     public java.util.List<android.media.MediaRoute2Info> getSystemRoutes(java.lang.String p0, boolean p1) throws android.os.RemoteException;
     public android.media.RoutingSessionInfo getSystemSessionInfo() throws android.os.RemoteException;
     public android.media.RoutingSessionInfo getSystemSessionInfoForPackage(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
-    public java.util.List<android.media.AppId> getSystemSessionOverridesAppIds(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException;
     public boolean isPlaybackActive(android.media.IMediaRouterClient p0) throws android.os.RemoteException;
     public void onDeviceSuggestionRequestedWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException;
     public void registerClientAsUser(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException;
@@ -47,68 +47,18 @@ public interface IMediaRouterService extends android.os.IInterface {
     public void updateScanningState(android.media.IMediaRouter2Manager p0, int p1, int[] p2) throws android.os.RemoteException;
     public void updateScanningStateWithRouter2(android.media.IMediaRouter2 p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IMediaRouterService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void deselectRouteWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, android.media.MediaRoute2Info p3, android.media.RoutingChangeInfo p4) throws android.os.RemoteException {}
-        public void deselectRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
-        public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
-        public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithRouter2(android.media.IMediaRouter2 p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.RoutingSessionInfo> getRemoteSessions(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
-        public android.media.MediaRouterClientState getState(android.media.IMediaRouterClient p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.MediaRoute2Info> getSystemRoutes(java.lang.String p0, boolean p1) throws android.os.RemoteException { return null; }
-        public android.media.RoutingSessionInfo getSystemSessionInfo() throws android.os.RemoteException { return null; }
-        public android.media.RoutingSessionInfo getSystemSessionInfoForPackage(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.AppId> getSystemSessionOverridesAppIds(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
-        public boolean isPlaybackActive(android.media.IMediaRouterClient p0) throws android.os.RemoteException { return false; }
-        public void onDeviceSuggestionRequestedWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException {}
-        public void registerClientAsUser(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void registerClientGroupId(android.media.IMediaRouterClient p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void registerManager(android.media.IMediaRouter2Manager p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void registerProxyRouter(android.media.IMediaRouter2Manager p0, java.lang.String p1, java.lang.String p2, android.os.UserHandle p3) throws android.os.RemoteException {}
-        public void registerRouter2(android.media.IMediaRouter2 p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void releaseSessionWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void releaseSessionWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void requestCreateSessionWithManager(android.media.IMediaRouter2Manager p0, int p1, android.media.RoutingSessionInfo p2, android.media.RoutingChangeInfo p3, android.media.MediaRoute2Info p4) throws android.os.RemoteException {}
-        public void requestCreateSessionWithRouter2(android.media.IMediaRouter2 p0, int p1, long p2, android.media.RoutingSessionInfo p3, android.media.MediaRoute2Info p4, android.media.RoutingChangeInfo p5, android.os.Bundle p6) throws android.os.RemoteException {}
-        public void requestSetVolume(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void requestUpdateVolume(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void selectRouteWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, android.media.MediaRoute2Info p3, android.media.RoutingChangeInfo p4) throws android.os.RemoteException {}
-        public void selectRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
-        public void setBluetoothA2dpOn(android.media.IMediaRouterClient p0, boolean p1) throws android.os.RemoteException {}
-        public void setDeviceSuggestionsWithManager(android.media.IMediaRouter2Manager p0, java.util.List<android.media.SuggestedDeviceInfo> p1) throws android.os.RemoteException {}
-        public void setDeviceSuggestionsWithRouter2(android.media.IMediaRouter2 p0, java.util.List<android.media.SuggestedDeviceInfo> p1) throws android.os.RemoteException {}
-        public void setDiscoveryRequest(android.media.IMediaRouterClient p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void setDiscoveryRequestWithRouter2(android.media.IMediaRouter2 p0, android.media.RouteDiscoveryPreference p1) throws android.os.RemoteException {}
-        public void setRouteListingPreference(android.media.IMediaRouter2 p0, android.media.RouteListingPreference p1) throws android.os.RemoteException {}
-        public void setRouteVolumeWithManager(android.media.IMediaRouter2Manager p0, int p1, android.media.MediaRoute2Info p2, int p3) throws android.os.RemoteException {}
-        public void setRouteVolumeWithRouter2(android.media.IMediaRouter2 p0, android.media.MediaRoute2Info p1, int p2) throws android.os.RemoteException {}
-        public void setSelectedRoute(android.media.IMediaRouterClient p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
-        public void setSessionVolumeWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
-        public void setSessionVolumeWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public boolean showMediaOutputSwitcherWithProxyRouter(android.media.IMediaRouter2Manager p0, android.media.session.MediaSession.Token p1) throws android.os.RemoteException { return false; }
-        public boolean showMediaOutputSwitcherWithRouter2(java.lang.String p0, android.media.session.MediaSession.Token p1) throws android.os.RemoteException { return false; }
-        public void transferToRouteWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, android.media.MediaRoute2Info p3, android.os.UserHandle p4, java.lang.String p5, android.media.RoutingChangeInfo p6) throws android.os.RemoteException {}
-        public void transferToRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
-        public void unregisterClient(android.media.IMediaRouterClient p0) throws android.os.RemoteException {}
-        public void unregisterManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException {}
-        public void unregisterRouter2(android.media.IMediaRouter2 p0) throws android.os.RemoteException {}
-        public void updateScanningState(android.media.IMediaRouter2Manager p0, int p1, int[] p2) throws android.os.RemoteException {}
-        public void updateScanningStateWithRouter2(android.media.IMediaRouter2 p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.IMediaRouterService {
         public static final java.lang.String DESCRIPTOR = "android.media.IMediaRouterService";
         static final int TRANSACTION_deselectRouteWithManager = 38;
         static final int TRANSACTION_deselectRouteWithRouter2 = 22;
         static final int TRANSACTION_getDeviceSuggestionsWithManager = 44;
         static final int TRANSACTION_getDeviceSuggestionsWithRouter2 = 27;
+        static final int TRANSACTION_getGlobalSessionOverridesAppIds = 30;
         static final int TRANSACTION_getRemoteSessions = 28;
         static final int TRANSACTION_getState = 4;
         static final int TRANSACTION_getSystemRoutes = 11;
         static final int TRANSACTION_getSystemSessionInfo = 12;
         static final int TRANSACTION_getSystemSessionInfoForPackage = 29;
-        static final int TRANSACTION_getSystemSessionOverridesAppIds = 30;
         static final int TRANSACTION_isPlaybackActive = 5;
         static final int TRANSACTION_onDeviceSuggestionRequestedWithManager = 45;
         static final int TRANSACTION_registerClientAsUser = 1;
@@ -159,13 +109,13 @@ public interface IMediaRouterService extends android.os.IInterface {
             public void deselectRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
             public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
             public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithRouter2(android.media.IMediaRouter2 p0) throws android.os.RemoteException { return null; }
+            public java.util.List<android.media.AppId> getGlobalSessionOverridesAppIds(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public java.util.List<android.media.RoutingSessionInfo> getRemoteSessions(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
             public android.media.MediaRouterClientState getState(android.media.IMediaRouterClient p0) throws android.os.RemoteException { return null; }
             public java.util.List<android.media.MediaRoute2Info> getSystemRoutes(java.lang.String p0, boolean p1) throws android.os.RemoteException { return null; }
             public android.media.RoutingSessionInfo getSystemSessionInfo() throws android.os.RemoteException { return null; }
             public android.media.RoutingSessionInfo getSystemSessionInfoForPackage(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-            public java.util.List<android.media.AppId> getSystemSessionOverridesAppIds(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
             public boolean isPlaybackActive(android.media.IMediaRouterClient p0) throws android.os.RemoteException { return false; }
             public void onDeviceSuggestionRequestedWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException {}
             public void registerClientAsUser(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
@@ -202,5 +152,55 @@ public interface IMediaRouterService extends android.os.IInterface {
             public void updateScanningState(android.media.IMediaRouter2Manager p0, int p1, int[] p2) throws android.os.RemoteException {}
             public void updateScanningStateWithRouter2(android.media.IMediaRouter2 p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IMediaRouterService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void deselectRouteWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, android.media.MediaRoute2Info p3, android.media.RoutingChangeInfo p4) throws android.os.RemoteException {}
+        public void deselectRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
+        public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
+        public java.util.Map<java.lang.String, java.util.List<android.media.SuggestedDeviceInfo>> getDeviceSuggestionsWithRouter2(android.media.IMediaRouter2 p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.AppId> getGlobalSessionOverridesAppIds(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.RoutingSessionInfo> getRemoteSessions(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException { return null; }
+        public android.media.MediaRouterClientState getState(android.media.IMediaRouterClient p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.MediaRoute2Info> getSystemRoutes(java.lang.String p0, boolean p1) throws android.os.RemoteException { return null; }
+        public android.media.RoutingSessionInfo getSystemSessionInfo() throws android.os.RemoteException { return null; }
+        public android.media.RoutingSessionInfo getSystemSessionInfoForPackage(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public boolean isPlaybackActive(android.media.IMediaRouterClient p0) throws android.os.RemoteException { return false; }
+        public void onDeviceSuggestionRequestedWithManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException {}
+        public void registerClientAsUser(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void registerClientGroupId(android.media.IMediaRouterClient p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void registerManager(android.media.IMediaRouter2Manager p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void registerProxyRouter(android.media.IMediaRouter2Manager p0, java.lang.String p1, java.lang.String p2, android.os.UserHandle p3) throws android.os.RemoteException {}
+        public void registerRouter2(android.media.IMediaRouter2 p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void releaseSessionWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void releaseSessionWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void requestCreateSessionWithManager(android.media.IMediaRouter2Manager p0, int p1, android.media.RoutingSessionInfo p2, android.media.RoutingChangeInfo p3, android.media.MediaRoute2Info p4) throws android.os.RemoteException {}
+        public void requestCreateSessionWithRouter2(android.media.IMediaRouter2 p0, int p1, long p2, android.media.RoutingSessionInfo p3, android.media.MediaRoute2Info p4, android.media.RoutingChangeInfo p5, android.os.Bundle p6) throws android.os.RemoteException {}
+        public void requestSetVolume(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void requestUpdateVolume(android.media.IMediaRouterClient p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void selectRouteWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, android.media.MediaRoute2Info p3, android.media.RoutingChangeInfo p4) throws android.os.RemoteException {}
+        public void selectRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
+        public void setBluetoothA2dpOn(android.media.IMediaRouterClient p0, boolean p1) throws android.os.RemoteException {}
+        public void setDeviceSuggestionsWithManager(android.media.IMediaRouter2Manager p0, java.util.List<android.media.SuggestedDeviceInfo> p1) throws android.os.RemoteException {}
+        public void setDeviceSuggestionsWithRouter2(android.media.IMediaRouter2 p0, java.util.List<android.media.SuggestedDeviceInfo> p1) throws android.os.RemoteException {}
+        public void setDiscoveryRequest(android.media.IMediaRouterClient p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void setDiscoveryRequestWithRouter2(android.media.IMediaRouter2 p0, android.media.RouteDiscoveryPreference p1) throws android.os.RemoteException {}
+        public void setRouteListingPreference(android.media.IMediaRouter2 p0, android.media.RouteListingPreference p1) throws android.os.RemoteException {}
+        public void setRouteVolumeWithManager(android.media.IMediaRouter2Manager p0, int p1, android.media.MediaRoute2Info p2, int p3) throws android.os.RemoteException {}
+        public void setRouteVolumeWithRouter2(android.media.IMediaRouter2 p0, android.media.MediaRoute2Info p1, int p2) throws android.os.RemoteException {}
+        public void setSelectedRoute(android.media.IMediaRouterClient p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
+        public void setSessionVolumeWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
+        public void setSessionVolumeWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public boolean showMediaOutputSwitcherWithProxyRouter(android.media.IMediaRouter2Manager p0, android.media.session.MediaSession.Token p1) throws android.os.RemoteException { return false; }
+        public boolean showMediaOutputSwitcherWithRouter2(java.lang.String p0, android.media.session.MediaSession.Token p1) throws android.os.RemoteException { return false; }
+        public void transferToRouteWithManager(android.media.IMediaRouter2Manager p0, int p1, java.lang.String p2, android.media.MediaRoute2Info p3, android.os.UserHandle p4, java.lang.String p5, android.media.RoutingChangeInfo p6) throws android.os.RemoteException {}
+        public void transferToRouteWithRouter2(android.media.IMediaRouter2 p0, java.lang.String p1, android.media.MediaRoute2Info p2, android.media.RoutingChangeInfo p3) throws android.os.RemoteException {}
+        public void unregisterClient(android.media.IMediaRouterClient p0) throws android.os.RemoteException {}
+        public void unregisterManager(android.media.IMediaRouter2Manager p0) throws android.os.RemoteException {}
+        public void unregisterRouter2(android.media.IMediaRouter2 p0) throws android.os.RemoteException {}
+        public void updateScanningState(android.media.IMediaRouter2Manager p0, int p1, int[] p2) throws android.os.RemoteException {}
+        public void updateScanningStateWithRouter2(android.media.IMediaRouter2 p0, int p1) throws android.os.RemoteException {}
     }
 }

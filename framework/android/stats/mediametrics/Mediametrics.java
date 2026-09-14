@@ -84,6 +84,7 @@ public final class Mediametrics {
     public static final int HDR_TYPE_HDR10 = 2;
     public static final int HDR_TYPE_HDR10_PLUS = 4;
     public static final int HDR_TYPE_HLG = 3;
+    public static final int HDR_TYPE_HLG_PLUS = 6;
     public static final int HDR_TYPE_UNKNOWN = 0;
     public static final int INTERRUPTED_BY_AD = 14;
     public static final int JOINING_BACKGROUND = 1;

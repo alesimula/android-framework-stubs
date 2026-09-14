@@ -14,22 +14,6 @@ public interface IMagnificationConnection extends android.os.IInterface {
     public void setScaleForWindowMagnification(int p0, float p1) throws android.os.RemoteException;
     public void showMagnificationButton(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.accessibility.IMagnificationConnection {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void disableWindowMagnification(int p0, android.view.accessibility.IRemoteMagnificationAnimationCallback p1) throws android.os.RemoteException {}
-        public void enableWindowMagnification(int p0, float p1, float p2, float p3, float p4, float p5, android.view.accessibility.IRemoteMagnificationAnimationCallback p6) throws android.os.RemoteException {}
-        public void moveWindowMagnifier(int p0, float p1, float p2) throws android.os.RemoteException {}
-        public void moveWindowMagnifierToPosition(int p0, float p1, float p2, android.view.accessibility.IRemoteMagnificationAnimationCallback p3) throws android.os.RemoteException {}
-        public void onFullscreenMagnificationActivationChanged(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onUserMagnificationScaleChanged(int p0, int p1, float p2) throws android.os.RemoteException {}
-        public void removeMagnificationButton(int p0) throws android.os.RemoteException {}
-        public void removeMagnificationSettingsPanel(int p0) throws android.os.RemoteException {}
-        public void setConnectionCallback(android.view.accessibility.IMagnificationConnectionCallback p0) throws android.os.RemoteException {}
-        public void setScaleForWindowMagnification(int p0, float p1) throws android.os.RemoteException {}
-        public void showMagnificationButton(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IMagnificationConnection {
         static final int TRANSACTION_disableWindowMagnification = 3;
         static final int TRANSACTION_enableWindowMagnification = 1;
@@ -66,5 +50,21 @@ public interface IMagnificationConnection extends android.os.IInterface {
             public void setScaleForWindowMagnification(int p0, float p1) throws android.os.RemoteException {}
             public void showMagnificationButton(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.accessibility.IMagnificationConnection {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void disableWindowMagnification(int p0, android.view.accessibility.IRemoteMagnificationAnimationCallback p1) throws android.os.RemoteException {}
+        public void enableWindowMagnification(int p0, float p1, float p2, float p3, float p4, float p5, android.view.accessibility.IRemoteMagnificationAnimationCallback p6) throws android.os.RemoteException {}
+        public void moveWindowMagnifier(int p0, float p1, float p2) throws android.os.RemoteException {}
+        public void moveWindowMagnifierToPosition(int p0, float p1, float p2, android.view.accessibility.IRemoteMagnificationAnimationCallback p3) throws android.os.RemoteException {}
+        public void onFullscreenMagnificationActivationChanged(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onUserMagnificationScaleChanged(int p0, int p1, float p2) throws android.os.RemoteException {}
+        public void removeMagnificationButton(int p0) throws android.os.RemoteException {}
+        public void removeMagnificationSettingsPanel(int p0) throws android.os.RemoteException {}
+        public void setConnectionCallback(android.view.accessibility.IMagnificationConnectionCallback p0) throws android.os.RemoteException {}
+        public void setScaleForWindowMagnification(int p0, float p1) throws android.os.RemoteException {}
+        public void showMagnificationButton(int p0, int p1) throws android.os.RemoteException {}
     }
 }

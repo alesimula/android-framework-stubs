@@ -3,38 +3,6 @@ package android.stats.mediametrics_message;
 public final class MediametricsMessage {
     public MediametricsMessage() {}
 
-    public final class AudioPolicyData {
-        public static final long ACTIVE_DEVICE = 1138166333449L;
-        public static final long ACTIVE_PACKAGE = 1138166333447L;
-        public static final long ACTIVE_SESSION = 1120986464264L;
-        public static final long ACTIVE_SOURCE = 1138166333446L;
-        public static final long REQUEST_DEVICE = 1138166333445L;
-        public static final long REQUEST_PACKAGE = 1138166333443L;
-        public static final long REQUEST_SESSION = 1120986464260L;
-        public static final long REQUEST_SOURCE = 1138166333442L;
-        public static final long STATUS = 1120986464257L;
-        public AudioPolicyData(android.stats.mediametrics_message.MediametricsMessage p0) {}
-    }
-
-    public final class AudioRecordData {
-        public static final long ATTRIBUTES = 1138166333453L;
-        public static final long CHANNELS = 1120986464261L;
-        public static final long CHANNEL_MASK = 1112396529678L;
-        public static final long COUNT = 1120986464264L;
-        public static final long CREATED_MILLIS = 1112396529670L;
-        public static final long DURATION_MILLIS = 1112396529671L;
-        public static final long ENCODING = 1138166333441L;
-        public static final long ERROR_CODE = 1120986464265L;
-        public static final long ERROR_FUNCTION = 1138166333450L;
-        public static final long FRAME_COUNT = 1120986464268L;
-        public static final long LATENCY = 1120986464259L;
-        public static final long PORT_ID = 1120986464267L;
-        public static final long SAMPLERATE = 1120986464260L;
-        public static final long SOURCE = 1138166333442L;
-        public static final long START_COUNT = 1112396529679L;
-        public AudioRecordData(android.stats.mediametrics_message.MediametricsMessage p0) {}
-    }
-
     public final class AudioThreadData {
         public static final long ACTIVE_MILLIS = 1112396529673L;
         public static final long CHANNEL_MASK = 1112396529678L;
@@ -78,6 +46,30 @@ public final class MediametricsMessage {
         public static final long TRACK_USAGE = 1138166333443L;
         public static final long UNDERRUN_FRAMES = 1120986464262L;
         public AudioTrackData(android.stats.mediametrics_message.MediametricsMessage p0) {}
+    }
+
+    public final class NuPlayerData {
+        public static final long AUDIO_CODEC = 1138166333450L;
+        public static final long AUDIO_MIME = 1138166333449L;
+        public static final long DATA_SOURCE_TYPE = 1138166333456L;
+        public static final long DURATION_MILLIS = 1112396529675L;
+        public static final long ERROR = 1120986464269L;
+        public static final long ERROR_CODE = 1120986464270L;
+        public static final long ERROR_STATE = 1138166333455L;
+        public static final long FRAMERATE = 1103806595080L;
+        public static final long FRAMES = 1112396529670L;
+        public static final long FRAMES_DROPPED = 1112396529671L;
+        public static final long FRAMES_DROPPED_STARTUP = 1112396529684L;
+        public static final long HEIGHT = 1120986464261L;
+        public static final long PLAYING_MILLIS = 1112396529676L;
+        public static final long REBUFFERING_MILLIS = 1112396529681L;
+        public static final long REBUFFERS = 1120986464274L;
+        public static final long REBUFFER_AT_EXIT = 1120986464275L;
+        public static final long VIDEO_CODEC = 1138166333443L;
+        public static final long VIDEO_MIME = 1138166333442L;
+        public static final long WHICH_PLAYER = 1138166333441L;
+        public static final long WIDTH = 1120986464260L;
+        public NuPlayerData(android.stats.mediametrics_message.MediametricsMessage p0) {}
     }
 
     public final class CodecData {
@@ -160,44 +152,6 @@ public final class MediametricsMessage {
         public CodecData(android.stats.mediametrics_message.MediametricsMessage p0) {}
     }
 
-    public final class ExtractorData {
-        public static final long ENTRY_POINT = 1159641169924L;
-        public static final long FORMAT = 1138166333441L;
-        public static final long LOG_SESSION_ID = 1138166333445L;
-        public static final long MIME = 1138166333442L;
-        public static final int NDK_NO_JVM = 3;
-        public static final int NDK_WITH_JVM = 2;
-        public static final int OTHER = 4;
-        public static final int SDK = 1;
-        public static final long TRACKS = 1120986464259L;
-        public static final int UNSET = 0;
-        public ExtractorData(android.stats.mediametrics_message.MediametricsMessage p0) {}
-    }
-
-    public final class NuPlayerData {
-        public static final long AUDIO_CODEC = 1138166333450L;
-        public static final long AUDIO_MIME = 1138166333449L;
-        public static final long DATA_SOURCE_TYPE = 1138166333456L;
-        public static final long DURATION_MILLIS = 1112396529675L;
-        public static final long ERROR = 1120986464269L;
-        public static final long ERROR_CODE = 1120986464270L;
-        public static final long ERROR_STATE = 1138166333455L;
-        public static final long FRAMERATE = 1103806595080L;
-        public static final long FRAMES = 1112396529670L;
-        public static final long FRAMES_DROPPED = 1112396529671L;
-        public static final long FRAMES_DROPPED_STARTUP = 1112396529684L;
-        public static final long HEIGHT = 1120986464261L;
-        public static final long PLAYING_MILLIS = 1112396529676L;
-        public static final long REBUFFERING_MILLIS = 1112396529681L;
-        public static final long REBUFFERS = 1120986464274L;
-        public static final long REBUFFER_AT_EXIT = 1120986464275L;
-        public static final long VIDEO_CODEC = 1138166333443L;
-        public static final long VIDEO_MIME = 1138166333442L;
-        public static final long WHICH_PLAYER = 1138166333441L;
-        public static final long WIDTH = 1120986464260L;
-        public NuPlayerData(android.stats.mediametrics_message.MediametricsMessage p0) {}
-    }
-
     public final class RecorderData {
         public static final long AUDIO_BITRATE = 1120986464270L;
         public static final long AUDIO_CHANNELS = 1120986464271L;
@@ -222,5 +176,51 @@ public final class MediametricsMessage {
         public static final long VIDEO_TIMESCALE = 1120986464275L;
         public static final long WIDTH = 1120986464261L;
         public RecorderData(android.stats.mediametrics_message.MediametricsMessage p0) {}
+    }
+
+    public final class AudioPolicyData {
+        public static final long ACTIVE_DEVICE = 1138166333449L;
+        public static final long ACTIVE_PACKAGE = 1138166333447L;
+        public static final long ACTIVE_SESSION = 1120986464264L;
+        public static final long ACTIVE_SOURCE = 1138166333446L;
+        public static final long REQUEST_DEVICE = 1138166333445L;
+        public static final long REQUEST_PACKAGE = 1138166333443L;
+        public static final long REQUEST_SESSION = 1120986464260L;
+        public static final long REQUEST_SOURCE = 1138166333442L;
+        public static final long STATUS = 1120986464257L;
+        public AudioPolicyData(android.stats.mediametrics_message.MediametricsMessage p0) {}
+    }
+
+    public final class AudioRecordData {
+        public static final long ATTRIBUTES = 1138166333453L;
+        public static final long CHANNELS = 1120986464261L;
+        public static final long CHANNEL_MASK = 1112396529678L;
+        public static final long COUNT = 1120986464264L;
+        public static final long CREATED_MILLIS = 1112396529670L;
+        public static final long DURATION_MILLIS = 1112396529671L;
+        public static final long ENCODING = 1138166333441L;
+        public static final long ERROR_CODE = 1120986464265L;
+        public static final long ERROR_FUNCTION = 1138166333450L;
+        public static final long FRAME_COUNT = 1120986464268L;
+        public static final long LATENCY = 1120986464259L;
+        public static final long PORT_ID = 1120986464267L;
+        public static final long SAMPLERATE = 1120986464260L;
+        public static final long SOURCE = 1138166333442L;
+        public static final long START_COUNT = 1112396529679L;
+        public AudioRecordData(android.stats.mediametrics_message.MediametricsMessage p0) {}
+    }
+
+    public final class ExtractorData {
+        public static final long ENTRY_POINT = 1159641169924L;
+        public static final long FORMAT = 1138166333441L;
+        public static final long LOG_SESSION_ID = 1138166333445L;
+        public static final long MIME = 1138166333442L;
+        public static final int NDK_NO_JVM = 3;
+        public static final int NDK_WITH_JVM = 2;
+        public static final int OTHER = 4;
+        public static final int SDK = 1;
+        public static final long TRACKS = 1120986464259L;
+        public static final int UNSET = 0;
+        public ExtractorData(android.stats.mediametrics_message.MediametricsMessage p0) {}
     }
 }

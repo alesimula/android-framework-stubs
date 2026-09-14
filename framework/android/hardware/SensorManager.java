@@ -149,13 +149,13 @@ public abstract class SensorManager {
     public void unregisterListener(android.hardware.SensorListener p0, int p1) {}
     protected abstract void unregisterListenerImpl(android.hardware.SensorEventListener p0, android.hardware.Sensor p1);
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DataInjectionMode {
-    }
-
     public static abstract class DynamicSensorCallback {
         public DynamicSensorCallback() {}
         public void onDynamicSensorConnected(android.hardware.Sensor p0) {}
         public void onDynamicSensorDisconnected(android.hardware.Sensor p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DataInjectionMode {
     }
 }

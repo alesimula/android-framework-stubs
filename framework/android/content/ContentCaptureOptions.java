@@ -2,7 +2,7 @@ package android.content;
 
 public final class ContentCaptureOptions implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.content.ContentCaptureOptions> CREATOR = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureOptions";
     public final android.util.ArrayMap<android.content.ComponentName, java.lang.Integer> componentNameVersionMapping = null;
     public final int contentCaptureVersion = 0;
     public final android.content.ContentCaptureOptions.ContentProtectionOptions contentProtectionOptions = null;

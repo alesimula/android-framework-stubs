@@ -31,6 +31,7 @@ public class Operations {
     public static final int DATA_MAP_LOOKUP = 154;
     public static final int DATA_PATH = 123;
     public static final int DATA_SHADER = 45;
+    public static final int DATA_SOUND = 169;
     public static final int DATA_TEXT = 102;
     public static final int DEBUG_MESSAGE = 179;
     public static final int DRAW_ARC = 152;
@@ -73,6 +74,7 @@ public class Operations {
     public static final int ID_MAP = 145;
     public static final int IMPULSE_PROCESS = 165;
     public static final int IMPULSE_START = 164;
+    public static final int INCLUDE_REFERENCED_OPERATIONS = 245;
     public static final int INTEGER_EXPRESSION = 144;
     public static final int LAYOUT_BOX = 202;
     public static final int LAYOUT_CANVAS = 205;
@@ -82,6 +84,7 @@ public class Operations {
     public static final int LAYOUT_COLUMN = 204;
     public static final int LAYOUT_COMPUTE = 238;
     public static final int LAYOUT_CONTENT = 201;
+    public static final int LAYOUT_CUSTOM = 93;
     public static final int LAYOUT_FIT_BOX = 176;
     public static final int LAYOUT_FLOW = 240;
     public static final int LAYOUT_IMAGE = 234;
@@ -91,6 +94,11 @@ public class Operations {
     public static final int LAYOUT_TEXT = 208;
     public static final int LOAD_BITMAP = 4;
     public static final int LOOP_START = 215;
+    public static final int MACRO_ARGUMENT = 248;
+    public static final int MACRO_BLOCK = 249;
+    public static final int MACRO_CALL = 247;
+    public static final int MACRO_DEFINE = 246;
+    public static final int MACRO_FOR_EACH = 244;
     public static final int MATRIX_CONSTANT = 186;
     public static final int MATRIX_EXPRESSION = 187;
     public static final int MATRIX_FROM_PATH = 181;
@@ -138,11 +146,14 @@ public class Operations {
     public static final int PATH_CREATE = 159;
     public static final int PATH_EXPRESSION = 193;
     public static final int PATH_TWEEN = 158;
+    public static final int PLAY_SOUND = 141;
+    public static final int REFERENCED_OPERATIONS = 142;
     public static final int REM = 185;
     public static final int ROOT_CONTENT_BEHAVIOR = 65;
     public static final int ROOT_CONTENT_DESCRIPTION = 103;
     public static final int RUN_ACTION = 236;
     public static final int SKIP = 241;
+    public static final int SOUND_EXPRESSION = 206;
     public static final int TEXT_FROM_FLOAT = 135;
     public static final int TEXT_LENGTH = 156;
     public static final int TEXT_LOOKUP = 151;

@@ -296,6 +296,9 @@ public final class WifiProtoEnums {
     public static final int SEND_NLMSG_NULL = 3;
     public static final int SETTINGS = 1;
     public static final int SIGNATURE = 4;
+    public static final int STATS_SOURCE_LEGACY = 1;
+    public static final int STATS_SOURCE_NEW_POWER_STATS = 2;
+    public static final int STATS_SOURCE_UNKNOWN = 0;
     public static final int STA_AP_CONCURRENCY_DBS = 3;
     public static final int STA_AP_CONCURRENCY_SINGLE = 2;
     public static final int STA_AP_CONCURRENCY_UNKNOWN = 0;

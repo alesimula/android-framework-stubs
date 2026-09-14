@@ -126,6 +126,77 @@ public class MediaRecorder implements android.media.AudioRouting, android.media.
     public native void stop() throws java.lang.IllegalStateException;
     public void unregisterAudioRecordingCallback(android.media.AudioManager.AudioRecordingCallback p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VideoEncoderValues {
+    }
+
+    public final class VideoSource {
+        public static final int CAMERA = 1;
+        public static final int DEFAULT = 0;
+        public static final int SURFACE = 2;
+        private VideoSource(android.media.MediaRecorder p0) {}
+    }
+
+    public final class OutputFormat {
+        public static final int AAC_ADIF = 5;
+        public static final int AAC_ADTS = 6;
+        public static final int AMR_NB = 3;
+        public static final int AMR_WB = 4;
+        public static final int DEFAULT = 0;
+        public static final int HEIF = 10;
+        public static final int MPEG_2_TS = 8;
+        public static final int MPEG_4 = 2;
+        public static final int OGG = 11;
+        public static final int OUTPUT_FORMAT_RTP_AVP = 7;
+        public static final int RAW_AMR = 3;
+        public static final int THREE_GPP = 1;
+        public static final int WEBM = 9;
+        private OutputFormat(android.media.MediaRecorder p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SystemSource {
+    }
+
+    public static final class MetricsConstants {
+        public static final java.lang.String AUDIO_BITRATE = "android.media.mediarecorder.audio-bitrate";
+        public static final java.lang.String AUDIO_CHANNELS = "android.media.mediarecorder.audio-channels";
+        public static final java.lang.String AUDIO_SAMPLERATE = "android.media.mediarecorder.audio-samplerate";
+        public static final java.lang.String AUDIO_TIMESCALE = "android.media.mediarecorder.audio-timescale";
+        public static final java.lang.String CAPTURE_FPS = "android.media.mediarecorder.capture-fps";
+        public static final java.lang.String CAPTURE_FPS_ENABLE = "android.media.mediarecorder.capture-fpsenable";
+        public static final java.lang.String FRAMERATE = "android.media.mediarecorder.frame-rate";
+        public static final java.lang.String HEIGHT = "android.media.mediarecorder.height";
+        public static final java.lang.String MOVIE_TIMESCALE = "android.media.mediarecorder.movie-timescale";
+        public static final java.lang.String ROTATION = "android.media.mediarecorder.rotation";
+        public static final java.lang.String VIDEO_BITRATE = "android.media.mediarecorder.video-bitrate";
+        public static final java.lang.String VIDEO_IFRAME_INTERVAL = "android.media.mediarecorder.video-iframe-interval";
+        public static final java.lang.String VIDEO_LEVEL = "android.media.mediarecorder.video-encoder-level";
+        public static final java.lang.String VIDEO_PROFILE = "android.media.mediarecorder.video-encoder-profile";
+        public static final java.lang.String VIDEO_TIMESCALE = "android.media.mediarecorder.video-timescale";
+        public static final java.lang.String WIDTH = "android.media.mediarecorder.width";
+        private MetricsConstants() {}
+    }
+
+    private class EventHandler extends android.os.Handler {
+        private static final int MEDIA_RECORDER_AUDIO_ROUTING_CHANGED = 10000;
+        private static final int MEDIA_RECORDER_EVENT_ERROR = 1;
+        private static final int MEDIA_RECORDER_EVENT_INFO = 2;
+        private static final int MEDIA_RECORDER_EVENT_LIST_END = 99;
+        private static final int MEDIA_RECORDER_EVENT_LIST_START = 1;
+        private static final int MEDIA_RECORDER_TRACK_EVENT_ERROR = 100;
+        private static final int MEDIA_RECORDER_TRACK_EVENT_INFO = 101;
+        private static final int MEDIA_RECORDER_TRACK_EVENT_LIST_END = 1000;
+        private static final int MEDIA_RECORDER_TRACK_EVENT_LIST_START = 100;
+        private android.media.MediaRecorder mMediaRecorder;
+        public EventHandler(android.media.MediaRecorder p0, android.media.MediaRecorder p1, android.os.Looper p2) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OutputFormatValues {
+    }
+
     public final class AudioEncoder {
         public static final int AAC = 3;
         public static final int AAC_ELD = 5;
@@ -138,8 +209,34 @@ public class MediaRecorder implements android.media.AudioRouting, android.media.
         private AudioEncoder(android.media.MediaRecorder p0) {}
     }
 
+    public static interface OnErrorListener {
+        public void onError(android.media.MediaRecorder p0, int p1, int p2);
+    }
+
+    public final class VideoEncoder {
+        public static final int APV = 9;
+        public static final int AV1 = 8;
+        public static final int DEFAULT = 0;
+        public static final int DOLBY_VISION = 7;
+        public static final int H263 = 1;
+        public static final int H264 = 2;
+        public static final int HEVC = 5;
+        public static final int MPEG_4_SP = 3;
+        public static final int VP8 = 4;
+        public static final int VP9 = 6;
+        private VideoEncoder(android.media.MediaRecorder p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Source {
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AudioEncoderValues {
+    }
+
+    public static interface OnInfoListener {
+        public void onInfo(android.media.MediaRecorder p0, int p1, int p2);
     }
 
     public final class AudioSource {
@@ -164,102 +261,5 @@ public class MediaRecorder implements android.media.AudioRouting, android.media.
         public static final int VOICE_RECOGNITION = 6;
         public static final int VOICE_UPLINK = 2;
         private AudioSource(android.media.MediaRecorder p0) {}
-    }
-
-    private class EventHandler extends android.os.Handler {
-        private static final int MEDIA_RECORDER_AUDIO_ROUTING_CHANGED = 10000;
-        private static final int MEDIA_RECORDER_EVENT_ERROR = 1;
-        private static final int MEDIA_RECORDER_EVENT_INFO = 2;
-        private static final int MEDIA_RECORDER_EVENT_LIST_END = 99;
-        private static final int MEDIA_RECORDER_EVENT_LIST_START = 1;
-        private static final int MEDIA_RECORDER_TRACK_EVENT_ERROR = 100;
-        private static final int MEDIA_RECORDER_TRACK_EVENT_INFO = 101;
-        private static final int MEDIA_RECORDER_TRACK_EVENT_LIST_END = 1000;
-        private static final int MEDIA_RECORDER_TRACK_EVENT_LIST_START = 100;
-        private android.media.MediaRecorder mMediaRecorder;
-        public EventHandler(android.media.MediaRecorder p0, android.media.MediaRecorder p1, android.os.Looper p2) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    public static final class MetricsConstants {
-        public static final java.lang.String AUDIO_BITRATE = "android.media.mediarecorder.audio-bitrate";
-        public static final java.lang.String AUDIO_CHANNELS = "android.media.mediarecorder.audio-channels";
-        public static final java.lang.String AUDIO_SAMPLERATE = "android.media.mediarecorder.audio-samplerate";
-        public static final java.lang.String AUDIO_TIMESCALE = "android.media.mediarecorder.audio-timescale";
-        public static final java.lang.String CAPTURE_FPS = "android.media.mediarecorder.capture-fps";
-        public static final java.lang.String CAPTURE_FPS_ENABLE = "android.media.mediarecorder.capture-fpsenable";
-        public static final java.lang.String FRAMERATE = "android.media.mediarecorder.frame-rate";
-        public static final java.lang.String HEIGHT = "android.media.mediarecorder.height";
-        public static final java.lang.String MOVIE_TIMESCALE = "android.media.mediarecorder.movie-timescale";
-        public static final java.lang.String ROTATION = "android.media.mediarecorder.rotation";
-        public static final java.lang.String VIDEO_BITRATE = "android.media.mediarecorder.video-bitrate";
-        public static final java.lang.String VIDEO_IFRAME_INTERVAL = "android.media.mediarecorder.video-iframe-interval";
-        public static final java.lang.String VIDEO_LEVEL = "android.media.mediarecorder.video-encoder-level";
-        public static final java.lang.String VIDEO_PROFILE = "android.media.mediarecorder.video-encoder-profile";
-        public static final java.lang.String VIDEO_TIMESCALE = "android.media.mediarecorder.video-timescale";
-        public static final java.lang.String WIDTH = "android.media.mediarecorder.width";
-        private MetricsConstants() {}
-    }
-
-    public static interface OnErrorListener {
-        public void onError(android.media.MediaRecorder p0, int p1, int p2);
-    }
-
-    public static interface OnInfoListener {
-        public void onInfo(android.media.MediaRecorder p0, int p1, int p2);
-    }
-
-    public final class OutputFormat {
-        public static final int AAC_ADIF = 5;
-        public static final int AAC_ADTS = 6;
-        public static final int AMR_NB = 3;
-        public static final int AMR_WB = 4;
-        public static final int DEFAULT = 0;
-        public static final int HEIF = 10;
-        public static final int MPEG_2_TS = 8;
-        public static final int MPEG_4 = 2;
-        public static final int OGG = 11;
-        public static final int OUTPUT_FORMAT_RTP_AVP = 7;
-        public static final int RAW_AMR = 3;
-        public static final int THREE_GPP = 1;
-        public static final int WEBM = 9;
-        private OutputFormat(android.media.MediaRecorder p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OutputFormatValues {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Source {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SystemSource {
-    }
-
-    public final class VideoEncoder {
-        public static final int APV = 9;
-        public static final int AV1 = 8;
-        public static final int DEFAULT = 0;
-        public static final int DOLBY_VISION = 7;
-        public static final int H263 = 1;
-        public static final int H264 = 2;
-        public static final int HEVC = 5;
-        public static final int MPEG_4_SP = 3;
-        public static final int VP8 = 4;
-        public static final int VP9 = 6;
-        private VideoEncoder(android.media.MediaRecorder p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VideoEncoderValues {
-    }
-
-    public final class VideoSource {
-        public static final int CAMERA = 1;
-        public static final int DEFAULT = 0;
-        public static final int SURFACE = 2;
-        private VideoSource(android.media.MediaRecorder p0) {}
     }
 }

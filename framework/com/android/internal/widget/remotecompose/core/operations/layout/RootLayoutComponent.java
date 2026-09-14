@@ -2,26 +2,34 @@ package com.android.internal.widget.remotecompose.core.operations.layout;
 
 public class RootLayoutComponent extends com.android.internal.widget.remotecompose.core.operations.layout.Component {
     private int mCurrentId;
+    private final java.util.ArrayList<com.android.internal.widget.remotecompose.core.operations.layout.Component> mDirtyBoundaries = null;
     private boolean mHasTouchListeners;
     protected float mLastReportedOriginX;
     protected float mLastReportedOriginY;
+    private com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass mMeasurePass;
     public RootLayoutComponent(int p0) { super((com.android.internal.widget.remotecompose.core.operations.layout.Component)null); }
     public RootLayoutComponent(int p0, float p1, float p2, float p3, float p4, com.android.internal.widget.remotecompose.core.operations.layout.Component p5) { super((com.android.internal.widget.remotecompose.core.operations.layout.Component)null); }
     public RootLayoutComponent(int p0, float p1, float p2, float p3, float p4, com.android.internal.widget.remotecompose.core.operations.layout.Component p5, int p6) { super((com.android.internal.widget.remotecompose.core.operations.layout.Component)null); }
     public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, int p1) {}
     private void assignId(com.android.internal.widget.remotecompose.core.operations.layout.Component p0) {}
     public static void documentation(com.android.internal.widget.remotecompose.core.documentation.DocumentationBuilder p0) {}
+    private com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass getMeasurePass(com.android.internal.widget.remotecompose.core.RemoteContext p0) { return null; }
     public static int id() { return 0; }
     public static java.lang.String name() { return null; }
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
+    private void resetSubTreeMeasureState(com.android.internal.widget.remotecompose.core.operations.layout.Component p0, com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass p1) {}
     public void assignIds(int p0) {}
+    public void clearDirtyBoundaries() {}
     public java.lang.String displayHierarchy() { return null; }
     public void displayHierarchy(com.android.internal.widget.remotecompose.core.operations.layout.Component p0, int p1, com.android.internal.widget.remotecompose.core.operations.utilities.StringSerializer p2) {}
     public boolean getHasTouchListeners() { return false; }
     public void layout(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void layout(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.operations.layout.measure.MeasurePass p1) {}
     public void measure(com.android.internal.widget.remotecompose.core.RemoteContext p0, float p1, float p2, float p3, float p4) {}
+    public boolean needsMeasure() { return false; }
     public void paint(com.android.internal.widget.remotecompose.core.PaintContext p0) {}
+    public void performPartialLayoutPass(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
+    public void registerDirtyBoundary(com.android.internal.widget.remotecompose.core.operations.layout.Component p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
     public void serializeToString(int p0, com.android.internal.widget.remotecompose.core.operations.utilities.StringSerializer p1) {}
     public void setHasTouchListeners(boolean p0) {}

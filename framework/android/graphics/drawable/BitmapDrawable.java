@@ -4,7 +4,6 @@ public class BitmapDrawable extends android.graphics.drawable.Drawable {
     private static final int DEFAULT_PAINT_FLAGS = 6;
     private static final java.lang.String TAG = "BitmapDrawable";
     private static final int TILE_MODE_CLAMP = 0;
-    private static final int TILE_MODE_DISABLED = -1;
     private static final int TILE_MODE_MIRROR = 2;
     private static final int TILE_MODE_REPEAT = 1;
     private static final int TILE_MODE_UNDEFINED = -2;

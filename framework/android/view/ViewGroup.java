@@ -1,6 +1,8 @@
 package android.view;
 
 public abstract class ViewGroup extends android.view.View implements android.view.ViewParent, android.view.ViewManager {
+    public static final int ACCESSIBILITY_CHILD_SORT_NONE = 0;
+    public static final int ACCESSIBILITY_CHILD_SORT_SPATIAL = 1;
     private static final int ARRAY_CAPACITY_INCREMENT = 12;
     private static final int ARRAY_INITIAL_CAPACITY = 12;
     private static final int CHILD_LEFT_INDEX = 0;
@@ -63,6 +65,7 @@ public abstract class ViewGroup extends android.view.View implements android.vie
     android.graphics.Paint mCachePaint;
     @android.view.ViewDebug.ExportedProperty(category="layout")
     private int mChildCountWithTransientState;
+    private int mChildGestureIntentActionSubscribedActions;
     private android.view.animation.Transformation mChildTransformation;
     int mChildUnhandledKeyListeners;
     private android.view.View[] mChildren;
@@ -207,6 +210,7 @@ public abstract class ViewGroup extends android.view.View implements android.vie
     public void captureTransitioningViews(java.util.List<android.view.View> p0) {}
     protected boolean checkLayoutParams(android.view.ViewGroup.LayoutParams p0) { return false; }
     public void childDrawableStateChanged(android.view.View p0) {}
+    void childGestureIntentActionSubscriptionChanged(int p0, boolean p1) {}
     public void childHasTransientStateChanged(android.view.View p0, boolean p1) {}
     protected void cleanupLayoutState(android.view.View p0) {}
     public void clearChildFocus(android.view.View p0) {}
@@ -286,13 +290,13 @@ public abstract class ViewGroup extends android.view.View implements android.vie
     protected void drawableStateChanged() {}
     protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
     public void endViewTransition(android.view.View p0) {}
-    public void findAutofillableViewsByTraversal(java.util.List<android.view.View> p0) {}
+    public final void findAutofillableViewsByTraversal(java.util.List<android.view.View> p0) {}
     public android.view.View findFocus() { return null; }
     android.view.View findFrontmostDroppableChildAt(float p0, float p1, android.graphics.PointF p2) { return null; }
     public void findNamedViews(java.util.Map<java.lang.String, android.view.View> p0) {}
     public android.window.OnBackInvokedDispatcher findOnBackInvokedDispatcherForChild(android.view.View p0, android.view.View p1) { return null; }
     public android.view.View findViewByAccessibilityIdTraversal(int p0) { return null; }
-    public android.view.View findViewByAutofillIdTraversal(int p0) { return null; }
+    public final android.view.View findViewByAutofillIdTraversal(int p0) { return null; }
     protected <T extends android.view.View> T findViewByPredicateTraversal(java.util.function.Predicate<android.view.View> p0, android.view.View p1) { return null; }
     protected <T extends android.view.View> T findViewTraversal(int p0) { return null; }
     protected <T extends android.view.View> T findViewWithTagTraversal(java.lang.Object p0) { return null; }
@@ -305,6 +309,7 @@ public abstract class ViewGroup extends android.view.View implements android.vie
     public android.view.ViewGroup.LayoutParams generateLayoutParams(android.content.Context p0, android.util.AttributeSet p1) { return null; }
     public android.view.ViewGroup.LayoutParams generateLayoutParams(android.util.AttributeSet p0) { return null; }
     protected android.view.ViewGroup.LayoutParams generateLayoutParams(android.view.ViewGroup.LayoutParams p0) { return null; }
+    public int getAccessibilityChildSortStrategy() { return 0; }
     public java.lang.CharSequence getAccessibilityClassName() { return null; }
     public android.view.View getChildAt(int p0) { return null; }
     public int getChildCount() { return 0; }
@@ -336,14 +341,15 @@ public abstract class ViewGroup extends android.view.View implements android.vie
     void getScrollIndicatorBounds(android.graphics.Rect p0) {}
     @android.view.ViewDebug.ExportedProperty(category="focus")
     public boolean getTouchscreenBlocksFocus() { return false; }
-    public android.view.View getTransientView(int p0) { return null; }
-    public int getTransientViewCount() { return 0; }
-    public int getTransientViewIndex(int p0) { return 0; }
+    public final android.view.View getTransientView(int p0) { return null; }
+    public final int getTransientViewCount() { return 0; }
+    public final int getTransientViewIndex(int p0) { return 0; }
     void handleFocusGainInternal(int p0, android.graphics.Rect p1) {}
     boolean hasDefaultFocus() { return false; }
     public boolean hasFocus() { return false; }
     boolean hasFocusable(boolean p0, boolean p1) { return false; }
     boolean hasFocusableChild(boolean p0) { return false; }
+    public boolean hasGestureIntentSubscription(int p0) { return false; }
     protected boolean hasHoveredChild() { return false; }
     public boolean hasTransientState() { return false; }
     boolean hasUnhandledKeyListener() { return false; }
@@ -492,39 +498,19 @@ public abstract class ViewGroup extends android.view.View implements android.vie
     boolean updateLocalSystemUiVisibility(int p0, int p1) { return false; }
     public void updateViewLayout(android.view.View p0, android.view.ViewGroup.LayoutParams p1) {}
 
-    static class ChildListForAccessibility {
+    private static class ChildListForAccessibility {
         private static final int MAX_POOL_SIZE = 32;
         private static final android.util.Pools.SynchronizedPool<android.view.ViewGroup.ChildListForAccessibility> sPool = null;
         private final java.util.ArrayList<android.view.View> mChildren = null;
         private final java.util.ArrayList<android.view.ViewGroup.ViewLocationHolder> mHolders = null;
-        ChildListForAccessibility() {}
+        private ChildListForAccessibility() {}
         private void clear() {}
-        private void init(android.view.ViewGroup p0, boolean p1) {}
-        public static android.view.ViewGroup.ChildListForAccessibility obtain(android.view.ViewGroup p0, boolean p1) { return null; }
+        private void init(android.view.ViewGroup p0, int p1) {}
+        static android.view.ViewGroup.ChildListForAccessibility obtain(android.view.ViewGroup p0, int p1) { return null; }
         private void sort(java.util.ArrayList<android.view.ViewGroup.ViewLocationHolder> p0) {}
-        public android.view.View getChildAt(int p0) { return null; }
-        public int getChildCount() { return 0; }
-        public void recycle() {}
-    }
-
-    private static class ChildListForAutoFillOrContentCapture extends java.util.ArrayList<android.view.View> {
-        private static final int MAX_POOL_SIZE = 32;
-        private static final android.util.Pools.SimplePool<android.view.ViewGroup.ChildListForAutoFillOrContentCapture> sPool = null;
-        private ChildListForAutoFillOrContentCapture() { super(); }
-        public static android.view.ViewGroup.ChildListForAutoFillOrContentCapture obtain() { return null; }
-        public void recycle() {}
-    }
-
-    private static final class HoverTarget {
-        private static final int MAX_RECYCLED = 32;
-        private static android.view.ViewGroup.HoverTarget sRecycleBin;
-        private static final java.lang.Object sRecycleLock = null;
-        private static int sRecycledCount;
-        public android.view.View child;
-        public android.view.ViewGroup.HoverTarget next;
-        private HoverTarget() {}
-        public static android.view.ViewGroup.HoverTarget obtain(android.view.View p0) { return null; }
-        public void recycle() {}
+        android.view.View getChildAt(int p0) { return null; }
+        int getChildCount() { return 0; }
+        void recycle() {}
     }
 
     public static class LayoutParams {
@@ -557,6 +543,30 @@ public abstract class ViewGroup extends android.view.View implements android.vie
             public void mapProperties(android.view.inspector.PropertyMapper p0) {}
             public void readProperties(android.view.ViewGroup.LayoutParams p0, android.view.inspector.PropertyReader p1) {}
         }
+    }
+
+    static class ViewLocationHolder implements java.lang.Comparable<android.view.ViewGroup.ViewLocationHolder> {
+        public static final int COMPARISON_STRATEGY_LOCATION = 2;
+        public static final int COMPARISON_STRATEGY_STRIPE = 1;
+        private static final int MAX_POOL_SIZE = 32;
+        private static int sComparisonStrategy;
+        private static final android.util.Pools.SynchronizedPool<android.view.ViewGroup.ViewLocationHolder> sPool = null;
+        private int mLayoutDirection;
+        private final android.graphics.Rect mLocation = null;
+        private android.view.ViewGroup mRoot;
+        public android.view.View mView;
+        ViewLocationHolder() {}
+        private void clear() {}
+        private static int compareBoundsOfTree(android.view.ViewGroup.ViewLocationHolder p0, android.view.ViewGroup.ViewLocationHolder p1) { return 0; }
+        private void init(android.view.ViewGroup p0, android.view.View p1) {}
+        public static android.view.ViewGroup.ViewLocationHolder obtain(android.view.ViewGroup p0, android.view.View p1) { return null; }
+        public static void setComparisonStrategy(int p0) {}
+        public int compareTo(android.view.ViewGroup.ViewLocationHolder p0) { return 0; }
+        public void recycle() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AccessibilityChildSortStrategy {
     }
 
     public static class MarginLayoutParams extends android.view.ViewGroup.LayoutParams {
@@ -614,9 +624,24 @@ public abstract class ViewGroup extends android.view.View implements android.vie
         }
     }
 
-    public static interface OnHierarchyChangeListener {
-        public void onChildViewAdded(android.view.View p0, android.view.View p1);
-        public void onChildViewRemoved(android.view.View p0, android.view.View p1);
+    private static class ChildListForAutoFillOrContentCapture extends java.util.ArrayList<android.view.View> {
+        private static final int MAX_POOL_SIZE = 32;
+        private static final android.util.Pools.SimplePool<android.view.ViewGroup.ChildListForAutoFillOrContentCapture> sPool = null;
+        private ChildListForAutoFillOrContentCapture() { super(); }
+        public static android.view.ViewGroup.ChildListForAutoFillOrContentCapture obtain() { return null; }
+        public void recycle() {}
+    }
+
+    private static final class HoverTarget {
+        private static final int MAX_RECYCLED = 32;
+        private static android.view.ViewGroup.HoverTarget sRecycleBin;
+        private static final java.lang.Object sRecycleLock = null;
+        private static int sRecycledCount;
+        public android.view.View child;
+        public android.view.ViewGroup.HoverTarget next;
+        private HoverTarget() {}
+        public static android.view.ViewGroup.HoverTarget obtain(android.view.View p0) { return null; }
+        public void recycle() {}
     }
 
     private static final class TouchTarget {
@@ -634,24 +659,9 @@ public abstract class ViewGroup extends android.view.View implements android.vie
         public void recycle() {}
     }
 
-    static class ViewLocationHolder implements java.lang.Comparable<android.view.ViewGroup.ViewLocationHolder> {
-        public static final int COMPARISON_STRATEGY_LOCATION = 2;
-        public static final int COMPARISON_STRATEGY_STRIPE = 1;
-        private static final int MAX_POOL_SIZE = 32;
-        private static int sComparisonStrategy;
-        private static final android.util.Pools.SynchronizedPool<android.view.ViewGroup.ViewLocationHolder> sPool = null;
-        private int mLayoutDirection;
-        private final android.graphics.Rect mLocation = null;
-        private android.view.ViewGroup mRoot;
-        public android.view.View mView;
-        ViewLocationHolder() {}
-        private void clear() {}
-        private static int compareBoundsOfTree(android.view.ViewGroup.ViewLocationHolder p0, android.view.ViewGroup.ViewLocationHolder p1) { return 0; }
-        private void init(android.view.ViewGroup p0, android.view.View p1) {}
-        public static android.view.ViewGroup.ViewLocationHolder obtain(android.view.ViewGroup p0, android.view.View p1) { return null; }
-        public static void setComparisonStrategy(int p0) {}
-        public int compareTo(android.view.ViewGroup.ViewLocationHolder p0) { return 0; }
-        public void recycle() {}
+    public static interface OnHierarchyChangeListener {
+        public void onChildViewAdded(android.view.View p0, android.view.View p1);
+        public void onChildViewRemoved(android.view.View p0, android.view.View p1);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.view.ViewGroup> {

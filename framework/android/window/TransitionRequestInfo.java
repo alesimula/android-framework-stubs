@@ -49,6 +49,88 @@ public final class TransitionRequestInfo implements android.os.Parcelable {
     java.lang.String typeToString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static final class RemoteTransitionInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.RemoteTransitionInfo> CREATOR = null;
+        private final java.lang.String mDebugName = null;
+        private final android.window.TransitionFilter mFilter = null;
+        private final android.window.IRemoteTransition mRemoteTransition = null;
+        RemoteTransitionInfo(android.os.Parcel p0) {}
+        public RemoteTransitionInfo(android.window.RemoteTransition p0) {}
+        @java.lang.Deprecated
+        private void __metadata() {}
+        public int describeContents() { return 0; }
+        public java.lang.String getDebugName() { return null; }
+        public android.window.TransitionFilter getFilter() { return null; }
+        public android.window.IRemoteTransition getRemoteTransition() { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class PipChange implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.PipChange> CREATOR = null;
+        private android.window.WindowContainerToken mTaskFragmentToken;
+        private android.app.ActivityManager.RunningTaskInfo mTaskInfo;
+        public PipChange(android.app.ActivityManager.RunningTaskInfo p0) {}
+        PipChange(android.os.Parcel p0) {}
+        public PipChange(android.window.WindowContainerToken p0, android.app.ActivityManager.RunningTaskInfo p1) {}
+        @java.lang.Deprecated
+        private void __metadata() {}
+        public int describeContents() { return 0; }
+        public android.window.WindowContainerToken getTaskFragmentToken() { return null; }
+        public android.app.ActivityManager.RunningTaskInfo getTaskInfo() { return null; }
+        public android.window.TransitionRequestInfo.PipChange setTaskFragmentToken(android.window.WindowContainerToken p0) { return null; }
+        public android.window.TransitionRequestInfo.PipChange setTaskInfo(android.app.ActivityManager.RunningTaskInfo p0) { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class RequestedLocation implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.RequestedLocation> CREATOR = null;
+        private android.graphics.Rect mBounds;
+        private int mDisplayId;
+        public RequestedLocation(int p0, android.graphics.Rect p1) {}
+        RequestedLocation(android.os.Parcel p0) {}
+        @java.lang.Deprecated
+        private void __metadata() {}
+        public int describeContents() { return 0; }
+        public android.graphics.Rect getBounds() { return null; }
+        public int getDisplayId() { return 0; }
+        public android.window.TransitionRequestInfo.RequestedLocation setBounds(android.graphics.Rect p0) { return null; }
+        public android.window.TransitionRequestInfo.RequestedLocation setDisplayId(int p0) { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class FullscreenRequestChange implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.FullscreenRequestChange> CREATOR = null;
+        private final int mModeRequest = 0;
+        private final android.os.IRemoteCallback mRemoteCallback = null;
+        public FullscreenRequestChange(int p0, android.os.IRemoteCallback p1) {}
+        FullscreenRequestChange(android.os.Parcel p0) {}
+        @java.lang.Deprecated
+        private void __metadata() {}
+        public int describeContents() { return 0; }
+        public int getModeRequest() { return 0; }
+        public android.os.IRemoteCallback getRemoteCallback() { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class WindowingLayerChange implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.WindowingLayerChange> CREATOR = null;
+        private final android.os.IRemoteCallback mRemoteCallback = null;
+        private final int mWindowingLayer = 0;
+        public WindowingLayerChange(int p0, android.os.IRemoteCallback p1) {}
+        WindowingLayerChange(android.os.Parcel p0) {}
+        @java.lang.Deprecated
+        private void __metadata() {}
+        public int describeContents() { return 0; }
+        public android.os.IRemoteCallback getRemoteCallback() { return null; }
+        public int getWindowingLayer() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static final class DisplayChange implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.DisplayChange> CREATOR = null;
         private int mDisconnectReparentDisplay;
@@ -90,73 +172,6 @@ public final class TransitionRequestInfo implements android.os.Parcelable {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static final class FullscreenRequestChange implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.FullscreenRequestChange> CREATOR = null;
-        private final int mModeRequest = 0;
-        private final android.os.IRemoteCallback mRemoteCallback = null;
-        public FullscreenRequestChange(int p0, android.os.IRemoteCallback p1) {}
-        FullscreenRequestChange(android.os.Parcel p0) {}
-        @java.lang.Deprecated
-        private void __metadata() {}
-        public int describeContents() { return 0; }
-        public int getModeRequest() { return 0; }
-        public android.os.IRemoteCallback getRemoteCallback() { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static final class PipChange implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.PipChange> CREATOR = null;
-        private android.window.WindowContainerToken mTaskFragmentToken;
-        private android.app.ActivityManager.RunningTaskInfo mTaskInfo;
-        public PipChange(android.app.ActivityManager.RunningTaskInfo p0) {}
-        PipChange(android.os.Parcel p0) {}
-        public PipChange(android.window.WindowContainerToken p0, android.app.ActivityManager.RunningTaskInfo p1) {}
-        @java.lang.Deprecated
-        private void __metadata() {}
-        public int describeContents() { return 0; }
-        public android.window.WindowContainerToken getTaskFragmentToken() { return null; }
-        public android.app.ActivityManager.RunningTaskInfo getTaskInfo() { return null; }
-        public android.window.TransitionRequestInfo.PipChange setTaskFragmentToken(android.window.WindowContainerToken p0) { return null; }
-        public android.window.TransitionRequestInfo.PipChange setTaskInfo(android.app.ActivityManager.RunningTaskInfo p0) { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static final class RemoteTransitionInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.RemoteTransitionInfo> CREATOR = null;
-        private final java.lang.String mDebugName = null;
-        private final android.window.TransitionFilter mFilter = null;
-        private final android.window.IRemoteTransition mRemoteTransition = null;
-        RemoteTransitionInfo(android.os.Parcel p0) {}
-        public RemoteTransitionInfo(android.window.RemoteTransition p0) {}
-        @java.lang.Deprecated
-        private void __metadata() {}
-        public int describeContents() { return 0; }
-        public java.lang.String getDebugName() { return null; }
-        public android.window.TransitionFilter getFilter() { return null; }
-        public android.window.IRemoteTransition getRemoteTransition() { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static final class RequestedLocation implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.RequestedLocation> CREATOR = null;
-        private android.graphics.Rect mBounds;
-        private int mDisplayId;
-        public RequestedLocation(int p0, android.graphics.Rect p1) {}
-        RequestedLocation(android.os.Parcel p0) {}
-        @java.lang.Deprecated
-        private void __metadata() {}
-        public int describeContents() { return 0; }
-        public android.graphics.Rect getBounds() { return null; }
-        public int getDisplayId() { return 0; }
-        public android.window.TransitionRequestInfo.RequestedLocation setBounds(android.graphics.Rect p0) { return null; }
-        public android.window.TransitionRequestInfo.RequestedLocation setDisplayId(int p0) { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static final class UserChange implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.UserChange> CREATOR = null;
         private final int mNewUserId = 0;
@@ -168,21 +183,6 @@ public final class TransitionRequestInfo implements android.os.Parcelable {
         public int describeContents() { return 0; }
         public int getNewUserId() { return 0; }
         public int getPreviousUserId() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static final class WindowingLayerChange implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.TransitionRequestInfo.WindowingLayerChange> CREATOR = null;
-        private final android.os.IRemoteCallback mRemoteCallback = null;
-        private final int mWindowingLayer = 0;
-        public WindowingLayerChange(int p0, android.os.IRemoteCallback p1) {}
-        WindowingLayerChange(android.os.Parcel p0) {}
-        @java.lang.Deprecated
-        private void __metadata() {}
-        public int describeContents() { return 0; }
-        public android.os.IRemoteCallback getRemoteCallback() { return null; }
-        public int getWindowingLayer() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }

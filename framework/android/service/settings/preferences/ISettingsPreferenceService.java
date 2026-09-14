@@ -6,14 +6,6 @@ public interface ISettingsPreferenceService extends android.os.IInterface {
     public void getPreferenceValue(android.service.settings.preferences.GetValueRequest p0, android.service.settings.preferences.IGetValueCallback p1) throws android.os.RemoteException;
     public void setPreferenceValue(android.service.settings.preferences.SetValueRequest p0, android.service.settings.preferences.ISetValueCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.settings.preferences.ISettingsPreferenceService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void getAllPreferenceMetadata(android.service.settings.preferences.MetadataRequest p0, android.service.settings.preferences.IMetadataCallback p1) throws android.os.RemoteException {}
-        public void getPreferenceValue(android.service.settings.preferences.GetValueRequest p0, android.service.settings.preferences.IGetValueCallback p1) throws android.os.RemoteException {}
-        public void setPreferenceValue(android.service.settings.preferences.SetValueRequest p0, android.service.settings.preferences.ISetValueCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.settings.preferences.ISettingsPreferenceService {
         static final java.lang.String[] PERMISSIONS_setPreferenceValue = null;
         static final int TRANSACTION_getAllPreferenceMetadata = 2;
@@ -41,5 +33,13 @@ public interface ISettingsPreferenceService extends android.os.IInterface {
             public void getPreferenceValue(android.service.settings.preferences.GetValueRequest p0, android.service.settings.preferences.IGetValueCallback p1) throws android.os.RemoteException {}
             public void setPreferenceValue(android.service.settings.preferences.SetValueRequest p0, android.service.settings.preferences.ISetValueCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.settings.preferences.ISettingsPreferenceService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void getAllPreferenceMetadata(android.service.settings.preferences.MetadataRequest p0, android.service.settings.preferences.IMetadataCallback p1) throws android.os.RemoteException {}
+        public void getPreferenceValue(android.service.settings.preferences.GetValueRequest p0, android.service.settings.preferences.IGetValueCallback p1) throws android.os.RemoteException {}
+        public void setPreferenceValue(android.service.settings.preferences.SetValueRequest p0, android.service.settings.preferences.ISetValueCallback p1) throws android.os.RemoteException {}
     }
 }

@@ -7,6 +7,7 @@ public interface ITvInteractiveAppService extends android.os.IInterface {
     public void installOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException;
     public void registerAppLinkInfo(android.media.tv.interactive.AppLinkInfo p0) throws android.os.RemoteException;
     public void registerCallback(android.media.tv.interactive.ITvInteractiveAppServiceCallback p0) throws android.os.RemoteException;
+    public void requestOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.os.Bundle p1) throws android.os.RemoteException;
     public void requestOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException;
     public void searchOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException;
     public void sendAppLinkCommand(android.os.Bundle p0) throws android.os.RemoteException;
@@ -23,6 +24,7 @@ public interface ITvInteractiveAppService extends android.os.IInterface {
         public void installOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException {}
         public void registerAppLinkInfo(android.media.tv.interactive.AppLinkInfo p0) throws android.os.RemoteException {}
         public void registerCallback(android.media.tv.interactive.ITvInteractiveAppServiceCallback p0) throws android.os.RemoteException {}
+        public void requestOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.os.Bundle p1) throws android.os.RemoteException {}
         public void requestOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException {}
         public void searchOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
         public void sendAppLinkCommand(android.os.Bundle p0) throws android.os.RemoteException {}
@@ -38,6 +40,7 @@ public interface ITvInteractiveAppService extends android.os.IInterface {
         static final int TRANSACTION_installOperatorApp = 10;
         static final int TRANSACTION_registerAppLinkInfo = 4;
         static final int TRANSACTION_registerCallback = 1;
+        static final int TRANSACTION_requestOperatorAppIcon = 13;
         static final int TRANSACTION_requestOperatorAppPackageStatus = 12;
         static final int TRANSACTION_searchOperatorApp = 7;
         static final int TRANSACTION_sendAppLinkCommand = 6;
@@ -62,6 +65,7 @@ public interface ITvInteractiveAppService extends android.os.IInterface {
             public void installOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException {}
             public void registerAppLinkInfo(android.media.tv.interactive.AppLinkInfo p0) throws android.os.RemoteException {}
             public void registerCallback(android.media.tv.interactive.ITvInteractiveAppServiceCallback p0) throws android.os.RemoteException {}
+            public void requestOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.os.Bundle p1) throws android.os.RemoteException {}
             public void requestOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0) throws android.os.RemoteException {}
             public void searchOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
             public void sendAppLinkCommand(android.os.Bundle p0) throws android.os.RemoteException {}

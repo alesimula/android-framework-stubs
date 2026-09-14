@@ -4,12 +4,6 @@ public interface IOnMessageReceivedListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.IOnMessageReceivedListener";
     public void onMessageReceived(int p0, byte[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.IOnMessageReceivedListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMessageReceived(int p0, byte[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.IOnMessageReceivedListener {
         static final int TRANSACTION_onMessageReceived = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IOnMessageReceivedListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onMessageReceived(int p0, byte[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.IOnMessageReceivedListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMessageReceived(int p0, byte[] p1) throws android.os.RemoteException {}
     }
 }

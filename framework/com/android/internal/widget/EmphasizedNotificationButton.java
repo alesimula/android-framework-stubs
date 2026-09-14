@@ -54,6 +54,14 @@ public class EmphasizedNotificationButton extends android.widget.Button {
     @android.view.RemotableViewMethod
     public void setRippleColor(android.content.res.ColorStateList p0) {}
 
+    private static class SpacerSpan extends android.text.style.ReplacementSpan {
+        private static final java.lang.String TAG = "SpacerSpan";
+        private int mWidth;
+        SpacerSpan(int p0) { super(); }
+        public void draw(android.graphics.Canvas p0, java.lang.CharSequence p1, int p2, int p3, float p4, int p5, int p6, int p7, android.graphics.Paint p8) {}
+        public int getSize(android.graphics.Paint p0, java.lang.CharSequence p1, int p2, int p3, android.graphics.Paint.FontMetricsInt p4) { return 0; }
+    }
+
     private static class CenterBesideImageSpan extends android.text.style.MetricAffectingSpan {
         private static final java.lang.String TAG = "CenterBesideImageSpan";
         private int mBaselineShiftOffset;
@@ -62,13 +70,5 @@ public class EmphasizedNotificationButton extends android.widget.Button {
         CenterBesideImageSpan(int p0) { super(); }
         public void updateDrawState(android.text.TextPaint p0) {}
         public void updateMeasureState(android.text.TextPaint p0) {}
-    }
-
-    private static class SpacerSpan extends android.text.style.ReplacementSpan {
-        private static final java.lang.String TAG = "SpacerSpan";
-        private int mWidth;
-        SpacerSpan(int p0) { super(); }
-        public void draw(android.graphics.Canvas p0, java.lang.CharSequence p1, int p2, int p3, float p4, int p5, int p6, int p7, android.graphics.Paint p8) {}
-        public int getSize(android.graphics.Paint p0, java.lang.CharSequence p1, int p2, int p3, android.graphics.Paint.FontMetricsInt p4) { return 0; }
     }
 }

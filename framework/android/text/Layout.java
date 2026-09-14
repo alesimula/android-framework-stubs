@@ -192,18 +192,17 @@ public abstract class Layout {
     void replaceWith(java.lang.CharSequence p0, android.text.TextPaint p1, int p2, android.text.Layout.Alignment p3, float p4, float p5) {}
     public boolean shouldClampCursor(int p0) { return false; }
 
-    public static enum Alignment {
-        ALIGN_CENTER,
-        ALIGN_LEFT,
-        ALIGN_NORMAL,
-        ALIGN_OPPOSITE,
-        ALIGN_RIGHT;
-        private static final android.text.Layout.Alignment[] $VALUES = null;
-        private Alignment() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BreakStrategy {
+    static class Ellipsizer implements java.lang.CharSequence, android.text.GetChars {
+        android.text.Layout mLayout;
+        android.text.TextUtils.TruncateAt mMethod;
+        java.lang.CharSequence mText;
+        int mWidth;
+        public Ellipsizer(java.lang.CharSequence p0) {}
+        public char charAt(int p0) { return 0; }
+        public void getChars(int p0, int p1, char[] p2, int p3) {}
+        public int length() { return 0; }
+        public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
+        public java.lang.String toString() { return null; }
     }
 
     public static final class Builder {
@@ -253,13 +252,17 @@ public abstract class Layout {
         public android.text.Layout.Builder setUseBoundsForWidth(boolean p0) { return null; }
     }
 
-    private static interface CharacterBoundsListener {
-        public void onCharacterBounds(int p0, int p1, float p2, float p3, float p4, float p5);
-        default public void onEnd() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BreakStrategy {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Direction {
+    public static @interface TextSelectionLayout {
+    }
+
+    @java.lang.FunctionalInterface
+    public static interface TextInclusionStrategy {
+        public boolean isSegmentInside(android.graphics.RectF p0, android.graphics.RectF p1);
     }
 
     public static class Directions {
@@ -272,17 +275,9 @@ public abstract class Layout {
         public boolean isRunRtl(int p0) { return false; }
     }
 
-    static class Ellipsizer implements java.lang.CharSequence, android.text.GetChars {
-        android.text.Layout mLayout;
-        android.text.TextUtils.TruncateAt mMethod;
-        java.lang.CharSequence mText;
-        int mWidth;
-        public Ellipsizer(java.lang.CharSequence p0) {}
-        public char charAt(int p0) { return 0; }
-        public void getChars(int p0, int p1, char[] p2, int p3) {}
-        public int length() { return 0; }
-        public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
-        public java.lang.String toString() { return null; }
+    @java.lang.FunctionalInterface
+    public static interface SelectionRectangleConsumer {
+        public void accept(float p0, float p1, float p2, float p3, int p4);
     }
 
     private class HorizontalMeasurementProvider {
@@ -293,19 +288,6 @@ public abstract class Layout {
         HorizontalMeasurementProvider(android.text.Layout p0, int p1, boolean p2) {}
         private void init() {}
         float get(int p0) { return 0.0f; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HyphenationFrequency {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface JustificationMode {
-    }
-
-    @java.lang.FunctionalInterface
-    public static interface SelectionRectangleConsumer {
-        public void accept(float p0, float p1, float p2, float p3, int p4);
     }
 
     static class SpannedEllipsizer extends android.text.Layout.Ellipsizer implements android.text.Spanned {
@@ -319,6 +301,20 @@ public abstract class Layout {
         public java.lang.CharSequence subSequence(int p0, int p1) { return null; }
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Direction {
+    }
+
+    public static enum Alignment {
+        ALIGN_CENTER,
+        ALIGN_LEFT,
+        ALIGN_NORMAL,
+        ALIGN_OPPOSITE,
+        ALIGN_RIGHT;
+        private static final android.text.Layout.Alignment[] $VALUES = null;
+        private Alignment() {}
+    }
+
     public static class TabStops {
         private float mIncrement;
         private int mNumStops;
@@ -329,12 +325,16 @@ public abstract class Layout {
         void reset(float p0, java.lang.Object[] p1) {}
     }
 
-    @java.lang.FunctionalInterface
-    public static interface TextInclusionStrategy {
-        public boolean isSegmentInside(android.graphics.RectF p0, android.graphics.RectF p1);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface JustificationMode {
+    }
+
+    private static interface CharacterBoundsListener {
+        public void onCharacterBounds(int p0, int p1, float p2, float p3, float p4, float p5);
+        default public void onEnd() {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TextSelectionLayout {
+    public static @interface HyphenationFrequency {
     }
 }

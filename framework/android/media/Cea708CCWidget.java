@@ -10,44 +10,6 @@ class Cea708CCWidget extends android.media.ClosedCaptionWidget implements androi
     public void emitEvent(android.media.Cea708CCParser.CaptionEvent p0) {}
     public void onDraw(android.graphics.Canvas p0) {}
 
-    static class CCHandler implements android.os.Handler.Callback {
-        private static final int CAPTION_ALL_WINDOWS_BITMAP = 255;
-        private static final long CAPTION_CLEAR_INTERVAL_MS = 60000L;
-        private static final int CAPTION_WINDOWS_MAX = 8;
-        private static final boolean DEBUG = false;
-        private static final int MSG_CAPTION_CLEAR = 2;
-        private static final int MSG_DELAY_CANCEL = 1;
-        private static final java.lang.String TAG = "CCHandler";
-        private static final int TENTHS_OF_SECOND_IN_MILLIS = 100;
-        private final android.media.Cea708CCWidget.CCLayout mCCLayout = null;
-        private final android.media.Cea708CCWidget.CCWindowLayout[] mCaptionWindowLayouts = null;
-        private android.media.Cea708CCWidget.CCWindowLayout mCurrentWindowLayout;
-        private final android.os.Handler mHandler = null;
-        private boolean mIsDelayed;
-        private final java.util.ArrayList<android.media.Cea708CCParser.CaptionEvent> mPendingCaptionEvents = null;
-        public CCHandler(android.media.Cea708CCWidget.CCLayout p0) {}
-        private void clearWindows(int p0) {}
-        private void defineWindow(android.media.Cea708CCParser.CaptionWindow p0) {}
-        private void delay(int p0) {}
-        private void delayCancel() {}
-        private void deleteWindows(int p0) {}
-        private void displayWindows(int p0) {}
-        private java.util.ArrayList<android.media.Cea708CCWidget.CCWindowLayout> getWindowsFromBitmap(int p0) { return null; }
-        private void hideWindows(int p0) {}
-        private void processPendingBuffer() {}
-        private void sendBufferToCurrentWindow(java.lang.String p0) {}
-        private void sendControlToCurrentWindow(char p0) {}
-        private void setCurrentWindowLayout(int p0) {}
-        private void setPenAttr(android.media.Cea708CCParser.CaptionPenAttr p0) {}
-        private void setPenColor(android.media.Cea708CCParser.CaptionPenColor p0) {}
-        private void setPenLocation(android.media.Cea708CCParser.CaptionPenLocation p0) {}
-        private void setWindowAttr(android.media.Cea708CCParser.CaptionWindowAttr p0) {}
-        private void toggleWindows(int p0) {}
-        public boolean handleMessage(android.os.Message p0) { return false; }
-        public void processCaptionEvent(android.media.Cea708CCParser.CaptionEvent p0) {}
-        public void reset() {}
-    }
-
     static class CCLayout extends android.media.Cea708CCWidget.ScaledLayout implements android.media.ClosedCaptionWidget.ClosedCaptionLayout {
         private static final float SAFE_TITLE_AREA_SCALE_END_X = 0.8999999761581421f;
         private static final float SAFE_TITLE_AREA_SCALE_END_Y = 0.8999999761581421f;
@@ -149,5 +111,43 @@ class Cea708CCWidget extends android.media.ClosedCaptionWidget implements androi
             public ScaledLayoutParams(float p0, float p1, float p2, float p3) { super((android.view.ViewGroup.LayoutParams)null); }
             public ScaledLayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
         }
+    }
+
+    static class CCHandler implements android.os.Handler.Callback {
+        private static final int CAPTION_ALL_WINDOWS_BITMAP = 255;
+        private static final long CAPTION_CLEAR_INTERVAL_MS = 60000L;
+        private static final int CAPTION_WINDOWS_MAX = 8;
+        private static final boolean DEBUG = false;
+        private static final int MSG_CAPTION_CLEAR = 2;
+        private static final int MSG_DELAY_CANCEL = 1;
+        private static final java.lang.String TAG = "CCHandler";
+        private static final int TENTHS_OF_SECOND_IN_MILLIS = 100;
+        private final android.media.Cea708CCWidget.CCLayout mCCLayout = null;
+        private final android.media.Cea708CCWidget.CCWindowLayout[] mCaptionWindowLayouts = null;
+        private android.media.Cea708CCWidget.CCWindowLayout mCurrentWindowLayout;
+        private final android.os.Handler mHandler = null;
+        private boolean mIsDelayed;
+        private final java.util.ArrayList<android.media.Cea708CCParser.CaptionEvent> mPendingCaptionEvents = null;
+        public CCHandler(android.media.Cea708CCWidget.CCLayout p0) {}
+        private void clearWindows(int p0) {}
+        private void defineWindow(android.media.Cea708CCParser.CaptionWindow p0) {}
+        private void delay(int p0) {}
+        private void delayCancel() {}
+        private void deleteWindows(int p0) {}
+        private void displayWindows(int p0) {}
+        private java.util.ArrayList<android.media.Cea708CCWidget.CCWindowLayout> getWindowsFromBitmap(int p0) { return null; }
+        private void hideWindows(int p0) {}
+        private void processPendingBuffer() {}
+        private void sendBufferToCurrentWindow(java.lang.String p0) {}
+        private void sendControlToCurrentWindow(char p0) {}
+        private void setCurrentWindowLayout(int p0) {}
+        private void setPenAttr(android.media.Cea708CCParser.CaptionPenAttr p0) {}
+        private void setPenColor(android.media.Cea708CCParser.CaptionPenColor p0) {}
+        private void setPenLocation(android.media.Cea708CCParser.CaptionPenLocation p0) {}
+        private void setWindowAttr(android.media.Cea708CCParser.CaptionWindowAttr p0) {}
+        private void toggleWindows(int p0) {}
+        public boolean handleMessage(android.os.Message p0) { return false; }
+        public void processCaptionEvent(android.media.Cea708CCParser.CaptionEvent p0) {}
+        public void reset() {}
     }
 }

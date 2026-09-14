@@ -2,19 +2,25 @@ package android.os;
 
 public interface IBatteryPropertiesRegistrar extends android.os.IInterface {
     public int getProperty(int p0, android.os.BatteryProperty p1) throws android.os.RemoteException;
+    public boolean registerBatteryStateChangedListener(int p0, android.os.IBatteryStateListener p1) throws android.os.RemoteException;
     public void scheduleUpdate() throws android.os.RemoteException;
+    public boolean unregisterBatteryStateChangedListener(android.os.IBatteryStateListener p0) throws android.os.RemoteException;
 
     public static class Default implements android.os.IBatteryPropertiesRegistrar {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
         public int getProperty(int p0, android.os.BatteryProperty p1) throws android.os.RemoteException { return 0; }
+        public boolean registerBatteryStateChangedListener(int p0, android.os.IBatteryStateListener p1) throws android.os.RemoteException { return false; }
         public void scheduleUpdate() throws android.os.RemoteException {}
+        public boolean unregisterBatteryStateChangedListener(android.os.IBatteryStateListener p0) throws android.os.RemoteException { return false; }
     }
 
     public static abstract class Stub extends android.os.Binder implements android.os.IBatteryPropertiesRegistrar {
         public static final java.lang.String DESCRIPTOR = "android.os.IBatteryPropertiesRegistrar";
         static final int TRANSACTION_getProperty = 1;
+        static final int TRANSACTION_registerBatteryStateChangedListener = 3;
         static final int TRANSACTION_scheduleUpdate = 2;
+        static final int TRANSACTION_unregisterBatteryStateChangedListener = 4;
         public Stub() { super(); }
         public static android.os.IBatteryPropertiesRegistrar asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -28,7 +34,9 @@ public interface IBatteryPropertiesRegistrar extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public int getProperty(int p0, android.os.BatteryProperty p1) throws android.os.RemoteException { return 0; }
+            public boolean registerBatteryStateChangedListener(int p0, android.os.IBatteryStateListener p1) throws android.os.RemoteException { return false; }
             public void scheduleUpdate() throws android.os.RemoteException {}
+            public boolean unregisterBatteryStateChangedListener(android.os.IBatteryStateListener p0) throws android.os.RemoteException { return false; }
         }
     }
 }

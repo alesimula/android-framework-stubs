@@ -3,16 +3,8 @@ package android.companion.virtual.computercontrol;
 public interface ITargetPackagesAdditionCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.virtual.computercontrol.ITargetPackagesAdditionCallback";
     public void onTargetPackagesAdditionFailure(int p0) throws android.os.RemoteException;
-    public void onTargetPackagesAdditionPending(android.app.PendingIntent p0) throws android.os.RemoteException;
+    public void onTargetPackagesAdditionPending(android.content.IntentSender p0) throws android.os.RemoteException;
     public void onTargetPackagesAdditionSuccess() throws android.os.RemoteException;
-
-    public static class Default implements android.companion.virtual.computercontrol.ITargetPackagesAdditionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onTargetPackagesAdditionFailure(int p0) throws android.os.RemoteException {}
-        public void onTargetPackagesAdditionPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
-        public void onTargetPackagesAdditionSuccess() throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements android.companion.virtual.computercontrol.ITargetPackagesAdditionCallback {
         static final int TRANSACTION_onTargetPackagesAdditionFailure = 3;
@@ -31,8 +23,16 @@ public interface ITargetPackagesAdditionCallback extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onTargetPackagesAdditionFailure(int p0) throws android.os.RemoteException {}
-            public void onTargetPackagesAdditionPending(android.app.PendingIntent p0) throws android.os.RemoteException {}
+            public void onTargetPackagesAdditionPending(android.content.IntentSender p0) throws android.os.RemoteException {}
             public void onTargetPackagesAdditionSuccess() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.virtual.computercontrol.ITargetPackagesAdditionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onTargetPackagesAdditionFailure(int p0) throws android.os.RemoteException {}
+        public void onTargetPackagesAdditionPending(android.content.IntentSender p0) throws android.os.RemoteException {}
+        public void onTargetPackagesAdditionSuccess() throws android.os.RemoteException {}
     }
 }

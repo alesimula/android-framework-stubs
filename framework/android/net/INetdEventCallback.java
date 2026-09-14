@@ -9,15 +9,6 @@ public interface INetdEventCallback extends android.os.IInterface {
     public void onNat64PrefixEvent(int p0, boolean p1, java.lang.String p2, int p3) throws android.os.RemoteException;
     public void onPrivateDnsValidationEvent(int p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException;
 
-    public static class Default implements android.net.INetdEventCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnectEvent(java.lang.String p0, int p1, long p2, int p3) throws android.os.RemoteException {}
-        public void onDnsEvent(int p0, int p1, int p2, java.lang.String p3, java.lang.String[] p4, int p5, long p6, int p7) throws android.os.RemoteException {}
-        public void onNat64PrefixEvent(int p0, boolean p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
-        public void onPrivateDnsValidationEvent(int p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.INetdEventCallback {
         public static final java.lang.String DESCRIPTOR = "android.net.INetdEventCallback";
         static final int TRANSACTION_onConnectEvent = 4;
@@ -41,5 +32,14 @@ public interface INetdEventCallback extends android.os.IInterface {
             public void onNat64PrefixEvent(int p0, boolean p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
             public void onPrivateDnsValidationEvent(int p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.net.INetdEventCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnectEvent(java.lang.String p0, int p1, long p2, int p3) throws android.os.RemoteException {}
+        public void onDnsEvent(int p0, int p1, int p2, java.lang.String p3, java.lang.String[] p4, int p5, long p6, int p7) throws android.os.RemoteException {}
+        public void onNat64PrefixEvent(int p0, boolean p1, java.lang.String p2, int p3) throws android.os.RemoteException {}
+        public void onPrivateDnsValidationEvent(int p0, java.lang.String p1, java.lang.String p2, boolean p3) throws android.os.RemoteException {}
     }
 }

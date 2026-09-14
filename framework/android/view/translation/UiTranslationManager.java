@@ -30,15 +30,15 @@ public final class UiTranslationManager {
     public void startTranslation(android.view.translation.TranslationSpec p0, android.view.translation.TranslationSpec p1, java.util.List<android.view.autofill.AutofillId> p2, android.app.assist.ActivityId p3, android.view.translation.UiTranslationSpec p4) {}
     public void unregisterUiTranslationStateCallback(android.view.translation.UiTranslationStateCallback p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UiTranslationState {
-    }
-
     private static class UiTranslationStateRemoteCallback extends android.os.IRemoteCallback.Stub {
         private final android.view.translation.UiTranslationStateCallback mCallback = null;
         private final java.util.concurrent.Executor mExecutor = null;
         UiTranslationStateRemoteCallback(java.util.concurrent.Executor p0, android.view.translation.UiTranslationStateCallback p1) { super(); }
         private void onStateChange(android.os.Bundle p0) {}
         public void sendResult(android.os.Bundle p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UiTranslationState {
     }
 }

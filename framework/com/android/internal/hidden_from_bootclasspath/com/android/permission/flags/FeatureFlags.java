@@ -7,7 +7,6 @@ public interface FeatureFlags {
     public boolean crossUserRoleEnabled();
     public boolean crossUserRoleUxBugfixEnabled();
     public boolean defaultAppsRecommendationEnabled();
-    public boolean enableCoarseFineLocationPromptForAaos();
     public boolean enhancedConfirmationBackportEnabled();
     public boolean expressiveDesignEnabled();
     public boolean fixSafetyCenterTouchTarget();

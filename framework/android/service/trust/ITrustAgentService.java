@@ -14,23 +14,6 @@ public interface ITrustAgentService extends android.os.IInterface {
     public void onUserRequestedUnlock(boolean p0) throws android.os.RemoteException;
     public void setCallback(android.service.trust.ITrustAgentServiceCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.trust.ITrustAgentService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConfigure(java.util.List<android.os.PersistableBundle> p0, android.os.IBinder p1) throws android.os.RemoteException {}
-        public void onDeviceLocked() throws android.os.RemoteException {}
-        public void onDeviceUnlocked() throws android.os.RemoteException {}
-        public void onEscrowTokenAdded(byte[] p0, long p1, android.os.UserHandle p2) throws android.os.RemoteException {}
-        public void onEscrowTokenRemoved(long p0, boolean p1) throws android.os.RemoteException {}
-        public void onTokenStateReceived(long p0, int p1) throws android.os.RemoteException {}
-        public void onTrustTimeout() throws android.os.RemoteException {}
-        public void onUnlockAttempt(boolean p0) throws android.os.RemoteException {}
-        public void onUnlockLockout(int p0) throws android.os.RemoteException {}
-        public void onUserMayRequestUnlock() throws android.os.RemoteException {}
-        public void onUserRequestedUnlock(boolean p0) throws android.os.RemoteException {}
-        public void setCallback(android.service.trust.ITrustAgentServiceCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.trust.ITrustAgentService {
         public static final java.lang.String DESCRIPTOR = "android.service.trust.ITrustAgentService";
         static final int TRANSACTION_onConfigure = 8;
@@ -70,5 +53,22 @@ public interface ITrustAgentService extends android.os.IInterface {
             public void onUserRequestedUnlock(boolean p0) throws android.os.RemoteException {}
             public void setCallback(android.service.trust.ITrustAgentServiceCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.trust.ITrustAgentService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConfigure(java.util.List<android.os.PersistableBundle> p0, android.os.IBinder p1) throws android.os.RemoteException {}
+        public void onDeviceLocked() throws android.os.RemoteException {}
+        public void onDeviceUnlocked() throws android.os.RemoteException {}
+        public void onEscrowTokenAdded(byte[] p0, long p1, android.os.UserHandle p2) throws android.os.RemoteException {}
+        public void onEscrowTokenRemoved(long p0, boolean p1) throws android.os.RemoteException {}
+        public void onTokenStateReceived(long p0, int p1) throws android.os.RemoteException {}
+        public void onTrustTimeout() throws android.os.RemoteException {}
+        public void onUnlockAttempt(boolean p0) throws android.os.RemoteException {}
+        public void onUnlockLockout(int p0) throws android.os.RemoteException {}
+        public void onUserMayRequestUnlock() throws android.os.RemoteException {}
+        public void onUserRequestedUnlock(boolean p0) throws android.os.RemoteException {}
+        public void setCallback(android.service.trust.ITrustAgentServiceCallback p0) throws android.os.RemoteException {}
     }
 }

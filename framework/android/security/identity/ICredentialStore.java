@@ -20,15 +20,6 @@ public interface ICredentialStore extends android.os.IInterface {
     public android.security.identity.ICredential getCredentialByName(java.lang.String p0, int p1) throws android.os.RemoteException;
     public android.security.identity.SecurityHardwareInfoParcel getSecurityHardwareInfo() throws android.os.RemoteException;
 
-    public static class Default implements android.security.identity.ICredentialStore {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.security.identity.IWritableCredential createCredential(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public android.security.identity.ISession createPresentationSession(int p0) throws android.os.RemoteException { return null; }
-        public android.security.identity.ICredential getCredentialByName(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.security.identity.SecurityHardwareInfoParcel getSecurityHardwareInfo() throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.identity.ICredentialStore {
         static final int TRANSACTION_createCredential = 2;
         static final int TRANSACTION_createPresentationSession = 4;
@@ -51,5 +42,14 @@ public interface ICredentialStore extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public android.security.identity.SecurityHardwareInfoParcel getSecurityHardwareInfo() throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.security.identity.ICredentialStore {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.security.identity.IWritableCredential createCredential(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public android.security.identity.ISession createPresentationSession(int p0) throws android.os.RemoteException { return null; }
+        public android.security.identity.ICredential getCredentialByName(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public android.security.identity.SecurityHardwareInfoParcel getSecurityHardwareInfo() throws android.os.RemoteException { return null; }
     }
 }

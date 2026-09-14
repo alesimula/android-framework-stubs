@@ -90,25 +90,6 @@ public class AudioPolicy {
     public java.lang.String toLogFriendlyString() { return null; }
     public int updateMixingRules(java.util.List<android.util.Pair<android.media.audiopolicy.AudioMix, android.media.audiopolicy.AudioMixingRule>> p0) { return 0; }
 
-    public static abstract class AudioPolicyFocusListener {
-        public AudioPolicyFocusListener() {}
-        public void onAudioFocusAbandon(android.media.AudioFocusInfo p0) {}
-        public void onAudioFocusGrant(android.media.AudioFocusInfo p0, int p1) {}
-        public void onAudioFocusLoss(android.media.AudioFocusInfo p0, boolean p1) {}
-        public void onAudioFocusRequest(android.media.AudioFocusInfo p0, int p1) {}
-    }
-
-    public static abstract class AudioPolicyStatusListener {
-        public AudioPolicyStatusListener() {}
-        public void onMixStateUpdate(android.media.audiopolicy.AudioMix p0) {}
-        public void onStatusChange() {}
-    }
-
-    public static abstract class AudioPolicyVolumeCallback {
-        public AudioPolicyVolumeCallback() {}
-        public void onVolumeAdjustment(int p0) {}
-    }
-
     public static class Builder {
         private android.content.Context mContext;
         private android.media.audiopolicy.AudioPolicy.AudioPolicyFocusListener mFocusListener;
@@ -131,12 +112,31 @@ public class AudioPolicy {
         public android.media.audiopolicy.AudioPolicy.Builder setMediaProjection(android.media.projection.MediaProjection p0) { return null; }
     }
 
+    public static abstract class AudioPolicyVolumeCallback {
+        public AudioPolicyVolumeCallback() {}
+        public void onVolumeAdjustment(int p0) {}
+    }
+
     private class EventHandler extends android.os.Handler {
         public EventHandler(android.media.audiopolicy.AudioPolicy p0, android.media.audiopolicy.AudioPolicy p1, android.os.Looper p2) { super(); }
         public void handleMessage(android.os.Message p0) {}
     }
 
+    public static abstract class AudioPolicyStatusListener {
+        public AudioPolicyStatusListener() {}
+        public void onMixStateUpdate(android.media.audiopolicy.AudioMix p0) {}
+        public void onStatusChange() {}
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PolicyStatus {
+    }
+
+    public static abstract class AudioPolicyFocusListener {
+        public AudioPolicyFocusListener() {}
+        public void onAudioFocusAbandon(android.media.AudioFocusInfo p0) {}
+        public void onAudioFocusGrant(android.media.AudioFocusInfo p0, int p1) {}
+        public void onAudioFocusLoss(android.media.AudioFocusInfo p0, boolean p1) {}
+        public void onAudioFocusRequest(android.media.AudioFocusInfo p0, int p1) {}
     }
 }

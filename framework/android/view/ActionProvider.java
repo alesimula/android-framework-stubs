@@ -19,11 +19,11 @@ public abstract class ActionProvider {
     public void setVisibilityListener(android.view.ActionProvider.VisibilityListener p0) {}
     public void subUiVisibilityChanged(boolean p0) {}
 
-    public static interface SubUiVisibilityListener {
-        public void onSubUiVisibilityChanged(boolean p0);
-    }
-
     public static interface VisibilityListener {
         public void onActionProviderVisibilityChanged(boolean p0);
+    }
+
+    public static interface SubUiVisibilityListener {
+        public void onSubUiVisibilityChanged(boolean p0);
     }
 }

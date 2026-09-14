@@ -32,10 +32,6 @@ public abstract class FileObserver {
     public void startWatching() {}
     public void stopWatching() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NotifyEventType {
-    }
-
     private static class ObserverThread extends java.lang.Thread {
         private final android.util.SparseArray<java.lang.ref.WeakReference> mRealObservers = null;
         private int m_fd;
@@ -49,5 +45,9 @@ public abstract class FileObserver {
         public void run() {}
         public int[] startWatching(java.util.List<java.io.File> p0, int p1, android.os.FileObserver p2) { return null; }
         public void stopWatching(int[] p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface NotifyEventType {
     }
 }

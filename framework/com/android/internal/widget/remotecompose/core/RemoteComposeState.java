@@ -19,6 +19,7 @@ public class RemoteComposeState implements com.android.internal.widget.remotecom
     private final boolean[] mIntegerOverride = null;
     float mLastRepaint;
     private int mNextId;
+    private int mNextLocalId;
     private final com.android.internal.widget.remotecompose.core.operations.utilities.IntMap<java.lang.Object> mObjectMap = null;
     private final com.android.internal.widget.remotecompose.core.operations.utilities.IntMap<float[]> mPathData = null;
     private final com.android.internal.widget.remotecompose.core.operations.utilities.IntMap<java.lang.Object> mPathMap = null;
@@ -43,6 +44,7 @@ public class RemoteComposeState implements com.android.internal.widget.remotecom
     public boolean containsId(int p0) { return false; }
     public int createNextAvailableId() { return 0; }
     public int createNextAvailableId(int p0) { return 0; }
+    public int createNextLocalId() { return 0; }
     public int dataGetId(java.lang.Object p0) { return 0; }
     public com.android.internal.widget.remotecompose.core.operations.utilities.ArrayAccess getArray(int p0) { return null; }
     public int getColor(int p0) { return 0; }

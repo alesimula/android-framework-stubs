@@ -2,12 +2,12 @@ package android.service.personalcontext.refiner;
 
 public interface IGetFilterCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.refiner.IGetFilterCallback";
-    public void updateFilter(android.service.personalcontext.hint.HintFilter p0) throws android.os.RemoteException;
+    public void updateFilter(android.app.personalcontext.hint.HintFilter p0) throws android.os.RemoteException;
 
     public static class Default implements android.service.personalcontext.refiner.IGetFilterCallback {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void updateFilter(android.service.personalcontext.hint.HintFilter p0) throws android.os.RemoteException {}
+        public void updateFilter(android.app.personalcontext.hint.HintFilter p0) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.refiner.IGetFilterCallback {
@@ -24,7 +24,7 @@ public interface IGetFilterCallback extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void updateFilter(android.service.personalcontext.hint.HintFilter p0) throws android.os.RemoteException {}
+            public void updateFilter(android.app.personalcontext.hint.HintFilter p0) throws android.os.RemoteException {}
         }
     }
 }

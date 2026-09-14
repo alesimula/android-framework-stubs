@@ -152,11 +152,11 @@ public class EuiccManager {
     public void updateSubscriptionNickname(int p0, java.lang.String p1, android.app.PendingIntent p2) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ErrorCode {
+    public static @interface EuiccActivationType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EuiccActivationType {
+    public static @interface OtaStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -164,6 +164,6 @@ public class EuiccManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OtaStatus {
+    public static @interface ErrorCode {
     }
 }

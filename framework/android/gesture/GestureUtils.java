@@ -1,7 +1,7 @@
 package android.gesture;
 
 public final class GestureUtils {
-    private static final float NONUNIFORM_SCALE = Float.valueOf(0.0f);
+    private static final float NONUNIFORM_SCALE = 1.4142135381698608f;
     private static final float SCALING_THRESHOLD = 0.25999999046325684f;
     private GestureUtils() {}
     static void closeStream(java.io.Closeable p0) {}

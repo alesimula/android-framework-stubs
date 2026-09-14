@@ -13,13 +13,6 @@ public interface IApInterfaceEventCallback extends android.os.IInterface {
     public void onConnectedClientsChanged(android.net.wifi.nl80211.NativeWifiClient p0, boolean p1) throws android.os.RemoteException;
     public void onSoftApChannelSwitched(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.net.wifi.nl80211.IApInterfaceEventCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnectedClientsChanged(android.net.wifi.nl80211.NativeWifiClient p0, boolean p1) throws android.os.RemoteException {}
-        public void onSoftApChannelSwitched(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.wifi.nl80211.IApInterfaceEventCallback {
         static final int TRANSACTION_onConnectedClientsChanged = 1;
         static final int TRANSACTION_onSoftApChannelSwitched = 2;
@@ -38,5 +31,12 @@ public interface IApInterfaceEventCallback extends android.os.IInterface {
             public void onConnectedClientsChanged(android.net.wifi.nl80211.NativeWifiClient p0, boolean p1) throws android.os.RemoteException {}
             public void onSoftApChannelSwitched(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.net.wifi.nl80211.IApInterfaceEventCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnectedClientsChanged(android.net.wifi.nl80211.NativeWifiClient p0, boolean p1) throws android.os.RemoteException {}
+        public void onSoftApChannelSwitched(int p0, int p1) throws android.os.RemoteException {}
     }
 }

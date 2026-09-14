@@ -11,6 +11,15 @@ public class ProgramRaster extends android.renderscript.BaseObj {
     public android.renderscript.ProgramRaster.CullMode getCullMode() { return null; }
     public boolean isPointSpriteEnabled() { return false; }
 
+    public static enum CullMode {
+        BACK,
+        FRONT,
+        NONE;
+        private static final android.renderscript.ProgramRaster.CullMode[] $VALUES = null;
+        int mID;
+        private CullMode() {}
+    }
+
     public static class Builder {
         android.renderscript.ProgramRaster.CullMode mCullMode;
         boolean mPointSprite;
@@ -19,14 +28,5 @@ public class ProgramRaster extends android.renderscript.BaseObj {
         public android.renderscript.ProgramRaster create() { return null; }
         public android.renderscript.ProgramRaster.Builder setCullMode(android.renderscript.ProgramRaster.CullMode p0) { return null; }
         public android.renderscript.ProgramRaster.Builder setPointSpriteEnabled(boolean p0) { return null; }
-    }
-
-    public static enum CullMode {
-        BACK,
-        FRONT,
-        NONE;
-        private static final android.renderscript.ProgramRaster.CullMode[] $VALUES = null;
-        int mID;
-        private CullMode() {}
     }
 }

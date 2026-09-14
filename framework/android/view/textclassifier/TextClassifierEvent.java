@@ -64,70 +64,6 @@ public abstract class TextClassifierEvent implements android.os.Parcelable {
     void toString(java.lang.StringBuilder p0) {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static abstract class Builder<T extends android.view.textclassifier.TextClassifierEvent.Builder<T>> {
-        private int[] mActionIndices;
-        private java.lang.String[] mEntityTypes;
-        private final int mEventCategory = 0;
-        private android.view.textclassifier.TextClassificationContext mEventContext;
-        private int mEventIndex;
-        private final int mEventType = 0;
-        private android.os.Bundle mExtras;
-        private java.lang.String mModelName;
-        private java.lang.String mResultId;
-        private float[] mScores;
-        private Builder(int p0, int p1) {}
-        abstract T self();
-        public T setActionIndices(int... p0) { return null; }
-        public T setEntityTypes(java.lang.String... p0) { return null; }
-        public T setEventContext(android.view.textclassifier.TextClassificationContext p0) { return null; }
-        public T setEventIndex(int p0) { return null; }
-        public T setExtras(android.os.Bundle p0) { return null; }
-        public T setLocale(android.icu.util.ULocale p0) { return null; }
-        public T setModelName(java.lang.String p0) { return null; }
-        public T setResultId(java.lang.String p0) { return null; }
-        public T setScores(float... p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Category {
-    }
-
-    public static final class ConversationActionsEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent> CREATOR = null;
-        private ConversationActionsEvent(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        private ConversationActionsEvent(android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent.Builder p0) { super((android.os.Parcel)null); }
-
-        public static final class Builder extends android.view.textclassifier.TextClassifierEvent.Builder<android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent.Builder> {
-            public Builder(int p0) { super(0, 0); }
-            public android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent build() { return null; }
-            android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent.Builder self() { return null; }
-        }
-    }
-
-    public static final class LanguageDetectionEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent> CREATOR = null;
-        private LanguageDetectionEvent(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        private LanguageDetectionEvent(android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent.Builder p0) { super((android.os.Parcel)null); }
-
-        public static final class Builder extends android.view.textclassifier.TextClassifierEvent.Builder<android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent.Builder> {
-            public Builder(int p0) { super(0, 0); }
-            public android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent build() { return null; }
-            android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent.Builder self() { return null; }
-        }
-    }
-
-    public static final class TextLinkifyEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent> CREATOR = null;
-        private TextLinkifyEvent(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        private TextLinkifyEvent(android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent.Builder p0) { super((android.os.Parcel)null); }
-
-        public static final class Builder extends android.view.textclassifier.TextClassifierEvent.Builder<android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent.Builder> {
-            public Builder(int p0) { super(0, 0); }
-            public android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent build() { return null; }
-            android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent.Builder self() { return null; }
-        }
-    }
-
     public static final class TextSelectionEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.TextSelectionEvent> CREATOR = null;
         final int mRelativeSuggestedWordEndIndex = 0;
@@ -155,6 +91,70 @@ public abstract class TextClassifierEvent implements android.os.Parcelable {
             public android.view.textclassifier.TextClassifierEvent.TextSelectionEvent.Builder setRelativeSuggestedWordStartIndex(int p0) { return null; }
             public android.view.textclassifier.TextClassifierEvent.TextSelectionEvent.Builder setRelativeWordEndIndex(int p0) { return null; }
             public android.view.textclassifier.TextClassifierEvent.TextSelectionEvent.Builder setRelativeWordStartIndex(int p0) { return null; }
+        }
+    }
+
+    public static abstract class Builder<T extends android.view.textclassifier.TextClassifierEvent.Builder<T>> {
+        private int[] mActionIndices;
+        private java.lang.String[] mEntityTypes;
+        private final int mEventCategory = 0;
+        private android.view.textclassifier.TextClassificationContext mEventContext;
+        private int mEventIndex;
+        private final int mEventType = 0;
+        private android.os.Bundle mExtras;
+        private java.lang.String mModelName;
+        private java.lang.String mResultId;
+        private float[] mScores;
+        private Builder(int p0, int p1) {}
+        abstract T self();
+        public T setActionIndices(int... p0) { return null; }
+        public T setEntityTypes(java.lang.String... p0) { return null; }
+        public T setEventContext(android.view.textclassifier.TextClassificationContext p0) { return null; }
+        public T setEventIndex(int p0) { return null; }
+        public T setExtras(android.os.Bundle p0) { return null; }
+        public T setLocale(android.icu.util.ULocale p0) { return null; }
+        public T setModelName(java.lang.String p0) { return null; }
+        public T setResultId(java.lang.String p0) { return null; }
+        public T setScores(float... p0) { return null; }
+    }
+
+    public static final class ConversationActionsEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent> CREATOR = null;
+        private ConversationActionsEvent(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        private ConversationActionsEvent(android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent.Builder p0) { super((android.os.Parcel)null); }
+
+        public static final class Builder extends android.view.textclassifier.TextClassifierEvent.Builder<android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent.Builder> {
+            public Builder(int p0) { super(0, 0); }
+            public android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent build() { return null; }
+            android.view.textclassifier.TextClassifierEvent.ConversationActionsEvent.Builder self() { return null; }
+        }
+    }
+
+    public static final class TextLinkifyEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent> CREATOR = null;
+        private TextLinkifyEvent(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        private TextLinkifyEvent(android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent.Builder p0) { super((android.os.Parcel)null); }
+
+        public static final class Builder extends android.view.textclassifier.TextClassifierEvent.Builder<android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent.Builder> {
+            public Builder(int p0) { super(0, 0); }
+            public android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent build() { return null; }
+            android.view.textclassifier.TextClassifierEvent.TextLinkifyEvent.Builder self() { return null; }
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Category {
+    }
+
+    public static final class LanguageDetectionEvent extends android.view.textclassifier.TextClassifierEvent implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent> CREATOR = null;
+        private LanguageDetectionEvent(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        private LanguageDetectionEvent(android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent.Builder p0) { super((android.os.Parcel)null); }
+
+        public static final class Builder extends android.view.textclassifier.TextClassifierEvent.Builder<android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent.Builder> {
+            public Builder(int p0) { super(0, 0); }
+            public android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent build() { return null; }
+            android.view.textclassifier.TextClassifierEvent.LanguageDetectionEvent.Builder self() { return null; }
         }
     }
 

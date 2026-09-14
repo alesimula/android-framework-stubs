@@ -20,6 +20,10 @@ public final class ViewTranslationRequest implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Id {
+    }
+
     public static final class Builder {
         private android.view.autofill.AutofillId mAutofillId;
         private long mBuilderFieldsSet;
@@ -30,9 +34,5 @@ public final class ViewTranslationRequest implements android.os.Parcelable {
         public android.view.translation.ViewTranslationRequest build() { return null; }
         android.view.translation.ViewTranslationRequest.Builder setTranslationRequestValues(java.util.Map<java.lang.String, android.view.translation.TranslationRequestValue> p0) { return null; }
         public android.view.translation.ViewTranslationRequest.Builder setValue(java.lang.String p0, android.view.translation.TranslationRequestValue p1) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Id {
     }
 }

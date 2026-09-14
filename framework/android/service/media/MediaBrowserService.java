@@ -28,16 +28,21 @@ public abstract class MediaBrowserService extends android.app.Service {
     public void onLoadItem(java.lang.String p0, android.service.media.MediaBrowserService.Result<android.media.browse.MediaBrowser.MediaItem> p1) {}
     public void setSessionToken(android.media.session.MediaSession.Token p0) {}
 
-    public static final class BrowserRoot {
-        public static final java.lang.String EXTRA_EXCLUDE_CAPABILITIES = "android.service.media.extra.EXCLUDE_CAPABILITIES";
-        public static final java.lang.String EXTRA_OFFLINE = "android.service.media.extra.OFFLINE";
-        public static final java.lang.String EXTRA_RECENT = "android.service.media.extra.RECENT";
-        public static final java.lang.String EXTRA_SUGGESTED = "android.service.media.extra.SUGGESTED";
-        private final android.os.Bundle mExtras = null;
-        private final java.lang.String mRootId = null;
-        public BrowserRoot(java.lang.String p0, android.os.Bundle p1) {}
-        public android.os.Bundle getExtras() { return null; }
-        public java.lang.String getRootId() { return null; }
+    private static class ServiceBinder extends android.service.media.IMediaBrowserService.Stub {
+        private final java.util.concurrent.atomic.AtomicReference<java.lang.ref.WeakReference<android.service.media.MediaBrowserService.ServiceState>> mServiceState = null;
+        private ServiceBinder(android.service.media.MediaBrowserService.ServiceState p0) { super(); }
+        public void addSubscription(java.lang.String p0, android.os.IBinder p1, android.os.Bundle p2, android.service.media.IMediaBrowserServiceCallbacks p3) {}
+        public void addSubscriptionDeprecated(java.lang.String p0, android.service.media.IMediaBrowserServiceCallbacks p1) {}
+        public void connect(java.lang.String p0, android.os.Bundle p1, android.service.media.IMediaBrowserServiceCallbacks p2) {}
+        public void disconnect(android.service.media.IMediaBrowserServiceCallbacks p0) {}
+        public void getMediaItem(java.lang.String p0, android.os.ResultReceiver p1, android.service.media.IMediaBrowserServiceCallbacks p2) {}
+        public void removeSubscription(java.lang.String p0, android.os.IBinder p1, android.service.media.IMediaBrowserServiceCallbacks p2) {}
+        public void removeSubscriptionDeprecated(java.lang.String p0, android.service.media.IMediaBrowserServiceCallbacks p1) {}
+        public void setServiceState(android.service.media.MediaBrowserService.ServiceState p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    private static @interface ResultFlags {
     }
 
     private static class ConnectionRecord implements android.os.IBinder.DeathRecipient {
@@ -51,36 +56,6 @@ public abstract class MediaBrowserService extends android.app.Service {
         public final int uid = 0;
         ConnectionRecord(android.service.media.MediaBrowserService.ServiceState p0, java.lang.String p1, int p2, int p3, android.os.Bundle p4, android.service.media.IMediaBrowserServiceCallbacks p5, android.service.media.MediaBrowserService.BrowserRoot p6) {}
         public void binderDied() {}
-    }
-
-    public class Result<T extends java.lang.Object> {
-        private java.lang.Object mDebug;
-        private boolean mDetachCalled;
-        private int mFlags;
-        private boolean mSendResultCalled;
-        Result(android.service.media.MediaBrowserService p0, java.lang.Object p1) {}
-        public void detach() {}
-        boolean isDone() { return false; }
-        void onResultSent(T p0, int p1) {}
-        public void sendResult(T p0) {}
-        void setFlags(int p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    private static @interface ResultFlags {
-    }
-
-    private static class ServiceBinder extends android.service.media.IMediaBrowserService.Stub {
-        private final java.util.concurrent.atomic.AtomicReference<java.lang.ref.WeakReference<android.service.media.MediaBrowserService.ServiceState>> mServiceState = null;
-        private ServiceBinder(android.service.media.MediaBrowserService.ServiceState p0) { super(); }
-        public void addSubscription(java.lang.String p0, android.os.IBinder p1, android.os.Bundle p2, android.service.media.IMediaBrowserServiceCallbacks p3) {}
-        public void addSubscriptionDeprecated(java.lang.String p0, android.service.media.IMediaBrowserServiceCallbacks p1) {}
-        public void connect(java.lang.String p0, android.os.Bundle p1, android.service.media.IMediaBrowserServiceCallbacks p2) {}
-        public void disconnect(android.service.media.IMediaBrowserServiceCallbacks p0) {}
-        public void getMediaItem(java.lang.String p0, android.os.ResultReceiver p1, android.service.media.IMediaBrowserServiceCallbacks p2) {}
-        public void removeSubscription(java.lang.String p0, android.os.IBinder p1, android.service.media.IMediaBrowserServiceCallbacks p2) {}
-        public void removeSubscriptionDeprecated(java.lang.String p0, android.service.media.IMediaBrowserServiceCallbacks p1) {}
-        public void setServiceState(android.service.media.MediaBrowserService.ServiceState p0) {}
     }
 
     private class ServiceState {
@@ -100,5 +75,30 @@ public abstract class MediaBrowserService extends android.app.Service {
         public void release() {}
         public void removeConnectionRecordOnHandler(android.service.media.IMediaBrowserServiceCallbacks p0) {}
         public boolean removeSubscriptionOnHandler(java.lang.String p0, android.service.media.IMediaBrowserServiceCallbacks p1, android.os.IBinder p2) { return false; }
+    }
+
+    public static final class BrowserRoot {
+        public static final java.lang.String EXTRA_EXCLUDE_CAPABILITIES = "android.service.media.extra.EXCLUDE_CAPABILITIES";
+        public static final java.lang.String EXTRA_OFFLINE = "android.service.media.extra.OFFLINE";
+        public static final java.lang.String EXTRA_RECENT = "android.service.media.extra.RECENT";
+        public static final java.lang.String EXTRA_SUGGESTED = "android.service.media.extra.SUGGESTED";
+        private final android.os.Bundle mExtras = null;
+        private final java.lang.String mRootId = null;
+        public BrowserRoot(java.lang.String p0, android.os.Bundle p1) {}
+        public android.os.Bundle getExtras() { return null; }
+        public java.lang.String getRootId() { return null; }
+    }
+
+    public class Result<T extends java.lang.Object> {
+        private java.lang.Object mDebug;
+        private boolean mDetachCalled;
+        private int mFlags;
+        private boolean mSendResultCalled;
+        Result(android.service.media.MediaBrowserService p0, java.lang.Object p1) {}
+        public void detach() {}
+        boolean isDone() { return false; }
+        void onResultSent(T p0, int p1) {}
+        public void sendResult(T p0) {}
+        void setFlags(int p0) {}
     }
 }

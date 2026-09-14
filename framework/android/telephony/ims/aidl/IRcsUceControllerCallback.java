@@ -6,14 +6,6 @@ public interface IRcsUceControllerCallback extends android.os.IInterface {
     public void onComplete(android.telephony.ims.SipDetails p0) throws android.os.RemoteException;
     public void onError(int p0, long p1, android.telephony.ims.SipDetails p2) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IRcsUceControllerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCapabilitiesReceived(java.util.List<android.telephony.ims.RcsContactUceCapability> p0) throws android.os.RemoteException {}
-        public void onComplete(android.telephony.ims.SipDetails p0) throws android.os.RemoteException {}
-        public void onError(int p0, long p1, android.telephony.ims.SipDetails p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IRcsUceControllerCallback {
         static final int TRANSACTION_onCapabilitiesReceived = 1;
         static final int TRANSACTION_onComplete = 2;
@@ -34,5 +26,13 @@ public interface IRcsUceControllerCallback extends android.os.IInterface {
             public void onComplete(android.telephony.ims.SipDetails p0) throws android.os.RemoteException {}
             public void onError(int p0, long p1, android.telephony.ims.SipDetails p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IRcsUceControllerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCapabilitiesReceived(java.util.List<android.telephony.ims.RcsContactUceCapability> p0) throws android.os.RemoteException {}
+        public void onComplete(android.telephony.ims.SipDetails p0) throws android.os.RemoteException {}
+        public void onError(int p0, long p1, android.telephony.ims.SipDetails p2) throws android.os.RemoteException {}
     }
 }

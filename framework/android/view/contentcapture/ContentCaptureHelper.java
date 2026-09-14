@@ -1,7 +1,7 @@
 package android.view.contentcapture;
 
 public final class ContentCaptureHelper {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureHelper";
     public static boolean sDebug;
     public static boolean sVerbose;
     private ContentCaptureHelper() {}

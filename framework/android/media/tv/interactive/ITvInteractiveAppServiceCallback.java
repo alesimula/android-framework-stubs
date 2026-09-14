@@ -2,18 +2,21 @@ package android.media.tv.interactive;
 
 public interface ITvInteractiveAppServiceCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.interactive.ITvInteractiveAppServiceCallback";
-    public void onOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException;
+    public void onNotifyOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException;
+    public void onSendOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.graphics.Bitmap p1) throws android.os.RemoteException;
     public void onStateChanged(int p0, int p1, int p2) throws android.os.RemoteException;
 
     public static class Default implements android.media.tv.interactive.ITvInteractiveAppServiceCallback {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void onOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void onNotifyOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void onSendOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.graphics.Bitmap p1) throws android.os.RemoteException {}
         public void onStateChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.media.tv.interactive.ITvInteractiveAppServiceCallback {
-        static final int TRANSACTION_onOperatorAppPackageStatus = 2;
+        static final int TRANSACTION_onNotifyOperatorAppPackageStatus = 2;
+        static final int TRANSACTION_onSendOperatorAppIcon = 3;
         static final int TRANSACTION_onStateChanged = 1;
         public Stub() { super(); }
         public static android.media.tv.interactive.ITvInteractiveAppServiceCallback asInterface(android.os.IBinder p0) { return null; }
@@ -27,7 +30,8 @@ public interface ITvInteractiveAppServiceCallback extends android.os.IInterface 
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void onOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
+            public void onNotifyOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) throws android.os.RemoteException {}
+            public void onSendOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.graphics.Bitmap p1) throws android.os.RemoteException {}
             public void onStateChanged(int p0, int p1, int p2) throws android.os.RemoteException {}
         }
     }

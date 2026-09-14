@@ -20,6 +20,8 @@ public interface ISupervisionManager extends android.os.IInterface {
     public void setSupervisionRecoveryInfo(android.app.supervision.SupervisionRecoveryInfo p0) throws android.os.RemoteException;
     public void setUserRestrictionForUser(int p0, java.lang.String p1, boolean p2) throws android.os.RemoteException;
     public boolean shouldAllowBypassingSupervisionRoleQualification() throws android.os.RemoteException;
+    public void startSupervisionSession(int p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException;
+    public void stopAllSupervisionSessions(int p0) throws android.os.RemoteException;
     public void unregisterSupervisionListener(android.app.supervision.ISupervisionListener p0) throws android.os.RemoteException;
 
     public static class Default implements android.app.supervision.ISupervisionManager {
@@ -42,6 +44,8 @@ public interface ISupervisionManager extends android.os.IInterface {
         public void setSupervisionRecoveryInfo(android.app.supervision.SupervisionRecoveryInfo p0) throws android.os.RemoteException {}
         public void setUserRestrictionForUser(int p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
         public boolean shouldAllowBypassingSupervisionRoleQualification() throws android.os.RemoteException { return false; }
+        public void startSupervisionSession(int p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException {}
+        public void stopAllSupervisionSessions(int p0) throws android.os.RemoteException {}
         public void unregisterSupervisionListener(android.app.supervision.ISupervisionListener p0) throws android.os.RemoteException {}
     }
 
@@ -63,6 +67,8 @@ public interface ISupervisionManager extends android.os.IInterface {
         static final int TRANSACTION_setSupervisionRecoveryInfo = 6;
         static final int TRANSACTION_setUserRestrictionForUser = 18;
         static final int TRANSACTION_shouldAllowBypassingSupervisionRoleQualification = 5;
+        static final int TRANSACTION_startSupervisionSession = 19;
+        static final int TRANSACTION_stopAllSupervisionSessions = 20;
         static final int TRANSACTION_unregisterSupervisionListener = 10;
         public Stub() { super(); }
         public static android.app.supervision.ISupervisionManager asInterface(android.os.IBinder p0) { return null; }
@@ -93,6 +99,8 @@ public interface ISupervisionManager extends android.os.IInterface {
             public void setSupervisionRecoveryInfo(android.app.supervision.SupervisionRecoveryInfo p0) throws android.os.RemoteException {}
             public void setUserRestrictionForUser(int p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
             public boolean shouldAllowBypassingSupervisionRoleQualification() throws android.os.RemoteException { return false; }
+            public void startSupervisionSession(int p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException {}
+            public void stopAllSupervisionSessions(int p0) throws android.os.RemoteException {}
             public void unregisterSupervisionListener(android.app.supervision.ISupervisionListener p0) throws android.os.RemoteException {}
         }
     }

@@ -47,15 +47,23 @@ public final class RemoteController {
     void startListeningToSessions() {}
     void stopListeningToSessions() {}
 
-    private class EventHandler extends android.os.Handler {
-        public EventHandler(android.media.RemoteController p0, android.media.RemoteController p1, android.os.Looper p2) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
     private class MediaControllerCallback extends android.media.session.MediaController.Callback {
         private MediaControllerCallback(android.media.RemoteController p0) { super(); }
         public void onMetadataChanged(android.media.MediaMetadata p0) {}
         public void onPlaybackStateChanged(android.media.session.PlaybackState p0) {}
+    }
+
+    private class TopTransportSessionListener implements android.media.session.MediaSessionManager.OnActiveSessionsChangedListener {
+        private TopTransportSessionListener(android.media.RemoteController p0) {}
+        public void onActiveSessionsChanged(java.util.List<android.media.session.MediaController> p0) {}
+    }
+
+    private static class PlaybackInfo {
+        long mCurrentPosMs;
+        float mSpeed;
+        int mState;
+        long mStateChangeTimeMs;
+        PlaybackInfo(int p0, long p1, long p2, float p3) {}
     }
 
     public class MetadataEditor extends android.media.MediaMetadataEditor {
@@ -73,16 +81,8 @@ public final class RemoteController {
         public void onClientTransportControlUpdate(int p0);
     }
 
-    private static class PlaybackInfo {
-        long mCurrentPosMs;
-        float mSpeed;
-        int mState;
-        long mStateChangeTimeMs;
-        PlaybackInfo(int p0, long p1, long p2, float p3) {}
-    }
-
-    private class TopTransportSessionListener implements android.media.session.MediaSessionManager.OnActiveSessionsChangedListener {
-        private TopTransportSessionListener(android.media.RemoteController p0) {}
-        public void onActiveSessionsChanged(java.util.List<android.media.session.MediaController> p0) {}
+    private class EventHandler extends android.os.Handler {
+        public EventHandler(android.media.RemoteController p0, android.media.RemoteController p1, android.os.Looper p2) { super(); }
+        public void handleMessage(android.os.Message p0) {}
     }
 }

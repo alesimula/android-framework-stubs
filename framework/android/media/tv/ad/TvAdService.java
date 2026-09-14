@@ -13,18 +13,6 @@ public abstract class TvAdService extends android.app.Service {
     public final android.os.IBinder onBind(android.content.Intent p0) { return null; }
     public abstract android.media.tv.ad.TvAdService.Session onCreateSession(java.lang.String p0, java.lang.String p1);
 
-    private static final class MediaViewCleanUpTask extends android.os.AsyncTask<android.view.View, java.lang.Void, java.lang.Void> {
-        private MediaViewCleanUpTask() { super(); }
-        protected java.lang.Void doInBackground(android.view.View... p0) { return null; }
-    }
-
-    private final class ServiceHandler extends android.os.Handler {
-        private static final int DO_CREATE_SESSION = 1;
-        private static final int DO_NOTIFY_SESSION_CREATED = 2;
-        private ServiceHandler(android.media.tv.ad.TvAdService p0) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
     public static abstract class Session implements android.view.KeyEvent.Callback {
         private final android.content.Context mContext = null;
         private final android.view.KeyEvent.DispatcherState mDispatcherState = null;
@@ -96,5 +84,17 @@ public abstract class TvAdService extends android.app.Service {
         void setSurface(android.view.Surface p0) {}
         void startAdService() {}
         void stopAdService() {}
+    }
+
+    private static final class MediaViewCleanUpTask extends android.os.AsyncTask<android.view.View, java.lang.Void, java.lang.Void> {
+        private MediaViewCleanUpTask() { super(); }
+        protected java.lang.Void doInBackground(android.view.View... p0) { return null; }
+    }
+
+    private final class ServiceHandler extends android.os.Handler {
+        private static final int DO_CREATE_SESSION = 1;
+        private static final int DO_NOTIFY_SESSION_CREATED = 2;
+        private ServiceHandler(android.media.tv.ad.TvAdService p0) { super(); }
+        public void handleMessage(android.os.Message p0) {}
     }
 }

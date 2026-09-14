@@ -14,15 +14,15 @@ public final class ApduServiceInfoProto {
     public static final long STATIC_OFF_HOST_NAME = 1138166333445L;
     public ApduServiceInfoProto() {}
 
-    public final class AutoTransactMapping {
-        public static final long AID = 1138166333441L;
-        public static final long SHOULD_AUTO_TRANSACT = 1133871366146L;
-        public AutoTransactMapping(android.nfc.cardemulation.ApduServiceInfoProto p0) {}
-    }
-
     public final class AutoTransactPattern {
         public static final long REGEXP_PATTERN = 1138166333441L;
         public static final long SHOULD_AUTO_TRANSACT = 1133871366146L;
         public AutoTransactPattern(android.nfc.cardemulation.ApduServiceInfoProto p0) {}
+    }
+
+    public final class AutoTransactMapping {
+        public static final long AID = 1138166333441L;
+        public static final long SHOULD_AUTO_TRANSACT = 1133871366146L;
+        public AutoTransactMapping(android.nfc.cardemulation.ApduServiceInfoProto p0) {}
     }
 }

@@ -22,6 +22,14 @@ public final class HotwordRejectedResult implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface HotwordConfidenceLevelValue {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConfidenceLevel {
+    }
+
     public static final class Builder {
         private long mBuilderFieldsSet;
         private int mConfidenceLevel;
@@ -29,13 +37,5 @@ public final class HotwordRejectedResult implements android.os.Parcelable {
         private void checkNotUsed() {}
         public android.service.voice.HotwordRejectedResult build() { return null; }
         public android.service.voice.HotwordRejectedResult.Builder setConfidenceLevel(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConfidenceLevel {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface HotwordConfidenceLevelValue {
     }
 }

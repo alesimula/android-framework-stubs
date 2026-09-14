@@ -17,13 +17,13 @@ public class GbaService extends android.app.Service {
     public final void reportAuthenticationFailure(int p0, int p1) throws java.lang.RuntimeException {}
     public final void reportKeysAvailable(int p0, byte[] p1, java.lang.String p2) throws java.lang.RuntimeException {}
 
-    private class GbaServiceHandler extends android.os.Handler {
-        GbaServiceHandler(android.telephony.gba.GbaService p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
     private class IGbaServiceWrapper extends android.telephony.gba.IGbaService.Stub {
         private IGbaServiceWrapper(android.telephony.gba.GbaService p0) { super(); }
         public void authenticationRequest(android.telephony.gba.GbaAuthRequest p0) {}
+    }
+
+    private class GbaServiceHandler extends android.os.Handler {
+        GbaServiceHandler(android.telephony.gba.GbaService p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
     }
 }

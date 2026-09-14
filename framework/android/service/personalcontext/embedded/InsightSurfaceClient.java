@@ -16,13 +16,14 @@ public class InsightSurfaceClient implements java.lang.AutoCloseable {
     private final java.lang.Object mRegistrationLock = null;
     private int mRegistrationState;
     private android.service.personalcontext.embedded.InsightSurfaceSession mSession;
-    private InsightSurfaceClient(android.content.Context p0, int p1, int p2, android.graphics.Color p3, int p4, boolean p5, boolean p6, int p7, java.util.List<android.service.personalcontext.embedded.InsightSurfaceClient.InsightReceiver> p8) {}
+    private InsightSurfaceClient(android.content.Context p0, int p1, int p2, android.graphics.Color p3, int p4, boolean p5, boolean p6, int p7, android.os.Bundle p8, java.util.List<android.service.personalcontext.embedded.InsightSurfaceClient.InsightReceiver> p9) {}
     private void executeWithCallbacks(java.util.function.Consumer<android.service.personalcontext.embedded.InsightSurfaceClient.ClientCallback> p0) {}
     private static boolean isValidMeasureSpec(int p0) { return false; }
     private static boolean isValidNestedScrollAxes(int p0) { return false; }
     public void close() {}
     public android.graphics.Color getBackgroundColor() { return null; }
     public android.service.personalcontext.embedded.InsightSurfaceClientInfo getClientInfo() { return null; }
+    public android.os.Bundle getExtras() { return null; }
     public int getMeasureSpecHeight() { return 0; }
     public int getMeasureSpecWidth() { return 0; }
     public int getNestedScrollAxes() { return 0; }
@@ -38,6 +39,7 @@ public class InsightSurfaceClient implements java.lang.AutoCloseable {
     public static final class Builder {
         private android.graphics.Color mBackgroundColor;
         private final android.content.Context mContext = null;
+        private android.os.Bundle mExtras;
         private int mHeightMeasureSpec;
         private int mNestedScrollAxes;
         private boolean mNestedScrollAxisLocked;
@@ -49,11 +51,42 @@ public class InsightSurfaceClient implements java.lang.AutoCloseable {
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder addReceiver(android.service.personalcontext.embedded.InsightSurfaceClient.InsightReceiver p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient build() { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setBackgroundColor(android.graphics.Color p0) { return null; }
+        public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setExtras(android.os.Bundle p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setMeasureSpecs(int p0, int p1) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setNestedScrollAxes(int p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setNestedScrollAxisLocked(boolean p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setShouldBlur(boolean p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClient.Builder setThemeResourceId(int p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RegistrationState {
+    }
+
+    private static final class InsightSurfaceClientStub extends android.service.personalcontext.embedded.IInsightSurfaceClient.Stub {
+        private final java.lang.ref.WeakReference<android.service.personalcontext.embedded.InsightSurfaceClient> mClientRef = null;
+        InsightSurfaceClientStub(android.service.personalcontext.embedded.InsightSurfaceClient p0) { super(); }
+        public void onReceiveInsight(android.service.personalcontext.insight.ContextInsightWrapper p0) {}
+        public void onRegistered() {}
+        public void onScrollDelta(float p0, float p1) {}
+        public void onScrollStart(int p0) {}
+        public void onScrollStop(int p0, float p1, float p2) {}
+        public void onSizeChanged(int p0, int p1) {}
+        public void onSurfaceCreated(android.view.SurfaceControlViewHost.SurfacePackage p0, android.service.personalcontext.embedded.IInsightSurfaceSession p1) {}
+        public void onSurfaceReleased(android.view.SurfaceControlViewHost.SurfacePackage p0) {}
+        public void onSurfaceUpdated(android.view.SurfaceControlViewHost.SurfacePackage p0) {}
+        public void onVisualizationError(int p0) {}
+    }
+
+    public static interface ClientCallback {
+        default public void onError(android.service.personalcontext.embedded.InsightSurfaceSessionException p0) {}
+        default public void onScrollDelta(float p0, float p1) {}
+        default public void onScrollStart(int p0) {}
+        default public void onScrollStop(int p0, float p1, float p2) {}
+        default public void onSessionCreated(android.service.personalcontext.embedded.InsightSurfaceSession p0) {}
+        default public void onSessionDestroyed(android.service.personalcontext.embedded.InsightSurfaceSession p0) {}
+        default public void onSessionUpdated(android.service.personalcontext.embedded.InsightSurfaceSession p0) {}
+        default public void onSizeChanged(int p0, int p1) {}
     }
 
     private static final class CallbackWrapper {
@@ -67,19 +100,7 @@ public class InsightSurfaceClient implements java.lang.AutoCloseable {
         public final java.lang.String toString() { return null; }
     }
 
-    public static interface ClientCallback {
-        default public void onError(android.service.personalcontext.embedded.InsightSurfaceSessionException p0) {}
-        default public void onSessionCreated(android.service.personalcontext.embedded.InsightSurfaceSession p0) {}
-        default public void onSessionDestroyed(android.service.personalcontext.embedded.InsightSurfaceSession p0) {}
-        default public void onSessionUpdated(android.service.personalcontext.embedded.InsightSurfaceSession p0) {}
-        default public void onSizeChanged(int p0, int p1) {}
-    }
-
     public static interface InsightReceiver {
         public boolean onReceive(android.service.personalcontext.insight.ContextInsight p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RegistrationState {
     }
 }

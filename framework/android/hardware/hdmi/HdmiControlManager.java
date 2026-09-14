@@ -7,6 +7,7 @@ public final class HdmiControlManager {
     public static final int AVR_VOLUME_MUTED = 101;
     public static final java.lang.String CEC_SETTING_NAME_HDMI_CEC_ENABLED = "hdmi_cec_enabled";
     public static final java.lang.String CEC_SETTING_NAME_HDMI_CEC_VERSION = "hdmi_cec_version";
+    public static final java.lang.String CEC_SETTING_NAME_PLAYBACK_SEND_STANDBY_ON_SLEEP = "playback_send_standby_on_sleep";
     public static final java.lang.String CEC_SETTING_NAME_POWER_CONTROL_MODE = "power_control_mode";
     public static final java.lang.String CEC_SETTING_NAME_POWER_STATE_CHANGE_ON_ACTIVE_SOURCE_LOST = "power_state_change_on_active_source_lost";
     public static final java.lang.String CEC_SETTING_NAME_QUERY_SAD_AAC = "query_sad_aac";
@@ -94,6 +95,8 @@ public final class HdmiControlManager {
     public static final int ONE_TOUCH_RECORD_UNSUPPORTED_CA = 11;
     public static final int OSD_MESSAGE_ARC_CONNECTED_INVALID_PORT = 1;
     public static final int OSD_MESSAGE_AVR_VOLUME_CHANGED = 2;
+    public static final int PLAYBACK_SEND_STANDBY_ON_SLEEP_DISABLED = 0;
+    public static final int PLAYBACK_SEND_STANDBY_ON_SLEEP_ENABLED = 1;
     public static final java.lang.String POWER_CONTROL_MODE_BROADCAST = "broadcast";
     public static final java.lang.String POWER_CONTROL_MODE_NONE = "none";
     public static final java.lang.String POWER_CONTROL_MODE_TV = "to_tv";
@@ -212,6 +215,7 @@ public final class HdmiControlManager {
     public int getHdmiCecVolumeControlEnabled() { return 0; }
     public int getPhysicalAddress() { return 0; }
     public android.hardware.hdmi.HdmiPlaybackClient getPlaybackClient() { return null; }
+    public int getPlaybackSendStandbyOnSleep() { return 0; }
     public java.util.List<android.hardware.hdmi.HdmiPortInfo> getPortInfo() { return null; }
     public java.lang.String getPowerControlMode() { return null; }
     public java.lang.String getPowerStateChangeOnActiveSourceLost() { return null; }
@@ -248,6 +252,7 @@ public final class HdmiControlManager {
     public void setHdmiCecEnabled(int p0) {}
     public void setHdmiCecVersion(int p0) {}
     public void setHdmiCecVolumeControlEnabled(int p0) {}
+    public void setPlaybackSendStandbyOnSleep(int p0) {}
     public void setPowerControlMode(java.lang.String p0) {}
     public void setPowerStateChangeOnActiveSourceLost(java.lang.String p0) {}
     public void setRoutingControl(int p0) {}
@@ -265,84 +270,11 @@ public final class HdmiControlManager {
     public void toggleAndFollowTvPower() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ActiveSourceLostBehavior {
-    }
-
-    public static interface CecSettingChangeListener {
-        public void onChange(java.lang.String p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CecSettingSad {
-    }
-
-    private final class ClientHotplugEventListener implements android.hardware.hdmi.HdmiControlManager.HotplugEventListener {
-        private ClientHotplugEventListener(android.hardware.hdmi.HdmiControlManager p0) {}
-        public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ControlCallbackResult {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EarcFeature {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HdmiCecControl {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface HdmiCecVersion {
-    }
-
-    public static interface HdmiCecVolumeControlFeatureListener {
-        public void onHdmiCecVolumeControlFeature(int p0);
-    }
-
-    public static interface HdmiControlStatusChangeListener {
-        public void onStatusChange(int p0, boolean p1);
-    }
-
-    public static interface HotplugEventListener {
-        public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PowerControlMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RcProfileSourceHandlesMenu {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RcProfileTv {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RoutingControl {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SadPresenceInQuery {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SetMenuLanguage {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SettingName {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SoundbarMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SourceAvoidWakeupIfInteractive {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -354,15 +286,43 @@ public final class HdmiControlManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ControlCallbackResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SettingName {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RoutingControl {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlaybackSendStandbyOnSleep {
+    }
+
+    public static interface CecSettingChangeListener {
+        public void onChange(java.lang.String p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CecSettingSad {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ActiveSourceLostBehavior {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface TvBehaviorOnStandbyMessage {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TvSendStandbyOnSleep {
+    public static @interface HdmiCecControl {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TvWakeOnOneTouchPlay {
+    public static @interface SadPresenceInQuery {
     }
 
     public static interface VendorCommandListener {
@@ -371,6 +331,55 @@ public final class HdmiControlManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PowerControlMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TvSendStandbyOnSleep {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EarcFeature {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface VolumeControl {
+    }
+
+    public static interface HotplugEventListener {
+        public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RcProfileTv {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SoundbarMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RcProfileSourceHandlesMenu {
+    }
+
+    public static interface HdmiCecVolumeControlFeatureListener {
+        public void onHdmiCecVolumeControlFeature(int p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TvWakeOnOneTouchPlay {
+    }
+
+    public static interface HdmiControlStatusChangeListener {
+        public void onStatusChange(int p0, boolean p1);
+    }
+
+    private final class ClientHotplugEventListener implements android.hardware.hdmi.HdmiControlManager.HotplugEventListener {
+        private ClientHotplugEventListener(android.hardware.hdmi.HdmiControlManager p0) {}
+        public void onReceived(android.hardware.hdmi.HdmiHotplugEvent p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SourceAvoidWakeupIfInteractive {
     }
 }

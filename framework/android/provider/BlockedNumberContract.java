@@ -38,11 +38,18 @@ public class BlockedNumberContract {
     public static class BlockedNumbers {
         public static final java.lang.String COLUMN_E164_NUMBER = "e164_number";
         public static final java.lang.String COLUMN_ID = "_id";
+        public static final java.lang.String COLUMN_MATCH_TYPE = "match_type";
         public static final java.lang.String COLUMN_ORIGINAL_NUMBER = "original_number";
         public static final java.lang.String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/blocked_number";
         public static final java.lang.String CONTENT_TYPE = "vnd.android.cursor.dir/blocked_number";
         public static final android.net.Uri CONTENT_URI = null;
+        public static final int MATCH_TYPE_EXACT = 0;
+        public static final int MATCH_TYPE_PREFIX = 1;
         private BlockedNumbers() {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface MatchType {
+        }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

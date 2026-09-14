@@ -2,7 +2,7 @@ package com.android.internal.widget;
 
 @android.widget.RemoteViews.RemoteView
 public class BigPictureNotificationImageView extends android.widget.ImageView implements com.android.internal.widget.NotificationDrawableConsumer {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "BigPictureNotificationImageView";
     private com.android.internal.widget.NotificationIconManager mIconManager;
     private final int mMaximumDrawableHeight = 0;
     private final int mMaximumDrawableWidth = 0;
@@ -12,6 +12,7 @@ public class BigPictureNotificationImageView extends android.widget.ImageView im
     public BigPictureNotificationImageView(android.content.Context p0, android.util.AttributeSet p1, int p2, int p3) { super((android.content.Context)null); }
     private android.graphics.drawable.Drawable loadImage(android.graphics.drawable.Icon p0) { return null; }
     private android.graphics.drawable.Drawable loadImage(android.net.Uri p0) { return null; }
+    public com.android.internal.widget.NotificationIconManager getIconManager() { return null; }
     public void setIconManager(com.android.internal.widget.NotificationIconManager p0) {}
     public void setImageDrawable(android.graphics.drawable.Drawable p0) {}
     @android.view.RemotableViewMethod(asyncImpl="setImageIconAsync")

@@ -97,17 +97,17 @@ public class ViewPropertyAnimator {
         public void onAnimationUpdate(android.animation.ValueAnimator p0) {}
     }
 
-    static class NameValuesHolder {
-        float mDeltaValue;
-        float mFromValue;
-        int mNameConstant;
-        NameValuesHolder(int p0, float p1, float p2) {}
-    }
-
     private static class PropertyBundle {
         java.util.ArrayList<android.view.ViewPropertyAnimator.NameValuesHolder> mNameValuesHolder;
         int mPropertyMask;
         PropertyBundle(int p0, java.util.ArrayList<android.view.ViewPropertyAnimator.NameValuesHolder> p1) {}
         boolean cancel(int p0) { return false; }
+    }
+
+    static class NameValuesHolder {
+        float mDeltaValue;
+        float mFromValue;
+        int mNameConstant;
+        NameValuesHolder(int p0, float p1, float p2) {}
     }
 }

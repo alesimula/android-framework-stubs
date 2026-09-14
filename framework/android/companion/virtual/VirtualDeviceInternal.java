@@ -45,6 +45,8 @@ public class VirtualDeviceInternal {
     void setDisplayInTouchMode(int p0, boolean p1) {}
     void setDisplayUiMode(int p0, int p1) {}
     void setShowPointerIcon(boolean p0) {}
+    void transferMirroredTasksToVirtualDisplay(int p0) {}
+    void transferTasksFromVirtualDisplay(int p0, int p1) {}
     void unregisterIntentInterceptor(android.companion.virtual.VirtualDeviceManager.IntentInterceptorCallback p0) {}
     void wakeUp() {}
 

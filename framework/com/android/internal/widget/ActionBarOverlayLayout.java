@@ -99,6 +99,13 @@ public class ActionBarOverlayLayout extends android.view.ViewGroup implements co
     public boolean shouldDelayChildPressedState() { return false; }
     public boolean showOverflowMenu() { return false; }
 
+    public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
+        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.view.ViewGroup.MarginLayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
+    }
+
     public static interface ActionBarVisibilityCallback {
         public void enableContentAnimations(boolean p0);
         public void hideForSystem();
@@ -106,12 +113,5 @@ public class ActionBarOverlayLayout extends android.view.ViewGroup implements co
         public void onContentScrollStopped();
         public void onWindowVisibilityChanged(int p0);
         public void showForSystem();
-    }
-
-    public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
-        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.view.ViewGroup.MarginLayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
     }
 }

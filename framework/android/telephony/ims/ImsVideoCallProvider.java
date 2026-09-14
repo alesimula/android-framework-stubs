@@ -39,6 +39,7 @@ public abstract class ImsVideoCallProvider {
 
     private final class ImsVideoCallProviderBinder extends com.android.ims.internal.IImsVideoCallProvider.Stub {
         private ImsVideoCallProviderBinder(android.telephony.ims.ImsVideoCallProvider p0) { super(); }
+        private void enforcePhoneCaller() {}
         public void requestCallDataUsage() {}
         public void requestCameraCapabilities() {}
         public void sendSessionModifyRequest(android.telecom.VideoProfile p0, android.telecom.VideoProfile p1) {}

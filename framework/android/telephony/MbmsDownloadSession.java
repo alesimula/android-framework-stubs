@@ -7,7 +7,7 @@ public class MbmsDownloadSession implements java.lang.AutoCloseable {
     public static final java.lang.String EXTRA_MBMS_DOWNLOAD_REQUEST = "android.telephony.extra.MBMS_DOWNLOAD_REQUEST";
     public static final java.lang.String EXTRA_MBMS_DOWNLOAD_RESULT = "android.telephony.extra.MBMS_DOWNLOAD_RESULT";
     public static final java.lang.String EXTRA_MBMS_FILE_INFO = "android.telephony.extra.MBMS_FILE_INFO";
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "MbmsDownloadSession";
     private static final int MAX_SERVICE_ANNOUNCEMENT_SIZE = 10240;
     @android.annotation.SystemApi
     public static final java.lang.String MBMS_DOWNLOAD_SERVICE_ACTION = "android.telephony.action.EmbmsDownload";
@@ -61,10 +61,10 @@ public class MbmsDownloadSession implements java.lang.AutoCloseable {
     public void setTempFileRootDirectory(java.io.File p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DownloadResultCode {
+    public static @interface DownloadStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DownloadStatus {
+    public static @interface DownloadResultCode {
     }
 }

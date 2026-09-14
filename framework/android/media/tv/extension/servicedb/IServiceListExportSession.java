@@ -5,13 +5,6 @@ public interface IServiceListExportSession extends android.os.IInterface {
     public int exportServiceList(android.os.ParcelFileDescriptor p0, android.os.Bundle p1) throws android.os.RemoteException;
     public int release() throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.servicedb.IServiceListExportSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int exportServiceList(android.os.ParcelFileDescriptor p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
-        public int release() throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.servicedb.IServiceListExportSession {
         static final int TRANSACTION_exportServiceList = 1;
         static final int TRANSACTION_release = 2;
@@ -30,5 +23,12 @@ public interface IServiceListExportSession extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public int release() throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.servicedb.IServiceListExportSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int exportServiceList(android.os.ParcelFileDescriptor p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
+        public int release() throws android.os.RemoteException { return 0; }
     }
 }

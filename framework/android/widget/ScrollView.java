@@ -20,6 +20,7 @@ public class ScrollView extends android.widget.FrameLayout {
     private android.view.HapticScrollFeedbackProvider mHapticScrollFeedbackProvider;
     private boolean mIsBeingDragged;
     private boolean mIsLayoutDirty;
+    private boolean mIsTracingDrag;
     private android.app.jank.JankTracker mJankTracker;
     private int mLastMotionY;
     private long mLastScroll;
@@ -45,11 +46,13 @@ public class ScrollView extends android.widget.FrameLayout {
     public ScrollView(android.content.Context p0, android.util.AttributeSet p1) { super((android.content.Context)null); }
     public ScrollView(android.content.Context p0, android.util.AttributeSet p1, int p2) { super((android.content.Context)null); }
     public ScrollView(android.content.Context p0, android.util.AttributeSet p1, int p2, int p3) { super((android.content.Context)null); }
+    private void beginDragTrace() {}
     private boolean canScroll() { return false; }
     private static int clamp(int p0, int p1, int p2) { return 0; }
     private int consumeFlingInStretch(int p0) { return 0; }
     private void doScrollY(int p0) {}
     private void endDrag() {}
+    private void endDragTrace() {}
     private android.view.View findFocusableViewInBounds(boolean p0, int p1, int p2) { return null; }
     private void flingWithNestedDispatch(int p0) {}
     private int getScrollRange() { return 0; }
@@ -82,7 +85,7 @@ public class ScrollView extends android.widget.FrameLayout {
     protected int computeVerticalScrollRange() { return 0; }
     public boolean dispatchKeyEvent(android.view.KeyEvent p0) { return false; }
     public void draw(android.graphics.Canvas p0) {}
-    protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
+    protected final void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
     public boolean executeKeyEvent(android.view.KeyEvent p0) { return false; }
     public void fling(int p0) {}
     public boolean fullScroll(int p0) { return false; }
@@ -134,11 +137,8 @@ public class ScrollView extends android.widget.FrameLayout {
     public final void smoothScrollBy(int p0, int p1) {}
     public final void smoothScrollTo(int p0, int p1) {}
 
-    private class DifferentialFlingTarget implements android.widget.DifferentialMotionFlingHelper.DifferentialMotionFlingTarget {
-        private DifferentialFlingTarget(android.widget.ScrollView p0) {}
-        public float getScaledScrollFactor() { return 0.0f; }
-        public boolean startDifferentialMotionFling(float p0) { return false; }
-        public void stopDifferentialMotionFling() {}
+    private static interface ScrollStateChangeListener {
+        public void onScrollStateChanged(android.widget.ScrollView p0, int p1, int p2);
     }
 
     static class SavedState extends android.view.View.BaseSavedState {
@@ -150,8 +150,11 @@ public class ScrollView extends android.widget.FrameLayout {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    private static interface ScrollStateChangeListener {
-        public void onScrollStateChanged(android.widget.ScrollView p0, int p1, int p2);
+    private class DifferentialFlingTarget implements android.widget.DifferentialMotionFlingHelper.DifferentialMotionFlingTarget {
+        private DifferentialFlingTarget(android.widget.ScrollView p0) {}
+        public float getScaledScrollFactor() { return 0.0f; }
+        public boolean startDifferentialMotionFling(float p0) { return false; }
+        public void stopDifferentialMotionFling() {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.ScrollView> {

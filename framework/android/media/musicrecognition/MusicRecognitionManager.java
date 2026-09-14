@@ -14,14 +14,8 @@ public class MusicRecognitionManager {
     @android.annotation.SystemApi
     public void beginStreamingSearch(android.media.musicrecognition.RecognitionRequest p0, java.util.concurrent.Executor p1, android.media.musicrecognition.MusicRecognitionManager.RecognitionCallback p2) {}
 
-    private final class MusicRecognitionCallbackWrapper extends android.media.musicrecognition.IMusicRecognitionManagerCallback.Stub {
-        private final android.media.musicrecognition.MusicRecognitionManager.RecognitionCallback mCallback = null;
-        private final java.util.concurrent.Executor mCallbackExecutor = null;
-        private final android.media.musicrecognition.RecognitionRequest mRecognitionRequest = null;
-        MusicRecognitionCallbackWrapper(android.media.musicrecognition.MusicRecognitionManager p0, android.media.musicrecognition.RecognitionRequest p1, android.media.musicrecognition.MusicRecognitionManager.RecognitionCallback p2, java.util.concurrent.Executor p3) { super(); }
-        public void onAudioStreamClosed() {}
-        public void onRecognitionFailed(int p0) {}
-        public void onRecognitionSucceeded(android.media.MediaMetadata p0, android.os.Bundle p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecognitionFailureCode {
     }
 
     public static interface RecognitionCallback {
@@ -30,7 +24,13 @@ public class MusicRecognitionManager {
         public void onRecognitionSucceeded(android.media.musicrecognition.RecognitionRequest p0, android.media.MediaMetadata p1, android.os.Bundle p2);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecognitionFailureCode {
+    private final class MusicRecognitionCallbackWrapper extends android.media.musicrecognition.IMusicRecognitionManagerCallback.Stub {
+        private final android.media.musicrecognition.MusicRecognitionManager.RecognitionCallback mCallback = null;
+        private final java.util.concurrent.Executor mCallbackExecutor = null;
+        private final android.media.musicrecognition.RecognitionRequest mRecognitionRequest = null;
+        MusicRecognitionCallbackWrapper(android.media.musicrecognition.MusicRecognitionManager p0, android.media.musicrecognition.RecognitionRequest p1, android.media.musicrecognition.MusicRecognitionManager.RecognitionCallback p2, java.util.concurrent.Executor p3) { super(); }
+        public void onAudioStreamClosed() {}
+        public void onRecognitionFailed(int p0) {}
+        public void onRecognitionSucceeded(android.media.MediaMetadata p0, android.os.Bundle p1) {}
     }
 }

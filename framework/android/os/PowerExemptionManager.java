@@ -101,11 +101,11 @@ public class PowerExemptionManager {
     public void removeFromPermanentAllowList(java.lang.String p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AllowListEvent {
+    public static @interface ReasonCode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ReasonCode {
+    public static @interface AllowListEvent {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

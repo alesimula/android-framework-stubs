@@ -5,13 +5,6 @@ public interface IConnectionlessHandwritingCallback extends android.os.IInterfac
     public void onError(int p0) throws android.os.RemoteException;
     public void onResult(java.lang.CharSequence p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IConnectionlessHandwritingCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(int p0) throws android.os.RemoteException {}
-        public void onResult(java.lang.CharSequence p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IConnectionlessHandwritingCallback {
         static final int TRANSACTION_onError = 2;
         static final int TRANSACTION_onResult = 1;
@@ -30,5 +23,12 @@ public interface IConnectionlessHandwritingCallback extends android.os.IInterfac
             public void onError(int p0) throws android.os.RemoteException {}
             public void onResult(java.lang.CharSequence p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IConnectionlessHandwritingCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(int p0) throws android.os.RemoteException {}
+        public void onResult(java.lang.CharSequence p0) throws android.os.RemoteException {}
     }
 }

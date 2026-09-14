@@ -15,12 +15,6 @@ public class HealthKeys {
     public static final int UNKNOWN_KEY = 0;
     public HealthKeys() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
-    public static @interface Constant {
-        public int type();
-    }
-
     public static class Constants {
         private final java.lang.String mDataType = null;
         private final int[][] mKeys = null;
@@ -29,6 +23,12 @@ public class HealthKeys {
         public int getIndex(int p0, int p1) { return 0; }
         public int[] getKeys(int p0) { return null; }
         public int getSize(int p0) { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
+    public static @interface Constant {
+        public int type();
     }
 
     private static class SortedIntArray {

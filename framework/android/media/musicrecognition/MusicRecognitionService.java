@@ -3,7 +3,7 @@ package android.media.musicrecognition;
 @android.annotation.SystemApi
 public abstract class MusicRecognitionService extends android.app.Service {
     public static final java.lang.String ACTION_MUSIC_SEARCH_LOOKUP = "android.service.musicrecognition.MUSIC_RECOGNITION";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MusicRecognitionService";
     private android.os.Handler mHandler;
     private final android.media.musicrecognition.IMusicRecognitionService mServiceInterface = null;
     public MusicRecognitionService() { super(); }

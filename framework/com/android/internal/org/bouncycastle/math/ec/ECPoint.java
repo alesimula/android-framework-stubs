@@ -53,28 +53,6 @@ public abstract class ECPoint {
     public abstract com.android.internal.org.bouncycastle.math.ec.ECPoint twice();
     public com.android.internal.org.bouncycastle.math.ec.ECPoint twicePlus(com.android.internal.org.bouncycastle.math.ec.ECPoint p0) { return null; }
 
-    public static abstract class AbstractF2m extends com.android.internal.org.bouncycastle.math.ec.ECPoint {
-        protected AbstractF2m(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
-        protected AbstractF2m(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2, com.android.internal.org.bouncycastle.math.ec.ECFieldElement[] p3) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
-        protected boolean satisfiesCurveEquation() { return false; }
-        protected boolean satisfiesOrder() { return false; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleX(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleXNegateY(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleY(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleYNegateX(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint subtract(com.android.internal.org.bouncycastle.math.ec.ECPoint p0) { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint.AbstractF2m tau() { return null; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint.AbstractF2m tauPow(int p0) { return null; }
-    }
-
-    public static abstract class AbstractFp extends com.android.internal.org.bouncycastle.math.ec.ECPoint {
-        protected AbstractFp(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
-        protected AbstractFp(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2, com.android.internal.org.bouncycastle.math.ec.ECFieldElement[] p3) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
-        protected boolean getCompressionYTilde() { return false; }
-        protected boolean satisfiesCurveEquation() { return false; }
-        public com.android.internal.org.bouncycastle.math.ec.ECPoint subtract(com.android.internal.org.bouncycastle.math.ec.ECPoint p0) { return null; }
-    }
-
     public static class F2m extends com.android.internal.org.bouncycastle.math.ec.ECPoint.AbstractF2m {
         F2m(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
         F2m(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2, com.android.internal.org.bouncycastle.math.ec.ECFieldElement[] p3) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
@@ -106,5 +84,27 @@ public abstract class ECPoint {
         protected com.android.internal.org.bouncycastle.math.ec.ECPoint.Fp twiceJacobianModified(boolean p0) { return null; }
         public com.android.internal.org.bouncycastle.math.ec.ECPoint twicePlus(com.android.internal.org.bouncycastle.math.ec.ECPoint p0) { return null; }
         protected com.android.internal.org.bouncycastle.math.ec.ECFieldElement two(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
+    }
+
+    public static abstract class AbstractF2m extends com.android.internal.org.bouncycastle.math.ec.ECPoint {
+        protected AbstractF2m(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
+        protected AbstractF2m(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2, com.android.internal.org.bouncycastle.math.ec.ECFieldElement[] p3) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
+        protected boolean satisfiesCurveEquation() { return false; }
+        protected boolean satisfiesOrder() { return false; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleX(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleXNegateY(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleY(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint scaleYNegateX(com.android.internal.org.bouncycastle.math.ec.ECFieldElement p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint subtract(com.android.internal.org.bouncycastle.math.ec.ECPoint p0) { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint.AbstractF2m tau() { return null; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint.AbstractF2m tauPow(int p0) { return null; }
+    }
+
+    public static abstract class AbstractFp extends com.android.internal.org.bouncycastle.math.ec.ECPoint {
+        protected AbstractFp(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
+        protected AbstractFp(com.android.internal.org.bouncycastle.math.ec.ECCurve p0, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p1, com.android.internal.org.bouncycastle.math.ec.ECFieldElement p2, com.android.internal.org.bouncycastle.math.ec.ECFieldElement[] p3) { super((com.android.internal.org.bouncycastle.math.ec.ECCurve)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null, (com.android.internal.org.bouncycastle.math.ec.ECFieldElement)null); }
+        protected boolean getCompressionYTilde() { return false; }
+        protected boolean satisfiesCurveEquation() { return false; }
+        public com.android.internal.org.bouncycastle.math.ec.ECPoint subtract(com.android.internal.org.bouncycastle.math.ec.ECPoint p0) { return null; }
     }
 }

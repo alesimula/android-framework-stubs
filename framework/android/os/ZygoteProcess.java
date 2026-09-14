@@ -40,11 +40,11 @@ public class ZygoteProcess implements android.os.IZygoteProcess {
     private static boolean policySpecifiesUsapPoolLaunch(int p0) { return false; }
     public static void setAppZygotePreloadTimeout(int p0) {}
     private boolean shouldAttemptUsapLaunch(int p0, java.util.ArrayList<java.lang.String> p1) { return false; }
-    private android.os.Process.ProcessStartResult startViaZygote(java.lang.String p0, java.lang.String p1, int p2, int p3, int[] p4, int p5, int p6, int p7, java.lang.String p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, boolean p13, java.lang.String p14, int p15, boolean p16, long[] p17, long[] p18, boolean p19, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p20, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p21, boolean p22, boolean p23, boolean p24, long p25, java.lang.String[] p26) throws android.os.ZygoteStartFailedEx { return null; }
-    public static void waitForConnectionToNativeZygote(android.net.LocalSocketAddress p0) {}
-    public static void waitForConnectionToZygote(android.net.LocalSocketAddress p0) {}
-    private static void waitForConnectionToZygote(android.net.LocalSocketAddress p0, boolean p1) {}
-    public static void waitForConnectionToZygote(java.lang.String p0) {}
+    private android.os.Process.ProcessStartResult startViaZygote(java.lang.String p0, java.lang.String p1, int p2, int p3, int p4, int[] p5, int p6, int p7, int p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, java.lang.String p13, boolean p14, java.lang.String p15, int p16, boolean p17, long[] p18, long[] p19, boolean p20, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p21, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p22, boolean p23, boolean p24, boolean p25, long p26, java.lang.String[] p27) throws android.os.ZygoteStartFailedEx { return null; }
+    public static void waitForConnectionToNativeZygote(android.net.LocalSocketAddress p0) throws java.io.IOException {}
+    public static void waitForConnectionToZygote(android.net.LocalSocketAddress p0) throws java.io.IOException {}
+    private static void waitForConnectionToZygote(android.net.LocalSocketAddress p0, boolean p1) throws java.io.IOException {}
+    public static void waitForConnectionToZygote(java.lang.String p0) throws java.io.IOException {}
     private android.os.Process.ProcessStartResult zygoteSendArgsAndGetResult(android.os.ZygoteProcess.ZygoteState p0, int p1, java.util.ArrayList<java.lang.String> p2) throws android.os.ZygoteStartFailedEx { return null; }
     public void bootCompleted() {}
     public void close() {}
@@ -56,7 +56,7 @@ public class ZygoteProcess implements android.os.IZygoteProcess {
     public boolean setApiDenylistExemptions(java.util.List<java.lang.String> p0) { return false; }
     public void setHiddenApiAccessLogSampleRate(int p0) {}
     public void setHiddenApiAccessStatslogSampleRate(int p0) {}
-    public final android.os.Process.ProcessStartResult start(java.lang.String p0, java.lang.String p1, int p2, int p3, int[] p4, int p5, int p6, int p7, java.lang.String p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, java.lang.String p13, int p14, boolean p15, long[] p16, long[] p17, boolean p18, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p19, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p20, boolean p21, boolean p22, boolean p23, long p24, java.lang.String[] p25) { return null; }
+    public final android.os.Process.ProcessStartResult start(java.lang.String p0, java.lang.String p1, int p2, int p3, int p4, int[] p5, int p6, int p7, int p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, java.lang.String p13, java.lang.String p14, int p15, boolean p16, long[] p17, long[] p18, boolean p19, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p20, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p21, boolean p22, boolean p23, boolean p24, long p25, java.lang.String[] p26) { return null; }
     public android.os.ChildZygoteProcess startChildZygote(java.lang.String p0, java.lang.String p1, int p2, int p3, int[] p4, int p5, java.lang.String p6, java.lang.String p7, java.lang.String p8, java.lang.String p9, int p10, int p11, android.content.pm.ApplicationInfo p12, java.lang.String p13, java.lang.String p14, long p15, long p16, java.lang.String p17) { return null; }
 
     private static class ZygoteState implements java.lang.AutoCloseable {

@@ -122,6 +122,20 @@ public class TvInteractiveAppView extends android.view.ViewGroup {
     public void switchOperatorAppState(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1) {}
     public void updateWebServiceClientState(int p0, int p1) {}
 
+    public static abstract class OperatorAppCallback extends android.media.tv.interactive.TvInteractiveAppView.TvInteractiveAppCallback {
+        public OperatorAppCallback() { super(); }
+        public void onKeySetChanged(java.lang.String p0, int p1, int[] p2) {}
+        public void onOperatorAppStateChanged(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2) {}
+        public void onOperatorAppStatusChanged(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) {}
+        public void onOperatorAppSupportedStatus(java.lang.String p0, boolean p1) {}
+        public void onOperatorAppUpdateRequest(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, boolean p2) {}
+        public void onReplaceUiElements(java.lang.String p0, int[] p1) {}
+    }
+
+    public static interface OnUnhandledInputEventListener {
+        public boolean onUnhandledInputEvent(android.view.InputEvent p0);
+    }
+
     private class MySessionCallback extends android.media.tv.interactive.TvInteractiveAppManager.SessionCallback {
         final java.lang.String mIAppServiceId = null;
         int mSubtype;
@@ -147,6 +161,7 @@ public class TvInteractiveAppView extends android.view.ViewGroup {
         public void onRequestCurrentChannelUri(android.media.tv.interactive.TvInteractiveAppManager.Session p0) {}
         public void onRequestCurrentTvInputId(android.media.tv.interactive.TvInteractiveAppManager.Session p0) {}
         public void onRequestCurrentVideoBounds(android.media.tv.interactive.TvInteractiveAppManager.Session p0) {}
+        public void onRequestCurrentVideoBounds(android.media.tv.interactive.TvInteractiveAppManager.Session p0, int p1) {}
         public void onRequestParentalControlApproval(android.media.tv.interactive.TvInteractiveAppManager.Session p0, int p1, boolean p2, android.os.Bundle p3) {}
         public void onRequestScheduleRecording(android.media.tv.interactive.TvInteractiveAppManager.Session p0, java.lang.String p1, java.lang.String p2, android.net.Uri p3, long p4, long p5, int p6, android.os.Bundle p7) {}
         public void onRequestScheduleRecording(android.media.tv.interactive.TvInteractiveAppManager.Session p0, java.lang.String p1, java.lang.String p2, android.net.Uri p3, android.net.Uri p4, android.os.Bundle p5) {}
@@ -167,24 +182,11 @@ public class TvInteractiveAppView extends android.view.ViewGroup {
         public void onSetParentalControlPin(android.media.tv.interactive.TvInteractiveAppManager.Session p0, java.lang.String p1, java.lang.String p2) {}
         public void onSetTvRecordingInfo(android.media.tv.interactive.TvInteractiveAppManager.Session p0, java.lang.String p1, android.media.tv.TvRecordingInfo p2) {}
         public void onSetVideoBounds(android.media.tv.interactive.TvInteractiveAppManager.Session p0, android.graphics.Rect p1) {}
+        public void onSetVideoBounds(android.media.tv.interactive.TvInteractiveAppManager.Session p0, android.graphics.Rect p1, android.graphics.Rect p2) {}
         public void onStreamingPlaybackStatusChanged(android.media.tv.interactive.TvInteractiveAppManager.Session p0, int p1) {}
         public void onTeletextAppStateChanged(android.media.tv.interactive.TvInteractiveAppManager.Session p0, int p1) {}
         public void onTimeShiftCommandRequest(android.media.tv.interactive.TvInteractiveAppManager.Session p0, java.lang.String p1, android.os.Bundle p2) {}
         public void onVerifyParentalControlPinRequest(android.media.tv.interactive.TvInteractiveAppManager.Session p0, int p1, java.lang.String p2) {}
-    }
-
-    public static interface OnUnhandledInputEventListener {
-        public boolean onUnhandledInputEvent(android.view.InputEvent p0);
-    }
-
-    public static abstract class OperatorAppCallback extends android.media.tv.interactive.TvInteractiveAppView.TvInteractiveAppCallback {
-        public OperatorAppCallback() { super(); }
-        public void onKeySetChanged(java.lang.String p0, int p1, int[] p2) {}
-        public void onOperatorAppStateChanged(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2) {}
-        public void onOperatorAppStatusChanged(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, int p2, android.os.Bundle p3) {}
-        public void onOperatorAppSupportedStatus(java.lang.String p0, boolean p1) {}
-        public void onOperatorAppUpdateRequest(java.lang.String p0, android.media.tv.interactive.OperatorAppServiceInfo p1, boolean p2) {}
-        public void onReplaceUiElements(java.lang.String p0, int[] p1) {}
     }
 
     public static abstract class TvInteractiveAppCallback {
@@ -202,6 +204,7 @@ public class TvInteractiveAppView extends android.view.ViewGroup {
         public void onRequestCurrentChannelUri(java.lang.String p0) {}
         public void onRequestCurrentTvInputId(java.lang.String p0) {}
         public void onRequestCurrentVideoBounds(java.lang.String p0) {}
+        public void onRequestCurrentVideoBounds(java.lang.String p0, int p1) {}
         public void onRequestParentalControlApproval(java.lang.String p0, int p1, boolean p2, android.os.Bundle p3) {}
         public void onRequestScheduleRecording(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.net.Uri p3, long p4, long p5, int p6, android.os.Bundle p7) {}
         public void onRequestScheduleRecording(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.net.Uri p3, android.net.Uri p4, android.os.Bundle p5) {}
@@ -219,6 +222,7 @@ public class TvInteractiveAppView extends android.view.ViewGroup {
         public void onSetParentalControlPin(java.lang.String p0, java.lang.String p1, java.lang.String p2) {}
         public void onSetTvRecordingInfo(java.lang.String p0, java.lang.String p1, android.media.tv.TvRecordingInfo p2) {}
         public void onSetVideoBounds(java.lang.String p0, android.graphics.Rect p1) {}
+        public void onSetVideoBounds(java.lang.String p0, android.graphics.Rect p1, android.graphics.Rect p2) {}
         public void onStateChanged(java.lang.String p0, int p1, int p2) {}
         public void onStreamingPlaybackStatusChanged(java.lang.String p0, int p1) {}
         public void onTeletextAppStateChanged(java.lang.String p0, int p1) {}

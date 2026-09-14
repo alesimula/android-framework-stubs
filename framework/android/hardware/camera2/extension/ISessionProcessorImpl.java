@@ -13,21 +13,6 @@ public interface ISessionProcessorImpl extends android.os.IInterface {
     public int startTrigger(android.hardware.camera2.CaptureRequest p0, android.hardware.camera2.extension.ICaptureCallback p1) throws android.os.RemoteException;
     public void stopRepeating() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.ISessionProcessorImpl {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void deInitSession(android.os.IBinder p0) throws android.os.RemoteException {}
-        public android.hardware.camera2.extension.LatencyPair getRealtimeCaptureLatency() throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.CameraSessionConfig initSession(android.os.IBinder p0, java.lang.String p1, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p2, android.hardware.camera2.extension.OutputSurface p3, android.hardware.camera2.extension.OutputSurface p4, android.hardware.camera2.extension.OutputSurface p5, android.hardware.camera2.CaptureRequest p6) throws android.os.RemoteException { return null; }
-        public void onCaptureSessionEnd() throws android.os.RemoteException {}
-        public void onCaptureSessionStart(android.hardware.camera2.extension.IRequestProcessorImpl p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void setParameters(android.hardware.camera2.CaptureRequest p0) throws android.os.RemoteException {}
-        public int startCapture(android.hardware.camera2.extension.ICaptureCallback p0, boolean p1) throws android.os.RemoteException { return 0; }
-        public int startRepeating(android.hardware.camera2.extension.ICaptureCallback p0) throws android.os.RemoteException { return 0; }
-        public int startTrigger(android.hardware.camera2.CaptureRequest p0, android.hardware.camera2.extension.ICaptureCallback p1) throws android.os.RemoteException { return 0; }
-        public void stopRepeating() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.ISessionProcessorImpl {
         static final int TRANSACTION_deInitSession = 2;
         static final int TRANSACTION_getRealtimeCaptureLatency = 10;
@@ -62,5 +47,20 @@ public interface ISessionProcessorImpl extends android.os.IInterface {
             public int startTrigger(android.hardware.camera2.CaptureRequest p0, android.hardware.camera2.extension.ICaptureCallback p1) throws android.os.RemoteException { return 0; }
             public void stopRepeating() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.ISessionProcessorImpl {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void deInitSession(android.os.IBinder p0) throws android.os.RemoteException {}
+        public android.hardware.camera2.extension.LatencyPair getRealtimeCaptureLatency() throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.CameraSessionConfig initSession(android.os.IBinder p0, java.lang.String p1, java.util.Map<java.lang.String, android.hardware.camera2.impl.CameraMetadataNative> p2, android.hardware.camera2.extension.OutputSurface p3, android.hardware.camera2.extension.OutputSurface p4, android.hardware.camera2.extension.OutputSurface p5, android.hardware.camera2.CaptureRequest p6) throws android.os.RemoteException { return null; }
+        public void onCaptureSessionEnd() throws android.os.RemoteException {}
+        public void onCaptureSessionStart(android.hardware.camera2.extension.IRequestProcessorImpl p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void setParameters(android.hardware.camera2.CaptureRequest p0) throws android.os.RemoteException {}
+        public int startCapture(android.hardware.camera2.extension.ICaptureCallback p0, boolean p1) throws android.os.RemoteException { return 0; }
+        public int startRepeating(android.hardware.camera2.extension.ICaptureCallback p0) throws android.os.RemoteException { return 0; }
+        public int startTrigger(android.hardware.camera2.CaptureRequest p0, android.hardware.camera2.extension.ICaptureCallback p1) throws android.os.RemoteException { return 0; }
+        public void stopRepeating() throws android.os.RemoteException {}
     }
 }

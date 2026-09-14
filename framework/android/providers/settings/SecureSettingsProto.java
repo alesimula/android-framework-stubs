@@ -37,6 +37,7 @@ public final class SecureSettingsProto {
     public static final long EMERGENCY_ASSISTANCE_APPLICATION = 1146756268054L;
     public static final long EMERGENCY_RESPONSE = 1146756268115L;
     public static final long ENHANCED_VOICE_PRIVACY_ENABLED = 1146756268055L;
+    public static final long EXTERNAL_DISPLAY_NAVBAR_MODE = 1146756268140L;
     public static final long EXTRA_LOW_POWER_MODE = 1146756268125L;
     public static final long FONT_WEIGHT_ADJUSTMENT = 1146756268117L;
     public static final long GESTURE = 1146756268106L;
@@ -107,8 +108,34 @@ public final class SecureSettingsProto {
     public static final long ZEN = 1146756268103L;
     public SecureSettingsProto() {}
 
+    public final class NfcPayment {
+        public static final long DEFAULT_COMPONENT = 1146756268033L;
+        public static final long FOREGROUND = 1146756268034L;
+        public static final long PAYMENT_SERVICE_SEARCH_URI = 1146756268035L;
+        public NfcPayment(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class DoubleTapPowerButton {
+        public static final long GESTURE = 1146756268034L;
+        public static final long GESTURE_ENABLED = 1146756268033L;
+        public DoubleTapPowerButton(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class DateTime {
+        public static final long LOCATION_TIME_ZONE_DETECTION_ENABLED = 1146756268033L;
+        public DateTime(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class AlwaysOnVpn {
+        public static final long APP = 1146756268033L;
+        public static final long LOCKDOWN = 1146756268034L;
+        public AlwaysOnVpn(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
     public final class Accessibility {
         public static final long ACCESSIBILITY_BUTTON_MODE = 1146756268069L;
+        public static final long ACCESSIBILITY_COLOR_FILTER = 1146756268105L;
+        public static final long ACCESSIBILITY_COLOR_FILTER_ENABLED = 1146756268104L;
         public static final long ACCESSIBILITY_FLOATING_MENU_FADE_ENABLED = 1146756268073L;
         public static final long ACCESSIBILITY_FLOATING_MENU_ICON_TYPE = 1146756268071L;
         public static final long ACCESSIBILITY_FLOATING_MENU_OPACITY = 1146756268072L;
@@ -125,6 +152,7 @@ public final class SecureSettingsProto {
         public static final long ACCESSIBILITY_MAGNIFICATION_JOYSTICK_ENABLED = 1146756268082L;
         public static final long ACCESSIBILITY_MAGNIFICATION_MAGNIFY_NAV_AND_IME = 1146756268099L;
         public static final long ACCESSIBILITY_MAGNIFICATION_MODE = 1146756268066L;
+        public static final long ACCESSIBILITY_MAGNIFICATION_PANEL_BUTTON_ENABLED = 1146756268103L;
         public static final long ACCESSIBILITY_PINCH_TO_ZOOM_ANYWHERE_ENABLED = 1146756268087L;
         public static final long ACCESSIBILITY_QUICK_ACCESS_TARGETS = 1146756268102L;
         public static final long ACCESSIBILITY_SINGLE_FINGER_PANNING_ENABLED = 1146756268088L;
@@ -180,15 +208,81 @@ public final class SecureSettingsProto {
         public Accessibility(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class AdaptiveSleep {
-        public static final long ENABLED = 1146756268033L;
-        public AdaptiveSleep(android.providers.settings.SecureSettingsProto p0) {}
+    public final class ManagedProfile {
+        public static final long CONTACT_REMOTE_SEARCH = 1146756268033L;
+        public ManagedProfile(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class AlwaysOnVpn {
-        public static final long APP = 1146756268033L;
-        public static final long LOCKDOWN = 1146756268034L;
-        public AlwaysOnVpn(android.providers.settings.SecureSettingsProto p0) {}
+    public final class Gesture {
+        public static final long AWARE_ENABLED = 1146756268033L;
+        public static final long AWARE_TAP_PAUSE_GESTURE_COUNT = 1146756268045L;
+        public static final long AWARE_TAP_PAUSE_TOUCH_COUNT = 1146756268046L;
+        public static final long SILENCE_ALARMS_COUNT = 1146756268034L;
+        public static final long SILENCE_ALARMS_TOUCH_COUNT = 1146756268041L;
+        public static final long SILENCE_CALLS_COUNT = 1146756268035L;
+        public static final long SILENCE_CALLS_TOUCH_COUNT = 1146756268042L;
+        public static final long SILENCE_ENABLED = 1146756268036L;
+        public static final long SILENCE_TIMER_COUNT = 1146756268038L;
+        public static final long SILENCE_TIMER_TOUCH_COUNT = 1146756268043L;
+        public static final long SKIP_COUNT = 1146756268039L;
+        public static final long SKIP_ENABLED = 1146756268040L;
+        public static final long SKIP_TOUCH_COUNT = 1146756268044L;
+        public Gesture(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class AutomaticStorageManager {
+        public static final long BYTES_CLEARED = 1146756268035L;
+        public static final long DAYS_TO_RETAIN = 1146756268034L;
+        public static final long ENABLED = 1146756268033L;
+        public static final long LAST_RUN = 1146756268036L;
+        public static final long TURNED_OFF_BY_POLICY = 1146756268037L;
+        public AutomaticStorageManager(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class SpellChecker {
+        public static final long ENABLED = 1146756268033L;
+        public static final long SELECTED = 1146756268034L;
+        public static final long SELECTED_SUBTYPE = 1146756268035L;
+        public SpellChecker(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class PackageVerifier {
+        public static final long STATE = 1146756268034L;
+        public static final long USER_CONSENT = 1146756268033L;
+        public PackageVerifier(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class ExtraLowPowerMode {
+        public static final long EXTRA_AUTOMATIC_POWER_SAVE_MODE = 1146756268033L;
+        public ExtraLowPowerMode(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Backup {
+        public static final long AUTO_RESTORE = 1146756268034L;
+        public static final long ENABLED = 1146756268033L;
+        public static final long LOCAL_TRANSPORT_PARAMETERS = 1146756268038L;
+        public static final long MANAGER_CONSTANTS = 1146756268037L;
+        public static final long PACKAGES_TO_CLEAR_DATA_BEFORE_FULL_RESTORE = 1146756268039L;
+        public static final long PROVISIONED = 1146756268035L;
+        public static final long TRANSPORT = 1146756268036L;
+        public Backup(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class EmergencyResponse {
+        public static final long EMERGENCY_GESTURE_ENABLED = 1146756268035L;
+        public static final long EMERGENCY_GESTURE_SOUND_ENABLED = 1146756268036L;
+        public EmergencyResponse(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class AssistHandles {
+        public static final long LEARNING_EVENT_COUNT = 1146756268034L;
+        public static final long LEARNING_TIME_ELAPSED_MILLIS = 1146756268033L;
+        public AssistHandles(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Launcher {
+        public static final long SWIPE_UP_TO_SWITCH_APPS_ENABLED = 1146756268033L;
+        public Launcher(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Assist {
@@ -210,10 +304,67 @@ public final class SecureSettingsProto {
         public Assist(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class AssistHandles {
-        public static final long LEARNING_EVENT_COUNT = 1146756268034L;
-        public static final long LEARNING_TIME_ELAPSED_MILLIS = 1146756268033L;
-        public AssistHandles(android.providers.settings.SecureSettingsProto p0) {}
+    public final class Sounds {
+        public static final long CHARGING_SOUNDS_ENABLED = 1146756268033L;
+        public static final long CHARGING_VIBRATION_ENABLED = 1146756268034L;
+        public Sounds(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class NavBar {
+        public static final long NAVIGATIONBAR_KEY_ORDER = 1146756268035L;
+        public static final long NAV_BAR_FORCE_VISIBLE = 1146756268033L;
+        public static final long NAV_BAR_KIDS_MODE = 1146756268034L;
+        public NavBar(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Location {
+        public static final long CHANGER = 1146756268034L;
+        public static final long MODE = 1146756268033L;
+        public Location(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class QuickSettings {
+        public static final long AUTO_ADDED_TILES = 1146756268034L;
+        public static final long TILES = 1146756268033L;
+        public QuickSettings(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Incall {
+        public static final long BACK_BUTTON_BEHAVIOR = 1146756268034L;
+        public static final long POWER_BUTTON_BEHAVIOR = 1146756268033L;
+        public Incall(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class LockScreen {
+        public static final long ALLOW_PRIVATE_NOTIFICATIONS = 1146756268034L;
+        public static final long ALLOW_REMOTE_INPUT = 1146756268035L;
+        public static final long LOCK_AFTER_TIMEOUT = 1146756268033L;
+        public static final long SHOW_NOTIFICATIONS = 1146756268036L;
+        public LockScreen(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Rotation {
+        public static final long NUM_ROTATION_SUGGESTIONS_ACCEPTED = 1146756268034L;
+        public static final long SHOW_ROTATION_SUGGESTIONS = 1146756268033L;
+        public Rotation(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class PrintService {
+        public static final long DISABLED_PRINT_SERVICES = 1146756268034L;
+        public static final long ENABLED_PRINT_SERVICES = 1146756268035L;
+        public static final long SEARCH_URI = 1146756268033L;
+        public PrintService(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class PowerMenuPrivacy {
+        public static final long SHOW = 1146756268033L;
+        public PowerMenuPrivacy(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class GestureNavigation {
+        public static final long BACK_GESTURE_INSET_SCALE_LEFT = 1146756268033L;
+        public static final long BACK_GESTURE_INSET_SCALE_RIGHT = 1146756268034L;
+        public GestureNavigation(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Autofill {
@@ -228,26 +379,6 @@ public final class SecureSettingsProto {
         public Autofill(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class AutomaticStorageManager {
-        public static final long BYTES_CLEARED = 1146756268035L;
-        public static final long DAYS_TO_RETAIN = 1146756268034L;
-        public static final long ENABLED = 1146756268033L;
-        public static final long LAST_RUN = 1146756268036L;
-        public static final long TURNED_OFF_BY_POLICY = 1146756268037L;
-        public AutomaticStorageManager(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Backup {
-        public static final long AUTO_RESTORE = 1146756268034L;
-        public static final long ENABLED = 1146756268033L;
-        public static final long LOCAL_TRANSPORT_PARAMETERS = 1146756268038L;
-        public static final long MANAGER_CONSTANTS = 1146756268037L;
-        public static final long PACKAGES_TO_CLEAR_DATA_BEFORE_FULL_RESTORE = 1146756268039L;
-        public static final long PROVISIONED = 1146756268035L;
-        public static final long TRANSPORT = 1146756268036L;
-        public Backup(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
     public final class Camera {
         public static final long DOUBLE_TAP_POWER_GESTURE_DISABLED = 1146756268034L;
         public static final long DOUBLE_TWIST_TO_FLIP_ENABLED = 1146756268035L;
@@ -256,35 +387,38 @@ public final class SecureSettingsProto {
         public Camera(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class CameraAutorotate {
+    public final class OneHanded {
+        public static final long ONE_HANDED_MODE_ACTIVATED = 1146756268036L;
+        public static final long ONE_HANDED_MODE_ENABLED = 1146756268033L;
+        public static final long ONE_HANDED_MODE_TIMEOUT = 1146756268034L;
+        public static final long TAPS_APP_TO_EXIT = 1146756268035L;
+        public OneHanded(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Zen {
+        public static final long DURATION = 1146756268033L;
+        public static final long SETTINGS_SUGGESTION_VIEWED = 1146756268037L;
+        public static final long SETTINGS_UPDATED = 1146756268036L;
+        public static final long SHOW_ZEN_SETTINGS_SUGGESTION = 1146756268035L;
+        public static final long SHOW_ZEN_UPGRADE_NOTIFICATION = 1146756268034L;
+        public Zen(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class StatusBar {
+        public static final long AGENT_ICON_ENABLED = 1146756268033L;
+        public static final long SHOW_MUTE_ICON = 1146756268034L;
+        public StatusBar(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Volume {
+        public static final long HUSH_GESTURE = 1146756268033L;
+        public static final long UNSAFE_VOLUME_MUSIC_ACTIVE_MS = 1146756268034L;
+        public Volume(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class AdaptiveSleep {
         public static final long ENABLED = 1146756268033L;
-        public CameraAutorotate(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Clipboard {
-        public static final long SHOW_ACCESS_NOTIFICATIONS = 1146756268033L;
-        public Clipboard(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Controls {
-        public static final long ENABLED = 1146756268033L;
-        public Controls(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class DateTime {
-        public static final long LOCATION_TIME_ZONE_DETECTION_ENABLED = 1146756268033L;
-        public DateTime(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Display {
-        public static final long SCREEN_RESOLUTION_MODE = 1146756268033L;
-        public Display(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class DoubleTapPowerButton {
-        public static final long GESTURE = 1146756268034L;
-        public static final long GESTURE_ENABLED = 1146756268033L;
-        public DoubleTapPowerButton(android.providers.settings.SecureSettingsProto p0) {}
+        public AdaptiveSleep(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Doze {
@@ -296,194 +430,6 @@ public final class SecureSettingsProto {
         public static final long PULSE_ON_TAP = 1146756268038L;
         public static final long SUPPRESS = 1146756268039L;
         public Doze(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class EmergencyResponse {
-        public static final long EMERGENCY_GESTURE_ENABLED = 1146756268035L;
-        public static final long EMERGENCY_GESTURE_SOUND_ENABLED = 1146756268036L;
-        public EmergencyResponse(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class ExtraLowPowerMode {
-        public static final long EXTRA_AUTOMATIC_POWER_SAVE_MODE = 1146756268033L;
-        public ExtraLowPowerMode(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Gesture {
-        public static final long AWARE_ENABLED = 1146756268033L;
-        public static final long AWARE_TAP_PAUSE_GESTURE_COUNT = 1146756268045L;
-        public static final long AWARE_TAP_PAUSE_TOUCH_COUNT = 1146756268046L;
-        public static final long SILENCE_ALARMS_COUNT = 1146756268034L;
-        public static final long SILENCE_ALARMS_TOUCH_COUNT = 1146756268041L;
-        public static final long SILENCE_CALLS_COUNT = 1146756268035L;
-        public static final long SILENCE_CALLS_TOUCH_COUNT = 1146756268042L;
-        public static final long SILENCE_ENABLED = 1146756268036L;
-        public static final long SILENCE_TIMER_COUNT = 1146756268038L;
-        public static final long SILENCE_TIMER_TOUCH_COUNT = 1146756268043L;
-        public static final long SKIP_COUNT = 1146756268039L;
-        public static final long SKIP_ENABLED = 1146756268040L;
-        public static final long SKIP_TOUCH_COUNT = 1146756268044L;
-        public Gesture(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class GestureNavigation {
-        public static final long BACK_GESTURE_INSET_SCALE_LEFT = 1146756268033L;
-        public static final long BACK_GESTURE_INSET_SCALE_RIGHT = 1146756268034L;
-        public GestureNavigation(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Incall {
-        public static final long BACK_BUTTON_BEHAVIOR = 1146756268034L;
-        public static final long POWER_BUTTON_BEHAVIOR = 1146756268033L;
-        public Incall(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class InputMethods {
-        public static final long DEFAULT_INPUT_METHOD = 1146756268033L;
-        public static final long DEFAULT_VOICE_INPUT_METHOD = 1146756268040L;
-        public static final long DISABLED_SYSTEM_INPUT_METHODS = 1146756268034L;
-        public static final long ENABLED_INPUT_METHODS = 1146756268035L;
-        public static final long METHOD_SELECTOR_VISIBILITY = 1146756268036L;
-        public static final long SELECTED_INPUT_METHOD_SUBTYPE = 1146756268038L;
-        public static final long SHOW_IME_WITH_HARD_KEYBOARD = 1146756268039L;
-        public static final long SUBTYPE_HISTORY = 1146756268037L;
-        public InputMethods(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Launcher {
-        public static final long SWIPE_UP_TO_SWITCH_APPS_ENABLED = 1146756268033L;
-        public Launcher(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Location {
-        public static final long CHANGER = 1146756268034L;
-        public static final long MODE = 1146756268033L;
-        public Location(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class LocationAccessCheck {
-        public static final long DELAY_MILLIS = 1146756268034L;
-        public static final long INTERVAL_MILLIS = 1146756268033L;
-        public LocationAccessCheck(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class LockScreen {
-        public static final long ALLOW_PRIVATE_NOTIFICATIONS = 1146756268034L;
-        public static final long ALLOW_REMOTE_INPUT = 1146756268035L;
-        public static final long LOCK_AFTER_TIMEOUT = 1146756268033L;
-        public static final long SHOW_NOTIFICATIONS = 1146756268036L;
-        public LockScreen(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class ManagedProfile {
-        public static final long CONTACT_REMOTE_SEARCH = 1146756268033L;
-        public ManagedProfile(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Mount {
-        public static final long PLAY_NOTIFICATION_SND = 1146756268033L;
-        public static final long UMS_AUTOSTART = 1146756268034L;
-        public static final long UMS_NOTIFY_ENABLED = 1146756268036L;
-        public static final long UMS_PROMPT = 1146756268035L;
-        public Mount(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class NavBar {
-        public static final long NAVIGATIONBAR_KEY_ORDER = 1146756268035L;
-        public static final long NAV_BAR_FORCE_VISIBLE = 1146756268033L;
-        public static final long NAV_BAR_KIDS_MODE = 1146756268034L;
-        public NavBar(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class NfcPayment {
-        public static final long DEFAULT_COMPONENT = 1146756268033L;
-        public static final long FOREGROUND = 1146756268034L;
-        public static final long PAYMENT_SERVICE_SEARCH_URI = 1146756268035L;
-        public NfcPayment(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class NightDisplay {
-        public static final long ACTIVATED = 1146756268033L;
-        public static final long AUTO_MODE = 1146756268034L;
-        public static final long COLOR_TEMPERATURE = 1146756268035L;
-        public static final long CUSTOM_END_TIME = 1146756268037L;
-        public static final long CUSTOM_START_TIME = 1146756268036L;
-        public static final long LAST_ACTIVATED_TIME = 1146756268038L;
-        public NightDisplay(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Notification {
-        public static final long BADGING = 1146756268036L;
-        public static final long BUBBLES = 1146756268039L;
-        public static final long ENABLED_ASSISTANT = 1146756268033L;
-        public static final long ENABLED_LISTENERS = 1146756268034L;
-        public static final long ENABLED_POLICY_ACCESS_PACKAGES = 1146756268035L;
-        public static final long IN_CALL_NOTIFICATION_ENABLED = 1146756268038L;
-        public static final long SHOW_NOTE_ABOUT_NOTIFICATION_HIDING = 1146756268037L;
-        public Notification(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class OneHanded {
-        public static final long ONE_HANDED_MODE_ACTIVATED = 1146756268036L;
-        public static final long ONE_HANDED_MODE_ENABLED = 1146756268033L;
-        public static final long ONE_HANDED_MODE_TIMEOUT = 1146756268034L;
-        public static final long TAPS_APP_TO_EXIT = 1146756268035L;
-        public OneHanded(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class PackageVerifier {
-        public static final long STATE = 1146756268034L;
-        public static final long USER_CONSENT = 1146756268033L;
-        public PackageVerifier(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class ParentalControl {
-        public static final long ENABLED = 1146756268033L;
-        public static final long LAST_UPDATE = 1146756268034L;
-        public static final long REDIRECT_URL = 1146756268035L;
-        public ParentalControl(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class PowerMenuPrivacy {
-        public static final long SHOW = 1146756268033L;
-        public PowerMenuPrivacy(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class PrintService {
-        public static final long DISABLED_PRINT_SERVICES = 1146756268034L;
-        public static final long ENABLED_PRINT_SERVICES = 1146756268035L;
-        public static final long SEARCH_URI = 1146756268033L;
-        public PrintService(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class QuickSettings {
-        public static final long AUTO_ADDED_TILES = 1146756268034L;
-        public static final long TILES = 1146756268033L;
-        public QuickSettings(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class ReduceBrightColors {
-        public static final long ACTIVATED = 1146756268033L;
-        public static final long LEVEL = 1146756268034L;
-        public static final long PERSIST_ACROSS_REBOOTS = 1146756268035L;
-        public ReduceBrightColors(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Rotation {
-        public static final long NUM_ROTATION_SUGGESTIONS_ACCEPTED = 1146756268034L;
-        public static final long SHOW_ROTATION_SUGGESTIONS = 1146756268033L;
-        public Rotation(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class Screensaver {
-        public static final long ACTIVATE_ON_DOCK = 1146756268035L;
-        public static final long ACTIVATE_ON_POSTURED = 1146756268038L;
-        public static final long ACTIVATE_ON_SLEEP = 1146756268036L;
-        public static final long ACTIVE_COMPONENT = 1146756268039L;
-        public static final long COMPONENTS = 1146756268034L;
-        public static final long DEFAULT_COMPONENT = 1146756268037L;
-        public static final long ENABLED = 1146756268033L;
-        public Screensaver(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Search {
@@ -509,23 +455,12 @@ public final class SecureSettingsProto {
         public Search(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class Sounds {
-        public static final long CHARGING_SOUNDS_ENABLED = 1146756268033L;
-        public static final long CHARGING_VIBRATION_ENABLED = 1146756268034L;
-        public Sounds(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class SpellChecker {
-        public static final long ENABLED = 1146756268033L;
-        public static final long SELECTED = 1146756268034L;
-        public static final long SELECTED_SUBTYPE = 1146756268035L;
-        public SpellChecker(android.providers.settings.SecureSettingsProto p0) {}
-    }
-
-    public final class StatusBar {
-        public static final long AGENT_ICON_ENABLED = 1146756268033L;
-        public static final long SHOW_MUTE_ICON = 1146756268034L;
-        public StatusBar(android.providers.settings.SecureSettingsProto p0) {}
+    public final class Mount {
+        public static final long PLAY_NOTIFICATION_SND = 1146756268033L;
+        public static final long UMS_AUTOSTART = 1146756268034L;
+        public static final long UMS_NOTIFY_ENABLED = 1146756268036L;
+        public static final long UMS_PROMPT = 1146756268035L;
+        public Mount(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Tts {
@@ -537,10 +472,20 @@ public final class SecureSettingsProto {
         public Tts(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class Tty {
-        public static final long PREFERRED_TTY_MODE = 1146756268034L;
-        public static final long TTY_MODE_ENABLED = 1146756268033L;
-        public Tty(android.providers.settings.SecureSettingsProto p0) {}
+    public final class LocationAccessCheck {
+        public static final long DELAY_MILLIS = 1146756268034L;
+        public static final long INTERVAL_MILLIS = 1146756268033L;
+        public LocationAccessCheck(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Controls {
+        public static final long ENABLED = 1146756268033L;
+        public Controls(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Display {
+        public static final long SCREEN_RESOLUTION_MODE = 1146756268033L;
+        public Display(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Tv {
@@ -550,16 +495,50 @@ public final class SecureSettingsProto {
         public Tv(android.providers.settings.SecureSettingsProto p0) {}
     }
 
+    public final class CameraAutorotate {
+        public static final long ENABLED = 1146756268033L;
+        public CameraAutorotate(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Tty {
+        public static final long PREFERRED_TTY_MODE = 1146756268034L;
+        public static final long TTY_MODE_ENABLED = 1146756268033L;
+        public Tty(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class ParentalControl {
+        public static final long ENABLED = 1146756268033L;
+        public static final long LAST_UPDATE = 1146756268034L;
+        public static final long REDIRECT_URL = 1146756268035L;
+        public ParentalControl(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class NightDisplay {
+        public static final long ACTIVATED = 1146756268033L;
+        public static final long AUTO_MODE = 1146756268034L;
+        public static final long COLOR_TEMPERATURE = 1146756268035L;
+        public static final long CUSTOM_END_TIME = 1146756268037L;
+        public static final long CUSTOM_START_TIME = 1146756268036L;
+        public static final long LAST_ACTIVATED_TIME = 1146756268038L;
+        public NightDisplay(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
     public final class Voice {
         public static final long INTERACTION_SERVICE = 1146756268033L;
         public static final long RECOGNITION_SERVICE = 1146756268034L;
         public Voice(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class Volume {
-        public static final long HUSH_GESTURE = 1146756268033L;
-        public static final long UNSAFE_VOLUME_MUSIC_ACTIVE_MS = 1146756268034L;
-        public Volume(android.providers.settings.SecureSettingsProto p0) {}
+    public final class ReduceBrightColors {
+        public static final long ACTIVATED = 1146756268033L;
+        public static final long LEVEL = 1146756268034L;
+        public static final long PERSIST_ACROSS_REBOOTS = 1146756268035L;
+        public ReduceBrightColors(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Clipboard {
+        public static final long SHOW_ACCESS_NOTIFICATIONS = 1146756268033L;
+        public Clipboard(android.providers.settings.SecureSettingsProto p0) {}
     }
 
     public final class Vr {
@@ -568,12 +547,38 @@ public final class SecureSettingsProto {
         public Vr(android.providers.settings.SecureSettingsProto p0) {}
     }
 
-    public final class Zen {
-        public static final long DURATION = 1146756268033L;
-        public static final long SETTINGS_SUGGESTION_VIEWED = 1146756268037L;
-        public static final long SETTINGS_UPDATED = 1146756268036L;
-        public static final long SHOW_ZEN_SETTINGS_SUGGESTION = 1146756268035L;
-        public static final long SHOW_ZEN_UPGRADE_NOTIFICATION = 1146756268034L;
-        public Zen(android.providers.settings.SecureSettingsProto p0) {}
+    public final class Screensaver {
+        public static final long ACTIVATE_ON_DOCK = 1146756268035L;
+        public static final long ACTIVATE_ON_POSTURED = 1146756268038L;
+        public static final long ACTIVATE_ON_SLEEP = 1146756268036L;
+        public static final long ACTIVE_COMPONENT = 1146756268039L;
+        public static final long COMPONENTS = 1146756268034L;
+        public static final long DEFAULT_COMPONENT = 1146756268037L;
+        public static final long ENABLED = 1146756268033L;
+        public Screensaver(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class InputMethods {
+        public static final long DEFAULT_INPUT_METHOD = 1146756268033L;
+        public static final long DEFAULT_VOICE_INPUT_METHOD = 1146756268040L;
+        public static final long DISABLED_SYSTEM_INPUT_METHODS = 1146756268034L;
+        public static final long ENABLED_INPUT_METHODS = 1146756268035L;
+        public static final long METHOD_SELECTOR_VISIBILITY = 1146756268036L;
+        public static final long SELECTED_INPUT_METHOD_SUBTYPE = 1146756268038L;
+        public static final long SHOW_IME_WITH_HARD_KEYBOARD = 1146756268039L;
+        public static final long SUBTYPE_HISTORY = 1146756268037L;
+        public InputMethods(android.providers.settings.SecureSettingsProto p0) {}
+    }
+
+    public final class Notification {
+        public static final long BADGING = 1146756268036L;
+        public static final long BUBBLES = 1146756268039L;
+        public static final long ENABLED_ASSISTANT = 1146756268033L;
+        public static final long ENABLED_LISTENERS = 1146756268034L;
+        public static final long ENABLED_POLICY_ACCESS_PACKAGES = 1146756268035L;
+        public static final long IN_CALL_NOTIFICATION_ENABLED = 1146756268038L;
+        public static final long NOTIFICATION_ICONS_STATUS = 1146756268040L;
+        public static final long SHOW_NOTE_ABOUT_NOTIFICATION_HIDING = 1146756268037L;
+        public Notification(android.providers.settings.SecureSettingsProto p0) {}
     }
 }

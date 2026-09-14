@@ -65,6 +65,10 @@ public class ImageReader implements java.lang.AutoCloseable {
     public void setOnImageAvailableListener(android.media.ImageReader.OnImageAvailableListener p0, android.os.Handler p1) {}
     public void setOnImageAvailableListenerWithExecutor(android.media.ImageReader.OnImageAvailableListener p0, java.util.concurrent.Executor p1) {}
 
+    public static interface OnImageAvailableListener {
+        public void onImageAvailable(android.media.ImageReader p0);
+    }
+
     public static final class Builder {
         private int mDataSpace;
         private int mHardwareBufferFormat;
@@ -83,28 +87,8 @@ public class ImageReader implements java.lang.AutoCloseable {
         public android.media.ImageReader.Builder setUsage(long p0) { return null; }
     }
 
-    private final class HandlerExecutor implements java.util.concurrent.Executor {
-        private final android.os.Handler mHandler = null;
-        public HandlerExecutor(android.media.ImageReader p0, android.os.Handler p1) {}
-        public void execute(java.lang.Runnable p0) {}
-    }
-
-    public static class ImagePlane extends android.media.Image.Plane {
-        private java.nio.ByteBuffer mBuffer;
-        private final int mPixelStride = 0;
-        private final int mRowStride = 0;
-        private ImagePlane(int p0, int p1, java.nio.ByteBuffer p2) { super(); }
-        public java.nio.ByteBuffer getBuffer() { return null; }
-        public int getPixelStride() { return 0; }
-        public int getRowStride() { return 0; }
-    }
-
     private final class ListenerHandler extends android.os.Handler {
         public ListenerHandler(android.media.ImageReader p0, android.os.Looper p1) { super(); }
-    }
-
-    public static interface OnImageAvailableListener {
-        public void onImageAvailable(android.media.ImageReader p0);
     }
 
     private class SurfaceImage extends android.media.Image {
@@ -156,5 +140,21 @@ public class ImageReader implements java.lang.AutoCloseable {
             public int getPixelStride() { return 0; }
             public int getRowStride() { return 0; }
         }
+    }
+
+    private final class HandlerExecutor implements java.util.concurrent.Executor {
+        private final android.os.Handler mHandler = null;
+        public HandlerExecutor(android.media.ImageReader p0, android.os.Handler p1) {}
+        public void execute(java.lang.Runnable p0) {}
+    }
+
+    public static class ImagePlane extends android.media.Image.Plane {
+        private java.nio.ByteBuffer mBuffer;
+        private final int mPixelStride = 0;
+        private final int mRowStride = 0;
+        private ImagePlane(int p0, int p1, java.nio.ByteBuffer p2) { super(); }
+        public java.nio.ByteBuffer getBuffer() { return null; }
+        public int getPixelStride() { return 0; }
+        public int getRowStride() { return 0; }
     }
 }

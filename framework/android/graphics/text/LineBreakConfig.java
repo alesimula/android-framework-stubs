@@ -35,6 +35,18 @@ public final class LineBreakConfig implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Hyphenation {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LineBreakStyle {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LineBreakWordStyle {
+    }
+
     public static final class Builder {
         private int mHyphenation;
         private int mLineBreakStyle;
@@ -46,17 +58,5 @@ public final class LineBreakConfig implements android.os.Parcelable {
         public android.graphics.text.LineBreakConfig.Builder setHyphenation(int p0) { return null; }
         public android.graphics.text.LineBreakConfig.Builder setLineBreakStyle(int p0) { return null; }
         public android.graphics.text.LineBreakConfig.Builder setLineBreakWordStyle(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Hyphenation {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LineBreakStyle {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LineBreakWordStyle {
     }
 }

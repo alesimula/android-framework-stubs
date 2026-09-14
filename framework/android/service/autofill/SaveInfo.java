@@ -52,6 +52,22 @@ public final class SaveInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface PositiveButtonStyle {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface NegativeButtonStyle {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface SaveInfoFlags {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface SaveDataType {
+    }
+
     public static final class Builder {
         private android.service.autofill.CustomDescription mCustomDescription;
         private java.lang.CharSequence mDescription;
@@ -80,21 +96,5 @@ public final class SaveInfo implements android.os.Parcelable {
         public android.service.autofill.SaveInfo.Builder setPositiveAction(int p0) { return null; }
         public android.service.autofill.SaveInfo.Builder setTriggerId(android.view.autofill.AutofillId p0) { return null; }
         public android.service.autofill.SaveInfo.Builder setValidator(android.service.autofill.Validator p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface NegativeButtonStyle {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface PositiveButtonStyle {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface SaveDataType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface SaveInfoFlags {
     }
 }

@@ -7,15 +7,6 @@ public interface IBrailleDisplayController extends android.os.IInterface {
     public void onDisconnected() throws android.os.RemoteException;
     public void onInput(byte[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.accessibilityservice.IBrailleDisplayController {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnected(android.accessibilityservice.IBrailleDisplayConnection p0, byte[] p1) throws android.os.RemoteException {}
-        public void onConnectionFailed(int p0) throws android.os.RemoteException {}
-        public void onDisconnected() throws android.os.RemoteException {}
-        public void onInput(byte[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.accessibilityservice.IBrailleDisplayController {
         static final int TRANSACTION_onConnected = 1;
         static final int TRANSACTION_onConnectionFailed = 2;
@@ -38,5 +29,14 @@ public interface IBrailleDisplayController extends android.os.IInterface {
             public void onDisconnected() throws android.os.RemoteException {}
             public void onInput(byte[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.accessibilityservice.IBrailleDisplayController {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnected(android.accessibilityservice.IBrailleDisplayConnection p0, byte[] p1) throws android.os.RemoteException {}
+        public void onConnectionFailed(int p0) throws android.os.RemoteException {}
+        public void onDisconnected() throws android.os.RemoteException {}
+        public void onInput(byte[] p0) throws android.os.RemoteException {}
     }
 }

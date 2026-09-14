@@ -15,24 +15,6 @@ public interface IMidiManager extends android.os.IInterface {
     public void unregisterListener(android.os.IBinder p0, android.media.midi.IMidiDeviceListener p1) throws android.os.RemoteException;
     public void updateTotalBytes(android.media.midi.IMidiDeviceServer p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.media.midi.IMidiManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void closeDevice(android.os.IBinder p0, android.os.IBinder p1) throws android.os.RemoteException {}
-        public android.media.midi.MidiDeviceStatus getDeviceStatus(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException { return null; }
-        public android.media.midi.MidiDeviceInfo[] getDevices() throws android.os.RemoteException { return null; }
-        public android.media.midi.MidiDeviceInfo[] getDevicesForTransport(int p0) throws android.os.RemoteException { return null; }
-        public android.media.midi.MidiDeviceInfo getServiceDeviceInfo(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public void openBluetoothDevice(android.os.IBinder p0, android.bluetooth.BluetoothDevice p1, android.media.midi.IMidiDeviceOpenCallback p2) throws android.os.RemoteException {}
-        public void openDevice(android.os.IBinder p0, android.media.midi.MidiDeviceInfo p1, android.media.midi.IMidiDeviceOpenCallback p2) throws android.os.RemoteException {}
-        public android.media.midi.MidiDeviceInfo registerDeviceServer(android.media.midi.IMidiDeviceServer p0, int p1, int p2, java.lang.String[] p3, java.lang.String[] p4, android.os.Bundle p5, int p6, int p7) throws android.os.RemoteException { return null; }
-        public void registerListener(android.os.IBinder p0, android.media.midi.IMidiDeviceListener p1) throws android.os.RemoteException {}
-        public void setDeviceStatus(android.media.midi.IMidiDeviceServer p0, android.media.midi.MidiDeviceStatus p1) throws android.os.RemoteException {}
-        public void unregisterDeviceServer(android.media.midi.IMidiDeviceServer p0) throws android.os.RemoteException {}
-        public void unregisterListener(android.os.IBinder p0, android.media.midi.IMidiDeviceListener p1) throws android.os.RemoteException {}
-        public void updateTotalBytes(android.media.midi.IMidiDeviceServer p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.midi.IMidiManager {
         public static final java.lang.String DESCRIPTOR = "android.media.midi.IMidiManager";
         static final int TRANSACTION_closeDevice = 7;
@@ -74,5 +56,23 @@ public interface IMidiManager extends android.os.IInterface {
             public void unregisterListener(android.os.IBinder p0, android.media.midi.IMidiDeviceListener p1) throws android.os.RemoteException {}
             public void updateTotalBytes(android.media.midi.IMidiDeviceServer p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.midi.IMidiManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void closeDevice(android.os.IBinder p0, android.os.IBinder p1) throws android.os.RemoteException {}
+        public android.media.midi.MidiDeviceStatus getDeviceStatus(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException { return null; }
+        public android.media.midi.MidiDeviceInfo[] getDevices() throws android.os.RemoteException { return null; }
+        public android.media.midi.MidiDeviceInfo[] getDevicesForTransport(int p0) throws android.os.RemoteException { return null; }
+        public android.media.midi.MidiDeviceInfo getServiceDeviceInfo(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public void openBluetoothDevice(android.os.IBinder p0, android.bluetooth.BluetoothDevice p1, android.media.midi.IMidiDeviceOpenCallback p2) throws android.os.RemoteException {}
+        public void openDevice(android.os.IBinder p0, android.media.midi.MidiDeviceInfo p1, android.media.midi.IMidiDeviceOpenCallback p2) throws android.os.RemoteException {}
+        public android.media.midi.MidiDeviceInfo registerDeviceServer(android.media.midi.IMidiDeviceServer p0, int p1, int p2, java.lang.String[] p3, java.lang.String[] p4, android.os.Bundle p5, int p6, int p7) throws android.os.RemoteException { return null; }
+        public void registerListener(android.os.IBinder p0, android.media.midi.IMidiDeviceListener p1) throws android.os.RemoteException {}
+        public void setDeviceStatus(android.media.midi.IMidiDeviceServer p0, android.media.midi.MidiDeviceStatus p1) throws android.os.RemoteException {}
+        public void unregisterDeviceServer(android.media.midi.IMidiDeviceServer p0) throws android.os.RemoteException {}
+        public void unregisterListener(android.os.IBinder p0, android.media.midi.IMidiDeviceListener p1) throws android.os.RemoteException {}
+        public void updateTotalBytes(android.media.midi.IMidiDeviceServer p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

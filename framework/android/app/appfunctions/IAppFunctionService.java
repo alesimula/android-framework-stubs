@@ -4,12 +4,6 @@ public interface IAppFunctionService extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.appfunctions.IAppFunctionService";
     public void executeAppFunction(android.app.appfunctions.ExecuteAppFunctionRequest p0, java.lang.String p1, android.content.pm.SigningInfo p2, android.app.appfunctions.ICancellationCallback p3, android.app.appfunctions.IExecuteAppFunctionCallback p4) throws android.os.RemoteException;
 
-    public static class Default implements android.app.appfunctions.IAppFunctionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void executeAppFunction(android.app.appfunctions.ExecuteAppFunctionRequest p0, java.lang.String p1, android.content.pm.SigningInfo p2, android.app.appfunctions.ICancellationCallback p3, android.app.appfunctions.IExecuteAppFunctionCallback p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.appfunctions.IAppFunctionService {
         static final int TRANSACTION_executeAppFunction = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IAppFunctionService extends android.os.IInterface {
             public void executeAppFunction(android.app.appfunctions.ExecuteAppFunctionRequest p0, java.lang.String p1, android.content.pm.SigningInfo p2, android.app.appfunctions.ICancellationCallback p3, android.app.appfunctions.IExecuteAppFunctionCallback p4) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.app.appfunctions.IAppFunctionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void executeAppFunction(android.app.appfunctions.ExecuteAppFunctionRequest p0, java.lang.String p1, android.content.pm.SigningInfo p2, android.app.appfunctions.ICancellationCallback p3, android.app.appfunctions.IExecuteAppFunctionCallback p4) throws android.os.RemoteException {}
     }
 }

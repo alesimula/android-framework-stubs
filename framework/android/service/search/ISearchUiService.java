@@ -9,17 +9,6 @@ public interface ISearchUiService extends android.os.IInterface {
     public void onRegisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException;
     public void onUnregisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.search.ISearchUiService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCreateSearchSession(android.app.search.SearchContext p0, android.app.search.SearchSessionId p1) throws android.os.RemoteException {}
-        public void onDestroy(android.app.search.SearchSessionId p0) throws android.os.RemoteException {}
-        public void onNotifyEvent(android.app.search.SearchSessionId p0, android.app.search.Query p1, android.app.search.SearchTargetEvent p2) throws android.os.RemoteException {}
-        public void onQuery(android.app.search.SearchSessionId p0, android.app.search.Query p1, android.app.search.ISearchCallback p2) throws android.os.RemoteException {}
-        public void onRegisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException {}
-        public void onUnregisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.search.ISearchUiService {
         static final int TRANSACTION_onCreateSearchSession = 1;
         static final int TRANSACTION_onDestroy = 6;
@@ -46,5 +35,16 @@ public interface ISearchUiService extends android.os.IInterface {
             public void onRegisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException {}
             public void onUnregisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.search.ISearchUiService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCreateSearchSession(android.app.search.SearchContext p0, android.app.search.SearchSessionId p1) throws android.os.RemoteException {}
+        public void onDestroy(android.app.search.SearchSessionId p0) throws android.os.RemoteException {}
+        public void onNotifyEvent(android.app.search.SearchSessionId p0, android.app.search.Query p1, android.app.search.SearchTargetEvent p2) throws android.os.RemoteException {}
+        public void onQuery(android.app.search.SearchSessionId p0, android.app.search.Query p1, android.app.search.ISearchCallback p2) throws android.os.RemoteException {}
+        public void onRegisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException {}
+        public void onUnregisterEmptyQueryResultUpdateCallback(android.app.search.SearchSessionId p0, android.app.search.ISearchCallback p1) throws android.os.RemoteException {}
     }
 }

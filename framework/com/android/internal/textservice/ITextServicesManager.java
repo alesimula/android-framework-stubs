@@ -8,17 +8,6 @@ public interface ITextServicesManager extends android.os.IInterface {
     public void getSpellCheckerService(int p0, java.lang.String p1, java.lang.String p2, com.android.internal.textservice.ITextServicesSessionListener p3, com.android.internal.textservice.ISpellCheckerSessionListener p4, android.os.Bundle p5, int p6) throws android.os.RemoteException;
     public boolean isSpellCheckerEnabled(int p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.textservice.ITextServicesManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void finishSpellCheckerService(int p0, com.android.internal.textservice.ISpellCheckerSessionListener p1) throws android.os.RemoteException {}
-        public android.view.textservice.SpellCheckerInfo getCurrentSpellChecker(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public android.view.textservice.SpellCheckerSubtype getCurrentSpellCheckerSubtype(int p0, boolean p1) throws android.os.RemoteException { return null; }
-        public android.view.textservice.SpellCheckerInfo[] getEnabledSpellCheckers(int p0) throws android.os.RemoteException { return null; }
-        public void getSpellCheckerService(int p0, java.lang.String p1, java.lang.String p2, com.android.internal.textservice.ITextServicesSessionListener p3, com.android.internal.textservice.ISpellCheckerSessionListener p4, android.os.Bundle p5, int p6) throws android.os.RemoteException {}
-        public boolean isSpellCheckerEnabled(int p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.textservice.ITextServicesManager {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.textservice.ITextServicesManager";
         static final int TRANSACTION_finishSpellCheckerService = 4;
@@ -46,5 +35,16 @@ public interface ITextServicesManager extends android.os.IInterface {
             public void getSpellCheckerService(int p0, java.lang.String p1, java.lang.String p2, com.android.internal.textservice.ITextServicesSessionListener p3, com.android.internal.textservice.ISpellCheckerSessionListener p4, android.os.Bundle p5, int p6) throws android.os.RemoteException {}
             public boolean isSpellCheckerEnabled(int p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements com.android.internal.textservice.ITextServicesManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void finishSpellCheckerService(int p0, com.android.internal.textservice.ISpellCheckerSessionListener p1) throws android.os.RemoteException {}
+        public android.view.textservice.SpellCheckerInfo getCurrentSpellChecker(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public android.view.textservice.SpellCheckerSubtype getCurrentSpellCheckerSubtype(int p0, boolean p1) throws android.os.RemoteException { return null; }
+        public android.view.textservice.SpellCheckerInfo[] getEnabledSpellCheckers(int p0) throws android.os.RemoteException { return null; }
+        public void getSpellCheckerService(int p0, java.lang.String p1, java.lang.String p2, com.android.internal.textservice.ITextServicesSessionListener p3, com.android.internal.textservice.ISpellCheckerSessionListener p4, android.os.Bundle p5, int p6) throws android.os.RemoteException {}
+        public boolean isSpellCheckerEnabled(int p0) throws android.os.RemoteException { return false; }
     }
 }

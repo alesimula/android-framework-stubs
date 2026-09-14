@@ -12,11 +12,12 @@ public final class WallpaperDescription implements android.os.Parcelable {
     private final android.util.SparseArray<android.graphics.Rect> mCropHints = null;
     private final java.util.List<java.lang.CharSequence> mDescription = null;
     private final java.lang.String mId = null;
-    private final java.lang.String mOptionsName = null;
+    private final android.app.wallpaper.PreviewConfig mPreviewConfig = null;
     private final float mSampleSize = 0.0f;
+    private final java.lang.String mSettingsActivityOverride = null;
     private final android.net.Uri mThumbnail = null;
     private final java.lang.CharSequence mTitle = null;
-    private WallpaperDescription(android.content.ComponentName p0, java.lang.String p1, android.net.Uri p2, java.lang.CharSequence p3, java.util.List<java.lang.CharSequence> p4, android.net.Uri p5, java.lang.CharSequence p6, android.os.PersistableBundle p7, android.util.SparseArray<android.graphics.Rect> p8, java.lang.String p9, float p10) {}
+    private WallpaperDescription(android.content.ComponentName p0, java.lang.String p1, android.net.Uri p2, java.lang.CharSequence p3, java.util.List<java.lang.CharSequence> p4, android.net.Uri p5, java.lang.CharSequence p6, android.os.PersistableBundle p7, android.util.SparseArray<android.graphics.Rect> p8, android.app.wallpaper.PreviewConfig p9, float p10, java.lang.String p11) {}
     WallpaperDescription(android.os.Parcel p0) {}
     private static java.lang.CharSequence fromHtml(java.lang.String p0) { return null; }
     private static java.lang.CharSequence removeTrailingWhitespace(java.lang.CharSequence p0) { return null; }
@@ -33,8 +34,9 @@ public final class WallpaperDescription implements android.os.Parcelable {
     public android.util.SparseArray<android.graphics.Rect> getCropHints() { return null; }
     public java.util.List<java.lang.CharSequence> getDescription() { return null; }
     public java.lang.String getId() { return null; }
-    public java.lang.String getOptionsName() { return null; }
+    public android.app.wallpaper.PreviewConfig getPreviewConfig() { return null; }
     public float getSampleSize() { return 0.0f; }
+    public java.lang.String getSettingsActivityOverride() { return null; }
     public android.net.Uri getThumbnail() { return null; }
     public java.lang.CharSequence getTitle() { return null; }
     public int hashCode() { return 0; }
@@ -51,8 +53,9 @@ public final class WallpaperDescription implements android.os.Parcelable {
         private android.util.SparseArray<android.graphics.Rect> mCropHints;
         private java.util.List<java.lang.CharSequence> mDescription;
         private java.lang.String mId;
-        private java.lang.String mOptionsName;
+        private android.app.wallpaper.PreviewConfig mPreviewConfig;
         private float mSampleSize;
+        private java.lang.String mSettingsActivityOverride;
         private android.net.Uri mThumbnail;
         private java.lang.CharSequence mTitle;
         public Builder() {}
@@ -68,8 +71,9 @@ public final class WallpaperDescription implements android.os.Parcelable {
         public android.app.wallpaper.WallpaperDescription.Builder setCropHints(java.util.Map<android.graphics.Point, android.graphics.Rect> p0) { return null; }
         public android.app.wallpaper.WallpaperDescription.Builder setDescription(java.util.List<java.lang.CharSequence> p0) { return null; }
         public android.app.wallpaper.WallpaperDescription.Builder setId(java.lang.String p0) { return null; }
-        public android.app.wallpaper.WallpaperDescription.Builder setOptionsName(java.lang.String p0) { return null; }
+        public android.app.wallpaper.WallpaperDescription.Builder setPreviewConfig(android.app.wallpaper.PreviewConfig p0) { return null; }
         public android.app.wallpaper.WallpaperDescription.Builder setSampleSize(float p0) { return null; }
+        public android.app.wallpaper.WallpaperDescription.Builder setSettingsActivityOverride(java.lang.String p0) { return null; }
         public android.app.wallpaper.WallpaperDescription.Builder setThumbnail(android.net.Uri p0) { return null; }
         public android.app.wallpaper.WallpaperDescription.Builder setTitle(java.lang.CharSequence p0) { return null; }
     }

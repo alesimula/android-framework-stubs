@@ -12,11 +12,11 @@ public class ScrollModifierOperation extends com.android.internal.widget.remotec
     float mInitialScrollY;
     float mLastTouchX;
     float mLastTouchY;
-    private final float mMax = 0.0f;
+    private float mMax;
     float mMaxScrollX;
     float mMaxScrollY;
-    private final float mNotchMax = 0.0f;
-    private final float mPositionExpression = 0.0f;
+    private float mNotchMax;
+    private float mPositionExpression;
     float mScrollX;
     float mScrollY;
     boolean mTouchDown;

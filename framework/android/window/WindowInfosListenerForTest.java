@@ -13,13 +13,6 @@ public class WindowInfosListenerForTest {
     @java.lang.Deprecated
     public void removeWindowInfosListener(java.util.function.Consumer<java.util.List<android.window.WindowInfosListenerForTest.WindowInfo>> p0) {}
 
-    public static class DisplayInfo {
-        public final int displayId = 0;
-        public final android.graphics.Matrix transform = null;
-        DisplayInfo(int p0, android.graphics.Matrix p1) {}
-        public java.lang.String toString() { return null; }
-    }
-
     public static class WindowInfo {
         public final android.graphics.Rect bounds = null;
         public final int displayId = 0;
@@ -34,6 +27,13 @@ public class WindowInfosListenerForTest {
         public final android.graphics.Matrix transform = null;
         public final android.os.IBinder windowToken = null;
         WindowInfo(android.os.IBinder p0, java.lang.String p1, int p2, android.graphics.Rect p3, android.graphics.Region p4, int p5, android.graphics.Matrix p6) {}
+        public java.lang.String toString() { return null; }
+    }
+
+    public static class DisplayInfo {
+        public final int displayId = 0;
+        public final android.graphics.Matrix transform = null;
+        DisplayInfo(int p0, android.graphics.Matrix p1) {}
         public java.lang.String toString() { return null; }
     }
 }

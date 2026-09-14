@@ -28,10 +28,6 @@ public final class TranslationContext implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static abstract class BaseBuilder {
-        BaseBuilder() {}
-    }
-
     public static final class Builder extends android.view.translation.TranslationContext.BaseBuilder {
         private android.app.assist.ActivityId mActivityId;
         private long mBuilderFieldsSet;
@@ -43,6 +39,10 @@ public final class TranslationContext implements android.os.Parcelable {
         public android.view.translation.TranslationContext build() { return null; }
         public android.view.translation.TranslationContext.Builder setActivityId(android.app.assist.ActivityId p0) { return null; }
         public android.view.translation.TranslationContext.Builder setTranslationFlags(int p0) { return null; }
+    }
+
+    static abstract class BaseBuilder {
+        BaseBuilder() {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

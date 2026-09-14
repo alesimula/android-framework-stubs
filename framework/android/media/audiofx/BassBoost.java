@@ -16,19 +16,19 @@ public class BassBoost extends android.media.audiofx.AudioEffect {
     public void setProperties(android.media.audiofx.BassBoost.Settings p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
     public void setStrength(short p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
 
-    private class BaseParameterListener implements android.media.audiofx.AudioEffect.OnParameterChangeListener {
-        private BaseParameterListener(android.media.audiofx.BassBoost p0) {}
-        public void onParameterChange(android.media.audiofx.AudioEffect p0, int p1, byte[] p2, byte[] p3) {}
+    public static class Settings {
+        public short strength;
+        public Settings() {}
+        public Settings(java.lang.String p0) {}
+        public java.lang.String toString() { return null; }
     }
 
     public static interface OnParameterChangeListener {
         public void onParameterChange(android.media.audiofx.BassBoost p0, int p1, int p2, short p3);
     }
 
-    public static class Settings {
-        public short strength;
-        public Settings() {}
-        public Settings(java.lang.String p0) {}
-        public java.lang.String toString() { return null; }
+    private class BaseParameterListener implements android.media.audiofx.AudioEffect.OnParameterChangeListener {
+        private BaseParameterListener(android.media.audiofx.BassBoost p0) {}
+        public void onParameterChange(android.media.audiofx.AudioEffect p0, int p1, byte[] p2, byte[] p3) {}
     }
 }

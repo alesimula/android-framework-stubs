@@ -93,28 +93,13 @@ public class RcsUceAdapter {
     @android.annotation.SystemApi
     public void setUceSettingEnabled(boolean p0) throws android.telephony.ims.ImsException {}
 
-    @android.annotation.SystemApi
-    public static interface CapabilitiesCallback {
-        public void onCapabilitiesReceived(java.util.List<android.telephony.ims.RcsContactUceCapability> p0);
-        default public void onComplete() {}
-        default public void onComplete(android.telephony.ims.SipDetails p0) {}
-        default public void onError(int p0, long p1) {}
-        default public void onError(int p0, long p1, android.telephony.ims.SipDetails p2) {}
+    @java.lang.Deprecated
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RcsImsCapabilityFlag {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ErrorCode {
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnPublishStateChangedListener {
-        @java.lang.Deprecated
-        public void onPublishStateChange(int p0);
-        default public void onPublishStateChange(android.telephony.ims.PublishAttributes p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PublishState {
+    public static @interface StackPublishTriggerType {
     }
 
     public static class PublishStateCallbackAdapter {
@@ -130,12 +115,27 @@ public class RcsUceAdapter {
         }
     }
 
-    @java.lang.Deprecated
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RcsImsCapabilityFlag {
+    @android.annotation.SystemApi
+    public static interface OnPublishStateChangedListener {
+        @java.lang.Deprecated
+        public void onPublishStateChange(int p0);
+        default public void onPublishStateChange(android.telephony.ims.PublishAttributes p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StackPublishTriggerType {
+    public static @interface PublishState {
+    }
+
+    @android.annotation.SystemApi
+    public static interface CapabilitiesCallback {
+        public void onCapabilitiesReceived(java.util.List<android.telephony.ims.RcsContactUceCapability> p0);
+        default public void onComplete() {}
+        default public void onComplete(android.telephony.ims.SipDetails p0) {}
+        default public void onError(int p0, long p1) {}
+        default public void onError(int p0, long p1, android.telephony.ims.SipDetails p2) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ErrorCode {
     }
 }

@@ -4,12 +4,6 @@ public interface IOnTransportsChangedListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.IOnTransportsChangedListener";
     public void onTransportsChanged(java.util.List<android.companion.AssociationInfo> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.IOnTransportsChangedListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onTransportsChanged(java.util.List<android.companion.AssociationInfo> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.IOnTransportsChangedListener {
         static final int TRANSACTION_onTransportsChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IOnTransportsChangedListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onTransportsChanged(java.util.List<android.companion.AssociationInfo> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.IOnTransportsChangedListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onTransportsChanged(java.util.List<android.companion.AssociationInfo> p0) throws android.os.RemoteException {}
     }
 }

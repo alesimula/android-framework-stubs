@@ -9,6 +9,7 @@ public class IntIntMap {
     private int[] mValues;
     public IntIntMap() {}
     private int findKey(int p0) { return 0; }
+    private int getIndex(int p0) { return 0; }
     private int hash(int p0) { return 0; }
     private int insert(int p0, int p1) { return 0; }
     private void resize() {}

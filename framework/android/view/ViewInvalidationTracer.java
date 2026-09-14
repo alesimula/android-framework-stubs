@@ -1,6 +1,7 @@
 package android.view;
 
 public final class ViewInvalidationTracer {
+    static boolean sEnabled;
     private static final java.util.concurrent.atomic.AtomicLong sFlowIdCounter = null;
     private final android.util.LongArray mCurrentFlowIds = null;
     public ViewInvalidationTracer() {}

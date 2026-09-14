@@ -8,9 +8,9 @@ public class UpdateEngineStable {
     private final java.lang.Object mUpdateEngineStableCallbackLock = null;
     public UpdateEngineStable() {}
     public void applyPayloadFd(android.os.ParcelFileDescriptor p0, long p1, long p2, java.lang.String[] p3) {}
-    public boolean bind(android.os.UpdateEngineStableCallback p0) { return false; }
-    public boolean bind(android.os.UpdateEngineStableCallback p0, android.os.Handler p1) { return false; }
-    public boolean unbind() { return false; }
+    public final boolean bind(android.os.UpdateEngineStableCallback p0) { return false; }
+    public final boolean bind(android.os.UpdateEngineStableCallback p0, android.os.Handler p1) { return false; }
+    public final boolean unbind() { return false; }
 
     public static @interface ErrorCode {
     }

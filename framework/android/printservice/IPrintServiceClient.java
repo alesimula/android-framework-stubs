@@ -13,22 +13,6 @@ public interface IPrintServiceClient extends android.os.IInterface {
     public void setStatusRes(android.print.PrintJobId p0, int p1, java.lang.CharSequence p2) throws android.os.RemoteException;
     public void writePrintJobData(android.os.ParcelFileDescriptor p0, android.print.PrintJobId p1) throws android.os.RemoteException;
 
-    public static class Default implements android.printservice.IPrintServiceClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.print.PrintJobInfo getPrintJobInfo(android.print.PrintJobId p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.print.PrintJobInfo> getPrintJobInfos() throws android.os.RemoteException { return null; }
-        public void onCustomPrinterIconLoaded(android.print.PrinterId p0, android.graphics.drawable.Icon p1) throws android.os.RemoteException {}
-        public void onPrintersAdded(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
-        public void onPrintersRemoved(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
-        public boolean setPrintJobState(android.print.PrintJobId p0, int p1, java.lang.String p2) throws android.os.RemoteException { return false; }
-        public boolean setPrintJobTag(android.print.PrintJobId p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public void setProgress(android.print.PrintJobId p0, float p1) throws android.os.RemoteException {}
-        public void setStatus(android.print.PrintJobId p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
-        public void setStatusRes(android.print.PrintJobId p0, int p1, java.lang.CharSequence p2) throws android.os.RemoteException {}
-        public void writePrintJobData(android.os.ParcelFileDescriptor p0, android.print.PrintJobId p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.printservice.IPrintServiceClient {
         public static final java.lang.String DESCRIPTOR = "android.printservice.IPrintServiceClient";
         static final int TRANSACTION_getPrintJobInfo = 2;
@@ -66,5 +50,21 @@ public interface IPrintServiceClient extends android.os.IInterface {
             public void setStatusRes(android.print.PrintJobId p0, int p1, java.lang.CharSequence p2) throws android.os.RemoteException {}
             public void writePrintJobData(android.os.ParcelFileDescriptor p0, android.print.PrintJobId p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.printservice.IPrintServiceClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.print.PrintJobInfo getPrintJobInfo(android.print.PrintJobId p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.print.PrintJobInfo> getPrintJobInfos() throws android.os.RemoteException { return null; }
+        public void onCustomPrinterIconLoaded(android.print.PrinterId p0, android.graphics.drawable.Icon p1) throws android.os.RemoteException {}
+        public void onPrintersAdded(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
+        public void onPrintersRemoved(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
+        public boolean setPrintJobState(android.print.PrintJobId p0, int p1, java.lang.String p2) throws android.os.RemoteException { return false; }
+        public boolean setPrintJobTag(android.print.PrintJobId p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public void setProgress(android.print.PrintJobId p0, float p1) throws android.os.RemoteException {}
+        public void setStatus(android.print.PrintJobId p0, java.lang.CharSequence p1) throws android.os.RemoteException {}
+        public void setStatusRes(android.print.PrintJobId p0, int p1, java.lang.CharSequence p2) throws android.os.RemoteException {}
+        public void writePrintJobData(android.os.ParcelFileDescriptor p0, android.print.PrintJobId p1) throws android.os.RemoteException {}
     }
 }

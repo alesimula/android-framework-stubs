@@ -73,6 +73,16 @@ public class TvAdView extends android.view.ViewGroup {
     public void startAdService() {}
     public void stopAdService() {}
 
+    public static abstract class TvAdCallback {
+        public TvAdCallback() {}
+        public void onRequestCurrentChannelUri(java.lang.String p0) {}
+        public void onRequestCurrentTvInputId(java.lang.String p0) {}
+        public void onRequestCurrentVideoBounds(java.lang.String p0) {}
+        public void onRequestSigning(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, byte[] p4) {}
+        public void onRequestTrackInfoList(java.lang.String p0) {}
+        public void onStateChanged(java.lang.String p0, int p1, int p2) {}
+    }
+
     private class MySessionCallback extends android.media.tv.ad.TvAdManager.SessionCallback {
         final java.lang.String mServiceId = null;
         MySessionCallback(android.media.tv.ad.TvAdView p0, java.lang.String p1) { super(); }
@@ -88,15 +98,5 @@ public class TvAdView extends android.view.ViewGroup {
 
     public static interface OnUnhandledInputEventListener {
         public boolean onUnhandledInputEvent(android.view.InputEvent p0);
-    }
-
-    public static abstract class TvAdCallback {
-        public TvAdCallback() {}
-        public void onRequestCurrentChannelUri(java.lang.String p0) {}
-        public void onRequestCurrentTvInputId(java.lang.String p0) {}
-        public void onRequestCurrentVideoBounds(java.lang.String p0) {}
-        public void onRequestSigning(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, byte[] p4) {}
-        public void onRequestTrackInfoList(java.lang.String p0) {}
-        public void onStateChanged(java.lang.String p0, int p1, int p2) {}
     }
 }

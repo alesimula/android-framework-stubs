@@ -5,9 +5,11 @@ public final class Flags {
     public static final java.lang.String FLAG_LUTS_API = "android.hardware.flags.luts_api";
     public static final java.lang.String FLAG_OVERLAYPROPERTIES_CLASS_API = "android.hardware.flags.overlayproperties_class_api";
     public static final java.lang.String FLAG_SUSPEND_SENSOR_EVENT_DELIVERY_ON_FROZEN_PID = "android.hardware.flags.suspend_sensor_event_delivery_on_frozen_pid";
+    public static final java.lang.String FLAG_UPDATE_WMM_2025 = "android.hardware.flags.update_wmm_2025";
     public Flags() {}
     public static boolean displayHdr26q2() { return false; }
     public static boolean lutsApi() { return false; }
     public static boolean overlaypropertiesClassApi() { return false; }
     public static boolean suspendSensorEventDeliveryOnFrozenPid() { return false; }
+    public static boolean updateWmm2025() { return false; }
 }

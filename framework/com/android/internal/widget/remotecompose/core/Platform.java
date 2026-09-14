@@ -10,11 +10,6 @@ public interface Platform {
     public java.lang.Object parsePath(java.lang.String p0);
     public float[] pathToFloatArray(java.lang.Object p0);
 
-    public static interface ComputedTextLayout {
-        public float getHeight();
-        public float getWidth();
-    }
-
     public static enum LogCategory {
         DEBUG,
         ERROR,
@@ -23,5 +18,10 @@ public interface Platform {
         WARN;
         private static final com.android.internal.widget.remotecompose.core.Platform.LogCategory[] $VALUES = null;
         private LogCategory() {}
+    }
+
+    public static interface ComputedTextLayout {
+        public float getHeight();
+        public float getWidth();
     }
 }

@@ -106,6 +106,15 @@ public class NetworkPolicyManager {
     public void unregisterNetworkPolicyCallback(android.net.NetworkPolicyManager.NetworkPolicyCallback p0) {}
     public void unregisterSubscriptionCallback(android.net.NetworkPolicyManager.SubscriptionCallback p0) {}
 
+    public static final class UidState {
+        public int capability;
+        public int procState;
+        public long procStateSeq;
+        public int uid;
+        public UidState(int p0, int p1, long p2, int p3) {}
+        public java.lang.String toString() { return null; }
+    }
+
     public static class Listener extends android.net.INetworkPolicyListener.Stub {
         public Listener() { super(); }
         public void onBlockedReasonChanged(int p0, int p1, int p2) {}
@@ -117,11 +126,15 @@ public class NetworkPolicyManager {
         public void onUidRulesChanged(int p0, int p1) {}
     }
 
-    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-    @java.lang.Deprecated
-    public static interface NetworkPolicyCallback {
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        default public void onUidBlockedReasonChanged(int p0, int p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SubscriptionOverrideMask {
+    }
+
+    public class SubscriptionCallbackProxy extends android.net.NetworkPolicyManager.Listener {
+        private final android.net.NetworkPolicyManager.SubscriptionCallback mCallback = null;
+        SubscriptionCallbackProxy(android.net.NetworkPolicyManager p0, android.net.NetworkPolicyManager.SubscriptionCallback p1) { super(); }
+        public void onSubscriptionOverride(int p0, int p1, int p2, int[] p3) {}
+        public void onSubscriptionPlansChanged(int p0, android.telephony.SubscriptionPlan[] p1) {}
     }
 
     public static class NetworkPolicyCallbackProxy extends android.net.NetworkPolicyManager.Listener {
@@ -137,23 +150,10 @@ public class NetworkPolicyManager {
         public void onSubscriptionPlansChanged(int p0, android.telephony.SubscriptionPlan[] p1) {}
     }
 
-    public class SubscriptionCallbackProxy extends android.net.NetworkPolicyManager.Listener {
-        private final android.net.NetworkPolicyManager.SubscriptionCallback mCallback = null;
-        SubscriptionCallbackProxy(android.net.NetworkPolicyManager p0, android.net.NetworkPolicyManager.SubscriptionCallback p1) { super(); }
-        public void onSubscriptionOverride(int p0, int p1, int p2, int[] p3) {}
-        public void onSubscriptionPlansChanged(int p0, android.telephony.SubscriptionPlan[] p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SubscriptionOverrideMask {
-    }
-
-    public static final class UidState {
-        public int capability;
-        public int procState;
-        public long procStateSeq;
-        public int uid;
-        public UidState(int p0, int p1, long p2, int p3) {}
-        public java.lang.String toString() { return null; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    @java.lang.Deprecated
+    public static interface NetworkPolicyCallback {
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        default public void onUidBlockedReasonChanged(int p0, int p1) {}
     }
 }

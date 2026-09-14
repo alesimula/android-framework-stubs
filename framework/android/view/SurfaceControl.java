@@ -174,6 +174,7 @@ public final class SurfaceControl implements android.os.Parcelable {
     private static native void nativeSetAutoLowLatencyMode(android.os.IBinder p0, boolean p1);
     private static native void nativeSetBackgroundBlurRadius(long p0, long p1, int p2);
     private static native void nativeSetBackgroundBlurScale(long p0, long p1, float p2);
+    private static native void nativeSetBlurRegions(long p0, long p1, long[] p2, int p3, int p4, int p5, float p6, float p7);
     private static native void nativeSetBlurRegions(long p0, long p1, float[][] p2, int p3);
     private static native void nativeSetBlurThrottlingTargetFps(long p0, long p1, int p2);
     private static native void nativeSetBootDisplayMode(android.os.IBinder p0, int p1);
@@ -218,7 +219,8 @@ public final class SurfaceControl implements android.os.Parcelable {
     private static native void nativeSetExtendedRangeBrightness(long p0, long p1, float p2, float p3);
     private static native void nativeSetFixedTransformHint(long p0, long p1, int p2);
     private static native void nativeSetFlags(long p0, long p1, int p2, int p3);
-    private static native void nativeSetFocusedWindow(long p0, android.os.IBinder p1, java.lang.String p2, int p3);
+    private static native void nativeSetFocusGroup(long p0, long p1, int p2);
+    private static native void nativeSetFocusedWindow(long p0, android.os.IBinder p1, java.lang.String p2, int p3, int p4);
     private static native void nativeSetFrameRate(long p0, long p1, float p2, int p3, int p4);
     private static native void nativeSetFrameRateCategory(long p0, long p1, int p2, boolean p3);
     private static native void nativeSetFrameRateSelectionPriority(long p0, long p1, int p2);
@@ -288,12 +290,14 @@ public final class SurfaceControl implements android.os.Parcelable {
     public int getLayerId() { return 0; }
     public android.view.View getLocalOwnerView() { return null; }
     java.lang.String getName() { return null; }
+    public int getSurfaceHashCode() { return 0; }
     public int getTransformHint() { return 0; }
     public int getWidth() { return 0; }
     public boolean hasChoreographer() { return false; }
     public boolean isSameSurface(android.view.SurfaceControl p0) { return false; }
     public boolean isValid() { return false; }
     public void readFromParcel(android.os.Parcel p0) {}
+    public android.view.SurfaceControl.OnJankDataListenerRegistration registerOnJankDataListener(java.util.concurrent.Executor p0, android.view.SurfaceControl.OnJankDataListener p1) { return null; }
     public void release() {}
     public boolean removeOnReparentListener(android.view.SurfaceControl.OnReparentListener p0) { return false; }
     public void resize(int p0, int p1) {}
@@ -302,8 +306,23 @@ public final class SurfaceControl implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BufferTransform {
+    public static final class DesiredDisplayModeSpecs {
+        public boolean allowGroupSwitching;
+        public final android.view.SurfaceControl.RefreshRateRanges appRequestRanges = null;
+        public int defaultMode;
+        public android.os.IBinder displayToken;
+        public android.view.SurfaceControl.IdleScreenRefreshRateConfig idleScreenRefreshRateConfig;
+        public final android.view.SurfaceControl.RefreshRateRanges primaryRanges = null;
+        public android.view.SurfaceControl.WorkDuration workDuration;
+        public DesiredDisplayModeSpecs() {}
+        public DesiredDisplayModeSpecs(android.os.IBinder p0, int p1, boolean p2, android.view.SurfaceControl.RefreshRateRanges p3, android.view.SurfaceControl.RefreshRateRanges p4, android.view.SurfaceControl.IdleScreenRefreshRateConfig p5, android.view.SurfaceControl.WorkDuration p6) {}
+        public DesiredDisplayModeSpecs(android.view.SurfaceControl.DesiredDisplayModeSpecs p0) {}
+        private void copyIdleScreenRefreshRateConfig(android.view.SurfaceControl.IdleScreenRefreshRateConfig p0) {}
+        public void copyFrom(android.view.SurfaceControl.DesiredDisplayModeSpecs p0) {}
+        public boolean equals(android.view.SurfaceControl.DesiredDisplayModeSpecs p0) { return false; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
     }
 
     public static class Builder {
@@ -343,40 +362,121 @@ public final class SurfaceControl implements android.os.Parcelable {
         public android.view.SurfaceControl.Builder setSecure(boolean p0) { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CachingHint {
+    public static abstract class TrustedPresentationCallback {
+        private final java.lang.Runnable mFreeNativeResources = null;
+        private final long mNativeObject = 0L;
+        private TrustedPresentationCallback() {}
+        public abstract void onTrustedPresentationChanged(boolean p0);
     }
 
-    public static final class CieXyz {
-        public float X;
-        public float Y;
-        public float Z;
-        public CieXyz() {}
+    public static enum ModeChangeResult {
+        FAILURE,
+        REJECTED,
+        SUCCESS;
+        private static final android.view.SurfaceControl.ModeChangeResult[] $VALUES = null;
+        private ModeChangeResult() {}
+        public static android.view.SurfaceControl.ModeChangeResult fromInt(int p0) { return null; }
     }
 
-    public static final class DesiredDisplayModeSpecs {
-        public boolean allowGroupSwitching;
-        public final android.view.SurfaceControl.RefreshRateRanges appRequestRanges = null;
-        public int defaultMode;
-        public android.os.IBinder displayToken;
-        public android.view.SurfaceControl.IdleScreenRefreshRateConfig idleScreenRefreshRateConfig;
-        public final android.view.SurfaceControl.RefreshRateRanges primaryRanges = null;
-        public android.view.SurfaceControl.WorkDuration workDuration;
-        public DesiredDisplayModeSpecs() {}
-        public DesiredDisplayModeSpecs(android.os.IBinder p0, int p1, boolean p2, android.view.SurfaceControl.RefreshRateRanges p3, android.view.SurfaceControl.RefreshRateRanges p4, android.view.SurfaceControl.IdleScreenRefreshRateConfig p5, android.view.SurfaceControl.WorkDuration p6) {}
-        public DesiredDisplayModeSpecs(android.view.SurfaceControl.DesiredDisplayModeSpecs p0) {}
-        private void copyIdleScreenRefreshRateConfig(android.view.SurfaceControl.IdleScreenRefreshRateConfig p0) {}
-        public void copyFrom(android.view.SurfaceControl.DesiredDisplayModeSpecs p0) {}
-        public boolean equals(android.view.SurfaceControl.DesiredDisplayModeSpecs p0) { return false; }
+    public static class WorkDuration {
+        public final long appDurationNanos = 0L;
+        public final long maxSfDurationNanos = 0L;
+        public final long minSfDurationNanos = 0L;
+        public WorkDuration(long p0, long p1, long p2) {}
+        public WorkDuration(android.view.SurfaceControl.WorkDuration p0) {}
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    public static class OnJankDataListenerRegistration {
+        public static final android.view.SurfaceControl.OnJankDataListenerRegistration NONE = null;
+        private final java.lang.Runnable mFreeNativeResources = null;
+        private android.view.SurfaceControl.OnJankDataListener mListener;
+        private final long mNativeObject = 0L;
+        private boolean mRemoved;
+        private OnJankDataListenerRegistration() {}
+        OnJankDataListenerRegistration(android.view.SurfaceControl p0, android.view.SurfaceControl.OnJankDataListener p1) {}
+        public void flush() {}
+        public void release() {}
+        public void removeAfter(long p0) {}
+    }
+
+    public static enum ModeSpecsUpdateResult {
+        FAILURE,
+        SUCCESS_MODES_CHANGED,
+        SUCCESS_MODES_UNCHANGED;
+        private static final android.view.SurfaceControl.ModeSpecsUpdateResult[] $VALUES = null;
+        private ModeSpecsUpdateResult() {}
+        public static android.view.SurfaceControl.ModeSpecsUpdateResult fromInt(int p0) { return null; }
+    }
+
+    public static final class TransactionStats {
+        private long mLatchTimeNanos;
+        private android.hardware.SyncFence mSyncFence;
+        private TransactionStats(long p0, long p1) {}
+        public void close() {}
+        public long getLatchTimeNanos() { return 0L; }
+        public android.hardware.SyncFence getPresentFence() { return null; }
+    }
+
+    public static interface OnJankDataListener {
+        public void onJankDataAvailable(java.util.List<android.view.SurfaceControl.JankData> p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BufferTransform {
+    }
+
+    private static class NativeProperties {
+        public final int layerId = 0;
+        public final java.lang.String name = null;
+        public final long nativeHandle = 0L;
+        NativeProperties(long p0, java.lang.String p1, int p2) {}
+    }
+
+    public static class LockDebuggingTransaction extends android.view.SurfaceControl.Transaction {
+        java.lang.Object mMonitor;
+        public LockDebuggingTransaction(java.lang.Object p0) { super(); }
+        protected void checkPreconditions(android.view.SurfaceControl p0) {}
+    }
+
+    public static final class RefreshRateRange implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.SurfaceControl.RefreshRateRange> CREATOR = null;
+        public static final float FLOAT_TOLERANCE = 0.009999999776482582f;
+        public static final java.lang.String TAG = "RefreshRateRange";
+        public float max;
+        public float min;
+        public RefreshRateRange() {}
+        public RefreshRateRange(float p0, float p1) {}
+        public void copyFrom(android.view.SurfaceControl.RefreshRateRange p0) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static interface OnDisplayEventListener {
+        public void onDisplayModeChange(android.os.IBinder p0, android.view.SurfaceControl.ModeChangeResult p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CachingHint {
     }
 
     private static class DisplayEventListenerWrapper {
         private final android.view.SurfaceControl.OnDisplayEventListener mListener = null;
         DisplayEventListenerWrapper(android.view.SurfaceControl.OnDisplayEventListener p0) {}
         private void dispatchDisplayModeChange(android.os.IBinder p0, int p1) {}
+    }
+
+    public static final class DisplayPrimaries {
+        public android.view.SurfaceControl.CieXyz blue;
+        public android.view.SurfaceControl.CieXyz green;
+        public android.view.SurfaceControl.CieXyz red;
+        public android.view.SurfaceControl.CieXyz white;
+        public DisplayPrimaries() {}
     }
 
     public static final class DisplayMode {
@@ -397,12 +497,75 @@ public final class SurfaceControl implements android.os.Parcelable {
         public java.lang.String toString() { return null; }
     }
 
-    public static final class DisplayPrimaries {
-        public android.view.SurfaceControl.CieXyz blue;
-        public android.view.SurfaceControl.CieXyz green;
-        public android.view.SurfaceControl.CieXyz red;
-        public android.view.SurfaceControl.CieXyz white;
-        public DisplayPrimaries() {}
+    public static final class IdleScreenRefreshRateConfig {
+        public int timeoutMillis;
+        public IdleScreenRefreshRateConfig() {}
+        public IdleScreenRefreshRateConfig(int p0) {}
+        public void copyFrom(android.view.SurfaceControl.IdleScreenRefreshRateConfig p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static interface TransactionCommittedListener {
+        public void onTransactionCommitted();
+    }
+
+    public static class JankData {
+        public static final int JANK_APPLICATION = 2;
+        public static final int JANK_COMPOSER = 1;
+        public static final int JANK_NONE = 0;
+        public static final int JANK_OTHER = 4;
+        public static final long PRESENTATION_TIME_UNKNOWN = -1L;
+        public static final long PRESENTATION_TIME_UNSET = 0L;
+        private final long mActualAppFrameTimeNs = 0L;
+        private final long mActualPresentDeltaNs = 0L;
+        private final long mDesiredPresentTimeNs = 0L;
+        private final long mFrameIntervalNs = 0L;
+        private final long mFrameVsyncId = 0L;
+        private final double mJankScore = 0.0;
+        private final int mJankType = 0;
+        private final int mJankTypeLegacy = 0;
+        private final long mPresentDelayNs = 0L;
+        private final long mPresentTimeNs = 0L;
+        private final long mScheduledAppFrameTimeNs = 0L;
+        public JankData(long p0, int p1, int p2, long p3, long p4, long p5, long p6, long p7, double p8) {}
+        public JankData(long p0, int p1, int p2, long p3, long p4, long p5, long p6, long p7, double p8, long p9, long p10) {}
+        public long getActualAppFrameTimeNanos() { return 0L; }
+        public long getActualPresentDeltaNanos() { return 0L; }
+        public long getDesiredPresentTimeNanos() { return 0L; }
+        public long getFrameIntervalNanos() { return 0L; }
+        public double getJankScore() { return 0.0; }
+        public int getJankType() { return 0; }
+        public int getJankTypeLegacy() { return 0; }
+        public long getPresentDelayNanos() { return 0L; }
+        public long getPresentTimeNanos() { return 0L; }
+        public long getScheduledAppFrameTimeNanos() { return 0L; }
+        public long getVsyncId() { return 0L; }
+        public java.lang.String toString() { return null; }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface JankType {
+        }
+    }
+
+    public static final class RefreshRateRanges {
+        public static final java.lang.String TAG = "RefreshRateRanges";
+        public final android.view.SurfaceControl.RefreshRateRange physical = null;
+        public final android.view.SurfaceControl.RefreshRateRange render = null;
+        public RefreshRateRanges() {}
+        public RefreshRateRanges(android.view.SurfaceControl.RefreshRateRange p0, android.view.SurfaceControl.RefreshRateRange p1) {}
+        public void copyFrom(android.view.SurfaceControl.RefreshRateRanges p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static final class CieXyz {
+        public float X;
+        public float Y;
+        public float Z;
+        public CieXyz() {}
     }
 
     public static final class DynamicDisplayInfo {
@@ -424,148 +587,13 @@ public final class SurfaceControl implements android.os.Parcelable {
         public java.lang.String toString() { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FrameRateSelectionStrategy {
-    }
-
-    public static final class IdleScreenRefreshRateConfig {
-        public int timeoutMillis;
-        public IdleScreenRefreshRateConfig() {}
-        public IdleScreenRefreshRateConfig(int p0) {}
-        public void copyFrom(android.view.SurfaceControl.IdleScreenRefreshRateConfig p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static class JankData {
-        public static final int JANK_APPLICATION = 2;
-        public static final int JANK_COMPOSER = 1;
-        public static final int JANK_NONE = 0;
-        public static final int JANK_OTHER = 4;
-        private final long mActualAppFrameTimeNs = 0L;
-        private final long mActualPresentDeltaNs = 0L;
-        private final long mFrameIntervalNs = 0L;
-        private final long mFrameVsyncId = 0L;
-        private final double mJankScore = 0.0;
-        private final int mJankTypeExperimental = 0;
-        private final int mJankTypeLegacy = 0;
-        private final long mPresentDelayNs = 0L;
-        private final long mScheduledAppFrameTimeNs = 0L;
-        public JankData(long p0, int p1, int p2, long p3, long p4, long p5, long p6, long p7, double p8) {}
-        public long getActualAppFrameTimeNanos() { return 0L; }
-        public long getActualPresentDeltaNanos() { return 0L; }
-        public long getFrameIntervalNanos() { return 0L; }
-        public double getJankScore() { return 0.0; }
-        public int getJankType() { return 0; }
-        public int getJankTypeExperimental() { return 0; }
-        public int getJankTypeLegacy() { return 0; }
-        public long getPresentDelayNanos() { return 0L; }
-        public long getScheduledAppFrameTimeNanos() { return 0L; }
-        public long getVsyncId() { return 0L; }
-        public java.lang.String toString() { return null; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface JankType {
-        }
-    }
-
-    public static class LockDebuggingTransaction extends android.view.SurfaceControl.Transaction {
-        java.lang.Object mMonitor;
-        public LockDebuggingTransaction(java.lang.Object p0) { super(); }
-        protected void checkPreconditions(android.view.SurfaceControl p0) {}
-    }
-
-    public static enum ModeChangeResult {
-        FAILURE,
-        REJECTED,
-        SUCCESS;
-        private static final android.view.SurfaceControl.ModeChangeResult[] $VALUES = null;
-        private ModeChangeResult() {}
-        public static android.view.SurfaceControl.ModeChangeResult fromInt(int p0) { return null; }
-    }
-
-    public static enum ModeSpecsUpdateResult {
-        FAILURE,
-        SUCCESS_MODES_CHANGED,
-        SUCCESS_MODES_UNCHANGED;
-        private static final android.view.SurfaceControl.ModeSpecsUpdateResult[] $VALUES = null;
-        private ModeSpecsUpdateResult() {}
-        public static android.view.SurfaceControl.ModeSpecsUpdateResult fromInt(int p0) { return null; }
-    }
-
-    private static class NativeProperties {
-        public final int layerId = 0;
-        public final java.lang.String name = null;
-        public final long nativeHandle = 0L;
-        NativeProperties(long p0, java.lang.String p1, int p2) {}
-    }
-
-    public static interface OnDisplayEventListener {
-        public void onDisplayModeChange(android.os.IBinder p0, android.view.SurfaceControl.ModeChangeResult p1);
-    }
-
-    public static interface OnJankDataListener {
-        public void onJankDataAvailable(java.util.List<android.view.SurfaceControl.JankData> p0);
-    }
-
-    public static class OnJankDataListenerRegistration {
-        public static final android.view.SurfaceControl.OnJankDataListenerRegistration NONE = null;
-        private final java.lang.Runnable mFreeNativeResources = null;
-        private android.view.SurfaceControl.OnJankDataListener mListener;
-        private final long mNativeObject = 0L;
-        private boolean mRemoved;
-        private OnJankDataListenerRegistration() {}
-        OnJankDataListenerRegistration(android.view.SurfaceControl p0, android.view.SurfaceControl.OnJankDataListener p1) {}
-        public void flush() {}
-        public void release() {}
-        public void removeAfter(long p0) {}
-    }
-
-    public static interface OnReparentListener {
-        public void onReparent(android.view.SurfaceControl.Transaction p0, android.view.SurfaceControl p1);
-    }
-
-    public static final class RefreshRateRange implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.SurfaceControl.RefreshRateRange> CREATOR = null;
-        public static final float FLOAT_TOLERANCE = 0.009999999776482582f;
-        public static final java.lang.String TAG = "RefreshRateRange";
-        public float max;
-        public float min;
-        public RefreshRateRange() {}
-        public RefreshRateRange(float p0, float p1) {}
-        public void copyFrom(android.view.SurfaceControl.RefreshRateRange p0) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static final class RefreshRateRanges {
-        public static final java.lang.String TAG = "RefreshRateRanges";
-        public final android.view.SurfaceControl.RefreshRateRange physical = null;
-        public final android.view.SurfaceControl.RefreshRateRange render = null;
-        public RefreshRateRanges() {}
-        public RefreshRateRanges(android.view.SurfaceControl.RefreshRateRange p0, android.view.SurfaceControl.RefreshRateRange p1) {}
-        public void copyFrom(android.view.SurfaceControl.RefreshRateRanges p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static final class StaticDisplayInfo {
-        public float density;
-        public android.hardware.display.DeviceProductInfo deviceProductInfo;
-        public int installOrientation;
-        public boolean isInternal;
-        public int port;
-        public int screenPartStatus;
-        public boolean secure;
-        public StaticDisplayInfo() {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
+    @java.lang.Deprecated
+    public static final class TrustedPresentationThresholds {
+        private final float mMinAlpha = 0.0f;
+        private final float mMinFractionRendered = 0.0f;
+        private final int mStabilityRequirementMs = 0;
+        public TrustedPresentationThresholds(float p0, float p1, int p2) {}
+        private void checkValid() {}
     }
 
     public static class Transaction implements java.io.Closeable, android.os.Parcelable {
@@ -574,6 +602,7 @@ public final class SurfaceControl implements android.os.Parcelable {
         public static final int SAMPLE_BEHIND = 1;
         public static final int SAMPLE_SELF = 0;
         java.util.ArrayList<java.lang.String> mCalls;
+        java.lang.String mDebugTag;
         java.lang.Runnable mFreeNativeResources;
         public long mNativeObject;
         private final android.util.ArrayMap<android.view.SurfaceControl, android.view.SurfaceControl> mReparentedSurfaces = null;
@@ -601,6 +630,7 @@ public final class SurfaceControl implements android.os.Parcelable {
         public android.view.SurfaceControl.Transaction clearTrustedPresentationCallback(android.view.SurfaceControl p0) { return null; }
         public void close() {}
         public int describeContents() { return 0; }
+        public java.lang.String getDebugTag() { return null; }
         public long getId() { return 0L; }
         public android.view.SurfaceControl.Transaction hide(android.view.SurfaceControl p0) { return null; }
         public android.view.SurfaceControl.Transaction merge(android.view.SurfaceControl.Transaction p0) { return null; }
@@ -615,6 +645,7 @@ public final class SurfaceControl implements android.os.Parcelable {
         public android.view.SurfaceControl.Transaction setAnimationTransaction() { return null; }
         public android.view.SurfaceControl.Transaction setBackgroundBlurRadius(android.view.SurfaceControl p0, int p1) { return null; }
         public android.view.SurfaceControl.Transaction setBackgroundBlurScale(android.view.SurfaceControl p0, float p1) { return null; }
+        public android.view.SurfaceControl.Transaction setBlurRegions(android.view.SurfaceControl p0, java.util.ArrayList<android.view.BlurRegion> p1, int p2, int p3, float p4, float p5) { return null; }
         public android.view.SurfaceControl.Transaction setBlurRegions(android.view.SurfaceControl p0, float[][] p1) { return null; }
         public android.view.SurfaceControl.Transaction setBlurThrottlingTargetFps(android.view.SurfaceControl p0, int p1) { return null; }
         public android.view.SurfaceControl.Transaction setBorderSettings(android.view.SurfaceControl p0, android.gui.BorderSettings p1) { return null; }
@@ -642,6 +673,7 @@ public final class SurfaceControl implements android.os.Parcelable {
         public android.view.SurfaceControl.Transaction setCrop(android.view.SurfaceControl p0, android.graphics.Rect p1) { return null; }
         public android.view.SurfaceControl.Transaction setDamageRegion(android.view.SurfaceControl p0, android.graphics.Region p1) { return null; }
         public android.view.SurfaceControl.Transaction setDataSpace(android.view.SurfaceControl p0, int p1) { return null; }
+        public void setDebugTag(java.lang.String p0) {}
         public android.view.SurfaceControl.Transaction setDefaultFrameRateCompatibility(android.view.SurfaceControl p0, int p1) { return null; }
         public android.view.SurfaceControl.Transaction setDesiredHdrHeadroom(android.view.SurfaceControl p0, float p1) { return null; }
         public android.view.SurfaceControl.Transaction setDesiredMaxHdrHeadroom(android.view.SurfaceControl p0, float p1) { return null; }
@@ -662,7 +694,8 @@ public final class SurfaceControl implements android.os.Parcelable {
         public android.view.SurfaceControl.Transaction setEdgeExtensionEffect(android.view.SurfaceControl p0, int p1) { return null; }
         public android.view.SurfaceControl.Transaction setExtendedRangeBrightness(android.view.SurfaceControl p0, float p1, float p2) { return null; }
         public android.view.SurfaceControl.Transaction setFixedTransformHint(android.view.SurfaceControl p0, int p1) { return null; }
-        public android.view.SurfaceControl.Transaction setFocusedWindow(android.os.IBinder p0, java.lang.String p1, int p2) { return null; }
+        public android.view.SurfaceControl.Transaction setFocusGroup(android.view.SurfaceControl p0, int p1) { return null; }
+        public android.view.SurfaceControl.Transaction setFocusedWindow(android.os.IBinder p0, java.lang.String p1, int p2, int p3) { return null; }
         public android.view.SurfaceControl.Transaction setFrameRate(android.view.SurfaceControl p0, float p1, int p2) { return null; }
         public android.view.SurfaceControl.Transaction setFrameRate(android.view.SurfaceControl p0, float p1, int p2, int p3) { return null; }
         public android.view.SurfaceControl.Transaction setFrameRate(android.view.SurfaceControl p0, android.view.Surface.FrameRateParams p1) { return null; }
@@ -711,43 +744,25 @@ public final class SurfaceControl implements android.os.Parcelable {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static interface TransactionCommittedListener {
-        public void onTransactionCommitted();
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FrameRateSelectionStrategy {
     }
 
-    public static final class TransactionStats {
-        private long mLatchTimeNanos;
-        private android.hardware.SyncFence mSyncFence;
-        private TransactionStats(long p0, long p1) {}
-        public void close() {}
-        public long getLatchTimeNanos() { return 0L; }
-        public android.hardware.SyncFence getPresentFence() { return null; }
-    }
-
-    public static abstract class TrustedPresentationCallback {
-        private final java.lang.Runnable mFreeNativeResources = null;
-        private final long mNativeObject = 0L;
-        private TrustedPresentationCallback() {}
-        public abstract void onTrustedPresentationChanged(boolean p0);
-    }
-
-    @java.lang.Deprecated
-    public static final class TrustedPresentationThresholds {
-        private final float mMinAlpha = 0.0f;
-        private final float mMinFractionRendered = 0.0f;
-        private final int mStabilityRequirementMs = 0;
-        public TrustedPresentationThresholds(float p0, float p1, int p2) {}
-        private void checkValid() {}
-    }
-
-    public static class WorkDuration {
-        public final long appDurationNanos = 0L;
-        public final long maxSfDurationNanos = 0L;
-        public final long minSfDurationNanos = 0L;
-        public WorkDuration(long p0, long p1, long p2) {}
-        public WorkDuration(android.view.SurfaceControl.WorkDuration p0) {}
+    public static final class StaticDisplayInfo {
+        public float density;
+        public android.hardware.display.DeviceProductInfo deviceProductInfo;
+        public int installOrientation;
+        public boolean isInternal;
+        public int port;
+        public int screenPartStatus;
+        public boolean secure;
+        public StaticDisplayInfo() {}
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    public static interface OnReparentListener {
+        public void onReparent(android.view.SurfaceControl.Transaction p0, android.view.SurfaceControl p1);
     }
 }

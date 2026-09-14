@@ -3,7 +3,7 @@ package com.android.internal.jank;
 public class FrameTracker implements android.view.SurfaceControl.OnJankDataListener {
     private static final int FLUSH_DELAY_MILLISECOND = 60;
     private static final long INVALID_ID = -1L;
-    private static final double LOG2 = Double.valueOf(0.0);
+    private static final double LOG2 = 0.6931471805599453;
     private static final int MAX_FLUSH_ATTEMPTS = 3;
     private static final int MAX_LENGTH_EVENT_DESC = 127;
     private static final int NANOS_IN_MILLISECOND = 1000000;
@@ -61,15 +61,13 @@ public class FrameTracker implements android.view.SurfaceControl.OnJankDataListe
     public void postTraceStartMarker(java.lang.Runnable p0) {}
     public void removeObservers() {}
 
-    public static class ChoreographerWrapper {
-        private final android.view.Choreographer mChoreographer = null;
-        public ChoreographerWrapper(android.view.Choreographer p0) {}
-        public long getVsyncId() { return 0L; }
+    public static class SurfaceControlWrapper {
+        public SurfaceControlWrapper() {}
+        public android.view.SurfaceControl.OnJankDataListenerRegistration addJankStatsListener(android.view.SurfaceControl.OnJankDataListener p0, android.view.SurfaceControl p1) { return null; }
     }
 
-    public static interface FrameTrackerListener {
-        public void onCujEvents(com.android.internal.jank.FrameTracker p0, java.lang.String p1, int p2);
-        public void triggerPerfetto(com.android.internal.jank.InteractionJankMonitor.Configuration p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Reasons {
     }
 
     private static class JankInfo {
@@ -77,7 +75,7 @@ public class FrameTracker implements android.view.SurfaceControl.OnJankDataListe
         long frameInterval;
         final long frameVsyncId = 0L;
         double jankScore;
-        int jankTypeExperimental;
+        int jankType;
         int jankTypeLegacy;
         long presentDelay;
         int refreshRate;
@@ -88,19 +86,16 @@ public class FrameTracker implements android.view.SurfaceControl.OnJankDataListe
         com.android.internal.jank.FrameTracker.JankInfo update(android.view.SurfaceControl.JankData p0) { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Reasons {
+    public static class ChoreographerWrapper {
+        private final android.view.Choreographer mChoreographer = null;
+        public ChoreographerWrapper(android.view.Choreographer p0) {}
+        public long getVsyncId() { return 0L; }
     }
 
     public static class StatsLogWrapper {
         private final com.android.internal.jank.DisplayResolutionTracker mDisplayResolutionTracker = null;
         public StatsLogWrapper(com.android.internal.jank.DisplayResolutionTracker p0) {}
         public void write(int p0, int p1, int p2, int p3, long p4, long p5, long p6, long p7, long p8, long p9, long p10, float p11, float p12, float p13) {}
-    }
-
-    public static class SurfaceControlWrapper {
-        public SurfaceControlWrapper() {}
-        public android.view.SurfaceControl.OnJankDataListenerRegistration addJankStatsListener(android.view.SurfaceControl.OnJankDataListener p0, android.view.SurfaceControl p1) { return null; }
     }
 
     public static class ViewRootWrapper {
@@ -114,5 +109,10 @@ public class FrameTracker implements android.view.SurfaceControl.OnJankDataListe
         public void removeSurfaceChangedCallback(android.view.ViewRootImpl.SurfaceChangedCallback p0) {}
         void removeWindowCallbacks(android.view.WindowCallbacks p0) {}
         void requestInvalidateRootRenderNode() {}
+    }
+
+    public static interface FrameTrackerListener {
+        public void onCujEvents(com.android.internal.jank.FrameTracker p0, java.lang.String p1, int p2);
+        public void triggerPerfetto(com.android.internal.jank.InteractionJankMonitor.Configuration p0);
     }
 }

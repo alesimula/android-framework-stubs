@@ -22,6 +22,7 @@ public class ApkLite {
     private final int mPageSizeCompat = 0;
     private final java.lang.String mPath = null;
     private final boolean mProfileableByShell = false;
+    private final boolean mRegisteredAppStoreCandidate = false;
     private final java.util.Set<java.lang.String> mRequiredSplitTypes = null;
     private final java.lang.String mRequiredSystemPropertyName = null;
     private final java.lang.String mRequiredSystemPropertyValue = null;
@@ -47,7 +48,7 @@ public class ApkLite {
     private final int mVersionCode = 0;
     private final int mVersionCodeMajor = 0;
     public ApkLite(java.lang.String p0, android.content.pm.ArchivedPackageParcel p1) {}
-    public ApkLite(java.lang.String p0, java.lang.String p1, java.lang.String p2, boolean p3, java.lang.String p4, java.lang.String p5, boolean p6, int p7, int p8, int p9, int p10, java.util.List<android.content.pm.VerifierInfo> p11, android.content.pm.SigningDetails p12, boolean p13, boolean p14, boolean p15, boolean p16, boolean p17, boolean p18, boolean p19, boolean p20, java.lang.String p21, boolean p22, int p23, java.lang.String p24, java.lang.String p25, int p26, int p27, int p28, java.util.Set<java.lang.String> p29, java.util.Set<java.lang.String> p30, boolean p31, boolean p32, java.util.List<java.lang.String> p33, long[] p34, java.lang.String[][] p35, boolean p36, java.util.List<java.lang.String> p37, long[] p38, java.lang.String[][] p39, boolean p40, java.lang.String p41, java.util.List<android.content.pm.SharedLibraryInfo> p42, int p43) {}
+    public ApkLite(java.lang.String p0, java.lang.String p1, java.lang.String p2, boolean p3, java.lang.String p4, java.lang.String p5, boolean p6, int p7, int p8, int p9, int p10, java.util.List<android.content.pm.VerifierInfo> p11, android.content.pm.SigningDetails p12, boolean p13, boolean p14, boolean p15, boolean p16, boolean p17, boolean p18, boolean p19, boolean p20, java.lang.String p21, boolean p22, int p23, java.lang.String p24, java.lang.String p25, int p26, int p27, int p28, java.util.Set<java.lang.String> p29, java.util.Set<java.lang.String> p30, boolean p31, boolean p32, java.util.List<java.lang.String> p33, long[] p34, java.lang.String[][] p35, boolean p36, java.util.List<java.lang.String> p37, long[] p38, java.lang.String[][] p39, boolean p40, java.lang.String p41, java.util.List<android.content.pm.SharedLibraryInfo> p42, int p43, boolean p44) {}
     @java.lang.Deprecated
     private void __metadata() {}
     private boolean hasAnyRequiredSplitTypes() { return false; }
@@ -93,6 +94,7 @@ public class ApkLite {
     public boolean isMultiArch() { return false; }
     public boolean isOverlayIsStatic() { return false; }
     public boolean isProfileableByShell() { return false; }
+    public boolean isRegisteredAppStoreCandidate() { return false; }
     public boolean isSplitRequired() { return false; }
     public boolean isUpdatableSystem() { return false; }
     public boolean isUse32bitAbi() { return false; }

@@ -8,7 +8,6 @@ final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootcla
     private static boolean crossUserRoleEnabled;
     private static boolean crossUserRoleUxBugfixEnabled;
     private static boolean defaultAppsRecommendationEnabled;
-    private static boolean enableCoarseFineLocationPromptForAaos;
     private static boolean enhancedConfirmationBackportEnabled;
     private static boolean expressiveDesignEnabled;
     private static boolean fixSafetyCenterTouchTarget;
@@ -30,7 +29,6 @@ final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootcla
     public boolean crossUserRoleEnabled() { return false; }
     public boolean crossUserRoleUxBugfixEnabled() { return false; }
     public boolean defaultAppsRecommendationEnabled() { return false; }
-    public boolean enableCoarseFineLocationPromptForAaos() { return false; }
     public boolean enhancedConfirmationBackportEnabled() { return false; }
     public boolean expressiveDesignEnabled() { return false; }
     public boolean fixSafetyCenterTouchTarget() { return false; }

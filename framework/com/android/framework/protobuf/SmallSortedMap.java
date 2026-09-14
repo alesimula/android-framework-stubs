@@ -43,11 +43,6 @@ class SmallSortedMap<K extends java.lang.Comparable<K>, V extends java.lang.Obje
         public void remove() {}
     }
 
-    private class DescendingEntrySet extends com.android.framework.protobuf.SmallSortedMap<K, V>.EntrySet {
-        private DescendingEntrySet(com.android.framework.protobuf.SmallSortedMap p0) { super(null); }
-        public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
-    }
-
     private class Entry implements java.util.Map.Entry<K, V>, java.lang.Comparable<com.android.framework.protobuf.SmallSortedMap<K, V>.Entry> {
         private final K key = null;
         private V value;
@@ -63,6 +58,16 @@ class SmallSortedMap<K extends java.lang.Comparable<K>, V extends java.lang.Obje
         public java.lang.String toString() { return null; }
     }
 
+    private class EntrySet extends java.util.AbstractSet<java.util.Map.Entry<K, V>> {
+        private EntrySet(com.android.framework.protobuf.SmallSortedMap p0) { super(); }
+        public boolean add(java.util.Map.Entry<K, V> p0) { return false; }
+        public void clear() {}
+        public boolean contains(java.lang.Object p0) { return false; }
+        public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
+        public boolean remove(java.lang.Object p0) { return false; }
+        public int size() { return 0; }
+    }
+
     private class EntryIterator implements java.util.Iterator<java.util.Map.Entry<K, V>> {
         private java.util.Iterator<java.util.Map.Entry<K, V>> lazyOverflowIterator;
         private boolean nextCalledBeforeRemove;
@@ -74,13 +79,8 @@ class SmallSortedMap<K extends java.lang.Comparable<K>, V extends java.lang.Obje
         public void remove() {}
     }
 
-    private class EntrySet extends java.util.AbstractSet<java.util.Map.Entry<K, V>> {
-        private EntrySet(com.android.framework.protobuf.SmallSortedMap p0) { super(); }
-        public boolean add(java.util.Map.Entry<K, V> p0) { return false; }
-        public void clear() {}
-        public boolean contains(java.lang.Object p0) { return false; }
+    private class DescendingEntrySet extends com.android.framework.protobuf.SmallSortedMap<K, V>.EntrySet {
+        private DescendingEntrySet(com.android.framework.protobuf.SmallSortedMap p0) { super(null); }
         public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
-        public boolean remove(java.lang.Object p0) { return false; }
-        public int size() { return 0; }
     }
 }

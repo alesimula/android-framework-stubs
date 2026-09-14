@@ -37,7 +37,7 @@ public class PatternMatcher implements android.os.Parcelable {
     static int[] parseAndVerifyAdvancedPattern(java.lang.String p0) { return null; }
     public boolean check() { return false; }
     public int describeContents() { return 0; }
-    public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
+    public final void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
     public final java.lang.String getPath() { return null; }
     public final int getType() { return 0; }
     public boolean match(java.lang.String p0) { return false; }

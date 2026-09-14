@@ -3,7 +3,7 @@ package android.service.ambientcontext;
 @android.annotation.SystemApi
 public abstract class AmbientContextDetectionService extends android.app.Service {
     public static final java.lang.String SERVICE_INTERFACE = "android.service.ambientcontext.AmbientContextDetectionService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AmbientContextDetectionService";
     public AmbientContextDetectionService() { super(); }
     public final android.os.IBinder onBind(android.content.Intent p0) { return null; }
     public abstract void onQueryServiceStatus(int[] p0, java.lang.String p1, java.util.function.Consumer<android.service.ambientcontext.AmbientContextDetectionServiceStatus> p2);

@@ -4,12 +4,6 @@ public interface IInteractionListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.attention.IInteractionListener";
     public void onInteractionStateChanged(android.attention.InteractionState p0) throws android.os.RemoteException;
 
-    public static class Default implements android.attention.IInteractionListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInteractionStateChanged(android.attention.InteractionState p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.attention.IInteractionListener {
         static final int TRANSACTION_onInteractionStateChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IInteractionListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onInteractionStateChanged(android.attention.InteractionState p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.attention.IInteractionListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInteractionStateChanged(android.attention.InteractionState p0) throws android.os.RemoteException {}
     }
 }

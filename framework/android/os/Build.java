@@ -78,33 +78,6 @@ public class Build {
     private static <T extends java.lang.Object> java.lang.String joinListOrElse(java.util.List<T> p0, java.lang.String p1) { return null; }
     public static int parseFullVersion(java.lang.String p0) { return 0; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BackportedFixStatus {
-    }
-
-    public static class Partition {
-        public static final java.lang.String PARTITION_NAME_BOOTIMAGE = "bootimage";
-        public static final java.lang.String PARTITION_NAME_ODM = "odm";
-        public static final java.lang.String PARTITION_NAME_OEM = "oem";
-        public static final java.lang.String PARTITION_NAME_PRODUCT = "product";
-        public static final java.lang.String PARTITION_NAME_SYSTEM = "system";
-        public static final java.lang.String PARTITION_NAME_SYSTEM_EXT = "system_ext";
-        public static final java.lang.String PARTITION_NAME_VENDOR = "vendor";
-        private final java.lang.String mFingerprint = null;
-        private final java.lang.String mName = null;
-        private final long mTimeMs = 0L;
-        private Partition(java.lang.String p0, java.lang.String p1, long p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public long getBuildTimeMillis() { return 0L; }
-        public java.lang.String getFingerprint() { return null; }
-        public java.lang.String getName() { return null; }
-        public int hashCode() { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SdkIntFull {
-    }
-
     public static class VERSION {
         public static final java.lang.String[] ACTIVE_CODENAMES = null;
         private static final java.lang.String[] ALL_CODENAMES = null;
@@ -131,6 +104,75 @@ public class Build {
         public static final int SDK_INT_FULL = Integer.valueOf(0);
         public static final java.lang.String SECURITY_PATCH = null;
         public VERSION() {}
+    }
+
+    public static class VERSION_CODES_FULL {
+        public static final int BAKLAVA = 3600000;
+        public static final int BAKLAVA_1 = 3600001;
+        public static final int BASE = 100000;
+        public static final int BASE_1_1 = 200000;
+        public static final int CINNAMON_BUN = 3700000;
+        public static final int CINNAMON_BUN_1 = 3700001;
+        public static final int CINNAMON_BUN_2 = 3700002;
+        public static final int CUPCAKE = 300000;
+        private static final int CUR_DEVELOPMENT = 1000000000;
+        public static final int DONUT = 400000;
+        public static final int ECLAIR = 500000;
+        public static final int ECLAIR_0_1 = 600000;
+        public static final int ECLAIR_MR1 = 700000;
+        public static final int FROYO = 800000;
+        public static final int GINGERBREAD = 900000;
+        public static final int GINGERBREAD_MR1 = 1000000;
+        public static final int HONEYCOMB = 1100000;
+        public static final int HONEYCOMB_MR1 = 1200000;
+        public static final int HONEYCOMB_MR2 = 1300000;
+        public static final int ICE_CREAM_SANDWICH = 1400000;
+        public static final int ICE_CREAM_SANDWICH_MR1 = 1500000;
+        public static final int JELLY_BEAN = 1600000;
+        public static final int JELLY_BEAN_MR1 = 1700000;
+        public static final int JELLY_BEAN_MR2 = 1800000;
+        public static final int KITKAT = 1900000;
+        public static final int KITKAT_WATCH = 2000000;
+        public static final int LOLLIPOP = 2100000;
+        public static final int LOLLIPOP_MR1 = 2200000;
+        public static final int M = 2300000;
+        public static final int N = 2400000;
+        public static final int N_MR1 = 2500000;
+        public static final int O = 2600000;
+        public static final int O_MR1 = 2700000;
+        public static final int P = 2800000;
+        public static final int Q = 2900000;
+        public static final int R = 3000000;
+        public static final int S = 3100000;
+        private static final int SDK_INT_MULTIPLIER = 100000;
+        public static final int S_V2 = 3200000;
+        public static final int TIRAMISU = 3300000;
+        public static final int UPSIDE_DOWN_CAKE = 3400000;
+        public static final int VANILLA_ICE_CREAM = 3500000;
+        private VERSION_CODES_FULL() {}
+    }
+
+    public static class Partition {
+        public static final java.lang.String PARTITION_NAME_BOOTIMAGE = "bootimage";
+        public static final java.lang.String PARTITION_NAME_ODM = "odm";
+        public static final java.lang.String PARTITION_NAME_OEM = "oem";
+        public static final java.lang.String PARTITION_NAME_PRODUCT = "product";
+        public static final java.lang.String PARTITION_NAME_SYSTEM = "system";
+        public static final java.lang.String PARTITION_NAME_SYSTEM_EXT = "system_ext";
+        public static final java.lang.String PARTITION_NAME_VENDOR = "vendor";
+        private final java.lang.String mFingerprint = null;
+        private final java.lang.String mName = null;
+        private final long mTimeMs = 0L;
+        private Partition(java.lang.String p0, java.lang.String p1, long p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public long getBuildTimeMillis() { return 0L; }
+        public java.lang.String getFingerprint() { return null; }
+        public java.lang.String getName() { return null; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BackportedFixStatus {
     }
 
     public static class VERSION_CODES {
@@ -176,48 +218,7 @@ public class Build {
         public VERSION_CODES() {}
     }
 
-    public static class VERSION_CODES_FULL {
-        public static final int BAKLAVA = 3600000;
-        public static final int BAKLAVA_1 = 3600001;
-        public static final int BASE = 100000;
-        public static final int BASE_1_1 = 200000;
-        public static final int CINNAMON_BUN = 3700000;
-        public static final int CINNAMON_BUN_1 = 3700001;
-        public static final int CUPCAKE = 300000;
-        private static final int CUR_DEVELOPMENT = 1000000000;
-        public static final int DONUT = 400000;
-        public static final int ECLAIR = 500000;
-        public static final int ECLAIR_0_1 = 600000;
-        public static final int ECLAIR_MR1 = 700000;
-        public static final int FROYO = 800000;
-        public static final int GINGERBREAD = 900000;
-        public static final int GINGERBREAD_MR1 = 1000000;
-        public static final int HONEYCOMB = 1100000;
-        public static final int HONEYCOMB_MR1 = 1200000;
-        public static final int HONEYCOMB_MR2 = 1300000;
-        public static final int ICE_CREAM_SANDWICH = 1400000;
-        public static final int ICE_CREAM_SANDWICH_MR1 = 1500000;
-        public static final int JELLY_BEAN = 1600000;
-        public static final int JELLY_BEAN_MR1 = 1700000;
-        public static final int JELLY_BEAN_MR2 = 1800000;
-        public static final int KITKAT = 1900000;
-        public static final int KITKAT_WATCH = 2000000;
-        public static final int LOLLIPOP = 2100000;
-        public static final int LOLLIPOP_MR1 = 2200000;
-        public static final int M = 2300000;
-        public static final int N = 2400000;
-        public static final int N_MR1 = 2500000;
-        public static final int O = 2600000;
-        public static final int O_MR1 = 2700000;
-        public static final int P = 2800000;
-        public static final int Q = 2900000;
-        public static final int R = 3000000;
-        public static final int S = 3100000;
-        private static final int SDK_INT_MULTIPLIER = 100000;
-        public static final int S_V2 = 3200000;
-        public static final int TIRAMISU = 3300000;
-        public static final int UPSIDE_DOWN_CAKE = 3400000;
-        public static final int VANILLA_ICE_CREAM = 3500000;
-        private VERSION_CODES_FULL() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SdkIntFull {
     }
 }

@@ -6,14 +6,6 @@ public interface IInjectGlobalEvent extends android.os.IInterface {
     public void triggerOnResourcesAvailable() throws android.os.RemoteException;
     public void triggerRestart() throws android.os.RemoteException;
 
-    public static class Default implements android.media.soundtrigger_middleware.IInjectGlobalEvent {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void setResourceContention(boolean p0, android.media.soundtrigger_middleware.IAcknowledgeEvent p1) throws android.os.RemoteException {}
-        public void triggerOnResourcesAvailable() throws android.os.RemoteException {}
-        public void triggerRestart() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.soundtrigger_middleware.IInjectGlobalEvent {
         static final int TRANSACTION_setResourceContention = 2;
         static final int TRANSACTION_triggerOnResourcesAvailable = 3;
@@ -32,5 +24,13 @@ public interface IInjectGlobalEvent extends android.os.IInterface {
             public void triggerOnResourcesAvailable() throws android.os.RemoteException {}
             public void triggerRestart() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.soundtrigger_middleware.IInjectGlobalEvent {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void setResourceContention(boolean p0, android.media.soundtrigger_middleware.IAcknowledgeEvent p1) throws android.os.RemoteException {}
+        public void triggerOnResourcesAvailable() throws android.os.RemoteException {}
+        public void triggerRestart() throws android.os.RemoteException {}
     }
 }

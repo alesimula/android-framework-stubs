@@ -17,6 +17,7 @@ final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootcla
     private static boolean openjdk21V2Apis;
     private static boolean openjdk25V1Apis;
     private static boolean openjdk25V2Apis;
+    private static boolean openjdk25V3Apis;
     private static boolean osNoThrowApis;
     private static boolean postCleanupApis;
     private static boolean readOnlyDynamicCodeLoad;
@@ -38,6 +39,7 @@ final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootcla
     public boolean openjdk21V2Apis() { return false; }
     public boolean openjdk25V1Apis() { return false; }
     public boolean openjdk25V2Apis() { return false; }
+    public boolean openjdk25V3Apis() { return false; }
     public boolean osNoThrowApis() { return false; }
     public boolean postCleanupApis() { return false; }
     public boolean readOnlyDynamicCodeLoad() { return false; }

@@ -1,7 +1,7 @@
 package com.android.net.module.util;
 
 public final class DnsSvcbRecord extends com.android.net.module.util.DnsPacket.DnsRecord {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DnsSvcbRecord";
     private final android.util.SparseArray<com.android.net.module.util.SvcParam> mAllSvcParams = null;
     private final int mSvcPriority = 0;
     private final java.lang.String mTargetName = null;

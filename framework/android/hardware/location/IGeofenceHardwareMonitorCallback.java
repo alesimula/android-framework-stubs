@@ -3,12 +3,6 @@ package android.hardware.location;
 public interface IGeofenceHardwareMonitorCallback extends android.os.IInterface {
     public void onMonitoringSystemChange(android.hardware.location.GeofenceHardwareMonitorEvent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.location.IGeofenceHardwareMonitorCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMonitoringSystemChange(android.hardware.location.GeofenceHardwareMonitorEvent p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.location.IGeofenceHardwareMonitorCallback {
         public static final java.lang.String DESCRIPTOR = "android.hardware.location.IGeofenceHardwareMonitorCallback";
         static final int TRANSACTION_onMonitoringSystemChange = 1;
@@ -26,5 +20,11 @@ public interface IGeofenceHardwareMonitorCallback extends android.os.IInterface 
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onMonitoringSystemChange(android.hardware.location.GeofenceHardwareMonitorEvent p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.location.IGeofenceHardwareMonitorCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMonitoringSystemChange(android.hardware.location.GeofenceHardwareMonitorEvent p0) throws android.os.RemoteException {}
     }
 }

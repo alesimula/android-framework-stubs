@@ -13,22 +13,22 @@ public class TextDirectionHeuristics {
     public TextDirectionHeuristics() {}
     private static int isRtlCodePoint(int p0) { return 0; }
 
+    private static class TextDirectionHeuristicInternal extends android.text.TextDirectionHeuristics.TextDirectionHeuristicImpl {
+        private final boolean mDefaultIsRtl = false;
+        private TextDirectionHeuristicInternal(android.text.TextDirectionHeuristics.TextDirectionAlgorithm p0, boolean p1) { super(null); }
+        protected boolean defaultIsRtl() { return false; }
+    }
+
+    private static interface TextDirectionAlgorithm {
+        public int checkRtl(java.lang.CharSequence p0, int p1, int p2);
+    }
+
     private static class AnyStrong implements android.text.TextDirectionHeuristics.TextDirectionAlgorithm {
         public static final android.text.TextDirectionHeuristics.AnyStrong INSTANCE_LTR = null;
         public static final android.text.TextDirectionHeuristics.AnyStrong INSTANCE_RTL = null;
         private final boolean mLookForRtl = false;
         private AnyStrong(boolean p0) {}
         public int checkRtl(java.lang.CharSequence p0, int p1, int p2) { return 0; }
-    }
-
-    private static class FirstStrong implements android.text.TextDirectionHeuristics.TextDirectionAlgorithm {
-        public static final android.text.TextDirectionHeuristics.FirstStrong INSTANCE = null;
-        private FirstStrong() {}
-        public int checkRtl(java.lang.CharSequence p0, int p1, int p2) { return 0; }
-    }
-
-    private static interface TextDirectionAlgorithm {
-        public int checkRtl(java.lang.CharSequence p0, int p1, int p2);
     }
 
     private static abstract class TextDirectionHeuristicImpl implements android.text.TextDirectionHeuristic {
@@ -40,15 +40,15 @@ public class TextDirectionHeuristics {
         public boolean isRtl(char[] p0, int p1, int p2) { return false; }
     }
 
-    private static class TextDirectionHeuristicInternal extends android.text.TextDirectionHeuristics.TextDirectionHeuristicImpl {
-        private final boolean mDefaultIsRtl = false;
-        private TextDirectionHeuristicInternal(android.text.TextDirectionHeuristics.TextDirectionAlgorithm p0, boolean p1) { super(null); }
-        protected boolean defaultIsRtl() { return false; }
-    }
-
     private static class TextDirectionHeuristicLocale extends android.text.TextDirectionHeuristics.TextDirectionHeuristicImpl {
         public static final android.text.TextDirectionHeuristics.TextDirectionHeuristicLocale INSTANCE = null;
         public TextDirectionHeuristicLocale() { super(null); }
         protected boolean defaultIsRtl() { return false; }
+    }
+
+    private static class FirstStrong implements android.text.TextDirectionHeuristics.TextDirectionAlgorithm {
+        public static final android.text.TextDirectionHeuristics.FirstStrong INSTANCE = null;
+        private FirstStrong() {}
+        public int checkRtl(java.lang.CharSequence p0, int p1, int p2) { return 0; }
     }
 }

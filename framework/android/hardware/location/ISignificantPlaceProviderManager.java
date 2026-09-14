@@ -4,12 +4,6 @@ public interface ISignificantPlaceProviderManager extends android.os.IInterface 
     public static final java.lang.String DESCRIPTOR = "android.hardware.location.ISignificantPlaceProviderManager";
     public void setInSignificantPlace(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.location.ISignificantPlaceProviderManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void setInSignificantPlace(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.location.ISignificantPlaceProviderManager {
         static final int TRANSACTION_setInSignificantPlace = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISignificantPlaceProviderManager extends android.os.IInterface 
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void setInSignificantPlace(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.location.ISignificantPlaceProviderManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void setInSignificantPlace(boolean p0) throws android.os.RemoteException {}
     }
 }

@@ -11,10 +11,10 @@ public final class RecordConstants {
     public RecordConstants() {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeletionResult {
+    public static @interface LockStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LockStatus {
+    public static @interface DeletionResult {
     }
 }

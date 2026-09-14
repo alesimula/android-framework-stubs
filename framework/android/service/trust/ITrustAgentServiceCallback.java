@@ -12,21 +12,6 @@ public interface ITrustAgentServiceCallback extends android.os.IInterface {
     public void showKeyguardErrorMessage(java.lang.CharSequence p0) throws android.os.RemoteException;
     public void unlockUserWithToken(long p0, byte[] p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.trust.ITrustAgentServiceCallback {
-        public Default() {}
-        public void addEscrowToken(byte[] p0, int p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void grantTrust(java.lang.CharSequence p0, long p1, int p2, com.android.internal.infra.AndroidFuture p3) throws android.os.RemoteException {}
-        public void isEscrowTokenActive(long p0, int p1) throws android.os.RemoteException {}
-        public void lockUser() throws android.os.RemoteException {}
-        public void onConfigureCompleted(boolean p0, android.os.IBinder p1) throws android.os.RemoteException {}
-        public void removeEscrowToken(long p0, int p1) throws android.os.RemoteException {}
-        public void revokeTrust() throws android.os.RemoteException {}
-        public void setManagingTrust(boolean p0) throws android.os.RemoteException {}
-        public void showKeyguardErrorMessage(java.lang.CharSequence p0) throws android.os.RemoteException {}
-        public void unlockUserWithToken(long p0, byte[] p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.trust.ITrustAgentServiceCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.trust.ITrustAgentServiceCallback";
         static final int TRANSACTION_addEscrowToken = 6;
@@ -62,5 +47,20 @@ public interface ITrustAgentServiceCallback extends android.os.IInterface {
             public void showKeyguardErrorMessage(java.lang.CharSequence p0) throws android.os.RemoteException {}
             public void unlockUserWithToken(long p0, byte[] p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.trust.ITrustAgentServiceCallback {
+        public Default() {}
+        public void addEscrowToken(byte[] p0, int p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void grantTrust(java.lang.CharSequence p0, long p1, int p2, com.android.internal.infra.AndroidFuture p3) throws android.os.RemoteException {}
+        public void isEscrowTokenActive(long p0, int p1) throws android.os.RemoteException {}
+        public void lockUser() throws android.os.RemoteException {}
+        public void onConfigureCompleted(boolean p0, android.os.IBinder p1) throws android.os.RemoteException {}
+        public void removeEscrowToken(long p0, int p1) throws android.os.RemoteException {}
+        public void revokeTrust() throws android.os.RemoteException {}
+        public void setManagingTrust(boolean p0) throws android.os.RemoteException {}
+        public void showKeyguardErrorMessage(java.lang.CharSequence p0) throws android.os.RemoteException {}
+        public void unlockUserWithToken(long p0, byte[] p1, int p2) throws android.os.RemoteException {}
     }
 }

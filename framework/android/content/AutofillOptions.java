@@ -2,7 +2,7 @@ package android.content;
 
 public final class AutofillOptions implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.content.AutofillOptions> CREATOR = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AutofillOptions";
     public long appDisabledExpiration;
     public boolean augmentedAutofillEnabled;
     public final boolean compatModeEnabled = false;

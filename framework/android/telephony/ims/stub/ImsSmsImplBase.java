@@ -44,10 +44,10 @@ public class ImsSmsImplBase {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SendStatusResult {
+    public static @interface StatusReportResult {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StatusReportResult {
+    public static @interface SendStatusResult {
     }
 }

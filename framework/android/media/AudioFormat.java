@@ -217,6 +217,10 @@ public final class AudioFormat implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Encoding {
+    }
+
     public static class Builder {
         private int mChannelAcnMask;
         private int mChannelIndexMask;
@@ -234,23 +238,8 @@ public final class AudioFormat implements android.os.Parcelable {
         public android.media.AudioFormat.Builder setSampleRate(int p0) throws java.lang.IllegalArgumentException { return null; }
     }
 
-    public static class ChannelMasks {
-        private final int mAcnMask = 0;
-        private final int mChannelCount = 0;
-        private final int mIndexMask = 0;
-        private final int mPositionMask = 0;
-        public ChannelMasks() {}
-        public ChannelMasks(int p0) {}
-        public ChannelMasks(int p0, int p1) {}
-        public ChannelMasks(int p0, int p1, int p2) {}
-        private static int getChannelCount(int p0, int p1, int p2) { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getAcnMask() { return 0; }
-        public int getChannelCount() { return 0; }
-        public int getIndexMask() { return 0; }
-        public int getPositionMask() { return 0; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ChannelOut {
     }
 
     public static class ChannelMasksArray {
@@ -273,18 +262,29 @@ public final class AudioFormat implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ChannelOut {
+    public static @interface SurroundSoundEncoding {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Encoding {
+    public static class ChannelMasks {
+        private final int mAcnMask = 0;
+        private final int mChannelCount = 0;
+        private final int mIndexMask = 0;
+        private final int mPositionMask = 0;
+        public ChannelMasks() {}
+        public ChannelMasks(int p0) {}
+        public ChannelMasks(int p0, int p1) {}
+        public ChannelMasks(int p0, int p1, int p2) {}
+        private static int getChannelCount(int p0, int p1, int p2) { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getAcnMask() { return 0; }
+        public int getChannelCount() { return 0; }
+        public int getIndexMask() { return 0; }
+        public int getPositionMask() { return 0; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface EncodingCanBeInvalid {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SurroundSoundEncoding {
     }
 }

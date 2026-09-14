@@ -47,6 +47,7 @@ public final class KeyGestureEvent {
     public static final int KEY_GESTURE_TYPE_LAUNCH_DEFAULT_MESSAGING = 46;
     public static final int KEY_GESTURE_TYPE_LAUNCH_DEFAULT_MUSIC = 44;
     public static final int KEY_GESTURE_TYPE_LAUNCH_DEFAULT_WEATHER = 49;
+    public static final int KEY_GESTURE_TYPE_LAUNCH_HELP = 99;
     public static final int KEY_GESTURE_TYPE_LAUNCH_SEARCH = 22;
     public static final int KEY_GESTURE_TYPE_LAUNCH_SYSTEM_SETTINGS = 7;
     public static final int KEY_GESTURE_TYPE_LAUNCH_URI_ON_BEHALF_OF_POEM = 97;
@@ -135,6 +136,10 @@ public final class KeyGestureEvent {
     public boolean isLongPress() { return false; }
     public java.lang.String toString() { return null; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface KeyGestureType {
+    }
+
     public static class Builder {
         private int mAction;
         private android.hardware.input.AppLaunchData mAppLaunchData;
@@ -156,9 +161,5 @@ public final class KeyGestureEvent {
         public android.hardware.input.KeyGestureEvent.Builder setKeyGestureType(int p0) { return null; }
         public android.hardware.input.KeyGestureEvent.Builder setKeycodes(int[] p0) { return null; }
         public android.hardware.input.KeyGestureEvent.Builder setModifierState(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface KeyGestureType {
     }
 }

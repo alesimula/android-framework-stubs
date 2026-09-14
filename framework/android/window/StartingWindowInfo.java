@@ -41,9 +41,9 @@ public final class StartingWindowInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static @interface StartingTypeParams {
+    public static @interface StartingWindowType {
     }
 
-    public static @interface StartingWindowType {
+    public static @interface StartingTypeParams {
     }
 }

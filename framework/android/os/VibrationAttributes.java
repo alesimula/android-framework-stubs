@@ -47,6 +47,10 @@ public final class VibrationAttributes implements android.os.Parcelable {
     public java.lang.String usageToString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Flag {
+    }
+
     public static final class Builder {
         private int mFlags;
         private int mOriginalAudioUsage;
@@ -63,14 +67,10 @@ public final class VibrationAttributes implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Flag {
+    public static @interface UsageClass {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Usage {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UsageClass {
     }
 }

@@ -2,7 +2,7 @@ package android.mtp;
 
 class MtpPropertyGroup {
     private static final java.lang.String PATH_WHERE = "_data=?";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MtpPropertyGroup";
     private java.lang.String[] mColumns;
     private final android.mtp.MtpPropertyGroup.Property[] mProperties = null;
     public MtpPropertyGroup(int[] p0) {}

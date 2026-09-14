@@ -18,6 +18,12 @@ public class PKIXCRLStoreSelector<T extends java.security.cert.CRL> implements c
     public boolean isIssuingDistributionPointEnabled() { return false; }
     public boolean match(java.security.cert.CRL p0) { return false; }
 
+    private static class SelectorClone extends java.security.cert.X509CRLSelector {
+        private final com.android.internal.org.bouncycastle.jcajce.PKIXCRLStoreSelector selector = null;
+        SelectorClone(com.android.internal.org.bouncycastle.jcajce.PKIXCRLStoreSelector p0) { super(); }
+        public boolean match(java.security.cert.CRL p0) { return false; }
+    }
+
     public static class Builder {
         private final java.security.cert.CRLSelector baseSelector = null;
         private boolean completeCRLEnabled;
@@ -32,11 +38,5 @@ public class PKIXCRLStoreSelector<T extends java.security.cert.CRL> implements c
         public void setIssuingDistributionPoint(byte[] p0) {}
         public void setIssuingDistributionPointEnabled(boolean p0) {}
         public void setMaxBaseCRLNumber(java.math.BigInteger p0) {}
-    }
-
-    private static class SelectorClone extends java.security.cert.X509CRLSelector {
-        private final com.android.internal.org.bouncycastle.jcajce.PKIXCRLStoreSelector selector = null;
-        SelectorClone(com.android.internal.org.bouncycastle.jcajce.PKIXCRLStoreSelector p0) { super(); }
-        public boolean match(java.security.cert.CRL p0) { return false; }
     }
 }

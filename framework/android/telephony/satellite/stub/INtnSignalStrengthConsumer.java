@@ -4,12 +4,6 @@ public interface INtnSignalStrengthConsumer extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.telephony.satellite.stub.INtnSignalStrengthConsumer";
     public void accept(android.telephony.satellite.stub.NtnSignalStrength p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.satellite.stub.INtnSignalStrengthConsumer {
-        public Default() {}
-        public void accept(android.telephony.satellite.stub.NtnSignalStrength p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.satellite.stub.INtnSignalStrengthConsumer {
         static final int TRANSACTION_accept = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface INtnSignalStrengthConsumer extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.telephony.satellite.stub.INtnSignalStrengthConsumer {
+        public Default() {}
+        public void accept(android.telephony.satellite.stub.NtnSignalStrength p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

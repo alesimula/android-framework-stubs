@@ -48,132 +48,6 @@ public class RadioManager {
     public android.hardware.radio.RadioTuner openTuner(int p0, android.hardware.radio.RadioManager.BandConfig p1, boolean p2, android.hardware.radio.RadioTuner.Callback p3, android.os.Handler p4) { return null; }
     public void removeAnnouncementListener(android.hardware.radio.Announcement.OnListUpdatedListener p0) {}
 
-    public static class AmBandConfig extends android.hardware.radio.RadioManager.BandConfig {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.AmBandConfig> CREATOR = null;
-        private final boolean mStereo = false;
-        AmBandConfig(int p0, int p1, int p2, int p3, int p4, boolean p5) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
-        public AmBandConfig(android.hardware.radio.RadioManager.AmBandDescriptor p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
-        private AmBandConfig(android.os.Parcel p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public boolean getStereo() { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        public static class Builder {
-            private final android.hardware.radio.RadioManager.BandDescriptor mDescriptor = null;
-            private boolean mStereo;
-            public Builder(android.hardware.radio.RadioManager.AmBandConfig p0) {}
-            public Builder(android.hardware.radio.RadioManager.AmBandDescriptor p0) {}
-            public android.hardware.radio.RadioManager.AmBandConfig build() { return null; }
-            public android.hardware.radio.RadioManager.AmBandConfig.Builder setStereo(boolean p0) { return null; }
-        }
-    }
-
-    public static class AmBandDescriptor extends android.hardware.radio.RadioManager.BandDescriptor {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.AmBandDescriptor> CREATOR = null;
-        private final boolean mStereo = false;
-        public AmBandDescriptor(int p0, int p1, int p2, int p3, int p4, boolean p5) { super(0, 0, 0, 0, 0); }
-        private AmBandDescriptor(android.os.Parcel p0) { super(0, 0, 0, 0, 0); }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public boolean isStereoSupported() { return false; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Band {
-    }
-
-    public static class BandConfig implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.BandConfig> CREATOR = null;
-        final android.hardware.radio.RadioManager.BandDescriptor mDescriptor = null;
-        BandConfig(int p0, int p1, int p2, int p3, int p4) {}
-        BandConfig(android.hardware.radio.RadioManager.BandDescriptor p0) {}
-        private BandConfig(android.os.Parcel p0) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        android.hardware.radio.RadioManager.BandDescriptor getDescriptor() { return null; }
-        public int getLowerLimit() { return 0; }
-        public int getRegion() { return 0; }
-        public int getSpacing() { return 0; }
-        public int getType() { return 0; }
-        public int getUpperLimit() { return 0; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class BandDescriptor implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.BandDescriptor> CREATOR = null;
-        private final int mLowerLimit = 0;
-        private final int mRegion = 0;
-        private final int mSpacing = 0;
-        private final int mType = 0;
-        private final int mUpperLimit = 0;
-        BandDescriptor(int p0, int p1, int p2, int p3, int p4) {}
-        private BandDescriptor(android.os.Parcel p0) {}
-        private static int lookupTypeFromParcel(android.os.Parcel p0) { return 0; }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getLowerLimit() { return 0; }
-        public int getRegion() { return 0; }
-        public int getSpacing() { return 0; }
-        public int getType() { return 0; }
-        public int getUpperLimit() { return 0; }
-        public int hashCode() { return 0; }
-        public boolean isAmBand() { return false; }
-        public boolean isFmBand() { return false; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConfigFlag {
-    }
-
-    public static class FmBandConfig extends android.hardware.radio.RadioManager.BandConfig {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.FmBandConfig> CREATOR = null;
-        private final boolean mAf = false;
-        private final boolean mEa = false;
-        private final boolean mRds = false;
-        private final boolean mStereo = false;
-        private final boolean mTa = false;
-        FmBandConfig(int p0, int p1, int p2, int p3, int p4, boolean p5, boolean p6, boolean p7, boolean p8, boolean p9) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
-        public FmBandConfig(android.hardware.radio.RadioManager.FmBandDescriptor p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
-        private FmBandConfig(android.os.Parcel p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public boolean getAf() { return false; }
-        public boolean getEa() { return false; }
-        public boolean getRds() { return false; }
-        public boolean getStereo() { return false; }
-        public boolean getTa() { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        public static class Builder {
-            private boolean mAf;
-            private final android.hardware.radio.RadioManager.BandDescriptor mDescriptor = null;
-            private boolean mEa;
-            private boolean mRds;
-            private boolean mStereo;
-            private boolean mTa;
-            public Builder(android.hardware.radio.RadioManager.FmBandConfig p0) {}
-            public Builder(android.hardware.radio.RadioManager.FmBandDescriptor p0) {}
-            public android.hardware.radio.RadioManager.FmBandConfig build() { return null; }
-            public android.hardware.radio.RadioManager.FmBandConfig.Builder setAf(boolean p0) { return null; }
-            public android.hardware.radio.RadioManager.FmBandConfig.Builder setEa(boolean p0) { return null; }
-            public android.hardware.radio.RadioManager.FmBandConfig.Builder setRds(boolean p0) { return null; }
-            public android.hardware.radio.RadioManager.FmBandConfig.Builder setStereo(boolean p0) { return null; }
-            public android.hardware.radio.RadioManager.FmBandConfig.Builder setTa(boolean p0) { return null; }
-        }
-    }
-
     public static class FmBandDescriptor extends android.hardware.radio.RadioManager.BandDescriptor {
         public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.FmBandDescriptor> CREATOR = null;
         private final boolean mAf = false;
@@ -191,6 +65,25 @@ public class RadioManager {
         public boolean isRdsSupported() { return false; }
         public boolean isStereoSupported() { return false; }
         public boolean isTaSupported() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class BandConfig implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.BandConfig> CREATOR = null;
+        final android.hardware.radio.RadioManager.BandDescriptor mDescriptor = null;
+        BandConfig(int p0, int p1, int p2, int p3, int p4) {}
+        BandConfig(android.hardware.radio.RadioManager.BandDescriptor p0) {}
+        private BandConfig(android.os.Parcel p0) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        android.hardware.radio.RadioManager.BandDescriptor getDescriptor() { return null; }
+        public int getLowerLimit() { return 0; }
+        public int getRegion() { return 0; }
+        public int getSpacing() { return 0; }
+        public int getType() { return 0; }
+        public int getUpperLimit() { return 0; }
+        public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
@@ -240,6 +133,117 @@ public class RadioManager {
         public boolean isProgramTypeSupported(int p0) { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RadioStatusType {
+    }
+
+    public static class AmBandDescriptor extends android.hardware.radio.RadioManager.BandDescriptor {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.AmBandDescriptor> CREATOR = null;
+        private final boolean mStereo = false;
+        public AmBandDescriptor(int p0, int p1, int p2, int p3, int p4, boolean p5) { super(0, 0, 0, 0, 0); }
+        private AmBandDescriptor(android.os.Parcel p0) { super(0, 0, 0, 0, 0); }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public boolean isStereoSupported() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class BandDescriptor implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.BandDescriptor> CREATOR = null;
+        private final int mLowerLimit = 0;
+        private final int mRegion = 0;
+        private final int mSpacing = 0;
+        private final int mType = 0;
+        private final int mUpperLimit = 0;
+        BandDescriptor(int p0, int p1, int p2, int p3, int p4) {}
+        private BandDescriptor(android.os.Parcel p0) {}
+        private static int lookupTypeFromParcel(android.os.Parcel p0) { return 0; }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getLowerLimit() { return 0; }
+        public int getRegion() { return 0; }
+        public int getSpacing() { return 0; }
+        public int getType() { return 0; }
+        public int getUpperLimit() { return 0; }
+        public int hashCode() { return 0; }
+        public boolean isAmBand() { return false; }
+        public boolean isFmBand() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConfigFlag {
+    }
+
+    public static class AmBandConfig extends android.hardware.radio.RadioManager.BandConfig {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.AmBandConfig> CREATOR = null;
+        private final boolean mStereo = false;
+        AmBandConfig(int p0, int p1, int p2, int p3, int p4, boolean p5) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
+        public AmBandConfig(android.hardware.radio.RadioManager.AmBandDescriptor p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
+        private AmBandConfig(android.os.Parcel p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public boolean getStereo() { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        public static class Builder {
+            private final android.hardware.radio.RadioManager.BandDescriptor mDescriptor = null;
+            private boolean mStereo;
+            public Builder(android.hardware.radio.RadioManager.AmBandConfig p0) {}
+            public Builder(android.hardware.radio.RadioManager.AmBandDescriptor p0) {}
+            public android.hardware.radio.RadioManager.AmBandConfig build() { return null; }
+            public android.hardware.radio.RadioManager.AmBandConfig.Builder setStereo(boolean p0) { return null; }
+        }
+    }
+
+    public static class FmBandConfig extends android.hardware.radio.RadioManager.BandConfig {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.RadioManager.FmBandConfig> CREATOR = null;
+        private final boolean mAf = false;
+        private final boolean mEa = false;
+        private final boolean mRds = false;
+        private final boolean mStereo = false;
+        private final boolean mTa = false;
+        FmBandConfig(int p0, int p1, int p2, int p3, int p4, boolean p5, boolean p6, boolean p7, boolean p8, boolean p9) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
+        public FmBandConfig(android.hardware.radio.RadioManager.FmBandDescriptor p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
+        private FmBandConfig(android.os.Parcel p0) { super((android.hardware.radio.RadioManager.BandDescriptor)null); }
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public boolean getAf() { return false; }
+        public boolean getEa() { return false; }
+        public boolean getRds() { return false; }
+        public boolean getStereo() { return false; }
+        public boolean getTa() { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        public static class Builder {
+            private boolean mAf;
+            private final android.hardware.radio.RadioManager.BandDescriptor mDescriptor = null;
+            private boolean mEa;
+            private boolean mRds;
+            private boolean mStereo;
+            private boolean mTa;
+            public Builder(android.hardware.radio.RadioManager.FmBandConfig p0) {}
+            public Builder(android.hardware.radio.RadioManager.FmBandDescriptor p0) {}
+            public android.hardware.radio.RadioManager.FmBandConfig build() { return null; }
+            public android.hardware.radio.RadioManager.FmBandConfig.Builder setAf(boolean p0) { return null; }
+            public android.hardware.radio.RadioManager.FmBandConfig.Builder setEa(boolean p0) { return null; }
+            public android.hardware.radio.RadioManager.FmBandConfig.Builder setRds(boolean p0) { return null; }
+            public android.hardware.radio.RadioManager.FmBandConfig.Builder setStereo(boolean p0) { return null; }
+            public android.hardware.radio.RadioManager.FmBandConfig.Builder setTa(boolean p0) { return null; }
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Band {
     }
 
     public static class ProgramInfo implements android.os.Parcelable {
@@ -293,9 +297,5 @@ public class RadioManager {
         public boolean isTuned() { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RadioStatusType {
     }
 }

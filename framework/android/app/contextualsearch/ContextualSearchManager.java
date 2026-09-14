@@ -20,6 +20,8 @@ public final class ContextualSearchManager {
     @android.annotation.SystemApi
     public static final int ENTRYPOINT_OVERVIEW_MENU = 5;
     @android.annotation.SystemApi
+    public static final int ENTRYPOINT_QUICK_SETTINGS_TILE = 12;
+    @android.annotation.SystemApi
     public static final int ENTRYPOINT_SYSTEM_ACTION = 9;
     @android.annotation.SystemApi
     public static final java.lang.String EXTRA_ENTRYPOINT = "android.app.contextualsearch.extra.ENTRYPOINT";

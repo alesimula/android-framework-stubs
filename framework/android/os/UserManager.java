@@ -72,6 +72,7 @@ public class UserManager {
     public static final java.lang.String DISALLOW_INSTALL_APPS = "no_install_apps";
     public static final java.lang.String DISALLOW_INSTALL_UNKNOWN_SOURCES = "no_install_unknown_sources";
     public static final java.lang.String DISALLOW_INSTALL_UNKNOWN_SOURCES_GLOBALLY = "no_install_unknown_sources_globally";
+    public static final java.lang.String DISALLOW_INSTALL_UNKNOWN_SOURCES_INCLUDING_REGISTERED_APP_STORES = "no_install_unknown_sources_including_registered_app_stores";
     public static final java.lang.String DISALLOW_MICROPHONE_TOGGLE = "disallow_microphone_toggle";
     public static final java.lang.String DISALLOW_MODIFY_ACCOUNTS = "no_modify_accounts";
     public static final java.lang.String DISALLOW_MOUNT_PHYSICAL_MEDIA = "no_physical_media";
@@ -255,6 +256,7 @@ public class UserManager {
     public static boolean isUserTypeCommunalProfile(java.lang.String p0) { return false; }
     public static boolean isUserTypeDemo(java.lang.String p0) { return false; }
     public static boolean isUserTypeGuest(java.lang.String p0) { return false; }
+    public static boolean isUserTypeKiosk(java.lang.String p0) { return false; }
     public static boolean isUserTypeManagedProfile(java.lang.String p0) { return false; }
     public static boolean isUserTypePrivateProfile(java.lang.String p0) { return false; }
     public static boolean isUserTypeRestricted(java.lang.String p0) { return false; }
@@ -305,7 +307,7 @@ public class UserManager {
     public android.os.UserHandle getBootUser() { return null; }
     public android.os.UserHandle getCommunalProfile() { return null; }
     public int getCredentialOwnerProfile(int p0) { return 0; }
-    public int getCurrentAllowedNumberOfUsers(java.lang.String p0) { return 0; }
+    public final int getCurrentAllowedNumberOfUsers(java.lang.String p0) { return 0; }
     public android.os.Bundle getDefaultGuestRestrictions() { return null; }
     public int[] getEnabledProfileIds(int p0) { return null; }
     @android.annotation.SystemApi
@@ -451,7 +453,7 @@ public class UserManager {
     public boolean isSystemUser() { return false; }
     public boolean isUserAGoat() { return false; }
     public boolean isUserAdmin(int p0) { return false; }
-    public boolean isUserEphemeral(int p0) { return false; }
+    public final boolean isUserEphemeral(int p0) { return false; }
     public boolean isUserForeground() { return false; }
     @android.annotation.SystemApi
     public boolean isUserNameSet() { return false; }
@@ -462,8 +464,6 @@ public class UserManager {
     public boolean isUserRunningOrStopping(android.os.UserHandle p0) { return false; }
     public boolean isUserSwitcherEnabled() { return false; }
     public boolean isUserSwitcherEnabled(boolean p0) { return false; }
-    @java.lang.Deprecated
-    public boolean isUserTypeEnabled(java.lang.String p0) { return false; }
     public boolean isUserTypeSupported(java.lang.String p0) { return false; }
     public boolean isUserUnlocked() { return false; }
     public boolean isUserUnlocked(int p0) { return false; }
@@ -503,7 +503,7 @@ public class UserManager {
     public void setUserAccount(int p0, java.lang.String p1) {}
     public void setUserAdmin(int p0) {}
     public void setUserEnabled(int p0) {}
-    public boolean setUserEphemeral(int p0, boolean p1) { return false; }
+    public final boolean setUserEphemeral(int p0, boolean p1) { return false; }
     public void setUserIcon(int p0, android.graphics.Bitmap p1) {}
     @android.annotation.SystemApi
     public void setUserIcon(android.graphics.Bitmap p0) throws android.os.UserManager.UserOperationException {}
@@ -522,6 +522,18 @@ public class UserManager {
     public boolean someUserHasAccount(java.lang.String p0, java.lang.String p1) { return false; }
     public boolean someUserHasSeedAccount(java.lang.String p0, java.lang.String p1) { return false; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface QuietModeFlag {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserOperationResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserRestrictionKey {
+    }
+
     public static class CheckedUserOperationException extends android.util.AndroidException {
         private final int mUserOperationResult = 0;
         public CheckedUserOperationException(java.lang.String p0, int p1) { super(); }
@@ -529,7 +541,19 @@ public class UserManager {
         public android.os.ServiceSpecificException toServiceSpecificException() { return null; }
     }
 
-    public static @interface ContextIssueType {
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserSwitchabilityResult {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserLogoutability {
+    }
+
+    public static @interface UserLockLoggingStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UserRestrictionSource {
     }
 
     @android.annotation.SystemApi
@@ -545,24 +569,8 @@ public class UserManager {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    static final class QueryUserId extends android.util.Pair<java.lang.Integer, java.lang.Integer> {
-        public QueryUserId(int p0) { super(null, null); }
-        public int getUserId() { return 0; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface QuietModeFlag {
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface RemoveResult {
-    }
-
-    public static @interface UserLockLoggingStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserLogoutability {
     }
 
     public static class UserOperationException extends java.lang.RuntimeException {
@@ -572,19 +580,11 @@ public class UserManager {
         public int getUserOperationResult() { return 0; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserOperationResult {
+    public static @interface ContextIssueType {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserRestrictionKey {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserRestrictionSource {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UserSwitchabilityResult {
+    static final class QueryUserId extends android.util.Pair<java.lang.Integer, java.lang.Integer> {
+        public QueryUserId(int p0) { super(null, null); }
+        public int getUserId() { return 0; }
     }
 }

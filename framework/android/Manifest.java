@@ -82,6 +82,8 @@ public final class Manifest {
         public static final java.lang.String ACCESS_NPU_MODEL_MANAGER_API = "android.permission.ACCESS_NPU_MODEL_MANAGER_API";
         @android.annotation.SystemApi
         public static final java.lang.String ACCESS_PDB_STATE = "android.permission.ACCESS_PDB_STATE";
+        @android.annotation.SystemApi
+        public static final java.lang.String ACCESS_PRIVATE_COMPUTE_AUDIT_DATA = "android.permission.ACCESS_PRIVATE_COMPUTE_AUDIT_DATA";
         public static final java.lang.String ACCESS_PRIVATE_DISPLAYS = "android.permission.ACCESS_PRIVATE_DISPLAYS";
         @android.annotation.SystemApi
         public static final java.lang.String ACCESS_RCS_USER_CAPABILITY_EXCHANGE = "android.permission.ACCESS_RCS_USER_CAPABILITY_EXCHANGE";
@@ -141,6 +143,8 @@ public final class Manifest {
         public static final java.lang.String ALLOW_PLACE_IN_MULTI_PANE_SETTINGS = "android.permission.ALLOW_PLACE_IN_MULTI_PANE_SETTINGS";
         @android.annotation.SystemApi
         public static final java.lang.String ALLOW_SLIPPERY_TOUCHES = "android.permission.ALLOW_SLIPPERY_TOUCHES";
+        @android.annotation.SystemApi
+        public static final java.lang.String ALLOW_TEMPORARY_INSTALL_UNKNOWN_SOURCES = "android.permission.ALLOW_TEMPORARY_INSTALL_UNKNOWN_SOURCES";
         public static final java.lang.String ALWAYS_BOUND_TV_INPUT = "android.permission.ALWAYS_BOUND_TV_INPUT";
         @android.annotation.SystemApi
         public static final java.lang.String ALWAYS_UPDATE_WALLPAPER = "android.permission.ALWAYS_UPDATE_WALLPAPER";
@@ -209,6 +213,8 @@ public final class Manifest {
         @android.annotation.SystemApi
         @java.lang.Deprecated
         public static final java.lang.String BIND_CONNECTION_SERVICE = "android.permission.BIND_CONNECTION_SERVICE";
+        @android.annotation.SystemApi
+        public static final java.lang.String BIND_CONTENT_CAPTURE_PROCESSING_CONFIGURATION_PROVIDER = "android.permission.BIND_CONTENT_CAPTURE_PROCESSING_CONFIGURATION_PROVIDER";
         @android.annotation.SystemApi
         public static final java.lang.String BIND_CONTENT_CAPTURE_SERVICE = "android.permission.BIND_CONTENT_CAPTURE_SERVICE";
         public static final java.lang.String BIND_CONTENT_RESTRICTION_SERVICE = "android.permission.BIND_CONTENT_RESTRICTION_SERVICE";
@@ -279,7 +285,7 @@ public final class Manifest {
         @android.annotation.SystemApi
         public static final java.lang.String BIND_ON_DEVICE_SANDBOXED_INFERENCE_SERVICE = "android.permission.BIND_ON_DEVICE_SANDBOXED_INFERENCE_SERVICE";
         public static final java.lang.String BIND_PACKAGE_VERIFIER = "android.permission.BIND_PACKAGE_VERIFIER";
-        public static final java.lang.String BIND_PCC_EGRESS_PROXY = "android.permission.BIND_PCC_EGRESS_PROXY";
+        public static final java.lang.String BIND_PCC_EGRESS_SERVICE = "android.permission.BIND_PCC_EGRESS_SERVICE";
         @android.annotation.SystemApi
         public static final java.lang.String BIND_PHONE_ACCOUNT_SUGGESTION_SERVICE = "android.permission.BIND_PHONE_ACCOUNT_SUGGESTION_SERVICE";
         @android.annotation.SystemApi
@@ -311,6 +317,8 @@ public final class Manifest {
         public static final java.lang.String BIND_SATELLITE_SERVICE = "android.permission.BIND_SATELLITE_SERVICE";
         public static final java.lang.String BIND_SCREENING_SERVICE = "android.permission.BIND_SCREENING_SERVICE";
         public static final java.lang.String BIND_SELECTION_TOOLBAR_RENDER_SERVICE = "android.permission.BIND_SELECTION_TOOLBAR_RENDER_SERVICE";
+        @android.annotation.SystemApi
+        public static final java.lang.String BIND_SENSOR_FUSION_SERVICE = "android.permission.BIND_SENSOR_FUSION_SERVICE";
         @android.annotation.SystemApi
         public static final java.lang.String BIND_SETTINGS_CONTENT_SAFETY_SERVICE = "android.permission.BIND_SETTINGS_CONTENT_SAFETY_SERVICE";
         @android.annotation.SystemApi
@@ -444,6 +452,8 @@ public final class Manifest {
         public static final java.lang.String CHANGE_WIFI_STATE = "android.permission.CHANGE_WIFI_STATE";
         @android.annotation.SystemApi
         public static final java.lang.String CHECK_CONTENT_SAFETY = "android.permission.CHECK_CONTENT_SAFETY";
+        @android.annotation.SystemApi
+        public static final java.lang.String CHECK_DATA_LEAK_PREVENTION = "android.permission.CHECK_DATA_LEAK_PREVENTION";
         @android.annotation.SystemApi
         public static final java.lang.String CHECK_REMOTE_LOCKSCREEN = "android.permission.CHECK_REMOTE_LOCKSCREEN";
         public static final java.lang.String CLEAR_APP_CACHE = "android.permission.CLEAR_APP_CACHE";
@@ -614,6 +624,8 @@ public final class Manifest {
         @android.annotation.SystemApi
         public static final java.lang.String GET_PROCESS_STATE_AND_OOM_SCORE = "android.permission.GET_PROCESS_STATE_AND_OOM_SCORE";
         @android.annotation.SystemApi
+        public static final java.lang.String GET_REGISTERED_APP_STORE_INFO = "android.permission.GET_REGISTERED_APP_STORE_INFO";
+        @android.annotation.SystemApi
         public static final java.lang.String GET_ROLE_HOLDERS = "android.permission.GET_ROLE_HOLDERS";
         @android.annotation.SystemApi
         public static final java.lang.String GET_RUNTIME_PERMISSIONS = "android.permission.GET_RUNTIME_PERMISSIONS";
@@ -670,6 +682,7 @@ public final class Manifest {
         @android.annotation.SystemApi
         public static final java.lang.String INSTALL_LOCATION_TIME_ZONE_PROVIDER_SERVICE = "android.permission.INSTALL_LOCATION_TIME_ZONE_PROVIDER_SERVICE";
         public static final java.lang.String INSTALL_PACKAGES = "android.permission.INSTALL_PACKAGES";
+        public static final java.lang.String INSTALL_PACKAGES_AS_REGISTERED_APP_STORE = "android.permission.INSTALL_PACKAGES_AS_REGISTERED_APP_STORE";
         @android.annotation.SystemApi
         public static final java.lang.String INSTALL_PACKAGE_UPDATES = "android.permission.INSTALL_PACKAGE_UPDATES";
         @android.annotation.SystemApi
@@ -702,6 +715,8 @@ public final class Manifest {
         public static final java.lang.String KILL_UID = "android.permission.KILL_UID";
         public static final java.lang.String LAUNCH_CAPTURE_CONTENT_ACTIVITY_FOR_NOTE = "android.permission.LAUNCH_CAPTURE_CONTENT_ACTIVITY_FOR_NOTE";
         public static final java.lang.String LAUNCH_CREDENTIAL_SELECTOR = "android.permission.LAUNCH_CREDENTIAL_SELECTOR";
+        @android.annotation.SystemApi
+        public static final java.lang.String LAUNCH_DEFAULT_SEARCH_ENGINE_SETTINGS = "android.permission.LAUNCH_DEFAULT_SEARCH_ENGINE_SETTINGS";
         @android.annotation.SystemApi
         public static final java.lang.String LAUNCH_DEVICE_MANAGER_SETUP = "android.permission.LAUNCH_DEVICE_MANAGER_SETUP";
         public static final java.lang.String LAUNCH_MULTI_PANE_SETTINGS_DEEP_LINK = "android.permission.LAUNCH_MULTI_PANE_SETTINGS_DEEP_LINK";
@@ -741,9 +756,9 @@ public final class Manifest {
         public static final java.lang.String MANAGE_AISEAL_VIRTUAL_MACHINE = "android.permission.MANAGE_AISEAL_VIRTUAL_MACHINE";
         public static final java.lang.String MANAGE_APPOPS = "android.permission.MANAGE_APPOPS";
         @android.annotation.SystemApi
-        public static final java.lang.String MANAGE_APP_FUNCTION_ACCESS = "android.permission.MANAGE_APP_FUNCTION_ACCESS";
-        @android.annotation.SystemApi
         public static final java.lang.String MANAGE_APP_HIBERNATION = "android.permission.MANAGE_APP_HIBERNATION";
+        @android.annotation.SystemApi
+        public static final java.lang.String MANAGE_APP_INTERACTION_ACCESS = "android.permission.MANAGE_APP_INTERACTION_ACCESS";
         public static final java.lang.String MANAGE_APP_OPS_MODES = "android.permission.MANAGE_APP_OPS_MODES";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_APP_OPS_RESTRICTIONS = "android.permission.MANAGE_APP_OPS_RESTRICTIONS";
@@ -751,7 +766,6 @@ public final class Manifest {
         public static final java.lang.String MANAGE_APP_PREDICTIONS = "android.permission.MANAGE_APP_PREDICTIONS";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_APP_TOKENS = "android.permission.MANAGE_APP_TOKENS";
-        @android.annotation.SystemApi
         public static final java.lang.String MANAGE_ASSISTANT_AUDIO = "android.permission.MANAGE_ASSISTANT_AUDIO";
         public static final java.lang.String MANAGE_AUDIO_POLICY = "android.permission.MANAGE_AUDIO_POLICY";
         @android.annotation.SystemApi
@@ -784,10 +798,13 @@ public final class Manifest {
         public static final java.lang.String MANAGE_CREDENTIAL_MANAGEMENT_APP = "android.permission.MANAGE_CREDENTIAL_MANAGEMENT_APP";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_CROSS_DEVICE_AUTHENTICATED_MESSAGES = "android.permission.MANAGE_CROSS_DEVICE_AUTHENTICATED_MESSAGES";
+        public static final java.lang.String MANAGE_CROSS_DEVICE_TRUST = "android.permission.MANAGE_CROSS_DEVICE_TRUST";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_DEBUGGING = "android.permission.MANAGE_DEBUGGING";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_DEFAULT_APPLICATIONS = "android.permission.MANAGE_DEFAULT_APPLICATIONS";
+        @android.annotation.SystemApi
+        public static final java.lang.String MANAGE_DEFAULT_SEARCH_ENGINE = "android.permission.MANAGE_DEFAULT_SEARCH_ENGINE";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_DEVICE_ADMINS = "android.permission.MANAGE_DEVICE_ADMINS";
         public static final java.lang.String MANAGE_DEVICE_LOCK_STATE = "android.permission.MANAGE_DEVICE_LOCK_STATE";
@@ -821,12 +838,17 @@ public final class Manifest {
         public static final java.lang.String MANAGE_DEVICE_POLICY_CONTENT_PROTECTION = "android.permission.MANAGE_DEVICE_POLICY_CONTENT_PROTECTION";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_DEVICE_POLICY_CONTENT_SAFETY_APPS = "android.permission.MANAGE_DEVICE_POLICY_CONTENT_SAFETY_APPS";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_DATA_LEAK_PREVENTION = "android.permission.MANAGE_DEVICE_POLICY_DATA_LEAK_PREVENTION";
         public static final java.lang.String MANAGE_DEVICE_POLICY_DATA_STATE = "android.permission.MANAGE_DEVICE_POLICY_DATA_STATE";
         public static final java.lang.String MANAGE_DEVICE_POLICY_DEBUGGING_FEATURES = "android.permission.MANAGE_DEVICE_POLICY_DEBUGGING_FEATURES";
         public static final java.lang.String MANAGE_DEVICE_POLICY_DEFAULT_SMS = "android.permission.MANAGE_DEVICE_POLICY_DEFAULT_SMS";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_DEVELOPER_OPTIONS = "android.permission.MANAGE_DEVICE_POLICY_DEVELOPER_OPTIONS";
         public static final java.lang.String MANAGE_DEVICE_POLICY_DEVICE_IDENTIFIERS = "android.permission.MANAGE_DEVICE_POLICY_DEVICE_IDENTIFIERS";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_DEVICE_SECURITY_LOGGING = "android.permission.MANAGE_DEVICE_POLICY_DEVICE_SECURITY_LOGGING";
         public static final java.lang.String MANAGE_DEVICE_POLICY_DISPLAY = "android.permission.MANAGE_DEVICE_POLICY_DISPLAY";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_ETHERNET = "android.permission.MANAGE_DEVICE_POLICY_ETHERNET";
         public static final java.lang.String MANAGE_DEVICE_POLICY_FACTORY_RESET = "android.permission.MANAGE_DEVICE_POLICY_FACTORY_RESET";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_FIRST_USE_HINTS = "android.permission.MANAGE_DEVICE_POLICY_FIRST_USE_HINTS";
         public static final java.lang.String MANAGE_DEVICE_POLICY_FUN = "android.permission.MANAGE_DEVICE_POLICY_FUN";
         public static final java.lang.String MANAGE_DEVICE_POLICY_INPUT_METHODS = "android.permission.MANAGE_DEVICE_POLICY_INPUT_METHODS";
         public static final java.lang.String MANAGE_DEVICE_POLICY_INSTALL_UNKNOWN_SOURCES = "android.permission.MANAGE_DEVICE_POLICY_INSTALL_UNKNOWN_SOURCES";
@@ -836,8 +858,8 @@ public final class Manifest {
         public static final java.lang.String MANAGE_DEVICE_POLICY_LOCALE = "android.permission.MANAGE_DEVICE_POLICY_LOCALE";
         public static final java.lang.String MANAGE_DEVICE_POLICY_LOCATION = "android.permission.MANAGE_DEVICE_POLICY_LOCATION";
         public static final java.lang.String MANAGE_DEVICE_POLICY_LOCK = "android.permission.MANAGE_DEVICE_POLICY_LOCK";
-        public static final java.lang.String MANAGE_DEVICE_POLICY_LOCKSCREEN_MESSAGE = "android.permission.MANAGE_DEVICE_POLICY_LOCKSCREEN_MESSAGE";
         public static final java.lang.String MANAGE_DEVICE_POLICY_LOCK_CREDENTIALS = "android.permission.MANAGE_DEVICE_POLICY_LOCK_CREDENTIALS";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_LOCK_SCREEN_MESSAGE = "android.permission.MANAGE_DEVICE_POLICY_LOCK_SCREEN_MESSAGE";
         public static final java.lang.String MANAGE_DEVICE_POLICY_LOCK_TASK = "android.permission.MANAGE_DEVICE_POLICY_LOCK_TASK";
         public static final java.lang.String MANAGE_DEVICE_POLICY_MANAGED_SUBSCRIPTIONS = "android.permission.MANAGE_DEVICE_POLICY_MANAGED_SUBSCRIPTIONS";
         public static final java.lang.String MANAGE_DEVICE_POLICY_METERED_DATA = "android.permission.MANAGE_DEVICE_POLICY_METERED_DATA";
@@ -876,12 +898,15 @@ public final class Manifest {
         public static final java.lang.String MANAGE_DEVICE_POLICY_SYSTEM_APPS = "android.permission.MANAGE_DEVICE_POLICY_SYSTEM_APPS";
         public static final java.lang.String MANAGE_DEVICE_POLICY_SYSTEM_DIALOGS = "android.permission.MANAGE_DEVICE_POLICY_SYSTEM_DIALOGS";
         public static final java.lang.String MANAGE_DEVICE_POLICY_SYSTEM_UPDATES = "android.permission.MANAGE_DEVICE_POLICY_SYSTEM_UPDATES";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_TASK_CONTINUITY_HANDOFF = "android.permission.MANAGE_DEVICE_POLICY_TASK_CONTINUITY_HANDOFF";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_TETHERING = "android.permission.MANAGE_DEVICE_POLICY_TETHERING";
         public static final java.lang.String MANAGE_DEVICE_POLICY_THREAD_NETWORK = "android.permission.MANAGE_DEVICE_POLICY_THREAD_NETWORK";
         public static final java.lang.String MANAGE_DEVICE_POLICY_TIME = "android.permission.MANAGE_DEVICE_POLICY_TIME";
         public static final java.lang.String MANAGE_DEVICE_POLICY_UNIVERSAL_CLIPBOARD = "android.permission.MANAGE_DEVICE_POLICY_UNIVERSAL_CLIPBOARD";
         public static final java.lang.String MANAGE_DEVICE_POLICY_USB_DATA_SIGNALLING = "android.permission.MANAGE_DEVICE_POLICY_USB_DATA_SIGNALLING";
         public static final java.lang.String MANAGE_DEVICE_POLICY_USB_FILE_TRANSFER = "android.permission.MANAGE_DEVICE_POLICY_USB_FILE_TRANSFER";
         public static final java.lang.String MANAGE_DEVICE_POLICY_USERS = "android.permission.MANAGE_DEVICE_POLICY_USERS";
+        public static final java.lang.String MANAGE_DEVICE_POLICY_USER_SECURITY_LOGGING = "android.permission.MANAGE_DEVICE_POLICY_USER_SECURITY_LOGGING";
         public static final java.lang.String MANAGE_DEVICE_POLICY_VPN = "android.permission.MANAGE_DEVICE_POLICY_VPN";
         public static final java.lang.String MANAGE_DEVICE_POLICY_WALLPAPER = "android.permission.MANAGE_DEVICE_POLICY_WALLPAPER";
         public static final java.lang.String MANAGE_DEVICE_POLICY_WIFI = "android.permission.MANAGE_DEVICE_POLICY_WIFI";
@@ -935,6 +960,7 @@ public final class Manifest {
         public static final java.lang.String MANAGE_ONGOING_CALLS = "android.permission.MANAGE_ONGOING_CALLS";
         public static final java.lang.String MANAGE_OWN_CALLS = "android.permission.MANAGE_OWN_CALLS";
         public static final java.lang.String MANAGE_PERIPHERAL_CUSTOMIZATION = "android.permission.MANAGE_PERIPHERAL_CUSTOMIZATION";
+        public static final java.lang.String MANAGE_PERSONAL_CONTEXT_UNDERSTANDERS = "android.permission.MANAGE_PERSONAL_CONTEXT_UNDERSTANDERS";
         @android.annotation.SystemApi
         public static final java.lang.String MANAGE_PROFILE_AND_DEVICE_OWNERS = "android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS";
         @android.annotation.SystemApi
@@ -1026,6 +1052,8 @@ public final class Manifest {
         @android.annotation.SystemApi
         public static final java.lang.String MODIFY_PARENTAL_CONTROLS = "android.permission.MODIFY_PARENTAL_CONTROLS";
         public static final java.lang.String MODIFY_PHONE_STATE = "android.permission.MODIFY_PHONE_STATE";
+        @android.annotation.SystemApi
+        public static final java.lang.String MODIFY_PRIVATE_COMPUTE_AUDIT_STATE = "android.permission.MODIFY_PRIVATE_COMPUTE_AUDIT_STATE";
         @android.annotation.SystemApi
         public static final java.lang.String MODIFY_QUIET_MODE = "android.permission.MODIFY_QUIET_MODE";
         public static final java.lang.String MODIFY_REFRESH_RATE_SWITCHING_TYPE = "android.permission.MODIFY_REFRESH_RATE_SWITCHING_TYPE";
@@ -1143,12 +1171,15 @@ public final class Manifest {
         public static final java.lang.String PREFER_FULLSCREEN_IN_NEW_TASK = "android.permission.PREFER_FULLSCREEN_IN_NEW_TASK";
         @android.annotation.SystemApi
         public static final java.lang.String PREPARE_FACTORY_RESET = "android.permission.PREPARE_FACTORY_RESET";
+        public static final java.lang.String PROCESS_CALLLOG_INFO = "android.permission.PROCESS_CALLLOG_INFO";
         @java.lang.Deprecated
         public static final java.lang.String PROCESS_OUTGOING_CALLS = "android.permission.PROCESS_OUTGOING_CALLS";
         @android.annotation.SystemApi
         public static final java.lang.String PROVIDE_DEFAULT_ENABLED_CREDENTIAL_SERVICE = "android.permission.PROVIDE_DEFAULT_ENABLED_CREDENTIAL_SERVICE";
         @android.annotation.SystemApi
         public static final java.lang.String PROVIDE_HEALTH_CONNECT_DEVICE_DATA = "android.permission.PROVIDE_HEALTH_CONNECT_DEVICE_DATA";
+        @android.annotation.SystemApi
+        public static final java.lang.String PROVIDE_ON_DEVICE_INTELLIGENCE = "android.permission.PROVIDE_ON_DEVICE_INTELLIGENCE";
         public static final java.lang.String PROVIDE_OWN_AUTOFILL_SUGGESTIONS = "android.permission.PROVIDE_OWN_AUTOFILL_SUGGESTIONS";
         public static final java.lang.String PROVIDE_PRIVATE_COMPUTE_SERVICES = "android.permission.PROVIDE_PRIVATE_COMPUTE_SERVICES";
         public static final java.lang.String PROVIDE_REMOTE_CREDENTIALS = "android.permission.PROVIDE_REMOTE_CREDENTIALS";
@@ -1162,6 +1193,8 @@ public final class Manifest {
         public static final java.lang.String QUARANTINE_APPS = "android.permission.QUARANTINE_APPS";
         @android.annotation.SystemApi
         public static final java.lang.String QUERY_ADMIN_POLICY = "android.permission.QUERY_ADMIN_POLICY";
+        @android.annotation.SystemApi
+        public static final java.lang.String QUERY_ADVANCED_PROTECTION_FEATURES = "android.permission.QUERY_ADVANCED_PROTECTION_FEATURES";
         public static final java.lang.String QUERY_ADVANCED_PROTECTION_MODE = "android.permission.QUERY_ADVANCED_PROTECTION_MODE";
         @android.annotation.SystemApi
         public static final java.lang.String QUERY_ALLOWLIST = "android.permission.QUERY_ALLOWLIST";
@@ -1305,6 +1338,8 @@ public final class Manifest {
         public static final java.lang.String RECEIVE_EMERGENCY_BROADCAST = "android.permission.RECEIVE_EMERGENCY_BROADCAST";
         public static final java.lang.String RECEIVE_MEDIA_RESOURCE_USAGE = "android.permission.RECEIVE_MEDIA_RESOURCE_USAGE";
         public static final java.lang.String RECEIVE_MMS = "android.permission.RECEIVE_MMS";
+        @android.annotation.SystemApi
+        public static final java.lang.String RECEIVE_RADIO_NETWORK_SECURITY_EVENT = "android.permission.RECEIVE_RADIO_NETWORK_SECURITY_EVENT";
         @android.annotation.SystemApi
         public static final java.lang.String RECEIVE_SANDBOX_TRIGGER_AUDIO = "android.permission.RECEIVE_SANDBOX_TRIGGER_AUDIO";
         public static final java.lang.String RECEIVE_SENSITIVE_NOTIFICATIONS = "android.permission.RECEIVE_SENSITIVE_NOTIFICATIONS";
@@ -1524,6 +1559,7 @@ public final class Manifest {
         @android.annotation.SystemApi
         public static final java.lang.String START_ACTIVITIES_FROM_BACKGROUND = "android.permission.START_ACTIVITIES_FROM_BACKGROUND";
         public static final java.lang.String START_ACTIVITIES_FROM_SDK_SANDBOX = "android.permission.START_ACTIVITIES_FROM_SDK_SANDBOX";
+        public static final java.lang.String START_ACTIVITIES_ON_LOGIN_SCREEN = "android.permission.START_ACTIVITIES_ON_LOGIN_SCREEN";
         public static final java.lang.String START_ACTIVITY_AS_CALLER = "android.permission.START_ACTIVITY_AS_CALLER";
         public static final java.lang.String START_ANY_ACTIVITY = "android.permission.START_ANY_ACTIVITY";
         @android.annotation.SystemApi
@@ -1558,7 +1594,6 @@ public final class Manifest {
         public static final java.lang.String SUPPRESS_CLIPBOARD_ACCESS_NOTIFICATION = "android.permission.SUPPRESS_CLIPBOARD_ACCESS_NOTIFICATION";
         @android.annotation.SystemApi
         public static final java.lang.String SUSPEND_APPS = "android.permission.SUSPEND_APPS";
-        public static final java.lang.String SYNC_FLAGS = "android.permission.SYNC_FLAGS";
         public static final java.lang.String SYSTEM_ALERT_WINDOW = "android.permission.SYSTEM_ALERT_WINDOW";
         @android.annotation.SystemApi
         public static final java.lang.String SYSTEM_APPLICATION_OVERLAY = "android.permission.SYSTEM_APPLICATION_OVERLAY";
@@ -1689,7 +1724,6 @@ public final class Manifest {
         @android.annotation.SystemApi
         public static final java.lang.String WRITE_EMBEDDED_SUBSCRIPTIONS = "android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS";
         public static final java.lang.String WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE";
-        public static final java.lang.String WRITE_FLAGS = "android.permission.WRITE_FLAGS";
         public static final java.lang.String WRITE_GSERVICES = "android.permission.WRITE_GSERVICES";
         public static final java.lang.String WRITE_HISTORY_BOOKMARKS = "com.android.browser.permission.WRITE_HISTORY_BOOKMARKS";
         @android.annotation.SystemApi

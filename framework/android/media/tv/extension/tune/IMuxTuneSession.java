@@ -1,5 +1,6 @@
 package android.media.tv.extension.tune;
 
+@java.lang.Deprecated
 public interface IMuxTuneSession extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.tune.IMuxTuneSession";
     public java.lang.String getSessionToken() throws android.os.RemoteException;
@@ -7,6 +8,7 @@ public interface IMuxTuneSession extends android.os.IInterface {
     public void start(int p0, int p1, int p2, android.os.Bundle p3) throws android.os.RemoteException;
     public void stop() throws android.os.RemoteException;
 
+    @java.lang.Deprecated
     public static class Default implements android.media.tv.extension.tune.IMuxTuneSession {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -16,6 +18,7 @@ public interface IMuxTuneSession extends android.os.IInterface {
         public void stop() throws android.os.RemoteException {}
     }
 
+    @java.lang.Deprecated
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.tune.IMuxTuneSession {
         static final int TRANSACTION_getSessionToken = 4;
         static final int TRANSACTION_release = 3;
@@ -28,6 +31,7 @@ public interface IMuxTuneSession extends android.os.IInterface {
         public java.lang.String getTransactionName(int p0) { return null; }
         public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
 
+        @java.lang.Deprecated
         private static final class Proxy implements android.media.tv.extension.tune.IMuxTuneSession {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}

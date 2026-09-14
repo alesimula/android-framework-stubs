@@ -16,7 +16,7 @@ public interface IPackageManager extends android.os.IInterface {
     public int checkSignatures(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public int checkUidPermission(java.lang.String p0, int p1) throws android.os.RemoteException;
     public int checkUidSignatures(int p0, int p1) throws android.os.RemoteException;
-    public void clearApplicationUserData(java.lang.String p0, android.content.pm.IPackageDataObserver p1, int p2, boolean p3) throws android.os.RemoteException;
+    public void clearApplicationUserData(java.lang.String p0, android.content.pm.IPackageDataObserver p1, int p2, boolean p3, boolean p4) throws android.os.RemoteException;
     public void clearCrossProfileIntentFilters(int p0, java.lang.String p1) throws android.os.RemoteException;
     public void clearPackagePersistentPreferredActivities(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void clearPackagePreferredActivities(java.lang.String p0) throws android.os.RemoteException;
@@ -81,7 +81,7 @@ public interface IPackageManager extends android.os.IInterface {
     public android.content.ComponentName getInstantAppResolverComponent() throws android.os.RemoteException;
     public android.content.ComponentName getInstantAppResolverSettingsComponent() throws android.os.RemoteException;
     public android.content.pm.ParceledListSlice getInstantApps(int p0) throws android.os.RemoteException;
-    public android.content.pm.InstrumentationInfo getInstrumentationInfoAsUser(android.content.ComponentName p0, int p1, int p2) throws android.os.RemoteException;
+    public android.content.pm.InstrumentationInfo getInstrumentationInfoAsUser(android.content.ComponentName p0, long p1, int p2) throws android.os.RemoteException;
     @java.lang.Deprecated
     public android.content.pm.ParceledListSlice getIntentFilterVerifications(java.lang.String p0) throws android.os.RemoteException;
     @java.lang.Deprecated
@@ -105,7 +105,7 @@ public interface IPackageManager extends android.os.IInterface {
     public java.lang.String getPageSizeCompatWarningMessage(java.lang.String p0) throws android.os.RemoteException;
     public java.lang.String getPermissionControllerPackageName() throws android.os.RemoteException;
     public android.content.pm.PermissionGroupInfo getPermissionGroupInfo(java.lang.String p0, int p1) throws android.os.RemoteException;
-    public android.content.pm.ParceledListSlice getPersistentApplications(int p0) throws android.os.RemoteException;
+    public android.content.pm.ParceledListSlice getPersistentApplications(long p0) throws android.os.RemoteException;
     public int getPreferredActivities(java.util.List<android.content.IntentFilter> p0, java.util.List<android.content.ComponentName> p1, java.lang.String p2) throws android.os.RemoteException;
     public byte[] getPreferredActivityBackup(int p0) throws android.os.RemoteException;
     public int getPrivateFlagsForUid(int p0) throws android.os.RemoteException;
@@ -160,6 +160,7 @@ public interface IPackageManager extends android.os.IInterface {
     public boolean isPackageSuspendedForUser(java.lang.String p0, int p1) throws android.os.RemoteException;
     public boolean isPageSizeCompatEnabled(java.lang.String p0) throws android.os.RemoteException;
     public boolean isProtectedBroadcast(java.lang.String p0) throws android.os.RemoteException;
+    public boolean isQualifiedRegisteredAppStore(java.lang.String p0, int p1) throws android.os.RemoteException;
     public boolean isSafeMode() throws android.os.RemoteException;
     public boolean isStorageLow() throws android.os.RemoteException;
     public boolean isUidPrivileged(int p0) throws android.os.RemoteException;
@@ -172,7 +173,7 @@ public interface IPackageManager extends android.os.IInterface {
     public void notifyPackagesReplacedReceived(java.lang.String[] p0) throws android.os.RemoteException;
     public void overrideLabelAndIcon(android.content.ComponentName p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException;
     public android.content.pm.ParceledListSlice queryContentProviders(java.lang.String p0, int p1, long p2, java.lang.String p3) throws android.os.RemoteException;
-    public android.content.pm.ParceledListSlice queryInstrumentationAsUser(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
+    public android.content.pm.ParceledListSlice queryInstrumentationAsUser(java.lang.String p0, long p1, int p2) throws android.os.RemoteException;
     public android.content.pm.ParceledListSlice queryIntentActivities(android.content.Intent p0, java.lang.String p1, long p2, int p3) throws android.os.RemoteException;
     public android.content.pm.ParceledListSlice queryIntentActivityOptions(android.content.ComponentName p0, android.content.Intent[] p1, java.lang.String[] p2, android.content.Intent p3, java.lang.String p4, long p5, int p6) throws android.os.RemoteException;
     public android.content.pm.ParceledListSlice queryIntentContentProviders(android.content.Intent p0, java.lang.String p1, long p2, int p3) throws android.os.RemoteException;
@@ -252,7 +253,7 @@ public interface IPackageManager extends android.os.IInterface {
         public int checkSignatures(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return 0; }
         public int checkUidPermission(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
         public int checkUidSignatures(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public void clearApplicationUserData(java.lang.String p0, android.content.pm.IPackageDataObserver p1, int p2, boolean p3) throws android.os.RemoteException {}
+        public void clearApplicationUserData(java.lang.String p0, android.content.pm.IPackageDataObserver p1, int p2, boolean p3, boolean p4) throws android.os.RemoteException {}
         public void clearCrossProfileIntentFilters(int p0, java.lang.String p1) throws android.os.RemoteException {}
         public void clearPackagePersistentPreferredActivities(java.lang.String p0, int p1) throws android.os.RemoteException {}
         public void clearPackagePreferredActivities(java.lang.String p0) throws android.os.RemoteException {}
@@ -317,7 +318,7 @@ public interface IPackageManager extends android.os.IInterface {
         public android.content.ComponentName getInstantAppResolverComponent() throws android.os.RemoteException { return null; }
         public android.content.ComponentName getInstantAppResolverSettingsComponent() throws android.os.RemoteException { return null; }
         public android.content.pm.ParceledListSlice getInstantApps(int p0) throws android.os.RemoteException { return null; }
-        public android.content.pm.InstrumentationInfo getInstrumentationInfoAsUser(android.content.ComponentName p0, int p1, int p2) throws android.os.RemoteException { return null; }
+        public android.content.pm.InstrumentationInfo getInstrumentationInfoAsUser(android.content.ComponentName p0, long p1, int p2) throws android.os.RemoteException { return null; }
         @java.lang.Deprecated
         public android.content.pm.ParceledListSlice getIntentFilterVerifications(java.lang.String p0) throws android.os.RemoteException { return null; }
         @java.lang.Deprecated
@@ -341,7 +342,7 @@ public interface IPackageManager extends android.os.IInterface {
         public java.lang.String getPageSizeCompatWarningMessage(java.lang.String p0) throws android.os.RemoteException { return null; }
         public java.lang.String getPermissionControllerPackageName() throws android.os.RemoteException { return null; }
         public android.content.pm.PermissionGroupInfo getPermissionGroupInfo(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.content.pm.ParceledListSlice getPersistentApplications(int p0) throws android.os.RemoteException { return null; }
+        public android.content.pm.ParceledListSlice getPersistentApplications(long p0) throws android.os.RemoteException { return null; }
         public int getPreferredActivities(java.util.List<android.content.IntentFilter> p0, java.util.List<android.content.ComponentName> p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
         public byte[] getPreferredActivityBackup(int p0) throws android.os.RemoteException { return null; }
         public int getPrivateFlagsForUid(int p0) throws android.os.RemoteException { return 0; }
@@ -396,6 +397,7 @@ public interface IPackageManager extends android.os.IInterface {
         public boolean isPackageSuspendedForUser(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
         public boolean isPageSizeCompatEnabled(java.lang.String p0) throws android.os.RemoteException { return false; }
         public boolean isProtectedBroadcast(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean isQualifiedRegisteredAppStore(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
         public boolean isSafeMode() throws android.os.RemoteException { return false; }
         public boolean isStorageLow() throws android.os.RemoteException { return false; }
         public boolean isUidPrivileged(int p0) throws android.os.RemoteException { return false; }
@@ -408,7 +410,7 @@ public interface IPackageManager extends android.os.IInterface {
         public void notifyPackagesReplacedReceived(java.lang.String[] p0) throws android.os.RemoteException {}
         public void overrideLabelAndIcon(android.content.ComponentName p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException {}
         public android.content.pm.ParceledListSlice queryContentProviders(java.lang.String p0, int p1, long p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-        public android.content.pm.ParceledListSlice queryInstrumentationAsUser(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return null; }
+        public android.content.pm.ParceledListSlice queryInstrumentationAsUser(java.lang.String p0, long p1, int p2) throws android.os.RemoteException { return null; }
         public android.content.pm.ParceledListSlice queryIntentActivities(android.content.Intent p0, java.lang.String p1, long p2, int p3) throws android.os.RemoteException { return null; }
         public android.content.pm.ParceledListSlice queryIntentActivityOptions(android.content.ComponentName p0, android.content.Intent[] p1, java.lang.String[] p2, android.content.Intent p3, java.lang.String p4, long p5, int p6) throws android.os.RemoteException { return null; }
         public android.content.pm.ParceledListSlice queryIntentContentProviders(android.content.Intent p0, java.lang.String p1, long p2, int p3) throws android.os.RemoteException { return null; }
@@ -628,6 +630,7 @@ public interface IPackageManager extends android.os.IInterface {
         static final int TRANSACTION_isPackageSuspendedForUser = 72;
         static final int TRANSACTION_isPageSizeCompatEnabled = 223;
         static final int TRANSACTION_isProtectedBroadcast = 16;
+        static final int TRANSACTION_isQualifiedRegisteredAppStore = 227;
         static final int TRANSACTION_isSafeMode = 110;
         static final int TRANSACTION_isStorageLow = 132;
         static final int TRANSACTION_isUidPrivileged = 26;
@@ -717,6 +720,7 @@ public interface IPackageManager extends android.os.IInterface {
         protected void getMoveStatus_enforcePermission() throws java.lang.SecurityException {}
         public java.lang.String getTransactionName(int p0) { return null; }
         protected void getVerifierDeviceIdentity_enforcePermission() throws java.lang.SecurityException {}
+        protected void isQualifiedRegisteredAppStore_enforcePermission() throws java.lang.SecurityException {}
         protected void makeUidVisible_enforcePermission() throws java.lang.SecurityException {}
         protected void movePackage_enforcePermission() throws java.lang.SecurityException {}
         protected void movePrimaryStorage_enforcePermission() throws java.lang.SecurityException {}
@@ -750,7 +754,7 @@ public interface IPackageManager extends android.os.IInterface {
             public int checkSignatures(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return 0; }
             public int checkUidPermission(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
             public int checkUidSignatures(int p0, int p1) throws android.os.RemoteException { return 0; }
-            public void clearApplicationUserData(java.lang.String p0, android.content.pm.IPackageDataObserver p1, int p2, boolean p3) throws android.os.RemoteException {}
+            public void clearApplicationUserData(java.lang.String p0, android.content.pm.IPackageDataObserver p1, int p2, boolean p3, boolean p4) throws android.os.RemoteException {}
             public void clearCrossProfileIntentFilters(int p0, java.lang.String p1) throws android.os.RemoteException {}
             public void clearPackagePersistentPreferredActivities(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void clearPackagePreferredActivities(java.lang.String p0) throws android.os.RemoteException {}
@@ -815,7 +819,7 @@ public interface IPackageManager extends android.os.IInterface {
             public android.content.ComponentName getInstantAppResolverComponent() throws android.os.RemoteException { return null; }
             public android.content.ComponentName getInstantAppResolverSettingsComponent() throws android.os.RemoteException { return null; }
             public android.content.pm.ParceledListSlice getInstantApps(int p0) throws android.os.RemoteException { return null; }
-            public android.content.pm.InstrumentationInfo getInstrumentationInfoAsUser(android.content.ComponentName p0, int p1, int p2) throws android.os.RemoteException { return null; }
+            public android.content.pm.InstrumentationInfo getInstrumentationInfoAsUser(android.content.ComponentName p0, long p1, int p2) throws android.os.RemoteException { return null; }
             @java.lang.Deprecated
             public android.content.pm.ParceledListSlice getIntentFilterVerifications(java.lang.String p0) throws android.os.RemoteException { return null; }
             @java.lang.Deprecated
@@ -840,7 +844,7 @@ public interface IPackageManager extends android.os.IInterface {
             public java.lang.String getPageSizeCompatWarningMessage(java.lang.String p0) throws android.os.RemoteException { return null; }
             public java.lang.String getPermissionControllerPackageName() throws android.os.RemoteException { return null; }
             public android.content.pm.PermissionGroupInfo getPermissionGroupInfo(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-            public android.content.pm.ParceledListSlice getPersistentApplications(int p0) throws android.os.RemoteException { return null; }
+            public android.content.pm.ParceledListSlice getPersistentApplications(long p0) throws android.os.RemoteException { return null; }
             public int getPreferredActivities(java.util.List<android.content.IntentFilter> p0, java.util.List<android.content.ComponentName> p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
             public byte[] getPreferredActivityBackup(int p0) throws android.os.RemoteException { return null; }
             public int getPrivateFlagsForUid(int p0) throws android.os.RemoteException { return 0; }
@@ -895,6 +899,7 @@ public interface IPackageManager extends android.os.IInterface {
             public boolean isPackageSuspendedForUser(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
             public boolean isPageSizeCompatEnabled(java.lang.String p0) throws android.os.RemoteException { return false; }
             public boolean isProtectedBroadcast(java.lang.String p0) throws android.os.RemoteException { return false; }
+            public boolean isQualifiedRegisteredAppStore(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
             public boolean isSafeMode() throws android.os.RemoteException { return false; }
             public boolean isStorageLow() throws android.os.RemoteException { return false; }
             public boolean isUidPrivileged(int p0) throws android.os.RemoteException { return false; }
@@ -907,7 +912,7 @@ public interface IPackageManager extends android.os.IInterface {
             public void notifyPackagesReplacedReceived(java.lang.String[] p0) throws android.os.RemoteException {}
             public void overrideLabelAndIcon(android.content.ComponentName p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException {}
             public android.content.pm.ParceledListSlice queryContentProviders(java.lang.String p0, int p1, long p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-            public android.content.pm.ParceledListSlice queryInstrumentationAsUser(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return null; }
+            public android.content.pm.ParceledListSlice queryInstrumentationAsUser(java.lang.String p0, long p1, int p2) throws android.os.RemoteException { return null; }
             public android.content.pm.ParceledListSlice queryIntentActivities(android.content.Intent p0, java.lang.String p1, long p2, int p3) throws android.os.RemoteException { return null; }
             public android.content.pm.ParceledListSlice queryIntentActivityOptions(android.content.ComponentName p0, android.content.Intent[] p1, java.lang.String[] p2, android.content.Intent p3, java.lang.String p4, long p5, int p6) throws android.os.RemoteException { return null; }
             public android.content.pm.ParceledListSlice queryIntentContentProviders(android.content.Intent p0, java.lang.String p1, long p2, int p3) throws android.os.RemoteException { return null; }

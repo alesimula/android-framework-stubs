@@ -8,16 +8,6 @@ public interface IFieldClassificationCallback extends android.os.IInterface {
     public void onFailure() throws android.os.RemoteException;
     public void onSuccess(android.service.assist.classification.FieldClassificationResponse p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.assist.classification.IFieldClassificationCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancel() throws android.os.RemoteException {}
-        public boolean isCompleted() throws android.os.RemoteException { return false; }
-        public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
-        public void onFailure() throws android.os.RemoteException {}
-        public void onSuccess(android.service.assist.classification.FieldClassificationResponse p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.assist.classification.IFieldClassificationCallback {
         static final int TRANSACTION_cancel = 5;
         static final int TRANSACTION_isCompleted = 4;
@@ -42,5 +32,15 @@ public interface IFieldClassificationCallback extends android.os.IInterface {
             public void onFailure() throws android.os.RemoteException {}
             public void onSuccess(android.service.assist.classification.FieldClassificationResponse p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.assist.classification.IFieldClassificationCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancel() throws android.os.RemoteException {}
+        public boolean isCompleted() throws android.os.RemoteException { return false; }
+        public void onCancellable(android.os.ICancellationSignal p0) throws android.os.RemoteException {}
+        public void onFailure() throws android.os.RemoteException {}
+        public void onSuccess(android.service.assist.classification.FieldClassificationResponse p0) throws android.os.RemoteException {}
     }
 }

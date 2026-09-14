@@ -54,19 +54,19 @@ public final class MicrophoneInfo {
     public void setChannelMapping(java.util.List<android.util.Pair<java.lang.Integer, java.lang.Integer>> p0) {}
     public void setId(int p0) {}
 
-    public static final class Coordinate3F {
-        public final float x = 0.0f;
-        public final float y = 0.0f;
-        public final float z = 0.0f;
-        Coordinate3F(float p0, float p1, float p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface MicrophoneDirectionality {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface MicrophoneLocation {
+    }
+
+    public static final class Coordinate3F {
+        public final float x = 0.0f;
+        public final float y = 0.0f;
+        public final float z = 0.0f;
+        Coordinate3F(float p0, float p1, float p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
     }
 }

@@ -7,6 +7,7 @@ public interface IContentCaptureManager extends android.os.IInterface {
     public void getServiceComponentName(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException;
     public void getServiceSettingsActivity(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException;
     public void isContentCaptureFeatureEnabled(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException;
+    public void notifyContentCaptureProcessingConfigurationChanged(java.lang.String p0) throws android.os.RemoteException;
     public void onLoginDetected(android.content.pm.ParceledListSlice<android.view.contentcapture.ContentCaptureEvent> p0) throws android.os.RemoteException;
     public void registerContentCaptureOptionsCallback(java.lang.String p0, android.view.contentcapture.IContentCaptureOptionsCallback p1) throws android.os.RemoteException;
     public void removeData(android.view.contentcapture.DataRemovalRequest p0) throws android.os.RemoteException;
@@ -17,31 +18,13 @@ public interface IContentCaptureManager extends android.os.IInterface {
     public void shareData(android.view.contentcapture.DataShareRequest p0, android.view.contentcapture.IDataShareWriteAdapter p1) throws android.os.RemoteException;
     public void startSession(android.os.IBinder p0, android.os.IBinder p1, android.content.ComponentName p2, int p3, int p4, com.android.internal.os.IResultReceiver p5) throws android.os.RemoteException;
 
-    public static class Default implements android.view.contentcapture.IContentCaptureManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void finishSession(int p0) throws android.os.RemoteException {}
-        public void getContentCaptureConditions(java.lang.String p0, com.android.internal.os.IResultReceiver p1) throws android.os.RemoteException {}
-        public void getServiceComponentName(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
-        public void getServiceSettingsActivity(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
-        public void isContentCaptureFeatureEnabled(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
-        public void onLoginDetected(android.content.pm.ParceledListSlice<android.view.contentcapture.ContentCaptureEvent> p0) throws android.os.RemoteException {}
-        public void registerContentCaptureOptionsCallback(java.lang.String p0, android.view.contentcapture.IContentCaptureOptionsCallback p1) throws android.os.RemoteException {}
-        public void removeData(android.view.contentcapture.DataRemovalRequest p0) throws android.os.RemoteException {}
-        public void resetTemporaryService(int p0) throws android.os.RemoteException {}
-        public void setContentProtectionAllowlist(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
-        public void setDefaultServiceEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setTemporaryService(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void shareData(android.view.contentcapture.DataShareRequest p0, android.view.contentcapture.IDataShareWriteAdapter p1) throws android.os.RemoteException {}
-        public void startSession(android.os.IBinder p0, android.os.IBinder p1, android.content.ComponentName p2, int p3, int p4, com.android.internal.os.IResultReceiver p5) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.contentcapture.IContentCaptureManager {
         static final int TRANSACTION_finishSession = 2;
         static final int TRANSACTION_getContentCaptureConditions = 8;
         static final int TRANSACTION_getServiceComponentName = 3;
         static final int TRANSACTION_getServiceSettingsActivity = 7;
         static final int TRANSACTION_isContentCaptureFeatureEnabled = 6;
+        static final int TRANSACTION_notifyContentCaptureProcessingConfigurationChanged = 15;
         static final int TRANSACTION_onLoginDetected = 13;
         static final int TRANSACTION_registerContentCaptureOptionsCallback = 12;
         static final int TRANSACTION_removeData = 4;
@@ -68,6 +51,7 @@ public interface IContentCaptureManager extends android.os.IInterface {
             public void getServiceComponentName(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
             public void getServiceSettingsActivity(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
             public void isContentCaptureFeatureEnabled(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
+            public void notifyContentCaptureProcessingConfigurationChanged(java.lang.String p0) throws android.os.RemoteException {}
             public void onLoginDetected(android.content.pm.ParceledListSlice<android.view.contentcapture.ContentCaptureEvent> p0) throws android.os.RemoteException {}
             public void registerContentCaptureOptionsCallback(java.lang.String p0, android.view.contentcapture.IContentCaptureOptionsCallback p1) throws android.os.RemoteException {}
             public void removeData(android.view.contentcapture.DataRemovalRequest p0) throws android.os.RemoteException {}
@@ -78,5 +62,25 @@ public interface IContentCaptureManager extends android.os.IInterface {
             public void shareData(android.view.contentcapture.DataShareRequest p0, android.view.contentcapture.IDataShareWriteAdapter p1) throws android.os.RemoteException {}
             public void startSession(android.os.IBinder p0, android.os.IBinder p1, android.content.ComponentName p2, int p3, int p4, com.android.internal.os.IResultReceiver p5) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.contentcapture.IContentCaptureManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void finishSession(int p0) throws android.os.RemoteException {}
+        public void getContentCaptureConditions(java.lang.String p0, com.android.internal.os.IResultReceiver p1) throws android.os.RemoteException {}
+        public void getServiceComponentName(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
+        public void getServiceSettingsActivity(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
+        public void isContentCaptureFeatureEnabled(com.android.internal.os.IResultReceiver p0) throws android.os.RemoteException {}
+        public void notifyContentCaptureProcessingConfigurationChanged(java.lang.String p0) throws android.os.RemoteException {}
+        public void onLoginDetected(android.content.pm.ParceledListSlice<android.view.contentcapture.ContentCaptureEvent> p0) throws android.os.RemoteException {}
+        public void registerContentCaptureOptionsCallback(java.lang.String p0, android.view.contentcapture.IContentCaptureOptionsCallback p1) throws android.os.RemoteException {}
+        public void removeData(android.view.contentcapture.DataRemovalRequest p0) throws android.os.RemoteException {}
+        public void resetTemporaryService(int p0) throws android.os.RemoteException {}
+        public void setContentProtectionAllowlist(java.util.List<java.lang.String> p0) throws android.os.RemoteException {}
+        public void setDefaultServiceEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setTemporaryService(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void shareData(android.view.contentcapture.DataShareRequest p0, android.view.contentcapture.IDataShareWriteAdapter p1) throws android.os.RemoteException {}
+        public void startSession(android.os.IBinder p0, android.os.IBinder p1, android.content.ComponentName p2, int p3, int p4, com.android.internal.os.IResultReceiver p5) throws android.os.RemoteException {}
     }
 }

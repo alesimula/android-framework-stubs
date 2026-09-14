@@ -64,34 +64,6 @@ public class CalendarView extends android.widget.FrameLayout {
     @java.lang.Deprecated
     public void setWeekSeparatorLineColor(int p0) {}
 
-    static abstract class AbstractCalendarViewDelegate implements android.widget.CalendarView.CalendarViewDelegate {
-        protected static final java.lang.String DEFAULT_MAX_DATE = "01/01/2100";
-        protected static final java.lang.String DEFAULT_MIN_DATE = "01/01/1900";
-        protected android.content.Context mContext;
-        protected java.util.Locale mCurrentLocale;
-        protected android.widget.CalendarView mDelegator;
-        AbstractCalendarViewDelegate(android.widget.CalendarView p0, android.content.Context p1) {}
-        public int getFocusedMonthDateColor() { return 0; }
-        public android.graphics.drawable.Drawable getSelectedDateVerticalBar() { return null; }
-        public int getSelectedWeekBackgroundColor() { return 0; }
-        public boolean getShowWeekNumber() { return false; }
-        public int getShownWeekCount() { return 0; }
-        public int getUnfocusedMonthDateColor() { return 0; }
-        public int getWeekNumberColor() { return 0; }
-        public int getWeekSeparatorLineColor() { return 0; }
-        public void onConfigurationChanged(android.content.res.Configuration p0) {}
-        protected void setCurrentLocale(java.util.Locale p0) {}
-        public void setFocusedMonthDateColor(int p0) {}
-        public void setSelectedDateVerticalBar(int p0) {}
-        public void setSelectedDateVerticalBar(android.graphics.drawable.Drawable p0) {}
-        public void setSelectedWeekBackgroundColor(int p0) {}
-        public void setShowWeekNumber(boolean p0) {}
-        public void setShownWeekCount(int p0) {}
-        public void setUnfocusedMonthDateColor(int p0) {}
-        public void setWeekNumberColor(int p0) {}
-        public void setWeekSeparatorLineColor(int p0) {}
-    }
-
     private static interface CalendarViewDelegate {
         public boolean getBoundsForDate(long p0, android.graphics.Rect p1);
         public long getDate();
@@ -130,6 +102,34 @@ public class CalendarView extends android.widget.FrameLayout {
 
     public static interface OnDateChangeListener {
         public void onSelectedDayChange(android.widget.CalendarView p0, int p1, int p2, int p3);
+    }
+
+    static abstract class AbstractCalendarViewDelegate implements android.widget.CalendarView.CalendarViewDelegate {
+        protected static final java.lang.String DEFAULT_MAX_DATE = "01/01/2100";
+        protected static final java.lang.String DEFAULT_MIN_DATE = "01/01/1900";
+        protected android.content.Context mContext;
+        protected java.util.Locale mCurrentLocale;
+        protected android.widget.CalendarView mDelegator;
+        AbstractCalendarViewDelegate(android.widget.CalendarView p0, android.content.Context p1) {}
+        public int getFocusedMonthDateColor() { return 0; }
+        public android.graphics.drawable.Drawable getSelectedDateVerticalBar() { return null; }
+        public int getSelectedWeekBackgroundColor() { return 0; }
+        public boolean getShowWeekNumber() { return false; }
+        public int getShownWeekCount() { return 0; }
+        public int getUnfocusedMonthDateColor() { return 0; }
+        public int getWeekNumberColor() { return 0; }
+        public int getWeekSeparatorLineColor() { return 0; }
+        public void onConfigurationChanged(android.content.res.Configuration p0) {}
+        protected void setCurrentLocale(java.util.Locale p0) {}
+        public void setFocusedMonthDateColor(int p0) {}
+        public void setSelectedDateVerticalBar(int p0) {}
+        public void setSelectedDateVerticalBar(android.graphics.drawable.Drawable p0) {}
+        public void setSelectedWeekBackgroundColor(int p0) {}
+        public void setShowWeekNumber(boolean p0) {}
+        public void setShownWeekCount(int p0) {}
+        public void setUnfocusedMonthDateColor(int p0) {}
+        public void setWeekNumberColor(int p0) {}
+        public void setWeekSeparatorLineColor(int p0) {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.CalendarView> {

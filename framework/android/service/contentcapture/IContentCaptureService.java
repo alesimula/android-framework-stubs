@@ -11,19 +11,6 @@ public interface IContentCaptureService extends android.os.IInterface {
     public void onSessionFinished(int p0) throws android.os.RemoteException;
     public void onSessionStarted(android.view.contentcapture.ContentCaptureContext p0, int p1, int p2, com.android.internal.os.IResultReceiver p3, int p4) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentcapture.IContentCaptureService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onActivityEvent(android.service.contentcapture.ActivityEvent p0) throws android.os.RemoteException {}
-        public void onActivitySnapshot(int p0, android.service.contentcapture.SnapshotData p1) throws android.os.RemoteException {}
-        public void onConnected(android.os.IBinder p0, boolean p1, boolean p2) throws android.os.RemoteException {}
-        public void onDataRemovalRequest(android.view.contentcapture.DataRemovalRequest p0) throws android.os.RemoteException {}
-        public void onDataShared(android.view.contentcapture.DataShareRequest p0, android.service.contentcapture.IDataShareCallback p1) throws android.os.RemoteException {}
-        public void onDisconnected() throws android.os.RemoteException {}
-        public void onSessionFinished(int p0) throws android.os.RemoteException {}
-        public void onSessionStarted(android.view.contentcapture.ContentCaptureContext p0, int p1, int p2, com.android.internal.os.IResultReceiver p3, int p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentcapture.IContentCaptureService {
         static final int TRANSACTION_onActivityEvent = 8;
         static final int TRANSACTION_onActivitySnapshot = 5;
@@ -54,5 +41,18 @@ public interface IContentCaptureService extends android.os.IInterface {
             public void onSessionFinished(int p0) throws android.os.RemoteException {}
             public void onSessionStarted(android.view.contentcapture.ContentCaptureContext p0, int p1, int p2, com.android.internal.os.IResultReceiver p3, int p4) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentcapture.IContentCaptureService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onActivityEvent(android.service.contentcapture.ActivityEvent p0) throws android.os.RemoteException {}
+        public void onActivitySnapshot(int p0, android.service.contentcapture.SnapshotData p1) throws android.os.RemoteException {}
+        public void onConnected(android.os.IBinder p0, boolean p1, boolean p2) throws android.os.RemoteException {}
+        public void onDataRemovalRequest(android.view.contentcapture.DataRemovalRequest p0) throws android.os.RemoteException {}
+        public void onDataShared(android.view.contentcapture.DataShareRequest p0, android.service.contentcapture.IDataShareCallback p1) throws android.os.RemoteException {}
+        public void onDisconnected() throws android.os.RemoteException {}
+        public void onSessionFinished(int p0) throws android.os.RemoteException {}
+        public void onSessionStarted(android.view.contentcapture.ContentCaptureContext p0, int p1, int p2, com.android.internal.os.IResultReceiver p3, int p4) throws android.os.RemoteException {}
     }
 }

@@ -8,7 +8,6 @@ public final class Bundle extends android.os.BaseBundle implements java.lang.Clo
     static final int FLAG_HAS_BINDERS_KNOWN = 2048;
     static final int FLAG_HAS_FDS = 256;
     static final int FLAG_HAS_FDS_KNOWN = 512;
-    static final int FLAG_HAS_INTENT = 16384;
     static final int FLAG_VERIFY_TOKENS_PRESENT = 8192;
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final int STATUS_BINDERS_NOT_PRESENT = 0;
@@ -18,7 +17,6 @@ public final class Bundle extends android.os.BaseBundle implements java.lang.Clo
     public static final int STATUS_BINDERS_UNKNOWN = 2;
     public static final android.os.Bundle STRIPPED = null;
     public static java.lang.Class<?> intentClass;
-    private boolean isFirstRetrievedFromABundle;
     public Bundle() { super(); }
     public Bundle(int p0) { super(); }
     public Bundle(android.os.Bundle p0) { super(); }
@@ -28,8 +26,10 @@ public final class Bundle extends android.os.BaseBundle implements java.lang.Clo
     public Bundle(android.os.PersistableBundle p0) { super(); }
     public Bundle(java.lang.ClassLoader p0) { super(); }
     public static android.os.Bundle forPair(java.lang.String p0, java.lang.String p1) { return null; }
+    private boolean isFirstRetrievedFromABundle() { return false; }
     private void maybePrefillHasFds() {}
     public static android.os.Bundle setDefusable(android.os.Bundle p0, boolean p1) { return null; }
+    private void setFirstRetrievedFromABundle(boolean p0) {}
     public void clear() {}
     public java.lang.Object clone() { return null; }
     public android.os.Bundle deepCopy() { return null; }

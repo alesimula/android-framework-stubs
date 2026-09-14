@@ -19,25 +19,6 @@ public interface IRadioSimIndication extends android.os.IInterface {
     public void subscriptionStatusChanged(int p0, boolean p1) throws android.os.RemoteException;
     public void uiccApplicationsEnablementChanged(int p0, boolean p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.sim.IRadioSimIndication {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void carrierInfoForImsiEncryption(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void cdmaSubscriptionSourceChanged(int p0, int p1) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void simPhonebookChanged(int p0) throws android.os.RemoteException {}
-        public void simPhonebookRecordsReceived(int p0, byte p1, android.hardware.radio.sim.PhonebookRecordInfo[] p2) throws android.os.RemoteException {}
-        public void simRefresh(int p0, android.hardware.radio.sim.SimRefreshResult p1) throws android.os.RemoteException {}
-        public void simStatusChanged(int p0) throws android.os.RemoteException {}
-        public void stkEventNotify(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void stkProactiveCommand(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void stkSessionEnd(int p0) throws android.os.RemoteException {}
-        public void subscriptionStatusChanged(int p0, boolean p1) throws android.os.RemoteException {}
-        public void uiccApplicationsEnablementChanged(int p0, boolean p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.sim.IRadioSimIndication {
         static final int TRANSACTION_carrierInfoForImsiEncryption = 1;
         static final int TRANSACTION_cdmaSubscriptionSourceChanged = 2;
@@ -79,5 +60,24 @@ public interface IRadioSimIndication extends android.os.IInterface {
             public void subscriptionStatusChanged(int p0, boolean p1) throws android.os.RemoteException {}
             public void uiccApplicationsEnablementChanged(int p0, boolean p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.sim.IRadioSimIndication {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void carrierInfoForImsiEncryption(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void cdmaSubscriptionSourceChanged(int p0, int p1) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void simPhonebookChanged(int p0) throws android.os.RemoteException {}
+        public void simPhonebookRecordsReceived(int p0, byte p1, android.hardware.radio.sim.PhonebookRecordInfo[] p2) throws android.os.RemoteException {}
+        public void simRefresh(int p0, android.hardware.radio.sim.SimRefreshResult p1) throws android.os.RemoteException {}
+        public void simStatusChanged(int p0) throws android.os.RemoteException {}
+        public void stkEventNotify(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void stkProactiveCommand(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void stkSessionEnd(int p0) throws android.os.RemoteException {}
+        public void subscriptionStatusChanged(int p0, boolean p1) throws android.os.RemoteException {}
+        public void uiccApplicationsEnablementChanged(int p0, boolean p1) throws android.os.RemoteException {}
     }
 }

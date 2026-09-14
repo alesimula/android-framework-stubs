@@ -18,27 +18,6 @@ public interface IThermalService extends android.os.IInterface {
     public boolean unregisterThermalHeadroomListener(android.os.IThermalHeadroomListener p0) throws android.os.RemoteException;
     public boolean unregisterThermalStatusListener(android.os.IThermalStatusListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IThermalService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.CoolingDevice[] getCurrentCoolingDevices() throws android.os.RemoteException { return null; }
-        public android.os.CoolingDevice[] getCurrentCoolingDevicesWithType(int p0) throws android.os.RemoteException { return null; }
-        public android.os.Temperature[] getCurrentTemperatures() throws android.os.RemoteException { return null; }
-        public android.os.Temperature[] getCurrentTemperaturesWithType(int p0) throws android.os.RemoteException { return null; }
-        public int getCurrentThermalStatus() throws android.os.RemoteException { return 0; }
-        public int getCurrentThermalStatusForDevice(int p0) throws android.os.RemoteException { return 0; }
-        public float getThermalHeadroom(int p0) throws android.os.RemoteException { return 0.0f; }
-        public float[] getThermalHeadroomThresholds() throws android.os.RemoteException { return null; }
-        public boolean registerThermalEventListener(android.os.IThermalEventListener p0) throws android.os.RemoteException { return false; }
-        public boolean registerThermalEventListenerWithType(android.os.IThermalEventListener p0, int p1) throws android.os.RemoteException { return false; }
-        public boolean registerThermalHeadroomListener(android.os.IThermalHeadroomListener p0) throws android.os.RemoteException { return false; }
-        public boolean registerThermalStatusListener(android.os.IThermalStatusListener p0) throws android.os.RemoteException { return false; }
-        public boolean registerThermalStatusListenerForDevice(int p0, android.os.IThermalStatusListener p1) throws android.os.RemoteException { return false; }
-        public boolean unregisterThermalEventListener(android.os.IThermalEventListener p0) throws android.os.RemoteException { return false; }
-        public boolean unregisterThermalHeadroomListener(android.os.IThermalHeadroomListener p0) throws android.os.RemoteException { return false; }
-        public boolean unregisterThermalStatusListener(android.os.IThermalStatusListener p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IThermalService {
         public static final java.lang.String DESCRIPTOR = "android.os.IThermalService";
         static final int TRANSACTION_getCurrentCoolingDevices = 11;
@@ -86,5 +65,26 @@ public interface IThermalService extends android.os.IInterface {
             public boolean unregisterThermalHeadroomListener(android.os.IThermalHeadroomListener p0) throws android.os.RemoteException { return false; }
             public boolean unregisterThermalStatusListener(android.os.IThermalStatusListener p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.os.IThermalService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.CoolingDevice[] getCurrentCoolingDevices() throws android.os.RemoteException { return null; }
+        public android.os.CoolingDevice[] getCurrentCoolingDevicesWithType(int p0) throws android.os.RemoteException { return null; }
+        public android.os.Temperature[] getCurrentTemperatures() throws android.os.RemoteException { return null; }
+        public android.os.Temperature[] getCurrentTemperaturesWithType(int p0) throws android.os.RemoteException { return null; }
+        public int getCurrentThermalStatus() throws android.os.RemoteException { return 0; }
+        public int getCurrentThermalStatusForDevice(int p0) throws android.os.RemoteException { return 0; }
+        public float getThermalHeadroom(int p0) throws android.os.RemoteException { return 0.0f; }
+        public float[] getThermalHeadroomThresholds() throws android.os.RemoteException { return null; }
+        public boolean registerThermalEventListener(android.os.IThermalEventListener p0) throws android.os.RemoteException { return false; }
+        public boolean registerThermalEventListenerWithType(android.os.IThermalEventListener p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean registerThermalHeadroomListener(android.os.IThermalHeadroomListener p0) throws android.os.RemoteException { return false; }
+        public boolean registerThermalStatusListener(android.os.IThermalStatusListener p0) throws android.os.RemoteException { return false; }
+        public boolean registerThermalStatusListenerForDevice(int p0, android.os.IThermalStatusListener p1) throws android.os.RemoteException { return false; }
+        public boolean unregisterThermalEventListener(android.os.IThermalEventListener p0) throws android.os.RemoteException { return false; }
+        public boolean unregisterThermalHeadroomListener(android.os.IThermalHeadroomListener p0) throws android.os.RemoteException { return false; }
+        public boolean unregisterThermalStatusListener(android.os.IThermalStatusListener p0) throws android.os.RemoteException { return false; }
     }
 }

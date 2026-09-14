@@ -4,12 +4,6 @@ public interface IUidFrozenStateChangedCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.IUidFrozenStateChangedCallback";
     public void onUidFrozenStateChanged(int[] p0, int[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.app.IUidFrozenStateChangedCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onUidFrozenStateChanged(int[] p0, int[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.IUidFrozenStateChangedCallback {
         static final int TRANSACTION_onUidFrozenStateChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IUidFrozenStateChangedCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onUidFrozenStateChanged(int[] p0, int[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.IUidFrozenStateChangedCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onUidFrozenStateChanged(int[] p0, int[] p1) throws android.os.RemoteException {}
     }
 }

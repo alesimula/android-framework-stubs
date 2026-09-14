@@ -26,19 +26,19 @@ public final class Formatter {
     private static android.icu.text.NumberFormat getNumberFormatter(java.util.Locale p0, int p1) { return null; }
     private static java.util.Locale localeFromContext(android.content.Context p0) { return null; }
 
-    public static class BytesResult {
-        public final long roundedBytes = 0L;
-        public final java.lang.String units = null;
-        public final java.lang.String unitsContentDescription = null;
-        public final java.lang.String value = null;
-        public BytesResult(java.lang.String p0, java.lang.String p1, java.lang.String p2, long p3) {}
-    }
-
     public static class RoundedBytesResult {
         public final int fractionDigits = 0;
         public final long roundedBytes = 0L;
         public final float value = 0.0f;
         private RoundedBytesResult(float p0, android.icu.util.MeasureUnit p1, int p2, long p3) {}
         public static android.text.format.Formatter.RoundedBytesResult roundBytes(long p0, int p1) { return null; }
+    }
+
+    public static class BytesResult {
+        public final long roundedBytes = 0L;
+        public final java.lang.String units = null;
+        public final java.lang.String unitsContentDescription = null;
+        public final java.lang.String value = null;
+        public BytesResult(java.lang.String p0, java.lang.String p1, java.lang.String p2, long p3) {}
     }
 }

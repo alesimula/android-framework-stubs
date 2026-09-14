@@ -5,7 +5,7 @@ public class SharedConnectivityManager {
     private static final boolean DEBUG = false;
     private static final long RECOVER_DELAYED_TIME_IN_MS = 10000L;
     private static final int RECOVER_MAXIMUM_RETRY_COUNT = 10;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SharedConnectivityManager";
     private android.os.Handler mBackgroundHandler;
     private final android.content.BroadcastReceiver mBroadcastReceiver = null;
     private final java.util.Map<android.net.wifi.sharedconnectivity.app.SharedConnectivityClientCallback, android.net.wifi.sharedconnectivity.app.SharedConnectivityManager.SharedConnectivityCallbackProxy> mCallbackProxyCache = null;

@@ -29,12 +29,12 @@ public final class AccessibilityUtils {
     public static int textOrSpanChanged(java.lang.CharSequence p0, java.lang.CharSequence p1) { return 0; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface A11yTextChangeType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface State {
         public static final int OFF = 0;
         public static final int ON = 1;
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface A11yTextChangeType {
     }
 }

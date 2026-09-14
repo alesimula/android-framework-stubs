@@ -23,10 +23,10 @@ public final class BugreportParams {
     public int getMode() { return 0; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BugreportFlag {
+    public static @interface BugreportMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BugreportMode {
+    public static @interface BugreportFlag {
     }
 }

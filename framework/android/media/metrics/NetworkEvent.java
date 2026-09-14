@@ -26,6 +26,10 @@ public final class NetworkEvent extends android.media.metrics.Event implements a
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface NetworkType {
+    }
+
     public static final class Builder {
         private android.os.Bundle mMetricsBundle;
         private int mNetworkType;
@@ -35,9 +39,5 @@ public final class NetworkEvent extends android.media.metrics.Event implements a
         public android.media.metrics.NetworkEvent.Builder setMetricsBundle(android.os.Bundle p0) { return null; }
         public android.media.metrics.NetworkEvent.Builder setNetworkType(int p0) { return null; }
         public android.media.metrics.NetworkEvent.Builder setTimeSinceCreatedMillis(long p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NetworkType {
     }
 }

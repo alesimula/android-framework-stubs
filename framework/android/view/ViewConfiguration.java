@@ -18,9 +18,10 @@ public class ViewConfiguration {
     private static final int FADING_EDGE_LENGTH = 12;
     private static final long FLING_ACCUMULATION_TIMEOUT_MS = 200L;
     private static final long FLING_ACCUMULATION_TIME_MS = 50L;
-    private static final float FLING_DECELERATION_FACTOR = 1.7999999523162842f;
-    private static final float FLING_DECELERATION_VELOCITY_THRESHOLD_DP = 600.0f;
-    private static final float FLING_FINAL_APPROACH_DECELERATION_DP = 50.0f;
+    private static final float FLING_ADDITIONAL_VELOCITY_FOR_FULL_FLING_DP = 400.0f;
+    private static final float FLING_DECELERATION_FACTOR = 1.600000023841858f;
+    private static final float FLING_DECELERATION_VELOCITY_THRESHOLD_DP = 2865.0f;
+    private static final float FLING_FINAL_APPROACH_DECELERATION_DP = 33.25f;
     private static final float FLING_MAX_VELOCITY_ACCUMULATED_DP = 5000.0f;
     private static final float FLING_VELOCITY_ACCUMULATION_THRESHOLD_DP = 7500.0f;
     private static final int GLOBAL_ACTIONS_KEY_TIMEOUT = 500;
@@ -63,7 +64,7 @@ public class ViewConfiguration {
     private static final float VERTICAL_SCROLL_FACTOR = 64.0f;
     private static final int WINDOW_TOUCH_SLOP = 16;
     private static final int ZOOM_CONTROLS_TIMEOUT = 3000;
-    static final android.util.LongSparseArray<android.view.ViewConfiguration> sConfigurations = null;
+    static final java.util.concurrent.ConcurrentHashMap<java.lang.Long, android.view.ViewConfiguration> sConfigurations = null;
     private static android.view.ViewConfiguration.ResourceCache sResourceCache;
     private final float mAmbiguousGestureMultiplier = 0.0f;
     private final boolean mConstructedWithContext = false;
@@ -102,6 +103,7 @@ public class ViewConfiguration {
     private final float mScaledFlingDecelerationThreshold = 0.0f;
     private final float mScaledFlingFinalApproachDeceleration = 0.0f;
     private final float mScaledFlingMaximumAccumulatedVelocity = 0.0f;
+    private final float mScaledFlingSlowVelocityThreshold = 0.0f;
     private final long mScreenshotChordKeyTimeout = 0L;
     private final float mScrollFriction = 0.0f;
     private final int mScrollbarSize = 0;
@@ -189,6 +191,7 @@ public class ViewConfiguration {
     public float getScaledFlingDecelerationThreshold() { return 0.0f; }
     public float getScaledFlingFinalApproachDeceleration() { return 0.0f; }
     public float getScaledFlingMaximumAccumulatedVelocity() { return 0.0f; }
+    public float getScaledFlingSlowVelocityThreshold() { return 0.0f; }
     public int getScaledHandwritingGestureLineMargin() { return 0; }
     public int getScaledHandwritingSlop() { return 0; }
     public float getScaledHorizontalScrollFactor() { return 0.0f; }

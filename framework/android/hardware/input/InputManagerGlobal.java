@@ -33,6 +33,7 @@ public final class InputManagerGlobal {
     private boolean debug() { return false; }
     private int findInputDeviceListenerLocked(android.hardware.input.InputManager.InputDeviceListener p0) { return 0; }
     private int findOnTabletModeChangedListenerLocked(android.hardware.input.InputManager.OnTabletModeChangedListener p0) { return 0; }
+    private android.view.InputDevice getInputDeviceAtIndexLocked(int p0) { return null; }
     public static android.hardware.input.InputManagerGlobal getInstance() { return null; }
     private void initializeTabletModeListenerLocked() {}
     private void onInputDevicesChanged(int[] p0) {}
@@ -40,6 +41,7 @@ public final class InputManagerGlobal {
     private void populateInputDevicesLocked() {}
     private void sendMessageToInputDeviceListenersLocked(int p0, int p1) {}
     public void addInputDeviceBatteryListener(int p0, java.util.concurrent.Executor p1, android.hardware.input.InputManager.InputDeviceBatteryListener p2) {}
+    public void addPeripheralCustomization(android.hardware.input.AidlPeripheralCustomizationData p0) {}
     public void addUniqueIdAssociationByDescriptor(java.lang.String p0, java.lang.String p1) {}
     public void addUniqueIdAssociationByPort(java.lang.String p0, java.lang.String p1) {}
     public void cancelCurrentTouch() {}
@@ -48,6 +50,7 @@ public final class InputManagerGlobal {
     public android.hardware.input.VirtualGamepad createVirtualGamepad(android.hardware.input.VirtualGamepadConfig p0) { return null; }
     public android.hardware.input.VirtualKeyboard createVirtualKeyboard(android.hardware.input.VirtualKeyboardConfig p0) { return null; }
     public android.hardware.input.VirtualMouse createVirtualMouse(android.hardware.input.VirtualMouseConfig p0) { return null; }
+    public android.hardware.input.VirtualTouchpad createVirtualTouchpad(android.hardware.input.VirtualTouchpadConfig p0) { return null; }
     public boolean[] deviceHasKeys(int p0, int[] p1) { return null; }
     public boolean[] deviceHasKeys(int[] p0) { return null; }
     public void disableInputDevice(int p0) {}
@@ -55,6 +58,7 @@ public final class InputManagerGlobal {
     public void enableInputDevice(int p0) {}
     boolean enableSensor(int p0, int p1, int p2, int p3) { return false; }
     boolean flushSensor(int p0, int p1) { return false; }
+    public java.util.List<android.hardware.input.AidlPeripheralCustomizationData> getAllPeripheralCustomizations(int p0, int p1) { return null; }
     android.hardware.input.HostUsiVersion getHostUsiVersion(android.view.Display p0) { return null; }
     public android.view.InputDevice getInputDevice(int p0) { return null; }
     public android.hardware.BatteryState getInputDeviceBatteryState(int p0, boolean p1) { return null; }
@@ -71,12 +75,15 @@ public final class InputManagerGlobal {
     public android.hardware.input.KeyboardLayout[] getKeyboardLayoutsForInputDevice(android.hardware.input.InputDeviceIdentifier p0) { return null; }
     android.hardware.lights.LightState getLightState(int p0, android.hardware.lights.Light p1) { return null; }
     java.util.List<android.hardware.lights.Light> getLights(int p0) { return null; }
+    public android.hardware.input.AidlPeripheralCustomizationData getPeripheralCustomization(int p0, int p1, android.hardware.input.AidlCustomizationTrigger p2) { return null; }
     android.hardware.input.InputSensorInfo[] getSensorList(int p0) { return null; }
     public int getSupportedButtons(int p0) { return 0; }
     public java.lang.String getVelocityTrackerStrategy() { return null; }
     int[] getVibratorIds(int p0) { return null; }
     public boolean injectInputEvent(android.view.InputEvent p0, int p1) { return false; }
     public boolean injectInputEvent(android.view.InputEvent p0, int p1, int p2) { return false; }
+    public boolean isButtonAllowedForCustomization(int p0, int p1, int p2) { return false; }
+    public boolean isKeyAllowedForCustomization(int p0, int p1, int p2) { return false; }
     boolean isVibrating(int p0) { return false; }
     public android.view.InputMonitor monitorGestureInput(java.lang.String p0, int p1) { return null; }
     void openLightSession(int p0, java.lang.String p1, android.os.IBinder p2) {}
@@ -90,7 +97,9 @@ public final class InputManagerGlobal {
     boolean registerSensorListener(android.hardware.input.IInputSensorEventListener p0) { return false; }
     void registerStickyModifierStateListener(java.util.concurrent.Executor p0, android.hardware.input.InputManager.StickyModifierStateListener p1) throws java.lang.IllegalArgumentException {}
     boolean registerVibratorStateListener(int p0, android.os.IVibratorStateListener p1) { return false; }
+    public void removeAllPeripheralCustomizations(int p0, int p1) {}
     void removeInputDeviceBatteryListener(int p0, android.hardware.input.InputManager.InputDeviceBatteryListener p1) {}
+    public void removePeripheralCustomization(int p0, int p1, android.hardware.input.AidlCustomizationTrigger p2) {}
     public void removeUniqueIdAssociationByDescriptor(java.lang.String p0) {}
     public void removeUniqueIdAssociationByPort(java.lang.String p0) {}
     void requestLights(int p0, android.hardware.lights.LightsRequest p1, android.os.IBinder p2) {}
@@ -110,25 +119,10 @@ public final class InputManagerGlobal {
     void vibrate(int p0, android.os.CombinedVibration p1, android.os.IBinder p2) {}
     void vibrate(int p0, android.os.VibrationEffect p1, android.os.IBinder p2) {}
 
-    private static final class InputDeviceBatteryListenerDelegate {
-        final java.util.concurrent.Executor mExecutor = null;
-        final android.hardware.input.InputManager.InputDeviceBatteryListener mListener = null;
-        InputDeviceBatteryListenerDelegate(android.hardware.input.InputManager.InputDeviceBatteryListener p0, java.util.concurrent.Executor p1) {}
-        void notifyBatteryStateChanged(android.hardware.input.IInputDeviceBatteryState p0) {}
-    }
-
-    private static final class InputDeviceListenerDelegate extends android.os.Handler {
-        static final int MSG_DEVICE_ADDED = 1;
-        static final int MSG_DEVICE_CHANGED = 3;
-        static final int MSG_DEVICE_REMOVED = 2;
-        public final android.hardware.input.InputManager.InputDeviceListener mListener = null;
-        InputDeviceListenerDelegate(android.hardware.input.InputManager.InputDeviceListener p0, android.os.Handler p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    private final class InputDevicesChangedListener extends android.hardware.input.IInputDevicesChangedListener.Stub {
-        private InputDevicesChangedListener(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void onInputDevicesChanged(int[] p0) throws android.os.RemoteException {}
+    private static final class RegisteredBatteryListeners {
+        final java.util.List<android.hardware.input.InputManagerGlobal.InputDeviceBatteryListenerDelegate> mDelegates = null;
+        android.hardware.input.IInputDeviceBatteryState mInputDeviceBatteryState;
+        private RegisteredBatteryListeners() {}
     }
 
     private static final class KeyboardBacklightListenerDelegate {
@@ -136,57 +130,6 @@ public final class InputManagerGlobal {
         final android.hardware.input.InputManager.KeyboardBacklightListener mListener = null;
         KeyboardBacklightListenerDelegate(android.hardware.input.InputManager.KeyboardBacklightListener p0, java.util.concurrent.Executor p1) {}
         void notifyKeyboardBacklightChange(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) {}
-    }
-
-    private static final class KeyGestureEventListenerDelegate {
-        final java.util.concurrent.Executor mExecutor = null;
-        final android.hardware.input.InputManager.KeyGestureEventListener mListener = null;
-        KeyGestureEventListenerDelegate(android.hardware.input.InputManager.KeyGestureEventListener p0, java.util.concurrent.Executor p1) {}
-        void onKeyGestureEvent(android.hardware.input.KeyGestureEvent p0) {}
-    }
-
-    private static final class LocalBatteryState extends android.hardware.BatteryState {
-        private final float mCapacity = 0.0f;
-        private final boolean mIsPresent = false;
-        private final int mStatus = 0;
-        LocalBatteryState() { super(); }
-        LocalBatteryState(boolean p0, int p1, float p2) { super(); }
-        public float getCapacity() { return 0.0f; }
-        public int getStatus() { return 0; }
-        public boolean isPresent() { return false; }
-    }
-
-    private class LocalInputDeviceBatteryListener extends android.hardware.input.IInputDeviceBatteryListener.Stub {
-        private LocalInputDeviceBatteryListener(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void onBatteryStateChanged(android.hardware.input.IInputDeviceBatteryState p0) {}
-    }
-
-    private class LocalKeyboardBacklightListener extends android.hardware.input.IKeyboardBacklightListener.Stub {
-        private LocalKeyboardBacklightListener(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void onBrightnessChanged(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) {}
-    }
-
-    private static final class LocalKeyboardBacklightState extends android.hardware.input.KeyboardBacklightState {
-        private final int mBrightnessLevel = 0;
-        private final int mMaxBrightnessLevel = 0;
-        LocalKeyboardBacklightState(int p0, int p1) { super(); }
-        public int getBrightnessLevel() { return 0; }
-        public int getMaxBrightnessLevel() { return 0; }
-    }
-
-    private class LocalKeyEventActivityListener extends android.hardware.input.IKeyEventActivityListener.Stub {
-        private LocalKeyEventActivityListener(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void onKeyEventActivity() {}
-    }
-
-    private class LocalKeyGestureEventListener extends android.hardware.input.IKeyGestureEventListener.Stub {
-        private LocalKeyGestureEventListener(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void onKeyGestureEvent(android.hardware.input.AidlKeyGestureEvent p0) {}
-    }
-
-    private class LocalKeyGestureHandler extends android.hardware.input.IKeyGestureHandler.Stub {
-        private LocalKeyGestureHandler(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void handleKeyGesture(android.hardware.input.AidlKeyGestureEvent p0, android.os.IBinder p1) {}
     }
 
     private static final class LocalStickyModifierState extends android.hardware.input.StickyModifierState {
@@ -205,9 +148,92 @@ public final class InputManagerGlobal {
         public boolean isShiftModifierOn() { return false; }
     }
 
+    private final class TabletModeChangedListener extends android.hardware.input.ITabletModeChangedListener.Stub {
+        private TabletModeChangedListener(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void onTabletModeChanged(long p0, boolean p1) {}
+    }
+
+    private static final class LocalKeyboardBacklightState extends android.hardware.input.KeyboardBacklightState {
+        private final int mBrightnessLevel = 0;
+        private final int mMaxBrightnessLevel = 0;
+        LocalKeyboardBacklightState(int p0, int p1) { super(); }
+        public int getBrightnessLevel() { return 0; }
+        public int getMaxBrightnessLevel() { return 0; }
+    }
+
+    private static final class KeyGestureEventListenerDelegate {
+        final java.util.concurrent.Executor mExecutor = null;
+        final android.hardware.input.InputManager.KeyGestureEventListener mListener = null;
+        KeyGestureEventListenerDelegate(android.hardware.input.InputManager.KeyGestureEventListener p0, java.util.concurrent.Executor p1) {}
+        void onKeyGestureEvent(android.hardware.input.KeyGestureEvent p0) {}
+    }
+
+    private class LocalKeyGestureHandler extends android.hardware.input.IKeyGestureHandler.Stub {
+        private LocalKeyGestureHandler(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void handleKeyGesture(android.hardware.input.AidlKeyGestureEvent p0, android.os.IBinder p1) {}
+    }
+
+    private static final class InputDeviceBatteryListenerDelegate {
+        final java.util.concurrent.Executor mExecutor = null;
+        final android.hardware.input.InputManager.InputDeviceBatteryListener mListener = null;
+        InputDeviceBatteryListenerDelegate(android.hardware.input.InputManager.InputDeviceBatteryListener p0, java.util.concurrent.Executor p1) {}
+        void notifyBatteryStateChanged(android.hardware.input.IInputDeviceBatteryState p0) {}
+    }
+
     private class LocalStickyModifierStateListener extends android.hardware.input.IStickyModifierStateListener.Stub {
         private LocalStickyModifierStateListener(android.hardware.input.InputManagerGlobal p0) { super(); }
         public void onStickyModifierStateChanged(int p0, int p1) {}
+    }
+
+    private static final class InputDeviceListenerDelegate extends android.os.Handler {
+        static final int MSG_DEVICE_ADDED = 1;
+        static final int MSG_DEVICE_CHANGED = 3;
+        static final int MSG_DEVICE_REMOVED = 2;
+        public final android.hardware.input.InputManager.InputDeviceListener mListener = null;
+        InputDeviceListenerDelegate(android.hardware.input.InputManager.InputDeviceListener p0, android.os.Handler p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    private class LocalKeyGestureEventListener extends android.hardware.input.IKeyGestureEventListener.Stub {
+        private LocalKeyGestureEventListener(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void onKeyGestureEvent(android.hardware.input.AidlKeyGestureEvent p0) {}
+    }
+
+    private static final class LocalBatteryState extends android.hardware.BatteryState {
+        private final float mCapacity = 0.0f;
+        private final boolean mIsPresent = false;
+        private final int mStatus = 0;
+        LocalBatteryState() { super(); }
+        LocalBatteryState(boolean p0, int p1, float p2) { super(); }
+        public float getCapacity() { return 0.0f; }
+        public int getStatus() { return 0; }
+        public boolean isPresent() { return false; }
+    }
+
+    private class LocalKeyEventActivityListener extends android.hardware.input.IKeyEventActivityListener.Stub {
+        private LocalKeyEventActivityListener(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void onKeyEventActivity() {}
+    }
+
+    private final class InputDevicesChangedListener extends android.hardware.input.IInputDevicesChangedListener.Stub {
+        private InputDevicesChangedListener(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void onInputDevicesChanged(int[] p0) throws android.os.RemoteException {}
+    }
+
+    public static interface TestSession extends java.lang.AutoCloseable {
+        public void close();
+    }
+
+    private class LocalInputDeviceBatteryListener extends android.hardware.input.IInputDeviceBatteryListener.Stub {
+        private LocalInputDeviceBatteryListener(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void onBatteryStateChanged(android.hardware.input.IInputDeviceBatteryState p0) {}
+    }
+
+    private static final class StickyModifierStateListenerDelegate {
+        final java.util.concurrent.Executor mExecutor = null;
+        final android.hardware.input.InputManager.StickyModifierStateListener mListener = null;
+        StickyModifierStateListenerDelegate(android.hardware.input.InputManager.StickyModifierStateListener p0, java.util.concurrent.Executor p1) {}
+        void notifyStickyModifierStateChange(int p0, int p1) {}
     }
 
     private static final class OnTabletModeChangedListenerDelegate extends android.os.Handler {
@@ -218,25 +244,8 @@ public final class InputManagerGlobal {
         public void sendTabletModeChanged(long p0, boolean p1) {}
     }
 
-    private static final class RegisteredBatteryListeners {
-        final java.util.List<android.hardware.input.InputManagerGlobal.InputDeviceBatteryListenerDelegate> mDelegates = null;
-        android.hardware.input.IInputDeviceBatteryState mInputDeviceBatteryState;
-        private RegisteredBatteryListeners() {}
-    }
-
-    private static final class StickyModifierStateListenerDelegate {
-        final java.util.concurrent.Executor mExecutor = null;
-        final android.hardware.input.InputManager.StickyModifierStateListener mListener = null;
-        StickyModifierStateListenerDelegate(android.hardware.input.InputManager.StickyModifierStateListener p0, java.util.concurrent.Executor p1) {}
-        void notifyStickyModifierStateChange(int p0, int p1) {}
-    }
-
-    private final class TabletModeChangedListener extends android.hardware.input.ITabletModeChangedListener.Stub {
-        private TabletModeChangedListener(android.hardware.input.InputManagerGlobal p0) { super(); }
-        public void onTabletModeChanged(long p0, boolean p1) {}
-    }
-
-    public static interface TestSession extends java.lang.AutoCloseable {
-        public void close();
+    private class LocalKeyboardBacklightListener extends android.hardware.input.IKeyboardBacklightListener.Stub {
+        private LocalKeyboardBacklightListener(android.hardware.input.InputManagerGlobal p0) { super(); }
+        public void onBrightnessChanged(int p0, android.hardware.input.IKeyboardBacklightState p1, boolean p2) {}
     }
 }

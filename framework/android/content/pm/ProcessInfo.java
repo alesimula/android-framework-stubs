@@ -5,6 +5,7 @@ public class ProcessInfo implements android.os.Parcelable {
     static com.android.internal.util.Parcelling<android.util.ArraySet<java.lang.String>> sParcellingForDeniedPermissions;
     public android.util.ArraySet<java.lang.String> deniedPermissions;
     public int gwpAsanMode;
+    public final java.util.List<android.content.pm.MemoryBudgetInfo> memoryBudgets = null;
     public int memtagMode;
     public java.lang.String name;
     public int nativeHeapZeroInitialized;
@@ -13,9 +14,10 @@ public class ProcessInfo implements android.os.Parcelable {
     @java.lang.Deprecated
     public ProcessInfo(android.content.pm.ProcessInfo p0) {}
     protected ProcessInfo(android.os.Parcel p0) {}
-    public ProcessInfo(java.lang.String p0, android.util.ArraySet<java.lang.String> p1, int p2, int p3, int p4, boolean p5, boolean p6) {}
+    public ProcessInfo(java.lang.String p0, android.util.ArraySet<java.lang.String> p1, int p2, int p3, int p4, boolean p5, boolean p6, java.util.List<android.content.pm.MemoryBudgetInfo> p7) {}
     @java.lang.Deprecated
     private void __metadata() {}
     public int describeContents() { return 0; }
+    public java.util.List<android.content.pm.MemoryBudgetInfo> getMemoryBudgets() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 }

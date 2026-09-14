@@ -7,7 +7,7 @@ public final class CellIdentityGsm extends android.telephony.CellIdentity {
     private static final int MAX_BSIC = 63;
     private static final int MAX_CID = 65535;
     private static final int MAX_LAC = 65535;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "CellIdentityGsm";
     private final android.util.ArraySet<java.lang.String> mAdditionalPlmns = null;
     private final int mArfcn = 0;
     private final int mBsic = 0;
@@ -18,6 +18,7 @@ public final class CellIdentityGsm extends android.telephony.CellIdentity {
     private CellIdentityGsm(android.os.Parcel p0) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     private CellIdentityGsm(android.telephony.CellIdentityGsm p0) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     protected static android.telephony.CellIdentityGsm createFromParcelBody(android.os.Parcel p0) { return null; }
+    @android.annotation.SystemApi
     public android.telephony.gsm.GsmCellLocation asCellLocation() { return null; }
     android.telephony.CellIdentityGsm copy() { return null; }
     public boolean equals(java.lang.Object p0) { return false; }
@@ -37,6 +38,7 @@ public final class CellIdentityGsm extends android.telephony.CellIdentity {
     @java.lang.Deprecated
     public int getPsc() { return 0; }
     public int hashCode() { return 0; }
+    @android.annotation.SystemApi
     public android.telephony.CellIdentityGsm sanitizeLocationInfo() { return null; }
     public java.lang.String toString() { return null; }
     protected void updateGlobalCellId() {}

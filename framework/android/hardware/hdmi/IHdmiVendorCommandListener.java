@@ -4,13 +4,6 @@ public interface IHdmiVendorCommandListener extends android.os.IInterface {
     public void onControlStateChanged(boolean p0, int p1) throws android.os.RemoteException;
     public void onReceived(int p0, int p1, byte[] p2, boolean p3) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hdmi.IHdmiVendorCommandListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onControlStateChanged(boolean p0, int p1) throws android.os.RemoteException {}
-        public void onReceived(int p0, int p1, byte[] p2, boolean p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hdmi.IHdmiVendorCommandListener {
         public static final java.lang.String DESCRIPTOR = "android.hardware.hdmi.IHdmiVendorCommandListener";
         static final int TRANSACTION_onControlStateChanged = 2;
@@ -30,5 +23,12 @@ public interface IHdmiVendorCommandListener extends android.os.IInterface {
             public void onControlStateChanged(boolean p0, int p1) throws android.os.RemoteException {}
             public void onReceived(int p0, int p1, byte[] p2, boolean p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hdmi.IHdmiVendorCommandListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onControlStateChanged(boolean p0, int p1) throws android.os.RemoteException {}
+        public void onReceived(int p0, int p1, byte[] p2, boolean p3) throws android.os.RemoteException {}
     }
 }

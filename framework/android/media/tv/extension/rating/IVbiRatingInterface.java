@@ -6,14 +6,6 @@ public interface IVbiRatingInterface extends android.os.IInterface {
     public java.lang.String getVbiRating(java.lang.String p0) throws android.os.RemoteException;
     public void removeVbiRatingListener(android.media.tv.extension.rating.IVbiRatingListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.rating.IVbiRatingInterface {
-        public Default() {}
-        public void addVbiRatingListener(java.lang.String p0, android.media.tv.extension.rating.IVbiRatingListener p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getVbiRating(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public void removeVbiRatingListener(android.media.tv.extension.rating.IVbiRatingListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.rating.IVbiRatingInterface {
         static final int TRANSACTION_addVbiRatingListener = 2;
         static final int TRANSACTION_getVbiRating = 1;
@@ -34,5 +26,13 @@ public interface IVbiRatingInterface extends android.os.IInterface {
             public java.lang.String getVbiRating(java.lang.String p0) throws android.os.RemoteException { return null; }
             public void removeVbiRatingListener(android.media.tv.extension.rating.IVbiRatingListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.rating.IVbiRatingInterface {
+        public Default() {}
+        public void addVbiRatingListener(java.lang.String p0, android.media.tv.extension.rating.IVbiRatingListener p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getVbiRating(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public void removeVbiRatingListener(android.media.tv.extension.rating.IVbiRatingListener p0) throws android.os.RemoteException {}
     }
 }

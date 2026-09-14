@@ -46,6 +46,15 @@ public class GraphicsStatsService extends android.view.IGraphicsStats.Stub {
     protected void finalize() throws java.lang.Throwable {}
     public android.os.ParcelFileDescriptor requestBufferForProcess(java.lang.String p0, android.view.IGraphicsStatsCallback p1) throws android.os.RemoteException { return null; }
 
+    private final class BufferInfo {
+        long mEndTime;
+        final java.lang.String mPackageName = null;
+        long mStartTime;
+        final int mUid = 0;
+        final long mVersionCode = 0L;
+        BufferInfo(android.graphics.GraphicsStatsService p0, int p1, java.lang.String p2, long p3, long p4) {}
+    }
+
     private final class ActiveBuffer implements android.os.IBinder.DeathRecipient {
         final android.view.IGraphicsStatsCallback mCallback = null;
         final android.graphics.GraphicsStatsService.BufferInfo mInfo = null;
@@ -59,15 +68,6 @@ public class GraphicsStatsService extends android.view.IGraphicsStats.Stub {
         void closeAllBuffers() {}
         android.os.ParcelFileDescriptor getPfd() { return null; }
         void readBytes(byte[] p0, int p1) throws java.io.IOException {}
-    }
-
-    private final class BufferInfo {
-        long mEndTime;
-        final java.lang.String mPackageName = null;
-        long mStartTime;
-        final int mUid = 0;
-        final long mVersionCode = 0L;
-        BufferInfo(android.graphics.GraphicsStatsService p0, int p1, java.lang.String p2, long p3, long p4) {}
     }
 
     private final class HistoricalBuffer {

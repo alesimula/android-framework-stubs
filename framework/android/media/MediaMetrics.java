@@ -14,58 +14,11 @@ public class MediaMetrics {
     public static <T extends java.lang.Object> android.media.MediaMetrics.Key<T> createKey(java.lang.String p0, java.lang.Class<T> p1) { return null; }
     private static native int native_submit_bytebuffer(java.nio.ByteBuffer p0, int p1);
 
-    public static class Item {
-        public static final java.lang.String BUNDLE_HEADER_SIZE = "_headerSize";
-        public static final java.lang.String BUNDLE_KEY = "_key";
-        public static final java.lang.String BUNDLE_KEY_SIZE = "_keySize";
-        public static final java.lang.String BUNDLE_PID = "_pid";
-        public static final java.lang.String BUNDLE_PROPERTY_COUNT = "_propertyCount";
-        public static final java.lang.String BUNDLE_TIMESTAMP = "_timestamp";
-        public static final java.lang.String BUNDLE_TOTAL_SIZE = "_totalSize";
-        public static final java.lang.String BUNDLE_UID = "_uid";
-        public static final java.lang.String BUNDLE_VERSION = "_version";
-        private static final int FORMAT_VERSION = 0;
-        private static final int HEADER_SIZE_OFFSET = 4;
-        private static final int MINIMUM_PAYLOAD_SIZE = 4;
-        private static final int TOTAL_SIZE_OFFSET = 0;
-        private java.nio.ByteBuffer mBuffer;
-        private final int mHeaderSize = 0;
-        private final java.lang.String mKey = null;
-        private final int mPidOffset = 0;
-        private int mPropertyCount;
-        private final int mPropertyCountOffset = 0;
-        private final int mPropertyStartOffset = 0;
-        private final int mTimeNsOffset = 0;
-        private final int mUidOffset = 0;
-        public Item(java.lang.String p0) {}
-        public Item(java.lang.String p0, int p1, int p2, long p3, int p4) {}
-        private static java.lang.String getStringFromBuffer(java.nio.ByteBuffer p0) { return null; }
-        private static java.lang.String getStringFromBuffer(java.nio.ByteBuffer p0, int p1) { return null; }
-        private boolean record$ravenwood() { return false; }
-        private int reserveProperty(byte[] p0, int p1) { return 0; }
-        public static android.os.Bundle toBundle(java.nio.ByteBuffer p0) { return null; }
-        private void updateHeader() {}
-        public android.media.MediaMetrics.Item clear() { return null; }
-        public android.media.MediaMetrics.Item putDouble(java.lang.String p0, double p1) { return null; }
-        public android.media.MediaMetrics.Item putInt(java.lang.String p0, int p1) { return null; }
-        public android.media.MediaMetrics.Item putLong(java.lang.String p0, long p1) { return null; }
-        public android.media.MediaMetrics.Item putString(java.lang.String p0, java.lang.String p1) { return null; }
-        public boolean record() { return false; }
-        public <T extends java.lang.Object> android.media.MediaMetrics.Item set(android.media.MediaMetrics.Key<T> p0, T p1) { return null; }
-        public android.media.MediaMetrics.Item setPid(int p0) { return null; }
-        public android.media.MediaMetrics.Item setTimestamp(long p0) { return null; }
-        public android.media.MediaMetrics.Item setUid(int p0) { return null; }
-        public android.os.Bundle toBundle() { return null; }
-    }
-
-    public static interface Key<T extends java.lang.Object> {
-        public java.lang.String getName();
-        public java.lang.Class<T> getValueClass();
-    }
-
     public static class Name {
         public static final java.lang.String AUDIO = "audio";
         public static final java.lang.String AUDIO_BLUETOOTH = "audio.bluetooth";
+        public static final java.lang.String AUDIO_CAMERA = "audio.camera";
+        public static final java.lang.String AUDIO_CAMERA_RELAX_CAUSE = "audio.cameraRelaxCause";
         public static final java.lang.String AUDIO_DEVICE = "audio.device";
         public static final java.lang.String AUDIO_FOCUS = "audio.focus";
         public static final java.lang.String AUDIO_FORCE_USE = "audio.forceUse";
@@ -77,6 +30,11 @@ public class MediaMetrics {
         public static final java.lang.String AUDIO_VOLUME_EVENT = "audio.volume.event";
         public static final java.lang.String METRICS_MANAGER = "metrics.manager";
         public Name() {}
+    }
+
+    public static interface Key<T extends java.lang.Object> {
+        public java.lang.String getName();
+        public java.lang.Class<T> getValueClass();
     }
 
     public static class Property {
@@ -146,5 +104,49 @@ public class MediaMetrics {
         public static final java.lang.String UP = "up";
         public static final java.lang.String YES = "yes";
         public Value() {}
+    }
+
+    public static class Item {
+        public static final java.lang.String BUNDLE_HEADER_SIZE = "_headerSize";
+        public static final java.lang.String BUNDLE_KEY = "_key";
+        public static final java.lang.String BUNDLE_KEY_SIZE = "_keySize";
+        public static final java.lang.String BUNDLE_PID = "_pid";
+        public static final java.lang.String BUNDLE_PROPERTY_COUNT = "_propertyCount";
+        public static final java.lang.String BUNDLE_TIMESTAMP = "_timestamp";
+        public static final java.lang.String BUNDLE_TOTAL_SIZE = "_totalSize";
+        public static final java.lang.String BUNDLE_UID = "_uid";
+        public static final java.lang.String BUNDLE_VERSION = "_version";
+        private static final int FORMAT_VERSION = 0;
+        private static final int HEADER_SIZE_OFFSET = 4;
+        private static final int MINIMUM_PAYLOAD_SIZE = 4;
+        private static final int TOTAL_SIZE_OFFSET = 0;
+        private java.nio.ByteBuffer mBuffer;
+        private final int mHeaderSize = 0;
+        private final java.lang.String mKey = null;
+        private final int mPidOffset = 0;
+        private int mPropertyCount;
+        private final int mPropertyCountOffset = 0;
+        private final int mPropertyStartOffset = 0;
+        private final int mTimeNsOffset = 0;
+        private final int mUidOffset = 0;
+        public Item(java.lang.String p0) {}
+        public Item(java.lang.String p0, int p1, int p2, long p3, int p4) {}
+        private static java.lang.String getStringFromBuffer(java.nio.ByteBuffer p0) { return null; }
+        private static java.lang.String getStringFromBuffer(java.nio.ByteBuffer p0, int p1) { return null; }
+        private boolean record$ravenwood() { return false; }
+        private int reserveProperty(byte[] p0, int p1) { return 0; }
+        public static android.os.Bundle toBundle(java.nio.ByteBuffer p0) { return null; }
+        private void updateHeader() {}
+        public android.media.MediaMetrics.Item clear() { return null; }
+        public android.media.MediaMetrics.Item putDouble(java.lang.String p0, double p1) { return null; }
+        public android.media.MediaMetrics.Item putInt(java.lang.String p0, int p1) { return null; }
+        public android.media.MediaMetrics.Item putLong(java.lang.String p0, long p1) { return null; }
+        public android.media.MediaMetrics.Item putString(java.lang.String p0, java.lang.String p1) { return null; }
+        public boolean record() { return false; }
+        public <T extends java.lang.Object> android.media.MediaMetrics.Item set(android.media.MediaMetrics.Key<T> p0, T p1) { return null; }
+        public android.media.MediaMetrics.Item setPid(int p0) { return null; }
+        public android.media.MediaMetrics.Item setTimestamp(long p0) { return null; }
+        public android.media.MediaMetrics.Item setUid(int p0) { return null; }
+        public android.os.Bundle toBundle() { return null; }
     }
 }

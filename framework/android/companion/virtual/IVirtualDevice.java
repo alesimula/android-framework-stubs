@@ -40,6 +40,8 @@ public interface IVirtualDevice extends android.os.IInterface {
     public void setDisplayUiMode(int p0, int p1) throws android.os.RemoteException;
     public void setListeners(android.companion.virtual.IVirtualDeviceActivityListener p0, android.companion.virtual.IVirtualDeviceSoundEffectListener p1) throws android.os.RemoteException;
     public void setShowPointerIcon(boolean p0) throws android.os.RemoteException;
+    public void transferMirroredTasksToVirtualDisplay(int p0) throws android.os.RemoteException;
+    public void transferTasksFromVirtualDisplay(int p0, int p1) throws android.os.RemoteException;
     public void unregisterIntentInterceptor(android.companion.virtual.IVirtualDeviceIntentInterceptor p0) throws android.os.RemoteException;
     public void unregisterVirtualCamera(android.companion.virtual.camera.VirtualCameraConfig p0) throws android.os.RemoteException;
     public void wakeUp() throws android.os.RemoteException;
@@ -85,6 +87,8 @@ public interface IVirtualDevice extends android.os.IInterface {
         public void setDisplayUiMode(int p0, int p1) throws android.os.RemoteException {}
         public void setListeners(android.companion.virtual.IVirtualDeviceActivityListener p0, android.companion.virtual.IVirtualDeviceSoundEffectListener p1) throws android.os.RemoteException {}
         public void setShowPointerIcon(boolean p0) throws android.os.RemoteException {}
+        public void transferMirroredTasksToVirtualDisplay(int p0) throws android.os.RemoteException {}
+        public void transferTasksFromVirtualDisplay(int p0, int p1) throws android.os.RemoteException {}
         public void unregisterIntentInterceptor(android.companion.virtual.IVirtualDeviceIntentInterceptor p0) throws android.os.RemoteException {}
         public void unregisterVirtualCamera(android.companion.virtual.camera.VirtualCameraConfig p0) throws android.os.RemoteException {}
         public void wakeUp() throws android.os.RemoteException {}
@@ -94,7 +98,7 @@ public interface IVirtualDevice extends android.os.IInterface {
         static final int TRANSACTION_addActivityPolicyExemption = 12;
         static final int TRANSACTION_canCreateMirrorDisplays = 7;
         static final int TRANSACTION_close = 10;
-        static final int TRANSACTION_closeVirtualCameraSession = 39;
+        static final int TRANSACTION_closeVirtualCameraSession = 41;
         static final int TRANSACTION_createVirtualDisplay = 17;
         static final int TRANSACTION_createVirtualDpad = 18;
         static final int TRANSACTION_createVirtualKeyboard = 19;
@@ -108,29 +112,31 @@ public interface IVirtualDevice extends android.os.IInterface {
         static final int TRANSACTION_getDevicePolicy = 5;
         static final int TRANSACTION_getDisplayIds = 4;
         static final int TRANSACTION_getPersistentDeviceId = 3;
-        static final int TRANSACTION_getVirtualCameraId = 38;
+        static final int TRANSACTION_getVirtualCameraId = 40;
         static final int TRANSACTION_getVirtualSensorList = 25;
         static final int TRANSACTION_goToSleep = 8;
         static final int TRANSACTION_hasCustomAudioInputSupport = 6;
         static final int TRANSACTION_launchPendingIntent = 28;
-        static final int TRANSACTION_notifyVirtualCameraRequestError = 40;
+        static final int TRANSACTION_notifyVirtualCameraRequestError = 42;
         static final int TRANSACTION_onAudioSessionEnded = 16;
         static final int TRANSACTION_onAudioSessionStarting = 15;
-        static final int TRANSACTION_registerIntentInterceptor = 34;
-        static final int TRANSACTION_registerVirtualCamera = 36;
+        static final int TRANSACTION_registerIntentInterceptor = 36;
+        static final int TRANSACTION_registerVirtualCamera = 38;
         static final int TRANSACTION_removeActivityPolicyExemption = 13;
         static final int TRANSACTION_sendSensorAdditionalInfo = 27;
         static final int TRANSACTION_sendSensorEvent = 26;
-        static final int TRANSACTION_setCurrentThermalStatus = 33;
+        static final int TRANSACTION_setCurrentThermalStatus = 35;
         static final int TRANSACTION_setDevicePolicy = 11;
         static final int TRANSACTION_setDevicePolicyForDisplay = 14;
         static final int TRANSACTION_setDisplayImePolicy = 30;
-        static final int TRANSACTION_setDisplayInTouchMode = 31;
-        static final int TRANSACTION_setDisplayUiMode = 32;
-        static final int TRANSACTION_setListeners = 41;
+        static final int TRANSACTION_setDisplayInTouchMode = 33;
+        static final int TRANSACTION_setDisplayUiMode = 34;
+        static final int TRANSACTION_setListeners = 43;
         static final int TRANSACTION_setShowPointerIcon = 29;
-        static final int TRANSACTION_unregisterIntentInterceptor = 35;
-        static final int TRANSACTION_unregisterVirtualCamera = 37;
+        static final int TRANSACTION_transferMirroredTasksToVirtualDisplay = 32;
+        static final int TRANSACTION_transferTasksFromVirtualDisplay = 31;
+        static final int TRANSACTION_unregisterIntentInterceptor = 37;
+        static final int TRANSACTION_unregisterVirtualCamera = 39;
         static final int TRANSACTION_wakeUp = 9;
         public Stub() { super(); }
         public static android.companion.virtual.IVirtualDevice asInterface(android.os.IBinder p0) { return null; }
@@ -182,6 +188,8 @@ public interface IVirtualDevice extends android.os.IInterface {
             public void setDisplayUiMode(int p0, int p1) throws android.os.RemoteException {}
             public void setListeners(android.companion.virtual.IVirtualDeviceActivityListener p0, android.companion.virtual.IVirtualDeviceSoundEffectListener p1) throws android.os.RemoteException {}
             public void setShowPointerIcon(boolean p0) throws android.os.RemoteException {}
+            public void transferMirroredTasksToVirtualDisplay(int p0) throws android.os.RemoteException {}
+            public void transferTasksFromVirtualDisplay(int p0, int p1) throws android.os.RemoteException {}
             public void unregisterIntentInterceptor(android.companion.virtual.IVirtualDeviceIntentInterceptor p0) throws android.os.RemoteException {}
             public void unregisterVirtualCamera(android.companion.virtual.camera.VirtualCameraConfig p0) throws android.os.RemoteException {}
             public void wakeUp() throws android.os.RemoteException {}

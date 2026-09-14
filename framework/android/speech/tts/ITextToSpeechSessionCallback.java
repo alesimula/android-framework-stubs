@@ -6,14 +6,6 @@ public interface ITextToSpeechSessionCallback extends android.os.IInterface {
     public void onDisconnected() throws android.os.RemoteException;
     public void onError(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.speech.tts.ITextToSpeechSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnected(android.speech.tts.ITextToSpeechSession p0, android.os.IBinder p1) throws android.os.RemoteException {}
-        public void onDisconnected() throws android.os.RemoteException {}
-        public void onError(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.speech.tts.ITextToSpeechSessionCallback {
         static final int TRANSACTION_onConnected = 1;
         static final int TRANSACTION_onDisconnected = 2;
@@ -34,5 +26,13 @@ public interface ITextToSpeechSessionCallback extends android.os.IInterface {
             public void onDisconnected() throws android.os.RemoteException {}
             public void onError(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.speech.tts.ITextToSpeechSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnected(android.speech.tts.ITextToSpeechSession p0, android.os.IBinder p1) throws android.os.RemoteException {}
+        public void onDisconnected() throws android.os.RemoteException {}
+        public void onError(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

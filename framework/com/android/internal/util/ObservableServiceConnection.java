@@ -28,16 +28,16 @@ public class ObservableServiceConnection<T extends java.lang.Object> implements 
     public void removeCallback(com.android.internal.util.ObservableServiceConnection.Callback<T> p0) {}
     public void unbind() {}
 
-    public static interface Callback<T extends java.lang.Object> {
-        public void onConnected(com.android.internal.util.ObservableServiceConnection<T> p0, T p1);
-        public void onDisconnected(com.android.internal.util.ObservableServiceConnection<T> p0, int p1);
+    public static interface ServiceTransformer<T extends java.lang.Object> {
+        public T convert(android.os.IBinder p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DisconnectReason {
     }
 
-    public static interface ServiceTransformer<T extends java.lang.Object> {
-        public T convert(android.os.IBinder p0);
+    public static interface Callback<T extends java.lang.Object> {
+        public void onConnected(com.android.internal.util.ObservableServiceConnection<T> p0, T p1);
+        public void onDisconnected(com.android.internal.util.ObservableServiceConnection<T> p0, int p1);
     }
 }

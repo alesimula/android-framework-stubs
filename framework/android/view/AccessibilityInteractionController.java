@@ -45,8 +45,11 @@ public final class AccessibilityInteractionController {
     private boolean isVisibleToAccessibilityService(android.view.View p0) { return false; }
     private android.view.accessibility.AccessibilityNodeInfo nodeWithIdFromList(android.view.accessibility.AccessibilityNodeInfo p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1, long p2) { return null; }
     private void notifyOutsideTouchUiThread() {}
+    private void onFindNodeResult(android.view.accessibility.AccessibilityNodeInfo p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1, int p2, android.view.accessibility.IAccessibilityInteractionConnectionCallback p3, int p4, android.view.MagnificationSpec p5, float[] p6, android.graphics.Region p7, boolean p8) {}
     private void performAccessibilityActionUiThread(android.os.Message p0) {}
     private android.view.accessibility.AccessibilityNodeInfo populateAccessibilityNodeInfoForView(android.view.View p0, android.os.Bundle p1, int p2) { return null; }
+    private void prefetchAfterFindNodeResults(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, android.view.MagnificationSpec p6, float[] p7, android.graphics.Region p8) {}
+    private void prefetchAndReturnResultsTogether(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, android.view.MagnificationSpec p6, float[] p7, android.graphics.Region p8) {}
     private void prepareForExtraDataRequestUiThread(android.os.Message p0) {}
     private void queueMessageToHandleOncePrepared(android.os.Message p0, int p1, long p2) {}
     private void requestPreparerDoneUiThread(android.os.Message p0) {}
@@ -84,54 +87,6 @@ public final class AccessibilityInteractionController {
     public void performAccessibilityActionClientThread(long p0, int p1, android.os.Bundle p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7) {}
     public void takeScreenshotOfWindowClientThread(int p0, android.window.ScreenCaptureInternal.ScreenCaptureListener p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) {}
 
-    private class AccessibilityNodePrefetcher {
-        private int mFetchFlags;
-        private boolean mInterruptPrefetch;
-        private final java.util.ArrayList<android.view.View> mTempViewList = null;
-        private AccessibilityNodePrefetcher(android.view.AccessibilityInteractionController p0) {}
-        private void addChildrenOfRoot(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1, android.view.accessibility.AccessibilityNodeProvider p2, android.view.AccessibilityInteractionController.PrefetchDeque p3) {}
-        private void enforceNodeTreeConsistent(android.view.accessibility.AccessibilityNodeInfo p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
-        private boolean isFlagSet(int p0) { return false; }
-        private void prefetchDescendantsOfRealNode(android.view.View p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
-        private void prefetchDescendantsOfVirtualNode(android.view.accessibility.AccessibilityNodeInfo p0, android.view.accessibility.AccessibilityNodeProvider p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2) {}
-        private void prefetchPredecessorsOfRealNode(android.view.View p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
-        private void prefetchPredecessorsOfVirtualNode(android.view.accessibility.AccessibilityNodeInfo p0, android.view.View p1, android.view.accessibility.AccessibilityNodeProvider p2, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p3) {}
-        private void prefetchSiblingsOfRealNode(android.view.View p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1, boolean p2) {}
-        private void prefetchSiblingsOfVirtualNode(android.view.accessibility.AccessibilityNodeInfo p0, android.view.View p1, android.view.accessibility.AccessibilityNodeProvider p2, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p3, boolean p4) {}
-        public void prefetchAccessibilityNodeInfos(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2) {}
-        public boolean shouldStopPrefetching(java.util.List p0) { return false; }
-    }
-
-    private final class AddNodeInfosForViewId implements java.util.function.Predicate<android.view.View> {
-        private java.util.List<android.view.accessibility.AccessibilityNodeInfo> mInfos;
-        private int mViewId;
-        private AddNodeInfosForViewId(android.view.AccessibilityInteractionController p0) {}
-        public void init(int p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
-        public void reset() {}
-        public boolean test(android.view.View p0) { return false; }
-    }
-
-    static interface DequeNode {
-        public void addChildren(android.view.accessibility.AccessibilityNodeInfo p0, android.view.AccessibilityInteractionController.PrefetchDeque p1);
-        public android.view.accessibility.AccessibilityNodeInfo getA11yNodeInfo();
-    }
-
-    private static final class MessageHolder {
-        final int mInterrogatingPid = 0;
-        final long mInterrogatingTid = 0L;
-        final android.os.Message mMessage = null;
-        MessageHolder(android.os.Message p0, int p1, long p2) {}
-    }
-
-    private class PrefetchDeque<E extends android.view.AccessibilityInteractionController.DequeNode> extends java.util.ArrayDeque<E> {
-        java.util.List<android.view.accessibility.AccessibilityNodeInfo> mPrefetchOutput;
-        int mStrategy;
-        PrefetchDeque(int p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) { super(); }
-        E getNext() { return null; }
-        boolean isStack() { return false; }
-        void performTraversalAndPrefetch() {}
-    }
-
     private class PrivateHandler extends android.os.Handler {
         private static final int FIRST_NO_ACCESSIBILITY_CALLBACK_MSG = 100;
         private static final int MSG_APP_PREPARATION_FINISHED = 8;
@@ -152,11 +107,11 @@ public final class AccessibilityInteractionController {
         boolean hasUserInteractiveMessagesWaiting() { return false; }
     }
 
-    private static class SatisfiedFindAccessibilityNodeByAccessibilityIdRequest {
-        final android.view.accessibility.IAccessibilityInteractionConnectionCallback mSatisfiedRequestCallback = null;
-        final int mSatisfiedRequestInteractionId = 0;
-        final android.view.accessibility.AccessibilityNodeInfo mSatisfiedRequestNode = null;
-        SatisfiedFindAccessibilityNodeByAccessibilityIdRequest(android.view.accessibility.AccessibilityNodeInfo p0, android.view.accessibility.IAccessibilityInteractionConnectionCallback p1, int p2) {}
+    private static final class MessageHolder {
+        final int mInterrogatingPid = 0;
+        final long mInterrogatingTid = 0L;
+        final android.os.Message mMessage = null;
+        MessageHolder(android.os.Message p0, int p1, long p2) {}
     }
 
     private class ViewNode implements android.view.AccessibilityInteractionController.DequeNode {
@@ -168,11 +123,59 @@ public final class AccessibilityInteractionController {
         public android.view.accessibility.AccessibilityNodeInfo getA11yNodeInfo() { return null; }
     }
 
+    static interface DequeNode {
+        public void addChildren(android.view.accessibility.AccessibilityNodeInfo p0, android.view.AccessibilityInteractionController.PrefetchDeque p1);
+        public android.view.accessibility.AccessibilityNodeInfo getA11yNodeInfo();
+    }
+
+    private final class AddNodeInfosForViewId implements java.util.function.Predicate<android.view.View> {
+        private java.util.List<android.view.accessibility.AccessibilityNodeInfo> mInfos;
+        private int mViewId;
+        private AddNodeInfosForViewId(android.view.AccessibilityInteractionController p0) {}
+        public void init(int p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
+        public void reset() {}
+        public boolean test(android.view.View p0) { return false; }
+    }
+
     private class VirtualNode implements android.view.AccessibilityInteractionController.DequeNode {
         long mInfoId;
         android.view.accessibility.AccessibilityNodeProvider mProvider;
         VirtualNode(android.view.AccessibilityInteractionController p0, long p1, android.view.accessibility.AccessibilityNodeProvider p2) {}
         public void addChildren(android.view.accessibility.AccessibilityNodeInfo p0, android.view.AccessibilityInteractionController.PrefetchDeque p1) {}
         public android.view.accessibility.AccessibilityNodeInfo getA11yNodeInfo() { return null; }
+    }
+
+    private static class SatisfiedFindAccessibilityNodeByAccessibilityIdRequest {
+        final android.view.accessibility.IAccessibilityInteractionConnectionCallback mSatisfiedRequestCallback = null;
+        final int mSatisfiedRequestInteractionId = 0;
+        final android.view.accessibility.AccessibilityNodeInfo mSatisfiedRequestNode = null;
+        SatisfiedFindAccessibilityNodeByAccessibilityIdRequest(android.view.accessibility.AccessibilityNodeInfo p0, android.view.accessibility.IAccessibilityInteractionConnectionCallback p1, int p2) {}
+    }
+
+    private class PrefetchDeque<E extends android.view.AccessibilityInteractionController.DequeNode> extends java.util.ArrayDeque<E> {
+        java.util.List<android.view.accessibility.AccessibilityNodeInfo> mPrefetchOutput;
+        int mStrategy;
+        PrefetchDeque(int p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) { super(); }
+        E getNext() { return null; }
+        boolean isStack() { return false; }
+        void performTraversalAndPrefetch() {}
+    }
+
+    private class AccessibilityNodePrefetcher {
+        private int mFetchFlags;
+        private boolean mInterruptPrefetch;
+        private final java.util.ArrayList<android.view.View> mTempViewList = null;
+        private AccessibilityNodePrefetcher(android.view.AccessibilityInteractionController p0) {}
+        private void addChildrenOfRoot(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1, android.view.accessibility.AccessibilityNodeProvider p2, android.view.AccessibilityInteractionController.PrefetchDeque p3) {}
+        private void enforceNodeTreeConsistent(android.view.accessibility.AccessibilityNodeInfo p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
+        private boolean isFlagSet(int p0) { return false; }
+        private void prefetchDescendantsOfRealNode(android.view.View p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
+        private void prefetchDescendantsOfVirtualNode(android.view.accessibility.AccessibilityNodeInfo p0, android.view.accessibility.AccessibilityNodeProvider p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2) {}
+        private void prefetchPredecessorsOfRealNode(android.view.View p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1) {}
+        private void prefetchPredecessorsOfVirtualNode(android.view.accessibility.AccessibilityNodeInfo p0, android.view.View p1, android.view.accessibility.AccessibilityNodeProvider p2, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p3) {}
+        private void prefetchSiblingsOfRealNode(android.view.View p0, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p1, boolean p2) {}
+        private void prefetchSiblingsOfVirtualNode(android.view.accessibility.AccessibilityNodeInfo p0, android.view.View p1, android.view.accessibility.AccessibilityNodeProvider p2, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p3, boolean p4) {}
+        public void prefetchAccessibilityNodeInfos(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2) {}
+        public boolean shouldStopPrefetching(java.util.List p0) { return false; }
     }
 }

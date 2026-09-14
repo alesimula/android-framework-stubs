@@ -27,14 +27,23 @@ public interface IAGnss extends android.internal.hidl.base.V1_0.IBase {
     public boolean setServer(byte p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class ApnIpType {
-        public static final byte INVALID = 0;
-        public static final byte IPV4 = 1;
-        public static final byte IPV4V6 = 3;
-        public static final byte IPV6 = 2;
-        public ApnIpType() {}
-        public static final java.lang.String dumpBitfield(byte p0) { return null; }
-        public static final java.lang.String toString(byte p0) { return null; }
+    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IAGnss {
+        public Stub() { super(); }
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
+        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
+        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
+        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
+        public final java.lang.String interfaceDescriptor() { return null; }
+        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
+        public final void notifySyspropsChanged() {}
+        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
+        public final void ping() {}
+        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
+        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
+        public final void setHALInstrumentation() {}
+        public java.lang.String toString() { return null; }
+        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
     }
 
     public static final class Proxy implements android.hardware.gnss.V1_0.IAGnss {
@@ -61,22 +70,13 @@ public interface IAGnss extends android.internal.hidl.base.V1_0.IBase {
         public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
     }
 
-    public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_0.IAGnss {
-        public Stub() { super(); }
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) {}
-        public final android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() { return null; }
-        public final java.util.ArrayList<byte[]> getHashChain() { return null; }
-        public final java.util.ArrayList<java.lang.String> interfaceChain() { return null; }
-        public final java.lang.String interfaceDescriptor() { return null; }
-        public final boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) { return false; }
-        public final void notifySyspropsChanged() {}
-        public void onTransact(int p0, android.os.HwParcel p1, android.os.HwParcel p2, int p3) throws android.os.RemoteException {}
-        public final void ping() {}
-        public android.os.IHwInterface queryLocalInterface(java.lang.String p0) { return null; }
-        public void registerAsService(java.lang.String p0) throws android.os.RemoteException {}
-        public final void setHALInstrumentation() {}
-        public java.lang.String toString() { return null; }
-        public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    public static final class ApnIpType {
+        public static final byte INVALID = 0;
+        public static final byte IPV4 = 1;
+        public static final byte IPV4V6 = 3;
+        public static final byte IPV6 = 2;
+        public ApnIpType() {}
+        public static final java.lang.String dumpBitfield(byte p0) { return null; }
+        public static final java.lang.String toString(byte p0) { return null; }
     }
 }

@@ -4,12 +4,6 @@ public interface IImageProcessorImpl extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.camera2.extension.IImageProcessorImpl";
     public void onNextImageAvailable(android.hardware.camera2.extension.OutputConfigId p0, android.hardware.camera2.extension.ParcelImage p1, java.lang.String p2) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.IImageProcessorImpl {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onNextImageAvailable(android.hardware.camera2.extension.OutputConfigId p0, android.hardware.camera2.extension.ParcelImage p1, java.lang.String p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.IImageProcessorImpl {
         static final int TRANSACTION_onNextImageAvailable = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IImageProcessorImpl extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onNextImageAvailable(android.hardware.camera2.extension.OutputConfigId p0, android.hardware.camera2.extension.ParcelImage p1, java.lang.String p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.IImageProcessorImpl {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onNextImageAvailable(android.hardware.camera2.extension.OutputConfigId p0, android.hardware.camera2.extension.ParcelImage p1, java.lang.String p2) throws android.os.RemoteException {}
     }
 }

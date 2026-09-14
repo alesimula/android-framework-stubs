@@ -14,13 +14,6 @@ public interface IBiometricContextListener extends android.os.IInterface {
         public void onHardwareIgnoreTouchesChanged(boolean p0) throws android.os.RemoteException {}
     }
 
-    public static @interface FoldState {
-        public static final int FULLY_CLOSED = 3;
-        public static final int FULLY_OPENED = 2;
-        public static final int HALF_OPENED = 1;
-        public static final int UNKNOWN = 0;
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.IBiometricContextListener {
         static final int TRANSACTION_onDisplayStateChanged = 2;
         static final int TRANSACTION_onFoldChanged = 1;
@@ -41,5 +34,12 @@ public interface IBiometricContextListener extends android.os.IInterface {
             public void onFoldChanged(int p0) throws android.os.RemoteException {}
             public void onHardwareIgnoreTouchesChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static @interface FoldState {
+        public static final int FULLY_CLOSED = 3;
+        public static final int FULLY_OPENED = 2;
+        public static final int HALF_OPENED = 1;
+        public static final int UNKNOWN = 0;
     }
 }

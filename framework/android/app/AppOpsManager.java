@@ -152,6 +152,7 @@ public class AppOpsManager {
     public static final java.lang.String OPSTR_LEGACY_STORAGE = "android:legacy_storage";
     @android.annotation.SystemApi
     public static final java.lang.String OPSTR_LOADER_USAGE_STATS = "android:loader_usage_stats";
+    public static final java.lang.String OPSTR_MANAGE_ASSISTANT_AUDIO = "android:manage_assistant_audio";
     public static final java.lang.String OPSTR_MANAGE_CONTACTS = "android:manage_contacts";
     public static final java.lang.String OPSTR_MANAGE_CREDENTIALS = "android:manage_credentials";
     @android.annotation.SystemApi
@@ -268,6 +269,7 @@ public class AppOpsManager {
     public static final java.lang.String OPSTR_SCHEDULE_EXACT_ALARM = "android:schedule_exact_alarm";
     public static final java.lang.String OPSTR_SEND_SMS = "android:send_sms";
     public static final java.lang.String OPSTR_SMS_FINANCIAL_TRANSACTIONS = "android:sms_financial_transactions";
+    public static final java.lang.String OPSTR_START_ACTIVITIES_ON_LOGIN_SCREEN = "android:start_activities_on_login_screen";
     @android.annotation.SystemApi
     public static final java.lang.String OPSTR_START_FOREGROUND = "android:start_foreground";
     public static final java.lang.String OPSTR_SYSTEM_ALERT_WINDOW = "android:system_alert_window";
@@ -402,6 +404,7 @@ public class AppOpsManager {
     public static final int OP_INTERACT_ACROSS_PROFILES = 93;
     public static final int OP_LEGACY_STORAGE = 87;
     public static final int OP_LOADER_USAGE_STATS = 95;
+    public static final int OP_MANAGE_ASSISTANT_AUDIO = 181;
     public static final int OP_MANAGE_CONTACTS = 180;
     public static final int OP_MANAGE_CREDENTIALS = 104;
     public static final int OP_MANAGE_EXTERNAL_STORAGE = 92;
@@ -484,6 +487,7 @@ public class AppOpsManager {
     public static final int OP_SCHEDULE_EXACT_ALARM = 107;
     public static final int OP_SEND_SMS = 20;
     public static final int OP_SMS_FINANCIAL_TRANSACTIONS = 80;
+    public static final int OP_START_ACTIVITIES_ON_LOGIN_SCREEN = 182;
     public static final int OP_START_FOREGROUND = 76;
     public static final int OP_SYSTEM_ALERT_WINDOW = 24;
     public static final int OP_SYSTEM_APPLICATION_OVERLAY = 164;
@@ -550,7 +554,7 @@ public class AppOpsManager {
     @android.annotation.SystemApi
     public static final int UID_STATE_TOP = 200;
     public static final int WATCH_FOREGROUND_CHANGES = 1;
-    public static final int _NUM_OP = 181;
+    public static final int _NUM_OP = 183;
     static final android.app.AppOpInfo[] sAppOpInfos = null;
     private static final android.os.IpcDataCache<android.app.AppOpsManager.AppOpModeQuery, java.lang.Integer> sAppOpModeCache = null;
     private static final java.lang.ThreadLocal<android.util.ArrayMap<java.lang.String, java.util.BitSet>> sAppOpsNotedInThisBinderTransaction = null;
@@ -824,6 +828,16 @@ public class AppOpsManager {
     public int unsafeCheckOpRawNoThrow(java.lang.String p0, int p1, java.lang.String p2) { return 0; }
     public int unsafeCheckOpRawNoThrow(java.lang.String p0, android.content.AttributionSource p1) { return 0; }
 
+    public static abstract class OnOpNotedCallback {
+        private final com.android.internal.app.IAppOpsAsyncNotedCallback mAsyncCb = null;
+        private java.util.concurrent.Executor mAsyncExecutor;
+        public OnOpNotedCallback() {}
+        protected java.util.concurrent.Executor getAsyncNotedExecutor() { return null; }
+        public abstract void onAsyncNoted(android.app.AsyncNotedAppOp p0);
+        public abstract void onNoted(android.app.SyncNotedAppOp p0);
+        public abstract void onSelfNoted(android.app.SyncNotedAppOp p0);
+    }
+
     private static final class AppOpModeQuery {
         final java.lang.String attributionTag = null;
         final java.lang.String methodName = null;
@@ -837,15 +851,15 @@ public class AppOpsManager {
         public java.lang.String toString() { return null; }
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AppOpString {
+    }
+
     @android.annotation.SystemApi
     @java.lang.Deprecated
     public static abstract class AppOpsCollector extends android.app.AppOpsManager.OnOpNotedCallback {
         public AppOpsCollector() { super(); }
         public java.util.concurrent.Executor getAsyncNotedExecutor() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AppOpString {
     }
 
     @android.annotation.SystemApi
@@ -1149,6 +1163,22 @@ public class AppOpsManager {
     public static @interface Mode {
     }
 
+    public static final class NoteOpEvent implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.app.AppOpsManager.NoteOpEvent> CREATOR = null;
+        private long mDuration;
+        private long mNoteTime;
+        private android.app.AppOpsManager.OpEventProxyInfo mProxy;
+        public NoteOpEvent(long p0, long p1, android.app.AppOpsManager.OpEventProxyInfo p2) {}
+        public NoteOpEvent(android.app.AppOpsManager.NoteOpEvent p0) {}
+        NoteOpEvent(android.os.Parcel p0) {}
+        public int describeContents() { return 0; }
+        public long getDuration() { return 0L; }
+        public long getNoteTime() { return 0L; }
+        public android.app.AppOpsManager.OpEventProxyInfo getProxy() { return null; }
+        public void reinit(long p0, long p1, android.app.AppOpsManager.OpEventProxyInfo p2, android.util.Pools.Pool<android.app.AppOpsManager.OpEventProxyInfo> p3) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static final class NotedOp implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.app.AppOpsManager.NotedOp> CREATOR = null;
         private final java.lang.String mAttributionTag = null;
@@ -1180,20 +1210,10 @@ public class AppOpsManager {
     private static @interface NotedOpCollectionMode {
     }
 
-    public static final class NoteOpEvent implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.app.AppOpsManager.NoteOpEvent> CREATOR = null;
-        private long mDuration;
-        private long mNoteTime;
-        private android.app.AppOpsManager.OpEventProxyInfo mProxy;
-        public NoteOpEvent(long p0, long p1, android.app.AppOpsManager.OpEventProxyInfo p2) {}
-        public NoteOpEvent(android.app.AppOpsManager.NoteOpEvent p0) {}
-        NoteOpEvent(android.os.Parcel p0) {}
-        public int describeContents() { return 0; }
-        public long getDuration() { return 0L; }
-        public long getNoteTime() { return 0L; }
-        public android.app.AppOpsManager.OpEventProxyInfo getProxy() { return null; }
-        public void reinit(long p0, long p1, android.app.AppOpsManager.OpEventProxyInfo p2, android.util.Pools.Pool<android.app.AppOpsManager.OpEventProxyInfo> p3) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    public static interface OnOpActiveChangedListener {
+        default public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, int p6, int p7) {}
+        default public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5, int p6) {}
+        public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, boolean p3);
     }
 
     public static interface OnOpActiveChangedInternalListener extends android.app.AppOpsManager.OnOpActiveChangedListener {
@@ -1202,10 +1222,10 @@ public class AppOpsManager {
         default public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, boolean p3) {}
     }
 
-    public static interface OnOpActiveChangedListener {
-        default public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, int p6, int p7) {}
-        default public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, boolean p4, int p5, int p6) {}
-        public void onOpActiveChanged(java.lang.String p0, int p1, java.lang.String p2, boolean p3);
+    public static interface OnOpChangedListener {
+        public void onOpChanged(java.lang.String p0, java.lang.String p1);
+        default public void onOpChanged(java.lang.String p0, java.lang.String p1, int p2) {}
+        default public void onOpChanged(java.lang.String p0, java.lang.String p1, int p2, java.lang.String p3) {}
     }
 
     public static class OnOpChangedInternalListener implements android.app.AppOpsManager.OnOpChangedListener {
@@ -1215,31 +1235,15 @@ public class AppOpsManager {
         public void onOpChanged(java.lang.String p0, java.lang.String p1) {}
     }
 
-    public static interface OnOpChangedListener {
-        public void onOpChanged(java.lang.String p0, java.lang.String p1);
-        default public void onOpChanged(java.lang.String p0, java.lang.String p1, int p2) {}
-        default public void onOpChanged(java.lang.String p0, java.lang.String p1, int p2, java.lang.String p3) {}
-    }
-
-    public static abstract class OnOpNotedCallback {
-        private final com.android.internal.app.IAppOpsAsyncNotedCallback mAsyncCb = null;
-        private java.util.concurrent.Executor mAsyncExecutor;
-        public OnOpNotedCallback() {}
-        protected java.util.concurrent.Executor getAsyncNotedExecutor() { return null; }
-        public abstract void onAsyncNoted(android.app.AsyncNotedAppOp p0);
-        public abstract void onNoted(android.app.SyncNotedAppOp p0);
-        public abstract void onSelfNoted(android.app.SyncNotedAppOp p0);
+    @android.annotation.SystemApi
+    public static interface OnOpNotedListener {
+        public void onOpNoted(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, int p5);
+        default public void onOpNoted(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, int p5, int p6) {}
     }
 
     public static interface OnOpNotedInternalListener extends android.app.AppOpsManager.OnOpNotedListener {
         public void onOpNoted(int p0, int p1, java.lang.String p2, java.lang.String p3, int p4, int p5);
         default public void onOpNoted(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, int p5) {}
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnOpNotedListener {
-        public void onOpNoted(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, int p5);
-        default public void onOpNoted(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4, int p5, int p6) {}
     }
 
     public static interface OnOpStartedListener {

@@ -16,13 +16,6 @@ abstract class AndroidKeyStoreAuthenticatedAESCipherSpi extends android.security
     protected void resetAll() {}
     protected void setIv(byte[] p0) {}
 
-    private static class AdditionalAuthenticationDataStream implements android.security.keystore2.KeyStoreCryptoOperationChunkedStreamer.Stream {
-        private final android.security.KeyStoreOperation mOperation = null;
-        private AdditionalAuthenticationDataStream(android.security.KeyStoreOperation p0) {}
-        public byte[] finish(byte[] p0, byte[] p1) { return null; }
-        public byte[] update(byte[] p0) throws android.security.KeyStoreException { return null; }
-    }
-
     private static class BufferAllOutputUntilDoFinalStreamer implements android.security.keystore2.KeyStoreCryptoOperationStreamer {
         private java.io.ByteArrayOutputStream mBufferedOutput;
         private final android.security.keystore2.KeyStoreCryptoOperationStreamer mDelegate = null;
@@ -59,5 +52,12 @@ abstract class AndroidKeyStoreAuthenticatedAESCipherSpi extends android.security
             public NoPadding() { super(0); }
             protected final int engineGetOutputSize(int p0) { return 0; }
         }
+    }
+
+    private static class AdditionalAuthenticationDataStream implements android.security.keystore2.KeyStoreCryptoOperationChunkedStreamer.Stream {
+        private final android.security.KeyStoreOperation mOperation = null;
+        private AdditionalAuthenticationDataStream(android.security.KeyStoreOperation p0) {}
+        public byte[] finish(byte[] p0, byte[] p1) { return null; }
+        public byte[] update(byte[] p0) throws android.security.KeyStoreException { return null; }
     }
 }

@@ -1,11 +1,13 @@
 package android.agenticon;
 
-public final class AgentTaskUpdate implements android.os.Parcelable {
+public final class AgentTaskUpdate implements android.os.Parcelable, android.agenticon.IconUriPermissionCheckable {
     public static final android.os.Parcelable.Creator<android.agenticon.AgentTaskUpdate> CREATOR = null;
+    static final int MAX_ICON_SIZE_PX = 4096;
     private final android.agenticon.AgentTaskEvent mAgentTaskEvent = null;
     private final android.agenticon.AgentTaskState mAgentTaskState = null;
     private AgentTaskUpdate(android.agenticon.AgentTaskState p0, android.agenticon.AgentTaskEvent p1) {}
     private AgentTaskUpdate(android.os.Parcel p0) {}
+    public void checkPermissionForIcons(java.util.function.Consumer<android.graphics.drawable.Icon> p0) {}
     public int describeContents() { return 0; }
     public android.agenticon.AgentTaskEvent getAgentTaskEvent() { return null; }
     public android.agenticon.AgentTaskState getAgentTaskState() { return null; }

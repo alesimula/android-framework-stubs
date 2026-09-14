@@ -2,12 +2,12 @@ package android.service.personalcontext.attribution;
 
 public interface IAttributionHandler extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.attribution.IAttributionHandler";
-    public void handleInsightAttribution(android.service.personalcontext.insight.InsightDisplayDetails p0, android.service.personalcontext.insight.interaction.AttributionDetails p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException;
+    public void handleInsightAttribution(android.service.personalcontext.insight.InsightDisplayDetails p0, android.service.personalcontext.insight.interaction.AttributionDetails p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException;
 
     public static class Default implements android.service.personalcontext.attribution.IAttributionHandler {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void handleInsightAttribution(android.service.personalcontext.insight.InsightDisplayDetails p0, android.service.personalcontext.insight.interaction.AttributionDetails p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+        public void handleInsightAttribution(android.service.personalcontext.insight.InsightDisplayDetails p0, android.service.personalcontext.insight.interaction.AttributionDetails p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.attribution.IAttributionHandler {
@@ -24,7 +24,7 @@ public interface IAttributionHandler extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void handleInsightAttribution(android.service.personalcontext.insight.InsightDisplayDetails p0, android.service.personalcontext.insight.interaction.AttributionDetails p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+            public void handleInsightAttribution(android.service.personalcontext.insight.InsightDisplayDetails p0, android.service.personalcontext.insight.interaction.AttributionDetails p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
         }
     }
 }

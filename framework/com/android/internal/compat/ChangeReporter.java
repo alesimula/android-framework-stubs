@@ -27,6 +27,10 @@ public class ChangeReporter {
     public void startDebugLogAll() {}
     public void stopDebugLogAll() {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface State {
+    }
+
     private static final class ChangeReport {
         long mChangeId;
         int mState;
@@ -37,9 +41,5 @@ public class ChangeReporter {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Source {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface State {
     }
 }

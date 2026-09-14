@@ -12,6 +12,13 @@ public class PasswordTransformationMethod implements android.text.method.Transfo
     public void onFocusChanged(android.view.View p0, java.lang.CharSequence p1, boolean p2, int p3, android.graphics.Rect p4) {}
     public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
 
+    public static class Visible extends android.os.Handler implements android.text.style.UpdateLayout, java.lang.Runnable {
+        private android.text.Spannable mText;
+        private android.text.method.PasswordTransformationMethod mTransformer;
+        public Visible(android.text.Spannable p0, android.text.method.PasswordTransformationMethod p1) { super(); }
+        public void run() {}
+    }
+
     private static class PasswordCharSequence implements java.lang.CharSequence, android.text.GetChars {
         private java.lang.CharSequence mSource;
         public PasswordCharSequence(java.lang.CharSequence p0) {}
@@ -24,12 +31,5 @@ public class PasswordTransformationMethod implements android.text.method.Transfo
 
     private static class ViewReference extends java.lang.ref.WeakReference<android.view.View> implements android.text.NoCopySpan {
         public ViewReference(android.view.View p0) { super(null); }
-    }
-
-    public static class Visible extends android.os.Handler implements android.text.style.UpdateLayout, java.lang.Runnable {
-        private android.text.Spannable mText;
-        private android.text.method.PasswordTransformationMethod mTransformer;
-        public Visible(android.text.Spannable p0, android.text.method.PasswordTransformationMethod p1) { super(); }
-        public void run() {}
     }
 }

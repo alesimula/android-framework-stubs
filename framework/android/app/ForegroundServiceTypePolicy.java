@@ -56,6 +56,14 @@ public abstract class ForegroundServiceTypePolicy {
     public abstract android.app.ForegroundServiceTypePolicy.ForegroundServiceTypePolicyInfo getForegroundServiceTypePolicyInfo(int p0, int p1);
     public abstract void updatePermissionEnforcementFlagIfNecessary(java.lang.String p0);
 
+    public static abstract class ForegroundServiceTypePermission {
+        protected final java.lang.String mName = null;
+        public ForegroundServiceTypePermission(java.lang.String p0) {}
+        void addToList(android.content.Context p0, java.util.ArrayList<java.lang.String> p1) {}
+        public abstract int checkPermission(android.content.Context p0, int p1, int p2, java.lang.String p3, boolean p4);
+        public java.lang.String toString() { return null; }
+    }
+
     static class AppOpPermission extends android.app.ForegroundServiceTypePolicy.ForegroundServiceTypePermission {
         final int mOpCode = 0;
         AppOpPermission(int p0) { super(null); }
@@ -73,14 +81,6 @@ public abstract class ForegroundServiceTypePolicy {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ForegroundServicePolicyCheckCode {
-    }
-
-    public static abstract class ForegroundServiceTypePermission {
-        protected final java.lang.String mName = null;
-        public ForegroundServiceTypePermission(java.lang.String p0) {}
-        void addToList(android.content.Context p0, java.util.ArrayList<java.lang.String> p1) {}
-        public abstract int checkPermission(android.content.Context p0, int p1, int p2, java.lang.String p3, boolean p4);
-        public java.lang.String toString() { return null; }
     }
 
     public static class ForegroundServiceTypePermissions {

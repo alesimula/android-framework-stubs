@@ -6,14 +6,6 @@ public interface IContentControlService extends android.os.IInterface {
     public int getCamDrmInfo(int p0, android.os.Bundle p1) throws android.os.RemoteException;
     public void removeCamDrmInfoListener(android.media.tv.extension.cam.ICamDrmInfoListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.cam.IContentControlService {
-        public Default() {}
-        public void addCamDrmInfoListener(android.media.tv.extension.cam.ICamDrmInfoListener p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public int getCamDrmInfo(int p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
-        public void removeCamDrmInfoListener(android.media.tv.extension.cam.ICamDrmInfoListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.cam.IContentControlService {
         static final int TRANSACTION_addCamDrmInfoListener = 1;
         static final int TRANSACTION_getCamDrmInfo = 3;
@@ -34,5 +26,13 @@ public interface IContentControlService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void removeCamDrmInfoListener(android.media.tv.extension.cam.ICamDrmInfoListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.cam.IContentControlService {
+        public Default() {}
+        public void addCamDrmInfoListener(android.media.tv.extension.cam.ICamDrmInfoListener p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public int getCamDrmInfo(int p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
+        public void removeCamDrmInfoListener(android.media.tv.extension.cam.ICamDrmInfoListener p0) throws android.os.RemoteException {}
     }
 }

@@ -45,15 +45,15 @@ public class EuiccCardManager {
     @java.lang.Deprecated
     public void switchToProfile(java.lang.String p0, java.lang.String p1, boolean p2, java.util.concurrent.Executor p3, android.telephony.euicc.EuiccCardManager.ResultCallback<android.service.euicc.EuiccProfileInfo> p4) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CancelReason {
+    public static interface ResultCallback<T extends java.lang.Object> {
+        public void onComplete(int p0, T p1);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ResetOption {
     }
 
-    public static interface ResultCallback<T extends java.lang.Object> {
-        public void onComplete(int p0, T p1);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CancelReason {
     }
 }

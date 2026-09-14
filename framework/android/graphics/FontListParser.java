@@ -6,6 +6,7 @@ public class FontListParser {
     private static final java.lang.String ATTR_LANG = "lang";
     private static final java.lang.String ATTR_NAME = "name";
     public static final java.lang.String ATTR_POSTSCRIPT_NAME = "postScriptName";
+    private static final java.lang.String ATTR_PRELOAD = "preload";
     public static final java.lang.String ATTR_STYLE = "style";
     public static final java.lang.String ATTR_STYLEVALUE = "stylevalue";
     public static final java.lang.String ATTR_SUPPORTED_AXES = "supportedAxes";

@@ -5,13 +5,6 @@ public interface IMusicRecognitionServiceCallback extends android.os.IInterface 
     public void onRecognitionFailed(int p0) throws android.os.RemoteException;
     public void onRecognitionSucceeded(android.media.MediaMetadata p0, android.os.Bundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.musicrecognition.IMusicRecognitionServiceCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onRecognitionFailed(int p0) throws android.os.RemoteException {}
-        public void onRecognitionSucceeded(android.media.MediaMetadata p0, android.os.Bundle p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.musicrecognition.IMusicRecognitionServiceCallback {
         static final int TRANSACTION_onRecognitionFailed = 2;
         static final int TRANSACTION_onRecognitionSucceeded = 1;
@@ -30,5 +23,12 @@ public interface IMusicRecognitionServiceCallback extends android.os.IInterface 
             public void onRecognitionFailed(int p0) throws android.os.RemoteException {}
             public void onRecognitionSucceeded(android.media.MediaMetadata p0, android.os.Bundle p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.musicrecognition.IMusicRecognitionServiceCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onRecognitionFailed(int p0) throws android.os.RemoteException {}
+        public void onRecognitionSucceeded(android.media.MediaMetadata p0, android.os.Bundle p1) throws android.os.RemoteException {}
     }
 }

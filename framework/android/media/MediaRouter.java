@@ -74,6 +74,11 @@ public class MediaRouter {
     public void selectRouteInt(int p0, android.media.MediaRouter.RouteInfo p1, boolean p2) {}
     public void setRouterGroupId(java.lang.String p0) {}
 
+    static class VolumeChangeReceiver extends android.content.BroadcastReceiver {
+        VolumeChangeReceiver() { super(); }
+        public void onReceive(android.content.Context p0, android.content.Intent p1) {}
+    }
+
     public static abstract class Callback {
         public Callback() {}
         public abstract void onRouteAdded(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1);
@@ -85,58 +90,6 @@ public class MediaRouter {
         public abstract void onRouteUngrouped(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1, android.media.MediaRouter.RouteGroup p2);
         public abstract void onRouteUnselected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2);
         public abstract void onRouteVolumeChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1);
-    }
-
-    static class CallbackInfo {
-        public final android.media.MediaRouter.Callback cb = null;
-        public int flags;
-        public final android.media.MediaRouter router = null;
-        public int type;
-        public CallbackInfo(android.media.MediaRouter.Callback p0, int p1, int p2, android.media.MediaRouter p3) {}
-        public boolean filterRouteEvent(int p0) { return false; }
-        public boolean filterRouteEvent(android.media.MediaRouter.RouteInfo p0) { return false; }
-    }
-
-    public static class RouteCategory {
-        final boolean mGroupable = false;
-        boolean mIsSystem;
-        java.lang.CharSequence mName;
-        int mNameResId;
-        int mTypes;
-        RouteCategory(int p0, int p1, boolean p2) {}
-        RouteCategory(java.lang.CharSequence p0, int p1, boolean p2) {}
-        public java.lang.CharSequence getName() { return null; }
-        public java.lang.CharSequence getName(android.content.Context p0) { return null; }
-        java.lang.CharSequence getName(android.content.res.Resources p0) { return null; }
-        public java.util.List<android.media.MediaRouter.RouteInfo> getRoutes(java.util.List<android.media.MediaRouter.RouteInfo> p0) { return null; }
-        public int getSupportedTypes() { return 0; }
-        public boolean isGroupable() { return false; }
-        public boolean isSystem() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static class RouteGroup extends android.media.MediaRouter.RouteInfo {
-        final java.util.ArrayList<android.media.MediaRouter.RouteInfo> mRoutes = null;
-        private boolean mUpdateName;
-        RouteGroup(android.media.MediaRouter.RouteCategory p0) { super(null); }
-        public void addRoute(android.media.MediaRouter.RouteInfo p0) {}
-        public void addRoute(android.media.MediaRouter.RouteInfo p0, int p1) {}
-        java.lang.CharSequence getName(android.content.res.Resources p0) { return null; }
-        public android.media.MediaRouter.RouteInfo getRouteAt(int p0) { return null; }
-        public int getRouteCount() { return 0; }
-        void memberNameChanged(android.media.MediaRouter.RouteInfo p0, java.lang.CharSequence p1) {}
-        void memberStatusChanged(android.media.MediaRouter.RouteInfo p0, java.lang.CharSequence p1) {}
-        void memberVolumeChanged(android.media.MediaRouter.RouteInfo p0) {}
-        public void removeRoute(int p0) {}
-        public void removeRoute(android.media.MediaRouter.RouteInfo p0) {}
-        public void requestSetVolume(int p0) {}
-        public void requestUpdateVolume(int p0) {}
-        void routeUpdated() {}
-        public void setIconDrawable(android.graphics.drawable.Drawable p0) {}
-        public void setIconResource(int p0) {}
-        public java.lang.String toString() { return null; }
-        void updateName() {}
-        void updateVolume() {}
     }
 
     public static class RouteInfo {
@@ -236,16 +189,34 @@ public class MediaRouter {
         }
     }
 
-    public static class SimpleCallback extends android.media.MediaRouter.Callback {
-        public SimpleCallback() { super(); }
-        public void onRouteAdded(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
-        public void onRouteChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
-        public void onRouteGrouped(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1, android.media.MediaRouter.RouteGroup p2, int p3) {}
-        public void onRouteRemoved(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
-        public void onRouteSelected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
-        public void onRouteUngrouped(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1, android.media.MediaRouter.RouteGroup p2) {}
-        public void onRouteUnselected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
-        public void onRouteVolumeChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+    public static class UserRouteInfo extends android.media.MediaRouter.RouteInfo {
+        android.media.RemoteControlClient mRcc;
+        android.media.MediaRouter.UserRouteInfo.SessionVolumeProvider mSvp;
+        UserRouteInfo(android.media.MediaRouter.RouteCategory p0) { super(null); }
+        private void configureSessionVolume() {}
+        private void updatePlaybackInfoOnRcc() {}
+        public android.media.RemoteControlClient getRemoteControlClient() { return null; }
+        public void requestSetVolume(int p0) {}
+        public void requestUpdateVolume(int p0) {}
+        public void setDescription(java.lang.CharSequence p0) {}
+        public void setIconDrawable(android.graphics.drawable.Drawable p0) {}
+        public void setIconResource(int p0) {}
+        public void setName(int p0) {}
+        public void setName(java.lang.CharSequence p0) {}
+        public void setPlaybackStream(int p0) {}
+        public void setPlaybackType(int p0) {}
+        public void setRemoteControlClient(android.media.RemoteControlClient p0) {}
+        public void setStatus(java.lang.CharSequence p0) {}
+        public void setVolume(int p0) {}
+        public void setVolumeCallback(android.media.MediaRouter.VolumeCallback p0) {}
+        public void setVolumeHandling(int p0) {}
+        public void setVolumeMax(int p0) {}
+
+        class SessionVolumeProvider extends android.media.VolumeProvider {
+            SessionVolumeProvider(android.media.MediaRouter.UserRouteInfo p0, int p1, int p2, int p3) { super(0, 0, 0); }
+            public void onAdjustVolume(int p0) {}
+            public void onSetVolumeTo(int p0) {}
+        }
     }
 
     static class Static implements android.hardware.display.DisplayManager.DisplayListener {
@@ -307,40 +278,28 @@ public class MediaRouter {
         }
     }
 
-    public static class UserRouteInfo extends android.media.MediaRouter.RouteInfo {
-        android.media.RemoteControlClient mRcc;
-        android.media.MediaRouter.UserRouteInfo.SessionVolumeProvider mSvp;
-        UserRouteInfo(android.media.MediaRouter.RouteCategory p0) { super(null); }
-        private void configureSessionVolume() {}
-        private void updatePlaybackInfoOnRcc() {}
-        public android.media.RemoteControlClient getRemoteControlClient() { return null; }
+    public static class RouteGroup extends android.media.MediaRouter.RouteInfo {
+        final java.util.ArrayList<android.media.MediaRouter.RouteInfo> mRoutes = null;
+        private boolean mUpdateName;
+        RouteGroup(android.media.MediaRouter.RouteCategory p0) { super(null); }
+        public void addRoute(android.media.MediaRouter.RouteInfo p0) {}
+        public void addRoute(android.media.MediaRouter.RouteInfo p0, int p1) {}
+        java.lang.CharSequence getName(android.content.res.Resources p0) { return null; }
+        public android.media.MediaRouter.RouteInfo getRouteAt(int p0) { return null; }
+        public int getRouteCount() { return 0; }
+        void memberNameChanged(android.media.MediaRouter.RouteInfo p0, java.lang.CharSequence p1) {}
+        void memberStatusChanged(android.media.MediaRouter.RouteInfo p0, java.lang.CharSequence p1) {}
+        void memberVolumeChanged(android.media.MediaRouter.RouteInfo p0) {}
+        public void removeRoute(int p0) {}
+        public void removeRoute(android.media.MediaRouter.RouteInfo p0) {}
         public void requestSetVolume(int p0) {}
         public void requestUpdateVolume(int p0) {}
-        public void setDescription(java.lang.CharSequence p0) {}
+        void routeUpdated() {}
         public void setIconDrawable(android.graphics.drawable.Drawable p0) {}
         public void setIconResource(int p0) {}
-        public void setName(int p0) {}
-        public void setName(java.lang.CharSequence p0) {}
-        public void setPlaybackStream(int p0) {}
-        public void setPlaybackType(int p0) {}
-        public void setRemoteControlClient(android.media.RemoteControlClient p0) {}
-        public void setStatus(java.lang.CharSequence p0) {}
-        public void setVolume(int p0) {}
-        public void setVolumeCallback(android.media.MediaRouter.VolumeCallback p0) {}
-        public void setVolumeHandling(int p0) {}
-        public void setVolumeMax(int p0) {}
-
-        class SessionVolumeProvider extends android.media.VolumeProvider {
-            SessionVolumeProvider(android.media.MediaRouter.UserRouteInfo p0, int p1, int p2, int p3) { super(0, 0, 0); }
-            public void onAdjustVolume(int p0) {}
-            public void onSetVolumeTo(int p0) {}
-        }
-    }
-
-    public static abstract class VolumeCallback {
-        public VolumeCallback() {}
-        public abstract void onVolumeSetRequest(android.media.MediaRouter.RouteInfo p0, int p1);
-        public abstract void onVolumeUpdateRequest(android.media.MediaRouter.RouteInfo p0, int p1);
+        public java.lang.String toString() { return null; }
+        void updateName() {}
+        void updateVolume() {}
     }
 
     static class VolumeCallbackInfo {
@@ -349,13 +308,54 @@ public class MediaRouter {
         public VolumeCallbackInfo(android.media.MediaRouter.VolumeCallback p0, android.media.MediaRouter.RouteInfo p1) {}
     }
 
-    static class VolumeChangeReceiver extends android.content.BroadcastReceiver {
-        VolumeChangeReceiver() { super(); }
-        public void onReceive(android.content.Context p0, android.content.Intent p1) {}
-    }
-
     static class WifiDisplayStatusChangedReceiver extends android.content.BroadcastReceiver {
         WifiDisplayStatusChangedReceiver() { super(); }
         public void onReceive(android.content.Context p0, android.content.Intent p1) {}
+    }
+
+    public static class RouteCategory {
+        final boolean mGroupable = false;
+        boolean mIsSystem;
+        java.lang.CharSequence mName;
+        int mNameResId;
+        int mTypes;
+        RouteCategory(int p0, int p1, boolean p2) {}
+        RouteCategory(java.lang.CharSequence p0, int p1, boolean p2) {}
+        public java.lang.CharSequence getName() { return null; }
+        public java.lang.CharSequence getName(android.content.Context p0) { return null; }
+        java.lang.CharSequence getName(android.content.res.Resources p0) { return null; }
+        public java.util.List<android.media.MediaRouter.RouteInfo> getRoutes(java.util.List<android.media.MediaRouter.RouteInfo> p0) { return null; }
+        public int getSupportedTypes() { return 0; }
+        public boolean isGroupable() { return false; }
+        public boolean isSystem() { return false; }
+        public java.lang.String toString() { return null; }
+    }
+
+    static class CallbackInfo {
+        public final android.media.MediaRouter.Callback cb = null;
+        public int flags;
+        public final android.media.MediaRouter router = null;
+        public int type;
+        public CallbackInfo(android.media.MediaRouter.Callback p0, int p1, int p2, android.media.MediaRouter p3) {}
+        public boolean filterRouteEvent(int p0) { return false; }
+        public boolean filterRouteEvent(android.media.MediaRouter.RouteInfo p0) { return false; }
+    }
+
+    public static abstract class VolumeCallback {
+        public VolumeCallback() {}
+        public abstract void onVolumeSetRequest(android.media.MediaRouter.RouteInfo p0, int p1);
+        public abstract void onVolumeUpdateRequest(android.media.MediaRouter.RouteInfo p0, int p1);
+    }
+
+    public static class SimpleCallback extends android.media.MediaRouter.Callback {
+        public SimpleCallback() { super(); }
+        public void onRouteAdded(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+        public void onRouteChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+        public void onRouteGrouped(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1, android.media.MediaRouter.RouteGroup p2, int p3) {}
+        public void onRouteRemoved(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+        public void onRouteSelected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
+        public void onRouteUngrouped(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1, android.media.MediaRouter.RouteGroup p2) {}
+        public void onRouteUnselected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
+        public void onRouteVolumeChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
     }
 }

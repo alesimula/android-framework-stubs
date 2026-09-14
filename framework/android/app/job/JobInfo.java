@@ -11,6 +11,8 @@ public class JobInfo implements android.os.Parcelable {
     public static final int BIAS_SYNC_EXPEDITED = 10;
     public static final int BIAS_SYNC_INITIALIZATION = 20;
     public static final int BIAS_TOP_APP = 40;
+    public static final int CATEGORY_APP_UPDATES = 1;
+    public static final int CATEGORY_NONE = 0;
     public static final int CONSTRAINT_FLAG_BATTERY_NOT_LOW = 2;
     public static final int CONSTRAINT_FLAG_CHARGING = 1;
     public static final int CONSTRAINT_FLAG_DEVICE_IDLE = 4;
@@ -68,6 +70,7 @@ public class JobInfo implements android.os.Parcelable {
     private final boolean isPersisted = false;
     private final int jobId = 0;
     private final int mBias = 0;
+    private final int mCategory = 0;
     private final android.util.ArraySet<java.lang.String> mDebugTags = null;
     private final int mPriority = 0;
     private final java.lang.String mTraceTag = null;
@@ -95,6 +98,7 @@ public class JobInfo implements android.os.Parcelable {
     public boolean equals(java.lang.Object p0) { return false; }
     public int getBackoffPolicy() { return 0; }
     public int getBias() { return 0; }
+    public int getCategory() { return 0; }
     public android.content.ClipData getClipData() { return null; }
     public int getClipGrantFlags() { return 0; }
     public int getConstraintFlags() { return 0; }
@@ -147,6 +151,7 @@ public class JobInfo implements android.os.Parcelable {
         private int mBackoffPolicy;
         private boolean mBackoffPolicySet;
         private int mBias;
+        private int mCategory;
         private android.content.ClipData mClipData;
         private int mClipGrantFlags;
         private int mConstraintFlags;
@@ -183,6 +188,7 @@ public class JobInfo implements android.os.Parcelable {
         public android.app.job.JobInfo.Builder removeDebugTag(java.lang.String p0) { return null; }
         public android.app.job.JobInfo.Builder setBackoffCriteria(long p0, int p1) { return null; }
         public android.app.job.JobInfo.Builder setBias(int p0) { return null; }
+        public android.app.job.JobInfo.Builder setCategory(int p0) { return null; }
         public android.app.job.JobInfo.Builder setClipData(android.content.ClipData p0, int p1) { return null; }
         public android.app.job.JobInfo.Builder setEstimatedNetworkBytes(long p0, long p1) { return null; }
         public android.app.job.JobInfo.Builder setExpedited(boolean p0) { return null; }
@@ -210,6 +216,10 @@ public class JobInfo implements android.os.Parcelable {
         public android.app.job.JobInfo.Builder setTriggerContentUpdateDelay(long p0) { return null; }
         public android.app.job.JobInfo.Builder setUserInitiated(boolean p0) { return null; }
         public java.lang.String summarize() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Category {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

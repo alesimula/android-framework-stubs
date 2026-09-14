@@ -24,15 +24,6 @@ public interface IGnssAntennaInfo extends android.internal.hidl.base.V1_0.IBase 
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class GnssAntennaInfoStatus {
-        public static final int ERROR_ALREADY_INIT = -100;
-        public static final int ERROR_GENERIC = -101;
-        public static final int SUCCESS = 0;
-        public GnssAntennaInfoStatus() {}
-        public static final java.lang.String dumpBitfield(int p0) { return null; }
-        public static final java.lang.String toString(int p0) { return null; }
-    }
-
     public static final class Proxy implements android.hardware.gnss.V2_1.IGnssAntennaInfo {
         private android.os.IHwBinder mRemote;
         public Proxy(android.os.IHwBinder p0) {}
@@ -71,5 +62,14 @@ public interface IGnssAntennaInfo extends android.internal.hidl.base.V1_0.IBase 
         public final void setHALInstrumentation() {}
         public java.lang.String toString() { return null; }
         public final boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) { return false; }
+    }
+
+    public static final class GnssAntennaInfoStatus {
+        public static final int ERROR_ALREADY_INIT = -100;
+        public static final int ERROR_GENERIC = -101;
+        public static final int SUCCESS = 0;
+        public GnssAntennaInfoStatus() {}
+        public static final java.lang.String dumpBitfield(int p0) { return null; }
+        public static final java.lang.String toString(int p0) { return null; }
     }
 }

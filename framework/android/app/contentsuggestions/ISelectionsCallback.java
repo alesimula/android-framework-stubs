@@ -4,12 +4,6 @@ public interface ISelectionsCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.contentsuggestions.ISelectionsCallback";
     public void onContentSelectionsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentSelection> p1) throws android.os.RemoteException;
 
-    public static class Default implements android.app.contentsuggestions.ISelectionsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onContentSelectionsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentSelection> p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.contentsuggestions.ISelectionsCallback {
         static final int TRANSACTION_onContentSelectionsAvailable = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISelectionsCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onContentSelectionsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentSelection> p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.contentsuggestions.ISelectionsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onContentSelectionsAvailable(int p0, java.util.List<android.app.contentsuggestions.ContentSelection> p1) throws android.os.RemoteException {}
     }
 }

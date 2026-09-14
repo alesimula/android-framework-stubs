@@ -13,16 +13,15 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
     public boolean canPairWithoutPrompt(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public void clearOnActionResultListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
     public void createAssociation(java.lang.String p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException;
-    public android.os.Bundle decryptPayload(byte[] p0) throws android.os.RemoteException;
     public void detachSystemDataTransport(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
     public void disablePermissionsSync(int p0) throws android.os.RemoteException;
     public void disableSystemDataSync(int p0, int p1) throws android.os.RemoteException;
     public void disassociate(int p0) throws android.os.RemoteException;
     public void enablePermissionsSync(int p0) throws android.os.RemoteException;
     public void enableSystemDataSync(int p0, int p1) throws android.os.RemoteException;
-    public byte[] encryptPayload(byte[] p0, android.companion.DeviceId p1) throws android.os.RemoteException;
     public java.util.List<android.companion.AssociationInfo> getAllAssociationsForUser(int p0) throws android.os.RemoteException;
     public java.util.List<android.companion.AssociationInfo> getAllAssociationsWithTransports() throws android.os.RemoteException;
+    public android.companion.AssociationInfo getAssociationByAssociationToken(int p0, android.os.ParcelUuid p1) throws android.os.RemoteException;
     public android.companion.AssociationInfo getAssociationByDeviceId(int p0, android.companion.DeviceId p1) throws android.os.RemoteException;
     public java.util.List<android.companion.AssociationInfo> getAssociations(java.lang.String p0, int p1) throws android.os.RemoteException;
     public byte[] getBackupPayload(int p0) throws android.os.RemoteException;
@@ -63,6 +62,7 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
     public void startObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public void startSystemDataTransfer(java.lang.String p0, int p1, int p2, android.companion.ISystemDataTransferCallback p3) throws android.os.RemoteException;
     public void stopObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0, java.lang.String p1, int p2) throws android.os.RemoteException;
+    public void updateAssociation(android.companion.AssociationInfo p0) throws android.os.RemoteException;
 
     public static class Default implements android.companion.ICompanionDeviceManager {
         public Default() {}
@@ -79,16 +79,15 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
         public boolean canPairWithoutPrompt(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return false; }
         public void clearOnActionResultListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
         public void createAssociation(java.lang.String p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException {}
-        public android.os.Bundle decryptPayload(byte[] p0) throws android.os.RemoteException { return null; }
         public void detachSystemDataTransport(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
         public void disablePermissionsSync(int p0) throws android.os.RemoteException {}
         public void disableSystemDataSync(int p0, int p1) throws android.os.RemoteException {}
         public void disassociate(int p0) throws android.os.RemoteException {}
         public void enablePermissionsSync(int p0) throws android.os.RemoteException {}
         public void enableSystemDataSync(int p0, int p1) throws android.os.RemoteException {}
-        public byte[] encryptPayload(byte[] p0, android.companion.DeviceId p1) throws android.os.RemoteException { return null; }
         public java.util.List<android.companion.AssociationInfo> getAllAssociationsForUser(int p0) throws android.os.RemoteException { return null; }
         public java.util.List<android.companion.AssociationInfo> getAllAssociationsWithTransports() throws android.os.RemoteException { return null; }
+        public android.companion.AssociationInfo getAssociationByAssociationToken(int p0, android.os.ParcelUuid p1) throws android.os.RemoteException { return null; }
         public android.companion.AssociationInfo getAssociationByDeviceId(int p0, android.companion.DeviceId p1) throws android.os.RemoteException { return null; }
         public java.util.List<android.companion.AssociationInfo> getAssociations(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
         public byte[] getBackupPayload(int p0) throws android.os.RemoteException { return null; }
@@ -129,6 +128,7 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
         public void startObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
         public void startSystemDataTransfer(java.lang.String p0, int p1, int p2, android.companion.ISystemDataTransferCallback p3) throws android.os.RemoteException {}
         public void stopObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void updateAssociation(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.companion.ICompanionDeviceManager {
@@ -146,56 +146,56 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
         static final int TRANSACTION_buildAssociationCancellationIntent = 34;
         static final int TRANSACTION_buildPermissionTransferUserConsentIntent = 28;
         static final int TRANSACTION_canPairWithoutPrompt = 14;
-        static final int TRANSACTION_clearOnActionResultListener = 54;
+        static final int TRANSACTION_clearOnActionResultListener = 55;
         static final int TRANSACTION_createAssociation = 15;
-        static final int TRANSACTION_decryptPayload = 59;
         static final int TRANSACTION_detachSystemDataTransport = 32;
         static final int TRANSACTION_disablePermissionsSync = 38;
         static final int TRANSACTION_disableSystemDataSync = 36;
         static final int TRANSACTION_disassociate = 6;
         static final int TRANSACTION_enablePermissionsSync = 37;
         static final int TRANSACTION_enableSystemDataSync = 35;
-        static final int TRANSACTION_encryptPayload = 58;
         static final int TRANSACTION_getAllAssociationsForUser = 3;
         static final int TRANSACTION_getAllAssociationsWithTransports = 20;
+        static final int TRANSACTION_getAssociationByAssociationToken = 45;
         static final int TRANSACTION_getAssociationByDeviceId = 44;
         static final int TRANSACTION_getAssociations = 2;
         static final int TRANSACTION_getBackupPayload = 41;
-        static final int TRANSACTION_getLocalMetadata = 47;
+        static final int TRANSACTION_getLocalMetadata = 48;
         static final int TRANSACTION_getPermissionSyncRequest = 39;
         static final int TRANSACTION_getTrustedAssociationsForUser = 4;
         static final int TRANSACTION_hasNotificationAccess = 7;
         static final int TRANSACTION_isCompanionApplicationBound = 33;
         static final int TRANSACTION_isDeviceAssociatedForWifiConnection = 9;
-        static final int TRANSACTION_isDevicePresent = 57;
+        static final int TRANSACTION_isDevicePresent = 58;
         static final int TRANSACTION_isPermissionTransferUserConsented = 29;
-        static final int TRANSACTION_isSystemDataTransportAttached = 55;
+        static final int TRANSACTION_isSystemDataTransportAttached = 56;
         static final int TRANSACTION_legacyDisassociate = 5;
         static final int TRANSACTION_legacyStartObservingDevicePresence = 10;
         static final int TRANSACTION_legacyStopObservingDevicePresence = 11;
-        static final int TRANSACTION_notifyActionResult = 52;
-        static final int TRANSACTION_notifyDevicePresence = 50;
+        static final int TRANSACTION_notifyActionResult = 53;
+        static final int TRANSACTION_notifyDevicePresence = 51;
         static final int TRANSACTION_notifySelfManagedDeviceAppeared = 26;
         static final int TRANSACTION_notifySelfManagedDeviceDisappeared = 27;
         static final int TRANSACTION_overrideTransportType = 40;
         static final int TRANSACTION_removeBond = 43;
         static final int TRANSACTION_removeOnAssociationsChangedListener = 17;
-        static final int TRANSACTION_removeOnDevicePresenceEventListener = 49;
+        static final int TRANSACTION_removeOnDevicePresenceEventListener = 50;
         static final int TRANSACTION_removeOnMessageReceivedListener = 23;
         static final int TRANSACTION_removeOnTransportEventListener = 25;
         static final int TRANSACTION_removeOnTransportsChangedListener = 19;
-        static final int TRANSACTION_requestAction = 51;
-        static final int TRANSACTION_requestDeviceTrustPairing = 60;
+        static final int TRANSACTION_requestAction = 52;
+        static final int TRANSACTION_requestDeviceTrustPairing = 59;
         static final int TRANSACTION_requestNotificationAccess = 8;
         static final int TRANSACTION_sendMessage = 21;
-        static final int TRANSACTION_setDeviceId = 45;
-        static final int TRANSACTION_setLocalMetadata = 46;
-        static final int TRANSACTION_setOnActionResultListener = 53;
-        static final int TRANSACTION_setOnDevicePresenceEventListener = 48;
-        static final int TRANSACTION_setRequestActionAllowList = 56;
+        static final int TRANSACTION_setDeviceId = 46;
+        static final int TRANSACTION_setLocalMetadata = 47;
+        static final int TRANSACTION_setOnActionResultListener = 54;
+        static final int TRANSACTION_setOnDevicePresenceEventListener = 49;
+        static final int TRANSACTION_setRequestActionAllowList = 57;
         static final int TRANSACTION_startObservingDevicePresence = 12;
         static final int TRANSACTION_startSystemDataTransfer = 30;
         static final int TRANSACTION_stopObservingDevicePresence = 13;
+        static final int TRANSACTION_updateAssociation = 60;
         private final android.os.PermissionEnforcer mEnforcer = null;
         @java.lang.Deprecated
         public Stub() { super(); }
@@ -212,6 +212,7 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
         protected void detachSystemDataTransport_enforcePermission() throws java.lang.SecurityException {}
         protected void getAllAssociationsForUser_enforcePermission() throws java.lang.SecurityException {}
         protected void getAllAssociationsWithTransports_enforcePermission() throws java.lang.SecurityException {}
+        protected void getAssociationByAssociationToken_enforcePermission() throws java.lang.SecurityException {}
         protected void getAssociationByDeviceId_enforcePermission() throws java.lang.SecurityException {}
         protected void getLocalMetadata_enforcePermission() throws java.lang.SecurityException {}
         public java.lang.String getTransactionName(int p0) { return null; }
@@ -254,16 +255,15 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
             public boolean canPairWithoutPrompt(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException { return false; }
             public void clearOnActionResultListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
             public void createAssociation(java.lang.String p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException {}
-            public android.os.Bundle decryptPayload(byte[] p0) throws android.os.RemoteException { return null; }
             public void detachSystemDataTransport(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
             public void disablePermissionsSync(int p0) throws android.os.RemoteException {}
             public void disableSystemDataSync(int p0, int p1) throws android.os.RemoteException {}
             public void disassociate(int p0) throws android.os.RemoteException {}
             public void enablePermissionsSync(int p0) throws android.os.RemoteException {}
             public void enableSystemDataSync(int p0, int p1) throws android.os.RemoteException {}
-            public byte[] encryptPayload(byte[] p0, android.companion.DeviceId p1) throws android.os.RemoteException { return null; }
             public java.util.List<android.companion.AssociationInfo> getAllAssociationsForUser(int p0) throws android.os.RemoteException { return null; }
             public java.util.List<android.companion.AssociationInfo> getAllAssociationsWithTransports() throws android.os.RemoteException { return null; }
+            public android.companion.AssociationInfo getAssociationByAssociationToken(int p0, android.os.ParcelUuid p1) throws android.os.RemoteException { return null; }
             public android.companion.AssociationInfo getAssociationByDeviceId(int p0, android.companion.DeviceId p1) throws android.os.RemoteException { return null; }
             public java.util.List<android.companion.AssociationInfo> getAssociations(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
             public byte[] getBackupPayload(int p0) throws android.os.RemoteException { return null; }
@@ -305,6 +305,7 @@ public interface ICompanionDeviceManager extends android.os.IInterface {
             public void startObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
             public void startSystemDataTransfer(java.lang.String p0, int p1, int p2, android.companion.ISystemDataTransferCallback p3) throws android.os.RemoteException {}
             public void stopObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+            public void updateAssociation(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
         }
     }
 }

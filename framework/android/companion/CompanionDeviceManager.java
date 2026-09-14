@@ -1,6 +1,14 @@
 package android.companion;
 
 public final class CompanionDeviceManager {
+    public static final int ERROR_TRUST_OUT_OF_BAND_PAIRING_FAILED = 7;
+    public static final int ERROR_TRUST_PAIRING_ASSOCIATION_DOES_NOT_EXIST = 5;
+    public static final int ERROR_TRUST_PAIRING_CANCELED = 2;
+    public static final int ERROR_TRUST_PAIRING_FAILED_TO_CREATE_PAIRING_DIALOG = 3;
+    public static final int ERROR_TRUST_PAIRING_PIN_CODE_NOT_MATCHING = 4;
+    public static final int ERROR_TRUST_PAIRING_TRANSPORT_NOT_ATTACHED = 1;
+    public static final int ERROR_TRUST_RESUMPTION_FAILED = 6;
+    public static final int ERROR_TRUST_UNKNOWN = 0;
     public static final java.lang.String EXTRA_ASSOCIATION = "android.companion.extra.ASSOCIATION";
     @java.lang.Deprecated
     public static final java.lang.String EXTRA_DEVICE = "android.companion.extra.DEVICE";
@@ -13,8 +21,7 @@ public final class CompanionDeviceManager {
     public static final int FLAG_UNIVERSAL_CLIPBOARD = 8;
     public static final int FLAG_UNIVERSAL_MODES = 4;
     private static final int ICON_TARGET_SIZE = 24;
-    public static final java.lang.String KEY_DEVICE_ID = "deviceId";
-    public static final java.lang.String KEY_PAYLOAD = "payload";
+    public static final int MESSAGE_ONEWAY_COMPUTER_CONTROL_CROSS_DEVICE_PAYLOAD = 1128481616;
     public static final int MESSAGE_ONEWAY_CROSS_DEVICE_SYNC = 1130850435;
     public static final int MESSAGE_ONEWAY_FROM_WEARABLE = 1131446919;
     public static final int MESSAGE_ONEWAY_INITIATE_CROSS_DEVICE_AUTHENTICATION = 1128875073;
@@ -23,13 +30,14 @@ public final class CompanionDeviceManager {
     public static final int MESSAGE_ONEWAY_PING = 1132491640;
     public static final int MESSAGE_ONEWAY_TASK_CONTINUITY = 1130858628;
     public static final int MESSAGE_ONEWAY_TO_WEARABLE = 1132755335;
-    public static final int MESSAGE_ONEWAY_TRUST_PAIRING = 1669624450;
     public static final int MESSAGE_REQUEST_CONTEXT_SYNC = 1667729539;
     public static final int MESSAGE_REQUEST_METADATA_UPDATE = 1668769925;
     public static final int MESSAGE_REQUEST_PERMISSION_RESTORE = 1669491075;
     public static final int MESSAGE_REQUEST_PING = 1669362552;
     public static final int MESSAGE_REQUEST_REMOTE_AUTHENTICATION = 1669494629;
     public static final int MESSAGE_REQUEST_TRUSTED_DEVICE = 1669621894;
+    public static final int MESSAGE_REQUEST_TRUST_PAIRING = 1669624450;
+    public static final int MESSAGE_REQUEST_TRUST_RESUMPTION = 1669628547;
     public static final java.lang.String REASON_CANCELED = "canceled";
     public static final java.lang.String REASON_DISCOVERY_TIMEOUT = "discovery_timeout";
     public static final java.lang.String REASON_INTERNAL_ERROR = "internal_error";
@@ -41,12 +49,7 @@ public final class CompanionDeviceManager {
     public static final int RESULT_SECURITY_ERROR = 4;
     public static final int RESULT_USER_REJECTED = 1;
     private static final java.lang.String TAG = "CDM_CompanionDeviceManager";
-    public static final int TRUST_PAIRING_ASSOCIATION_DOES_NOT_EXIST = 5;
-    public static final int TRUST_PAIRING_CANCELED = 2;
-    public static final int TRUST_PAIRING_FAILED_TO_CREATE_PAIRING_DIALOG = 3;
-    public static final int TRUST_PAIRING_PIN_CODE_NOT_MATCHING = 4;
-    public static final int TRUST_PAIRING_TRANSPORT_NOT_ATTACHED = 1;
-    public static final int TRUST_PAIRING_UNKNOWN = 0;
+    public static final int TRUST_TYPE_CROSS_DEVICE_AUTHENTICATION = 2;
     public static final int TRUST_TYPE_PROACTIVE_ASSISTANCE = 1;
     public static final int TRUST_TYPE_SCREEN_AUTOMATION = 0;
     private final android.content.Context mContext = null;
@@ -77,7 +80,6 @@ public final class CompanionDeviceManager {
     @android.annotation.SystemApi
     public void clearOnActionResultListener(java.lang.String p0) {}
     public android.companion.DeviceId createAndSetDeviceId(int p0, android.companion.DeviceId p1) { return null; }
-    public android.os.Bundle decryptPayload(byte[] p0) { return null; }
     public void detachSystemDataTransport(int p0) throws android.companion.DeviceNotAssociatedException {}
     public void disablePermissionsSync(int p0) {}
     public void disableSystemDataSyncForTypes(int p0, int p1) {}
@@ -88,11 +90,12 @@ public final class CompanionDeviceManager {
     public void dispatchMessage(int p0, int p1, byte[] p2) throws android.companion.DeviceNotAssociatedException {}
     public void enablePermissionsSync(int p0) {}
     public void enableSystemDataSyncForTypes(int p0, int p1) {}
-    public byte[] encryptPayload(byte[] p0, android.companion.DeviceId p1) { return null; }
     @android.annotation.SystemApi
     public java.util.List<android.companion.AssociationInfo> getAllAssociations() { return null; }
     public java.util.List<android.companion.AssociationInfo> getAllAssociations(int p0) { return null; }
     public java.util.List<android.companion.AssociationInfo> getAllAssociationsWithTransports() { return null; }
+    public android.companion.AssociationInfo getAssociationByAssociationToken(int p0, java.util.UUID p1) { return null; }
+    public android.companion.AssociationInfo getAssociationByAssociationToken(java.util.UUID p0) { return null; }
     public android.companion.AssociationInfo getAssociationByDeviceId(int p0, android.companion.DeviceId p1) { return null; }
     @android.annotation.SystemApi
     public android.companion.AssociationInfo getAssociationByDeviceId(android.companion.DeviceId p0) { return null; }
@@ -149,6 +152,7 @@ public final class CompanionDeviceManager {
     public void stopObservingDevicePresence(android.companion.ObservingDevicePresenceRequest p0) {}
     @java.lang.Deprecated
     public void stopObservingDevicePresence(java.lang.String p0) throws android.companion.DeviceNotAssociatedException {}
+    public void updateAssociation(android.companion.AssociationInfo p0) {}
 
     private static class AssociationRequestCallbackProxy extends android.companion.IAssociationRequestCallback.Stub {
         private final android.companion.CompanionDeviceManager.Callback mCallback = null;
@@ -257,6 +261,10 @@ public final class CompanionDeviceManager {
         public void stop() {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TrustErrorCode {
+    }
+
     public static abstract class TrustPairingCallback {
         public TrustPairingCallback() {}
         public abstract void onDeviceTrusted(android.companion.AssociationInfo p0);
@@ -273,10 +281,6 @@ public final class CompanionDeviceManager {
         public void onFailure(int p0) {}
         public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) {}
         public void onTrustPairingPending(android.content.IntentSender p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TrustPairingErrorCode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

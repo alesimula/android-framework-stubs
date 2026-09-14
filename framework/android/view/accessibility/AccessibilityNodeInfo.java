@@ -71,7 +71,6 @@ public class AccessibilityNodeInfo implements android.os.Parcelable {
     public static final int CHECKED_STATE_PARTIAL = 2;
     public static final int CHECKED_STATE_TRUE = 1;
     public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo> CREATOR = null;
-    private static final boolean DEBUG = Boolean.valueOf(false);
     private static final android.view.accessibility.AccessibilityNodeInfo DEFAULT = null;
     public static final int EXPANDED_STATE_COLLAPSED = 1;
     public static final int EXPANDED_STATE_FULL = 3;
@@ -430,115 +429,115 @@ public class AccessibilityNodeInfo implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeToParcelNoRecycle(android.os.Parcel p0, int p1) {}
 
-    public static final class AccessibilityAction implements android.os.Parcelable {
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_ACCESSIBILITY_FOCUS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLEAR_ACCESSIBILITY_FOCUS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLEAR_FOCUS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLEAR_SELECTION = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLICK = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_COLLAPSE = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CONTEXT_CLICK = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_COPY = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CUT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DISMISS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DRAG_CANCEL = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DRAG_DROP = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DRAG_START = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_EXPAND = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_FOCUS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_HIDE_TOOLTIP = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_IME_ENTER = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_LONG_CLICK = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_MOVE_WINDOW = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_NEXT_AT_MOVEMENT_GRANULARITY = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_NEXT_HTML_ELEMENT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_DOWN = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_LEFT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_RIGHT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_UP = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PASTE = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PRESS_AND_HOLD = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PREVIOUS_HTML_ELEMENT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_BACKWARD = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_DOWN = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_FORWARD = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_IN_DIRECTION = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_LEFT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_RIGHT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_TO_POSITION = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_UP = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SELECT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_EXTENDED_SELECTION = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_PROGRESS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_SELECTION = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_TEXT = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SHOW_ON_SCREEN = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SHOW_TEXT_SUGGESTIONS = null;
-        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SHOW_TOOLTIP = null;
-        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction> CREATOR = null;
-        public static final android.util.ArraySet<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction> sStandardActions = null;
-        private final int mActionId = 0;
-        private final java.lang.CharSequence mLabel = null;
-        public long mSerializationFlag;
-        private AccessibilityAction(int p0) {}
-        public AccessibilityAction(int p0, java.lang.CharSequence p1) {}
-        private AccessibilityAction(android.os.Parcel p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ExpandedState {
+    }
+
+    public static final class MathInfo extends android.view.accessibility.AccessibilityNodeInfo.StructuredDataInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.MathInfo> CREATOR = null;
+        public static final java.lang.String MATH_ATTRIBUTE_ARG = "arg";
+        public static final java.lang.String MATH_ATTRIBUTE_INTENT = "intent";
+        public static final java.lang.String MATH_TAG_FRACTION = "mfrac";
+        public static final java.lang.String MATH_TAG_IDENTIFIER = "mi";
+        public static final java.lang.String MATH_TAG_MATH = "math";
+        public static final java.lang.String MATH_TAG_MULTISCRIPTS = "mmultiscripts";
+        public static final java.lang.String MATH_TAG_NONE_SCRIPT = "none";
+        public static final java.lang.String MATH_TAG_NUMBER = "mn";
+        public static final java.lang.String MATH_TAG_OPERATOR = "mo";
+        public static final java.lang.String MATH_TAG_OVER = "mover";
+        public static final java.lang.String MATH_TAG_PRESCRIPT_DELIMITER = "mprescripts";
+        public static final java.lang.String MATH_TAG_ROOT = "mroot";
+        public static final java.lang.String MATH_TAG_ROW = "mrow";
+        public static final java.lang.String MATH_TAG_SQUARE_ROOT = "msqrt";
+        public static final java.lang.String MATH_TAG_STRING_LITERAL = "ms";
+        public static final java.lang.String MATH_TAG_SUB = "msub";
+        public static final java.lang.String MATH_TAG_SUB_SUP = "msubsup";
+        public static final java.lang.String MATH_TAG_SUP = "msup";
+        public static final java.lang.String MATH_TAG_TABLE = "mtable";
+        public static final java.lang.String MATH_TAG_TABLE_CELL = "mtd";
+        public static final java.lang.String MATH_TAG_TABLE_ROW = "mtr";
+        public static final java.lang.String MATH_TAG_TEXT = "mtext";
+        public static final java.lang.String MATH_TAG_UNDER = "munder";
+        public static final java.lang.String MATH_TAG_UNDER_OVER = "munderover";
+        private MathInfo(android.os.Parcel p0) { super(null); }
+        private MathInfo(android.view.accessibility.AccessibilityNodeInfo.MathInfo p0) { super(null); }
+        public MathInfo(java.lang.String p0) { super(null); }
+        public int describeContents() { return 0; }
+        public java.lang.String getAttribute(java.lang.String p0) { return null; }
+        public java.lang.String getTag() { return null; }
+        public void putAttribute(java.lang.String p0, java.lang.String p1) {}
+        public void removeAttribute(java.lang.String p0) {}
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface MathAttribute {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface MathTag {
+        }
+    }
+
+    public static final class SelectionPosition implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.SelectionPosition> CREATOR = null;
+        public static final int OFFSET_TYPE_CHILD = 1;
+        public static final int OFFSET_TYPE_TEXT = 0;
+        private boolean mAttachedToSealedNode;
+        private int mConnectionId;
+        private final int mOffset = 0;
+        private final int mOffsetType = 0;
+        private final long mSourceNodeId = 0L;
+        private int mWindowId;
+        private SelectionPosition(long p0, int p1, int p2) {}
+        private SelectionPosition(android.os.Parcel p0) {}
+        public SelectionPosition(android.view.View p0, int p1) {}
+        public SelectionPosition(android.view.View p0, int p1, int p2) {}
+        public SelectionPosition(android.view.accessibility.AccessibilityNodeInfo p0, int p1) {}
+        private void setConnectionId(int p0) {}
+        private void setWindowId(int p0) {}
+        private boolean usesNode(android.view.accessibility.AccessibilityNodeInfo p0) { return false; }
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
-        public int getId() { return 0; }
-        public java.lang.CharSequence getLabel() { return null; }
+        public android.view.accessibility.AccessibilityNodeInfo getNode() { return null; }
+        public int getOffset() { return 0; }
+        public int getOffsetType() { return 0; }
+        public android.view.View getView() { return null; }
+        public int getVirtualDescendantId() { return 0; }
         public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
+        public void setAttachedToSealedNode(boolean p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CheckedState {
-    }
-
-    public static final class CollectionInfo {
-        public static final int SELECTION_MODE_MULTIPLE = 2;
-        public static final int SELECTION_MODE_NONE = 0;
-        public static final int SELECTION_MODE_SINGLE = 1;
-        public static final int UNDEFINED = -1;
-        private int mColumnCount;
-        private boolean mHierarchical;
-        private int mImportantForAccessibilityItemCount;
-        private int mItemCount;
-        private int mRowCount;
-        private int mSelectionMode;
-        public CollectionInfo(int p0, int p1, boolean p2) {}
-        public CollectionInfo(int p0, int p1, boolean p2, int p3) {}
-        public CollectionInfo(int p0, int p1, boolean p2, int p3, int p4, int p5) {}
-        public static android.view.accessibility.AccessibilityNodeInfo.CollectionInfo obtain(int p0, int p1, boolean p2) { return null; }
-        public static android.view.accessibility.AccessibilityNodeInfo.CollectionInfo obtain(int p0, int p1, boolean p2, int p3) { return null; }
-        public static android.view.accessibility.AccessibilityNodeInfo.CollectionInfo obtain(android.view.accessibility.AccessibilityNodeInfo.CollectionInfo p0) { return null; }
-        public int getColumnCount() { return 0; }
-        public int getImportantForAccessibilityItemCount() { return 0; }
-        public int getItemCount() { return 0; }
-        public int getRowCount() { return 0; }
-        public int getSelectionMode() { return 0; }
-        public boolean isHierarchical() { return false; }
-        @java.lang.Deprecated
-        void recycle() {}
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface OffsetType {
+        }
 
         public static final class Builder {
-            private int mColumnCount;
-            private boolean mHierarchical;
-            private int mImportantForAccessibilityItemCount;
-            private int mItemCount;
-            private int mRowCount;
-            private int mSelectionMode;
-            public Builder() {}
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo build() { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setColumnCount(int p0) { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setHierarchical(boolean p0) { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setImportantForAccessibilityItemCount(int p0) { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setItemCount(int p0) { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setRowCount(int p0) { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setSelectionMode(int p0) { return null; }
+            private final int mOffset = 0;
+            private int mOffsetType;
+            private final long mSourceNodeId = 0L;
+            public Builder(android.view.View p0, int p1) {}
+            public Builder(android.view.View p0, int p1, int p2) {}
+            public Builder(android.view.accessibility.AccessibilityNodeInfo p0, int p1) {}
+            public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition build() { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition.Builder setOffsetType(int p0) { return null; }
         }
+    }
+
+    public static final class TouchDelegateInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.TouchDelegateInfo> CREATOR = null;
+        private int mConnectionId;
+        private android.util.ArrayMap<android.graphics.Region, java.lang.Long> mTargetMap;
+        private int mWindowId;
+        TouchDelegateInfo(android.util.ArrayMap<android.graphics.Region, java.lang.Long> p0, boolean p1) {}
+        public TouchDelegateInfo(java.util.Map<android.graphics.Region, android.view.View> p0) {}
+        private void setConnectionId(int p0) {}
+        private void setWindowId(int p0) {}
+        public int describeContents() { return 0; }
+        public long getAccessibilityIdForRegion(android.graphics.Region p0) { return 0L; }
+        public android.graphics.Region getRegionAt(int p0) { return null; }
+        public int getRegionCount() { return 0; }
+        public android.view.accessibility.AccessibilityNodeInfo getTargetForRegion(android.graphics.Region p0) { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static final class CollectionItemInfo {
@@ -609,8 +608,48 @@ public class AccessibilityNodeInfo implements android.os.Parcelable {
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ExpandedState {
+    public static final class CollectionInfo {
+        public static final int SELECTION_MODE_MULTIPLE = 2;
+        public static final int SELECTION_MODE_NONE = 0;
+        public static final int SELECTION_MODE_SINGLE = 1;
+        public static final int UNDEFINED = -1;
+        private int mColumnCount;
+        private boolean mHierarchical;
+        private int mImportantForAccessibilityItemCount;
+        private int mItemCount;
+        private int mRowCount;
+        private int mSelectionMode;
+        public CollectionInfo(int p0, int p1, boolean p2) {}
+        public CollectionInfo(int p0, int p1, boolean p2, int p3) {}
+        public CollectionInfo(int p0, int p1, boolean p2, int p3, int p4, int p5) {}
+        public static android.view.accessibility.AccessibilityNodeInfo.CollectionInfo obtain(int p0, int p1, boolean p2) { return null; }
+        public static android.view.accessibility.AccessibilityNodeInfo.CollectionInfo obtain(int p0, int p1, boolean p2, int p3) { return null; }
+        public static android.view.accessibility.AccessibilityNodeInfo.CollectionInfo obtain(android.view.accessibility.AccessibilityNodeInfo.CollectionInfo p0) { return null; }
+        public int getColumnCount() { return 0; }
+        public int getImportantForAccessibilityItemCount() { return 0; }
+        public int getItemCount() { return 0; }
+        public int getRowCount() { return 0; }
+        public int getSelectionMode() { return 0; }
+        public boolean isHierarchical() { return false; }
+        @java.lang.Deprecated
+        void recycle() {}
+
+        public static final class Builder {
+            private int mColumnCount;
+            private boolean mHierarchical;
+            private int mImportantForAccessibilityItemCount;
+            private int mItemCount;
+            private int mRowCount;
+            private int mSelectionMode;
+            public Builder() {}
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo build() { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setColumnCount(int p0) { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setHierarchical(boolean p0) { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setImportantForAccessibilityItemCount(int p0) { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setItemCount(int p0) { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setRowCount(int p0) { return null; }
+            public android.view.accessibility.AccessibilityNodeInfo.CollectionInfo.Builder setSelectionMode(int p0) { return null; }
+        }
     }
 
     public static final class ExtraRenderingInfo implements android.os.Parcelable {
@@ -679,53 +718,104 @@ public class AccessibilityNodeInfo implements android.os.Parcelable {
         }
     }
 
-    public static final class MathInfo extends android.view.accessibility.AccessibilityNodeInfo.StructuredDataInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.MathInfo> CREATOR = null;
-        public static final java.lang.String MATH_ATTRIBUTE_ARG = "arg";
-        public static final java.lang.String MATH_ATTRIBUTE_INTENT = "intent";
-        public static final java.lang.String MATH_TAG_FRACTION = "mfrac";
-        public static final java.lang.String MATH_TAG_IDENTIFIER = "mi";
-        public static final java.lang.String MATH_TAG_MATH = "math";
-        public static final java.lang.String MATH_TAG_MULTISCRIPTS = "mmultiscripts";
-        public static final java.lang.String MATH_TAG_NONE_SCRIPT = "none";
-        public static final java.lang.String MATH_TAG_NUMBER = "mn";
-        public static final java.lang.String MATH_TAG_OPERATOR = "mo";
-        public static final java.lang.String MATH_TAG_OVER = "mover";
-        public static final java.lang.String MATH_TAG_PRESCRIPT_DELIMITER = "mprescripts";
-        public static final java.lang.String MATH_TAG_ROOT = "mroot";
-        public static final java.lang.String MATH_TAG_ROW = "mrow";
-        public static final java.lang.String MATH_TAG_SQUARE_ROOT = "msqrt";
-        public static final java.lang.String MATH_TAG_STRING_LITERAL = "ms";
-        public static final java.lang.String MATH_TAG_SUB = "msub";
-        public static final java.lang.String MATH_TAG_SUB_SUP = "msubsup";
-        public static final java.lang.String MATH_TAG_SUP = "msup";
-        public static final java.lang.String MATH_TAG_TABLE = "mtable";
-        public static final java.lang.String MATH_TAG_TABLE_CELL = "mtd";
-        public static final java.lang.String MATH_TAG_TABLE_ROW = "mtr";
-        public static final java.lang.String MATH_TAG_TEXT = "mtext";
-        public static final java.lang.String MATH_TAG_UNDER = "munder";
-        public static final java.lang.String MATH_TAG_UNDER_OVER = "munderover";
-        private MathInfo(android.os.Parcel p0) { super(null); }
-        private MathInfo(android.view.accessibility.AccessibilityNodeInfo.MathInfo p0) { super(null); }
-        public MathInfo(java.lang.String p0) { super(null); }
+    public static final class AccessibilityAction implements android.os.Parcelable {
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_ACCESSIBILITY_FOCUS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLEAR_ACCESSIBILITY_FOCUS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLEAR_FOCUS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLEAR_SELECTION = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CLICK = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_COLLAPSE = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CONTEXT_CLICK = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_COPY = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_CUT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DISMISS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DRAG_CANCEL = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DRAG_DROP = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_DRAG_START = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_EXPAND = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_FOCUS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_HIDE_TOOLTIP = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_IME_ENTER = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_LONG_CLICK = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_MOVE_WINDOW = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_NEXT_AT_MOVEMENT_GRANULARITY = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_NEXT_HTML_ELEMENT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_DOWN = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_LEFT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_RIGHT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PAGE_UP = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PASTE = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PRESS_AND_HOLD = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_PREVIOUS_HTML_ELEMENT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_BACKWARD = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_DOWN = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_FORWARD = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_IN_DIRECTION = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_LEFT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_RIGHT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_TO_POSITION = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SCROLL_UP = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SELECT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_EXTENDED_SELECTION = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_PROGRESS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_SELECTION = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SET_TEXT = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SHOW_ON_SCREEN = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SHOW_TEXT_SUGGESTIONS = null;
+        public static final android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction ACTION_SHOW_TOOLTIP = null;
+        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction> CREATOR = null;
+        public static final android.util.ArraySet<android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction> sStandardActions = null;
+        private final int mActionId = 0;
+        private final java.lang.CharSequence mLabel = null;
+        public long mSerializationFlag;
+        private AccessibilityAction(int p0) {}
+        public AccessibilityAction(int p0, java.lang.CharSequence p1) {}
+        private AccessibilityAction(android.os.Parcel p0) {}
         public int describeContents() { return 0; }
-        public java.lang.String getAttribute(java.lang.String p0) { return null; }
-        public java.lang.String getTag() { return null; }
-        public void putAttribute(java.lang.String p0, java.lang.String p1) {}
-        public void removeAttribute(java.lang.String p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getId() { return 0; }
+        public java.lang.CharSequence getLabel() { return null; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface MathAttribute {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface MathTag {
-        }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PrefetchingStrategy {
+    }
+
+    public static abstract class StructuredDataInfo {
+        private android.os.Bundle mAttributes;
+        private final java.lang.String mTag = null;
+        protected StructuredDataInfo(java.lang.String p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public java.lang.String getAttribute(java.lang.String p0) { return null; }
+        public java.util.Map<java.lang.String, java.lang.String> getAttributes() { return null; }
+        protected android.os.Bundle getAttributesBundle() { return null; }
+        public java.lang.String getTag() { return null; }
+        public int hashCode() { return 0; }
+        public void putAttribute(java.lang.String p0, java.lang.String p1) {}
+        public void removeAttribute(java.lang.String p0) {}
+        protected void setAttributesBundle(android.os.Bundle p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CheckedState {
+    }
+
+    public static final class Selection implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.Selection> CREATOR = null;
+        private final android.view.accessibility.AccessibilityNodeInfo.SelectionPosition mEnd = null;
+        private final android.view.accessibility.AccessibilityNodeInfo.SelectionPosition mStart = null;
+        private Selection(android.os.Parcel p0) {}
+        public Selection(android.view.accessibility.AccessibilityNodeInfo.SelectionPosition p0, android.view.accessibility.AccessibilityNodeInfo.SelectionPosition p1) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition getEnd() { return null; }
+        public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition getStart() { return null; }
+        public int hashCode() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static final class RangeInfo {
@@ -751,96 +841,5 @@ public class AccessibilityNodeInfo implements android.os.Parcelable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface RangeType {
         }
-    }
-
-    public static final class Selection implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.Selection> CREATOR = null;
-        private final android.view.accessibility.AccessibilityNodeInfo.SelectionPosition mEnd = null;
-        private final android.view.accessibility.AccessibilityNodeInfo.SelectionPosition mStart = null;
-        private Selection(android.os.Parcel p0) {}
-        public Selection(android.view.accessibility.AccessibilityNodeInfo.SelectionPosition p0, android.view.accessibility.AccessibilityNodeInfo.SelectionPosition p1) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition getEnd() { return null; }
-        public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition getStart() { return null; }
-        public int hashCode() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static final class SelectionPosition implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.SelectionPosition> CREATOR = null;
-        public static final int OFFSET_TYPE_CHILD = 1;
-        public static final int OFFSET_TYPE_TEXT = 0;
-        private boolean mAttachedToSealedNode;
-        private int mConnectionId;
-        private final int mOffset = 0;
-        private final int mOffsetType = 0;
-        private final long mSourceNodeId = 0L;
-        private int mWindowId;
-        private SelectionPosition(long p0, int p1, int p2) {}
-        private SelectionPosition(android.os.Parcel p0) {}
-        public SelectionPosition(android.view.View p0, int p1) {}
-        public SelectionPosition(android.view.View p0, int p1, int p2) {}
-        public SelectionPosition(android.view.accessibility.AccessibilityNodeInfo p0, int p1) {}
-        private void setConnectionId(int p0) {}
-        private void setWindowId(int p0) {}
-        private boolean usesNode(android.view.accessibility.AccessibilityNodeInfo p0) { return false; }
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.view.accessibility.AccessibilityNodeInfo getNode() { return null; }
-        public int getOffset() { return 0; }
-        public int getOffsetType() { return 0; }
-        public android.view.View getView() { return null; }
-        public int getVirtualDescendantId() { return 0; }
-        public int hashCode() { return 0; }
-        public void setAttachedToSealedNode(boolean p0) {}
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        public static final class Builder {
-            private final int mOffset = 0;
-            private int mOffsetType;
-            private final long mSourceNodeId = 0L;
-            public Builder(android.view.View p0, int p1) {}
-            public Builder(android.view.View p0, int p1, int p2) {}
-            public Builder(android.view.accessibility.AccessibilityNodeInfo p0, int p1) {}
-            public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition build() { return null; }
-            public android.view.accessibility.AccessibilityNodeInfo.SelectionPosition.Builder setOffsetType(int p0) { return null; }
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface OffsetType {
-        }
-    }
-
-    public static abstract class StructuredDataInfo {
-        private android.os.Bundle mAttributes;
-        private final java.lang.String mTag = null;
-        protected StructuredDataInfo(java.lang.String p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public java.lang.String getAttribute(java.lang.String p0) { return null; }
-        public java.util.Map<java.lang.String, java.lang.String> getAttributes() { return null; }
-        protected android.os.Bundle getAttributesBundle() { return null; }
-        public java.lang.String getTag() { return null; }
-        public int hashCode() { return 0; }
-        public void putAttribute(java.lang.String p0, java.lang.String p1) {}
-        public void removeAttribute(java.lang.String p0) {}
-        protected void setAttributesBundle(android.os.Bundle p0) {}
-    }
-
-    public static final class TouchDelegateInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.view.accessibility.AccessibilityNodeInfo.TouchDelegateInfo> CREATOR = null;
-        private int mConnectionId;
-        private android.util.ArrayMap<android.graphics.Region, java.lang.Long> mTargetMap;
-        private int mWindowId;
-        TouchDelegateInfo(android.util.ArrayMap<android.graphics.Region, java.lang.Long> p0, boolean p1) {}
-        public TouchDelegateInfo(java.util.Map<android.graphics.Region, android.view.View> p0) {}
-        private void setConnectionId(int p0) {}
-        private void setWindowId(int p0) {}
-        public int describeContents() { return 0; }
-        public long getAccessibilityIdForRegion(android.graphics.Region p0) { return 0L; }
-        public android.graphics.Region getRegionAt(int p0) { return null; }
-        public int getRegionCount() { return 0; }
-        public android.view.accessibility.AccessibilityNodeInfo getTargetForRegion(android.graphics.Region p0) { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

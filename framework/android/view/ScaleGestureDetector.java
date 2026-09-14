@@ -60,16 +60,16 @@ public class ScaleGestureDetector {
     public void setQuickScaleEnabled(boolean p0) {}
     public void setStylusScaleEnabled(boolean p0) {}
 
-    public static interface OnScaleGestureListener {
-        public boolean onScale(android.view.ScaleGestureDetector p0);
-        public boolean onScaleBegin(android.view.ScaleGestureDetector p0);
-        public void onScaleEnd(android.view.ScaleGestureDetector p0);
-    }
-
     public static class SimpleOnScaleGestureListener implements android.view.ScaleGestureDetector.OnScaleGestureListener {
         public SimpleOnScaleGestureListener() {}
         public boolean onScale(android.view.ScaleGestureDetector p0) { return false; }
         public boolean onScaleBegin(android.view.ScaleGestureDetector p0) { return false; }
         public void onScaleEnd(android.view.ScaleGestureDetector p0) {}
+    }
+
+    public static interface OnScaleGestureListener {
+        public boolean onScale(android.view.ScaleGestureDetector p0);
+        public boolean onScaleBegin(android.view.ScaleGestureDetector p0);
+        public void onScaleEnd(android.view.ScaleGestureDetector p0);
     }
 }

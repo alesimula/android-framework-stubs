@@ -14,6 +14,7 @@ public final class InputWindowHandle {
     public int layoutParamsFlags;
     public int layoutParamsType;
     public java.lang.String name;
+    public boolean opaque;
     public int ownerPid;
     public int ownerUid;
     public java.lang.String packageName;

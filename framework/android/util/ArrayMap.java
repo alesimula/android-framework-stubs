@@ -7,6 +7,8 @@ public final class ArrayMap<K extends java.lang.Object, V extends java.lang.Obje
     private static final boolean DEBUG = false;
     public static final android.util.ArrayMap EMPTY = null;
     static final int[] EMPTY_IMMUTABLE_INTS = null;
+    private static final int IDENTITY_FLAG = -2147483648;
+    private static final int SIZE_MASK = 2147483647;
     private static final java.lang.String TAG = "ArrayMap";
     static java.lang.Object[] mBaseCache;
     static int mBaseCacheSize;
@@ -17,7 +19,6 @@ public final class ArrayMap<K extends java.lang.Object, V extends java.lang.Obje
     java.lang.Object[] mArray;
     private android.util.MapCollections<K, V> mCollections;
     int[] mHashes;
-    private final boolean mIdentityHashCode = false;
     int mSize;
     public ArrayMap() {}
     public ArrayMap(int p0) {}
@@ -27,6 +28,8 @@ public final class ArrayMap<K extends java.lang.Object, V extends java.lang.Obje
     private static int binarySearchHashes(int[] p0, int p1, int p2) { return 0; }
     private static void freeArrays(int[] p0, java.lang.Object[] p1, int p2) {}
     private android.util.MapCollections<K, V> getCollection() { return null; }
+    private int getHashCode(java.lang.Object p0) { return 0; }
+    private boolean isIdentity() { return false; }
     public void append(K p0, V p1) {}
     public void clear() {}
     public boolean containsAll(java.util.Collection<?> p0) { return false; }

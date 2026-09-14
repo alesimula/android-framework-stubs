@@ -23,29 +23,6 @@ public interface ITuner extends android.os.IInterface {
     public void setLna(boolean p0) throws android.os.RemoteException;
     public void setMaxNumberOfFrontends(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.ITuner {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.tv.tuner.DemuxCapabilities getDemuxCaps() throws android.os.RemoteException { return null; }
-        public int[] getDemuxIds() throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.DemuxInfo getDemuxInfo(int p0) throws android.os.RemoteException { return null; }
-        public int[] getFrontendIds() throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.FrontendInfo getFrontendInfo(int p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public int[] getLnbIds() throws android.os.RemoteException { return null; }
-        public int getMaxNumberOfFrontends(int p0) throws android.os.RemoteException { return 0; }
-        public boolean isLnaSupported() throws android.os.RemoteException { return false; }
-        public android.hardware.tv.tuner.IDemux openDemux(int[] p0) throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.IDemux openDemuxById(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.IDescrambler openDescrambler() throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.IFrontend openFrontendById(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.ILnb openLnbById(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.tv.tuner.ILnb openLnbByName(java.lang.String p0, int[] p1) throws android.os.RemoteException { return null; }
-        public void setLna(boolean p0) throws android.os.RemoteException {}
-        public void setMaxNumberOfFrontends(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.ITuner {
         static final int TRANSACTION_getDemuxCaps = 4;
         static final int TRANSACTION_getDemuxIds = 14;
@@ -96,5 +73,28 @@ public interface ITuner extends android.os.IInterface {
             public void setLna(boolean p0) throws android.os.RemoteException {}
             public void setMaxNumberOfFrontends(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.ITuner {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.tv.tuner.DemuxCapabilities getDemuxCaps() throws android.os.RemoteException { return null; }
+        public int[] getDemuxIds() throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.DemuxInfo getDemuxInfo(int p0) throws android.os.RemoteException { return null; }
+        public int[] getFrontendIds() throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.FrontendInfo getFrontendInfo(int p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public int[] getLnbIds() throws android.os.RemoteException { return null; }
+        public int getMaxNumberOfFrontends(int p0) throws android.os.RemoteException { return 0; }
+        public boolean isLnaSupported() throws android.os.RemoteException { return false; }
+        public android.hardware.tv.tuner.IDemux openDemux(int[] p0) throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.IDemux openDemuxById(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.IDescrambler openDescrambler() throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.IFrontend openFrontendById(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.ILnb openLnbById(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.tv.tuner.ILnb openLnbByName(java.lang.String p0, int[] p1) throws android.os.RemoteException { return null; }
+        public void setLna(boolean p0) throws android.os.RemoteException {}
+        public void setMaxNumberOfFrontends(int p0, int p1) throws android.os.RemoteException {}
     }
 }

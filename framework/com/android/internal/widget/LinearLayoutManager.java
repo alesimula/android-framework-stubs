@@ -113,29 +113,6 @@ public class LinearLayoutManager extends com.android.internal.widget.RecyclerVie
     public boolean supportsPredictiveItemAnimations() { return false; }
     void validateChildOrder() {}
 
-    class AnchorInfo {
-        int mCoordinate;
-        boolean mLayoutFromEnd;
-        int mPosition;
-        boolean mValid;
-        AnchorInfo(com.android.internal.widget.LinearLayoutManager p0) {}
-        void assignCoordinateFromPadding() {}
-        public void assignFromView(android.view.View p0) {}
-        public void assignFromViewAndKeepVisibleRect(android.view.View p0) {}
-        boolean isViewValidAsAnchor(android.view.View p0, com.android.internal.widget.RecyclerView.State p1) { return false; }
-        void reset() {}
-        public java.lang.String toString() { return null; }
-    }
-
-    protected static class LayoutChunkResult {
-        public int mConsumed;
-        public boolean mFinished;
-        public boolean mFocusable;
-        public boolean mIgnoreConsumed;
-        protected LayoutChunkResult() {}
-        void resetInternal() {}
-    }
-
     static class LayoutState {
         static final int INVALID_LAYOUT = -2147483648;
         static final int ITEM_DIRECTION_HEAD = -1;
@@ -164,6 +141,29 @@ public class LinearLayoutManager extends com.android.internal.widget.RecyclerVie
         void log() {}
         android.view.View next(com.android.internal.widget.RecyclerView.Recycler p0) { return null; }
         public android.view.View nextViewInLimitedList(android.view.View p0) { return null; }
+    }
+
+    class AnchorInfo {
+        int mCoordinate;
+        boolean mLayoutFromEnd;
+        int mPosition;
+        boolean mValid;
+        AnchorInfo(com.android.internal.widget.LinearLayoutManager p0) {}
+        void assignCoordinateFromPadding() {}
+        public void assignFromView(android.view.View p0) {}
+        public void assignFromViewAndKeepVisibleRect(android.view.View p0) {}
+        boolean isViewValidAsAnchor(android.view.View p0, com.android.internal.widget.RecyclerView.State p1) { return false; }
+        void reset() {}
+        public java.lang.String toString() { return null; }
+    }
+
+    protected static class LayoutChunkResult {
+        public int mConsumed;
+        public boolean mFinished;
+        public boolean mFocusable;
+        public boolean mIgnoreConsumed;
+        protected LayoutChunkResult() {}
+        void resetInternal() {}
     }
 
     public static class SavedState implements android.os.Parcelable {

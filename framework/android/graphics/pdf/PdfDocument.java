@@ -21,6 +21,11 @@ public class PdfDocument {
     public android.graphics.pdf.PdfDocument.Page startPage(android.graphics.pdf.PdfDocument.PageInfo p0) { return null; }
     public void writeTo(java.io.OutputStream p0) throws java.io.IOException {}
 
+    private final class PdfCanvas extends android.graphics.Canvas {
+        public PdfCanvas(android.graphics.pdf.PdfDocument p0, long p1) { super(); }
+        public void setBitmap(android.graphics.Bitmap p0) {}
+    }
+
     public static final class Page {
         private android.graphics.Canvas mCanvas;
         private final android.graphics.pdf.PdfDocument.PageInfo mPageInfo = null;
@@ -48,10 +53,5 @@ public class PdfDocument {
             public android.graphics.pdf.PdfDocument.PageInfo create() { return null; }
             public android.graphics.pdf.PdfDocument.PageInfo.Builder setContentRect(android.graphics.Rect p0) { return null; }
         }
-    }
-
-    private final class PdfCanvas extends android.graphics.Canvas {
-        public PdfCanvas(android.graphics.pdf.PdfDocument p0, long p1) { super(); }
-        public void setBitmap(android.graphics.Bitmap p0) {}
     }
 }

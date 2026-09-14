@@ -131,6 +131,28 @@ public final class AudioPlaybackConfiguration implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static interface PlayerDeathMonitor {
+        public void playerDeath(int p0);
+    }
+
+    static final class IPlayerShell implements android.os.IBinder.DeathRecipient {
+        private volatile android.media.IPlayer mIPlayer;
+        final android.media.AudioPlaybackConfiguration mMonitor = null;
+        IPlayerShell(android.media.AudioPlaybackConfiguration p0, android.media.IPlayer p1) {}
+        public void binderDied() {}
+        android.media.IPlayer getIPlayer() { return null; }
+        void monitorDeath() {}
+        void release() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlayerType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlayerState {
+    }
+
     public static final class FormatInfo implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.AudioPlaybackConfiguration.FormatInfo> CREATOR = null;
         static final android.media.AudioPlaybackConfiguration.FormatInfo DEFAULT = null;
@@ -146,29 +168,7 @@ public final class AudioPlaybackConfiguration implements android.os.Parcelable {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    static final class IPlayerShell implements android.os.IBinder.DeathRecipient {
-        private volatile android.media.IPlayer mIPlayer;
-        final android.media.AudioPlaybackConfiguration mMonitor = null;
-        IPlayerShell(android.media.AudioPlaybackConfiguration p0, android.media.IPlayer p1) {}
-        public void binderDied() {}
-        android.media.IPlayer getIPlayer() { return null; }
-        void monitorDeath() {}
-        void release() {}
-    }
-
-    public static interface PlayerDeathMonitor {
-        public void playerDeath(int p0);
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PlayerMuteEvent {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PlayerState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PlayerType {
     }
 }

@@ -4,12 +4,6 @@ public interface ILoadBoundProfilePackageCallback extends android.os.IInterface 
     public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.euicc.ILoadBoundProfilePackageCallback";
     public void onComplete(int p0, byte[] p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.euicc.ILoadBoundProfilePackageCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onComplete(int p0, byte[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.euicc.ILoadBoundProfilePackageCallback {
         static final int TRANSACTION_onComplete = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ILoadBoundProfilePackageCallback extends android.os.IInterface 
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onComplete(int p0, byte[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.euicc.ILoadBoundProfilePackageCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onComplete(int p0, byte[] p1) throws android.os.RemoteException {}
     }
 }

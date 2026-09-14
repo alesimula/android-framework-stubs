@@ -11,13 +11,6 @@ public abstract class LoginFilter implements android.text.InputFilter {
     public void onStart() {}
     public void onStop() {}
 
-    @java.lang.Deprecated
-    public static class PasswordFilterGMail extends android.text.LoginFilter {
-        public PasswordFilterGMail() { super(); }
-        public PasswordFilterGMail(boolean p0) { super(); }
-        public boolean isAllowed(char p0) { return false; }
-    }
-
     public static class UsernameFilterGeneric extends android.text.LoginFilter {
         private static final java.lang.String mAllowed = "@_-+.";
         public UsernameFilterGeneric() { super(); }
@@ -29,6 +22,13 @@ public abstract class LoginFilter implements android.text.InputFilter {
     public static class UsernameFilterGMail extends android.text.LoginFilter {
         public UsernameFilterGMail() { super(); }
         public UsernameFilterGMail(boolean p0) { super(); }
+        public boolean isAllowed(char p0) { return false; }
+    }
+
+    @java.lang.Deprecated
+    public static class PasswordFilterGMail extends android.text.LoginFilter {
+        public PasswordFilterGMail() { super(); }
+        public PasswordFilterGMail(boolean p0) { super(); }
         public boolean isAllowed(char p0) { return false; }
     }
 }

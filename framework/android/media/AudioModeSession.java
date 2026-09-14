@@ -6,9 +6,11 @@ public final class AudioModeSession implements java.lang.AutoCloseable {
     public static final int ROUTING_RESULT_PREEMPTED = 2;
     public static final int ROUTING_RESULT_SUCCESSFUL = 0;
     public static final int ROUTING_RESULT_TIMED_OUT = 3;
+    private final android.util.CloseGuard mCloseGuard = null;
     private final android.media.audio.IAudioModeSession mSession = null;
     public AudioModeSession(android.media.audio.IAudioModeSession p0) {}
     public void close() {}
+    protected void finalize() throws java.lang.Throwable {}
     public java.util.List<android.media.AudioModeSession.AudioRoute> getAvailableRoutes() { return null; }
     public void setClientPaused(boolean p0) {}
     public void setDisplayActiveUseCase(boolean p0) {}
@@ -33,15 +35,6 @@ public final class AudioModeSession implements java.lang.AutoCloseable {
             public android.media.AudioModeSession.AudioRoute build() { return null; }
             public android.media.AudioModeSession.AudioRoute.Builder setInputDevice(android.media.AudioDeviceAttributes p0) { return null; }
         }
-    }
-
-    public static interface Callback {
-        public void onAvailableRoutesChanged(java.util.List<android.media.AudioModeSession.AudioRoute> p0);
-        public void onClosed();
-        public void onExternalRequestedRouteChanged(android.media.AudioModeSession.AudioRoute p0, int p1);
-        public void onPaused();
-        public void onResumed(int p0);
-        public void onRoutingResult(int p0, android.media.AudioModeSession.AudioRoute p1, int p2);
     }
 
     public static final class Request {
@@ -70,5 +63,14 @@ public final class AudioModeSession implements java.lang.AutoCloseable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface RoutingResult {
+    }
+
+    public static interface Callback {
+        public void onAvailableRoutesChanged(java.util.List<android.media.AudioModeSession.AudioRoute> p0);
+        public void onClosed();
+        public void onExternalRequestedRouteChanged(android.media.AudioModeSession.AudioRoute p0, int p1);
+        public void onPaused();
+        public void onResumed(int p0);
+        public void onRoutingResult(int p0, android.media.AudioModeSession.AudioRoute p1, int p2);
     }
 }

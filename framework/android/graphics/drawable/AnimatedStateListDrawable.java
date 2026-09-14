@@ -3,7 +3,7 @@ package android.graphics.drawable;
 public class AnimatedStateListDrawable extends android.graphics.drawable.StateListDrawable {
     private static final java.lang.String ELEMENT_ITEM = "item";
     private static final java.lang.String ELEMENT_TRANSITION = "transition";
-    private static final java.lang.String LOGTAG = null;
+    private static final java.lang.String LOGTAG = "AnimatedStateListDrawable";
     private boolean mMutated;
     private android.graphics.drawable.AnimatedStateListDrawable.AnimatedStateListState mState;
     private android.graphics.drawable.AnimatedStateListDrawable.Transition mTransition;
@@ -30,9 +30,21 @@ public class AnimatedStateListDrawable extends android.graphics.drawable.StateLi
     protected void setConstantState(android.graphics.drawable.DrawableContainer.DrawableContainerState p0) {}
     public boolean setVisible(boolean p0, boolean p1) { return false; }
 
-    private static class AnimatableTransition extends android.graphics.drawable.AnimatedStateListDrawable.Transition {
-        private final android.graphics.drawable.Animatable mA = null;
-        public AnimatableTransition(android.graphics.drawable.Animatable p0) { super(); }
+    private static abstract class Transition {
+        private Transition() {}
+        public boolean canReverse() { return false; }
+        public void reverse() {}
+        public abstract void start();
+        public abstract void stop();
+    }
+
+    private static class AnimatedVectorDrawableTransition extends android.graphics.drawable.AnimatedStateListDrawable.Transition {
+        private final android.graphics.drawable.AnimatedVectorDrawable mAvd = null;
+        private final boolean mHasReversibleFlag = false;
+        private final boolean mReversed = false;
+        public AnimatedVectorDrawableTransition(android.graphics.drawable.AnimatedVectorDrawable p0, boolean p1, boolean p2) { super(); }
+        public boolean canReverse() { return false; }
+        public void reverse() {}
         public void start() {}
         public void stop() {}
     }
@@ -58,13 +70,9 @@ public class AnimatedStateListDrawable extends android.graphics.drawable.StateLi
         boolean transitionHasReversibleFlag(int p0, int p1) { return false; }
     }
 
-    private static class AnimatedVectorDrawableTransition extends android.graphics.drawable.AnimatedStateListDrawable.Transition {
-        private final android.graphics.drawable.AnimatedVectorDrawable mAvd = null;
-        private final boolean mHasReversibleFlag = false;
-        private final boolean mReversed = false;
-        public AnimatedVectorDrawableTransition(android.graphics.drawable.AnimatedVectorDrawable p0, boolean p1, boolean p2) { super(); }
-        public boolean canReverse() { return false; }
-        public void reverse() {}
+    private static class AnimatableTransition extends android.graphics.drawable.AnimatedStateListDrawable.Transition {
+        private final android.graphics.drawable.Animatable mA = null;
+        public AnimatableTransition(android.graphics.drawable.Animatable p0) { super(); }
         public void start() {}
         public void stop() {}
     }
@@ -87,13 +95,5 @@ public class AnimatedStateListDrawable extends android.graphics.drawable.StateLi
         public float getInterpolation(float p0) { return 0.0f; }
         public int getTotalDuration() { return 0; }
         public int updateFrames(android.graphics.drawable.AnimationDrawable p0, boolean p1) { return 0; }
-    }
-
-    private static abstract class Transition {
-        private Transition() {}
-        public boolean canReverse() { return false; }
-        public void reverse() {}
-        public abstract void start();
-        public abstract void stop();
     }
 }

@@ -86,6 +86,15 @@ public final class ProgramSelector implements android.os.Parcelable {
     public android.hardware.radio.ProgramSelector withSecondaryPreferred(android.hardware.radio.ProgramSelector.Identifier p0) { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.Deprecated
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ProgramType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IdentifierType {
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface HdSubChannel {
     }
@@ -104,14 +113,5 @@ public final class ProgramSelector implements android.os.Parcelable {
         public boolean isCategoryType() { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IdentifierType {
-    }
-
-    @java.lang.Deprecated
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ProgramType {
     }
 }

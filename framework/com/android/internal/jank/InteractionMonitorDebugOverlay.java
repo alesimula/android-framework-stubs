@@ -18,6 +18,13 @@ public class InteractionMonitorDebugOverlay {
     public void onTrackerAdded(java.lang.String p0, int p1) {}
     public void onTrackerRemoved(boolean p0, int p1) {}
 
+    private static class TrackerState {
+        final int mCookie = 0;
+        final java.lang.String mName = null;
+        int mState;
+        private TrackerState(java.lang.String p0, int p1) {}
+    }
+
     private class DebugOverlayView extends android.view.View {
         private static final java.lang.String TRACK_NAME = "InteractionJankMonitor";
         private final int mBgColor = 0;
@@ -39,13 +46,6 @@ public class InteractionMonitorDebugOverlay {
         private float getWidthOfLongestCujName(int p0) { return 0.0f; }
         private float getWidthOfText(java.lang.String p0, int p1) { return 0.0f; }
         protected void onDraw(android.graphics.Canvas p0) {}
-    }
-
-    private static class TrackerState {
-        final int mCookie = 0;
-        final java.lang.String mName = null;
-        int mState;
-        private TrackerState(java.lang.String p0, int p1) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

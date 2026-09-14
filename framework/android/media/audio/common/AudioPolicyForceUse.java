@@ -49,6 +49,7 @@ public final class AudioPolicyForceUse implements android.os.Parcelable {
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
     public static @interface CommunicationDeviceCategory {
+        public static final byte BT_ASHA = 5;
         public static final byte BT_BLE = 3;
         public static final byte BT_SCO = 2;
         public static final byte NONE = 0;
@@ -63,6 +64,17 @@ public final class AudioPolicyForceUse implements android.os.Parcelable {
         public static final byte DIGITAL_DOCK = 4;
         public static final byte NONE = 0;
         public static final byte WIRED_ACCESSORY = 5;
+    }
+
+    public static @interface Tag {
+        public static final int dock = 4;
+        public static final int encodedSurround = 7;
+        public static final int forCommunication = 1;
+        public static final int forMedia = 0;
+        public static final int forRecord = 2;
+        public static final int forVibrateRinging = 3;
+        public static final int hdmiSystemAudio = 6;
+        public static final int systemSounds = 5;
     }
 
     public static @interface EncodedSurroundConfig {
@@ -81,16 +93,5 @@ public final class AudioPolicyForceUse implements android.os.Parcelable {
         public static final byte NO_BT_A2DP = 7;
         public static final byte SPEAKER = 1;
         public static final byte WIRED_ACCESSORY = 6;
-    }
-
-    public static @interface Tag {
-        public static final int dock = 4;
-        public static final int encodedSurround = 7;
-        public static final int forCommunication = 1;
-        public static final int forMedia = 0;
-        public static final int forRecord = 2;
-        public static final int forVibrateRinging = 3;
-        public static final int hdmiSystemAudio = 6;
-        public static final int systemSounds = 5;
     }
 }

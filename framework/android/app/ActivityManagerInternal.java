@@ -40,6 +40,7 @@ public abstract class ActivityManagerInternal {
     public abstract void addBindServiceEventListener(android.app.ActivityManagerInternal.BindServiceEventListener p0);
     public abstract void addBroadcastEventListener(android.app.ActivityManagerInternal.BroadcastEventListener p0);
     public abstract void addCreatorToken(android.content.Intent p0, java.lang.String p1);
+    public void addCreatorToken(android.content.Intent p0, java.lang.String p1, boolean p2) {}
     public abstract void addForegroundServiceStateListener(android.app.ActivityManagerInternal.ForegroundServiceStateListener p0);
     public abstract void addFrozenProcessListener(int p0, java.util.concurrent.Executor p1, android.app.ActivityManagerInternal.FrozenProcessListener p2);
     public abstract void addPendingTopUid(int p0, int p1, android.app.IApplicationThread p2);
@@ -99,6 +100,7 @@ public abstract class ActivityManagerInternal {
     public abstract int[] getStartedUserIds();
     public abstract int getStorageMountMode(int p0, int p1);
     public abstract int getTaskIdForActivity(android.os.IBinder p0, boolean p1);
+    public abstract com.android.internal.os.TimeoutRecordTracker getTimeoutRecordTracker();
     public abstract int getUidCapability(int p0);
     public abstract int getUidProcessState(int p0);
     public abstract int handleIncomingUser(int p0, int p1, int p2, boolean p3, int p4, java.lang.String p5, java.lang.String p6);
@@ -156,6 +158,7 @@ public abstract class ActivityManagerInternal {
     public abstract void registerAnrController(android.app.AnrController p0);
     public abstract void registerNetworkPolicyUidObserver(android.app.IUidObserver p0, int p1, int p2, java.lang.String p3);
     public abstract void registerProcessObserver(android.app.IProcessObserver p0);
+    public abstract void registerProcessObserver(android.app.IProcessObserver p0, int p1);
     public abstract void reportCurKeyguardUsageEvent(boolean p0);
     public abstract void rescheduleAnrDialog(java.lang.Object p0);
     public abstract void restart();

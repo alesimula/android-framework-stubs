@@ -3,7 +3,7 @@ package android.view.textservice;
 public class SpellCheckerSession {
     private static final boolean DBG = false;
     public static final java.lang.String SERVICE_META_DATA = "android.view.textservice.scs";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SpellCheckerSession";
     private final java.util.concurrent.Executor mExecutor = null;
     private final android.view.textservice.SpellCheckerSession.InternalListener mInternalListener = null;
     private final android.view.textservice.SpellCheckerInfo mSpellCheckerInfo = null;
@@ -26,15 +26,29 @@ public class SpellCheckerSession {
     void handleOnGetSuggestionsMultiple(android.view.textservice.SuggestionsInfo[] p0) {}
     public boolean isSessionDisconnected() { return false; }
 
-    private static final class InternalListener extends com.android.internal.textservice.ITextServicesSessionListener.Stub {
-        private final android.view.textservice.SpellCheckerSession.SpellCheckerSessionListenerImpl mParentSpellCheckerSessionListenerImpl = null;
-        public InternalListener(android.view.textservice.SpellCheckerSession.SpellCheckerSessionListenerImpl p0) { super(); }
-        public void onServiceConnected(com.android.internal.textservice.ISpellCheckerSession p0) {}
-    }
+    public static class SpellCheckerSessionParams {
+        private final android.os.Bundle mExtras = null;
+        private final java.util.Locale mLocale = null;
+        private final boolean mShouldReferToSpellCheckerLanguageSettings = false;
+        private final int mSupportedAttributes = 0;
+        private SpellCheckerSessionParams(java.util.Locale p0, boolean p1, int p2, android.os.Bundle p3) {}
+        public android.os.Bundle getExtras() { return null; }
+        public java.util.Locale getLocale() { return null; }
+        public int getSupportedAttributes() { return 0; }
+        public boolean shouldReferToSpellCheckerLanguageSettings() { return false; }
 
-    public static interface SpellCheckerSessionListener {
-        public void onGetSentenceSuggestions(android.view.textservice.SentenceSuggestionsInfo[] p0);
-        public void onGetSuggestions(android.view.textservice.SuggestionsInfo[] p0);
+        public static final class Builder {
+            private android.os.Bundle mExtras;
+            private java.util.Locale mLocale;
+            private boolean mShouldReferToSpellCheckerLanguageSettings;
+            private int mSupportedAttributes;
+            public Builder() {}
+            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams build() { return null; }
+            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setExtras(android.os.Bundle p0) { return null; }
+            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setLocale(java.util.Locale p0) { return null; }
+            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setShouldReferToSpellCheckerLanguageSettings(boolean p0) { return null; }
+            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setSupportedAttributes(int p0) { return null; }
+        }
     }
 
     private static final class SpellCheckerSessionListenerImpl extends com.android.internal.textservice.ISpellCheckerSessionListener.Stub {
@@ -78,28 +92,14 @@ public class SpellCheckerSession {
         }
     }
 
-    public static class SpellCheckerSessionParams {
-        private final android.os.Bundle mExtras = null;
-        private final java.util.Locale mLocale = null;
-        private final boolean mShouldReferToSpellCheckerLanguageSettings = false;
-        private final int mSupportedAttributes = 0;
-        private SpellCheckerSessionParams(java.util.Locale p0, boolean p1, int p2, android.os.Bundle p3) {}
-        public android.os.Bundle getExtras() { return null; }
-        public java.util.Locale getLocale() { return null; }
-        public int getSupportedAttributes() { return 0; }
-        public boolean shouldReferToSpellCheckerLanguageSettings() { return false; }
+    private static final class InternalListener extends com.android.internal.textservice.ITextServicesSessionListener.Stub {
+        private final android.view.textservice.SpellCheckerSession.SpellCheckerSessionListenerImpl mParentSpellCheckerSessionListenerImpl = null;
+        public InternalListener(android.view.textservice.SpellCheckerSession.SpellCheckerSessionListenerImpl p0) { super(); }
+        public void onServiceConnected(com.android.internal.textservice.ISpellCheckerSession p0) {}
+    }
 
-        public static final class Builder {
-            private android.os.Bundle mExtras;
-            private java.util.Locale mLocale;
-            private boolean mShouldReferToSpellCheckerLanguageSettings;
-            private int mSupportedAttributes;
-            public Builder() {}
-            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams build() { return null; }
-            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setExtras(android.os.Bundle p0) { return null; }
-            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setLocale(java.util.Locale p0) { return null; }
-            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setShouldReferToSpellCheckerLanguageSettings(boolean p0) { return null; }
-            public android.view.textservice.SpellCheckerSession.SpellCheckerSessionParams.Builder setSupportedAttributes(int p0) { return null; }
-        }
+    public static interface SpellCheckerSessionListener {
+        public void onGetSentenceSuggestions(android.view.textservice.SentenceSuggestionsInfo[] p0);
+        public void onGetSuggestions(android.view.textservice.SuggestionsInfo[] p0);
     }
 }

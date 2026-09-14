@@ -320,13 +320,37 @@ public class Paint {
     public void setWordSpacing(float p0) {}
     public android.graphics.Xfermode setXfermode(android.graphics.Xfermode p0) { return null; }
 
-    public static enum Align {
-        CENTER,
-        LEFT,
-        RIGHT;
-        private static final android.graphics.Paint.Align[] $VALUES = null;
+    public static class FontMetrics {
+        public float ascent;
+        public float bottom;
+        public float descent;
+        public float leading;
+        public float top;
+        public FontMetrics() {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static enum Style {
+        FILL,
+        FILL_AND_STROKE,
+        STROKE;
+        private static final android.graphics.Paint.Style[] $VALUES = null;
         final int nativeInt = 0;
-        private Align() {}
+        private Style() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EndHyphenEdit {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PaintFlag {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StartHyphenEdit {
     }
 
     public static enum Cap {
@@ -338,32 +362,24 @@ public class Paint {
         private Cap() {}
     }
 
-    private static class ClassAttributesHolder {
-        static final android.graphics.Paint.Align[] sAlignArray = null;
-        static final android.graphics.Paint.Cap[] sCapArray = null;
-        static final android.graphics.Paint.Join[] sJoinArray = null;
-        static final android.graphics.Paint.Style[] sStyleArray = null;
-        private ClassAttributesHolder() {}
+    public static enum Align {
+        CENTER,
+        LEFT,
+        RIGHT;
+        private static final android.graphics.Paint.Align[] $VALUES = null;
+        final int nativeInt = 0;
+        private Align() {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CursorOption {
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EndHyphenEdit {
-    }
-
-    public static class FontMetrics {
-        public float ascent;
-        public float bottom;
-        public float descent;
-        public float leading;
-        public float top;
-        public FontMetrics() {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
+    public static final class RunInfo {
+        private int mClusterCount;
+        public RunInfo() {}
+        public int getClusterCount() { return 0; }
+        public void setClusterCount(int p0) {}
     }
 
     public static class FontMetricsInt {
@@ -380,6 +396,10 @@ public class Paint {
         public java.lang.String toString() { return null; }
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CursorOption {
+    }
+
     public static enum Join {
         BEVEL,
         MITER,
@@ -389,31 +409,11 @@ public class Paint {
         private Join() {}
     }
 
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PaintFlag {
-    }
-
-    public static final class RunInfo {
-        private int mClusterCount;
-        public RunInfo() {}
-        public int getClusterCount() { return 0; }
-        public void setClusterCount(int p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StartHyphenEdit {
-    }
-
-    public static enum Style {
-        FILL,
-        FILL_AND_STROKE,
-        STROKE;
-        private static final android.graphics.Paint.Style[] $VALUES = null;
-        final int nativeInt = 0;
-        private Style() {}
+    private static class ClassAttributesHolder {
+        static final android.graphics.Paint.Align[] sAlignArray = null;
+        static final android.graphics.Paint.Cap[] sCapArray = null;
+        static final android.graphics.Paint.Join[] sJoinArray = null;
+        static final android.graphics.Paint.Style[] sStyleArray = null;
+        private ClassAttributesHolder() {}
     }
 }

@@ -3,12 +3,6 @@ package android.os;
 public interface IRecoverySystemProgressListener extends android.os.IInterface {
     public void onProgress(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IRecoverySystemProgressListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onProgress(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IRecoverySystemProgressListener {
         public static final java.lang.String DESCRIPTOR = "android.os.IRecoverySystemProgressListener";
         static final int TRANSACTION_onProgress = 1;
@@ -26,5 +20,11 @@ public interface IRecoverySystemProgressListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onProgress(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IRecoverySystemProgressListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onProgress(int p0) throws android.os.RemoteException {}
     }
 }

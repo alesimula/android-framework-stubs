@@ -57,47 +57,36 @@ public class GLSurfaceView extends android.view.SurfaceView implements android.v
     public void surfaceRedrawNeeded(android.view.SurfaceHolder p0) {}
     public void surfaceRedrawNeededAsync(android.view.SurfaceHolder p0, java.lang.Runnable p1) {}
 
-    private abstract class BaseConfigChooser implements android.opengl.GLSurfaceView.EGLConfigChooser {
-        protected int[] mConfigSpec;
-        public BaseConfigChooser(android.opengl.GLSurfaceView p0, int[] p1) {}
-        private int[] filterConfigSpec(int[] p0) { return null; }
-        public javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1) { return null; }
-        abstract javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig[] p2);
-    }
-
-    private class ComponentSizeChooser extends android.opengl.GLSurfaceView.BaseConfigChooser {
-        protected int mAlphaSize;
-        protected int mBlueSize;
-        protected int mDepthSize;
-        protected int mGreenSize;
-        protected int mRedSize;
-        protected int mStencilSize;
-        private int[] mValue;
-        public ComponentSizeChooser(android.opengl.GLSurfaceView p0, int p1, int p2, int p3, int p4, int p5, int p6) { super(null, null); }
-        private int findConfigAttrib(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2, int p3, int p4) { return 0; }
-        public javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig[] p2) { return null; }
-    }
-
-    private class DefaultContextFactory implements android.opengl.GLSurfaceView.EGLContextFactory {
-        private int EGL_CONTEXT_CLIENT_VERSION;
-        private DefaultContextFactory(android.opengl.GLSurfaceView p0) {}
-        public javax.microedition.khronos.egl.EGLContext createContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2) { return null; }
-        public void destroyContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLContext p2) {}
-    }
-
-    private static class DefaultWindowSurfaceFactory implements android.opengl.GLSurfaceView.EGLWindowSurfaceFactory {
-        private DefaultWindowSurfaceFactory() {}
-        public javax.microedition.khronos.egl.EGLSurface createWindowSurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2, java.lang.Object p3) { return null; }
-        public void destroySurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLSurface p2) {}
+    public static interface Renderer {
+        public void onDrawFrame(javax.microedition.khronos.opengles.GL10 p0);
+        public void onSurfaceChanged(javax.microedition.khronos.opengles.GL10 p0, int p1, int p2);
+        public void onSurfaceCreated(javax.microedition.khronos.opengles.GL10 p0, javax.microedition.khronos.egl.EGLConfig p1);
     }
 
     public static interface EGLConfigChooser {
         public javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1);
     }
 
-    public static interface EGLContextFactory {
-        public javax.microedition.khronos.egl.EGLContext createContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2);
-        public void destroyContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLContext p2);
+    static class LogWriter extends java.io.Writer {
+        private java.lang.StringBuilder mBuilder;
+        LogWriter() { super(); }
+        private void flushBuilder() {}
+        public void close() {}
+        public void flush() {}
+        public void write(char[] p0, int p1, int p2) {}
+    }
+
+    public static interface GLWrapper {
+        public javax.microedition.khronos.opengles.GL wrap(javax.microedition.khronos.opengles.GL p0);
+    }
+
+    public static interface EGLWindowSurfaceFactory {
+        public javax.microedition.khronos.egl.EGLSurface createWindowSurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2, java.lang.Object p3);
+        public void destroySurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLSurface p2);
+    }
+
+    private class SimpleEGLConfigChooser extends android.opengl.GLSurfaceView.ComponentSizeChooser {
+        public SimpleEGLConfigChooser(android.opengl.GLSurfaceView p0, boolean p1) { super(null, 0, 0, 0, 0, 0, 0); }
     }
 
     private static class EglHelper {
@@ -121,9 +110,50 @@ public class GLSurfaceView extends android.view.SurfaceView implements android.v
         public int swap() { return 0; }
     }
 
-    public static interface EGLWindowSurfaceFactory {
-        public javax.microedition.khronos.egl.EGLSurface createWindowSurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2, java.lang.Object p3);
-        public void destroySurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLSurface p2);
+    private static class GLThreadManager {
+        private static java.lang.String TAG;
+        private GLThreadManager() {}
+        public void releaseEglContextLocked(android.opengl.GLSurfaceView.GLThread p0) {}
+        public void threadExiting(android.opengl.GLSurfaceView.GLThread p0) {}
+    }
+
+    private static class DefaultWindowSurfaceFactory implements android.opengl.GLSurfaceView.EGLWindowSurfaceFactory {
+        private DefaultWindowSurfaceFactory() {}
+        public javax.microedition.khronos.egl.EGLSurface createWindowSurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2, java.lang.Object p3) { return null; }
+        public void destroySurface(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLSurface p2) {}
+    }
+
+    private class ComponentSizeChooser extends android.opengl.GLSurfaceView.BaseConfigChooser {
+        protected int mAlphaSize;
+        protected int mBlueSize;
+        protected int mDepthSize;
+        protected int mGreenSize;
+        protected int mRedSize;
+        protected int mStencilSize;
+        private int[] mValue;
+        public ComponentSizeChooser(android.opengl.GLSurfaceView p0, int p1, int p2, int p3, int p4, int p5, int p6) { super(null, null); }
+        private int findConfigAttrib(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2, int p3, int p4) { return 0; }
+        public javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig[] p2) { return null; }
+    }
+
+    private abstract class BaseConfigChooser implements android.opengl.GLSurfaceView.EGLConfigChooser {
+        protected int[] mConfigSpec;
+        public BaseConfigChooser(android.opengl.GLSurfaceView p0, int[] p1) {}
+        private int[] filterConfigSpec(int[] p0) { return null; }
+        public javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1) { return null; }
+        abstract javax.microedition.khronos.egl.EGLConfig chooseConfig(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig[] p2);
+    }
+
+    private class DefaultContextFactory implements android.opengl.GLSurfaceView.EGLContextFactory {
+        private int EGL_CONTEXT_CLIENT_VERSION;
+        private DefaultContextFactory(android.opengl.GLSurfaceView p0) {}
+        public javax.microedition.khronos.egl.EGLContext createContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2) { return null; }
+        public void destroyContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLContext p2) {}
+    }
+
+    public static interface EGLContextFactory {
+        public javax.microedition.khronos.egl.EGLContext createContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLConfig p2);
+        public void destroyContext(javax.microedition.khronos.egl.EGL10 p0, javax.microedition.khronos.egl.EGLDisplay p1, javax.microedition.khronos.egl.EGLContext p2);
     }
 
     static class GLThread extends java.lang.Thread {
@@ -168,35 +198,5 @@ public class GLSurfaceView extends android.view.SurfaceView implements android.v
         public void setRenderMode(int p0) {}
         public void surfaceCreated() {}
         public void surfaceDestroyed() {}
-    }
-
-    private static class GLThreadManager {
-        private static java.lang.String TAG;
-        private GLThreadManager() {}
-        public void releaseEglContextLocked(android.opengl.GLSurfaceView.GLThread p0) {}
-        public void threadExiting(android.opengl.GLSurfaceView.GLThread p0) {}
-    }
-
-    public static interface GLWrapper {
-        public javax.microedition.khronos.opengles.GL wrap(javax.microedition.khronos.opengles.GL p0);
-    }
-
-    static class LogWriter extends java.io.Writer {
-        private java.lang.StringBuilder mBuilder;
-        LogWriter() { super(); }
-        private void flushBuilder() {}
-        public void close() {}
-        public void flush() {}
-        public void write(char[] p0, int p1, int p2) {}
-    }
-
-    public static interface Renderer {
-        public void onDrawFrame(javax.microedition.khronos.opengles.GL10 p0);
-        public void onSurfaceChanged(javax.microedition.khronos.opengles.GL10 p0, int p1, int p2);
-        public void onSurfaceCreated(javax.microedition.khronos.opengles.GL10 p0, javax.microedition.khronos.egl.EGLConfig p1);
-    }
-
-    private class SimpleEGLConfigChooser extends android.opengl.GLSurfaceView.ComponentSizeChooser {
-        public SimpleEGLConfigChooser(android.opengl.GLSurfaceView p0, boolean p1) { super(null, 0, 0, 0, 0, 0, 0); }
     }
 }

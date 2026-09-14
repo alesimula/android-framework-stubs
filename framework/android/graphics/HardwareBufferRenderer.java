@@ -26,10 +26,6 @@ public class HardwareBufferRenderer implements java.lang.AutoCloseable {
     public void setLightSourceAlpha(float p0, float p1) {}
     public void setLightSourceGeometry(float p0, float p1, float p2, float p3) {}
 
-    private static class HardwareBufferRendererHolder {
-        private HardwareBufferRendererHolder() {}
-    }
-
     public final class RenderRequest {
         private android.graphics.ColorSpace mColorSpace;
         private int mTransform;
@@ -52,5 +48,9 @@ public class HardwareBufferRenderer implements java.lang.AutoCloseable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface RenderResultStatus {
         }
+    }
+
+    private static class HardwareBufferRendererHolder {
+        private HardwareBufferRendererHolder() {}
     }
 }

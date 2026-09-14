@@ -13,6 +13,7 @@ public class ByteBufferReader {
     public int readByte(int p0) { return 0; }
     public int readInt() { return 0; }
     public long readLong() { return 0L; }
+    public long readLong(int p0) { return 0L; }
     public int readShort() { return 0; }
     public java.lang.String readString() { return null; }
 }

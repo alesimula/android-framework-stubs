@@ -3,12 +3,6 @@ package android.app.backup;
 public interface IBackupManagerMonitor extends android.os.IInterface {
     public void onEvent(android.os.Bundle p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.backup.IBackupManagerMonitor {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onEvent(android.os.Bundle p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.backup.IBackupManagerMonitor {
         public static final java.lang.String DESCRIPTOR = "android.app.backup.IBackupManagerMonitor";
         static final int TRANSACTION_onEvent = 1;
@@ -26,5 +20,11 @@ public interface IBackupManagerMonitor extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onEvent(android.os.Bundle p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.backup.IBackupManagerMonitor {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onEvent(android.os.Bundle p0) throws android.os.RemoteException {}
     }
 }

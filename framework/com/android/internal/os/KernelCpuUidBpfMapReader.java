@@ -25,21 +25,8 @@ public abstract class KernelCpuUidBpfMapReader {
     public void removeUidsInRange(int p0, int p1) {}
     public boolean startTrackingBpfTimes() { return false; }
 
-    public class BpfMapIterator implements java.lang.AutoCloseable {
-        private int mPos;
-        public BpfMapIterator(com.android.internal.os.KernelCpuUidBpfMapReader p0) {}
-        public void close() {}
-        public boolean getNextUid(long[] p0) { return false; }
-    }
-
     public static class KernelCpuUidActiveTimeBpfMapReader extends com.android.internal.os.KernelCpuUidBpfMapReader {
         public KernelCpuUidActiveTimeBpfMapReader() { super(); }
-        public final native long[] getDataDimensions();
-        protected final native boolean readBpfData();
-    }
-
-    public static class KernelCpuUidClusterTimeBpfMapReader extends com.android.internal.os.KernelCpuUidBpfMapReader {
-        public KernelCpuUidClusterTimeBpfMapReader() { super(); }
         public final native long[] getDataDimensions();
         protected final native boolean readBpfData();
     }
@@ -50,5 +37,18 @@ public abstract class KernelCpuUidBpfMapReader {
         public final long[] getDataDimensions() { return null; }
         protected final native boolean readBpfData();
         public void removeUidsInRange(int p0, int p1) {}
+    }
+
+    public static class KernelCpuUidClusterTimeBpfMapReader extends com.android.internal.os.KernelCpuUidBpfMapReader {
+        public KernelCpuUidClusterTimeBpfMapReader() { super(); }
+        public final native long[] getDataDimensions();
+        protected final native boolean readBpfData();
+    }
+
+    public class BpfMapIterator implements java.lang.AutoCloseable {
+        private int mPos;
+        public BpfMapIterator(com.android.internal.os.KernelCpuUidBpfMapReader p0) {}
+        public void close() {}
+        public boolean getNextUid(long[] p0) { return false; }
     }
 }

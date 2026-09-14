@@ -29,13 +29,13 @@ public class SimpleAdapter extends android.widget.BaseAdapter implements android
     public void setViewImage(android.widget.ImageView p0, java.lang.String p1) {}
     public void setViewText(android.widget.TextView p0, java.lang.String p1) {}
 
+    public static interface ViewBinder {
+        public boolean setViewValue(android.view.View p0, java.lang.Object p1, java.lang.String p2);
+    }
+
     private class SimpleFilter extends android.widget.Filter {
         private SimpleFilter(android.widget.SimpleAdapter p0) { super(); }
         protected android.widget.Filter.FilterResults performFiltering(java.lang.CharSequence p0) { return null; }
         protected void publishResults(java.lang.CharSequence p0, android.widget.Filter.FilterResults p1) {}
-    }
-
-    public static interface ViewBinder {
-        public boolean setViewValue(android.view.View p0, java.lang.Object p1, java.lang.String p2);
     }
 }

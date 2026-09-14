@@ -166,9 +166,6 @@ public class ViewPager extends android.view.ViewGroup {
     void smoothScrollTo(int p0, int p1, int p2) {}
     protected boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
 
-    static interface Decor {
-    }
-
     static class ItemInfo {
         java.lang.Object object;
         float offset;
@@ -176,6 +173,28 @@ public class ViewPager extends android.view.ViewGroup {
         boolean scrolling;
         float widthFactor;
         ItemInfo() {}
+    }
+
+    private class PagerObserver extends android.database.DataSetObserver {
+        private PagerObserver(com.android.internal.widget.ViewPager p0) { super(); }
+        public void onChanged() {}
+        public void onInvalidated() {}
+    }
+
+    public static class SimpleOnPageChangeListener implements com.android.internal.widget.ViewPager.OnPageChangeListener {
+        public SimpleOnPageChangeListener() {}
+        public void onPageScrollStateChanged(int p0) {}
+        public void onPageScrolled(int p0, float p1, int p2) {}
+        public void onPageSelected(int p0) {}
+    }
+
+    static class ViewPositionComparator implements java.util.Comparator<android.view.View> {
+        ViewPositionComparator() {}
+        public int compare(android.view.View p0, android.view.View p1) { return 0; }
+    }
+
+    static interface OnAdapterChangeListener {
+        public void onAdapterChanged(com.android.internal.widget.PagerAdapter p0, com.android.internal.widget.PagerAdapter p1);
     }
 
     public static class LayoutParams extends android.view.ViewGroup.LayoutParams {
@@ -197,26 +216,6 @@ public class ViewPager extends android.view.ViewGroup {
         }
     }
 
-    static interface OnAdapterChangeListener {
-        public void onAdapterChanged(com.android.internal.widget.PagerAdapter p0, com.android.internal.widget.PagerAdapter p1);
-    }
-
-    public static interface OnPageChangeListener {
-        public void onPageScrollStateChanged(int p0);
-        public void onPageScrolled(int p0, float p1, int p2);
-        public void onPageSelected(int p0);
-    }
-
-    private class PagerObserver extends android.database.DataSetObserver {
-        private PagerObserver(com.android.internal.widget.ViewPager p0) { super(); }
-        public void onChanged() {}
-        public void onInvalidated() {}
-    }
-
-    public static interface PageTransformer {
-        public void transformPage(android.view.View p0, float p1);
-    }
-
     public static class SavedState extends android.view.AbsSavedState {
         public static final android.os.Parcelable.Creator<com.android.internal.widget.ViewPager.SavedState> CREATOR = null;
         android.os.Parcelable adapterState;
@@ -228,15 +227,16 @@ public class ViewPager extends android.view.ViewGroup {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class SimpleOnPageChangeListener implements com.android.internal.widget.ViewPager.OnPageChangeListener {
-        public SimpleOnPageChangeListener() {}
-        public void onPageScrollStateChanged(int p0) {}
-        public void onPageScrolled(int p0, float p1, int p2) {}
-        public void onPageSelected(int p0) {}
+    public static interface OnPageChangeListener {
+        public void onPageScrollStateChanged(int p0);
+        public void onPageScrolled(int p0, float p1, int p2);
+        public void onPageSelected(int p0);
     }
 
-    static class ViewPositionComparator implements java.util.Comparator<android.view.View> {
-        ViewPositionComparator() {}
-        public int compare(android.view.View p0, android.view.View p1) { return 0; }
+    static interface Decor {
+    }
+
+    public static interface PageTransformer {
+        public void transformPage(android.view.View p0, float p1);
     }
 }

@@ -18,13 +18,6 @@ public final class CalendarContract {
     private CalendarContract() {}
     public static boolean startViewCalendarEventInManagedProfile(android.content.Context p0, long p1, long p2, long p3, boolean p4, int p5) { return false; }
 
-    public static final class Attendees implements android.provider.BaseColumns, android.provider.CalendarContract.AttendeesColumns, android.provider.CalendarContract.EventsColumns {
-        private static final java.lang.String ATTENDEES_WHERE = "event_id=?";
-        public static final android.net.Uri CONTENT_URI = null;
-        private Attendees() {}
-        public static final android.database.Cursor query(android.content.ContentResolver p0, long p1, java.lang.String[] p2) { return null; }
-    }
-
     protected static interface AttendeesColumns {
         public static final java.lang.String ATTENDEE_EMAIL = "attendeeEmail";
         public static final java.lang.String ATTENDEE_IDENTITY = "attendeeIdentity";
@@ -50,6 +43,111 @@ public final class CalendarContract {
         public static final int TYPE_RESOURCE = 3;
     }
 
+    public static final class ExtendedProperties implements android.provider.BaseColumns, android.provider.CalendarContract.ExtendedPropertiesColumns, android.provider.CalendarContract.EventsColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        private ExtendedProperties() {}
+    }
+
+    protected static interface ExtendedPropertiesColumns {
+        public static final java.lang.String EVENT_ID = "event_id";
+        public static final java.lang.String NAME = "name";
+        public static final java.lang.String VALUE = "value";
+    }
+
+    protected static interface EventDaysColumns {
+        public static final java.lang.String ENDDAY = "endDay";
+        public static final java.lang.String STARTDAY = "startDay";
+    }
+
+    public static final class CalendarCache implements android.provider.CalendarContract.CalendarCacheColumns {
+        public static final java.lang.String KEY_TIMEZONE_INSTANCES = "timezoneInstances";
+        public static final java.lang.String KEY_TIMEZONE_INSTANCES_PREVIOUS = "timezoneInstancesPrevious";
+        public static final java.lang.String KEY_TIMEZONE_TYPE = "timezoneType";
+        public static final java.lang.String TIMEZONE_TYPE_AUTO = "auto";
+        public static final java.lang.String TIMEZONE_TYPE_HOME = "home";
+        public static final android.net.Uri URI = null;
+        private CalendarCache() {}
+    }
+
+    public static final class Colors implements android.provider.CalendarContract.ColorsColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String TABLE_NAME = "Colors";
+        private Colors() {}
+    }
+
+    protected static interface CalendarMetaDataColumns {
+        public static final java.lang.String LOCAL_TIMEZONE = "localTimezone";
+        public static final java.lang.String MAX_EVENTDAYS = "maxEventDays";
+        public static final java.lang.String MAX_INSTANCE = "maxInstance";
+        public static final java.lang.String MIN_EVENTDAYS = "minEventDays";
+        public static final java.lang.String MIN_INSTANCE = "minInstance";
+    }
+
+    public static final class EventsRawTimes implements android.provider.BaseColumns, android.provider.CalendarContract.EventsRawTimesColumns {
+        private EventsRawTimes() {}
+    }
+
+    public static final class Attendees implements android.provider.BaseColumns, android.provider.CalendarContract.AttendeesColumns, android.provider.CalendarContract.EventsColumns {
+        private static final java.lang.String ATTENDEES_WHERE = "event_id=?";
+        public static final android.net.Uri CONTENT_URI = null;
+        private Attendees() {}
+        public static final android.database.Cursor query(android.content.ContentResolver p0, long p1, java.lang.String[] p2) { return null; }
+    }
+
+    protected static interface CalendarSyncColumns {
+        public static final java.lang.String CAL_SYNC1 = "cal_sync1";
+        public static final java.lang.String CAL_SYNC10 = "cal_sync10";
+        public static final java.lang.String CAL_SYNC2 = "cal_sync2";
+        public static final java.lang.String CAL_SYNC3 = "cal_sync3";
+        public static final java.lang.String CAL_SYNC4 = "cal_sync4";
+        public static final java.lang.String CAL_SYNC5 = "cal_sync5";
+        public static final java.lang.String CAL_SYNC6 = "cal_sync6";
+        public static final java.lang.String CAL_SYNC7 = "cal_sync7";
+        public static final java.lang.String CAL_SYNC8 = "cal_sync8";
+        public static final java.lang.String CAL_SYNC9 = "cal_sync9";
+    }
+
+    protected static interface SyncColumns extends android.provider.CalendarContract.CalendarSyncColumns {
+        public static final java.lang.String ACCOUNT_NAME = "account_name";
+        public static final java.lang.String ACCOUNT_TYPE = "account_type";
+        public static final java.lang.String CAN_PARTIALLY_UPDATE = "canPartiallyUpdate";
+        public static final java.lang.String DELETED = "deleted";
+        public static final java.lang.String DIRTY = "dirty";
+        public static final java.lang.String MUTATORS = "mutators";
+        public static final java.lang.String _SYNC_ID = "_sync_id";
+    }
+
+    public static final class EventsEntity implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.EventsColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        private EventsEntity() {}
+        public static android.content.EntityIterator newEntityIterator(android.database.Cursor p0, android.content.ContentProviderClient p1) { return null; }
+        public static android.content.EntityIterator newEntityIterator(android.database.Cursor p0, android.content.ContentResolver p1) { return null; }
+
+        private static class EntityIteratorImpl extends android.content.CursorEntityIterator {
+            private static final java.lang.String[] ATTENDEES_PROJECTION = null;
+            private static final int COLUMN_ATTENDEE_EMAIL = 1;
+            private static final int COLUMN_ATTENDEE_IDENTITY = 5;
+            private static final int COLUMN_ATTENDEE_ID_NAMESPACE = 6;
+            private static final int COLUMN_ATTENDEE_NAME = 0;
+            private static final int COLUMN_ATTENDEE_RELATIONSHIP = 2;
+            private static final int COLUMN_ATTENDEE_STATUS = 4;
+            private static final int COLUMN_ATTENDEE_TYPE = 3;
+            private static final int COLUMN_ID = 0;
+            private static final int COLUMN_METHOD = 1;
+            private static final int COLUMN_MINUTES = 0;
+            private static final int COLUMN_NAME = 1;
+            private static final int COLUMN_VALUE = 2;
+            private static final java.lang.String[] EXTENDED_PROJECTION = null;
+            private static final java.lang.String[] REMINDERS_PROJECTION = null;
+            private static final java.lang.String WHERE_EVENT_ID = "event_id=?";
+            private final android.content.ContentProviderClient mProvider = null;
+            private final android.content.ContentResolver mResolver = null;
+            public EntityIteratorImpl(android.database.Cursor p0, android.content.ContentProviderClient p1) { super(null); }
+            public EntityIteratorImpl(android.database.Cursor p0, android.content.ContentResolver p1) { super(null); }
+            public android.content.Entity getEntityAndIncrementCursor(android.database.Cursor p0) throws android.os.RemoteException { return null; }
+        }
+    }
+
     public static final class CalendarAlerts implements android.provider.BaseColumns, android.provider.CalendarContract.CalendarAlertsColumns, android.provider.CalendarContract.EventsColumns, android.provider.CalendarContract.CalendarColumns {
         public static final android.net.Uri CONTENT_URI = null;
         public static final android.net.Uri CONTENT_URI_BY_INSTANCE = null;
@@ -67,35 +165,66 @@ public final class CalendarContract {
         public static void scheduleAlarm(android.content.Context p0, android.app.AlarmManager p1, long p2) {}
     }
 
-    protected static interface CalendarAlertsColumns {
-        public static final java.lang.String ALARM_TIME = "alarmTime";
+    public static final class CalendarEntity implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.CalendarColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        private CalendarEntity() {}
+        public static android.content.EntityIterator newEntityIterator(android.database.Cursor p0) { return null; }
+
+        private static class EntityIteratorImpl extends android.content.CursorEntityIterator {
+            public EntityIteratorImpl(android.database.Cursor p0) { super(null); }
+            public android.content.Entity getEntityAndIncrementCursor(android.database.Cursor p0) throws android.os.RemoteException { return null; }
+        }
+    }
+
+    public static final class SyncState implements android.provider.SyncStateContract.Columns {
+        private static final java.lang.String CONTENT_DIRECTORY = "syncstate";
+        public static final android.net.Uri CONTENT_URI = null;
+        private SyncState() {}
+    }
+
+    public static final class CalendarMetaData implements android.provider.CalendarContract.CalendarMetaDataColumns, android.provider.BaseColumns {
+        private CalendarMetaData() {}
+    }
+
+    public static final class Calendars implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.CalendarColumns {
+        public static final java.lang.String CALENDAR_LOCATION = "calendar_location";
+        public static final android.net.Uri CONTENT_URI = null;
+        public static final java.lang.String DEFAULT_SORT_ORDER = "calendar_displayName";
+        public static final android.net.Uri ENTERPRISE_CONTENT_URI = null;
+        public static final java.lang.String NAME = "name";
+        public static final java.lang.String[] SYNC_WRITABLE_COLUMNS = null;
+        private Calendars() {}
+    }
+
+    public static final class EventDays implements android.provider.CalendarContract.EventDaysColumns {
+        public static final android.net.Uri CONTENT_URI = null;
+        private static final java.lang.String SELECTION = "selected=1";
+        private EventDays() {}
+        public static final android.database.Cursor query(android.content.ContentResolver p0, int p1, int p2, java.lang.String[] p3) { return null; }
+    }
+
+    public static final class Instances implements android.provider.BaseColumns, android.provider.CalendarContract.EventsColumns, android.provider.CalendarContract.CalendarColumns {
         public static final java.lang.String BEGIN = "begin";
-        public static final java.lang.String CREATION_TIME = "creationTime";
-        public static final java.lang.String DEFAULT_SORT_ORDER = "begin ASC,title ASC";
+        public static final android.net.Uri CONTENT_BY_DAY_URI = null;
+        public static final android.net.Uri CONTENT_SEARCH_BY_DAY_URI = null;
+        public static final android.net.Uri CONTENT_SEARCH_URI = null;
+        public static final android.net.Uri CONTENT_URI = null;
+        private static final java.lang.String DEFAULT_SORT_ORDER = "begin ASC";
         public static final java.lang.String END = "end";
+        public static final java.lang.String END_DAY = "endDay";
+        public static final java.lang.String END_MINUTE = "endMinute";
+        public static final android.net.Uri ENTERPRISE_CONTENT_BY_DAY_URI = null;
+        public static final android.net.Uri ENTERPRISE_CONTENT_SEARCH_BY_DAY_URI = null;
+        public static final android.net.Uri ENTERPRISE_CONTENT_SEARCH_URI = null;
+        public static final android.net.Uri ENTERPRISE_CONTENT_URI = null;
         public static final java.lang.String EVENT_ID = "event_id";
-        public static final java.lang.String MINUTES = "minutes";
-        public static final java.lang.String NOTIFY_TIME = "notifyTime";
-        public static final java.lang.String RECEIVED_TIME = "receivedTime";
-        public static final java.lang.String STATE = "state";
-        public static final int STATE_DISMISSED = 2;
-        public static final int STATE_FIRED = 1;
-        public static final int STATE_SCHEDULED = 0;
-    }
-
-    public static final class CalendarCache implements android.provider.CalendarContract.CalendarCacheColumns {
-        public static final java.lang.String KEY_TIMEZONE_INSTANCES = "timezoneInstances";
-        public static final java.lang.String KEY_TIMEZONE_INSTANCES_PREVIOUS = "timezoneInstancesPrevious";
-        public static final java.lang.String KEY_TIMEZONE_TYPE = "timezoneType";
-        public static final java.lang.String TIMEZONE_TYPE_AUTO = "auto";
-        public static final java.lang.String TIMEZONE_TYPE_HOME = "home";
-        public static final android.net.Uri URI = null;
-        private CalendarCache() {}
-    }
-
-    protected static interface CalendarCacheColumns {
-        public static final java.lang.String KEY = "key";
-        public static final java.lang.String VALUE = "value";
+        public static final java.lang.String START_DAY = "startDay";
+        public static final java.lang.String START_MINUTE = "startMinute";
+        private static final java.lang.String[] WHERE_CALENDARS_ARGS = null;
+        private static final java.lang.String WHERE_CALENDARS_SELECTED = "visible=?";
+        private Instances() {}
+        public static final android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, long p2, long p3) { return null; }
+        public static final android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, long p2, long p3, java.lang.String p4) { return null; }
     }
 
     protected static interface CalendarColumns {
@@ -125,86 +254,37 @@ public final class CalendarContract {
         public static final java.lang.String VISIBLE = "visible";
     }
 
-    public static final class CalendarEntity implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.CalendarColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        private CalendarEntity() {}
-        public static android.content.EntityIterator newEntityIterator(android.database.Cursor p0) { return null; }
-
-        private static class EntityIteratorImpl extends android.content.CursorEntityIterator {
-            public EntityIteratorImpl(android.database.Cursor p0) { super(null); }
-            public android.content.Entity getEntityAndIncrementCursor(android.database.Cursor p0) throws android.os.RemoteException { return null; }
-        }
+    protected static interface RemindersColumns {
+        public static final java.lang.String EVENT_ID = "event_id";
+        public static final java.lang.String METHOD = "method";
+        public static final int METHOD_ALARM = 4;
+        public static final int METHOD_ALERT = 1;
+        public static final int METHOD_DEFAULT = 0;
+        public static final int METHOD_EMAIL = 2;
+        public static final int METHOD_SMS = 3;
+        public static final java.lang.String MINUTES = "minutes";
+        public static final int MINUTES_DEFAULT = -1;
     }
 
-    public static final class CalendarMetaData implements android.provider.CalendarContract.CalendarMetaDataColumns, android.provider.BaseColumns {
-        private CalendarMetaData() {}
+    protected static interface CalendarCacheColumns {
+        public static final java.lang.String KEY = "key";
+        public static final java.lang.String VALUE = "value";
     }
 
-    protected static interface CalendarMetaDataColumns {
-        public static final java.lang.String LOCAL_TIMEZONE = "localTimezone";
-        public static final java.lang.String MAX_EVENTDAYS = "maxEventDays";
-        public static final java.lang.String MAX_INSTANCE = "maxInstance";
-        public static final java.lang.String MIN_EVENTDAYS = "minEventDays";
-        public static final java.lang.String MIN_INSTANCE = "minInstance";
-    }
-
-    public static final class Calendars implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.CalendarColumns {
-        public static final java.lang.String CALENDAR_LOCATION = "calendar_location";
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String DEFAULT_SORT_ORDER = "calendar_displayName";
-        public static final android.net.Uri ENTERPRISE_CONTENT_URI = null;
-        public static final java.lang.String NAME = "name";
-        public static final java.lang.String[] SYNC_WRITABLE_COLUMNS = null;
-        private Calendars() {}
-    }
-
-    protected static interface CalendarSyncColumns {
-        public static final java.lang.String CAL_SYNC1 = "cal_sync1";
-        public static final java.lang.String CAL_SYNC10 = "cal_sync10";
-        public static final java.lang.String CAL_SYNC2 = "cal_sync2";
-        public static final java.lang.String CAL_SYNC3 = "cal_sync3";
-        public static final java.lang.String CAL_SYNC4 = "cal_sync4";
-        public static final java.lang.String CAL_SYNC5 = "cal_sync5";
-        public static final java.lang.String CAL_SYNC6 = "cal_sync6";
-        public static final java.lang.String CAL_SYNC7 = "cal_sync7";
-        public static final java.lang.String CAL_SYNC8 = "cal_sync8";
-        public static final java.lang.String CAL_SYNC9 = "cal_sync9";
-    }
-
-    public static final class Colors implements android.provider.CalendarContract.ColorsColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        public static final java.lang.String TABLE_NAME = "Colors";
-        private Colors() {}
-    }
-
-    protected static interface ColorsColumns extends android.provider.SyncStateContract.Columns {
-        public static final java.lang.String COLOR = "color";
-        public static final java.lang.String COLOR_KEY = "color_index";
-        public static final java.lang.String COLOR_TYPE = "color_type";
-        public static final int TYPE_CALENDAR = 0;
-        public static final int TYPE_EVENT = 1;
-    }
-
-    public static final class EventDays implements android.provider.CalendarContract.EventDaysColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        private static final java.lang.String SELECTION = "selected=1";
-        private EventDays() {}
-        public static final android.database.Cursor query(android.content.ContentResolver p0, int p1, int p2, java.lang.String[] p3) { return null; }
-    }
-
-    protected static interface EventDaysColumns {
-        public static final java.lang.String ENDDAY = "endDay";
-        public static final java.lang.String STARTDAY = "startDay";
-    }
-
-    public static final class Events implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.EventsColumns, android.provider.CalendarContract.CalendarColumns {
-        public static final android.net.Uri CONTENT_EXCEPTION_URI = null;
-        public static final android.net.Uri CONTENT_URI = null;
-        private static final java.lang.String DEFAULT_SORT_ORDER = "";
-        public static final android.net.Uri ENTERPRISE_CONTENT_URI = null;
-        public static java.lang.String[] PROVIDER_WRITABLE_COLUMNS;
-        public static final java.lang.String[] SYNC_WRITABLE_COLUMNS = null;
-        private Events() {}
+    protected static interface CalendarAlertsColumns {
+        public static final java.lang.String ALARM_TIME = "alarmTime";
+        public static final java.lang.String BEGIN = "begin";
+        public static final java.lang.String CREATION_TIME = "creationTime";
+        public static final java.lang.String DEFAULT_SORT_ORDER = "begin ASC,title ASC";
+        public static final java.lang.String END = "end";
+        public static final java.lang.String EVENT_ID = "event_id";
+        public static final java.lang.String MINUTES = "minutes";
+        public static final java.lang.String NOTIFY_TIME = "notifyTime";
+        public static final java.lang.String RECEIVED_TIME = "receivedTime";
+        public static final java.lang.String STATE = "state";
+        public static final int STATE_DISMISSED = 2;
+        public static final int STATE_FIRED = 1;
+        public static final int STATE_SCHEDULED = 0;
     }
 
     protected static interface EventsColumns {
@@ -269,41 +349,6 @@ public final class CalendarContract {
         public static final java.lang.String UID_2445 = "uid2445";
     }
 
-    public static final class EventsEntity implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.EventsColumns {
-        public static final android.net.Uri CONTENT_URI = null;
-        private EventsEntity() {}
-        public static android.content.EntityIterator newEntityIterator(android.database.Cursor p0, android.content.ContentProviderClient p1) { return null; }
-        public static android.content.EntityIterator newEntityIterator(android.database.Cursor p0, android.content.ContentResolver p1) { return null; }
-
-        private static class EntityIteratorImpl extends android.content.CursorEntityIterator {
-            private static final java.lang.String[] ATTENDEES_PROJECTION = null;
-            private static final int COLUMN_ATTENDEE_EMAIL = 1;
-            private static final int COLUMN_ATTENDEE_IDENTITY = 5;
-            private static final int COLUMN_ATTENDEE_ID_NAMESPACE = 6;
-            private static final int COLUMN_ATTENDEE_NAME = 0;
-            private static final int COLUMN_ATTENDEE_RELATIONSHIP = 2;
-            private static final int COLUMN_ATTENDEE_STATUS = 4;
-            private static final int COLUMN_ATTENDEE_TYPE = 3;
-            private static final int COLUMN_ID = 0;
-            private static final int COLUMN_METHOD = 1;
-            private static final int COLUMN_MINUTES = 0;
-            private static final int COLUMN_NAME = 1;
-            private static final int COLUMN_VALUE = 2;
-            private static final java.lang.String[] EXTENDED_PROJECTION = null;
-            private static final java.lang.String[] REMINDERS_PROJECTION = null;
-            private static final java.lang.String WHERE_EVENT_ID = "event_id=?";
-            private final android.content.ContentProviderClient mProvider = null;
-            private final android.content.ContentResolver mResolver = null;
-            public EntityIteratorImpl(android.database.Cursor p0, android.content.ContentProviderClient p1) { super(null); }
-            public EntityIteratorImpl(android.database.Cursor p0, android.content.ContentResolver p1) { super(null); }
-            public android.content.Entity getEntityAndIncrementCursor(android.database.Cursor p0) throws android.os.RemoteException { return null; }
-        }
-    }
-
-    public static final class EventsRawTimes implements android.provider.BaseColumns, android.provider.CalendarContract.EventsRawTimesColumns {
-        private EventsRawTimes() {}
-    }
-
     protected static interface EventsRawTimesColumns {
         public static final java.lang.String DTEND_2445 = "dtend2445";
         public static final java.lang.String DTSTART_2445 = "dtstart2445";
@@ -312,39 +357,14 @@ public final class CalendarContract {
         public static final java.lang.String ORIGINAL_INSTANCE_TIME_2445 = "originalInstanceTime2445";
     }
 
-    public static final class ExtendedProperties implements android.provider.BaseColumns, android.provider.CalendarContract.ExtendedPropertiesColumns, android.provider.CalendarContract.EventsColumns {
+    public static final class Events implements android.provider.BaseColumns, android.provider.CalendarContract.SyncColumns, android.provider.CalendarContract.EventsColumns, android.provider.CalendarContract.CalendarColumns {
+        public static final android.net.Uri CONTENT_EXCEPTION_URI = null;
         public static final android.net.Uri CONTENT_URI = null;
-        private ExtendedProperties() {}
-    }
-
-    protected static interface ExtendedPropertiesColumns {
-        public static final java.lang.String EVENT_ID = "event_id";
-        public static final java.lang.String NAME = "name";
-        public static final java.lang.String VALUE = "value";
-    }
-
-    public static final class Instances implements android.provider.BaseColumns, android.provider.CalendarContract.EventsColumns, android.provider.CalendarContract.CalendarColumns {
-        public static final java.lang.String BEGIN = "begin";
-        public static final android.net.Uri CONTENT_BY_DAY_URI = null;
-        public static final android.net.Uri CONTENT_SEARCH_BY_DAY_URI = null;
-        public static final android.net.Uri CONTENT_SEARCH_URI = null;
-        public static final android.net.Uri CONTENT_URI = null;
-        private static final java.lang.String DEFAULT_SORT_ORDER = "begin ASC";
-        public static final java.lang.String END = "end";
-        public static final java.lang.String END_DAY = "endDay";
-        public static final java.lang.String END_MINUTE = "endMinute";
-        public static final android.net.Uri ENTERPRISE_CONTENT_BY_DAY_URI = null;
-        public static final android.net.Uri ENTERPRISE_CONTENT_SEARCH_BY_DAY_URI = null;
-        public static final android.net.Uri ENTERPRISE_CONTENT_SEARCH_URI = null;
+        private static final java.lang.String DEFAULT_SORT_ORDER = "";
         public static final android.net.Uri ENTERPRISE_CONTENT_URI = null;
-        public static final java.lang.String EVENT_ID = "event_id";
-        public static final java.lang.String START_DAY = "startDay";
-        public static final java.lang.String START_MINUTE = "startMinute";
-        private static final java.lang.String[] WHERE_CALENDARS_ARGS = null;
-        private static final java.lang.String WHERE_CALENDARS_SELECTED = "visible=?";
-        private Instances() {}
-        public static final android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, long p2, long p3) { return null; }
-        public static final android.database.Cursor query(android.content.ContentResolver p0, java.lang.String[] p1, long p2, long p3, java.lang.String p4) { return null; }
+        public static java.lang.String[] PROVIDER_WRITABLE_COLUMNS;
+        public static final java.lang.String[] SYNC_WRITABLE_COLUMNS = null;
+        private Events() {}
     }
 
     public static final class Reminders implements android.provider.BaseColumns, android.provider.CalendarContract.RemindersColumns, android.provider.CalendarContract.EventsColumns {
@@ -354,31 +374,11 @@ public final class CalendarContract {
         public static final android.database.Cursor query(android.content.ContentResolver p0, long p1, java.lang.String[] p2) { return null; }
     }
 
-    protected static interface RemindersColumns {
-        public static final java.lang.String EVENT_ID = "event_id";
-        public static final java.lang.String METHOD = "method";
-        public static final int METHOD_ALARM = 4;
-        public static final int METHOD_ALERT = 1;
-        public static final int METHOD_DEFAULT = 0;
-        public static final int METHOD_EMAIL = 2;
-        public static final int METHOD_SMS = 3;
-        public static final java.lang.String MINUTES = "minutes";
-        public static final int MINUTES_DEFAULT = -1;
-    }
-
-    protected static interface SyncColumns extends android.provider.CalendarContract.CalendarSyncColumns {
-        public static final java.lang.String ACCOUNT_NAME = "account_name";
-        public static final java.lang.String ACCOUNT_TYPE = "account_type";
-        public static final java.lang.String CAN_PARTIALLY_UPDATE = "canPartiallyUpdate";
-        public static final java.lang.String DELETED = "deleted";
-        public static final java.lang.String DIRTY = "dirty";
-        public static final java.lang.String MUTATORS = "mutators";
-        public static final java.lang.String _SYNC_ID = "_sync_id";
-    }
-
-    public static final class SyncState implements android.provider.SyncStateContract.Columns {
-        private static final java.lang.String CONTENT_DIRECTORY = "syncstate";
-        public static final android.net.Uri CONTENT_URI = null;
-        private SyncState() {}
+    protected static interface ColorsColumns extends android.provider.SyncStateContract.Columns {
+        public static final java.lang.String COLOR = "color";
+        public static final java.lang.String COLOR_KEY = "color_index";
+        public static final java.lang.String COLOR_TYPE = "color_type";
+        public static final int TYPE_CALENDAR = 0;
+        public static final int TYPE_EVENT = 1;
     }
 }

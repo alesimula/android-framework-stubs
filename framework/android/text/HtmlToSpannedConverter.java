@@ -63,9 +63,38 @@ class HtmlToSpannedConverter {
     public void startElement(java.lang.String p0, java.lang.String p1, java.lang.String p2, org.xml.sax.Attributes p3) throws org.xml.sax.SAXException {}
     public void startPrefixMapping(java.lang.String p0, java.lang.String p1) throws org.xml.sax.SAXException {}
 
+    private static class Super {
+        private Super() {}
+    }
+
+    private static class Monospace {
+        private Monospace() {}
+    }
+
+    private static class Underline {
+        private Underline() {}
+    }
+
+    private static class Small {
+        private Small() {}
+    }
+
+    private static class Newline {
+        private int mNumNewlines;
+        public Newline(int p0) {}
+    }
+
+    private static class Blockquote {
+        private Blockquote() {}
+    }
+
     private static class Alignment {
         private android.text.Layout.Alignment mAlignment;
         public Alignment(android.text.Layout.Alignment p0) {}
+    }
+
+    private static class Sub {
+        private Sub() {}
     }
 
     private static class Background {
@@ -73,20 +102,8 @@ class HtmlToSpannedConverter {
         public Background(int p0) {}
     }
 
-    private static class Big {
-        private Big() {}
-    }
-
-    private static class Blockquote {
-        private Blockquote() {}
-    }
-
     private static class Bold {
         private Bold() {}
-    }
-
-    private static class Bullet {
-        private Bullet() {}
     }
 
     private static class Font {
@@ -94,14 +111,17 @@ class HtmlToSpannedConverter {
         public Font(java.lang.String p0) {}
     }
 
+    private static class Bullet {
+        private Bullet() {}
+    }
+
     private static class Foreground {
         private int mForegroundColor;
         public Foreground(int p0) {}
     }
 
-    private static class Heading {
-        private int mLevel;
-        public Heading(int p0) {}
+    private static class Strikethrough {
+        private Strikethrough() {}
     }
 
     private static class Href {
@@ -113,32 +133,12 @@ class HtmlToSpannedConverter {
         private Italic() {}
     }
 
-    private static class Monospace {
-        private Monospace() {}
+    private static class Heading {
+        private int mLevel;
+        public Heading(int p0) {}
     }
 
-    private static class Newline {
-        private int mNumNewlines;
-        public Newline(int p0) {}
-    }
-
-    private static class Small {
-        private Small() {}
-    }
-
-    private static class Strikethrough {
-        private Strikethrough() {}
-    }
-
-    private static class Sub {
-        private Sub() {}
-    }
-
-    private static class Super {
-        private Super() {}
-    }
-
-    private static class Underline {
-        private Underline() {}
+    private static class Big {
+        private Big() {}
     }
 }

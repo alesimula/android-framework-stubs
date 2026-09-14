@@ -30,14 +30,14 @@ public interface SurfaceHolder {
         public BadSurfaceTypeException(java.lang.String p0) { super(); }
     }
 
+    public static interface Callback2 extends android.view.SurfaceHolder.Callback {
+        public void surfaceRedrawNeeded(android.view.SurfaceHolder p0);
+        default public void surfaceRedrawNeededAsync(android.view.SurfaceHolder p0, java.lang.Runnable p1) {}
+    }
+
     public static interface Callback {
         public void surfaceChanged(android.view.SurfaceHolder p0, int p1, int p2, int p3);
         public void surfaceCreated(android.view.SurfaceHolder p0);
         public void surfaceDestroyed(android.view.SurfaceHolder p0);
-    }
-
-    public static interface Callback2 extends android.view.SurfaceHolder.Callback {
-        public void surfaceRedrawNeeded(android.view.SurfaceHolder p0);
-        default public void surfaceRedrawNeededAsync(android.view.SurfaceHolder p0, java.lang.Runnable p1) {}
     }
 }

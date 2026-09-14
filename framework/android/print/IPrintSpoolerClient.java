@@ -6,15 +6,6 @@ public interface IPrintSpoolerClient extends android.os.IInterface {
     public void onPrintJobQueued(android.print.PrintJobInfo p0) throws android.os.RemoteException;
     public void onPrintJobStateChanged(android.print.PrintJobInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.print.IPrintSpoolerClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAllPrintJobsForServiceHandled(android.content.ComponentName p0) throws android.os.RemoteException {}
-        public void onAllPrintJobsHandled() throws android.os.RemoteException {}
-        public void onPrintJobQueued(android.print.PrintJobInfo p0) throws android.os.RemoteException {}
-        public void onPrintJobStateChanged(android.print.PrintJobInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.print.IPrintSpoolerClient {
         public static final java.lang.String DESCRIPTOR = "android.print.IPrintSpoolerClient";
         static final int TRANSACTION_onAllPrintJobsForServiceHandled = 2;
@@ -38,5 +29,14 @@ public interface IPrintSpoolerClient extends android.os.IInterface {
             public void onPrintJobQueued(android.print.PrintJobInfo p0) throws android.os.RemoteException {}
             public void onPrintJobStateChanged(android.print.PrintJobInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.print.IPrintSpoolerClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAllPrintJobsForServiceHandled(android.content.ComponentName p0) throws android.os.RemoteException {}
+        public void onAllPrintJobsHandled() throws android.os.RemoteException {}
+        public void onPrintJobQueued(android.print.PrintJobInfo p0) throws android.os.RemoteException {}
+        public void onPrintJobStateChanged(android.print.PrintJobInfo p0) throws android.os.RemoteException {}
     }
 }

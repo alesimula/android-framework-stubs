@@ -50,17 +50,6 @@ public class IntentForwarderActivity extends android.app.Activity {
     protected void onCreate(android.os.Bundle p0) {}
     protected void onDestroy() {}
 
-    public static interface Injector {
-        public java.util.concurrent.ExecutorService getExecutorService();
-        public android.content.pm.IPackageManager getIPackageManager();
-        public android.content.pm.PackageManager getPackageManager();
-        public android.os.UserManager getUserManager();
-        public boolean isDeviceProvisioned();
-        public java.util.concurrent.CompletableFuture<android.content.pm.ResolveInfo> resolveActivityAsUser(android.content.Intent p0, int p1, int p2);
-        public java.util.concurrent.CompletableFuture<android.content.pm.ResolveInfo> resolveActivityAsUser(android.content.Intent p0, java.lang.String p1, int p2, int p3);
-        public void showToast(java.lang.String p0, int p1);
-    }
-
     private class InjectorImpl implements com.android.internal.app.IntentForwarderActivity.Injector {
         private InjectorImpl(com.android.internal.app.IntentForwarderActivity p0) {}
         public java.util.concurrent.ExecutorService getExecutorService() { return null; }
@@ -71,5 +60,16 @@ public class IntentForwarderActivity extends android.app.Activity {
         public java.util.concurrent.CompletableFuture<android.content.pm.ResolveInfo> resolveActivityAsUser(android.content.Intent p0, int p1, int p2) { return null; }
         public java.util.concurrent.CompletableFuture<android.content.pm.ResolveInfo> resolveActivityAsUser(android.content.Intent p0, java.lang.String p1, int p2, int p3) { return null; }
         public void showToast(java.lang.String p0, int p1) {}
+    }
+
+    public static interface Injector {
+        public java.util.concurrent.ExecutorService getExecutorService();
+        public android.content.pm.IPackageManager getIPackageManager();
+        public android.content.pm.PackageManager getPackageManager();
+        public android.os.UserManager getUserManager();
+        public boolean isDeviceProvisioned();
+        public java.util.concurrent.CompletableFuture<android.content.pm.ResolveInfo> resolveActivityAsUser(android.content.Intent p0, int p1, int p2);
+        public java.util.concurrent.CompletableFuture<android.content.pm.ResolveInfo> resolveActivityAsUser(android.content.Intent p0, java.lang.String p1, int p2, int p3);
+        public void showToast(java.lang.String p0, int p1);
     }
 }

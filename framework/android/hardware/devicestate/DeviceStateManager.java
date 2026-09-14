@@ -18,11 +18,6 @@ public final class DeviceStateManager {
     public void requestState(android.hardware.devicestate.DeviceStateRequest p0, java.util.concurrent.Executor p1, android.hardware.devicestate.DeviceStateRequest.Callback p2) {}
     public void unregisterCallback(android.hardware.devicestate.DeviceStateManager.DeviceStateCallback p0) {}
 
-    public static interface DeviceStateCallback {
-        public void onDeviceStateChanged(android.hardware.devicestate.DeviceState p0);
-        default public void onSupportedStatesChanged(java.util.List<android.hardware.devicestate.DeviceState> p0) {}
-    }
-
     public static class FoldStateListener implements android.hardware.devicestate.DeviceStateManager.DeviceStateCallback {
         private java.lang.Boolean lastResult;
         private final java.util.function.Consumer<java.lang.Boolean> mDelegate = null;
@@ -31,5 +26,10 @@ public final class DeviceStateManager {
         public FoldStateListener(android.content.Context p0, java.util.function.Consumer<java.lang.Boolean> p1) {}
         public java.lang.Boolean getFolded() { return null; }
         public final void onDeviceStateChanged(android.hardware.devicestate.DeviceState p0) {}
+    }
+
+    public static interface DeviceStateCallback {
+        public void onDeviceStateChanged(android.hardware.devicestate.DeviceState p0);
+        default public void onSupportedStatesChanged(java.util.List<android.hardware.devicestate.DeviceState> p0) {}
     }
 }

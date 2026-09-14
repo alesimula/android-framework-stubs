@@ -107,15 +107,6 @@ public interface WebViewProvider {
     public boolean zoomIn();
     public boolean zoomOut();
 
-    public static interface ScrollDelegate {
-        public int computeHorizontalScrollOffset();
-        public int computeHorizontalScrollRange();
-        public void computeScroll();
-        public int computeVerticalScrollExtent();
-        public int computeVerticalScrollOffset();
-        public int computeVerticalScrollRange();
-    }
-
     public static interface ViewDelegate {
         default public void autofill(android.util.SparseArray<android.view.autofill.AutofillValue> p0) {}
         default public void dispatchCreateViewTranslationRequest(java.util.Map<android.view.autofill.AutofillId, long[]> p0, int[] p1, android.view.translation.TranslationCapability p2, java.util.List<android.view.translation.ViewTranslationRequest> p3) {}
@@ -172,5 +163,14 @@ public interface WebViewProvider {
         public void setOverScrollMode(int p0);
         public void setScrollBarStyle(int p0);
         public boolean shouldDelayChildPressedState();
+    }
+
+    public static interface ScrollDelegate {
+        public int computeHorizontalScrollOffset();
+        public int computeHorizontalScrollRange();
+        public void computeScroll();
+        public int computeVerticalScrollExtent();
+        public int computeVerticalScrollOffset();
+        public int computeVerticalScrollRange();
     }
 }

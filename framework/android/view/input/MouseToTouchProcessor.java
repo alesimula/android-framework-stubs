@@ -4,7 +4,7 @@ public class MouseToTouchProcessor extends android.view.InputEventCompatProcesso
     private static final int STATE_AWAITING = 0;
     private static final int STATE_CONVERTING = 1;
     private static final int STATE_NON_PRIMARY_CLICK = 2;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MouseToTouchProcessor";
     private final android.util.SparseArray<android.view.InputEvent> mModifiedEventMap = null;
     private int mState;
     public MouseToTouchProcessor(android.content.Context p0, android.os.Handler p1) { super((android.content.Context)null); }

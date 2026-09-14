@@ -53,6 +53,7 @@ public class ApplicationPackageManager extends android.content.pm.PackageManager
     private java.lang.String getUpdatableUserIconBadgeId(android.os.UserHandle p0) { return null; }
     private int getUserBadgeColor(android.os.UserHandle p0, boolean p1) { return 0; }
     static void handlePackageBroadcast(int p0, java.lang.String[] p1, boolean p2) {}
+    private boolean hasSystemFeatureInternal(java.lang.String p0, int p1) { return false; }
     private boolean hasUserBadge(int p0) { return false; }
     private int installExistingPackageAsUser(java.lang.String p0, int p1, int p2) throws android.content.pm.PackageManager.NameNotFoundException { return 0; }
     public static void invalidateGetPackagesForUidCache() {}
@@ -65,6 +66,7 @@ public class ApplicationPackageManager extends android.content.pm.PackageManager
     private void onImplicitDirectBoot(int p0) {}
     private void putCachedIcon(android.app.ApplicationPackageManager.ResourceName p0, android.graphics.drawable.Drawable p1) {}
     private void putCachedString(android.app.ApplicationPackageManager.ResourceName p0, java.lang.CharSequence p1) {}
+    private boolean shouldOverrideCameraFeatures() { return false; }
     private long updateFlagsForApplication(long p0, int p1) { return 0L; }
     private long updateFlagsForComponent(long p0, int p1, android.content.Intent p2) { return 0L; }
     private long updateFlagsForPackage(long p0, int p1) { return 0L; }
@@ -142,6 +144,7 @@ public class ApplicationPackageManager extends android.content.pm.PackageManager
     public java.lang.String getDefaultTextClassifierPackageName() { return null; }
     android.app.admin.DevicePolicyManager getDevicePolicyManager() { return null; }
     public android.graphics.drawable.Drawable getDrawable(java.lang.String p0, int p1, android.content.pm.ApplicationInfo p2) { return null; }
+    public android.graphics.drawable.Drawable getDrawableInternal(java.lang.String p0, int p1, android.content.pm.ApplicationInfo p2, boolean p3) { return null; }
     public android.app.PendingIntent getEnableAppLockIntentForPackage(java.lang.String p0, boolean p1) { return null; }
     public void getGroupOfPlatformPermission(java.lang.String p0, java.util.concurrent.Executor p1, java.util.function.Consumer<java.lang.String> p2) {}
     public java.lang.CharSequence getHarmfulAppWarning(java.lang.String p0) { return null; }
@@ -175,6 +178,7 @@ public class ApplicationPackageManager extends android.content.pm.PackageManager
     public android.content.Intent getLaunchIntentForPackage(java.lang.String p0, boolean p1) { return null; }
     public android.content.IntentSender getLaunchIntentSenderForPackage(java.lang.String p0) { return null; }
     public android.content.Intent getLeanbackLaunchIntentForPackage(java.lang.String p0) { return null; }
+    public java.util.List<android.content.pm.MemoryBudgetInfo> getMemoryBudgets(android.content.pm.ApplicationInfo p0) { return null; }
     public java.util.Set<java.lang.String> getMimeGroup(java.lang.String p0) { return null; }
     public android.content.pm.ModuleInfo getModuleInfo(java.lang.String p0, int p1) throws android.content.pm.PackageManager.NameNotFoundException { return null; }
     public int getMoveStatus(int p0) { return 0; }
@@ -285,6 +289,7 @@ public class ApplicationPackageManager extends android.content.pm.PackageManager
     public boolean isPackageSuspendedForUser(java.lang.String p0, int p1) { return false; }
     public boolean isPageSizeCompatEnabled(java.lang.String p0) { return false; }
     public boolean isPermissionRevokedByPolicy(java.lang.String p0, java.lang.String p1) { return false; }
+    public boolean isQualifiedRegisteredAppStore(java.lang.String p0) { return false; }
     public boolean isSafeMode() { return false; }
     public boolean isSignedBy(java.lang.String p0, android.content.pm.KeySet p1) { return false; }
     public boolean isSignedByExactly(java.lang.String p0, android.content.pm.KeySet p1) { return false; }

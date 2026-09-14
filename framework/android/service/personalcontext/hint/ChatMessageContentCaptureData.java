@@ -1,13 +1,14 @@
 package android.service.personalcontext.hint;
 
 @android.annotation.SystemApi
+@java.lang.Deprecated
 public final class ChatMessageContentCaptureData implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.service.personalcontext.hint.ChatMessageContentCaptureData> CREATOR = null;
     private final android.view.autofill.AutofillId mAutofillId = null;
     private final java.lang.String mRawDateString = null;
     private final java.lang.String mRawTimeString = null;
     private ChatMessageContentCaptureData(android.os.Parcel p0) {}
-    private ChatMessageContentCaptureData(java.lang.String p0, java.lang.String p1, android.view.autofill.AutofillId p2) {}
+    public ChatMessageContentCaptureData(java.lang.String p0, java.lang.String p1, android.view.autofill.AutofillId p2) {}
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
     public android.view.autofill.AutofillId getAutofillId() { return null; }

@@ -27,14 +27,14 @@ public class JKSKeyStoreSpi extends java.security.KeyStoreSpi {
     public int engineSize() { return 0; }
     public void engineStore(java.io.OutputStream p0, char[] p1) throws java.io.IOException, java.security.NoSuchAlgorithmException, java.security.cert.CertificateException {}
 
+    private static final class ErasableByteStream extends java.io.ByteArrayInputStream {
+        public ErasableByteStream(byte[] p0, int p1, int p2) { super((byte[])null); }
+        public void erase() {}
+    }
+
     private static final class BCJKSTrustedCertEntry {
         final java.security.cert.Certificate cert = null;
         final java.util.Date date = null;
         public BCJKSTrustedCertEntry(java.util.Date p0, java.security.cert.Certificate p1) {}
-    }
-
-    private static final class ErasableByteStream extends java.io.ByteArrayInputStream {
-        public ErasableByteStream(byte[] p0, int p1, int p2) { super((byte[])null); }
-        public void erase() {}
     }
 }

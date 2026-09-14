@@ -25,14 +25,6 @@ public final class TranslationResponse implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static abstract class BaseBuilder {
-        BaseBuilder() {}
-        public android.view.translation.TranslationResponse.Builder setTranslationResponseValue(int p0, android.view.translation.TranslationResponseValue p1) { return null; }
-        @java.lang.Deprecated
-        public abstract android.view.translation.TranslationResponse.Builder setTranslationStatus(int p0);
-        public android.view.translation.TranslationResponse.Builder setViewTranslationResponse(int p0, android.view.translation.ViewTranslationResponse p1) { return null; }
-    }
-
     public static final class Builder extends android.view.translation.TranslationResponse.BaseBuilder {
         private long mBuilderFieldsSet;
         private boolean mFinalResponse;
@@ -51,5 +43,13 @@ public final class TranslationResponse implements android.os.Parcelable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface TranslationStatus {
+    }
+
+    static abstract class BaseBuilder {
+        BaseBuilder() {}
+        public android.view.translation.TranslationResponse.Builder setTranslationResponseValue(int p0, android.view.translation.TranslationResponseValue p1) { return null; }
+        @java.lang.Deprecated
+        public abstract android.view.translation.TranslationResponse.Builder setTranslationStatus(int p0);
+        public android.view.translation.TranslationResponse.Builder setViewTranslationResponse(int p0, android.view.translation.ViewTranslationResponse p1) { return null; }
     }
 }

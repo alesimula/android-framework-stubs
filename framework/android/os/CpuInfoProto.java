@@ -8,6 +8,15 @@ public final class CpuInfoProto {
     public static final long TASK_STATS = 1146756268033L;
     public CpuInfoProto() {}
 
+    public final class TaskStats {
+        public static final long RUNNING = 1120986464258L;
+        public static final long SLEEPING = 1120986464259L;
+        public static final long STOPPED = 1120986464260L;
+        public static final long TOTAL = 1120986464257L;
+        public static final long ZOMBIE = 1120986464261L;
+        public TaskStats(android.os.CpuInfoProto p0) {}
+    }
+
     public final class CpuUsage {
         public static final long CPU = 1120986464257L;
         public static final long HOST = 1120986464265L;
@@ -19,15 +28,6 @@ public final class CpuInfoProto {
         public static final long SYS = 1120986464260L;
         public static final long USER = 1120986464258L;
         public CpuUsage(android.os.CpuInfoProto p0) {}
-    }
-
-    public final class MemStats {
-        public static final long BUFFERS = 1120986464260L;
-        public static final long CACHED = 1120986464261L;
-        public static final long FREE = 1120986464259L;
-        public static final long TOTAL = 1120986464257L;
-        public static final long USED = 1120986464258L;
-        public MemStats(android.os.CpuInfoProto p0) {}
     }
 
     public final class Task {
@@ -56,12 +56,12 @@ public final class CpuInfoProto {
         public Task(android.os.CpuInfoProto p0) {}
     }
 
-    public final class TaskStats {
-        public static final long RUNNING = 1120986464258L;
-        public static final long SLEEPING = 1120986464259L;
-        public static final long STOPPED = 1120986464260L;
+    public final class MemStats {
+        public static final long BUFFERS = 1120986464260L;
+        public static final long CACHED = 1120986464261L;
+        public static final long FREE = 1120986464259L;
         public static final long TOTAL = 1120986464257L;
-        public static final long ZOMBIE = 1120986464261L;
-        public TaskStats(android.os.CpuInfoProto p0) {}
+        public static final long USED = 1120986464258L;
+        public MemStats(android.os.CpuInfoProto p0) {}
     }
 }

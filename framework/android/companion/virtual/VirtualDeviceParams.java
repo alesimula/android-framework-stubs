@@ -29,6 +29,7 @@ public final class VirtualDeviceParams implements android.os.Parcelable {
     private final android.util.ArraySet<android.os.UserHandle> mAllowedUsers = null;
     private final int mAudioPlaybackSessionId = 0;
     private final int mAudioRecordingSessionId = 0;
+    private final android.content.AttributionSource mClientAttributionSource = null;
     private final android.util.ArraySet<android.content.ComponentName> mCrossTaskNavigationExemptions = null;
     private final int mDefaultActivityPolicy = 0;
     private final int mDefaultNavigationPolicy = 0;
@@ -44,7 +45,7 @@ public final class VirtualDeviceParams implements android.os.Parcelable {
     private final android.companion.virtual.ViewConfigurationParams mViewConfigurationParams = null;
     private final android.companion.virtual.sensor.IVirtualSensorCallback mVirtualSensorCallback = null;
     private final java.util.List<android.companion.virtual.sensor.VirtualSensorConfig> mVirtualSensorConfigs = null;
-    private VirtualDeviceParams(int p0, java.util.Set<android.os.UserHandle> p1, java.util.Set<android.os.UserHandle> p2, int p3, java.util.Set<android.content.ComponentName> p4, int p5, java.util.Set<android.content.ComponentName> p6, java.lang.String p7, android.util.SparseIntArray p8, android.content.ComponentName p9, android.content.ComponentName p10, java.util.List<android.companion.virtual.sensor.VirtualSensorConfig> p11, android.companion.virtual.sensor.IVirtualSensorCallback p12, int p13, int p14, long p15, long p16, boolean p17, android.companion.virtual.ViewConfigurationParams p18) {}
+    private VirtualDeviceParams(int p0, java.util.Set<android.os.UserHandle> p1, java.util.Set<android.os.UserHandle> p2, int p3, java.util.Set<android.content.ComponentName> p4, int p5, java.util.Set<android.content.ComponentName> p6, java.lang.String p7, android.util.SparseIntArray p8, android.content.ComponentName p9, android.content.ComponentName p10, java.util.List<android.companion.virtual.sensor.VirtualSensorConfig> p11, android.companion.virtual.sensor.IVirtualSensorCallback p12, int p13, int p14, long p15, long p16, boolean p17, android.companion.virtual.ViewConfigurationParams p18, android.content.AttributionSource p19) {}
     private VirtualDeviceParams(android.os.Parcel p0) {}
     public int describeContents() { return 0; }
     public void dump(java.io.PrintWriter p0, java.lang.String p1) {}
@@ -60,6 +61,7 @@ public final class VirtualDeviceParams implements android.os.Parcelable {
     public java.util.Set<android.content.ComponentName> getBlockedActivities() { return null; }
     @java.lang.Deprecated
     public java.util.Set<android.content.ComponentName> getBlockedCrossTaskNavigations() { return null; }
+    public android.content.AttributionSource getClientAttributionSource() { return null; }
     @java.lang.Deprecated
     public int getDefaultActivityPolicy() { return 0; }
     @java.lang.Deprecated
@@ -92,6 +94,7 @@ public final class VirtualDeviceParams implements android.os.Parcelable {
         private java.util.Set<android.os.UserHandle> mAllowedUsers;
         private int mAudioPlaybackSessionId;
         private int mAudioRecordingSessionId;
+        private android.content.AttributionSource mClientAttributionSource;
         private java.util.Set<android.content.ComponentName> mCrossTaskNavigationExemptions;
         private int mDefaultActivityPolicy;
         private boolean mDefaultActivityPolicyConfigured;
@@ -126,6 +129,7 @@ public final class VirtualDeviceParams implements android.os.Parcelable {
         public android.companion.virtual.VirtualDeviceParams.Builder setBlockedActivities(java.util.Set<android.content.ComponentName> p0) { return null; }
         @java.lang.Deprecated
         public android.companion.virtual.VirtualDeviceParams.Builder setBlockedCrossTaskNavigations(java.util.Set<android.content.ComponentName> p0) { return null; }
+        public android.companion.virtual.VirtualDeviceParams.Builder setClientAttributionSource(android.content.AttributionSource p0) { return null; }
         public android.companion.virtual.VirtualDeviceParams.Builder setDevicePolicy(int p0, int p1) { return null; }
         public android.companion.virtual.VirtualDeviceParams.Builder setDimDuration(java.time.Duration p0) { return null; }
         public android.companion.virtual.VirtualDeviceParams.Builder setHomeComponent(android.content.ComponentName p0) { return null; }

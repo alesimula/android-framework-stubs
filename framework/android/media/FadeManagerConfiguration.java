@@ -62,6 +62,10 @@ public final class FadeManagerConfiguration implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FadeStateEnum {
+    }
+
     public static final class Builder {
         private static final long DEFAULT_DELAY_FADE_IN_OFFENDERS_MS = 2000L;
         private static final android.util.IntArray DEFAULT_FADEABLE_USAGES = null;
@@ -128,10 +132,6 @@ public final class FadeManagerConfiguration implements android.os.Parcelable {
         public android.media.FadeManagerConfiguration.Builder setUnfadeableAudioAttributes(java.util.List<android.media.AudioAttributes> p0) { return null; }
         public android.media.FadeManagerConfiguration.Builder setUnfadeableContentTypes(java.util.List<java.lang.Integer> p0) { return null; }
         public android.media.FadeManagerConfiguration.Builder setUnfadeableUids(java.util.List<java.lang.Integer> p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FadeStateEnum {
     }
 
     private static final class FadeVolumeShaperConfigsWrapper implements android.os.Parcelable {

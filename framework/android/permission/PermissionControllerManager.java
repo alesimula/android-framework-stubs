@@ -16,7 +16,7 @@ public final class PermissionControllerManager {
     public static final int REASON_INSTALLER_POLICY_VIOLATION = 2;
     public static final int REASON_MALWARE = 1;
     private static final long REQUEST_TIMEOUT_MILLIS = Long.valueOf(0L);
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "PermissionControllerManager";
     private static final long UNBIND_TIMEOUT_MILLIS = Long.valueOf(0L);
     private static final java.lang.Object sLock = null;
     private static android.util.ArrayMap<android.util.Pair<java.lang.Integer, java.lang.Thread>, com.android.internal.infra.ServiceConnector<android.permission.IPermissionController>> sRemoteServices;
@@ -55,12 +55,8 @@ public final class PermissionControllerManager {
     public static @interface HibernationEligibilityFlag {
     }
 
-    public static interface OnCountPermissionAppsResultCallback {
-        public void onCountPermissionApps(int p0);
-    }
-
-    public static interface OnGetAppPermissionResultCallback {
-        public void onGetAppPermissions(java.util.List<android.permission.RuntimePermissionPresentationInfo> p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Reason {
     }
 
     public static interface OnPermissionUsageResultCallback {
@@ -72,7 +68,11 @@ public final class PermissionControllerManager {
         public abstract void onRevokeRuntimePermissions(java.util.Map<java.lang.String, java.util.List<java.lang.String>> p0);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Reason {
+    public static interface OnGetAppPermissionResultCallback {
+        public void onGetAppPermissions(java.util.List<android.permission.RuntimePermissionPresentationInfo> p0);
+    }
+
+    public static interface OnCountPermissionAppsResultCallback {
+        public void onCountPermissionApps(int p0);
     }
 }

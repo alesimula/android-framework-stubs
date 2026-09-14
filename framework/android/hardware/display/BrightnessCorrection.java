@@ -18,13 +18,6 @@ public final class BrightnessCorrection implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    private static interface BrightnessCorrectionImplementation {
-        public float apply(float p0);
-        public void saveToXml(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException;
-        public java.lang.String toString();
-        public void writeToParcel(android.os.Parcel p0);
-    }
-
     private static class ScaleAndTranslateLog implements android.hardware.display.BrightnessCorrection.BrightnessCorrectionImplementation {
         private static final java.lang.String ATTR_SCALE = "scale";
         private static final java.lang.String ATTR_TRANSLATE = "translate";
@@ -43,5 +36,12 @@ public final class BrightnessCorrection implements android.os.Parcelable {
         public void saveToXml(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException {}
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0) {}
+    }
+
+    private static interface BrightnessCorrectionImplementation {
+        public float apply(float p0);
+        public void saveToXml(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException;
+        public java.lang.String toString();
+        public void writeToParcel(android.os.Parcel p0);
     }
 }

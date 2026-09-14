@@ -20,6 +20,26 @@ public final class JobSchedulerServiceDumpProto {
     public static final long STARTED_USERS = 2220498092034L;
     public JobSchedulerServiceDumpProto() {}
 
+    public final class PendingJob {
+        public static final long DUMP = 1146756268034L;
+        public static final long EVALUATED_PRIORITY = 1172526071811L;
+        public static final long INFO = 1146756268033L;
+        public static final long PENDING_DURATION_MS = 1112396529668L;
+        public PendingJob(com.android.server.job.JobSchedulerServiceDumpProto p0) {}
+    }
+
+    public final class PriorityOverride {
+        public static final long OVERRIDE_VALUE = 1172526071810L;
+        public static final long UID = 1120986464257L;
+        public PriorityOverride(com.android.server.job.JobSchedulerServiceDumpProto p0) {}
+    }
+
+    public final class JobRestriction {
+        public static final long IS_RESTRICTING = 1133871366146L;
+        public static final long REASON = 1159641169921L;
+        public JobRestriction(com.android.server.job.JobSchedulerServiceDumpProto p0) {}
+    }
+
     public final class ActiveJob {
         public static final long INACTIVE = 1146756268033L;
         public static final long RUNNING = 1146756268034L;
@@ -41,26 +61,6 @@ public final class JobSchedulerServiceDumpProto {
             public static final long TIME_UNTIL_TIMEOUT_MS = 1112396529667L;
             public RunningJob(com.android.server.job.JobSchedulerServiceDumpProto.ActiveJob p0) {}
         }
-    }
-
-    public final class JobRestriction {
-        public static final long IS_RESTRICTING = 1133871366146L;
-        public static final long REASON = 1159641169921L;
-        public JobRestriction(com.android.server.job.JobSchedulerServiceDumpProto p0) {}
-    }
-
-    public final class PendingJob {
-        public static final long DUMP = 1146756268034L;
-        public static final long EVALUATED_PRIORITY = 1172526071811L;
-        public static final long INFO = 1146756268033L;
-        public static final long PENDING_DURATION_MS = 1112396529668L;
-        public PendingJob(com.android.server.job.JobSchedulerServiceDumpProto p0) {}
-    }
-
-    public final class PriorityOverride {
-        public static final long OVERRIDE_VALUE = 1172526071810L;
-        public static final long UID = 1120986464257L;
-        public PriorityOverride(com.android.server.job.JobSchedulerServiceDumpProto p0) {}
     }
 
     public final class RegisteredJob {

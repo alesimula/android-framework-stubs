@@ -6,6 +6,7 @@ public final class ChildContentCaptureSession extends android.view.contentcaptur
     protected void flush(int p0) {}
     public int getContentCaptureVersion() { return 0; }
     protected android.view.contentcapture.ContentCaptureSession getMainCaptureSession() { return null; }
+    public void internalAddOnNodesCommitListener(java.lang.Runnable p0) {}
     protected void internalNotifyChildSessionFinished(int p0, int p1) {}
     protected void internalNotifyChildSessionStarted(int p0, int p1, android.view.contentcapture.ContentCaptureContext p2) {}
     protected void internalNotifyContentInteractionEvent(int p0, android.view.autofill.AutofillId p1) {}
@@ -18,11 +19,15 @@ public final class ChildContentCaptureSession extends android.view.contentcaptur
     protected void internalNotifyViewInsetsChanged(int p0, android.graphics.Insets p1) {}
     protected void internalNotifyViewTextChanged(int p0, android.view.autofill.AutofillId p1, java.lang.CharSequence p2) {}
     protected void internalNotifyViewTreeEvent(int p0, boolean p1) {}
+    public void internalRemoveOnNodesCommitListener(java.lang.Runnable p0) {}
+    public void internalScheduleNodesCommit() {}
     protected boolean isContentCaptureEnabled() { return false; }
     protected boolean isDisabled() { return false; }
     protected android.view.contentcapture.ContentCaptureSession newChild(android.view.contentcapture.ContentCaptureContext p0) { return null; }
     public void notifyContentCaptureEvents(android.util.SparseArray<java.util.ArrayList<java.lang.Object>> p0) {}
     public void notifyContentCaptureInteractionEvents(android.util.SparseArray<java.util.ArrayList<java.lang.Object>> p0) {}
+    public void notifyNodeAppearedOrChanged(android.view.autofill.AutofillId p0, android.view.contentcapture.ContentCaptureNodeProperties p1) {}
+    public void notifyNodeDisappeared(android.view.autofill.AutofillId p0) {}
     public void notifyWindowBoundsChanged(int p0, android.graphics.Rect p1) {}
     protected void onDestroy() {}
     protected boolean setDisabled(boolean p0) { return false; }

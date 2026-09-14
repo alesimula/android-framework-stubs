@@ -2,7 +2,7 @@ package com.android.internal.app;
 
 public class HarmfulAppWarningActivity extends com.android.internal.app.AlertActivity implements android.content.DialogInterface.OnClickListener {
     private static final java.lang.String EXTRA_HARMFUL_APP_WARNING = "harmful_app_warning";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "HarmfulAppWarningActivity";
     private java.lang.String mHarmfulAppWarning;
     private java.lang.String mPackageName;
     private android.content.IntentSender mTarget;

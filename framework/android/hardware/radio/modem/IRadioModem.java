@@ -31,37 +31,6 @@ public interface IRadioModem extends android.os.IInterface {
     public void setRadioPower(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException;
     public void setResponseFunctions(android.hardware.radio.modem.IRadioModemResponse p0, android.hardware.radio.modem.IRadioModemIndication p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.modem.IRadioModem {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void enableModem(int p0, boolean p1) throws android.os.RemoteException {}
-        public void getBasebandVersion(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getDeviceIdentity(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getHardwareConfig(int p0) throws android.os.RemoteException {}
-        public void getImei(int p0) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getModemActivityInfo(int p0) throws android.os.RemoteException {}
-        public void getModemStackStatus(int p0) throws android.os.RemoteException {}
-        public void getRadioCapability(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void nvReadItem(int p0, int p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void nvResetConfig(int p0, int p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void nvWriteCdmaPrl(int p0, byte[] p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void nvWriteItem(int p0, android.hardware.radio.modem.NvWriteItem p1) throws android.os.RemoteException {}
-        public void requestShutdown(int p0) throws android.os.RemoteException {}
-        public void responseAcknowledgement() throws android.os.RemoteException {}
-        public void sendDeviceState(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void setRadioCapability(int p0, android.hardware.radio.modem.RadioCapability p1) throws android.os.RemoteException {}
-        public void setRadioPower(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.modem.IRadioModemResponse p0, android.hardware.radio.modem.IRadioModemIndication p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.modem.IRadioModem {
         static final int TRANSACTION_enableModem = 1;
         static final int TRANSACTION_getBasebandVersion = 2;
@@ -122,5 +91,36 @@ public interface IRadioModem extends android.os.IInterface {
             public void setRadioPower(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException {}
             public void setResponseFunctions(android.hardware.radio.modem.IRadioModemResponse p0, android.hardware.radio.modem.IRadioModemIndication p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.modem.IRadioModem {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void enableModem(int p0, boolean p1) throws android.os.RemoteException {}
+        public void getBasebandVersion(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getDeviceIdentity(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getHardwareConfig(int p0) throws android.os.RemoteException {}
+        public void getImei(int p0) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getModemActivityInfo(int p0) throws android.os.RemoteException {}
+        public void getModemStackStatus(int p0) throws android.os.RemoteException {}
+        public void getRadioCapability(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void nvReadItem(int p0, int p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void nvResetConfig(int p0, int p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void nvWriteCdmaPrl(int p0, byte[] p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void nvWriteItem(int p0, android.hardware.radio.modem.NvWriteItem p1) throws android.os.RemoteException {}
+        public void requestShutdown(int p0) throws android.os.RemoteException {}
+        public void responseAcknowledgement() throws android.os.RemoteException {}
+        public void sendDeviceState(int p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void setRadioCapability(int p0, android.hardware.radio.modem.RadioCapability p1) throws android.os.RemoteException {}
+        public void setRadioPower(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.modem.IRadioModemResponse p0, android.hardware.radio.modem.IRadioModemIndication p1) throws android.os.RemoteException {}
     }
 }

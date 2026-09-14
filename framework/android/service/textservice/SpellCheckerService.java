@@ -3,27 +3,11 @@ package android.service.textservice;
 public abstract class SpellCheckerService extends android.app.Service {
     private static final boolean DBG = false;
     public static final java.lang.String SERVICE_INTERFACE = "android.service.textservice.SpellCheckerService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SpellCheckerService";
     private final android.service.textservice.SpellCheckerService.SpellCheckerServiceBinder mBinder = null;
     public SpellCheckerService() { super(); }
     public abstract android.service.textservice.SpellCheckerService.Session createSession();
     public final android.os.IBinder onBind(android.content.Intent p0) { return null; }
-
-    private static class InternalISpellCheckerSession extends com.android.internal.textservice.ISpellCheckerSession.Stub {
-        private final android.os.Bundle mBundle = null;
-        private com.android.internal.textservice.ISpellCheckerSessionListener mListener;
-        private final java.lang.String mLocale = null;
-        private final android.service.textservice.SpellCheckerService.Session mSession = null;
-        private final int mSupportedAttributes = 0;
-        public InternalISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, android.service.textservice.SpellCheckerService.Session p3, int p4) { super(); }
-        public android.os.Bundle getBundle() { return null; }
-        public java.lang.String getLocale() { return null; }
-        public int getSupportedAttributes() { return 0; }
-        public void onCancel() {}
-        public void onClose() {}
-        public void onGetSentenceSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1) {}
-        public void onGetSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1, boolean p2) {}
-    }
 
     private static class SentenceLevelAdapter {
         public static final android.view.textservice.SentenceSuggestionsInfo[] EMPTY_SENTENCE_SUGGESTIONS_INFOS = null;
@@ -68,5 +52,21 @@ public abstract class SpellCheckerService extends android.app.Service {
         private final java.lang.ref.WeakReference<android.service.textservice.SpellCheckerService> mInternalServiceRef = null;
         public SpellCheckerServiceBinder(android.service.textservice.SpellCheckerService p0) { super(); }
         public void getISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, int p3, com.android.internal.textservice.ISpellCheckerServiceCallback p4) {}
+    }
+
+    private static class InternalISpellCheckerSession extends com.android.internal.textservice.ISpellCheckerSession.Stub {
+        private final android.os.Bundle mBundle = null;
+        private com.android.internal.textservice.ISpellCheckerSessionListener mListener;
+        private final java.lang.String mLocale = null;
+        private final android.service.textservice.SpellCheckerService.Session mSession = null;
+        private final int mSupportedAttributes = 0;
+        public InternalISpellCheckerSession(java.lang.String p0, com.android.internal.textservice.ISpellCheckerSessionListener p1, android.os.Bundle p2, android.service.textservice.SpellCheckerService.Session p3, int p4) { super(); }
+        public android.os.Bundle getBundle() { return null; }
+        public java.lang.String getLocale() { return null; }
+        public int getSupportedAttributes() { return 0; }
+        public void onCancel() {}
+        public void onClose() {}
+        public void onGetSentenceSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1) {}
+        public void onGetSuggestionsMultiple(android.view.textservice.TextInfo[] p0, int p1, boolean p2) {}
     }
 }

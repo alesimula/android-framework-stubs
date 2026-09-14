@@ -24,23 +24,19 @@ public abstract class SvcParam<T extends java.lang.Object> {
         public java.lang.String toString() { return null; }
     }
 
-    static class SvcParamDohPath extends com.android.net.module.util.SvcParam<java.lang.String> {
-        private final java.lang.String mValue = null;
-        SvcParamDohPath(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
-        java.lang.String getValue() { return null; }
+    static class SvcParamIpv6Hint extends com.android.net.module.util.SvcParam.SvcParamIpHint {
+        SvcParamIpv6Hint(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0, null, 0); }
+    }
+
+    static class SvcParamNoDefaultAlpn extends com.android.net.module.util.SvcParam<java.lang.Void> {
+        SvcParamNoDefaultAlpn(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
+        java.lang.Void getValue() { return null; }
         public java.lang.String toString() { return null; }
     }
 
     static class SvcParamEch extends com.android.net.module.util.SvcParam.SvcParamGeneric {
         SvcParamEch(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0, null); }
         byte[] getValue() { return null; }
-    }
-
-    static class SvcParamGeneric extends com.android.net.module.util.SvcParam<byte[]> {
-        final byte[] mValue = null;
-        SvcParamGeneric(int p0, java.nio.ByteBuffer p1) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
-        byte[] getValue() { return null; }
-        public java.lang.String toString() { return null; }
     }
 
     static class SvcParamIpHint extends com.android.net.module.util.SvcParam<java.util.List<java.net.InetAddress>> {
@@ -50,12 +46,22 @@ public abstract class SvcParam<T extends java.lang.Object> {
         public java.lang.String toString() { return null; }
     }
 
+    static class SvcParamPort extends com.android.net.module.util.SvcParam<java.lang.Integer> {
+        private final int mValue = 0;
+        SvcParamPort(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
+        java.lang.Integer getValue() { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
     static class SvcParamIpv4Hint extends com.android.net.module.util.SvcParam.SvcParamIpHint {
         SvcParamIpv4Hint(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0, null, 0); }
     }
 
-    static class SvcParamIpv6Hint extends com.android.net.module.util.SvcParam.SvcParamIpHint {
-        SvcParamIpv6Hint(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0, null, 0); }
+    static class SvcParamDohPath extends com.android.net.module.util.SvcParam<java.lang.String> {
+        private final java.lang.String mValue = null;
+        SvcParamDohPath(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
+        java.lang.String getValue() { return null; }
+        public java.lang.String toString() { return null; }
     }
 
     static class SvcParamMandatory extends com.android.net.module.util.SvcParam<short[]> {
@@ -65,16 +71,10 @@ public abstract class SvcParam<T extends java.lang.Object> {
         public java.lang.String toString() { return null; }
     }
 
-    static class SvcParamNoDefaultAlpn extends com.android.net.module.util.SvcParam<java.lang.Void> {
-        SvcParamNoDefaultAlpn(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
-        java.lang.Void getValue() { return null; }
-        public java.lang.String toString() { return null; }
-    }
-
-    static class SvcParamPort extends com.android.net.module.util.SvcParam<java.lang.Integer> {
-        private final int mValue = 0;
-        SvcParamPort(java.nio.ByteBuffer p0) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
-        java.lang.Integer getValue() { return null; }
+    static class SvcParamGeneric extends com.android.net.module.util.SvcParam<byte[]> {
+        final byte[] mValue = null;
+        SvcParamGeneric(int p0, java.nio.ByteBuffer p1) throws java.nio.BufferUnderflowException, com.android.net.module.util.DnsPacket.ParseException { super(0); }
+        byte[] getValue() { return null; }
         public java.lang.String toString() { return null; }
     }
 }

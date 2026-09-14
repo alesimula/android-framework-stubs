@@ -1,6 +1,7 @@
 package com.android.internal.protolog;
 
 public class ProtoLogConfigurationServiceImpl extends com.android.internal.protolog.IProtoLogConfigurationService.Stub implements com.android.internal.protolog.ProtoLogConfigurationService, android.os.IBinder.DeathRecipient {
+    private static final java.util.List<java.lang.String> DEFAULT_TRUSTED_PATHS = null;
     private static final java.lang.String LOG_TAG = "ProtoLogConfigurationService";
     private final java.util.Map<android.os.IBinder, com.android.internal.protolog.ProtoLogConfigurationServiceImpl.ClientRecord> mClientRecords = null;
     private final java.util.Map<java.lang.String, java.lang.Integer> mConfigFileCounts = null;
@@ -9,12 +10,16 @@ public class ProtoLogConfigurationServiceImpl extends com.android.internal.proto
     private final java.util.Map<java.lang.String, java.lang.Boolean> mLogGroupToLogcatStatus = null;
     private final java.util.Set<java.lang.String> mRegisteredGroups = null;
     private final java.util.Set<java.lang.Integer> mRunningInstances = null;
+    private final java.util.List<java.lang.String> mTrustedPaths = null;
     private final com.android.internal.protolog.ProtoLogConfigurationServiceImpl.ViewerConfigFileTracer mViewerConfigFileTracer = null;
     public ProtoLogConfigurationServiceImpl() { super(); }
     public ProtoLogConfigurationServiceImpl(com.android.internal.protolog.ProtoLogConfigurationServiceImpl.ViewerConfigFileTracer p0) { super(); }
     public ProtoLogConfigurationServiceImpl(com.android.internal.protolog.ProtoLogDataSource p0) { super(); }
     public ProtoLogConfigurationServiceImpl(com.android.internal.protolog.ProtoLogDataSource p0, com.android.internal.protolog.ProtoLogConfigurationServiceImpl.ViewerConfigFileTracer p1) { super(); }
+    public ProtoLogConfigurationServiceImpl(com.android.internal.protolog.ProtoLogDataSource p0, com.android.internal.protolog.ProtoLogConfigurationServiceImpl.ViewerConfigFileTracer p1, java.util.List<java.lang.String> p2) { super(); }
+    public ProtoLogConfigurationServiceImpl(com.android.internal.protolog.ProtoLogDataSource p0, java.util.List<java.lang.String> p1) { super(); }
     private static void dumpViewerConfig(com.android.internal.protolog.ProtoLogDataSource p0, java.lang.String p1) {}
+    private boolean isViewerConfigPathTrusted(java.lang.String p0) { return false; }
     private void onTracingInstanceFlush() {}
     private void onTracingInstanceStart(int p0, com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig p1) {}
     private void onTracingInstanceStop(int p0, com.android.internal.protolog.ProtoLogDataSource.ProtoLogConfig p1) {}

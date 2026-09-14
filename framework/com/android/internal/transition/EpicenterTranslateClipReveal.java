@@ -21,6 +21,17 @@ public class EpicenterTranslateClipReveal extends android.transition.Visibility 
     public android.animation.Animator onAppear(android.view.ViewGroup p0, android.view.View p1, android.transition.TransitionValues p2, android.transition.TransitionValues p3) { return null; }
     public android.animation.Animator onDisappear(android.view.ViewGroup p0, android.view.View p1, android.transition.TransitionValues p2, android.transition.TransitionValues p3) { return null; }
 
+    private static class StateProperty extends android.util.Property<android.view.View, com.android.internal.transition.EpicenterTranslateClipReveal.State> {
+        public static final char TARGET_X = 'x';
+        public static final char TARGET_Y = 'y';
+        private final int mTargetDimension = 0;
+        private final android.graphics.Rect mTempRect = null;
+        private final com.android.internal.transition.EpicenterTranslateClipReveal.State mTempState = null;
+        public StateProperty(char p0) { super(null, null); }
+        public com.android.internal.transition.EpicenterTranslateClipReveal.State get(android.view.View p0) { return null; }
+        public void set(android.view.View p0, com.android.internal.transition.EpicenterTranslateClipReveal.State p1) {}
+    }
+
     private static class State {
         int lower;
         float trans;
@@ -33,16 +44,5 @@ public class EpicenterTranslateClipReveal extends android.transition.Visibility 
         private final com.android.internal.transition.EpicenterTranslateClipReveal.State mTemp = null;
         private StateEvaluator() {}
         public com.android.internal.transition.EpicenterTranslateClipReveal.State evaluate(float p0, com.android.internal.transition.EpicenterTranslateClipReveal.State p1, com.android.internal.transition.EpicenterTranslateClipReveal.State p2) { return null; }
-    }
-
-    private static class StateProperty extends android.util.Property<android.view.View, com.android.internal.transition.EpicenterTranslateClipReveal.State> {
-        public static final char TARGET_X = 'x';
-        public static final char TARGET_Y = 'y';
-        private final int mTargetDimension = 0;
-        private final android.graphics.Rect mTempRect = null;
-        private final com.android.internal.transition.EpicenterTranslateClipReveal.State mTempState = null;
-        public StateProperty(char p0) { super(null, null); }
-        public com.android.internal.transition.EpicenterTranslateClipReveal.State get(android.view.View p0) { return null; }
-        public void set(android.view.View p0, com.android.internal.transition.EpicenterTranslateClipReveal.State p1) {}
     }
 }

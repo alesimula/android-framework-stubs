@@ -23,6 +23,13 @@ public class PathKeyframes implements android.animation.Keyframes {
     public java.lang.Object getValue(float p0) { return null; }
     public void setEvaluator(android.animation.TypeEvaluator p0) {}
 
+    private static abstract class SimpleKeyframes implements android.animation.Keyframes {
+        private SimpleKeyframes() {}
+        public android.animation.Keyframes clone() { return null; }
+        public java.util.ArrayList<android.animation.Keyframe> getKeyframes() { return null; }
+        public void setEvaluator(android.animation.TypeEvaluator p0) {}
+    }
+
     static abstract class FloatKeyframesBase extends android.animation.PathKeyframes.SimpleKeyframes implements android.animation.Keyframes.FloatKeyframes {
         FloatKeyframesBase() { super(); }
         public java.lang.Class getType() { return null; }
@@ -33,12 +40,5 @@ public class PathKeyframes implements android.animation.Keyframes {
         IntKeyframesBase() { super(); }
         public java.lang.Class getType() { return null; }
         public java.lang.Object getValue(float p0) { return null; }
-    }
-
-    private static abstract class SimpleKeyframes implements android.animation.Keyframes {
-        private SimpleKeyframes() {}
-        public android.animation.Keyframes clone() { return null; }
-        public java.util.ArrayList<android.animation.Keyframe> getKeyframes() { return null; }
-        public void setEvaluator(android.animation.TypeEvaluator p0) {}
     }
 }

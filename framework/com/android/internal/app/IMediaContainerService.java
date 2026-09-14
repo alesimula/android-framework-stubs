@@ -6,15 +6,6 @@ public interface IMediaContainerService extends android.os.IInterface {
     public android.content.pm.PackageInfoLite getMinimalPackageInfo(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException;
     public android.content.res.ObbInfo getObbInfo(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IMediaContainerService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public long calculateInstalledSize(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return 0L; }
-        public int copyPackage(java.lang.String p0, com.android.internal.os.IParcelFileDescriptorFactory p1) throws android.os.RemoteException { return 0; }
-        public android.content.pm.PackageInfoLite getMinimalPackageInfo(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public android.content.res.ObbInfo getObbInfo(java.lang.String p0) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IMediaContainerService {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.app.IMediaContainerService";
         static final int TRANSACTION_calculateInstalledSize = 4;
@@ -38,5 +29,14 @@ public interface IMediaContainerService extends android.os.IInterface {
             public android.content.pm.PackageInfoLite getMinimalPackageInfo(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
             public android.content.res.ObbInfo getObbInfo(java.lang.String p0) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements com.android.internal.app.IMediaContainerService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public long calculateInstalledSize(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return 0L; }
+        public int copyPackage(java.lang.String p0, com.android.internal.os.IParcelFileDescriptorFactory p1) throws android.os.RemoteException { return 0; }
+        public android.content.pm.PackageInfoLite getMinimalPackageInfo(java.lang.String p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public android.content.res.ObbInfo getObbInfo(java.lang.String p0) throws android.os.RemoteException { return null; }
     }
 }

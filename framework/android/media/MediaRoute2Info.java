@@ -75,8 +75,9 @@ public final class MediaRoute2Info implements android.os.Parcelable {
     private final java.lang.String mProviderId = null;
     private final java.lang.String mProviderPackageName = null;
     private final java.util.List<java.util.Set<java.lang.String>> mRequiredPermissions = null;
+    private final boolean mRequiresTargetApplication = false;
+    private final int mRoutingType = 0;
     private final int mSuitabilityStatus = 0;
-    private final java.util.Set<java.lang.Integer> mSupportedRoutingTypes = null;
     private java.util.Set<java.lang.String> mTemporaryVisibilityPackages;
     private final int mType = 0;
     private final int mVisibility = 0;
@@ -88,9 +89,10 @@ public final class MediaRoute2Info implements android.os.Parcelable {
     private void dumpVolume(java.io.PrintWriter p0, java.lang.String p1) {}
     private static java.lang.String getDeviceTypeString(int p0) { return null; }
     public static java.lang.String getRoutingTypeString(int p0) { return null; }
-    public static java.lang.String getSupportedRoutingTypesString(java.util.Set<java.lang.Integer> p0) { return null; }
+    public static java.lang.String getRoutingTypesString(java.util.Set<java.lang.Integer> p0) { return null; }
     static java.lang.String getVolumeString(int p0, int p1, int p2) { return null; }
     public static boolean isPrivilegedRoutingType(int p0) { return false; }
+    public static int validateRoutingType(int p0) { return 0; }
     public static java.util.Set<java.lang.Integer> validateRoutingTypes(java.util.Set<java.lang.Integer> p0, boolean p1) { return null; }
     public int describeContents() { return 0; }
     public void dump(java.io.PrintWriter p0, java.lang.String p1) {}
@@ -111,8 +113,8 @@ public final class MediaRoute2Info implements android.os.Parcelable {
     public java.lang.String getProviderId() { return null; }
     public java.lang.String getProviderPackageName() { return null; }
     public java.util.List<java.util.Set<java.lang.String>> getRequiredPermissions() { return null; }
+    public int getRoutingType() { return 0; }
     public int getSuitabilityStatus() { return 0; }
-    public java.util.Set<java.lang.Integer> getSupportedRoutingTypes() { return null; }
     public java.util.Set<java.lang.String> getTemporaryVisibilityPackages() { return null; }
     public int getType() { return 0; }
     public int getVolume() { return 0; }
@@ -121,15 +123,31 @@ public final class MediaRoute2Info implements android.os.Parcelable {
     public boolean hasAnyFeatures(java.util.Collection<java.lang.String> p0) { return false; }
     public int hashCode() { return 0; }
     public boolean isPublic() { return false; }
+    public boolean isRemoteRoute() { return false; }
     public boolean isSystemRoute() { return false; }
     public boolean isSystemRouteType() { return false; }
     public boolean isValid() { return false; }
     public boolean isVisibleTo(java.lang.String p0) { return false; }
     public boolean isVisibleTo(java.lang.String p0, boolean p1) { return false; }
-    public boolean supportsPrivilegedRoutingTypes() { return false; }
-    public boolean supportsRemoteRouting() { return false; }
+    public boolean requiresTargetApplication() { return false; }
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Type {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConnectionState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    private static @interface Visibility {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlaybackVolume {
+    }
 
     public static final class Builder {
         private java.lang.String mAddress;
@@ -149,8 +167,9 @@ public final class MediaRoute2Info implements android.os.Parcelable {
         private java.lang.String mProviderId;
         private java.lang.String mProviderPackageName;
         private java.util.List<java.util.Set<java.lang.String>> mRequiredPermissions;
+        private boolean mRequiresTargetApplication;
+        private int mRoutingType;
         private int mSuitabilityStatus;
-        private java.util.Set<java.lang.Integer> mSupportedRoutingTypes;
         private java.util.Set<java.lang.String> mTemporaryVisibilityPackages;
         private int mType;
         private int mVisibility;
@@ -177,8 +196,9 @@ public final class MediaRoute2Info implements android.os.Parcelable {
         public android.media.MediaRoute2Info.Builder setProviderPackageName(java.lang.String p0) { return null; }
         public android.media.MediaRoute2Info.Builder setRequiredPermissions(java.util.List<java.util.Set<java.lang.String>> p0) { return null; }
         public android.media.MediaRoute2Info.Builder setRequiredPermissions(java.util.Set<java.lang.String> p0) { return null; }
+        public android.media.MediaRoute2Info.Builder setRequiresTargetApplication(boolean p0) { return null; }
+        public android.media.MediaRoute2Info.Builder setRoutingType(int p0) { return null; }
         public android.media.MediaRoute2Info.Builder setSuitabilityStatus(int p0) { return null; }
-        public android.media.MediaRoute2Info.Builder setSupportedRoutingTypes(java.util.Set<java.lang.Integer> p0) { return null; }
         public android.media.MediaRoute2Info.Builder setSystemRoute(boolean p0) { return null; }
         public android.media.MediaRoute2Info.Builder setTemporaryAllowedPackages(java.util.Set<java.lang.String> p0) { return null; }
         public android.media.MediaRoute2Info.Builder setType(int p0) { return null; }
@@ -191,27 +211,11 @@ public final class MediaRoute2Info implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConnectionState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PlaybackVolume {
+    public static @interface SuitabilityStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
     public static @interface RoutingType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SuitabilityStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Type {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    private static @interface Visibility {
     }
 }

@@ -82,21 +82,26 @@ public abstract class CodedInputStream {
     public abstract void skipRawBytes(int p0) throws java.io.IOException;
     final void unsetDiscardUnknownFields() {}
 
-    private static final class ArrayDecoder extends com.android.framework.protobuf.CodedInputStream {
-        private final byte[] buffer = null;
+    private static final class UnsafeDirectNioDecoder extends com.android.framework.protobuf.CodedInputStream {
+        private final long address = 0L;
+        private final java.nio.ByteBuffer buffer = null;
         private int bufferSizeAfterLimit;
         private int currentLimit;
         private boolean enableAliasing;
         private final boolean immutable = false;
         private int lastTag;
-        private int limit;
-        private int pos;
-        private int startPos;
-        private ArrayDecoder(byte[] p0, int p1, int p2, boolean p3) { super(); }
+        private long limit;
+        private long pos;
+        private long startPos;
+        private UnsafeDirectNioDecoder(java.nio.ByteBuffer p0, boolean p1) { super(); }
+        private int bufferPos(long p0) { return 0; }
+        static boolean isSupported() { return false; }
         private void recomputeBufferSizeAfterLimit() {}
+        private int remaining() { return 0; }
         private void skipRawVarint() throws java.io.IOException {}
         private void skipRawVarintFastPath() throws java.io.IOException {}
         private void skipRawVarintSlowPath() throws java.io.IOException {}
+        private java.nio.ByteBuffer slice(long p0, long p1) throws java.io.IOException { return null; }
         public void checkLastTagWas(int p0) throws com.android.framework.protobuf.InvalidProtocolBufferException {}
         public void enableAliasing(boolean p0) {}
         public int getBytesUntilLimit() { return 0; }
@@ -287,10 +292,6 @@ public abstract class CodedInputStream {
         public boolean skipField(int p0, com.android.framework.protobuf.CodedOutputStream p1) throws java.io.IOException { return false; }
         public void skipRawBytes(int p0) throws java.io.IOException {}
 
-        private static interface RefillCallback {
-            public void onRefill();
-        }
-
         private class SkippedDataSink implements com.android.framework.protobuf.CodedInputStream.StreamDecoder.RefillCallback {
             private java.io.ByteArrayOutputStream byteArrayStream;
             private int lastPos;
@@ -298,28 +299,27 @@ public abstract class CodedInputStream {
             java.nio.ByteBuffer getSkippedData() { return null; }
             public void onRefill() {}
         }
+
+        private static interface RefillCallback {
+            public void onRefill();
+        }
     }
 
-    private static final class UnsafeDirectNioDecoder extends com.android.framework.protobuf.CodedInputStream {
-        private final long address = 0L;
-        private final java.nio.ByteBuffer buffer = null;
+    private static final class ArrayDecoder extends com.android.framework.protobuf.CodedInputStream {
+        private final byte[] buffer = null;
         private int bufferSizeAfterLimit;
         private int currentLimit;
         private boolean enableAliasing;
         private final boolean immutable = false;
         private int lastTag;
-        private long limit;
-        private long pos;
-        private long startPos;
-        private UnsafeDirectNioDecoder(java.nio.ByteBuffer p0, boolean p1) { super(); }
-        private int bufferPos(long p0) { return 0; }
-        static boolean isSupported() { return false; }
+        private int limit;
+        private int pos;
+        private int startPos;
+        private ArrayDecoder(byte[] p0, int p1, int p2, boolean p3) { super(); }
         private void recomputeBufferSizeAfterLimit() {}
-        private int remaining() { return 0; }
         private void skipRawVarint() throws java.io.IOException {}
         private void skipRawVarintFastPath() throws java.io.IOException {}
         private void skipRawVarintSlowPath() throws java.io.IOException {}
-        private java.nio.ByteBuffer slice(long p0, long p1) throws java.io.IOException { return null; }
         public void checkLastTagWas(int p0) throws com.android.framework.protobuf.InvalidProtocolBufferException {}
         public void enableAliasing(boolean p0) {}
         public int getBytesUntilLimit() { return 0; }

@@ -33,42 +33,6 @@ public interface ISessionManager extends android.os.IInterface {
     public void setSessionPolicies(android.media.session.MediaSession.Token p0, int p1) throws android.os.RemoteException;
     public void unregisterRemoteSessionCallback(android.media.IRemoteSessionCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.session.ISessionManager {
-        public Default() {}
-        public void addOnMediaKeyEventDispatchedListener(android.media.session.IOnMediaKeyEventDispatchedListener p0) throws android.os.RemoteException {}
-        public void addOnMediaKeyEventSessionChangedListener(android.media.session.IOnMediaKeyEventSessionChangedListener p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void addSession2TokensListener(android.media.session.ISession2TokensListener p0, int p1) throws android.os.RemoteException {}
-        public void addSessionsListener(android.media.session.IActiveSessionsListener p0, android.content.ComponentName p1, int p2, java.lang.String p3) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.media.session.ISession createSession(java.lang.String p0, java.lang.String p1, android.media.session.ISessionCallback p2, java.lang.String p3, android.os.Bundle p4, int p5) throws android.os.RemoteException { return null; }
-        public void dispatchAdjustVolume(java.lang.String p0, java.lang.String p1, int p2, int p3, int p4) throws android.os.RemoteException {}
-        public void dispatchMediaKeyEvent(java.lang.String p0, boolean p1, android.view.KeyEvent p2, boolean p3) throws android.os.RemoteException {}
-        public boolean dispatchMediaKeyEventToSessionAsSystemService(java.lang.String p0, android.view.KeyEvent p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException { return false; }
-        public void dispatchVolumeKeyEvent(java.lang.String p0, java.lang.String p1, boolean p2, android.view.KeyEvent p3, int p4, boolean p5) throws android.os.RemoteException {}
-        public void dispatchVolumeKeyEventToSessionAsSystemService(java.lang.String p0, java.lang.String p1, android.view.KeyEvent p2, android.media.session.MediaSession.Token p3) throws android.os.RemoteException {}
-        public void expireTempEngagedSessions() throws android.os.RemoteException {}
-        public android.media.session.MediaSession.Token getMediaKeyEventSession(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getMediaKeyEventSessionPackageName(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public int getSessionPolicies(android.media.session.MediaSession.Token p0) throws android.os.RemoteException { return 0; }
-        public java.util.List<android.media.session.MediaSession.Token> getSessions(android.content.ComponentName p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public boolean hasCustomMediaKeyDispatcher(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean hasCustomMediaSessionPolicyProvider(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean isGlobalPriorityActive() throws android.os.RemoteException { return false; }
-        public boolean isTrusted(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return false; }
-        public void registerRemoteSessionCallback(android.media.IRemoteSessionCallback p0) throws android.os.RemoteException {}
-        public void removeOnMediaKeyEventDispatchedListener(android.media.session.IOnMediaKeyEventDispatchedListener p0) throws android.os.RemoteException {}
-        public void removeOnMediaKeyEventSessionChangedListener(android.media.session.IOnMediaKeyEventSessionChangedListener p0) throws android.os.RemoteException {}
-        public void removeSession2TokensListener(android.media.session.ISession2TokensListener p0) throws android.os.RemoteException {}
-        public void removeSessionsListener(android.media.session.IActiveSessionsListener p0) throws android.os.RemoteException {}
-        public void removeSessionsListenerForPackage(android.media.session.IActiveSessionsListener p0) throws android.os.RemoteException {}
-        public void setCustomMediaKeyDispatcher(java.lang.String p0) throws android.os.RemoteException {}
-        public void setCustomMediaSessionPolicyProvider(java.lang.String p0) throws android.os.RemoteException {}
-        public void setOnMediaKeyListener(android.media.session.IOnMediaKeyListener p0) throws android.os.RemoteException {}
-        public void setOnVolumeKeyLongPressListener(android.media.session.IOnVolumeKeyLongPressListener p0) throws android.os.RemoteException {}
-        public void setSessionPolicies(android.media.session.MediaSession.Token p0, int p1) throws android.os.RemoteException {}
-        public void unregisterRemoteSessionCallback(android.media.IRemoteSessionCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.session.ISessionManager {
         public static final java.lang.String DESCRIPTOR = "android.media.session.ISessionManager";
         static final int TRANSACTION_addOnMediaKeyEventDispatchedListener = 18;
@@ -146,5 +110,41 @@ public interface ISessionManager extends android.os.IInterface {
             public void setSessionPolicies(android.media.session.MediaSession.Token p0, int p1) throws android.os.RemoteException {}
             public void unregisterRemoteSessionCallback(android.media.IRemoteSessionCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.session.ISessionManager {
+        public Default() {}
+        public void addOnMediaKeyEventDispatchedListener(android.media.session.IOnMediaKeyEventDispatchedListener p0) throws android.os.RemoteException {}
+        public void addOnMediaKeyEventSessionChangedListener(android.media.session.IOnMediaKeyEventSessionChangedListener p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void addSession2TokensListener(android.media.session.ISession2TokensListener p0, int p1) throws android.os.RemoteException {}
+        public void addSessionsListener(android.media.session.IActiveSessionsListener p0, android.content.ComponentName p1, int p2, java.lang.String p3) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.media.session.ISession createSession(java.lang.String p0, java.lang.String p1, android.media.session.ISessionCallback p2, java.lang.String p3, android.os.Bundle p4, int p5) throws android.os.RemoteException { return null; }
+        public void dispatchAdjustVolume(java.lang.String p0, java.lang.String p1, int p2, int p3, int p4) throws android.os.RemoteException {}
+        public void dispatchMediaKeyEvent(java.lang.String p0, boolean p1, android.view.KeyEvent p2, boolean p3) throws android.os.RemoteException {}
+        public boolean dispatchMediaKeyEventToSessionAsSystemService(java.lang.String p0, android.view.KeyEvent p1, android.media.session.MediaSession.Token p2) throws android.os.RemoteException { return false; }
+        public void dispatchVolumeKeyEvent(java.lang.String p0, java.lang.String p1, boolean p2, android.view.KeyEvent p3, int p4, boolean p5) throws android.os.RemoteException {}
+        public void dispatchVolumeKeyEventToSessionAsSystemService(java.lang.String p0, java.lang.String p1, android.view.KeyEvent p2, android.media.session.MediaSession.Token p3) throws android.os.RemoteException {}
+        public void expireTempEngagedSessions() throws android.os.RemoteException {}
+        public android.media.session.MediaSession.Token getMediaKeyEventSession(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getMediaKeyEventSessionPackageName(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public int getSessionPolicies(android.media.session.MediaSession.Token p0) throws android.os.RemoteException { return 0; }
+        public java.util.List<android.media.session.MediaSession.Token> getSessions(android.content.ComponentName p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public boolean hasCustomMediaKeyDispatcher(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean hasCustomMediaSessionPolicyProvider(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean isGlobalPriorityActive() throws android.os.RemoteException { return false; }
+        public boolean isTrusted(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return false; }
+        public void registerRemoteSessionCallback(android.media.IRemoteSessionCallback p0) throws android.os.RemoteException {}
+        public void removeOnMediaKeyEventDispatchedListener(android.media.session.IOnMediaKeyEventDispatchedListener p0) throws android.os.RemoteException {}
+        public void removeOnMediaKeyEventSessionChangedListener(android.media.session.IOnMediaKeyEventSessionChangedListener p0) throws android.os.RemoteException {}
+        public void removeSession2TokensListener(android.media.session.ISession2TokensListener p0) throws android.os.RemoteException {}
+        public void removeSessionsListener(android.media.session.IActiveSessionsListener p0) throws android.os.RemoteException {}
+        public void removeSessionsListenerForPackage(android.media.session.IActiveSessionsListener p0) throws android.os.RemoteException {}
+        public void setCustomMediaKeyDispatcher(java.lang.String p0) throws android.os.RemoteException {}
+        public void setCustomMediaSessionPolicyProvider(java.lang.String p0) throws android.os.RemoteException {}
+        public void setOnMediaKeyListener(android.media.session.IOnMediaKeyListener p0) throws android.os.RemoteException {}
+        public void setOnVolumeKeyLongPressListener(android.media.session.IOnVolumeKeyLongPressListener p0) throws android.os.RemoteException {}
+        public void setSessionPolicies(android.media.session.MediaSession.Token p0, int p1) throws android.os.RemoteException {}
+        public void unregisterRemoteSessionCallback(android.media.IRemoteSessionCallback p0) throws android.os.RemoteException {}
     }
 }

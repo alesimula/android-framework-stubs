@@ -195,6 +195,7 @@ public abstract class NotificationListenerService extends android.app.Service {
         public static final int USER_SENTIMENT_NEUTRAL = 0;
         public static final int USER_SENTIMENT_POSITIVE = 1;
         public static final int VISIBILITY_NO_OVERRIDE = -1000;
+        private int mAgentInteractionFlags;
         private boolean mCanBubble;
         private android.app.NotificationChannel mChannel;
         private boolean mHidden;
@@ -228,6 +229,7 @@ public abstract class NotificationListenerService extends android.app.Service {
         public boolean equals(java.lang.Object p0) { return false; }
         @android.annotation.SystemApi
         public java.util.List<java.lang.String> getAdditionalPeople() { return null; }
+        public int getAgentInteractionFlags() { return 0; }
         public android.app.NotificationChannel getChannel() { return null; }
         public android.content.pm.ShortcutInfo getConversationShortcutInfo() { return null; }
         public int getHighestPriorityMatchingRule() { return 0; }
@@ -256,7 +258,7 @@ public abstract class NotificationListenerService extends android.app.Service {
         public boolean isTextChanged() { return false; }
         public boolean matchesInterruptionFilter() { return false; }
         public void populate(android.service.notification.NotificationListenerService.Ranking p0) {}
-        public void populate(java.lang.String p0, int p1, boolean p2, int p3, int p4, int p5, java.lang.CharSequence p6, java.lang.String p7, android.app.NotificationChannel p8, java.util.ArrayList<android.service.notification.SnoozeCriterion> p9, boolean p10, int p11, boolean p12, long p13, java.util.ArrayList<android.app.Notification.Action> p14, java.util.ArrayList<java.lang.CharSequence> p15, boolean p16, boolean p17, boolean p18, android.content.pm.ShortcutInfo p19, boolean p20, int p21, boolean p22, java.lang.String p23, int p24) {}
+        public void populate(java.lang.String p0, int p1, boolean p2, int p3, int p4, int p5, java.lang.CharSequence p6, java.lang.String p7, android.app.NotificationChannel p8, java.util.ArrayList<android.service.notification.SnoozeCriterion> p9, boolean p10, int p11, boolean p12, long p13, java.util.ArrayList<android.app.Notification.Action> p14, java.util.ArrayList<java.lang.CharSequence> p15, boolean p16, boolean p17, boolean p18, android.content.pm.ShortcutInfo p19, boolean p20, int p21, boolean p22, java.lang.String p23, int p24, int p25) {}
         public void setSmartActions(java.util.ArrayList<android.app.Notification.Action> p0) {}
         public android.service.notification.NotificationListenerService.Ranking withAudiblyAlertedInfo(android.service.notification.NotificationListenerService.Ranking p0) { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}

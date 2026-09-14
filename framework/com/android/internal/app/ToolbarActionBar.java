@@ -91,15 +91,15 @@ public class ToolbarActionBar extends android.app.ActionBar {
         public boolean onOpenSubMenu(com.android.internal.view.menu.MenuBuilder p0) { return false; }
     }
 
-    private final class MenuBuilderCallback implements com.android.internal.view.menu.MenuBuilder.Callback {
-        private MenuBuilderCallback(com.android.internal.app.ToolbarActionBar p0) {}
-        public boolean onMenuItemSelected(com.android.internal.view.menu.MenuBuilder p0, android.view.MenuItem p1) { return false; }
-        public void onMenuModeChange(com.android.internal.view.menu.MenuBuilder p0) {}
-    }
-
     private class ToolbarCallbackWrapper extends android.view.WindowCallbackWrapper {
         public ToolbarCallbackWrapper(com.android.internal.app.ToolbarActionBar p0, android.view.Window.Callback p1) { super(null); }
         public android.view.View onCreatePanelView(int p0) { return null; }
         public boolean onPreparePanel(int p0, android.view.View p1, android.view.Menu p2) { return false; }
+    }
+
+    private final class MenuBuilderCallback implements com.android.internal.view.menu.MenuBuilder.Callback {
+        private MenuBuilderCallback(com.android.internal.app.ToolbarActionBar p0) {}
+        public boolean onMenuItemSelected(com.android.internal.view.menu.MenuBuilder p0, android.view.MenuItem p1) { return false; }
+        public void onMenuModeChange(com.android.internal.view.menu.MenuBuilder p0) {}
     }
 }

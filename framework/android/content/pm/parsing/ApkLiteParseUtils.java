@@ -9,9 +9,12 @@ public class ApkLiteParseUtils {
     private static final int PARSE_COLLECT_CERTIFICATES = 32;
     private static final int PARSE_DEFAULT_INSTALL_LOCATION = -1;
     private static final int PARSE_IS_SYSTEM_DIR = 16;
+    private static final java.lang.String PERMISSION_INSTALL_PACKAGES_AS_REGISTERED_APP_STORE = "android.permission.INSTALL_PACKAGES_AS_REGISTERED_APP_STORE";
     private static final java.lang.String[] SDK_CODENAMES = null;
     private static final int SDK_VERSION = Integer.valueOf(0);
     private static final java.lang.String TAG = "ApkLiteParseUtils";
+    private static final java.lang.String TAG_ACTIVITY = "activity";
+    private static final java.lang.String TAG_ACTIVITY_ALIAS = "activity-alias";
     private static final java.lang.String TAG_APPLICATION = "application";
     private static final java.lang.String TAG_LIBRARY = "library";
     private static final java.lang.String TAG_MANIFEST = "manifest";
@@ -23,6 +26,7 @@ public class ApkLiteParseUtils {
     private static final java.lang.String TAG_RECEIVER = "receiver";
     private static final java.lang.String TAG_SDK_LIBRARY = "sdk-library";
     private static final java.lang.String TAG_STATIC_LIBRARY = "static-library";
+    private static final java.lang.String TAG_USES_PERMISSION = "uses-permission";
     private static final java.lang.String TAG_USES_SDK = "uses-sdk";
     private static final java.lang.String TAG_USES_SDK_LIBRARY = "uses-sdk-library";
     private static final java.lang.String TAG_USES_SPLIT = "uses-split";
@@ -33,22 +37,57 @@ public class ApkLiteParseUtils {
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.PackageLite> composePackageLiteFromApks(android.content.pm.parsing.result.ParseInput p0, java.io.File p1, android.content.pm.parsing.ApkLite p2, android.util.ArrayMap<java.lang.String, android.content.pm.parsing.ApkLite> p3, boolean p4) { return null; }
     public static boolean isApkFile(java.io.File p0) { return false; }
     public static boolean isApkPath(java.lang.String p0) { return false; }
-    private static boolean isDeviceAdminReceiver(android.content.res.XmlResourceParser p0, boolean p1) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return false; }
+    private static boolean isElementExportedAndEnabled(android.content.res.XmlResourceParser p0) { return false; }
+    private static boolean isRegisteredAppStoreCandidate(java.lang.String p0, android.content.pm.parsing.ApkLiteParseUtils.ParsedReceiverResult p1, android.content.pm.parsing.ApkLiteParseUtils.ParsedActivityResult p2, android.content.pm.parsing.ApkLiteParseUtils.ParsedUsesPermissionResult p3, int p4) { return false; }
     private static java.lang.String normalizeCertDigest(java.lang.String p0) { return null; }
+    private static void parseActivity(android.content.res.XmlResourceParser p0, android.content.pm.parsing.ApkLiteParseUtils.ParsedActivityResult p1) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {}
     private static android.content.pm.parsing.result.ParseResult<java.lang.String[]> parseAdditionalCertificates(android.content.pm.parsing.result.ParseInput p0, android.content.res.XmlResourceParser p1) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.ApkLite> parseApkLite(android.content.pm.parsing.result.ParseInput p0, java.io.File p1, int p2) { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.ApkLite> parseApkLite(android.content.pm.parsing.result.ParseInput p0, java.io.FileDescriptor p1, java.lang.String p2, int p3) { return null; }
     private static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.ApkLite> parseApkLite(android.content.pm.parsing.result.ParseInput p0, java.lang.String p1, android.content.res.XmlResourceParser p2, android.content.pm.SigningDetails p3, int p4) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException { return null; }
     private static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.ApkLite> parseApkLiteInner(android.content.pm.parsing.result.ParseInput p0, java.io.File p1, java.io.FileDescriptor p2, java.lang.String p3, int p4) { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.PackageLite> parseClusterPackageLite(android.content.pm.parsing.result.ParseInput p0, java.io.File p1, int p2) { return null; }
+    private static android.content.pm.parsing.ApkLiteParseUtils.ParsedIntentFilterLite parseIntentFilter(android.content.res.XmlResourceParser p0) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.PackageLite> parseMonolithicPackageLite(android.content.pm.parsing.result.ParseInput p0, java.io.File p1, int p2) { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.PackageLite> parseMonolithicPackageLite(android.content.pm.parsing.result.ParseInput p0, java.io.FileDescriptor p1, java.lang.String p2, int p3) { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.parsing.PackageLite> parsePackageLite(android.content.pm.parsing.result.ParseInput p0, java.io.File p1, int p2) { return null; }
     public static android.content.pm.parsing.result.ParseResult<android.util.Pair<java.lang.String, java.lang.String>> parsePackageSplitNames(android.content.pm.parsing.result.ParseInput p0, android.content.res.XmlResourceParser p1) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException { return null; }
+    private static void parseReceiver(android.content.res.XmlResourceParser p0, boolean p1, android.content.pm.parsing.ApkLiteParseUtils.ParsedReceiverResult p2) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {}
     public static android.content.pm.parsing.result.ParseResult<android.util.Pair<java.util.Set<java.lang.String>, java.util.Set<java.lang.String>>> parseRequiredSplitTypes(android.content.pm.parsing.result.ParseInput p0, android.content.res.XmlResourceParser p1) { return null; }
+    private static void parseUsesPermission(android.content.res.XmlResourceParser p0, android.content.pm.parsing.ApkLiteParseUtils.ParsedUsesPermissionResult p1) {}
     public static android.content.pm.VerifierInfo parseVerifier(android.util.AttributeSet p0) { return null; }
     private static android.content.pm.parsing.result.ParseResult<java.util.Set<java.lang.String>> separateAndValidateSplitTypes(android.content.pm.parsing.result.ParseInput p0, java.lang.String p1) { return null; }
     public static java.lang.String splitNameToFileName(android.content.pm.parsing.ApkLite p0) { return null; }
+
+    private static class ParsedActivityResult {
+        boolean mHasLauncherActivity;
+        boolean mHasSessionDetailsActivity;
+        boolean mHasShowAppInfoActivity;
+        private ParsedActivityResult() {}
+    }
+
+    private static class ParsedIntentFilterLite {
+        boolean mHasActionMain;
+        boolean mHasActionSessionDetails;
+        boolean mHasActionShowAppInfo;
+        boolean mHasActionUnarchivePackage;
+        boolean mHasCategoryLauncher;
+        private ParsedIntentFilterLite() {}
+    }
+
+    private static class ParsedReceiverResult {
+        boolean mHasDeviceAdminReceiver;
+        boolean mHasUnarchivePackageReceiver;
+        private ParsedReceiverResult() {}
+    }
+
+    private static class ParsedUsesPermissionResult {
+        boolean mUsesInstallPackagesAsRegisteredAppStorePermission;
+        boolean mUsesInstallPackagesPermission;
+        boolean mUsesPostNotificationsPermission;
+        boolean mUsesRequestInstallPackagesPermission;
+        private ParsedUsesPermissionResult() {}
+    }
 
     private static class SplitNameComparator implements java.util.Comparator<java.lang.String> {
         private SplitNameComparator() {}

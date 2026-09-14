@@ -9,17 +9,6 @@ public interface IOnBackInvokedCallback extends android.os.IInterface {
     public void setHandoffHandler(android.window.IBackAnimationHandoffHandler p0) throws android.os.RemoteException;
     public void setTriggerBack(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IOnBackInvokedCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onBackCancelled() throws android.os.RemoteException {}
-        public void onBackInvoked() throws android.os.RemoteException {}
-        public void onBackProgressed(android.window.BackMotionEvent p0) throws android.os.RemoteException {}
-        public void onBackStarted(android.window.BackMotionEvent p0, boolean p1) throws android.os.RemoteException {}
-        public void setHandoffHandler(android.window.IBackAnimationHandoffHandler p0) throws android.os.RemoteException {}
-        public void setTriggerBack(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IOnBackInvokedCallback {
         static final int TRANSACTION_onBackCancelled = 3;
         static final int TRANSACTION_onBackInvoked = 4;
@@ -46,5 +35,16 @@ public interface IOnBackInvokedCallback extends android.os.IInterface {
             public void setHandoffHandler(android.window.IBackAnimationHandoffHandler p0) throws android.os.RemoteException {}
             public void setTriggerBack(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.IOnBackInvokedCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onBackCancelled() throws android.os.RemoteException {}
+        public void onBackInvoked() throws android.os.RemoteException {}
+        public void onBackProgressed(android.window.BackMotionEvent p0) throws android.os.RemoteException {}
+        public void onBackStarted(android.window.BackMotionEvent p0, boolean p1) throws android.os.RemoteException {}
+        public void setHandoffHandler(android.window.IBackAnimationHandoffHandler p0) throws android.os.RemoteException {}
+        public void setTriggerBack(boolean p0) throws android.os.RemoteException {}
     }
 }

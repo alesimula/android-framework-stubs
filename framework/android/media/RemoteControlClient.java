@@ -95,6 +95,18 @@ public class RemoteControlClient {
     public void setTransportControlFlags(int p0) {}
     public void unregisterWithSession(android.media.session.MediaSessionLegacyHelper p0) {}
 
+    public static interface OnGetPlaybackPositionListener {
+        public long onGetPlaybackPosition();
+    }
+
+    public static interface OnMetadataUpdateListener {
+        public void onMetadataUpdate(int p0, java.lang.Object p1);
+    }
+
+    public static interface OnPlaybackPositionUpdateListener {
+        public void onPlaybackPositionUpdate(long p0);
+    }
+
     @java.lang.Deprecated
     public class MetadataEditor extends android.media.MediaMetadataEditor {
         public static final int BITMAP_KEY_ARTWORK = 100;
@@ -107,17 +119,5 @@ public class RemoteControlClient {
         public android.media.RemoteControlClient.MetadataEditor putLong(int p0, long p1) throws java.lang.IllegalArgumentException { return null; }
         public android.media.RemoteControlClient.MetadataEditor putObject(int p0, java.lang.Object p1) throws java.lang.IllegalArgumentException { return null; }
         public android.media.RemoteControlClient.MetadataEditor putString(int p0, java.lang.String p1) throws java.lang.IllegalArgumentException { return null; }
-    }
-
-    public static interface OnGetPlaybackPositionListener {
-        public long onGetPlaybackPosition();
-    }
-
-    public static interface OnMetadataUpdateListener {
-        public void onMetadataUpdate(int p0, java.lang.Object p1);
-    }
-
-    public static interface OnPlaybackPositionUpdateListener {
-        public void onPlaybackPositionUpdate(long p0);
     }
 }

@@ -33,7 +33,7 @@ public final class NrVopsSupportInfo extends android.telephony.VopsSupportInfo {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NrEmcStatus {
+    public static @interface NrVopsStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -41,6 +41,6 @@ public final class NrVopsSupportInfo extends android.telephony.VopsSupportInfo {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NrVopsStatus {
+    public static @interface NrEmcStatus {
     }
 }

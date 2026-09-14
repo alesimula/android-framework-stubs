@@ -2,6 +2,7 @@ package android.graphics.fonts;
 
 @android.annotation.SystemApi
 public class FontManager {
+    public static final int RESULT_ERROR_BASE_FONT_NOT_FOUND = -14;
     public static final int RESULT_ERROR_DOWNGRADING = -5;
     public static final int RESULT_ERROR_FAILED_TO_OPEN_FONT_FILE = -10001;
     public static final int RESULT_ERROR_FAILED_TO_OPEN_SIGNATURE_FILE = -10002;
@@ -19,7 +20,10 @@ public class FontManager {
     public static final int RESULT_ERROR_INVALID_SHELL_ARGUMENT = -10003;
     public static final int RESULT_ERROR_INVALID_SIGNATURE_FILE = -10004;
     public static final int RESULT_ERROR_INVALID_XML = -10007;
+    public static final int RESULT_ERROR_OLD_SUPPLEMENTAL_FONT = -13;
+    public static final int RESULT_ERROR_OPERATION_NOT_SUPPORTED = -16;
     public static final int RESULT_ERROR_SIGNATURE_TOO_LARGE = -10005;
+    public static final int RESULT_ERROR_SUPPLEMENTAL_FONT_NOT_FOUND = -15;
     public static final int RESULT_ERROR_VERIFICATION_FAILURE = -2;
     public static final int RESULT_ERROR_VERSION_MISMATCH = -8;
     public static final int RESULT_SUCCESS = 0;

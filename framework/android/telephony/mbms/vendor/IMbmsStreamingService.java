@@ -8,17 +8,6 @@ public interface IMbmsStreamingService extends android.os.IInterface {
     public int startStreaming(int p0, java.lang.String p1, android.telephony.mbms.IStreamingServiceCallback p2) throws android.os.RemoteException;
     public void stopStreaming(int p0, java.lang.String p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.mbms.vendor.IMbmsStreamingService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispose(int p0) throws android.os.RemoteException {}
-        public android.net.Uri getPlaybackUri(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public int initialize(android.telephony.mbms.IMbmsStreamingSessionCallback p0, int p1) throws android.os.RemoteException { return 0; }
-        public int requestUpdateStreamingServices(int p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException { return 0; }
-        public int startStreaming(int p0, java.lang.String p1, android.telephony.mbms.IStreamingServiceCallback p2) throws android.os.RemoteException { return 0; }
-        public void stopStreaming(int p0, java.lang.String p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.mbms.vendor.IMbmsStreamingService {
         public static final java.lang.String DESCRIPTOR = "android.telephony.mbms.vendor.IMbmsStreamingService";
         static final int TRANSACTION_dispose = 6;
@@ -46,5 +35,16 @@ public interface IMbmsStreamingService extends android.os.IInterface {
             public int startStreaming(int p0, java.lang.String p1, android.telephony.mbms.IStreamingServiceCallback p2) throws android.os.RemoteException { return 0; }
             public void stopStreaming(int p0, java.lang.String p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.mbms.vendor.IMbmsStreamingService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispose(int p0) throws android.os.RemoteException {}
+        public android.net.Uri getPlaybackUri(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public int initialize(android.telephony.mbms.IMbmsStreamingSessionCallback p0, int p1) throws android.os.RemoteException { return 0; }
+        public int requestUpdateStreamingServices(int p0, java.util.List<java.lang.String> p1) throws android.os.RemoteException { return 0; }
+        public int startStreaming(int p0, java.lang.String p1, android.telephony.mbms.IStreamingServiceCallback p2) throws android.os.RemoteException { return 0; }
+        public void stopStreaming(int p0, java.lang.String p1) throws android.os.RemoteException {}
     }
 }

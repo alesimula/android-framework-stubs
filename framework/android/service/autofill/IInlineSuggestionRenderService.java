@@ -6,14 +6,6 @@ public interface IInlineSuggestionRenderService extends android.os.IInterface {
     public void getInlineSuggestionsRendererInfo(android.os.RemoteCallback p0) throws android.os.RemoteException;
     public void renderSuggestion(android.service.autofill.IInlineSuggestionUiCallback p0, android.service.autofill.InlinePresentation p1, int p2, int p3, android.os.IBinder p4, int p5, int p6, int p7) throws android.os.RemoteException;
 
-    public static class Default implements android.service.autofill.IInlineSuggestionRenderService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void destroySuggestionViews(int p0, int p1) throws android.os.RemoteException {}
-        public void getInlineSuggestionsRendererInfo(android.os.RemoteCallback p0) throws android.os.RemoteException {}
-        public void renderSuggestion(android.service.autofill.IInlineSuggestionUiCallback p0, android.service.autofill.InlinePresentation p1, int p2, int p3, android.os.IBinder p4, int p5, int p6, int p7) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.autofill.IInlineSuggestionRenderService {
         static final int TRANSACTION_destroySuggestionViews = 3;
         static final int TRANSACTION_getInlineSuggestionsRendererInfo = 2;
@@ -34,5 +26,13 @@ public interface IInlineSuggestionRenderService extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void renderSuggestion(android.service.autofill.IInlineSuggestionUiCallback p0, android.service.autofill.InlinePresentation p1, int p2, int p3, android.os.IBinder p4, int p5, int p6, int p7) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.autofill.IInlineSuggestionRenderService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void destroySuggestionViews(int p0, int p1) throws android.os.RemoteException {}
+        public void getInlineSuggestionsRendererInfo(android.os.RemoteCallback p0) throws android.os.RemoteException {}
+        public void renderSuggestion(android.service.autofill.IInlineSuggestionUiCallback p0, android.service.autofill.InlinePresentation p1, int p2, int p3, android.os.IBinder p4, int p5, int p6, int p7) throws android.os.RemoteException {}
     }
 }

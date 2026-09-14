@@ -24,6 +24,29 @@ public class MicrophoneInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static class FrequencyResponsePoint implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.audio.common.MicrophoneInfo.FrequencyResponsePoint> CREATOR = null;
+        public float frequencyHz;
+        public float leveldB;
+        public FrequencyResponsePoint() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class Sensitivity implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.audio.common.MicrophoneInfo.Sensitivity> CREATOR = null;
+        public float leveldBFS;
+        public float maxSpldB;
+        public float minSpldB;
+        public Sensitivity() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static class Coordinate implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.audio.common.MicrophoneInfo.Coordinate> CREATOR = null;
         public float x;
@@ -45,33 +68,10 @@ public class MicrophoneInfo implements android.os.Parcelable {
         public static final int UNKNOWN = 0;
     }
 
-    public static class FrequencyResponsePoint implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.audio.common.MicrophoneInfo.FrequencyResponsePoint> CREATOR = null;
-        public float frequencyHz;
-        public float leveldB;
-        public FrequencyResponsePoint() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static @interface Location {
         public static final int MAINBODY = 1;
         public static final int MAINBODY_MOVABLE = 2;
         public static final int PERIPHERAL = 3;
         public static final int UNKNOWN = 0;
-    }
-
-    public static class Sensitivity implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.audio.common.MicrophoneInfo.Sensitivity> CREATOR = null;
-        public float leveldBFS;
-        public float maxSpldB;
-        public float minSpldB;
-        public Sensitivity() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

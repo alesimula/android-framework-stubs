@@ -80,6 +80,7 @@ public final class DisconnectCause {
     public static final int TIMED_OUT = 13;
     public static final int TOO_MANY_ONGOING_CALLS = 75;
     public static final int UNOBTAINABLE_NUMBER = 25;
+    public static final int UNWANTED = 83;
     public static final int VIDEO_CALL_NOT_ALLOWED_WHILE_TTY_ENABLED = 50;
     public static final int VOICEMAIL_NUMBER_MISSING = 40;
     public static final int WFC_SERVICE_NOT_AVAILABLE_IN_THIS_LOCATION = 79;

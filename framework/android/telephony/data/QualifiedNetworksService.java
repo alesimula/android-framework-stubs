@@ -11,7 +11,7 @@ public abstract class QualifiedNetworksService extends android.app.Service {
     private static final int QNS_REQUEST_NETWORK_VALIDATION = 7;
     private static final int QNS_UPDATE_QUALIFIED_NETWORKS = 4;
     public static final java.lang.String QUALIFIED_NETWORKS_SERVICE_INTERFACE = "android.telephony.data.QualifiedNetworksService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "QualifiedNetworksService";
     public final android.telephony.data.QualifiedNetworksService.IQualifiedNetworksServiceWrapper mBinder = null;
     private final android.telephony.data.QualifiedNetworksService.QualifiedNetworksServiceHandler mHandler = null;
     private final android.os.HandlerThread mHandlerThread = null;
@@ -23,6 +23,12 @@ public abstract class QualifiedNetworksService extends android.app.Service {
     public abstract android.telephony.data.QualifiedNetworksService.NetworkAvailabilityProvider onCreateNetworkAvailabilityProvider(int p0);
     public void onDestroy() {}
     public boolean onUnbind(android.content.Intent p0) { return false; }
+
+    private static final class NetworkValidationRequestData {
+        final com.android.internal.telephony.IIntegerConsumer mCallback = null;
+        final int mNetworkCapability = 0;
+        private NetworkValidationRequestData(int p0, com.android.internal.telephony.IIntegerConsumer p1) {}
+    }
 
     private class IQualifiedNetworksServiceWrapper extends android.telephony.data.IQualifiedNetworksService.Stub {
         private IQualifiedNetworksServiceWrapper(android.telephony.data.QualifiedNetworksService p0) { super(); }
@@ -48,12 +54,6 @@ public abstract class QualifiedNetworksService extends android.app.Service {
         public void reportThrottleStatusChanged(java.util.List<android.telephony.data.ThrottleStatus> p0) {}
         public void requestNetworkValidation(int p0, java.util.concurrent.Executor p1, java.util.function.Consumer<java.lang.Integer> p2) {}
         public final void updateQualifiedNetworkTypes(int p0, java.util.List<java.lang.Integer> p1) {}
-    }
-
-    private static final class NetworkValidationRequestData {
-        final com.android.internal.telephony.IIntegerConsumer mCallback = null;
-        final int mNetworkCapability = 0;
-        private NetworkValidationRequestData(int p0, com.android.internal.telephony.IIntegerConsumer p1) {}
     }
 
     private class QualifiedNetworksServiceHandler extends android.os.Handler {

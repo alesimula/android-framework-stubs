@@ -25,36 +25,6 @@ abstract class MapCollections<K extends java.lang.Object, V extends java.lang.Ob
     public java.lang.Object[] toArrayHelper(int p0) { return null; }
     public <T extends java.lang.Object> T[] toArrayHelper(T[] p0, int p1) { return null; }
 
-    final class ArrayIterator<T extends java.lang.Object> implements java.util.Iterator<T> {
-        boolean mCanRemove;
-        int mIndex;
-        final int mOffset = 0;
-        int mSize;
-        ArrayIterator(android.util.MapCollections p0, int p1) {}
-        public boolean hasNext() { return false; }
-        public T next() { return null; }
-        public void remove() {}
-    }
-
-    final class EntrySet implements java.util.Set<java.util.Map.Entry<K, V>> {
-        EntrySet(android.util.MapCollections p0) {}
-        public boolean add(java.util.Map.Entry<K, V> p0) { return false; }
-        public boolean addAll(java.util.Collection<? extends java.util.Map.Entry<K, V>> p0) { return false; }
-        public void clear() {}
-        public boolean contains(java.lang.Object p0) { return false; }
-        public boolean containsAll(java.util.Collection<?> p0) { return false; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public boolean isEmpty() { return false; }
-        public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
-        public boolean remove(java.lang.Object p0) { return false; }
-        public boolean removeAll(java.util.Collection<?> p0) { return false; }
-        public boolean retainAll(java.util.Collection<?> p0) { return false; }
-        public int size() { return 0; }
-        public java.lang.Object[] toArray() { return null; }
-        public <T extends java.lang.Object> T[] toArray(T[] p0) { return null; }
-    }
-
     final class KeySet implements java.util.Set<K> {
         KeySet(android.util.MapCollections p0) {}
         public boolean add(K p0) { return false; }
@@ -91,6 +61,25 @@ abstract class MapCollections<K extends java.lang.Object, V extends java.lang.Ob
         public final java.lang.String toString() { return null; }
     }
 
+    final class EntrySet implements java.util.Set<java.util.Map.Entry<K, V>> {
+        EntrySet(android.util.MapCollections p0) {}
+        public boolean add(java.util.Map.Entry<K, V> p0) { return false; }
+        public boolean addAll(java.util.Collection<? extends java.util.Map.Entry<K, V>> p0) { return false; }
+        public void clear() {}
+        public boolean contains(java.lang.Object p0) { return false; }
+        public boolean containsAll(java.util.Collection<?> p0) { return false; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public boolean isEmpty() { return false; }
+        public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
+        public boolean remove(java.lang.Object p0) { return false; }
+        public boolean removeAll(java.util.Collection<?> p0) { return false; }
+        public boolean retainAll(java.util.Collection<?> p0) { return false; }
+        public int size() { return 0; }
+        public java.lang.Object[] toArray() { return null; }
+        public <T extends java.lang.Object> T[] toArray(T[] p0) { return null; }
+    }
+
     final class ValuesCollection implements java.util.Collection<V> {
         ValuesCollection(android.util.MapCollections p0) {}
         public boolean add(V p0) { return false; }
@@ -107,5 +96,16 @@ abstract class MapCollections<K extends java.lang.Object, V extends java.lang.Ob
         public java.lang.Object[] toArray() { return null; }
         public <T extends java.lang.Object> T[] toArray(T[] p0) { return null; }
         public java.lang.String toString() { return null; }
+    }
+
+    final class ArrayIterator<T extends java.lang.Object> implements java.util.Iterator<T> {
+        boolean mCanRemove;
+        int mIndex;
+        final int mOffset = 0;
+        int mSize;
+        ArrayIterator(android.util.MapCollections p0, int p1) {}
+        public boolean hasNext() { return false; }
+        public T next() { return null; }
+        public void remove() {}
     }
 }

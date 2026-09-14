@@ -4,7 +4,7 @@ public final class ConstrainDisplayApisConfig {
     private static final java.lang.String FLAG_ALWAYS_CONSTRAIN_DISPLAY_APIS = "always_constrain_display_apis";
     private static final java.lang.String FLAG_NEVER_CONSTRAIN_DISPLAY_APIS = "never_constrain_display_apis";
     private static final java.lang.String FLAG_NEVER_CONSTRAIN_DISPLAY_APIS_ALL_PACKAGES = "never_constrain_display_apis_all_packages";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ConstrainDisplayApisConfig";
     private android.util.ArrayMap<java.lang.String, android.util.Pair<java.lang.Long, java.lang.Long>> mAlwaysConstrainConfigMap;
     private android.util.ArrayMap<java.lang.String, android.util.Pair<java.lang.Long, java.lang.Long>> mNeverConstrainConfigMap;
     private boolean mNeverConstrainDisplayApisAllPackages;

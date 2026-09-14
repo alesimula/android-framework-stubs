@@ -46,14 +46,14 @@ public class ActionMenuItemView extends android.widget.TextView implements com.a
     public void setTitle(java.lang.CharSequence p0) {}
     public boolean showsIcon() { return false; }
 
+    public static abstract class PopupCallback {
+        public PopupCallback() {}
+        public abstract com.android.internal.view.menu.ShowableListMenu getPopup();
+    }
+
     private class ActionMenuItemForwardingListener extends android.widget.ForwardingListener {
         public ActionMenuItemForwardingListener(com.android.internal.view.menu.ActionMenuItemView p0) { super(null); }
         public com.android.internal.view.menu.ShowableListMenu getPopup() { return null; }
         protected boolean onForwardingStarted() { return false; }
-    }
-
-    public static abstract class PopupCallback {
-        public PopupCallback() {}
-        public abstract com.android.internal.view.menu.ShowableListMenu getPopup();
     }
 }

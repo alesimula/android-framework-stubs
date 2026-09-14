@@ -36,11 +36,6 @@ public final class MidiDeviceServer implements java.io.Closeable {
     android.media.midi.IMidiDeviceServer getBinderInterface() { return null; }
     public android.media.midi.MidiReceiver[] getOutputPortReceivers() { return null; }
 
-    public static interface Callback {
-        public void onClose();
-        public void onDeviceStatusChanged(android.media.midi.MidiDeviceServer p0, android.media.midi.MidiDeviceStatus p1);
-    }
-
     private class InputPortClient extends android.media.midi.MidiDeviceServer.PortClient {
         private final android.media.midi.MidiOutputPort mOutputPort = null;
         InputPortClient(android.media.midi.MidiDeviceServer p0, android.os.IBinder p1, android.media.midi.MidiOutputPort p2) { super(null, null); }
@@ -52,6 +47,11 @@ public final class MidiDeviceServer implements java.io.Closeable {
         OutputPortClient(android.media.midi.MidiDeviceServer p0, android.os.IBinder p1, android.media.midi.MidiInputPort p2) { super(null, null); }
         void close() {}
         android.media.midi.MidiInputPort getInputPort() { return null; }
+    }
+
+    public static interface Callback {
+        public void onClose();
+        public void onDeviceStatusChanged(android.media.midi.MidiDeviceServer p0, android.media.midi.MidiDeviceStatus p1);
     }
 
     private abstract class PortClient implements android.os.IBinder.DeathRecipient {

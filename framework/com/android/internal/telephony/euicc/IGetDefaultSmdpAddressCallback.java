@@ -4,12 +4,6 @@ public interface IGetDefaultSmdpAddressCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.euicc.IGetDefaultSmdpAddressCallback";
     public void onComplete(int p0, java.lang.String p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.euicc.IGetDefaultSmdpAddressCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onComplete(int p0, java.lang.String p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.euicc.IGetDefaultSmdpAddressCallback {
         static final int TRANSACTION_onComplete = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IGetDefaultSmdpAddressCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onComplete(int p0, java.lang.String p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.euicc.IGetDefaultSmdpAddressCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onComplete(int p0, java.lang.String p1) throws android.os.RemoteException {}
     }
 }

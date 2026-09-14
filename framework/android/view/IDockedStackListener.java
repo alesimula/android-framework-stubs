@@ -7,16 +7,6 @@ public interface IDockedStackListener extends android.os.IInterface {
     public void onDockedStackExistsChanged(boolean p0) throws android.os.RemoteException;
     public void onDockedStackMinimizedChanged(boolean p0, long p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IDockedStackListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAdjustedForImeChanged(boolean p0, long p1) throws android.os.RemoteException {}
-        public void onDividerVisibilityChanged(boolean p0) throws android.os.RemoteException {}
-        public void onDockSideChanged(int p0) throws android.os.RemoteException {}
-        public void onDockedStackExistsChanged(boolean p0) throws android.os.RemoteException {}
-        public void onDockedStackMinimizedChanged(boolean p0, long p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IDockedStackListener {
         public static final java.lang.String DESCRIPTOR = "android.view.IDockedStackListener";
         static final int TRANSACTION_onAdjustedForImeChanged = 4;
@@ -42,5 +32,15 @@ public interface IDockedStackListener extends android.os.IInterface {
             public void onDockedStackExistsChanged(boolean p0) throws android.os.RemoteException {}
             public void onDockedStackMinimizedChanged(boolean p0, long p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IDockedStackListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAdjustedForImeChanged(boolean p0, long p1) throws android.os.RemoteException {}
+        public void onDividerVisibilityChanged(boolean p0) throws android.os.RemoteException {}
+        public void onDockSideChanged(int p0) throws android.os.RemoteException {}
+        public void onDockedStackExistsChanged(boolean p0) throws android.os.RemoteException {}
+        public void onDockedStackMinimizedChanged(boolean p0, long p1, boolean p2) throws android.os.RemoteException {}
     }
 }

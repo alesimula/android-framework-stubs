@@ -16,6 +16,7 @@ public final class DownloadableSubscription implements android.os.Parcelable {
     public int describeContents() { return 0; }
     @android.annotation.SystemApi
     public java.util.List<android.telephony.UiccAccessRule> getAccessRules() { return null; }
+    @android.annotation.SystemApi
     public android.service.carrier.CarrierIdentifier getCarrierIdentifier() { return null; }
     @android.annotation.SystemApi
     public java.lang.String getCarrierName() { return null; }
@@ -44,6 +45,7 @@ public final class DownloadableSubscription implements android.os.Parcelable {
         public android.telephony.euicc.DownloadableSubscription build() { return null; }
         @android.annotation.SystemApi
         public android.telephony.euicc.DownloadableSubscription.Builder setAccessRules(java.util.List<android.telephony.UiccAccessRule> p0) { return null; }
+        @android.annotation.SystemApi
         public android.telephony.euicc.DownloadableSubscription.Builder setCarrierIdentifier(android.service.carrier.CarrierIdentifier p0) { return null; }
         @android.annotation.SystemApi
         public android.telephony.euicc.DownloadableSubscription.Builder setCarrierName(java.lang.String p0) { return null; }

@@ -6,7 +6,7 @@ public class DisplayResolutionTracker {
     public static final int RESOLUTION_QHD = 4;
     public static final int RESOLUTION_SD = 1;
     public static final int RESOLUTION_UNKNOWN = 0;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DisplayResolutionTracker";
     private final java.lang.Object mLock = null;
     private final com.android.internal.jank.DisplayResolutionTracker.DisplayInterface mManager = null;
     private final android.util.SparseArray<java.lang.Integer> mResolutions = null;

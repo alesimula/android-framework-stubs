@@ -15,24 +15,6 @@ public interface ITunerCallback extends android.os.IInterface {
     public void onTrafficAnnouncement(boolean p0) throws android.os.RemoteException;
     public void onTuneFailed(int p0, android.hardware.radio.ProgramSelector p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.ITunerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAntennaState(boolean p0) throws android.os.RemoteException {}
-        public void onBackgroundScanAvailabilityChange(boolean p0) throws android.os.RemoteException {}
-        public void onBackgroundScanComplete() throws android.os.RemoteException {}
-        public void onConfigFlagUpdated(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onConfigurationChanged(android.hardware.radio.RadioManager.BandConfig p0) throws android.os.RemoteException {}
-        public void onCurrentProgramInfoChanged(android.hardware.radio.RadioManager.ProgramInfo p0) throws android.os.RemoteException {}
-        public void onEmergencyAnnouncement(boolean p0) throws android.os.RemoteException {}
-        public void onError(int p0) throws android.os.RemoteException {}
-        public void onParametersUpdated(java.util.Map<java.lang.String, java.lang.String> p0) throws android.os.RemoteException {}
-        public void onProgramListChanged() throws android.os.RemoteException {}
-        public void onProgramListUpdated(android.hardware.radio.ProgramList.Chunk p0) throws android.os.RemoteException {}
-        public void onTrafficAnnouncement(boolean p0) throws android.os.RemoteException {}
-        public void onTuneFailed(int p0, android.hardware.radio.ProgramSelector p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.ITunerCallback {
         public static final java.lang.String DESCRIPTOR = "android.hardware.radio.ITunerCallback";
         static final int TRANSACTION_onAntennaState = 7;
@@ -74,5 +56,23 @@ public interface ITunerCallback extends android.os.IInterface {
             public void onTrafficAnnouncement(boolean p0) throws android.os.RemoteException {}
             public void onTuneFailed(int p0, android.hardware.radio.ProgramSelector p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.ITunerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAntennaState(boolean p0) throws android.os.RemoteException {}
+        public void onBackgroundScanAvailabilityChange(boolean p0) throws android.os.RemoteException {}
+        public void onBackgroundScanComplete() throws android.os.RemoteException {}
+        public void onConfigFlagUpdated(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onConfigurationChanged(android.hardware.radio.RadioManager.BandConfig p0) throws android.os.RemoteException {}
+        public void onCurrentProgramInfoChanged(android.hardware.radio.RadioManager.ProgramInfo p0) throws android.os.RemoteException {}
+        public void onEmergencyAnnouncement(boolean p0) throws android.os.RemoteException {}
+        public void onError(int p0) throws android.os.RemoteException {}
+        public void onParametersUpdated(java.util.Map<java.lang.String, java.lang.String> p0) throws android.os.RemoteException {}
+        public void onProgramListChanged() throws android.os.RemoteException {}
+        public void onProgramListUpdated(android.hardware.radio.ProgramList.Chunk p0) throws android.os.RemoteException {}
+        public void onTrafficAnnouncement(boolean p0) throws android.os.RemoteException {}
+        public void onTuneFailed(int p0, android.hardware.radio.ProgramSelector p1) throws android.os.RemoteException {}
     }
 }

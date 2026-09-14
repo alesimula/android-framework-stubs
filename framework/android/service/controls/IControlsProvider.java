@@ -7,15 +7,6 @@ public interface IControlsProvider extends android.os.IInterface {
     public void loadSuggested(android.service.controls.IControlsSubscriber p0) throws android.os.RemoteException;
     public void subscribe(java.util.List<java.lang.String> p0, android.service.controls.IControlsSubscriber p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.controls.IControlsProvider {
-        public Default() {}
-        public void action(java.lang.String p0, android.service.controls.actions.ControlActionWrapper p1, android.service.controls.IControlsActionCallback p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void load(android.service.controls.IControlsSubscriber p0) throws android.os.RemoteException {}
-        public void loadSuggested(android.service.controls.IControlsSubscriber p0) throws android.os.RemoteException {}
-        public void subscribe(java.util.List<java.lang.String> p0, android.service.controls.IControlsSubscriber p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.controls.IControlsProvider {
         static final int TRANSACTION_action = 4;
         static final int TRANSACTION_load = 1;
@@ -38,5 +29,14 @@ public interface IControlsProvider extends android.os.IInterface {
             public void loadSuggested(android.service.controls.IControlsSubscriber p0) throws android.os.RemoteException {}
             public void subscribe(java.util.List<java.lang.String> p0, android.service.controls.IControlsSubscriber p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.controls.IControlsProvider {
+        public Default() {}
+        public void action(java.lang.String p0, android.service.controls.actions.ControlActionWrapper p1, android.service.controls.IControlsActionCallback p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void load(android.service.controls.IControlsSubscriber p0) throws android.os.RemoteException {}
+        public void loadSuggested(android.service.controls.IControlsSubscriber p0) throws android.os.RemoteException {}
+        public void subscribe(java.util.List<java.lang.String> p0, android.service.controls.IControlsSubscriber p1) throws android.os.RemoteException {}
     }
 }

@@ -70,18 +70,12 @@ public class XmlUtils {
     @java.lang.Deprecated
     public static final void writeValueXml(java.lang.Object p0, java.lang.String p1, org.xmlpull.v1.XmlSerializer p2) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException {}
 
-    private static class ForcedTypedXmlPullParser extends com.android.internal.util.XmlPullParserWrapper implements com.android.modules.utils.TypedXmlPullParser {
-        private ForcedTypedXmlPullParser(org.xmlpull.v1.XmlPullParser p0) { super(null); }
-        private org.xmlpull.v1.XmlPullParserException invalidAttributeException(int p0, java.lang.Exception p1) { return null; }
-        public boolean getAttributeBoolean(int p0) throws org.xmlpull.v1.XmlPullParserException { return false; }
-        public byte[] getAttributeBytesBase64(int p0) throws org.xmlpull.v1.XmlPullParserException { return null; }
-        public byte[] getAttributeBytesHex(int p0) throws org.xmlpull.v1.XmlPullParserException { return null; }
-        public double getAttributeDouble(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0.0; }
-        public float getAttributeFloat(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0.0f; }
-        public int getAttributeInt(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0; }
-        public int getAttributeIntHex(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0; }
-        public long getAttributeLong(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0L; }
-        public long getAttributeLongHex(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0L; }
+    public static interface ReadMapCallback {
+        public java.lang.Object readThisUnknownObjectXml(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException;
+    }
+
+    public static interface WriteMapCallback {
+        public void writeUnknownObject(java.lang.Object p0, java.lang.String p1, com.android.modules.utils.TypedXmlSerializer p2) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException;
     }
 
     private static class ForcedTypedXmlSerializer extends com.android.internal.util.XmlSerializerWrapper implements com.android.modules.utils.TypedXmlSerializer {
@@ -98,11 +92,17 @@ public class XmlUtils {
         public org.xmlpull.v1.XmlSerializer attributeLongHex(java.lang.String p0, java.lang.String p1, long p2) throws java.io.IOException { return null; }
     }
 
-    public static interface ReadMapCallback {
-        public java.lang.Object readThisUnknownObjectXml(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException;
-    }
-
-    public static interface WriteMapCallback {
-        public void writeUnknownObject(java.lang.Object p0, java.lang.String p1, com.android.modules.utils.TypedXmlSerializer p2) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException;
+    private static class ForcedTypedXmlPullParser extends com.android.internal.util.XmlPullParserWrapper implements com.android.modules.utils.TypedXmlPullParser {
+        private ForcedTypedXmlPullParser(org.xmlpull.v1.XmlPullParser p0) { super(null); }
+        private org.xmlpull.v1.XmlPullParserException invalidAttributeException(int p0, java.lang.Exception p1) { return null; }
+        public boolean getAttributeBoolean(int p0) throws org.xmlpull.v1.XmlPullParserException { return false; }
+        public byte[] getAttributeBytesBase64(int p0) throws org.xmlpull.v1.XmlPullParserException { return null; }
+        public byte[] getAttributeBytesHex(int p0) throws org.xmlpull.v1.XmlPullParserException { return null; }
+        public double getAttributeDouble(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0.0; }
+        public float getAttributeFloat(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0.0f; }
+        public int getAttributeInt(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0; }
+        public int getAttributeIntHex(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0; }
+        public long getAttributeLong(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0L; }
+        public long getAttributeLongHex(int p0) throws org.xmlpull.v1.XmlPullParserException { return 0L; }
     }
 }

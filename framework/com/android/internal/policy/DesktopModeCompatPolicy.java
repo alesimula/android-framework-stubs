@@ -12,12 +12,14 @@ public class DesktopModeCompatPolicy {
     private final java.lang.String mSystemUiPackage = null;
     public DesktopModeCompatPolicy(android.content.Context p0) {}
     private android.content.pm.PackageManager getPackageManager() { return null; }
-    private boolean hasFullscreenTransparentPermission(java.lang.String p0, int p1, android.content.pm.ActivityInfo p2) { return false; }
+    private boolean hasPermission(java.lang.String p0, java.lang.String p1, int p2) { return false; }
     private boolean hasPlatformSignature(android.content.pm.ActivityInfo p0) { return false; }
+    private boolean hasSystemAlertWindowPermission(java.lang.String p0, int p1, android.content.pm.ActivityInfo p2) { return false; }
     private boolean isPackageExemptViaConfig(java.lang.String p0) { return false; }
     private boolean isPrivilegedApp(android.content.pm.ActivityInfo p0) { return false; }
     private boolean isSystemUiTask(java.lang.String p0) { return false; }
     private boolean isTransparentTask(boolean p0, int p1) { return false; }
+    private boolean isTransparentTaskExempt(com.android.internal.policy.WindowingExemptionsInfo p0, java.lang.String p1) { return false; }
     public java.lang.String getDefaultHomePackage(int p0) { return null; }
     public boolean isPackageLaunchInFullscreen(android.content.pm.ActivityInfo p0) { return false; }
     public boolean isPartOfDefaultHomePackageOrNoHomeAvailable(java.lang.String p0, int p1, java.lang.String p2) { return false; }

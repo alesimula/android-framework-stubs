@@ -10,18 +10,6 @@ public interface IImsRegistrationCallback extends android.os.IInterface {
     public void onSubscriberAssociatedUriChanged(android.net.Uri[] p0) throws android.os.RemoteException;
     public void onTechnologyChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IImsRegistrationCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDeregistered(android.telephony.ims.ImsReasonInfo p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onDeregisteredWithDetails(android.telephony.ims.ImsReasonInfo p0, int p1, int p2, android.telephony.ims.SipDetails p3) throws android.os.RemoteException {}
-        public void onDeregisteredWithTime(android.telephony.ims.ImsReasonInfo p0, int p1, int p2, int p3) throws android.os.RemoteException {}
-        public void onRegistered(android.telephony.ims.ImsRegistrationAttributes p0) throws android.os.RemoteException {}
-        public void onRegistering(android.telephony.ims.ImsRegistrationAttributes p0) throws android.os.RemoteException {}
-        public void onSubscriberAssociatedUriChanged(android.net.Uri[] p0) throws android.os.RemoteException {}
-        public void onTechnologyChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IImsRegistrationCallback {
         static final int TRANSACTION_onDeregistered = 3;
         static final int TRANSACTION_onDeregisteredWithDetails = 5;
@@ -50,5 +38,17 @@ public interface IImsRegistrationCallback extends android.os.IInterface {
             public void onSubscriberAssociatedUriChanged(android.net.Uri[] p0) throws android.os.RemoteException {}
             public void onTechnologyChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IImsRegistrationCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDeregistered(android.telephony.ims.ImsReasonInfo p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onDeregisteredWithDetails(android.telephony.ims.ImsReasonInfo p0, int p1, int p2, android.telephony.ims.SipDetails p3) throws android.os.RemoteException {}
+        public void onDeregisteredWithTime(android.telephony.ims.ImsReasonInfo p0, int p1, int p2, int p3) throws android.os.RemoteException {}
+        public void onRegistered(android.telephony.ims.ImsRegistrationAttributes p0) throws android.os.RemoteException {}
+        public void onRegistering(android.telephony.ims.ImsRegistrationAttributes p0) throws android.os.RemoteException {}
+        public void onSubscriberAssociatedUriChanged(android.net.Uri[] p0) throws android.os.RemoteException {}
+        public void onTechnologyChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) throws android.os.RemoteException {}
     }
 }

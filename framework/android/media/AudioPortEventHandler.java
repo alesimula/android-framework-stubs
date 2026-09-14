@@ -14,7 +14,7 @@ class AudioPortEventHandler {
     private final java.lang.Object mLock = null;
     AudioPortEventHandler() {}
     private native void native_finalize();
-    private native void native_setup(java.lang.Object p0);
+    private native int native_setup(java.lang.Object p0);
     private static void postEventFromNative(java.lang.Object p0, int p1, int p2, int p3, java.lang.Object p4) {}
     protected void finalize() {}
     android.os.Handler handler() { return null; }

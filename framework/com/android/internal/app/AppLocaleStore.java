@@ -1,7 +1,7 @@
 package com.android.internal.app;
 
 public class AppLocaleStore {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AppLocaleStore";
     public AppLocaleStore() {}
     private static java.util.HashSet<java.util.Locale> filterNotMatchingLocale(java.util.HashSet<java.util.Locale> p0, java.util.HashSet<java.util.Locale> p1) { return null; }
     public static com.android.internal.app.AppLocaleStore.AppLocaleResult getAppSupportedLocales(android.content.Context p0, java.lang.String p1) { return null; }

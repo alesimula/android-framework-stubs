@@ -76,8 +76,8 @@ class LongArray implements java.lang.Cloneable {
     public boolean testBitZero() { return false; }
     public java.math.BigInteger toBigInteger() { return null; }
     public java.lang.String toString() { return null; }
-    private static long[] $d2j$hex$6aa589e6$decode_J(java.lang.String p0) { return null; }
-    private static int[] $d2j$hex$6aa589e6$decode_I(java.lang.String p0) { return null; }
-    private static short[] $d2j$hex$6aa589e6$decode_S(java.lang.String p0) { return null; }
-    private static byte[] $d2j$hex$6aa589e6$decode_B(java.lang.String p0) { return null; }
+    private static long[] $d2j$hex$bbd84cbe$decode_J(java.lang.String p0) { return null; }
+    private static int[] $d2j$hex$bbd84cbe$decode_I(java.lang.String p0) { return null; }
+    private static short[] $d2j$hex$bbd84cbe$decode_S(java.lang.String p0) { return null; }
+    private static byte[] $d2j$hex$bbd84cbe$decode_B(java.lang.String p0) { return null; }
 }

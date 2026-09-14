@@ -273,6 +273,7 @@ public class Activity extends android.view.ContextThemeWrapper implements androi
     public android.app.LoaderManager getLoaderManager() { return null; }
     public java.lang.String getLocalClassName() { return null; }
     public int getMaxNumPictureInPictureActions() { return 0; }
+    public final int getMaxNumPictureInPictureOverlayActions() { return 0; }
     public final android.media.session.MediaController getMediaController() { return null; }
     public android.view.MenuInflater getMenuInflater() { return null; }
     public final int getNextAutofillId() { return 0; }
@@ -567,7 +568,9 @@ public class Activity extends android.view.ContextThemeWrapper implements androi
     public void startActivity(android.content.Intent p0, android.os.Bundle p1) {}
     public void startActivityAsCaller(android.content.Intent p0, android.os.Bundle p1, boolean p2, int p3) {}
     public void startActivityAsCaller(android.content.Intent p0, android.os.Bundle p1, boolean p2, int p3, int p4) {}
+    @android.annotation.SystemApi
     public void startActivityAsUser(android.content.Intent p0, android.os.Bundle p1, android.os.UserHandle p2) {}
+    @android.annotation.SystemApi
     public void startActivityAsUser(android.content.Intent p0, android.os.UserHandle p1) {}
     public void startActivityForResult(android.content.Intent p0, int p1) {}
     public void startActivityForResult(android.content.Intent p0, int p1, android.os.Bundle p2) {}

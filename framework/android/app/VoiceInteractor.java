@@ -39,6 +39,26 @@ public final class VoiceInteractor {
     public boolean[] supportsCommands(java.lang.String[] p0) { return null; }
     public boolean unregisterOnDestroyedCallback(java.lang.Runnable p0) { return false; }
 
+    public static abstract class Request {
+        android.app.Activity mActivity;
+        android.content.Context mContext;
+        java.lang.String mName;
+        com.android.internal.app.IVoiceInteractorRequest mRequestInterface;
+        Request() {}
+        public void cancel() {}
+        void clear() {}
+        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
+        public android.app.Activity getActivity() { return null; }
+        public android.content.Context getContext() { return null; }
+        public java.lang.String getName() { return null; }
+        java.lang.String getRequestTypeName() { return null; }
+        public void onAttached(android.app.Activity p0) {}
+        public void onCancel() {}
+        public void onDetached() {}
+        abstract com.android.internal.app.IVoiceInteractorRequest submit(com.android.internal.app.IVoiceInteractor p0, java.lang.String p1, com.android.internal.app.IVoiceInteractorCallback p2) throws android.os.RemoteException;
+        public java.lang.String toString() { return null; }
+    }
+
     public static class AbortVoiceRequest extends android.app.VoiceInteractor.Request {
         final android.os.Bundle mExtras = null;
         final android.app.VoiceInteractor.Prompt mPrompt = null;
@@ -133,25 +153,5 @@ public final class VoiceInteractor {
         public java.lang.CharSequence getVoicePromptAt(int p0) { return null; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static abstract class Request {
-        android.app.Activity mActivity;
-        android.content.Context mContext;
-        java.lang.String mName;
-        com.android.internal.app.IVoiceInteractorRequest mRequestInterface;
-        Request() {}
-        public void cancel() {}
-        void clear() {}
-        void dump(java.lang.String p0, java.io.FileDescriptor p1, java.io.PrintWriter p2, java.lang.String[] p3) {}
-        public android.app.Activity getActivity() { return null; }
-        public android.content.Context getContext() { return null; }
-        public java.lang.String getName() { return null; }
-        java.lang.String getRequestTypeName() { return null; }
-        public void onAttached(android.app.Activity p0) {}
-        public void onCancel() {}
-        public void onDetached() {}
-        abstract com.android.internal.app.IVoiceInteractorRequest submit(com.android.internal.app.IVoiceInteractor p0, java.lang.String p1, com.android.internal.app.IVoiceInteractorCallback p2) throws android.os.RemoteException;
-        public java.lang.String toString() { return null; }
     }
 }

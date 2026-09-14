@@ -181,27 +181,6 @@ public final class ProcessStats implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeToParcel(android.os.Parcel p0, long p1, int p2) {}
 
-    final class AssociationDumpContainer {
-        long mActiveTime;
-        java.util.ArrayList<android.util.Pair<com.android.internal.app.procstats.AssociationState.SourceKey, com.android.internal.app.procstats.AssociationState.SourceDumpContainer>> mSources;
-        final com.android.internal.app.procstats.AssociationState mState = null;
-        long mTotalTime;
-        AssociationDumpContainer(com.android.internal.app.procstats.ProcessStats p0, com.android.internal.app.procstats.AssociationState p1) {}
-    }
-
-    public static final class PackageState {
-        public final android.util.ArrayMap<java.lang.String, com.android.internal.app.procstats.AssociationState> mAssociations = null;
-        public final java.lang.String mPackageName = null;
-        public final com.android.internal.app.procstats.ProcessStats mProcessStats = null;
-        public final android.util.ArrayMap<java.lang.String, com.android.internal.app.procstats.ProcessState> mProcesses = null;
-        public final android.util.ArrayMap<java.lang.String, com.android.internal.app.procstats.ServiceState> mServices = null;
-        public final int mUid = 0;
-        public final long mVersionCode = 0L;
-        public PackageState(com.android.internal.app.procstats.ProcessStats p0, java.lang.String p1, int p2, long p3) {}
-        public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1, long p2, int p3) {}
-        public com.android.internal.app.procstats.AssociationState getAssociationStateLocked(com.android.internal.app.procstats.ProcessState p0, java.lang.String p1) { return null; }
-    }
-
     public static final class ProcessDataCollection {
         public long avgPss;
         public long avgRss;
@@ -228,6 +207,19 @@ public final class ProcessStats implements android.os.Parcelable {
         public ProcessStateHolder(long p0) {}
     }
 
+    public static final class PackageState {
+        public final android.util.ArrayMap<java.lang.String, com.android.internal.app.procstats.AssociationState> mAssociations = null;
+        public final java.lang.String mPackageName = null;
+        public final com.android.internal.app.procstats.ProcessStats mProcessStats = null;
+        public final android.util.ArrayMap<java.lang.String, com.android.internal.app.procstats.ProcessState> mProcesses = null;
+        public final android.util.ArrayMap<java.lang.String, com.android.internal.app.procstats.ServiceState> mServices = null;
+        public final int mUid = 0;
+        public final long mVersionCode = 0L;
+        public PackageState(com.android.internal.app.procstats.ProcessStats p0, java.lang.String p1, int p2, long p3) {}
+        public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1, long p2, int p3) {}
+        public com.android.internal.app.procstats.AssociationState getAssociationStateLocked(com.android.internal.app.procstats.ProcessState p0, java.lang.String p1) { return null; }
+    }
+
     public static class TotalMemoryUseCollection {
         public boolean hasSwappedOutPss;
         final int[] memStates = null;
@@ -245,5 +237,13 @@ public final class ProcessStats implements android.os.Parcelable {
         public double sysMemZRamWeight;
         public long totalTime;
         public TotalMemoryUseCollection(int[] p0, int[] p1) {}
+    }
+
+    final class AssociationDumpContainer {
+        long mActiveTime;
+        java.util.ArrayList<android.util.Pair<com.android.internal.app.procstats.AssociationState.SourceKey, com.android.internal.app.procstats.AssociationState.SourceDumpContainer>> mSources;
+        final com.android.internal.app.procstats.AssociationState mState = null;
+        long mTotalTime;
+        AssociationDumpContainer(com.android.internal.app.procstats.ProcessStats p0, com.android.internal.app.procstats.AssociationState p1) {}
     }
 }

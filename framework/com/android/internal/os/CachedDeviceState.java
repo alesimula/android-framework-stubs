@@ -12,13 +12,6 @@ public class CachedDeviceState {
     public void setCharging(boolean p0) {}
     public void setScreenInteractive(boolean p0) {}
 
-    public class Readonly {
-        public Readonly(com.android.internal.os.CachedDeviceState p0) {}
-        public com.android.internal.os.CachedDeviceState.TimeInStateStopwatch createTimeOnBatteryStopwatch() { return null; }
-        public boolean isCharging() { return false; }
-        public boolean isScreenInteractive() { return false; }
-    }
-
     public class TimeInStateStopwatch implements java.lang.AutoCloseable {
         private final java.lang.Object mLock = null;
         private long mStartTimeMillis;
@@ -31,5 +24,12 @@ public class CachedDeviceState {
         public long getMillis() { return 0L; }
         public boolean isRunning() { return false; }
         public void reset() {}
+    }
+
+    public class Readonly {
+        public Readonly(com.android.internal.os.CachedDeviceState p0) {}
+        public com.android.internal.os.CachedDeviceState.TimeInStateStopwatch createTimeOnBatteryStopwatch() { return null; }
+        public boolean isCharging() { return false; }
+        public boolean isScreenInteractive() { return false; }
     }
 }

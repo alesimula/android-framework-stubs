@@ -16,6 +16,16 @@ public final class CountryTimeZones {
     public java.lang.String toString() { return null; }
 
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static final class TimeZoneMapping {
+        TimeZoneMapping(com.android.i18n.timezone.CountryTimeZones.TimeZoneMapping p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public android.icu.util.TimeZone getTimeZone() { return null; }
+        public java.lang.String getTimeZoneId() { return null; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public static final class OffsetResult {
         private final java.lang.String mCountryIsoCode = null;
         private final boolean mIsOnlyMatch = false;
@@ -25,16 +35,6 @@ public final class CountryTimeZones {
         public android.icu.util.TimeZone getTimeZone() { return null; }
         public int hashCode() { return 0; }
         public boolean isOnlyMatch() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
-    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-    public static final class TimeZoneMapping {
-        TimeZoneMapping(com.android.i18n.timezone.CountryTimeZones.TimeZoneMapping p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.icu.util.TimeZone getTimeZone() { return null; }
-        public java.lang.String getTimeZoneId() { return null; }
-        public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
     }
 }

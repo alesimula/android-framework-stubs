@@ -12,35 +12,24 @@ public interface IHidManager extends android.os.IInterface {
     public java.util.List<android.hardware.hid.HidDeviceInfo> getDevices() throws android.os.RemoteException;
     public android.hardware.hid.AidlReport getFeatureReport(android.hardware.hid.HidDeviceInfo p0, int p1) throws android.os.RemoteException;
     public java.util.List<android.hardware.hid.HidDevicePermission> getGrantedPermissions(java.lang.String p0) throws android.os.RemoteException;
+    public android.hardware.common.fmq.MQDescriptor<android.hardware.hid.HidReportPacket, java.lang.Byte> getInputReportQueue(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException;
     public void open(android.hardware.hid.HidDeviceInfo p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException;
     public java.util.List<android.hardware.hid.HidDeviceInfo> registerListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException;
+    public void releaseInputReportQueue(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException;
     public void sendFeatureReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException;
     public void sendOutputReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException;
     public void unregisterListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException;
     public void updatePermission(android.hardware.hid.HidDevicePermission p0, boolean p1) throws android.os.RemoteException;
-
-    public static class Default implements android.hardware.hid.IHidManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
-        public java.util.List<android.hardware.hid.HidDeviceInfo> getDevices() throws android.os.RemoteException { return null; }
-        public android.hardware.hid.AidlReport getFeatureReport(android.hardware.hid.HidDeviceInfo p0, int p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.hid.HidDevicePermission> getGrantedPermissions(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public void open(android.hardware.hid.HidDeviceInfo p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException {}
-        public java.util.List<android.hardware.hid.HidDeviceInfo> registerListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException { return null; }
-        public void sendFeatureReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException {}
-        public void sendOutputReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException {}
-        public void unregisterListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException {}
-        public void updatePermission(android.hardware.hid.HidDevicePermission p0, boolean p1) throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements android.hardware.hid.IHidManager {
         static final int TRANSACTION_close = 5;
         static final int TRANSACTION_getDevices = 1;
         static final int TRANSACTION_getFeatureReport = 7;
         static final int TRANSACTION_getGrantedPermissions = 9;
+        static final int TRANSACTION_getInputReportQueue = 11;
         static final int TRANSACTION_open = 4;
         static final int TRANSACTION_registerListener = 2;
+        static final int TRANSACTION_releaseInputReportQueue = 12;
         static final int TRANSACTION_sendFeatureReport = 6;
         static final int TRANSACTION_sendOutputReport = 8;
         static final int TRANSACTION_unregisterListener = 3;
@@ -60,13 +49,32 @@ public interface IHidManager extends android.os.IInterface {
             public java.util.List<android.hardware.hid.HidDeviceInfo> getDevices() throws android.os.RemoteException { return null; }
             public android.hardware.hid.AidlReport getFeatureReport(android.hardware.hid.HidDeviceInfo p0, int p1) throws android.os.RemoteException { return null; }
             public java.util.List<android.hardware.hid.HidDevicePermission> getGrantedPermissions(java.lang.String p0) throws android.os.RemoteException { return null; }
+            public android.hardware.common.fmq.MQDescriptor<android.hardware.hid.HidReportPacket, java.lang.Byte> getInputReportQueue(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void open(android.hardware.hid.HidDeviceInfo p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException {}
             public java.util.List<android.hardware.hid.HidDeviceInfo> registerListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException { return null; }
+            public void releaseInputReportQueue(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
             public void sendFeatureReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException {}
             public void sendOutputReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException {}
             public void unregisterListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException {}
             public void updatePermission(android.hardware.hid.HidDevicePermission p0, boolean p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hid.IHidManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
+        public java.util.List<android.hardware.hid.HidDeviceInfo> getDevices() throws android.os.RemoteException { return null; }
+        public android.hardware.hid.AidlReport getFeatureReport(android.hardware.hid.HidDeviceInfo p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.hid.HidDevicePermission> getGrantedPermissions(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.hardware.common.fmq.MQDescriptor<android.hardware.hid.HidReportPacket, java.lang.Byte> getInputReportQueue(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException { return null; }
+        public void open(android.hardware.hid.HidDeviceInfo p0, java.lang.String p1, android.os.IBinder p2) throws android.os.RemoteException {}
+        public java.util.List<android.hardware.hid.HidDeviceInfo> registerListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException { return null; }
+        public void releaseInputReportQueue(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
+        public void sendFeatureReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException {}
+        public void sendOutputReport(android.hardware.hid.HidDeviceInfo p0, android.hardware.hid.AidlReport p1) throws android.os.RemoteException {}
+        public void unregisterListener(android.hardware.hid.IHidDeviceListener p0) throws android.os.RemoteException {}
+        public void updatePermission(android.hardware.hid.HidDevicePermission p0, boolean p1) throws android.os.RemoteException {}
     }
 }

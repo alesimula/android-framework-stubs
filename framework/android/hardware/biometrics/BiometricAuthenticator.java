@@ -8,14 +8,6 @@ public interface BiometricAuthenticator {
     public static final int TYPE_IRIS = 4;
     public static final int TYPE_NONE = 0;
 
-    public static abstract class AuthenticationCallback {
-        public AuthenticationCallback() {}
-        public void onAuthenticationAcquired(int p0) {}
-        public void onAuthenticationError(int p0, java.lang.CharSequence p1) {}
-        public void onAuthenticationFailed() {}
-        public void onAuthenticationHelp(int p0, java.lang.CharSequence p1) {}
-    }
-
     public static class AuthenticationResult {
         private int mAuthenticationType;
         private android.hardware.biometrics.CryptoObject mCryptoObject;
@@ -40,6 +32,14 @@ public interface BiometricAuthenticator {
         public java.lang.CharSequence getName() { return null; }
         public void setDeviceId(long p0) {}
         public void setName(java.lang.CharSequence p0) {}
+    }
+
+    public static abstract class AuthenticationCallback {
+        public AuthenticationCallback() {}
+        public void onAuthenticationAcquired(int p0) {}
+        public void onAuthenticationError(int p0, java.lang.CharSequence p1) {}
+        public void onAuthenticationFailed() {}
+        public void onAuthenticationHelp(int p0, java.lang.CharSequence p1) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

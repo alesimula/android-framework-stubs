@@ -10,6 +10,8 @@ public final class SimpleCustomizationAction extends android.hardware.input.Cust
     public static final int TYPE_CONTEXTUAL_INSERT = 22;
     public static final int TYPE_CONTEXTUAL_QUERY = 24;
     public static final int TYPE_CONTEXTUAL_SEARCH = 23;
+    public static final int TYPE_COPY = 26;
+    public static final int TYPE_CUT = 28;
     public static final int TYPE_DICTATION = 5;
     public static final int TYPE_DO_NOTHING = 18;
     public static final int TYPE_EMOJI_MENU = 6;
@@ -19,9 +21,11 @@ public final class SimpleCustomizationAction extends android.hardware.input.Cust
     public static final int TYPE_MEDIA_PLAY_PAUSE = 10;
     public static final int TYPE_MEDIA_PREVIOUS = 11;
     public static final int TYPE_PARTIAL_SCREENSHOT = 20;
+    public static final int TYPE_PASTE = 27;
     public static final int TYPE_PRINT_SCREEN = 12;
     public static final int TYPE_SCREEN_CAPTURE = 13;
     public static final int TYPE_SHOW_DESKTOP = 14;
+    public static final int TYPE_SWITCH_INPUT_LANGUAGE = 29;
     public static final int TYPE_VOICE_ASSIST = 25;
     public static final int TYPE_VOLUME_DOWN = 15;
     public static final int TYPE_VOLUME_MUTE = 16;

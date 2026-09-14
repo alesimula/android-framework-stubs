@@ -192,27 +192,6 @@ public class WallpaperManager {
         boolean isSupportedColorSpace(android.graphics.ColorSpace p0) { return false; }
     }
 
-    static class FastBitmapDrawable extends android.graphics.drawable.Drawable {
-        private final android.graphics.Bitmap mBitmap = null;
-        private int mDrawLeft;
-        private int mDrawTop;
-        private final int mHeight = 0;
-        private final android.graphics.Paint mPaint = null;
-        private final int mWidth = 0;
-        private FastBitmapDrawable(android.graphics.Bitmap p0) { super(); }
-        public void draw(android.graphics.Canvas p0) {}
-        public int getIntrinsicHeight() { return 0; }
-        public int getIntrinsicWidth() { return 0; }
-        public int getMinimumHeight() { return 0; }
-        public int getMinimumWidth() { return 0; }
-        public int getOpacity() { return 0; }
-        public void setAlpha(int p0) {}
-        public void setBounds(int p0, int p1, int p2, int p3) {}
-        public void setColorFilter(android.graphics.ColorFilter p0) {}
-        public void setDither(boolean p0) {}
-        public void setFilterBitmap(boolean p0) {}
-    }
-
     private static class Globals extends android.app.IWallpaperManagerCallback.Stub {
         private android.app.WallpaperManager.CachedWallpaper mCachedWallpaper;
         private boolean mColorCallbackRegistered;
@@ -262,5 +241,26 @@ public class WallpaperManager {
         public void onWallpaperChanged() throws android.os.RemoteException {}
         public void onWallpaperColorsChanged(android.app.WallpaperColors p0, int p1, int p2) throws android.os.RemoteException {}
         public void waitForCompletion() {}
+    }
+
+    static class FastBitmapDrawable extends android.graphics.drawable.Drawable {
+        private final android.graphics.Bitmap mBitmap = null;
+        private int mDrawLeft;
+        private int mDrawTop;
+        private final int mHeight = 0;
+        private final android.graphics.Paint mPaint = null;
+        private final int mWidth = 0;
+        private FastBitmapDrawable(android.graphics.Bitmap p0) { super(); }
+        public void draw(android.graphics.Canvas p0) {}
+        public int getIntrinsicHeight() { return 0; }
+        public int getIntrinsicWidth() { return 0; }
+        public int getMinimumHeight() { return 0; }
+        public int getMinimumWidth() { return 0; }
+        public int getOpacity() { return 0; }
+        public void setAlpha(int p0) {}
+        public void setBounds(int p0, int p1, int p2, int p3) {}
+        public void setColorFilter(android.graphics.ColorFilter p0) {}
+        public void setDither(boolean p0) {}
+        public void setFilterBitmap(boolean p0) {}
     }
 }

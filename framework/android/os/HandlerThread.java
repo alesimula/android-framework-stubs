@@ -10,7 +10,7 @@ public class HandlerThread extends java.lang.Thread {
     public HandlerThread(java.lang.String p0, int p1) { super(); }
     public android.os.Looper getLooper() { return null; }
     public final java.util.concurrent.Executor getThreadExecutor() { return null; }
-    public final android.os.Handler getThreadHandler() { return null; }
+    public android.os.Handler getThreadHandler() { return null; }
     public int getThreadId() { return 0; }
     protected void onCreated() {}
     protected void onCreated$ravenwood() {}

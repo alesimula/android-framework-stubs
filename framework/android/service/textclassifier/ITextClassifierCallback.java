@@ -5,13 +5,6 @@ public interface ITextClassifierCallback extends android.os.IInterface {
     public void onFailure() throws android.os.RemoteException;
     public void onSuccess(android.os.Bundle p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.textclassifier.ITextClassifierCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFailure() throws android.os.RemoteException {}
-        public void onSuccess(android.os.Bundle p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.textclassifier.ITextClassifierCallback {
         static final int TRANSACTION_onFailure = 2;
         static final int TRANSACTION_onSuccess = 1;
@@ -30,5 +23,12 @@ public interface ITextClassifierCallback extends android.os.IInterface {
             public void onFailure() throws android.os.RemoteException {}
             public void onSuccess(android.os.Bundle p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.textclassifier.ITextClassifierCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFailure() throws android.os.RemoteException {}
+        public void onSuccess(android.os.Bundle p0) throws android.os.RemoteException {}
     }
 }

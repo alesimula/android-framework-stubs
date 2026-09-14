@@ -24,6 +24,7 @@ public final class UpdateengineEnums {
     public static final int DOWNLOAD_TRANSFER_ERROR = 10009;
     public static final int DOWNLOAD_WRITE_ERROR = 10014;
     public static final int ERROR = 10001;
+    public static final int ERROR_CODE_UNKNOWN = 0;
     public static final int FILESYSTEM_COPIER_ERROR = 10004;
     public static final int FILESYSTEM_VERIFIER_ERROR = 10047;
     public static final int FIRST_ACTIVE_OMAHA_PING_SENT_PERSISTENCE_ERROR = 10055;

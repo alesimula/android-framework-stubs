@@ -80,38 +80,6 @@ public final class MediaSession {
     public void setRatingType(int p0) {}
     public void setSessionActivity(android.app.PendingIntent p0) {}
 
-    public static abstract class Callback {
-        private android.media.session.MediaSession.CallbackMessageHandler mHandler;
-        private boolean mMediaPlayPauseKeyPending;
-        private android.media.session.MediaSession mSession;
-        private final java.lang.Object mSessionLock = null;
-        public Callback() {}
-        private void clearSession() {}
-        private void handleMediaPlayPauseKeySingleTapIfPending() {}
-        private void setSession(android.media.session.MediaSession p0) {}
-        public void onCommand(java.lang.String p0, android.os.Bundle p1, android.os.ResultReceiver p2) {}
-        public void onCustomAction(java.lang.String p0, android.os.Bundle p1) {}
-        public void onFastForward() {}
-        public boolean onMediaButtonEvent(android.content.Intent p0) { return false; }
-        public void onPause() {}
-        public void onPlay() {}
-        public void onPlayFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
-        public void onPlayFromSearch(java.lang.String p0, android.os.Bundle p1) {}
-        public void onPlayFromUri(android.net.Uri p0, android.os.Bundle p1) {}
-        public void onPrepare() {}
-        public void onPrepareFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
-        public void onPrepareFromSearch(java.lang.String p0, android.os.Bundle p1) {}
-        public void onPrepareFromUri(android.net.Uri p0, android.os.Bundle p1) {}
-        public void onRewind() {}
-        public void onSeekTo(long p0) {}
-        public void onSetPlaybackSpeed(float p0) {}
-        public void onSetRating(android.media.Rating p0) {}
-        public void onSkipToNext() {}
-        public void onSkipToPrevious() {}
-        public void onSkipToQueueItem(long p0) {}
-        public void onStop() {}
-    }
-
     private class CallbackMessageHandler extends android.os.Handler {
         private static final int MSG_ADJUST_VOLUME = 22;
         private static final int MSG_COMMAND = 1;
@@ -144,6 +112,79 @@ public final class MediaSession {
         void post(android.media.session.MediaSessionManager.RemoteUserInfo p0, int p1, java.lang.Object p2, android.os.Bundle p3, long p4) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SessionFlags {
+    }
+
+    public static abstract class Callback {
+        private android.media.session.MediaSession.CallbackMessageHandler mHandler;
+        private boolean mMediaPlayPauseKeyPending;
+        private android.media.session.MediaSession mSession;
+        private final java.lang.Object mSessionLock = null;
+        public Callback() {}
+        private void clearSession() {}
+        private void handleMediaPlayPauseKeySingleTapIfPending() {}
+        private void setSession(android.media.session.MediaSession p0) {}
+        public void onCommand(java.lang.String p0, android.os.Bundle p1, android.os.ResultReceiver p2) {}
+        public void onCustomAction(java.lang.String p0, android.os.Bundle p1) {}
+        public void onFastForward() {}
+        public boolean onMediaButtonEvent(android.content.Intent p0) { return false; }
+        public void onPause() {}
+        public void onPlay() {}
+        public void onPlayFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
+        public void onPlayFromSearch(java.lang.String p0, android.os.Bundle p1) {}
+        public void onPlayFromUri(android.net.Uri p0, android.os.Bundle p1) {}
+        public void onPrepare() {}
+        public void onPrepareFromMediaId(java.lang.String p0, android.os.Bundle p1) {}
+        public void onPrepareFromSearch(java.lang.String p0, android.os.Bundle p1) {}
+        public void onPrepareFromUri(android.net.Uri p0, android.os.Bundle p1) {}
+        public void onRewind() {}
+        public void onSeekTo(long p0) {}
+        public void onSetPlaybackSpeed(float p0) {}
+        public void onSetRating(android.media.Rating p0) {}
+        public void onSkipToNext() {}
+        public void onSkipToPrevious() {}
+        public void onSkipToQueueItem(long p0) {}
+        public void onStop() {}
+    }
+
+    public static final class Token implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.session.MediaSession.Token> CREATOR = null;
+        private final android.media.session.ISessionController mBinder = null;
+        private final int mUid = 0;
+        public Token(int p0, android.media.session.ISessionController p1) {}
+        Token(android.os.Parcel p0) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public android.media.session.ISessionController getBinder() { return null; }
+        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+        public int getUid() { return 0; }
+        public int hashCode() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class QueueItem implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.session.MediaSession.QueueItem> CREATOR = null;
+        public static final int UNKNOWN_ID = -1;
+        private final android.media.MediaDescription mDescription = null;
+        private final long mId = 0L;
+        public QueueItem(android.media.MediaDescription p0, long p1) {}
+        private QueueItem(android.os.Parcel p0) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public android.media.MediaDescription getDescription() { return null; }
+        public long getQueueId() { return 0L; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private static final class Command {
+        public final java.lang.String command = null;
+        public final android.os.Bundle extras = null;
+        public final android.os.ResultReceiver stub = null;
+        Command(java.lang.String p0, android.os.Bundle p1, android.os.ResultReceiver p2) {}
+    }
+
     public static class CallbackStub extends android.media.session.ISessionCallback.Stub {
         private java.lang.ref.WeakReference<android.media.session.MediaSession> mMediaSession;
         public CallbackStub(android.media.session.MediaSession p0) { super(); }
@@ -172,46 +213,5 @@ public final class MediaSession {
         public void onSetVolumeTo(java.lang.String p0, int p1, int p2, int p3) {}
         public void onSkipToTrack(java.lang.String p0, int p1, int p2, long p3) {}
         public void onStop(java.lang.String p0, int p1, int p2) {}
-    }
-
-    private static final class Command {
-        public final java.lang.String command = null;
-        public final android.os.Bundle extras = null;
-        public final android.os.ResultReceiver stub = null;
-        Command(java.lang.String p0, android.os.Bundle p1, android.os.ResultReceiver p2) {}
-    }
-
-    public static final class QueueItem implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.session.MediaSession.QueueItem> CREATOR = null;
-        public static final int UNKNOWN_ID = -1;
-        private final android.media.MediaDescription mDescription = null;
-        private final long mId = 0L;
-        public QueueItem(android.media.MediaDescription p0, long p1) {}
-        private QueueItem(android.os.Parcel p0) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.media.MediaDescription getDescription() { return null; }
-        public long getQueueId() { return 0L; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionFlags {
-    }
-
-    public static final class Token implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.session.MediaSession.Token> CREATOR = null;
-        private final android.media.session.ISessionController mBinder = null;
-        private final int mUid = 0;
-        public Token(int p0, android.media.session.ISessionController p1) {}
-        Token(android.os.Parcel p0) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public android.media.session.ISessionController getBinder() { return null; }
-        @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-        public int getUid() { return 0; }
-        public int hashCode() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

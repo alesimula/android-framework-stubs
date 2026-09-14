@@ -33,21 +33,13 @@ public class SelectionToolbarProviderFactory {
         private void reportSessionErrorSerialized(android.view.selectiontoolbar.SelectionToolbarProviderFactory.SelectionToolbarProviderImpl.OpenSessionRequest p0, java.lang.Throwable p1) {}
         private void unbindServiceInternalSerialized() {}
         void addActiveSessionRecord(android.view.selectiontoolbar.SelectionToolbarClient p0, android.view.selectiontoolbar.SelectionToolbarProviderFactory.SelectionToolbarSessionRecord p1) {}
+        void clearTextSelectionSession(android.view.selectiontoolbar.SelectionToolbarClientWrapper p0) {}
         void closeSession(android.view.selectiontoolbar.SelectionToolbarClientWrapper p0) {}
         void hideSession(android.view.selectiontoolbar.SelectionToolbarClientWrapper p0) {}
         void onSessionClosed(android.view.selectiontoolbar.SelectionToolbarClient p0) {}
         public void openSession(android.view.selectiontoolbar.SelectionToolbarRequest p0, java.util.concurrent.Executor p1, android.view.selectiontoolbar.SelectionToolbarClient p2) {}
-        void updateSession(android.view.selectiontoolbar.SelectionToolbarClientWrapper p0, boolean p1, java.util.List<android.view.selectiontoolbar.ToolbarMenuItem> p2, android.graphics.Rect p3, int p4) {}
-
-        private static class OpenSessionRequest {
-            private final android.view.selectiontoolbar.SelectionToolbarClient mClientCallback = null;
-            private final android.view.selectiontoolbar.SelectionToolbarClientWrapper mClientCallbackWrapper = null;
-            private final java.util.concurrent.Executor mClientExecutor = null;
-            private final android.view.selectiontoolbar.SelectionToolbarRequest mRequest = null;
-            private int mTotalOpenSessionAttempts;
-            private OpenSessionRequest(android.view.selectiontoolbar.SelectionToolbarRequest p0, android.view.selectiontoolbar.SelectionToolbarClient p1, android.view.selectiontoolbar.SelectionToolbarClientWrapper p2, java.util.concurrent.Executor p3) {}
-            public java.lang.String toString() { return null; }
-        }
+        void selectTextSession(android.view.selectiontoolbar.SelectionToolbarClientWrapper p0, java.lang.CharSequence p1, int p2, int p3, android.os.LocaleList p4) {}
+        void updateSession(android.view.selectiontoolbar.SelectionToolbarClientWrapper p0, boolean p1, java.util.List<android.view.selectiontoolbar.ToolbarMenuItem> p2, android.graphics.Rect p3, int p4, android.graphics.Rect p5) {}
 
         private static class ServiceConnectionHandler implements android.content.ServiceConnection {
             private android.content.Context mContext;
@@ -67,6 +59,16 @@ public class SelectionToolbarProviderFactory {
             public void onNullBinding(android.content.ComponentName p0) {}
             public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
             public void onServiceDisconnected(android.content.ComponentName p0) {}
+        }
+
+        private static class OpenSessionRequest {
+            private final android.view.selectiontoolbar.SelectionToolbarClient mClientCallback = null;
+            private final android.view.selectiontoolbar.SelectionToolbarClientWrapper mClientCallbackWrapper = null;
+            private final java.util.concurrent.Executor mClientExecutor = null;
+            private final android.view.selectiontoolbar.SelectionToolbarRequest mRequest = null;
+            private int mTotalOpenSessionAttempts;
+            private OpenSessionRequest(android.view.selectiontoolbar.SelectionToolbarRequest p0, android.view.selectiontoolbar.SelectionToolbarClient p1, android.view.selectiontoolbar.SelectionToolbarClientWrapper p2, java.util.concurrent.Executor p3) {}
+            public java.lang.String toString() { return null; }
         }
     }
 

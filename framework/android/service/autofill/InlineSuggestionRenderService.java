@@ -18,19 +18,19 @@ public abstract class InlineSuggestionRenderService extends android.app.Service 
     public android.view.View onRenderSuggestion(android.service.autofill.InlinePresentation p0, int p1, int p2) { return null; }
     public final void startIntentSender(android.content.IntentSender p0) {}
 
+    private static final class InlineSuggestionUiWrapper extends android.service.autofill.IInlineSuggestionUi.Stub {
+        private final java.lang.ref.WeakReference<android.service.autofill.InlineSuggestionRenderService.InlineSuggestionUiImpl> mUiImpl = null;
+        InlineSuggestionUiWrapper(android.service.autofill.InlineSuggestionRenderService.InlineSuggestionUiImpl p0) { super(); }
+        public void getSurfacePackage(android.service.autofill.ISurfacePackageResultCallback p0) {}
+        public void releaseSurfaceControlViewHost() {}
+    }
+
     private final class InlineSuggestionUiImpl {
         private final android.os.Handler mHandler = null;
         private final int mSessionId = 0;
         private final int mUserId = 0;
         private android.view.SurfaceControlViewHost mViewHost;
         InlineSuggestionUiImpl(android.service.autofill.InlineSuggestionRenderService p0, android.view.SurfaceControlViewHost p1, android.os.Handler p2, int p3, int p4) {}
-        public void getSurfacePackage(android.service.autofill.ISurfacePackageResultCallback p0) {}
-        public void releaseSurfaceControlViewHost() {}
-    }
-
-    private static final class InlineSuggestionUiWrapper extends android.service.autofill.IInlineSuggestionUi.Stub {
-        private final java.lang.ref.WeakReference<android.service.autofill.InlineSuggestionRenderService.InlineSuggestionUiImpl> mUiImpl = null;
-        InlineSuggestionUiWrapper(android.service.autofill.InlineSuggestionRenderService.InlineSuggestionUiImpl p0) { super(); }
         public void getSurfacePackage(android.service.autofill.ISurfacePackageResultCallback p0) {}
         public void releaseSurfaceControlViewHost() {}
     }

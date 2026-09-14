@@ -10,6 +10,7 @@ final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootcla
     private static boolean rangingStackUpdates25q4;
     private static boolean rangingStackUpdates26Q2;
     private static boolean rangingStackUpdates26Q4;
+    private static boolean rangingStackUpdates27Q2;
     FeatureFlagsImpl() {}
     private void init() {}
     public boolean rangingCsEnabled() { return false; }
@@ -19,4 +20,5 @@ final class FeatureFlagsImpl implements com.android.internal.hidden_from_bootcla
     public boolean rangingStackUpdates25q4() { return false; }
     public boolean rangingStackUpdates26Q2() { return false; }
     public boolean rangingStackUpdates26Q4() { return false; }
+    public boolean rangingStackUpdates27Q2() { return false; }
 }

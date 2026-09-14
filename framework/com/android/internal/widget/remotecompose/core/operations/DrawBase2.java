@@ -2,8 +2,8 @@ package com.android.internal.widget.remotecompose.core.operations;
 
 public abstract class DrawBase2 extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.serialize.Serializable {
     protected java.lang.String mName;
-    float mV1;
-    float mV2;
+    protected float mV1;
+    protected float mV2;
     float mValue1;
     float mValue2;
     public DrawBase2(float p0, float p1) { super(); }

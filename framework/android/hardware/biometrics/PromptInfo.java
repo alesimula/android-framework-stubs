@@ -4,6 +4,7 @@ public class PromptInfo implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.hardware.biometrics.PromptInfo> CREATOR = null;
     private boolean mAllowBackgroundAuthentication;
     private java.util.List<java.lang.Integer> mAllowedSensorIds;
+    private int mAuthenticationPurpose;
     private int mAuthenticators;
     private java.lang.String mClassNameIfItIsConfirmDeviceCredentialActivity;
     private boolean mConfirmationRequested;
@@ -15,16 +16,20 @@ public class PromptInfo implements android.os.Parcelable {
     private java.lang.CharSequence mDeviceCredentialTitle;
     private boolean mDisallowBiometricsIfPolicyExists;
     private int mDisplayId;
+    private int mEmbeddedPromptStartMode;
     private java.util.List<android.hardware.biometrics.FallbackOption> mFallbackOptions;
     private android.hardware.biometrics.IdentityCheckInfo mIdentityCheckInfo;
     private boolean mIgnoreEnrollmentState;
+    private boolean mIsEmbeddedPrompt;
     private boolean mIsForLegacyFingerprintManager;
     private boolean mIsSystemCaller;
     private android.graphics.Bitmap mLogoBitmap;
     private java.lang.String mLogoDescription;
     private int mLogoRes;
     private java.lang.CharSequence mNegativeButtonText;
+    private int mNextTranslationOffset;
     private boolean mNotifyVdmAuthenticationRequested;
+    private int mPreviousTranslationOffset;
     private android.content.ComponentName mRealCallerForConfirmDeviceCredentialActivity;
     private boolean mReceiveSystemEvents;
     private boolean mShowEmergencyCallButton;
@@ -39,6 +44,7 @@ public class PromptInfo implements android.os.Parcelable {
     public void clearIdentityCheckFallbackOption() {}
     public int describeContents() { return 0; }
     public java.util.List<java.lang.Integer> getAllowedSensorIds() { return null; }
+    public int getAuthenticationPurpose() { return 0; }
     public int getAuthenticators() { return 0; }
     public java.lang.String getClassNameIfItIsConfirmDeviceCredentialActivity() { return null; }
     public android.hardware.biometrics.PromptContentView getContentView() { return null; }
@@ -47,6 +53,7 @@ public class PromptInfo implements android.os.Parcelable {
     public java.lang.CharSequence getDeviceCredentialSubtitle() { return null; }
     public java.lang.CharSequence getDeviceCredentialTitle() { return null; }
     public int getDisplayId() { return 0; }
+    public int getEmbeddedPromptStartMode() { return 0; }
     public java.util.List<android.hardware.biometrics.FallbackOption> getFallbackOptions() { return null; }
     public int getIdentityCheckInactiveReason() { return 0; }
     public android.graphics.Bitmap getLogo() { return null; }
@@ -54,6 +61,8 @@ public class PromptInfo implements android.os.Parcelable {
     public java.lang.String getLogoDescription() { return null; }
     public int getLogoRes() { return 0; }
     public java.lang.CharSequence getNegativeButtonText() { return null; }
+    public int getNextTranslationOffset() { return 0; }
+    public int getPreviousTranslationOffset() { return 0; }
     public android.content.ComponentName getRealCallerForConfirmDeviceCredentialActivity() { return null; }
     public java.lang.CharSequence getSubtitle() { return null; }
     public java.lang.CharSequence getTitle() { return null; }
@@ -61,10 +70,12 @@ public class PromptInfo implements android.os.Parcelable {
     public boolean isClearIdentityCheckFallbackOption() { return false; }
     public boolean isConfirmationRequested() { return false; }
     public boolean isContentViewMoreOptionsButtonUsed() { return false; }
+    public boolean isDelayedAuthEnabled() { return false; }
     @java.lang.Deprecated
     public boolean isDeviceCredentialAllowed() { return false; }
     public boolean isDeviceCredentialAndIdentityCheckRequested() { return false; }
     public boolean isDisallowBiometricsIfPolicyExists() { return false; }
+    public boolean isEmbeddedPrompt() { return false; }
     public boolean isForLegacyFingerprintManager() { return false; }
     public boolean isIdentityCheckActive() { return false; }
     public boolean isIgnoreEnrollmentState() { return false; }
@@ -79,8 +90,9 @@ public class PromptInfo implements android.os.Parcelable {
     public boolean requiresTestOrInternalPermission() { return false; }
     public void setAllowBackgroundAuthentication(boolean p0) {}
     public void setAllowedSensorIds(java.util.List<java.lang.Integer> p0) {}
+    public void setAuthenticationPurpose(int p0) {}
     public void setAuthenticators(int p0) {}
-    void setClassNameIfItIsConfirmDeviceCredentialActivity(java.lang.String p0) {}
+    public void setClassNameIfItIsConfirmDeviceCredentialActivity(java.lang.String p0) {}
     public void setConfirmationRequested(boolean p0) {}
     public void setContentView(android.hardware.biometrics.PromptContentView p0) {}
     public void setDescription(java.lang.CharSequence p0) {}
@@ -90,14 +102,18 @@ public class PromptInfo implements android.os.Parcelable {
     public void setDeviceCredentialTitle(java.lang.CharSequence p0) {}
     public void setDisallowBiometricsIfPolicyExists(boolean p0) {}
     public void setDisplayId(int p0) {}
+    public void setEmbeddedPromptStartMode(int p0) {}
     public void setIdentityCheckActive(boolean p0) {}
     public void setIdentityCheckInactiveReason(int p0) {}
     public void setIgnoreEnrollmentState(boolean p0) {}
+    public void setIsEmbeddedPrompt(boolean p0) {}
     public void setIsForLegacyFingerprintManager(int p0) {}
     public void setIsSystemCaller(boolean p0) {}
     public void setLogo(int p0, android.graphics.Bitmap p1) {}
     public void setLogoDescription(java.lang.String p0) {}
     public void setNegativeButtonText(java.lang.CharSequence p0) {}
+    public void setNextTranslationOffset(int p0) {}
+    public void setPreviousTranslationOffset(int p0) {}
     public void setRealCallerForConfirmDeviceCredentialActivity(android.content.ComponentName p0) {}
     public void setReceiveSystemEvents(boolean p0) {}
     public void setShowEmergencyCallButton(boolean p0) {}

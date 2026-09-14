@@ -59,10 +59,6 @@ public final class SipDelegateImsConfiguration implements android.os.Parcelable 
     public android.telephony.ims.SipDelegateConfiguration toNewConfig() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BooleanConfigKey {
-    }
-
     public static final class Builder {
         private final android.os.PersistableBundle mBundle = null;
         private final long mVersion = 0L;
@@ -75,10 +71,14 @@ public final class SipDelegateImsConfiguration implements android.os.Parcelable 
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StringConfigKey {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface IntConfigKey {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StringConfigKey {
+    public static @interface BooleanConfigKey {
     }
 }

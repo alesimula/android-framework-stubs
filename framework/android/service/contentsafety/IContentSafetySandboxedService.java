@@ -7,15 +7,6 @@ public interface IContentSafetySandboxedService extends android.os.IInterface {
     public void requestClassification(java.util.List<android.app.contentsafety.ClassifiableContent> p0, android.app.contentsafety.ICheckContentCallback p1) throws android.os.RemoteException;
     public void requestLoadFeature(android.os.Bundle p0, com.android.internal.infra.AndroidFuture p1, android.service.contentsafety.ILoadFeatureCallback p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentsafety.IContentSafetySandboxedService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        @java.lang.Deprecated
-        public void requestCheckContent(int p0, android.os.Bundle p1, com.android.internal.infra.AndroidFuture p2, android.app.contentsafety.ICheckContentCallback p3) throws android.os.RemoteException {}
-        public void requestClassification(java.util.List<android.app.contentsafety.ClassifiableContent> p0, android.app.contentsafety.ICheckContentCallback p1) throws android.os.RemoteException {}
-        public void requestLoadFeature(android.os.Bundle p0, com.android.internal.infra.AndroidFuture p1, android.service.contentsafety.ILoadFeatureCallback p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentsafety.IContentSafetySandboxedService {
         static final int TRANSACTION_requestCheckContent = 2;
         static final int TRANSACTION_requestClassification = 4;
@@ -37,5 +28,14 @@ public interface IContentSafetySandboxedService extends android.os.IInterface {
             public void requestClassification(java.util.List<android.app.contentsafety.ClassifiableContent> p0, android.app.contentsafety.ICheckContentCallback p1) throws android.os.RemoteException {}
             public void requestLoadFeature(android.os.Bundle p0, com.android.internal.infra.AndroidFuture p1, android.service.contentsafety.ILoadFeatureCallback p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentsafety.IContentSafetySandboxedService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        @java.lang.Deprecated
+        public void requestCheckContent(int p0, android.os.Bundle p1, com.android.internal.infra.AndroidFuture p2, android.app.contentsafety.ICheckContentCallback p3) throws android.os.RemoteException {}
+        public void requestClassification(java.util.List<android.app.contentsafety.ClassifiableContent> p0, android.app.contentsafety.ICheckContentCallback p1) throws android.os.RemoteException {}
+        public void requestLoadFeature(android.os.Bundle p0, com.android.internal.infra.AndroidFuture p1, android.service.contentsafety.ILoadFeatureCallback p2) throws android.os.RemoteException {}
     }
 }

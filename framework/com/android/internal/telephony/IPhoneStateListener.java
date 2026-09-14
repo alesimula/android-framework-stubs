@@ -43,6 +43,7 @@ public interface IPhoneStateListener extends android.os.IInterface {
     public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0) throws android.os.RemoteException;
     public void onRadioPowerStateChanged(int p0) throws android.os.RemoteException;
     public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4) throws android.os.RemoteException;
+    public void onSatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) throws android.os.RemoteException;
     public void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException;
     public void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0) throws android.os.RemoteException;
     public void onServiceStateChanged(android.telephony.ServiceState p0) throws android.os.RemoteException;
@@ -98,6 +99,7 @@ public interface IPhoneStateListener extends android.os.IInterface {
         public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0) throws android.os.RemoteException {}
         public void onRadioPowerStateChanged(int p0) throws android.os.RemoteException {}
         public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4) throws android.os.RemoteException {}
+        public void onSatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) throws android.os.RemoteException {}
         public void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException {}
         public void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0) throws android.os.RemoteException {}
         public void onServiceStateChanged(android.telephony.ServiceState p0) throws android.os.RemoteException {}
@@ -153,6 +155,7 @@ public interface IPhoneStateListener extends android.os.IInterface {
         static final int TRANSACTION_onPreciseDataConnectionStateChanged = 13;
         static final int TRANSACTION_onRadioPowerStateChanged = 24;
         static final int TRANSACTION_onRegistrationFailed = 31;
+        static final int TRANSACTION_onSatelliteEntitlementStatusUpdated = 52;
         static final int TRANSACTION_onSatellitePurchaseModeChanged = 51;
         static final int TRANSACTION_onSecurityAlgorithmsChanged = 46;
         static final int TRANSACTION_onServiceStateChanged = 1;
@@ -216,6 +219,7 @@ public interface IPhoneStateListener extends android.os.IInterface {
             public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0) throws android.os.RemoteException {}
             public void onRadioPowerStateChanged(int p0) throws android.os.RemoteException {}
             public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4) throws android.os.RemoteException {}
+            public void onSatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) throws android.os.RemoteException {}
             public void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2) throws android.os.RemoteException {}
             public void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0) throws android.os.RemoteException {}
             public void onServiceStateChanged(android.telephony.ServiceState p0) throws android.os.RemoteException {}

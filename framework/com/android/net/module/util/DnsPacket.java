@@ -6,7 +6,7 @@ public class DnsPacket {
     public static final int NSSECTION = 2;
     static final int NUM_SECTIONS = 4;
     public static final int QDSECTION = 0;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DnsPacket";
     public static final int TYPE_CNAME = 5;
     public static final int TYPE_SOA = 6;
     public static final int TYPE_SVCB = 64;
@@ -20,6 +20,12 @@ public class DnsPacket {
     public java.util.List<com.android.net.module.util.DnsPacket.DnsRecord> getRecords(int p0) { return null; }
     public int hashCode() { return 0; }
     public java.lang.String toString() { return null; }
+
+    public static class ParseException extends java.lang.RuntimeException {
+        public java.lang.String reason;
+        public ParseException(java.lang.String p0) { super(); }
+        public ParseException(java.lang.String p0, java.lang.Throwable p1) { super(); }
+    }
 
     public static class DnsHeader {
         private static final int FLAGS_SECTION_QR_BIT = 15;
@@ -38,6 +44,10 @@ public class DnsPacket {
         public int hashCode() { return 0; }
         public boolean isResponse() { return false; }
         public java.lang.String toString() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RecordType {
     }
 
     public static class DnsRecord {
@@ -64,15 +74,5 @@ public class DnsPacket {
         public byte[] getRR() { return null; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
-    }
-
-    public static class ParseException extends java.lang.RuntimeException {
-        public java.lang.String reason;
-        public ParseException(java.lang.String p0) { super(); }
-        public ParseException(java.lang.String p0, java.lang.Throwable p1) { super(); }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RecordType {
     }
 }

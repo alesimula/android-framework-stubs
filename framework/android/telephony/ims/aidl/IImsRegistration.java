@@ -12,20 +12,6 @@ public interface IImsRegistration extends android.os.IInterface {
     public void triggerSipDelegateDeregistration() throws android.os.RemoteException;
     public void triggerUpdateSipDelegateRegistration() throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IImsRegistration {
-        public Default() {}
-        public void addEmergencyRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
-        public void addRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public int getRegistrationTechnology() throws android.os.RemoteException { return 0; }
-        public void removeEmergencyRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
-        public void removeRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
-        public void triggerDeregistration(int p0) throws android.os.RemoteException {}
-        public void triggerFullNetworkRegistration(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void triggerSipDelegateDeregistration() throws android.os.RemoteException {}
-        public void triggerUpdateSipDelegateRegistration() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IImsRegistration {
         static final int TRANSACTION_addEmergencyRegistrationCallback = 4;
         static final int TRANSACTION_addRegistrationCallback = 2;
@@ -58,5 +44,19 @@ public interface IImsRegistration extends android.os.IInterface {
             public void triggerSipDelegateDeregistration() throws android.os.RemoteException {}
             public void triggerUpdateSipDelegateRegistration() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IImsRegistration {
+        public Default() {}
+        public void addEmergencyRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
+        public void addRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public int getRegistrationTechnology() throws android.os.RemoteException { return 0; }
+        public void removeEmergencyRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
+        public void removeRegistrationCallback(android.telephony.ims.aidl.IImsRegistrationCallback p0) throws android.os.RemoteException {}
+        public void triggerDeregistration(int p0) throws android.os.RemoteException {}
+        public void triggerFullNetworkRegistration(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void triggerSipDelegateDeregistration() throws android.os.RemoteException {}
+        public void triggerUpdateSipDelegateRegistration() throws android.os.RemoteException {}
     }
 }

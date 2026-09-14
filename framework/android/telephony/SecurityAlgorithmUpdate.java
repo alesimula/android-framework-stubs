@@ -68,12 +68,18 @@ public final class SecurityAlgorithmUpdate implements android.os.Parcelable {
     public static final int SECURITY_ALGORITHM_UEA1 = 30;
     public static final int SECURITY_ALGORITHM_UEA2 = 31;
     public static final int SECURITY_ALGORITHM_UNKNOWN = 113;
+    public static final int SECURITY_LEVEL_INSECURE = 1;
+    public static final int SECURITY_LEVEL_LEGACY = 2;
+    public static final int SECURITY_LEVEL_SECURE = 0;
     private static final java.lang.String TAG = "SecurityAlgorithmUpdate";
     private int mConnectionEvent;
     private int mEncryption;
     private int mIntegrity;
     private boolean mIsUnprotectedEmergency;
+    private long mTimestampMillis;
+    @java.lang.Deprecated
     public SecurityAlgorithmUpdate(int p0, int p1, int p2, boolean p3) {}
+    public SecurityAlgorithmUpdate(int p0, int p1, int p2, boolean p3, long p4) {}
     private SecurityAlgorithmUpdate(android.os.Parcel p0) {}
     private void readFromParcel(android.os.Parcel p0) {}
     public int describeContents() { return 0; }
@@ -81,6 +87,9 @@ public final class SecurityAlgorithmUpdate implements android.os.Parcelable {
     public int getConnectionEvent() { return 0; }
     public int getEncryption() { return 0; }
     public int getIntegrity() { return 0; }
+    public int getSecurityLevel() { return 0; }
+    public int getSecurityLevel(int p0) { return 0; }
+    public long getTimestampMillis() { return 0L; }
     public int hashCode() { return 0; }
     public boolean isUnprotectedEmergency() { return false; }
     public java.lang.String toString() { return null; }
@@ -88,6 +97,10 @@ public final class SecurityAlgorithmUpdate implements android.os.Parcelable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ConnectionEvent {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SecurityLevel {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

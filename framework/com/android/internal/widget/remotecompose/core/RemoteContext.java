@@ -75,6 +75,7 @@ public abstract class RemoteContext {
     private boolean mAnimate;
     private float mAnimationTime;
     private com.android.internal.widget.remotecompose.core.RemoteClock mClock;
+    private final com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasurePool mComponentMeasurePool = null;
     int mDebug;
     protected float mDensity;
     private long mDocLoadTime;
@@ -104,11 +105,13 @@ public abstract class RemoteContext {
     public abstract void clearNamedFloatOverride(java.lang.String p0);
     public abstract void clearNamedIntegerOverride(java.lang.String p0);
     public abstract void clearNamedStringOverride(java.lang.String p0);
+    public void clearVariables() {}
     public com.android.internal.widget.remotecompose.core.ScrollingEdgeEffect createEdgeEffect(int p0) { return null; }
     public float getAnimationTime() { return 0.0f; }
     public com.android.internal.widget.remotecompose.core.RemoteClock getClock() { return null; }
     public com.android.internal.widget.remotecompose.core.operations.utilities.CollectionsAccess getCollectionsAccess() { return null; }
     public abstract int getColor(int p0);
+    public com.android.internal.widget.remotecompose.core.operations.layout.measure.ComponentMeasurePool getComponentMeasurePool() { return null; }
     public abstract com.android.internal.widget.remotecompose.core.operations.utilities.DataMap getDataMap(int p0);
     public float getDensity() { return 0.0f; }
     public int getDensityBehavior() { return 0; }
@@ -145,6 +148,7 @@ public abstract class RemoteContext {
     public abstract void loadInteger(int p0, int p1);
     public abstract void loadPathData(int p0, int p1, float[] p2);
     public abstract void loadShader(int p0, com.android.internal.widget.remotecompose.core.operations.ShaderData p1);
+    public void loadSound(int p0, byte[] p1) {}
     public abstract void loadText(int p0, java.lang.String p1);
     public abstract void loadVariableName(java.lang.String p0, int p1, int p2);
     public void markVariableDirty(int p0) {}
@@ -152,6 +156,7 @@ public abstract class RemoteContext {
     public abstract void overrideFloat(int p0, float p1);
     public abstract void overrideInteger(int p0, int p1);
     public abstract void overrideText(int p0, int p1);
+    public void playSound(int p0) {}
     public abstract void putDataMap(int p0, com.android.internal.widget.remotecompose.core.operations.utilities.DataMap p1);
     public abstract void putObject(int p0, java.lang.Object p1);
     public abstract void runAction(int p0, java.lang.String p1);
@@ -182,18 +187,18 @@ public abstract class RemoteContext {
     public abstract int updateOps();
     public boolean useFeature(short p0) { return false; }
 
+    public static class FontInfo {
+        public java.lang.Object fontBuilder;
+        public final byte[] mFontData = null;
+        public final int mFontId = 0;
+        FontInfo(int p0, byte[] p1) {}
+    }
+
     public static enum ContextMode {
         DATA,
         PAINT,
         UNSET;
         private static final com.android.internal.widget.remotecompose.core.RemoteContext.ContextMode[] $VALUES = null;
         private ContextMode() {}
-    }
-
-    public static class FontInfo {
-        public java.lang.Object fontBuilder;
-        public final byte[] mFontData = null;
-        public final int mFontId = 0;
-        FontInfo(int p0, byte[] p1) {}
     }
 }

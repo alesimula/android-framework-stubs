@@ -3,6 +3,8 @@ package android.service.personalcontext.insight;
 public abstract class ContextInsight {
     protected static final android.service.personalcontext.insight.ContextInsight ERROR_INSIGHT = null;
     static final int INSIGHT_TYPE_ACTIONABLE = 2;
+    static final int INSIGHT_TYPE_AUGMENTED_AUTOFILL = 15;
+    static final int INSIGHT_TYPE_AUGMENTED_AUTOFILL_OPTION = 16;
     public static final int INSIGHT_TYPE_BUNDLE = 1;
     static final int INSIGHT_TYPE_COLLECTION = 4;
     static final int INSIGHT_TYPE_DISPLAY = 3;
@@ -10,8 +12,14 @@ public abstract class ContextInsight {
     static final int INSIGHT_TYPE_HINT_INVALIDATION = 5;
     static final int INSIGHT_TYPE_LIST = 6;
     static final int INSIGHT_TYPE_MAP = 7;
+    static final int INSIGHT_TYPE_NOTIFICATION = 12;
     static final int INSIGHT_TYPE_NO_RESULT = 8;
+    static final int INSIGHT_TYPE_PROMPT = 9;
+    static final int INSIGHT_TYPE_SCREEN_WHISPER = 10;
+    static final int INSIGHT_TYPE_SCREEN_WHISPER_AUTOFILL = 11;
+    static final int INSIGHT_TYPE_TEXT_CLASSIFICATION = 14;
     private static final java.lang.String KEY_ATTRIBUTION = "key_attribution";
+    private static final java.lang.String KEY_BRANDING = "key_branding";
     private static final java.lang.String KEY_CREATION_TIME = "key_creation_time";
     private static final java.lang.String KEY_INSIGHT_DATA = "key_insight_data";
     private static final java.lang.String KEY_INSIGHT_ID = "key_insight_id";
@@ -22,6 +30,7 @@ public abstract class ContextInsight {
     private static final java.lang.String KEY_TOKENS = "key_tokens";
     private static final java.lang.String TAG = "ContextInsight";
     private final android.service.personalcontext.insight.interaction.AttributionDetails mAttributionDetails = null;
+    private final android.service.personalcontext.insight.InsightBranding mBranding = null;
     private final java.time.Instant mCreationTime = null;
     private final java.util.UUID mId = null;
     private final java.util.Set<android.service.personalcontext.hint.PublishedContextHint> mOriginHints = null;
@@ -30,11 +39,17 @@ public abstract class ContextInsight {
     private final java.util.Set<android.service.personalcontext.Token> mTokens = null;
     ContextInsight(android.service.personalcontext.insight.ContextInsight.ConstructorParams p0) {}
     public static android.service.personalcontext.insight.ContextInsight createInsightFromBundle(android.os.Bundle p0) { return null; }
-    public abstract void accept(android.service.personalcontext.insight.InsightVisitor p0, int p1);
+    static android.service.personalcontext.insight.ContextInsight readFromParcel(android.os.Parcel p0) { return null; }
+    static java.util.List<android.service.personalcontext.insight.ContextInsight> readInsightsFromParcel(android.os.Parcel p0) { return null; }
+    static <T extends android.service.personalcontext.insight.ContextInsight> java.util.List<T> readInsightsFromParcel(android.os.Parcel p0, java.lang.Class<T> p1) { return null; }
+    static void writeInsightsToParcel(java.util.Collection<? extends android.service.personalcontext.insight.ContextInsight> p0, android.os.Parcel p1, int p2, boolean p3) {}
+    public void accept(android.service.personalcontext.insight.InsightVisitor p0, int p1) {}
     public android.service.personalcontext.insight.ContextInsight attachPublisherInfo(java.util.UUID p0) { return null; }
     public android.service.personalcontext.insight.ContextInsight copyWithoutHints() { return null; }
     public boolean equals(java.lang.Object p0) { return false; }
     public android.service.personalcontext.insight.interaction.AttributionDetails getAttributionDetails() { return null; }
+    @android.annotation.SystemApi
+    public final android.service.personalcontext.insight.InsightBranding getBranding() { return null; }
     public java.util.Collection<android.service.personalcontext.insight.ContextInsight> getChildren() { return null; }
     @android.annotation.SystemApi
     public final java.time.Instant getCreationTime() { return null; }
@@ -47,6 +62,7 @@ public abstract class ContextInsight {
     @java.lang.Deprecated
     public java.util.Set<android.service.personalcontext.hint.PublishedContextHint> getOriginHints() { return null; }
     public java.time.Instant getPublishedTime() { return null; }
+    public java.time.Instant getPublishedTimestampInternal() { return null; }
     public java.util.UUID getPublisherComponentId() { return null; }
     public java.util.Set<android.service.personalcontext.RenderToken> getRenderTokens() { return null; }
     @android.annotation.SystemApi
@@ -58,20 +74,25 @@ public abstract class ContextInsight {
     public android.os.Bundle toBundle(boolean p0) { return null; }
     abstract android.os.Bundle toBundleImpl(boolean p0);
     public java.lang.String toString() { return null; }
+    abstract void writeImplementationDataToParcel(android.os.Parcel p0, int p1, boolean p2);
+    final void writeToParcel(android.os.Parcel p0, int p1, boolean p2) {}
 
-    static class ConstructorParams {
+    public static class ConstructorParams {
         private final android.service.personalcontext.insight.interaction.AttributionDetails mAttributionDetails = null;
+        private final android.service.personalcontext.insight.InsightBranding mBranding = null;
         private final java.time.Instant mCreationTime = null;
         private final java.util.UUID mId = null;
         private final java.util.Collection<android.service.personalcontext.hint.PublishedContextHint> mOriginHints = null;
         private final java.time.Instant mPublishedTimestamp = null;
         private final java.util.UUID mPublisherComponentId = null;
         private final java.util.Collection<android.service.personalcontext.Token> mTokens = null;
-        private ConstructorParams(java.util.Collection<android.service.personalcontext.hint.PublishedContextHint> p0, java.util.Collection<android.service.personalcontext.Token> p1, android.service.personalcontext.insight.interaction.AttributionDetails p2) {}
-        private ConstructorParams(java.util.UUID p0, java.util.Collection<android.service.personalcontext.hint.PublishedContextHint> p1, java.util.Collection<android.service.personalcontext.Token> p2, java.time.Instant p3, android.service.personalcontext.insight.interaction.AttributionDetails p4, java.util.UUID p5, java.time.Instant p6) {}
+        private ConstructorParams(android.os.Parcel p0) {}
+        private ConstructorParams(java.util.Collection<android.service.personalcontext.hint.PublishedContextHint> p0, java.util.Collection<android.service.personalcontext.Token> p1, android.service.personalcontext.insight.InsightBranding p2, android.service.personalcontext.insight.interaction.AttributionDetails p3) {}
+        ConstructorParams(java.util.UUID p0, java.util.Collection<android.service.personalcontext.hint.PublishedContextHint> p1, java.util.Collection<android.service.personalcontext.Token> p2, java.time.Instant p3, android.service.personalcontext.insight.InsightBranding p4, android.service.personalcontext.insight.interaction.AttributionDetails p5, java.util.UUID p6, java.time.Instant p7) {}
 
         static final class Builder {
             private android.service.personalcontext.insight.interaction.AttributionDetails mAttributionDetails;
+            private android.service.personalcontext.insight.InsightBranding mBranding;
             private final java.util.Set<android.service.personalcontext.hint.PublishedContextHint> mOriginHints = null;
             private final java.util.Set<android.service.personalcontext.Token> mTokens = null;
             Builder() {}
@@ -79,6 +100,7 @@ public abstract class ContextInsight {
             android.service.personalcontext.insight.ContextInsight.ConstructorParams.Builder addToken(android.service.personalcontext.Token p0) { return null; }
             android.service.personalcontext.insight.ContextInsight.ConstructorParams build() { return null; }
             android.service.personalcontext.insight.ContextInsight.ConstructorParams.Builder setAttributionDetails(android.service.personalcontext.insight.interaction.AttributionDetails p0) { return null; }
+            android.service.personalcontext.insight.ContextInsight.ConstructorParams.Builder setBranding(android.service.personalcontext.insight.InsightBranding p0) { return null; }
         }
     }
 

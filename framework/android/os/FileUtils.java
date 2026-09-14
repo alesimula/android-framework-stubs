@@ -105,6 +105,11 @@ public final class FileUtils {
     public static java.lang.String trimFilename(java.lang.String p0, int p1) { return null; }
     private static void trimFilename(java.lang.StringBuilder p0, int p1) {}
 
+    private static class NoImagePreloadHolder {
+        public static final java.util.regex.Pattern SAFE_FILENAME_PATTERN = null;
+        private NoImagePreloadHolder() {}
+    }
+
     public static class MemoryPipe extends java.lang.Thread implements java.lang.AutoCloseable {
         private final byte[] data = null;
         private final java.io.FileDescriptor[] pipe = null;
@@ -117,11 +122,6 @@ public final class FileUtils {
         public java.io.FileDescriptor getFD() { return null; }
         public java.io.FileDescriptor getInternalFD() { return null; }
         public void run() {}
-    }
-
-    private static class NoImagePreloadHolder {
-        public static final java.util.regex.Pattern SAFE_FILENAME_PATTERN = null;
-        private NoImagePreloadHolder() {}
     }
 
     public static interface ProgressListener {

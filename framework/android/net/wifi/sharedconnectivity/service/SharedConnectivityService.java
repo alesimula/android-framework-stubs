@@ -3,7 +3,7 @@ package android.net.wifi.sharedconnectivity.service;
 @android.annotation.SystemApi
 public abstract class SharedConnectivityService extends android.app.Service {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SharedConnectivityService";
     private java.util.concurrent.CountDownLatch mCountDownLatch;
     private android.os.Handler mHandler;
     private android.net.wifi.sharedconnectivity.app.HotspotNetworkConnectionStatus mHotspotNetworkConnectionStatus;

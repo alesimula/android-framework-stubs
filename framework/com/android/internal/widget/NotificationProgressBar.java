@@ -77,21 +77,6 @@ public final class NotificationProgressBar extends android.widget.ProgressBar im
     public java.lang.Runnable setProgressTrackerIconAsync(android.graphics.drawable.Icon p0) { return null; }
     protected boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
 
-    public static class NotEnoughWidthToFitAllPartsException extends java.lang.Exception {
-        public NotEnoughWidthToFitAllPartsException(java.lang.String p0) { super(); }
-    }
-
-    public static interface Part {
-    }
-
-    public static final class Point implements com.android.internal.widget.NotificationProgressBar.Part {
-        private final int mColor = 0;
-        public Point(int p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-    }
-
     public static final class Segment implements com.android.internal.widget.NotificationProgressBar.Part {
         private final int mColor = 0;
         private float mEnd;
@@ -102,6 +87,21 @@ public final class NotificationProgressBar extends android.widget.ProgressBar im
         public Segment(float p0, int p1, boolean p2) {}
         public boolean equals(java.lang.Object p0) { return false; }
         public float getWidth() { return 0.0f; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static interface Part {
+    }
+
+    public static class NotEnoughWidthToFitAllPartsException extends java.lang.Exception {
+        public NotEnoughWidthToFitAllPartsException(java.lang.String p0) { super(); }
+    }
+
+    public static final class Point implements com.android.internal.widget.NotificationProgressBar.Part {
+        private final int mColor = 0;
+        public Point(int p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
     }

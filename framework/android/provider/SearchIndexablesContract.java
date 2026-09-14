@@ -47,20 +47,30 @@ public class SearchIndexablesContract {
     public static final java.lang.String SLICE_URI_PAIRS_PATH = "settings/slice_uri_pairs";
     public SearchIndexablesContract() {}
 
-    public static class BaseColumns {
-        public static final java.lang.String COLUMN_CLASS_NAME = "className";
-        public static final java.lang.String COLUMN_ICON_RESID = "iconResId";
-        public static final java.lang.String COLUMN_INTENT_ACTION = "intentAction";
-        public static final java.lang.String COLUMN_INTENT_TARGET_CLASS = "intentTargetClass";
-        public static final java.lang.String COLUMN_INTENT_TARGET_PACKAGE = "intentTargetPackage";
-        public static final java.lang.String COLUMN_RANK = "rank";
-        private BaseColumns() {}
+    public static final class SiteMapColumns {
+        public static final java.lang.String CHILD_CLASS = "child_class";
+        public static final java.lang.String CHILD_TITLE = "child_title";
+        public static final java.lang.String PARENT_CLASS = "parent_class";
+        public static final java.lang.String PARENT_TITLE = "parent_title";
+        public SiteMapColumns() {}
+    }
+
+    public static final class SliceUriPairColumns {
+        public static final java.lang.String KEY = "key";
+        public static final java.lang.String SLICE_URI = "slice_uri";
+        private SliceUriPairColumns() {}
     }
 
     public static final class NonIndexableKey extends android.provider.SearchIndexablesContract.BaseColumns {
         public static final java.lang.String COLUMN_KEY_VALUE = "key";
         public static final java.lang.String MIME_TYPE = "vnd.android.cursor.dir/non_indexables_key";
         private NonIndexableKey() { super(); }
+    }
+
+    public static final class XmlResource extends android.provider.SearchIndexablesContract.BaseColumns {
+        public static final java.lang.String COLUMN_XML_RESID = "xmlResId";
+        public static final java.lang.String MIME_TYPE = "vnd.android.cursor.dir/indexables_xml_res";
+        private XmlResource() { super(); }
     }
 
     public static final class RawData extends android.provider.SearchIndexablesContract.BaseColumns {
@@ -78,23 +88,13 @@ public class SearchIndexablesContract {
         private RawData() { super(); }
     }
 
-    public static final class SiteMapColumns {
-        public static final java.lang.String CHILD_CLASS = "child_class";
-        public static final java.lang.String CHILD_TITLE = "child_title";
-        public static final java.lang.String PARENT_CLASS = "parent_class";
-        public static final java.lang.String PARENT_TITLE = "parent_title";
-        public SiteMapColumns() {}
-    }
-
-    public static final class SliceUriPairColumns {
-        public static final java.lang.String KEY = "key";
-        public static final java.lang.String SLICE_URI = "slice_uri";
-        private SliceUriPairColumns() {}
-    }
-
-    public static final class XmlResource extends android.provider.SearchIndexablesContract.BaseColumns {
-        public static final java.lang.String COLUMN_XML_RESID = "xmlResId";
-        public static final java.lang.String MIME_TYPE = "vnd.android.cursor.dir/indexables_xml_res";
-        private XmlResource() { super(); }
+    public static class BaseColumns {
+        public static final java.lang.String COLUMN_CLASS_NAME = "className";
+        public static final java.lang.String COLUMN_ICON_RESID = "iconResId";
+        public static final java.lang.String COLUMN_INTENT_ACTION = "intentAction";
+        public static final java.lang.String COLUMN_INTENT_TARGET_CLASS = "intentTargetClass";
+        public static final java.lang.String COLUMN_INTENT_TARGET_PACKAGE = "intentTargetPackage";
+        public static final java.lang.String COLUMN_RANK = "rank";
+        private BaseColumns() {}
     }
 }

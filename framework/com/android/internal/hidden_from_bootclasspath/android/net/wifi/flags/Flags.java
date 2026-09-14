@@ -9,7 +9,6 @@ public final class Flags {
     public static final java.lang.String FLAG_NETWORK_PROVIDER_BATTERY_CHARGING_STATUS = "android.net.wifi.flags.network_provider_battery_charging_status";
     public static final java.lang.String FLAG_USD = "android.net.wifi.flags.usd";
     public static final java.lang.String FLAG_WIFI_KEYSTORE_REMOVE_ALL_API = "android.net.wifi.flags.wifi_keystore_remove_all_api";
-    public static final java.lang.String FLAG_WIFI_SCAN_RESULT_INTERCEPTOR = "android.net.wifi.flags.wifi_scan_result_interceptor";
     public Flags() {}
     public static boolean deprecateWificond() { return false; }
     public static boolean getDeviceCrossAkmRoamingSupport() { return false; }
@@ -19,5 +18,4 @@ public final class Flags {
     public static boolean networkProviderBatteryChargingStatus() { return false; }
     public static boolean usd() { return false; }
     public static boolean wifiKeystoreRemoveAllApi() { return false; }
-    public static boolean wifiScanResultInterceptor() { return false; }
 }

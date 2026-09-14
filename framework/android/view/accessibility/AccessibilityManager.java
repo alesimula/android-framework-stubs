@@ -21,6 +21,8 @@ public final class AccessibilityManager {
     public static final int FLASH_REASON_NOTIFICATION = 3;
     public static final int FLASH_REASON_PREVIEW = 4;
     private static final java.lang.String LOG_TAG = "AccessibilityManager";
+    public static final int MAGNIFICATION_GESTURE_EXCLUSION_TYPE_KEYGUARD_PIN = 0;
+    public static final int MAGNIFICATION_GESTURE_EXCLUSION_TYPE_UNKNOWN = -1;
     public static final int STATE_FLAG_ACCESSIBILITY_ENABLED = 1;
     public static final int STATE_FLAG_AUDIO_DESCRIPTION_BY_DEFAULT_ENABLED = 4096;
     public static final int STATE_FLAG_DISPATCH_DOUBLE_TAP = 8;
@@ -37,6 +39,8 @@ public final class AccessibilityManager {
     private final android.util.ArrayMap<android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener, android.os.Handler> mAccessibilityStateChangeListeners = null;
     int mAccessibilityTracingState;
     private final android.util.ArrayMap<android.view.accessibility.AccessibilityManager.AudioDescriptionRequestedChangeListener, java.util.concurrent.Executor> mAudioDescriptionRequestedChangeListeners = null;
+    private final java.util.List<android.view.accessibility.AccessibilityEvent> mBatchedEvents = null;
+    private boolean mBatchingScheduled;
     private final android.os.Binder mBinder = null;
     final android.os.Handler.Callback mCallback = null;
     private final android.view.accessibility.IAccessibilityManagerClient.Stub mClient = null;
@@ -61,6 +65,8 @@ public final class AccessibilityManager {
     final int mUserId = 0;
     public AccessibilityManager(android.content.Context p0, android.os.Handler p1, android.view.accessibility.IAccessibilityManager p2, int p3, boolean p4) {}
     public AccessibilityManager(android.content.Context p0, android.view.accessibility.IAccessibilityManager p1, int p2) {}
+    private static boolean allowCrossUserCurrent(android.content.Context p0) { return false; }
+    private java.util.List<android.accessibilityservice.AccessibilityShortcutInfo> getInstalledAccessibilityShortcutListAsUser$ravenwood(android.content.Context p0, int p1) { return null; }
     public static android.view.accessibility.AccessibilityManager getInstance(android.content.Context p0) { return null; }
     private android.view.accessibility.IAccessibilityManager getServiceLocked() { return null; }
     private android.accessibilityservice.AccessibilityShortcutInfo getShortcutInfo(android.content.Context p0, android.content.pm.ResolveInfo p1) { return null; }
@@ -90,6 +96,7 @@ public final class AccessibilityManager {
     public void enableMagnificationAndZoomIn(int p0) {}
     public void enableShortcutsForTargets(boolean p0, int p1, java.util.Set<java.lang.String> p2, int p3) {}
     public boolean enableTrustedAccessibilityService(android.content.ComponentName p0) { return false; }
+    public void flushBatchedEvents() {}
     public java.util.Map<android.content.ComponentName, android.content.ComponentName> getA11yFeatureToTileMap(int p0) { return null; }
     public int getAccessibilityFocusColor() { return 0; }
     public int getAccessibilityFocusStrokeWidth() { return 0; }
@@ -121,6 +128,7 @@ public final class AccessibilityManager {
     public boolean isAccessibilityVolumeStreamActive() { return false; }
     public boolean isAudioDescriptionRequested() { return false; }
     public boolean isEnabled() { return false; }
+    public boolean isEventTypeRelevant(int p0) { return false; }
     public boolean isHighContrastTextEnabled() { return false; }
     public boolean isRequestFromAccessibilityTool() { return false; }
     public boolean isSystemAudioCaptioningUiEnabled(int p0) { return false; }
@@ -154,6 +162,7 @@ public final class AccessibilityManager {
     public void setAccessibilityPolicy(android.view.accessibility.AccessibilityManager.AccessibilityPolicy p0) {}
     public void setAccessibilityWindowAttributes(int p0, int p1, android.view.accessibility.AccessibilityWindowAttributes p2) {}
     public void setMagnificationConnection(android.view.accessibility.IMagnificationConnection p0) {}
+    public void setMagnificationGestureExclusionBounds(android.os.IBinder p0, int p1, android.graphics.Rect p2, int p3) {}
     public void setPictureInPictureActionReplacingConnection(android.view.accessibility.IAccessibilityInteractionConnection p0) {}
     public void setRequestFromAccessibilityTool(boolean p0) {}
     public void setSystemAudioCaptioningEnabled(boolean p0, int p1) {}
@@ -170,32 +179,24 @@ public final class AccessibilityManager {
     public void unregisterSystemAction(int p0) {}
     public void unregisterUserInitializationCompleteCallback(android.view.accessibility.IUserInitializationCompleteCallback p0) {}
 
-    public static interface AccessibilityPolicy {
-        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getEnabledAccessibilityServiceList(int p0, java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p1);
-        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getInstalledAccessibilityServiceList(java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p0);
-        public int getRelevantEventTypes(int p0);
-        public boolean isEnabled(boolean p0);
-        public android.view.accessibility.AccessibilityEvent onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, boolean p1, int p2);
-    }
-
-    public static interface AccessibilityServicesStateChangeListener {
-        public void onAccessibilityServicesStateChanged(android.view.accessibility.AccessibilityManager p0);
-    }
-
-    public static interface AccessibilityStateChangeListener {
-        public void onAccessibilityStateChanged(boolean p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MagnificationGestureExclusionType {
     }
 
     public static interface AudioDescriptionRequestedChangeListener {
         public void onAudioDescriptionRequestedChanged(boolean p0);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ContentFlag {
+    public static interface AccessibilityServicesStateChangeListener {
+        public void onAccessibilityServicesStateChanged(android.view.accessibility.AccessibilityManager p0);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FlashNotificationReason {
+    public static interface TouchExplorationStateChangeListener {
+        public void onTouchExplorationStateChanged(boolean p0);
+    }
+
+    public static interface AccessibilityStateChangeListener {
+        public void onAccessibilityStateChanged(boolean p0);
     }
 
     public static interface HighContrastTextStateChangeListener {
@@ -208,7 +209,19 @@ public final class AccessibilityManager {
         public boolean handleMessage(android.os.Message p0) { return false; }
     }
 
-    public static interface TouchExplorationStateChangeListener {
-        public void onTouchExplorationStateChanged(boolean p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FlashNotificationReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ContentFlag {
+    }
+
+    public static interface AccessibilityPolicy {
+        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getEnabledAccessibilityServiceList(int p0, java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p1);
+        public java.util.List<android.accessibilityservice.AccessibilityServiceInfo> getInstalledAccessibilityServiceList(java.util.List<android.accessibilityservice.AccessibilityServiceInfo> p0);
+        public int getRelevantEventTypes(int p0);
+        public boolean isEnabled(boolean p0);
+        public android.view.accessibility.AccessibilityEvent onAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, boolean p1, int p2);
     }
 }

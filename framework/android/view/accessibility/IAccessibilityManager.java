@@ -37,10 +37,12 @@ public interface IAccessibilityManager extends android.os.IInterface {
     public void removeAccessibilityInteractionConnection(android.view.IWindow p0) throws android.os.RemoteException;
     public boolean removeClient(android.view.accessibility.IAccessibilityManagerClient p0, int p1) throws android.os.RemoteException;
     public void sendAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, int p1) throws android.os.RemoteException;
+    public void sendAccessibilityEvents(android.content.pm.ParceledListSlice<android.view.accessibility.AccessibilityEvent> p0, int p1) throws android.os.RemoteException;
     public boolean sendFingerprintGesture(int p0) throws android.os.RemoteException;
     public boolean sendRestrictedDialogIntent(android.accessibilityservice.AccessibilityServiceInfo p0, int p1) throws android.os.RemoteException;
     public void setAccessibilityWindowAttributes(int p0, int p1, int p2, android.view.accessibility.AccessibilityWindowAttributes p3) throws android.os.RemoteException;
     public void setMagnificationConnection(android.view.accessibility.IMagnificationConnection p0) throws android.os.RemoteException;
+    public void setMagnificationGestureExclusionBounds(android.os.IBinder p0, int p1, android.graphics.Rect p2, int p3) throws android.os.RemoteException;
     public void setPictureInPictureActionReplacingConnection(android.view.accessibility.IAccessibilityInteractionConnection p0) throws android.os.RemoteException;
     public void setSystemAudioCaptioningEnabled(boolean p0, int p1) throws android.os.RemoteException;
     public void setSystemAudioCaptioningUiEnabled(boolean p0, int p1) throws android.os.RemoteException;
@@ -92,10 +94,12 @@ public interface IAccessibilityManager extends android.os.IInterface {
         public void removeAccessibilityInteractionConnection(android.view.IWindow p0) throws android.os.RemoteException {}
         public boolean removeClient(android.view.accessibility.IAccessibilityManagerClient p0, int p1) throws android.os.RemoteException { return false; }
         public void sendAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, int p1) throws android.os.RemoteException {}
+        public void sendAccessibilityEvents(android.content.pm.ParceledListSlice<android.view.accessibility.AccessibilityEvent> p0, int p1) throws android.os.RemoteException {}
         public boolean sendFingerprintGesture(int p0) throws android.os.RemoteException { return false; }
         public boolean sendRestrictedDialogIntent(android.accessibilityservice.AccessibilityServiceInfo p0, int p1) throws android.os.RemoteException { return false; }
         public void setAccessibilityWindowAttributes(int p0, int p1, int p2, android.view.accessibility.AccessibilityWindowAttributes p3) throws android.os.RemoteException {}
         public void setMagnificationConnection(android.view.accessibility.IMagnificationConnection p0) throws android.os.RemoteException {}
+        public void setMagnificationGestureExclusionBounds(android.os.IBinder p0, int p1, android.graphics.Rect p2, int p3) throws android.os.RemoteException {}
         public void setPictureInPictureActionReplacingConnection(android.view.accessibility.IAccessibilityInteractionConnection p0) throws android.os.RemoteException {}
         public void setSystemAudioCaptioningEnabled(boolean p0, int p1) throws android.os.RemoteException {}
         public void setSystemAudioCaptioningUiEnabled(boolean p0, int p1) throws android.os.RemoteException {}
@@ -112,57 +116,59 @@ public interface IAccessibilityManager extends android.os.IInterface {
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IAccessibilityManager {
         public static final java.lang.String DESCRIPTOR = "android.view.accessibility.IAccessibilityManager";
         static final java.lang.String[] PERMISSIONS_notifyQuickSettingsTilesChanged = null;
-        static final int TRANSACTION_addAccessibilityInteractionConnection = 7;
-        static final int TRANSACTION_addClient = 3;
-        static final int TRANSACTION_associateEmbeddedHierarchy = 24;
-        static final int TRANSACTION_attachAccessibilityOverlayToDisplay = 43;
-        static final int TRANSACTION_disassociateEmbeddedHierarchy = 25;
-        static final int TRANSACTION_enableMagnificationAndZoomIn = 51;
-        static final int TRANSACTION_enableShortcutsForTargets = 45;
-        static final int TRANSACTION_enableTrustedAccessibilityService = 49;
-        static final int TRANSACTION_getA11yFeatureToTileMap = 46;
-        static final int TRANSACTION_getAccessibilityShortcutTargets = 17;
-        static final int TRANSACTION_getAccessibilityWindowId = 19;
-        static final int TRANSACTION_getEnabledAccessibilityServiceList = 6;
-        static final int TRANSACTION_getFocusColor = 27;
-        static final int TRANSACTION_getFocusStrokeWidth = 26;
-        static final int TRANSACTION_getInstalledAccessibilityServiceList = 5;
-        static final int TRANSACTION_getRecommendedTimeoutMillis = 20;
-        static final int TRANSACTION_getWindowToken = 12;
-        static final int TRANSACTION_getWindowTransformationSpec = 42;
-        static final int TRANSACTION_injectInputEventToInputFilter = 35;
+        static final int TRANSACTION_addAccessibilityInteractionConnection = 8;
+        static final int TRANSACTION_addClient = 4;
+        static final int TRANSACTION_associateEmbeddedHierarchy = 25;
+        static final int TRANSACTION_attachAccessibilityOverlayToDisplay = 44;
+        static final int TRANSACTION_disassociateEmbeddedHierarchy = 26;
+        static final int TRANSACTION_enableMagnificationAndZoomIn = 52;
+        static final int TRANSACTION_enableShortcutsForTargets = 46;
+        static final int TRANSACTION_enableTrustedAccessibilityService = 50;
+        static final int TRANSACTION_getA11yFeatureToTileMap = 47;
+        static final int TRANSACTION_getAccessibilityShortcutTargets = 18;
+        static final int TRANSACTION_getAccessibilityWindowId = 20;
+        static final int TRANSACTION_getEnabledAccessibilityServiceList = 7;
+        static final int TRANSACTION_getFocusColor = 28;
+        static final int TRANSACTION_getFocusStrokeWidth = 27;
+        static final int TRANSACTION_getInstalledAccessibilityServiceList = 6;
+        static final int TRANSACTION_getRecommendedTimeoutMillis = 21;
+        static final int TRANSACTION_getWindowToken = 13;
+        static final int TRANSACTION_getWindowTransformationSpec = 43;
+        static final int TRANSACTION_injectInputEventToInputFilter = 36;
         static final int TRANSACTION_interrupt = 1;
-        static final int TRANSACTION_isAccessibilityServiceTargetAllowed = 39;
-        static final int TRANSACTION_isAccessibilityServiceWarningRequired = 41;
-        static final int TRANSACTION_isAudioDescriptionByDefaultEnabled = 28;
-        static final int TRANSACTION_isSystemAudioCaptioningUiEnabled = 30;
-        static final int TRANSACTION_notifyAccessibilityButtonClicked = 13;
-        static final int TRANSACTION_notifyAccessibilityButtonLongClicked = 14;
-        static final int TRANSACTION_notifyAccessibilityButtonVisibilityChanged = 15;
-        static final int TRANSACTION_notifyQuickSettingsTilesChanged = 44;
-        static final int TRANSACTION_performAccessibilityShortcut = 16;
-        static final int TRANSACTION_registerProxyForDisplay = 33;
-        static final int TRANSACTION_registerSystemAction = 21;
-        static final int TRANSACTION_registerUiTestAutomationService = 10;
-        static final int TRANSACTION_registerUserInitializationCompleteCallback = 47;
-        static final int TRANSACTION_removeAccessibilityInteractionConnection = 8;
-        static final int TRANSACTION_removeClient = 4;
+        static final int TRANSACTION_isAccessibilityServiceTargetAllowed = 40;
+        static final int TRANSACTION_isAccessibilityServiceWarningRequired = 42;
+        static final int TRANSACTION_isAudioDescriptionByDefaultEnabled = 29;
+        static final int TRANSACTION_isSystemAudioCaptioningUiEnabled = 31;
+        static final int TRANSACTION_notifyAccessibilityButtonClicked = 14;
+        static final int TRANSACTION_notifyAccessibilityButtonLongClicked = 15;
+        static final int TRANSACTION_notifyAccessibilityButtonVisibilityChanged = 16;
+        static final int TRANSACTION_notifyQuickSettingsTilesChanged = 45;
+        static final int TRANSACTION_performAccessibilityShortcut = 17;
+        static final int TRANSACTION_registerProxyForDisplay = 34;
+        static final int TRANSACTION_registerSystemAction = 22;
+        static final int TRANSACTION_registerUiTestAutomationService = 11;
+        static final int TRANSACTION_registerUserInitializationCompleteCallback = 48;
+        static final int TRANSACTION_removeAccessibilityInteractionConnection = 9;
+        static final int TRANSACTION_removeClient = 5;
         static final int TRANSACTION_sendAccessibilityEvent = 2;
-        static final int TRANSACTION_sendFingerprintGesture = 18;
-        static final int TRANSACTION_sendRestrictedDialogIntent = 40;
-        static final int TRANSACTION_setAccessibilityWindowAttributes = 32;
-        static final int TRANSACTION_setMagnificationConnection = 23;
-        static final int TRANSACTION_setPictureInPictureActionReplacingConnection = 9;
-        static final int TRANSACTION_setSystemAudioCaptioningEnabled = 29;
-        static final int TRANSACTION_setSystemAudioCaptioningUiEnabled = 31;
-        static final int TRANSACTION_setTrustedAccessibilityServiceForTesting = 50;
-        static final int TRANSACTION_startFlashNotificationEvent = 38;
-        static final int TRANSACTION_startFlashNotificationSequence = 36;
-        static final int TRANSACTION_stopFlashNotificationSequence = 37;
-        static final int TRANSACTION_unregisterProxyForDisplay = 34;
-        static final int TRANSACTION_unregisterSystemAction = 22;
-        static final int TRANSACTION_unregisterUiTestAutomationService = 11;
-        static final int TRANSACTION_unregisterUserInitializationCompleteCallback = 48;
+        static final int TRANSACTION_sendAccessibilityEvents = 3;
+        static final int TRANSACTION_sendFingerprintGesture = 19;
+        static final int TRANSACTION_sendRestrictedDialogIntent = 41;
+        static final int TRANSACTION_setAccessibilityWindowAttributes = 33;
+        static final int TRANSACTION_setMagnificationConnection = 24;
+        static final int TRANSACTION_setMagnificationGestureExclusionBounds = 53;
+        static final int TRANSACTION_setPictureInPictureActionReplacingConnection = 10;
+        static final int TRANSACTION_setSystemAudioCaptioningEnabled = 30;
+        static final int TRANSACTION_setSystemAudioCaptioningUiEnabled = 32;
+        static final int TRANSACTION_setTrustedAccessibilityServiceForTesting = 51;
+        static final int TRANSACTION_startFlashNotificationEvent = 39;
+        static final int TRANSACTION_startFlashNotificationSequence = 37;
+        static final int TRANSACTION_stopFlashNotificationSequence = 38;
+        static final int TRANSACTION_unregisterProxyForDisplay = 35;
+        static final int TRANSACTION_unregisterSystemAction = 23;
+        static final int TRANSACTION_unregisterUiTestAutomationService = 12;
+        static final int TRANSACTION_unregisterUserInitializationCompleteCallback = 49;
         private final android.os.PermissionEnforcer mEnforcer = null;
         @java.lang.Deprecated
         public Stub() { super(); }
@@ -188,6 +194,7 @@ public interface IAccessibilityManager extends android.os.IInterface {
         protected void registerSystemAction_enforcePermission() throws java.lang.SecurityException {}
         protected void registerUiTestAutomationService_enforcePermission() throws java.lang.SecurityException {}
         protected void setMagnificationConnection_enforcePermission() throws java.lang.SecurityException {}
+        protected void setMagnificationGestureExclusionBounds_enforcePermission() throws java.lang.SecurityException {}
         protected void setPictureInPictureActionReplacingConnection_enforcePermission() throws java.lang.SecurityException {}
         protected void setSystemAudioCaptioningEnabled_enforcePermission() throws java.lang.SecurityException {}
         protected void setSystemAudioCaptioningUiEnabled_enforcePermission() throws java.lang.SecurityException {}
@@ -238,10 +245,12 @@ public interface IAccessibilityManager extends android.os.IInterface {
             public void removeAccessibilityInteractionConnection(android.view.IWindow p0) throws android.os.RemoteException {}
             public boolean removeClient(android.view.accessibility.IAccessibilityManagerClient p0, int p1) throws android.os.RemoteException { return false; }
             public void sendAccessibilityEvent(android.view.accessibility.AccessibilityEvent p0, int p1) throws android.os.RemoteException {}
+            public void sendAccessibilityEvents(android.content.pm.ParceledListSlice<android.view.accessibility.AccessibilityEvent> p0, int p1) throws android.os.RemoteException {}
             public boolean sendFingerprintGesture(int p0) throws android.os.RemoteException { return false; }
             public boolean sendRestrictedDialogIntent(android.accessibilityservice.AccessibilityServiceInfo p0, int p1) throws android.os.RemoteException { return false; }
             public void setAccessibilityWindowAttributes(int p0, int p1, int p2, android.view.accessibility.AccessibilityWindowAttributes p3) throws android.os.RemoteException {}
             public void setMagnificationConnection(android.view.accessibility.IMagnificationConnection p0) throws android.os.RemoteException {}
+            public void setMagnificationGestureExclusionBounds(android.os.IBinder p0, int p1, android.graphics.Rect p2, int p3) throws android.os.RemoteException {}
             public void setPictureInPictureActionReplacingConnection(android.view.accessibility.IAccessibilityInteractionConnection p0) throws android.os.RemoteException {}
             public void setSystemAudioCaptioningEnabled(boolean p0, int p1) throws android.os.RemoteException {}
             public void setSystemAudioCaptioningUiEnabled(boolean p0, int p1) throws android.os.RemoteException {}

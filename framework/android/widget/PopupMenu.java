@@ -24,11 +24,11 @@ public class PopupMenu {
     public void setOnMenuItemClickListener(android.widget.PopupMenu.OnMenuItemClickListener p0) {}
     public void show() {}
 
-    public static interface OnDismissListener {
-        public void onDismiss(android.widget.PopupMenu p0);
-    }
-
     public static interface OnMenuItemClickListener {
         public boolean onMenuItemClick(android.view.MenuItem p0);
+    }
+
+    public static interface OnDismissListener {
+        public void onDismiss(android.widget.PopupMenu p0);
     }
 }

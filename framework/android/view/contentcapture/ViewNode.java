@@ -38,7 +38,7 @@ public final class ViewNode extends android.app.assist.AssistStructure.ViewNode 
     private static final long FLAGS_OPAQUE = 4194304L;
     private static final long FLAGS_SELECTED = 1048576L;
     private static final long FLAGS_VISIBILITY_MASK = 12L;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ViewNode";
     private java.lang.String[] mAutofillHints;
     private android.view.autofill.AutofillId mAutofillId;
     private java.lang.CharSequence[] mAutofillOptions;
@@ -126,23 +126,6 @@ public final class ViewNode extends android.app.assist.AssistStructure.ViewNode 
     public boolean isSelected() { return false; }
     public void setTextIdEntry(java.lang.String p0) {}
 
-    static final class ViewNodeText {
-        java.lang.String mHint;
-        int[] mLineBaselines;
-        int[] mLineCharOffsets;
-        java.lang.CharSequence mText;
-        int mTextBackgroundColor;
-        int mTextColor;
-        int mTextSelectionEnd;
-        int mTextSelectionStart;
-        float mTextSize;
-        int mTextStyle;
-        ViewNodeText() {}
-        ViewNodeText(android.os.Parcel p0, boolean p1) {}
-        boolean isSimple() { return false; }
-        void writeToParcel(android.os.Parcel p0, boolean p1) {}
-    }
-
     public static final class ViewStructureImpl extends android.view.ViewStructure {
         final android.view.contentcapture.ViewNode mNode = null;
         public ViewStructureImpl(android.view.View p0) { super(); }
@@ -207,5 +190,22 @@ public final class ViewNode extends android.app.assist.AssistStructure.ViewNode 
         public void setTransformation(android.graphics.Matrix p0) {}
         public void setVisibility(int p0) {}
         public void setWebDomain(java.lang.String p0) {}
+    }
+
+    static final class ViewNodeText {
+        java.lang.String mHint;
+        int[] mLineBaselines;
+        int[] mLineCharOffsets;
+        java.lang.CharSequence mText;
+        int mTextBackgroundColor;
+        int mTextColor;
+        int mTextSelectionEnd;
+        int mTextSelectionStart;
+        float mTextSize;
+        int mTextStyle;
+        ViewNodeText() {}
+        ViewNodeText(android.os.Parcel p0, boolean p1) {}
+        boolean isSimple() { return false; }
+        void writeToParcel(android.os.Parcel p0, boolean p1) {}
     }
 }

@@ -1,7 +1,7 @@
 package com.android.server.net;
 
 public class NetworkPinner {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "NetworkPinner";
     private static com.android.server.net.NetworkPinner.Callback sCallback;
     protected static final java.lang.Object sLock = null;
     public NetworkPinner() {}

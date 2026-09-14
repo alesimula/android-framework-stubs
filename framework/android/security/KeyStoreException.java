@@ -59,13 +59,13 @@ public class KeyStoreException extends java.lang.Exception {
     public static @interface PublicErrorCode {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RetryPolicy {
+    }
+
     private static final class PublicErrorInformation {
         public final int errorCode = 0;
         public final int indicators = 0;
         PublicErrorInformation(int p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RetryPolicy {
     }
 }

@@ -105,6 +105,7 @@ public class DevicePolicyManager {
     public static final int ENCRYPTION_STATUS_ACTIVE_PER_USER = 5;
     public static final int ENCRYPTION_STATUS_INACTIVE = 1;
     public static final int ENCRYPTION_STATUS_UNSUPPORTED = 0;
+    public static final int ERROR_MTE_UNSUPPORTED = 1;
     public static final int ERROR_PACKAGE_NAME_NOT_FOUND = 1;
     public static final int ERROR_VPN_PACKAGE_NOT_FOUND = 1;
     @android.annotation.SystemApi
@@ -274,6 +275,8 @@ public class DevicePolicyManager {
     @android.annotation.SystemApi
     public static final int LOCK_TASK_FEATURE_QUICK_SETTINGS = 128;
     public static final int LOCK_TASK_FEATURE_SYSTEM_INFO = 1;
+    public static final int LOGIN_ATTEMPT_STATUS_FAILED = 0;
+    public static final int LOGIN_ATTEMPT_STATUS_SUCCESS = 1;
     public static final int MAKE_USER_DEMO = 4;
     public static final int MAKE_USER_EPHEMERAL = 2;
     public static final int MANAGED_PROFILE_OWNER_OF_ORGANIZATION_OWNED_DEVICE = 3;
@@ -318,6 +321,7 @@ public class DevicePolicyManager {
     public static final int OPERATION_SET_APP_FUNCTIONS_POLICY = 42;
     public static final int OPERATION_SET_CAMERA_DISABLED = 31;
     public static final int OPERATION_SET_CONTENT_PROTECTION_POLICY = 41;
+    public static final int OPERATION_SET_DATA_LEAK_PREVENTION_RULES = 43;
     public static final int OPERATION_SET_FACTORY_RESET_PROTECTION_POLICY = 32;
     public static final int OPERATION_SET_GLOBAL_PRIVATE_DNS = 33;
     public static final int OPERATION_SET_KEEP_UNINSTALLED_PACKAGES = 17;
@@ -368,6 +372,7 @@ public class DevicePolicyManager {
     public static final java.lang.String POLICY_DISABLE_CAMERA = "policy_disable_camera";
     public static final java.lang.String POLICY_DISABLE_SCREEN_CAPTURE = "policy_disable_screen_capture";
     public static final int POLICY_SCOPE_DEVICE = 2;
+    public static final int POLICY_SCOPE_LOGIN_SCREEN = 4;
     public static final int POLICY_SCOPE_PARENT_USER = 3;
     public static final int POLICY_SCOPE_USER = 1;
     public static final java.lang.String POLICY_SUSPEND_PACKAGES = "policy_suspend_packages";
@@ -473,6 +478,7 @@ public class DevicePolicyManager {
     public static final int STATUS_OTHER_PROVISIONING_ERROR = 20;
     @android.annotation.SystemApi
     public static final int STATUS_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS = 15;
+    public static final int STATUS_SINGLE_USER_DEVICE_MANAGEMENT_NOT_SUPPORTED = 25;
     @java.lang.Deprecated
     public static final int STATUS_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER = 14;
     @android.annotation.SystemApi
@@ -547,6 +553,7 @@ public class DevicePolicyManager {
     public int addOverrideApn(android.content.ComponentName p0, android.telephony.data.ApnSetting p1) { return 0; }
     public void addPersistentPreferredActivity(android.content.ComponentName p0, android.content.IntentFilter p1, android.content.ComponentName p2) {}
     public <T extends java.lang.Object> void addResolvedDeviceWidePolicyCallback(android.app.admin.PolicyIdentifier<T> p0, java.util.concurrent.Executor p1, android.app.admin.ResolvedDeviceWidePolicyCallback<T> p2) {}
+    public <T extends java.lang.Object> void addResolvedPerUserPolicyCallback(android.app.admin.PolicyIdentifier<T> p0, java.util.concurrent.Executor p1, android.app.admin.ResolvedPerUserPolicyCallback<T> p2) {}
     public void addUserRestriction(android.content.ComponentName p0, java.lang.String p1) {}
     public void addUserRestriction(java.lang.String p0, java.lang.String p1, int p2) {}
     public void addUserRestrictionGlobally(java.lang.String p0) {}
@@ -567,6 +574,7 @@ public class DevicePolicyManager {
     @java.lang.Deprecated
     public void clearDeviceOwnerApp(java.lang.String p0) {}
     public void clearMultiuserDeviceManagement(java.lang.String p0) {}
+    public void clearNetworkLogEventCallback() {}
     public void clearOrganizationId() {}
     public void clearPackagePersistentPreferredActivities(android.content.ComponentName p0, java.lang.String p1) {}
     @java.lang.Deprecated
@@ -648,6 +656,7 @@ public class DevicePolicyManager {
     public java.util.List<java.lang.String> getCrossProfileWidgetProviders(android.content.ComponentName p0) { return null; }
     public int getCurrentFailedPasswordAttempts() { return 0; }
     public int getCurrentFailedPasswordAttempts(int p0) { return 0; }
+    public android.app.admin.dataleakprevention.DataLeakPreventionRules getDataLeakPreventionRules() { return null; }
     public java.util.Set<java.lang.String> getDefaultCrossProfilePackages() { return null; }
     public java.util.List<java.lang.String> getDelegatePackages(android.content.ComponentName p0, java.lang.String p1) { return null; }
     public java.util.List<java.lang.String> getDelegatedScopes(android.content.ComponentName p0, java.lang.String p1) { return null; }
@@ -675,6 +684,7 @@ public class DevicePolicyManager {
     public java.lang.CharSequence getEndUserSessionMessage(android.content.ComponentName p0) { return null; }
     public android.app.admin.EnforcingAdmin getEnforcingAdmin(int p0, java.lang.String p1) { return null; }
     public android.os.Bundle getEnforcingAdminAndUserDetails(int p0, java.lang.String p1) { return null; }
+    public android.app.admin.PolicyEnforcementInfo getEnforcingAdminsForPolicy(android.app.admin.PolicyIdentifier<?> p0, int p1, boolean p2) { return null; }
     public android.app.admin.PolicyEnforcementInfo getEnforcingAdminsForPolicy(java.lang.String p0, int p1) { return null; }
     public java.lang.String getEnrollmentSpecificId() { return null; }
     public android.app.admin.FactoryResetProtectionPolicy getFactoryResetProtectionPolicy(android.content.ComponentName p0) { return null; }
@@ -688,6 +698,7 @@ public class DevicePolicyManager {
     public java.util.List<byte[]> getInstalledCaCerts(android.content.ComponentName p0) { return null; }
     public java.util.List<java.lang.String> getKeepUninstalledPackages(android.content.ComponentName p0) { return null; }
     public java.util.Map<java.lang.Integer, java.util.Set<java.lang.String>> getKeyPairGrants(java.lang.String p0) { return null; }
+    public java.util.Map<java.lang.Integer, java.util.Set<java.lang.String>> getKeyPairGrants(java.lang.String p0, int p1) { return null; }
     public int getKeyguardDisabledFeatures(android.content.ComponentName p0) { return 0; }
     public int getKeyguardDisabledFeatures(android.content.ComponentName p0, int p1) { return 0; }
     public long getLastBugReportRequestTime() { return 0L; }
@@ -819,7 +830,9 @@ public class DevicePolicyManager {
     public java.lang.String getWifiMacAddress(android.content.ComponentName p0) { return null; }
     public android.app.admin.WifiSsidPolicy getWifiSsidPolicy() { return null; }
     public boolean grantKeyPairToApp(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2) { return false; }
+    public boolean grantKeyPairToApp(java.lang.String p0, java.lang.String p1, int p2) { return false; }
     public boolean grantKeyPairToWifiAuth(java.lang.String p0) { return false; }
+    public boolean grantKeyPairToWifiAuth(java.lang.String p0, int p1) { return false; }
     public boolean hasCaCertInstalled(android.content.ComponentName p0, byte[] p1) { return false; }
     public boolean hasDeviceIdentifierAccess(java.lang.String p0, int p1, int p2) { return false; }
     public boolean hasGrantedPolicy(android.content.ComponentName p0, int p1) { return false; }
@@ -876,6 +889,7 @@ public class DevicePolicyManager {
     public boolean isFinancedDevice() { return false; }
     public boolean isInputMethodPermittedByAdmin(android.content.ComponentName p0, java.lang.String p1, int p2) { return false; }
     public boolean isKeyPairGrantedToWifiAuth(java.lang.String p0) { return false; }
+    public boolean isKeyPairGrantedToWifiAuth(java.lang.String p0, int p1) { return false; }
     public boolean isLockTaskPermitted(java.lang.String p0) { return false; }
     public boolean isLogoutEnabled() { return false; }
     @android.annotation.SystemApi
@@ -889,7 +903,9 @@ public class DevicePolicyManager {
     public boolean isOnboardingBugreportV2FlagEnabled() { return false; }
     public boolean isOnboardingConsentlessBugreportFlagEnabled() { return false; }
     public boolean isOrganizationOwnedDeviceWithManagedProfile() { return false; }
-    public boolean isOutgoingTransferAllowedForSubscription(int p0) { return false; }
+    @android.annotation.SystemApi
+    public boolean isOrganizationOwnedManagedProfileProvisioningSupported() { return false; }
+    public boolean isOutgoingEsimTransferAllowed(int p0) { return false; }
     public boolean isOverrideApnEnabled(android.content.ComponentName p0) { return false; }
     public boolean isPackageAllowedToAccessCalendar(java.lang.String p0) { return false; }
     @android.annotation.SystemApi
@@ -946,6 +962,7 @@ public class DevicePolicyManager {
     public boolean removeManagedProfile() { return false; }
     public boolean removeOverrideApn(android.content.ComponentName p0, int p1) { return false; }
     public <T extends java.lang.Object> void removeResolvedDeviceWidePolicyCallback(android.app.admin.PolicyIdentifier<T> p0, android.app.admin.ResolvedDeviceWidePolicyCallback<T> p1) {}
+    public <T extends java.lang.Object> void removeResolvedPerUserPolicyCallback(android.app.admin.PolicyIdentifier<T> p0, android.app.admin.ResolvedPerUserPolicyCallback<T> p1) {}
     public boolean removeUser(android.content.ComponentName p0, android.os.UserHandle p1) { return false; }
     public void reportFailedBiometricAttempt(int p0) {}
     public void reportFailedPasswordAttempt(int p0) {}
@@ -954,6 +971,7 @@ public class DevicePolicyManager {
     public void reportPasswordChanged(android.app.admin.PasswordMetrics p0, int p1) {}
     public void reportSuccessfulBiometricAttempt(int p0) {}
     public void reportSuccessfulPasswordAttempt(int p0) {}
+    public void reportUserLoginAttempt(int p0, int p1) {}
     public boolean requestBugreport(android.content.ComponentName p0) { return false; }
     public void resetDefaultCrossProfileIntentFilters(int p0) {}
     @java.lang.Deprecated
@@ -964,7 +982,9 @@ public class DevicePolicyManager {
     public java.util.List<android.app.admin.SecurityLog.SecurityEvent> retrievePreRebootSecurityLogs(android.content.ComponentName p0) { return null; }
     public java.util.List<android.app.admin.SecurityLog.SecurityEvent> retrieveSecurityLogs(android.content.ComponentName p0) { return null; }
     public boolean revokeKeyPairFromApp(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2) { return false; }
+    public boolean revokeKeyPairFromApp(java.lang.String p0, java.lang.String p1, int p2) { return false; }
     public boolean revokeKeyPairFromWifiAuth(java.lang.String p0) { return false; }
+    public boolean revokeKeyPairFromWifiAuth(java.lang.String p0, int p1) { return false; }
     @android.annotation.SystemApi
     public void sendLostModeLocationUpdate(java.util.concurrent.Executor p0, java.util.function.Consumer<java.lang.Boolean> p1) {}
     public void setAccountManagementDisabled(android.content.ComponentName p0, java.lang.String p1, boolean p2) {}
@@ -1012,6 +1032,7 @@ public class DevicePolicyManager {
     public void setCrossProfileContactsSearchDisabled(android.content.ComponentName p0, boolean p1) {}
     public void setCrossProfilePackages(android.content.ComponentName p0, java.util.Set<java.lang.String> p1) {}
     public void setCrossProfileWidgetProviders(java.util.Set<java.lang.String> p0) {}
+    public void setDataLeakPreventionRules(android.app.admin.dataleakprevention.DataLeakPreventionRules p0) {}
     public void setDefaultDialerApplication(java.lang.String p0) {}
     public void setDefaultSmsApplication(android.content.ComponentName p0, java.lang.String p1) {}
     public void setDelegatedScopes(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.lang.String> p2) {}
@@ -1032,6 +1053,7 @@ public class DevicePolicyManager {
     public void setGlobalSetting(android.content.ComponentName p0, java.lang.String p1, java.lang.String p2) {}
     public void setKeepUninstalledPackages(android.content.ComponentName p0, java.util.List<java.lang.String> p1) {}
     public boolean setKeyPairCertificate(android.content.ComponentName p0, java.lang.String p1, java.util.List<java.security.cert.Certificate> p2, boolean p3) { return false; }
+    public boolean setKeyPairCertificate(java.lang.String p0, java.util.List<java.security.cert.Certificate> p1, boolean p2, int p3) { return false; }
     public boolean setKeyguardDisabled(android.content.ComponentName p0, boolean p1) { return false; }
     public void setKeyguardDisabledFeatures(android.content.ComponentName p0, int p1) {}
     public void setLocationEnabled(android.content.ComponentName p0, boolean p1) {}
@@ -1054,6 +1076,7 @@ public class DevicePolicyManager {
     public void setMtePolicy(java.lang.String p0, int p1) {}
     public void setNearbyAppStreamingPolicy(int p0) {}
     public void setNearbyNotificationStreamingPolicy(int p0) {}
+    public void setNetworkLogEventCallback(java.util.concurrent.Executor p0, java.util.function.Consumer<java.util.List<android.app.admin.NetworkEvent>> p1) {}
     public void setNetworkLoggingEnabled(android.content.ComponentName p0, boolean p1) {}
     public void setNextOperationSafety(int p0, int p1) {}
     @java.lang.Deprecated
@@ -1213,6 +1236,10 @@ public class DevicePolicyManager {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface LockTaskFeature {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LoginAttemptStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

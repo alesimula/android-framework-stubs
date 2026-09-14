@@ -40,6 +40,53 @@ public abstract class RecognitionService extends android.app.Service {
     public void onTriggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1) {}
     public void onTriggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.ModelDownloadListener p2) {}
 
+    private static class ModelDownloadArgs {
+        final android.content.AttributionSource mAttributionSource = null;
+        final android.content.Intent mIntent = null;
+        final android.speech.IModelDownloadListener mListener = null;
+        private ModelDownloadArgs(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) {}
+    }
+
+    public static class SupportCallback {
+        private final android.speech.IRecognitionSupportCallback mCallback = null;
+        private SupportCallback(android.speech.IRecognitionSupportCallback p0) {}
+        public void onError(int p0) {}
+        public void onSupportResult(android.speech.RecognitionSupport p0) {}
+    }
+
+    private static class StartListeningArgs {
+        public final android.content.AttributionSource mAttributionSource = null;
+        public final android.content.Intent mIntent = null;
+        public final android.speech.IRecognitionListener mListener = null;
+        public StartListeningArgs(android.content.Intent p0, android.speech.IRecognitionListener p1, android.content.AttributionSource p2) {}
+    }
+
+    private static class CheckRecognitionSupportArgs {
+        public final android.speech.IRecognitionSupportCallback callback = null;
+        public final android.content.AttributionSource mAttributionSource = null;
+        public final android.content.Intent mIntent = null;
+        private CheckRecognitionSupportArgs(android.content.Intent p0, android.speech.IRecognitionSupportCallback p1, android.content.AttributionSource p2) {}
+    }
+
+    private static class SessionState {
+        private android.speech.RecognitionService.Callback mCallback;
+        private boolean mStartedDataDelivery;
+        SessionState(android.speech.RecognitionService.Callback p0) {}
+        SessionState(android.speech.RecognitionService.Callback p0, boolean p1) {}
+        void reset() {}
+    }
+
+    private static final class RecognitionServiceBinder extends android.speech.IRecognitionService.Stub {
+        private final java.lang.ref.WeakReference<android.speech.RecognitionService> mServiceRef = null;
+        public RecognitionServiceBinder(android.speech.RecognitionService p0) { super(); }
+        public void cancel(android.speech.IRecognitionListener p0, boolean p1) {}
+        public void checkRecognitionSupport(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IRecognitionSupportCallback p2) {}
+        public void clearReference() {}
+        public void startListening(android.content.Intent p0, android.speech.IRecognitionListener p1, android.content.AttributionSource p2) {}
+        public void stopListening(android.speech.IRecognitionListener p0) {}
+        public void triggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) {}
+    }
+
     public class Callback {
         private android.content.Context mAttributionContext;
         private boolean mAttributionContextCreated;
@@ -60,52 +107,5 @@ public abstract class RecognitionService extends android.app.Service {
         public void results(android.os.Bundle p0) throws android.os.RemoteException {}
         public void rmsChanged(float p0) throws android.os.RemoteException {}
         public void segmentResults(android.os.Bundle p0) throws android.os.RemoteException {}
-    }
-
-    private static class CheckRecognitionSupportArgs {
-        public final android.speech.IRecognitionSupportCallback callback = null;
-        public final android.content.AttributionSource mAttributionSource = null;
-        public final android.content.Intent mIntent = null;
-        private CheckRecognitionSupportArgs(android.content.Intent p0, android.speech.IRecognitionSupportCallback p1, android.content.AttributionSource p2) {}
-    }
-
-    private static class ModelDownloadArgs {
-        final android.content.AttributionSource mAttributionSource = null;
-        final android.content.Intent mIntent = null;
-        final android.speech.IModelDownloadListener mListener = null;
-        private ModelDownloadArgs(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) {}
-    }
-
-    private static final class RecognitionServiceBinder extends android.speech.IRecognitionService.Stub {
-        private final java.lang.ref.WeakReference<android.speech.RecognitionService> mServiceRef = null;
-        public RecognitionServiceBinder(android.speech.RecognitionService p0) { super(); }
-        public void cancel(android.speech.IRecognitionListener p0, boolean p1) {}
-        public void checkRecognitionSupport(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IRecognitionSupportCallback p2) {}
-        public void clearReference() {}
-        public void startListening(android.content.Intent p0, android.speech.IRecognitionListener p1, android.content.AttributionSource p2) {}
-        public void stopListening(android.speech.IRecognitionListener p0) {}
-        public void triggerModelDownload(android.content.Intent p0, android.content.AttributionSource p1, android.speech.IModelDownloadListener p2) {}
-    }
-
-    private static class SessionState {
-        private android.speech.RecognitionService.Callback mCallback;
-        private boolean mStartedDataDelivery;
-        SessionState(android.speech.RecognitionService.Callback p0) {}
-        SessionState(android.speech.RecognitionService.Callback p0, boolean p1) {}
-        void reset() {}
-    }
-
-    private static class StartListeningArgs {
-        public final android.content.AttributionSource mAttributionSource = null;
-        public final android.content.Intent mIntent = null;
-        public final android.speech.IRecognitionListener mListener = null;
-        public StartListeningArgs(android.content.Intent p0, android.speech.IRecognitionListener p1, android.content.AttributionSource p2) {}
-    }
-
-    public static class SupportCallback {
-        private final android.speech.IRecognitionSupportCallback mCallback = null;
-        private SupportCallback(android.speech.IRecognitionSupportCallback p0) {}
-        public void onError(int p0) {}
-        public void onSupportResult(android.speech.RecognitionSupport p0) {}
     }
 }

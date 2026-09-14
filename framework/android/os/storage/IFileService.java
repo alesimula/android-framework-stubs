@@ -7,15 +7,6 @@ public interface IFileService extends android.os.IInterface {
     public void registerCompletionListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
     public void unregisterCompletionListener(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.storage.IFileService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.storage.operations.FileOperationEnqueueResult enqueueOperation(android.os.storage.operations.FileOperationRequest p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public android.os.storage.operations.FileOperationResult fetchResult(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public void registerCompletionListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void unregisterCompletionListener(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.storage.IFileService {
         static final int TRANSACTION_enqueueOperation = 1;
         static final int TRANSACTION_fetchResult = 2;
@@ -38,5 +29,14 @@ public interface IFileService extends android.os.IInterface {
             public void registerCompletionListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
             public void unregisterCompletionListener(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.storage.IFileService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.storage.operations.FileOperationEnqueueResult enqueueOperation(android.os.storage.operations.FileOperationRequest p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public android.os.storage.operations.FileOperationResult fetchResult(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public void registerCompletionListener(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void unregisterCompletionListener(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

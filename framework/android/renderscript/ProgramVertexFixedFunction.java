@@ -5,17 +5,6 @@ public class ProgramVertexFixedFunction extends android.renderscript.ProgramVert
     ProgramVertexFixedFunction(long p0, android.renderscript.RenderScript p1) { super(0L, null); }
     public void bindConstants(android.renderscript.ProgramVertexFixedFunction.Constants p0) {}
 
-    public static class Builder {
-        android.renderscript.RenderScript mRS;
-        java.lang.String mShader;
-        boolean mTextureMatrixEnable;
-        public Builder(android.renderscript.RenderScript p0) {}
-        private void buildShaderString() {}
-        static android.renderscript.Type getConstantInputType(android.renderscript.RenderScript p0) { return null; }
-        public android.renderscript.ProgramVertexFixedFunction create() { return null; }
-        public android.renderscript.ProgramVertexFixedFunction.Builder setTextureMatrixEnable(boolean p0) { return null; }
-    }
-
     public static class Constants {
         static final int MODELVIEW_OFFSET = 0;
         static final int PROJECTION_OFFSET = 16;
@@ -32,6 +21,17 @@ public class ProgramVertexFixedFunction extends android.renderscript.ProgramVert
         public void setModelview(android.renderscript.Matrix4f p0) {}
         public void setProjection(android.renderscript.Matrix4f p0) {}
         public void setTexture(android.renderscript.Matrix4f p0) {}
+    }
+
+    public static class Builder {
+        android.renderscript.RenderScript mRS;
+        java.lang.String mShader;
+        boolean mTextureMatrixEnable;
+        public Builder(android.renderscript.RenderScript p0) {}
+        private void buildShaderString() {}
+        static android.renderscript.Type getConstantInputType(android.renderscript.RenderScript p0) { return null; }
+        public android.renderscript.ProgramVertexFixedFunction create() { return null; }
+        public android.renderscript.ProgramVertexFixedFunction.Builder setTextureMatrixEnable(boolean p0) { return null; }
     }
 
     static class InternalBuilder extends android.renderscript.Program.BaseProgramBuilder {

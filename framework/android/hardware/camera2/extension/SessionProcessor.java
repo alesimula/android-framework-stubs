@@ -20,15 +20,13 @@ public abstract class SessionProcessor {
     public abstract int startTrigger(android.hardware.camera2.CaptureRequest p0, java.util.concurrent.Executor p1, android.hardware.camera2.extension.SessionProcessor.CaptureCallback p2);
     public abstract void stopRepeating();
 
-    @android.annotation.SystemApi
-    public static interface CaptureCallback {
-        public void onCaptureCompleted(long p0, int p1, java.util.Map<android.hardware.camera2.CaptureResult.Key, java.lang.Object> p2);
-        public void onCaptureFailed(int p0, int p1);
-        default public void onCaptureProcessProgressUpdated(int p0) {}
-        public void onCaptureProcessStarted(int p0);
-        public void onCaptureSequenceAborted(int p0);
-        public void onCaptureSequenceCompleted(int p0);
-        public void onCaptureStarted(int p0, long p1);
+    public static final class CaptureLatencyInfo {
+        public final long captureLatency = 0L;
+        public final long processingLatency = 0L;
+        public CaptureLatencyInfo(long p0, long p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
     }
 
     private static final class CaptureCallbackImpl implements android.hardware.camera2.extension.SessionProcessor.CaptureCallback {
@@ -44,13 +42,15 @@ public abstract class SessionProcessor {
         public void onCaptureStarted(int p0, long p1) {}
     }
 
-    public static final class CaptureLatencyInfo {
-        public final long captureLatency = 0L;
-        public final long processingLatency = 0L;
-        public CaptureLatencyInfo(long p0, long p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
+    @android.annotation.SystemApi
+    public static interface CaptureCallback {
+        public void onCaptureCompleted(long p0, int p1, java.util.Map<android.hardware.camera2.CaptureResult.Key, java.lang.Object> p2);
+        public void onCaptureFailed(int p0, int p1);
+        default public void onCaptureProcessProgressUpdated(int p0) {}
+        public void onCaptureProcessStarted(int p0);
+        public void onCaptureSequenceAborted(int p0);
+        public void onCaptureSequenceCompleted(int p0);
+        public void onCaptureStarted(int p0, long p1);
     }
 
     private final class SessionProcessorImpl extends android.hardware.camera2.extension.ISessionProcessorImpl.Stub {

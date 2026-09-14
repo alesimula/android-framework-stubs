@@ -72,6 +72,42 @@ public class WifiNl80211Manager {
     public boolean tearDownSoftApInterface(java.lang.String p0) { return false; }
     public void unregisterCountryCodeChangedListener(android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener p0) {}
 
+    public class WificondEventHandler extends android.net.wifi.nl80211.IWificondEventCallback.Stub {
+        private java.util.Map<android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener, java.util.concurrent.Executor> mCountryCodeChangedListenerHolder;
+        public WificondEventHandler(android.net.wifi.nl80211.WifiNl80211Manager p0) { super(); }
+        public void OnRegDomainChanged(java.lang.String p0) {}
+        public void registerCountryCodeChangedListener(java.util.concurrent.Executor p0, android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener p1) {}
+        public void unregisterCountryCodeChangedListener(android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener p0) {}
+    }
+
+    @java.lang.Deprecated
+    public static interface SoftApCallback {
+        public void onConnectedClientsChanged(android.net.wifi.nl80211.NativeWifiClient p0, boolean p1);
+        public void onFailure();
+        public void onSoftApChannelSwitched(int p0, int p1);
+    }
+
+    public static interface ScanEventCallback {
+        public void onScanFailed();
+        default public void onScanFailed(int p0) {}
+        public void onScanResultReady();
+    }
+
+    public static class TxPacketCounters {
+        public final int txPacketFailed = 0;
+        public final int txPacketSucceeded = 0;
+        public TxPacketCounters(int p0, int p1) {}
+    }
+
+    private class ScanEventHandler extends android.net.wifi.nl80211.IScanEvent.Stub {
+        private android.net.wifi.nl80211.WifiNl80211Manager.ScanEventCallback mCallback;
+        private java.util.concurrent.Executor mExecutor;
+        ScanEventHandler(android.net.wifi.nl80211.WifiNl80211Manager p0, java.util.concurrent.Executor p1, android.net.wifi.nl80211.WifiNl80211Manager.ScanEventCallback p2) { super(); }
+        public void OnScanFailed() {}
+        public void OnScanRequestFailed(int p0) {}
+        public void OnScanResultReady() {}
+    }
+
     private class ApInterfaceEventCallback extends android.net.wifi.nl80211.IApInterfaceEventCallback.Stub {
         private java.util.concurrent.Executor mExecutor;
         private android.net.wifi.nl80211.WifiNl80211Manager.SoftApCallback mSoftApListener;
@@ -85,12 +121,13 @@ public class WifiNl80211Manager {
         public void onCountryCodeChanged(java.lang.String p0);
     }
 
-    public static class OemSecurityType {
-        public final int groupCipher = 0;
-        public final java.util.List<java.lang.Integer> keyManagement = null;
-        public final java.util.List<java.lang.Integer> pairwiseCipher = null;
-        public final int protocol = 0;
-        public OemSecurityType(int p0, java.util.List<java.lang.Integer> p1, java.util.List<java.lang.Integer> p2, int p3) {}
+    @java.lang.Deprecated
+    public static class SignalPollResult {
+        public final int associationFrequencyMHz = 0;
+        public final int currentRssiDbm = 0;
+        public final int rxBitrateMbps = 0;
+        public final int txBitrateMbps = 0;
+        public SignalPollResult(int p0, int p1, int p2, int p3) {}
     }
 
     private class PnoScanEventHandler extends android.net.wifi.nl80211.IPnoScanEvent.Stub {
@@ -101,37 +138,9 @@ public class WifiNl80211Manager {
         public void OnPnoScanFailed() {}
     }
 
-    public static interface PnoScanRequestCallback {
-        public void onPnoRequestFailed();
-        public void onPnoRequestSucceeded();
-    }
-
-    public static interface ScanEventCallback {
-        public void onScanFailed();
-        default public void onScanFailed(int p0) {}
-        public void onScanResultReady();
-    }
-
-    private class ScanEventHandler extends android.net.wifi.nl80211.IScanEvent.Stub {
-        private android.net.wifi.nl80211.WifiNl80211Manager.ScanEventCallback mCallback;
-        private java.util.concurrent.Executor mExecutor;
-        ScanEventHandler(android.net.wifi.nl80211.WifiNl80211Manager p0, java.util.concurrent.Executor p1, android.net.wifi.nl80211.WifiNl80211Manager.ScanEventCallback p2) { super(); }
-        public void OnScanFailed() {}
-        public void OnScanRequestFailed(int p0) {}
-        public void OnScanResultReady() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScanResultType {
-    }
-
     public static interface SendMgmtFrameCallback {
         public void onAck(int p0);
         public void onFailure(int p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SendMgmtFrameError {
     }
 
     private class SendMgmtFrameEvent extends android.net.wifi.nl80211.ISendMgmtFrameEvent.Stub {
@@ -145,33 +154,24 @@ public class WifiNl80211Manager {
         public void OnFailure(int p0) {}
     }
 
-    @java.lang.Deprecated
-    public static class SignalPollResult {
-        public final int associationFrequencyMHz = 0;
-        public final int currentRssiDbm = 0;
-        public final int rxBitrateMbps = 0;
-        public final int txBitrateMbps = 0;
-        public SignalPollResult(int p0, int p1, int p2, int p3) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SendMgmtFrameError {
     }
 
-    @java.lang.Deprecated
-    public static interface SoftApCallback {
-        public void onConnectedClientsChanged(android.net.wifi.nl80211.NativeWifiClient p0, boolean p1);
-        public void onFailure();
-        public void onSoftApChannelSwitched(int p0, int p1);
+    public static class OemSecurityType {
+        public final int groupCipher = 0;
+        public final java.util.List<java.lang.Integer> keyManagement = null;
+        public final java.util.List<java.lang.Integer> pairwiseCipher = null;
+        public final int protocol = 0;
+        public OemSecurityType(int p0, java.util.List<java.lang.Integer> p1, java.util.List<java.lang.Integer> p2, int p3) {}
     }
 
-    public static class TxPacketCounters {
-        public final int txPacketFailed = 0;
-        public final int txPacketSucceeded = 0;
-        public TxPacketCounters(int p0, int p1) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScanResultType {
     }
 
-    public class WificondEventHandler extends android.net.wifi.nl80211.IWificondEventCallback.Stub {
-        private java.util.Map<android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener, java.util.concurrent.Executor> mCountryCodeChangedListenerHolder;
-        public WificondEventHandler(android.net.wifi.nl80211.WifiNl80211Manager p0) { super(); }
-        public void OnRegDomainChanged(java.lang.String p0) {}
-        public void registerCountryCodeChangedListener(java.util.concurrent.Executor p0, android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener p1) {}
-        public void unregisterCountryCodeChangedListener(android.net.wifi.nl80211.WifiNl80211Manager.CountryCodeChangedListener p0) {}
+    public static interface PnoScanRequestCallback {
+        public void onPnoRequestFailed();
+        public void onPnoRequestSucceeded();
     }
 }

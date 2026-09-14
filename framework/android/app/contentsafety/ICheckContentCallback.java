@@ -7,15 +7,6 @@ public interface ICheckContentCallback extends android.os.IInterface {
     @java.lang.Deprecated
     public void onResult(android.os.Bundle p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.contentsafety.ICheckContentCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onClassification(java.util.List<android.app.contentsafety.ContentClassificationResult> p0) throws android.os.RemoteException {}
-        public void onClassificationComplete() throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void onResult(android.os.Bundle p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.contentsafety.ICheckContentCallback {
         static final int TRANSACTION_onClassification = 3;
         static final int TRANSACTION_onClassificationComplete = 4;
@@ -37,5 +28,14 @@ public interface ICheckContentCallback extends android.os.IInterface {
             @java.lang.Deprecated
             public void onResult(android.os.Bundle p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.contentsafety.ICheckContentCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onClassification(java.util.List<android.app.contentsafety.ContentClassificationResult> p0) throws android.os.RemoteException {}
+        public void onClassificationComplete() throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void onResult(android.os.Bundle p0) throws android.os.RemoteException {}
     }
 }

@@ -3,6 +3,7 @@ package com.android.internal.widget.remotecompose.core.operations;
 public class FloatFunctionDefine extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.operations.layout.Container {
     private static final java.lang.String CLASS_NAME = "FunctionDefine";
     private static final int OP_CODE = 168;
+    private boolean mCurrentlyExecuting;
     com.android.internal.widget.remotecompose.core.operations.utilities.AnimatedFloatExpression mExp;
     private final int[] mFloatVarId = null;
     private final int mId = 0;

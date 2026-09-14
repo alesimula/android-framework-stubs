@@ -108,9 +108,10 @@ public class ListPopupWindow implements com.android.internal.view.menu.ShowableL
     public void setWindowLayoutType(int p0) {}
     public void show() {}
 
-    private class ListSelectorHider implements java.lang.Runnable {
-        private ListSelectorHider(android.widget.ListPopupWindow p0) {}
-        public void run() {}
+    private class PopupScrollListener implements android.widget.AbsListView.OnScrollListener {
+        private PopupScrollListener(android.widget.ListPopupWindow p0) {}
+        public void onScroll(android.widget.AbsListView p0, int p1, int p2, int p3) {}
+        public void onScrollStateChanged(android.widget.AbsListView p0, int p1) {}
     }
 
     private class PopupDataSetObserver extends android.database.DataSetObserver {
@@ -119,10 +120,9 @@ public class ListPopupWindow implements com.android.internal.view.menu.ShowableL
         public void onInvalidated() {}
     }
 
-    private class PopupScrollListener implements android.widget.AbsListView.OnScrollListener {
-        private PopupScrollListener(android.widget.ListPopupWindow p0) {}
-        public void onScroll(android.widget.AbsListView p0, int p1, int p2, int p3) {}
-        public void onScrollStateChanged(android.widget.AbsListView p0, int p1) {}
+    private class ResizePopupRunnable implements java.lang.Runnable {
+        private ResizePopupRunnable(android.widget.ListPopupWindow p0) {}
+        public void run() {}
     }
 
     private class PopupTouchInterceptor implements android.view.View.OnTouchListener {
@@ -130,8 +130,8 @@ public class ListPopupWindow implements com.android.internal.view.menu.ShowableL
         public boolean onTouch(android.view.View p0, android.view.MotionEvent p1) { return false; }
     }
 
-    private class ResizePopupRunnable implements java.lang.Runnable {
-        private ResizePopupRunnable(android.widget.ListPopupWindow p0) {}
+    private class ListSelectorHider implements java.lang.Runnable {
+        private ListSelectorHider(android.widget.ListPopupWindow p0) {}
         public void run() {}
     }
 }

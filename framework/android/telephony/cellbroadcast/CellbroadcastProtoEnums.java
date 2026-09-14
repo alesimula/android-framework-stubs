@@ -39,6 +39,7 @@ public final class CellbroadcastProtoEnums {
     public static final int TRANSLATION_ERROR_PACKAGE_NOT_FOUND = 5;
     public static final int TRANSLATION_ERROR_PARSING_FAILED = 4;
     public static final int TRANSLATION_ERROR_SIGNING_INFO_NULL = 6;
+    public static final int TRANSLATION_ERROR_SOURCE_LANGUAGE_UNDETECTED = 14;
     public static final int TRANSLATION_ERROR_STALE_RESULT = 9;
     public static final int TRANSLATION_ERROR_UNKNOWN = 0;
     public CellbroadcastProtoEnums() {}

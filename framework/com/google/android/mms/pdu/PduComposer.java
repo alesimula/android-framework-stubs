@@ -57,6 +57,13 @@ public class PduComposer {
     protected void arraycopy(byte[] p0, int p1, int p2) {}
     public byte[] make() { return null; }
 
+    private class PositionMarker {
+        private int c_pos;
+        private int currentStackSize;
+        private PositionMarker(com.google.android.mms.pdu.PduComposer p0) {}
+        int getLength() { return 0; }
+    }
+
     private class BufferStack {
         private com.google.android.mms.pdu.PduComposer.LengthRecordNode stack;
         int stackSize;
@@ -73,12 +80,5 @@ public class PduComposer {
         public int currentPosition;
         public com.google.android.mms.pdu.PduComposer.LengthRecordNode next;
         private LengthRecordNode() {}
-    }
-
-    private class PositionMarker {
-        private int c_pos;
-        private int currentStackSize;
-        private PositionMarker(com.google.android.mms.pdu.PduComposer p0) {}
-        int getLength() { return 0; }
     }
 }

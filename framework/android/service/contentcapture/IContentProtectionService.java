@@ -5,13 +5,6 @@ public interface IContentProtectionService extends android.os.IInterface {
     public void onLoginDetected(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException;
     public void onUpdateAllowlistRequest(android.os.IBinder p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentcapture.IContentProtectionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onLoginDetected(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
-        public void onUpdateAllowlistRequest(android.os.IBinder p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentcapture.IContentProtectionService {
         static final int TRANSACTION_onLoginDetected = 1;
         static final int TRANSACTION_onUpdateAllowlistRequest = 2;
@@ -30,5 +23,12 @@ public interface IContentProtectionService extends android.os.IInterface {
             public void onLoginDetected(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
             public void onUpdateAllowlistRequest(android.os.IBinder p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentcapture.IContentProtectionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onLoginDetected(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
+        public void onUpdateAllowlistRequest(android.os.IBinder p0) throws android.os.RemoteException {}
     }
 }

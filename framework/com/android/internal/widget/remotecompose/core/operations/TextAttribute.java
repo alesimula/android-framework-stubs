@@ -1,7 +1,7 @@
 package com.android.internal.widget.remotecompose.core.operations;
 
 public class TextAttribute extends com.android.internal.widget.remotecompose.core.PaintOperation implements com.android.internal.widget.remotecompose.core.serialize.Serializable {
-    private static final java.lang.String CLASS_NAME = "TextMeasure";
+    private static final java.lang.String CLASS_NAME = "TextAttribute";
     public static final short MEASURE_BOTTOM = 5;
     public static final short MEASURE_HEIGHT = 1;
     public static final short MEASURE_LEFT = 2;

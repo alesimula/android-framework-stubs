@@ -41,8 +41,8 @@ public final class FillEventHistory implements android.os.Parcelable {
         public static final int UI_TYPE_INLINE = 2;
         public static final int UI_TYPE_MENU = 1;
         public static final int UI_TYPE_UNKNOWN = 0;
-        private final java.util.ArrayList<java.lang.String> mChangedDatasetIds = null;
-        private final java.util.ArrayList<android.view.autofill.AutofillId> mChangedFieldIds = null;
+        private final java.util.List<java.lang.String> mChangedDatasetIds = null;
+        private final java.util.List<android.view.autofill.AutofillId> mChangedFieldIds = null;
         private final android.os.Bundle mClientState = null;
         private final java.lang.String mDatasetId = null;
         private final android.service.autofill.FieldClassification[] mDetectedFieldClassifications = null;
@@ -50,12 +50,12 @@ public final class FillEventHistory implements android.os.Parcelable {
         private final int mEventType = 0;
         private final android.view.autofill.AutofillId mFocusedId = null;
         private final android.util.ArraySet<java.lang.String> mIgnoredDatasetIds = null;
-        private final java.util.ArrayList<java.util.ArrayList<java.lang.String>> mManuallyFilledDatasetIds = null;
-        private final java.util.ArrayList<android.view.autofill.AutofillId> mManuallyFilledFieldIds = null;
+        private final java.util.List<java.util.List<java.lang.String>> mManuallyFilledDatasetIds = null;
+        private final java.util.List<android.view.autofill.AutofillId> mManuallyFilledFieldIds = null;
         private final int mSaveDialogNotShowReason = 0;
         private final java.util.List<java.lang.String> mSelectedDatasetIds = null;
         private final int mUiType = 0;
-        public Event(int p0, java.lang.String p1, android.os.Bundle p2, java.util.List<java.lang.String> p3, android.util.ArraySet<java.lang.String> p4, java.util.ArrayList<android.view.autofill.AutofillId> p5, java.util.ArrayList<java.lang.String> p6, java.util.ArrayList<android.view.autofill.AutofillId> p7, java.util.ArrayList<java.util.ArrayList<java.lang.String>> p8, android.view.autofill.AutofillId[] p9, android.service.autofill.FieldClassification[] p10, int p11, int p12, android.view.autofill.AutofillId p13) {}
+        public Event(int p0, java.lang.String p1, android.os.Bundle p2, java.util.List<java.lang.String> p3, android.util.ArraySet<java.lang.String> p4, java.util.List<android.view.autofill.AutofillId> p5, java.util.List<java.lang.String> p6, java.util.List<android.view.autofill.AutofillId> p7, java.util.List<java.util.List<java.lang.String>> p8, android.view.autofill.AutofillId[] p9, android.service.autofill.FieldClassification[] p10, int p11, int p12, android.view.autofill.AutofillId p13) {}
         private static java.lang.String eventToString(int p0) { return null; }
         private static java.lang.String uiTypeToString(int p0) { return null; }
         public boolean equals(java.lang.Object p0) { return false; }
@@ -74,9 +74,17 @@ public final class FillEventHistory implements android.os.Parcelable {
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface UiType {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        static @interface EventIds {
+        }
+
         public static final class Builder {
-            private java.util.ArrayList<java.lang.String> mChangedDatasetIds;
-            private java.util.ArrayList<android.view.autofill.AutofillId> mChangedFieldIds;
+            private java.util.List<java.lang.String> mChangedDatasetIds;
+            private java.util.List<android.view.autofill.AutofillId> mChangedFieldIds;
             private android.os.Bundle mClientState;
             private java.lang.String mDatasetId;
             private android.service.autofill.FieldClassification[] mDetectedFieldClassifications;
@@ -84,38 +92,30 @@ public final class FillEventHistory implements android.os.Parcelable {
             private final int mEventType = 0;
             private android.view.autofill.AutofillId mFocusedId;
             private android.util.ArraySet<java.lang.String> mIgnoredDatasetIds;
-            private java.util.ArrayList<java.util.ArrayList<java.lang.String>> mManuallyFilledDatasetIds;
-            private java.util.ArrayList<android.view.autofill.AutofillId> mManuallyFilledFieldIds;
+            private java.util.List<java.util.List<java.lang.String>> mManuallyFilledDatasetIds;
+            private java.util.List<android.view.autofill.AutofillId> mManuallyFilledFieldIds;
             private int mSaveDialogNotShowReason;
             private java.util.List<java.lang.String> mSelectedDatasetIds;
             private int mUiType;
             public Builder(int p0) {}
             public android.service.autofill.FillEventHistory.Event build() { return null; }
-            public android.service.autofill.FillEventHistory.Event.Builder setChangedDatasetIds(java.util.ArrayList<java.lang.String> p0) { return null; }
-            public android.service.autofill.FillEventHistory.Event.Builder setChangedFieldIds(java.util.ArrayList<android.view.autofill.AutofillId> p0) { return null; }
+            public android.service.autofill.FillEventHistory.Event.Builder setChangedDatasetIds(java.util.List<java.lang.String> p0) { return null; }
+            public android.service.autofill.FillEventHistory.Event.Builder setChangedFieldIds(java.util.List<android.view.autofill.AutofillId> p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setClientState(android.os.Bundle p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setDatasetId(java.lang.String p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setDetectedFieldClassifications(android.service.autofill.FieldClassification[] p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setDetectedFieldIds(android.view.autofill.AutofillId[] p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setFocusedId(android.view.autofill.AutofillId p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setIgnoredDatasetIds(android.util.ArraySet<java.lang.String> p0) { return null; }
-            public android.service.autofill.FillEventHistory.Event.Builder setManuallyFilledDatasetIds(java.util.ArrayList<java.util.ArrayList<java.lang.String>> p0) { return null; }
-            public android.service.autofill.FillEventHistory.Event.Builder setManuallyFilledFieldIds(java.util.ArrayList<android.view.autofill.AutofillId> p0) { return null; }
+            public android.service.autofill.FillEventHistory.Event.Builder setManuallyFilledDatasetIds(java.util.List<java.util.List<java.lang.String>> p0) { return null; }
+            public android.service.autofill.FillEventHistory.Event.Builder setManuallyFilledFieldIds(java.util.List<android.view.autofill.AutofillId> p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setSaveDialogNotShowReason(int p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setSelectedDatasetIds(java.util.List<java.lang.String> p0) { return null; }
             public android.service.autofill.FillEventHistory.Event.Builder setUiType(int p0) { return null; }
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        static @interface EventIds {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface NoSaveReason {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface UiType {
         }
     }
 }

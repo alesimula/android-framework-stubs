@@ -53,11 +53,11 @@ public class ProtoStream {
     public static java.lang.String token2String(long p0) { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FieldCount {
+    public static @interface FieldType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FieldType {
+    public static @interface FieldCount {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

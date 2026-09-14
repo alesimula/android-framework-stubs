@@ -3,7 +3,7 @@ package com.android.internal.util;
 public class MessageUtils {
     private static final boolean DBG = false;
     public static final java.lang.String[] DEFAULT_PREFIXES = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MessageUtils";
     public MessageUtils() {}
     public static android.util.SparseArray<java.lang.String> findMessageNames(java.lang.Class[] p0) { return null; }
     public static android.util.SparseArray<java.lang.String> findMessageNames(java.lang.Class[] p0, java.lang.String[] p1) { return null; }

@@ -61,10 +61,6 @@ public class PKCS12KeyStoreSpi extends java.security.KeyStoreSpi implements com.
     protected java.security.PrivateKey unwrapKey(com.android.internal.org.bouncycastle.asn1.x509.AlgorithmIdentifier p0, byte[] p1, char[] p2, boolean p3) throws java.io.IOException { return null; }
     protected byte[] wrapKey(java.lang.String p0, java.security.Key p1, com.android.internal.org.bouncycastle.asn1.pkcs.PKCS12PBEParams p2, char[] p3) throws java.io.IOException { return null; }
 
-    public static class BCPKCS12KeyStore extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi {
-        public BCPKCS12KeyStore() { super(null, null, null); }
-    }
-
     private class CertId {
         byte[] id;
         CertId(com.android.internal.org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi p0, java.security.PublicKey p1) {}
@@ -89,5 +85,9 @@ public class PKCS12KeyStoreSpi extends java.security.KeyStoreSpi implements com.
         public void put(java.lang.String p0, java.lang.Object p1) {}
         public java.lang.Object remove(java.lang.String p0) { return null; }
         public int size() { return 0; }
+    }
+
+    public static class BCPKCS12KeyStore extends com.android.internal.org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi {
+        public BCPKCS12KeyStore() { super(null, null, null); }
     }
 }

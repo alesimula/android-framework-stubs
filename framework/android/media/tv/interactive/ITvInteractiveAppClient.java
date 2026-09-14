@@ -25,6 +25,7 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
     public void onRequestCurrentChannelUri(int p0) throws android.os.RemoteException;
     public void onRequestCurrentTvInputId(int p0) throws android.os.RemoteException;
     public void onRequestCurrentVideoBounds(int p0) throws android.os.RemoteException;
+    public void onRequestCurrentVideoBoundsWithTarget(int p0, int p1) throws android.os.RemoteException;
     public void onRequestParentalControlApproval(int p0, boolean p1, android.os.Bundle p2, int p3) throws android.os.RemoteException;
     public void onRequestParentalControlPinLength(int p0) throws android.os.RemoteException;
     public void onRequestScheduleRecording(java.lang.String p0, java.lang.String p1, android.net.Uri p2, android.net.Uri p3, android.os.Bundle p4, int p5) throws android.os.RemoteException;
@@ -47,6 +48,7 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
     public void onSetParentalControlPin(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public void onSetTvRecordingInfo(java.lang.String p0, android.media.tv.TvRecordingInfo p1, int p2) throws android.os.RemoteException;
     public void onSetVideoBounds(android.graphics.Rect p0, int p1) throws android.os.RemoteException;
+    public void onSetVideoBoundsSourceDisplay(android.graphics.Rect p0, android.graphics.Rect p1, int p2) throws android.os.RemoteException;
     public void onStreamingPlaybackStatusChanged(int p0, int p1) throws android.os.RemoteException;
     public void onTeletextAppStateChanged(int p0, int p1) throws android.os.RemoteException;
     public void onTimeShiftCommandRequest(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException;
@@ -77,6 +79,7 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
         public void onRequestCurrentChannelUri(int p0) throws android.os.RemoteException {}
         public void onRequestCurrentTvInputId(int p0) throws android.os.RemoteException {}
         public void onRequestCurrentVideoBounds(int p0) throws android.os.RemoteException {}
+        public void onRequestCurrentVideoBoundsWithTarget(int p0, int p1) throws android.os.RemoteException {}
         public void onRequestParentalControlApproval(int p0, boolean p1, android.os.Bundle p2, int p3) throws android.os.RemoteException {}
         public void onRequestParentalControlPinLength(int p0) throws android.os.RemoteException {}
         public void onRequestScheduleRecording(java.lang.String p0, java.lang.String p1, android.net.Uri p2, android.net.Uri p3, android.os.Bundle p4, int p5) throws android.os.RemoteException {}
@@ -99,6 +102,7 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
         public void onSetParentalControlPin(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
         public void onSetTvRecordingInfo(java.lang.String p0, android.media.tv.TvRecordingInfo p1, int p2) throws android.os.RemoteException {}
         public void onSetVideoBounds(android.graphics.Rect p0, int p1) throws android.os.RemoteException {}
+        public void onSetVideoBoundsSourceDisplay(android.graphics.Rect p0, android.graphics.Rect p1, int p2) throws android.os.RemoteException {}
         public void onStreamingPlaybackStatusChanged(int p0, int p1) throws android.os.RemoteException {}
         public void onTeletextAppStateChanged(int p0, int p1) throws android.os.RemoteException {}
         public void onTimeShiftCommandRequest(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}
@@ -106,51 +110,53 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
 
     public static abstract class Stub extends android.os.Binder implements android.media.tv.interactive.ITvInteractiveAppClient {
         static final int TRANSACTION_onAdBufferReady = 10;
-        static final int TRANSACTION_onAdRequest = 33;
+        static final int TRANSACTION_onAdRequest = 35;
         static final int TRANSACTION_onBiInteractiveAppCreated = 8;
         static final int TRANSACTION_onBroadcastInfoRequest = 4;
-        static final int TRANSACTION_onCancelParentalControlApproval = 41;
+        static final int TRANSACTION_onCancelParentalControlApproval = 43;
         static final int TRANSACTION_onCommandRequest = 11;
         static final int TRANSACTION_onInteractiveAppInfoChanged = 7;
-        static final int TRANSACTION_onInteractiveAppStreamingTrackSelected = 36;
-        static final int TRANSACTION_onInteractiveAppStreamingTracksChanged = 35;
-        static final int TRANSACTION_onKeySetChanged = 38;
+        static final int TRANSACTION_onInteractiveAppStreamingTrackSelected = 38;
+        static final int TRANSACTION_onInteractiveAppStreamingTracksChanged = 37;
+        static final int TRANSACTION_onKeySetChanged = 40;
         static final int TRANSACTION_onLayoutSurface = 3;
-        static final int TRANSACTION_onOperatorAppStateChanged = 48;
-        static final int TRANSACTION_onOperatorAppStatusChanged = 47;
-        static final int TRANSACTION_onOperatorAppSupportedStatus = 45;
-        static final int TRANSACTION_onOperatorAppUpdateRequest = 46;
+        static final int TRANSACTION_onOperatorAppStateChanged = 50;
+        static final int TRANSACTION_onOperatorAppStatusChanged = 49;
+        static final int TRANSACTION_onOperatorAppSupportedStatus = 47;
+        static final int TRANSACTION_onOperatorAppUpdateRequest = 48;
         static final int TRANSACTION_onRemoveBroadcastInfo = 5;
-        static final int TRANSACTION_onReplaceUiElements = 39;
-        static final int TRANSACTION_onRequestAvailableSpeeds = 22;
-        static final int TRANSACTION_onRequestCertificate = 32;
-        static final int TRANSACTION_onRequestCurrentChannelLcn = 16;
-        static final int TRANSACTION_onRequestCurrentChannelUri = 15;
-        static final int TRANSACTION_onRequestCurrentTvInputId = 20;
-        static final int TRANSACTION_onRequestCurrentVideoBounds = 14;
-        static final int TRANSACTION_onRequestParentalControlApproval = 40;
-        static final int TRANSACTION_onRequestParentalControlPinLength = 43;
-        static final int TRANSACTION_onRequestScheduleRecording = 25;
-        static final int TRANSACTION_onRequestScheduleRecording2 = 26;
-        static final int TRANSACTION_onRequestSelectedTrackInfo = 19;
-        static final int TRANSACTION_onRequestSigning = 30;
-        static final int TRANSACTION_onRequestSigning2 = 31;
-        static final int TRANSACTION_onRequestStartRecording = 23;
-        static final int TRANSACTION_onRequestStopRecording = 24;
-        static final int TRANSACTION_onRequestStreamVolume = 17;
-        static final int TRANSACTION_onRequestTimeShiftMode = 21;
-        static final int TRANSACTION_onRequestTrackInfoList = 18;
-        static final int TRANSACTION_onRequestTvRecordingInfo = 28;
-        static final int TRANSACTION_onRequestTvRecordingInfoList = 29;
-        static final int TRANSACTION_onRequestVerifyParentalControlPin = 42;
-        static final int TRANSACTION_onSendWebServiceClientList = 34;
+        static final int TRANSACTION_onReplaceUiElements = 41;
+        static final int TRANSACTION_onRequestAvailableSpeeds = 24;
+        static final int TRANSACTION_onRequestCertificate = 34;
+        static final int TRANSACTION_onRequestCurrentChannelLcn = 18;
+        static final int TRANSACTION_onRequestCurrentChannelUri = 17;
+        static final int TRANSACTION_onRequestCurrentTvInputId = 22;
+        static final int TRANSACTION_onRequestCurrentVideoBounds = 15;
+        static final int TRANSACTION_onRequestCurrentVideoBoundsWithTarget = 16;
+        static final int TRANSACTION_onRequestParentalControlApproval = 42;
+        static final int TRANSACTION_onRequestParentalControlPinLength = 45;
+        static final int TRANSACTION_onRequestScheduleRecording = 27;
+        static final int TRANSACTION_onRequestScheduleRecording2 = 28;
+        static final int TRANSACTION_onRequestSelectedTrackInfo = 21;
+        static final int TRANSACTION_onRequestSigning = 32;
+        static final int TRANSACTION_onRequestSigning2 = 33;
+        static final int TRANSACTION_onRequestStartRecording = 25;
+        static final int TRANSACTION_onRequestStopRecording = 26;
+        static final int TRANSACTION_onRequestStreamVolume = 19;
+        static final int TRANSACTION_onRequestTimeShiftMode = 23;
+        static final int TRANSACTION_onRequestTrackInfoList = 20;
+        static final int TRANSACTION_onRequestTvRecordingInfo = 30;
+        static final int TRANSACTION_onRequestTvRecordingInfoList = 31;
+        static final int TRANSACTION_onRequestVerifyParentalControlPin = 44;
+        static final int TRANSACTION_onSendWebServiceClientList = 36;
         static final int TRANSACTION_onSessionCreated = 1;
         static final int TRANSACTION_onSessionReleased = 2;
         static final int TRANSACTION_onSessionStateChanged = 6;
-        static final int TRANSACTION_onSetParentalControlPin = 44;
-        static final int TRANSACTION_onSetTvRecordingInfo = 27;
+        static final int TRANSACTION_onSetParentalControlPin = 46;
+        static final int TRANSACTION_onSetTvRecordingInfo = 29;
         static final int TRANSACTION_onSetVideoBounds = 13;
-        static final int TRANSACTION_onStreamingPlaybackStatusChanged = 37;
+        static final int TRANSACTION_onSetVideoBoundsSourceDisplay = 14;
+        static final int TRANSACTION_onStreamingPlaybackStatusChanged = 39;
         static final int TRANSACTION_onTeletextAppStateChanged = 9;
         static final int TRANSACTION_onTimeShiftCommandRequest = 12;
         public Stub() { super(); }
@@ -188,6 +194,7 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
             public void onRequestCurrentChannelUri(int p0) throws android.os.RemoteException {}
             public void onRequestCurrentTvInputId(int p0) throws android.os.RemoteException {}
             public void onRequestCurrentVideoBounds(int p0) throws android.os.RemoteException {}
+            public void onRequestCurrentVideoBoundsWithTarget(int p0, int p1) throws android.os.RemoteException {}
             public void onRequestParentalControlApproval(int p0, boolean p1, android.os.Bundle p2, int p3) throws android.os.RemoteException {}
             public void onRequestParentalControlPinLength(int p0) throws android.os.RemoteException {}
             public void onRequestScheduleRecording(java.lang.String p0, java.lang.String p1, android.net.Uri p2, android.net.Uri p3, android.os.Bundle p4, int p5) throws android.os.RemoteException {}
@@ -210,6 +217,7 @@ public interface ITvInteractiveAppClient extends android.os.IInterface {
             public void onSetParentalControlPin(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
             public void onSetTvRecordingInfo(java.lang.String p0, android.media.tv.TvRecordingInfo p1, int p2) throws android.os.RemoteException {}
             public void onSetVideoBounds(android.graphics.Rect p0, int p1) throws android.os.RemoteException {}
+            public void onSetVideoBoundsSourceDisplay(android.graphics.Rect p0, android.graphics.Rect p1, int p2) throws android.os.RemoteException {}
             public void onStreamingPlaybackStatusChanged(int p0, int p1) throws android.os.RemoteException {}
             public void onTeletextAppStateChanged(int p0, int p1) throws android.os.RemoteException {}
             public void onTimeShiftCommandRequest(java.lang.String p0, android.os.Bundle p1, int p2) throws android.os.RemoteException {}

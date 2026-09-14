@@ -6,14 +6,6 @@ public interface IVirtualGamepad extends android.os.IInterface {
     public boolean sendGamepadKeyEvent(android.hardware.input.VirtualKeyEvent p0) throws android.os.RemoteException;
     public boolean sendGamepadMotionEvent(android.hardware.input.VirtualGamepadMotionEvent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.input.IVirtualGamepad {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public boolean sendGamepadKeyEvent(android.hardware.input.VirtualKeyEvent p0) throws android.os.RemoteException { return false; }
-        public boolean sendGamepadMotionEvent(android.hardware.input.VirtualGamepadMotionEvent p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.input.IVirtualGamepad {
         static final int TRANSACTION_close = 1;
         static final int TRANSACTION_sendGamepadKeyEvent = 2;
@@ -40,5 +32,13 @@ public interface IVirtualGamepad extends android.os.IInterface {
             public boolean sendGamepadKeyEvent(android.hardware.input.VirtualKeyEvent p0) throws android.os.RemoteException { return false; }
             public boolean sendGamepadMotionEvent(android.hardware.input.VirtualGamepadMotionEvent p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.hardware.input.IVirtualGamepad {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public boolean sendGamepadKeyEvent(android.hardware.input.VirtualKeyEvent p0) throws android.os.RemoteException { return false; }
+        public boolean sendGamepadMotionEvent(android.hardware.input.VirtualGamepadMotionEvent p0) throws android.os.RemoteException { return false; }
     }
 }

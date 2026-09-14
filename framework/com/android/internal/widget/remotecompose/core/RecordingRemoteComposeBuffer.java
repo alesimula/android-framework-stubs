@@ -114,6 +114,9 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
     public int addPathData(int p0, float[] p1) { return 0; }
     public int addPathData(int p0, float[] p1, int p2) { return 0; }
     public void addPathExpression(int p0, float[] p1, float[] p2, float p3, float p4, float p5, int p6) {}
+    public void addPatternArgument(int p0) {}
+    public void addPatternBlock(int p0) {}
+    public void addPatternForEach(int p0, int p1) {}
     public void addRootContentDescription(int p0) {}
     public void addRootStart() {}
     public void addRoundClipRectModifier(float p0, float p1, float p2, float p3) {}
@@ -143,6 +146,8 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
     public int createBitmap(int p0, short p1, short p2) { return 0; }
     public int createTextFromFloat(int p0, float p1, short p2, short p3, int p4) { return 0; }
     public void defineFloatFunction(int p0, int[] p1) {}
+    public int definePattern(java.lang.String p0, int[] p1) { return 0; }
+    public int definePatternParameter(java.lang.String p0) { return 0; }
     public void drawBitmap(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11) {}
     public void drawBitmapTextAnchored(int p0, int p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8) {}
     public void drawComponentContent() {}
@@ -151,8 +156,13 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
     public void drawTextAnchored(int p0, float p1, float p2, float p3, float p4, int p5) {}
     public void endConditionalOperations() {}
     public void endLayoutCompute() {}
+    public void endPatternBlock() {}
+    public void endPatternDefine() {}
+    public void endPatternForEach() {}
+    public void endPatternInflation() {}
     public void getColorAttribute(int p0, int p1, short p2) {}
     public void idLookup(int p0, float p1, float p2) {}
+    public void inflatePattern(int p0, int[] p1) {}
     public void mapLookup(int p0, int p1, int p2) {}
     public void pathAppend(int p0, float... p1) {}
     public void pathCombine(int p0, int p1, int p2, byte p3) {}
@@ -172,7 +182,7 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
     public void startLayoutCompute(int p0, int p1, boolean p2) {}
     public int storeBitmap(int p0, int p1, int p2, byte[] p3) { return 0; }
     public int storeBitmapA8(int p0, int p1, int p2, byte[] p3) { return 0; }
-    public int storeBitmapUrl(int p0, java.lang.String p1) { return 0; }
+    public int storeBitmapUrl(int p0, java.lang.String p1, int p2, int p3) { return 0; }
     public void textAttribute(int p0, int p1, short p2) {}
     public void textLength(int p0, int p1) {}
     public void textLookup(int p0, float p1, float p2) {}
@@ -184,6 +194,19 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
     public void timeAttribute(int p0, int p1, short p2, int... p3) {}
     public void wakeIn(float p0) {}
     public void writeToBuffer() {}
+
+    private static interface OperationBlock {
+        public void run(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1);
+    }
+
+    private static class SpanOp {
+        final java.util.List<com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.SpanOp> mDeps = null;
+        com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span mIdealSpan;
+        final com.android.internal.widget.remotecompose.core.Operation mOp = null;
+        SpanOp(com.android.internal.widget.remotecompose.core.Operation p0, com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span p1) {}
+        void collectDependencies(com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.DependencyExtractingRemoteContext p0) {}
+        void recordUsageBySpan(com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span p0) {}
+    }
 
     private class DependencyExtractingRemoteContext extends com.android.internal.widget.remotecompose.core.RemoteContext {
         private com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.SpanOp mSpanOp;
@@ -213,11 +236,13 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
         public void loadInteger(int p0, int p1) {}
         public void loadPathData(int p0, int p1, float[] p2) {}
         public void loadShader(int p0, com.android.internal.widget.remotecompose.core.operations.ShaderData p1) {}
+        public void loadSound(int p0, byte[] p1) {}
         public void loadText(int p0, java.lang.String p1) {}
         public void loadVariableName(java.lang.String p0, int p1, int p2) {}
         public void overrideFloat(int p0, float p1) {}
         public void overrideInteger(int p0, int p1) {}
         public void overrideText(int p0, int p1) {}
+        public void playSound(int p0) {}
         public void putDataMap(int p0, com.android.internal.widget.remotecompose.core.operations.utilities.DataMap p1) {}
         public void putObject(int p0, java.lang.Object p1) {}
         public void recordDependency(int p0) {}
@@ -234,10 +259,6 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
         public int updateOps() { return 0; }
     }
 
-    private static interface OperationBlock {
-        public void run(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p1);
-    }
-
     private static class Span {
         com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span mChild;
         final int mDepth = 0;
@@ -248,14 +269,5 @@ public class RecordingRemoteComposeBuffer extends com.android.internal.widget.re
         final int mSiblingRank = 0;
         Span(com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span p0, com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span p1, int p2, int p3) {}
         void record(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}
-    }
-
-    private static class SpanOp {
-        final java.util.List<com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.SpanOp> mDeps = null;
-        com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span mIdealSpan;
-        final com.android.internal.widget.remotecompose.core.Operation mOp = null;
-        SpanOp(com.android.internal.widget.remotecompose.core.Operation p0, com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span p1) {}
-        void collectDependencies(com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.DependencyExtractingRemoteContext p0) {}
-        void recordUsageBySpan(com.android.internal.widget.remotecompose.core.RecordingRemoteComposeBuffer.Span p0) {}
     }
 }

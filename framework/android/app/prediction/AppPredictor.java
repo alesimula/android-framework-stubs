@@ -2,7 +2,7 @@ package android.app.prediction;
 
 @android.annotation.SystemApi
 public final class AppPredictor {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AppPredictor";
     private final java.util.concurrent.atomic.AtomicBoolean mIsClosed = null;
     private final android.app.prediction.IPredictionManager mPredictionManager = null;
     private final android.util.ArrayMap<android.app.prediction.AppPredictor.Callback, android.app.prediction.AppPredictor.CallbackWrapper> mRegisteredCallbacks = null;

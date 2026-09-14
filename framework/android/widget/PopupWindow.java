@@ -189,15 +189,6 @@ public class PopupWindow {
     protected void update(android.view.View p0, android.view.WindowManager.LayoutParams p1) {}
     protected final void updateAboveAnchor(boolean p0) {}
 
-    public static interface OnDismissListener {
-        public void onDismiss();
-    }
-
-    private class PopupBackgroundView extends android.widget.FrameLayout {
-        public PopupBackgroundView(android.widget.PopupWindow p0, android.content.Context p1) { super((android.content.Context)null); }
-        protected int[] onCreateDrawableState(int p0) { return null; }
-    }
-
     private class PopupDecorView extends android.widget.FrameLayout {
         private java.lang.Runnable mCleanupAfterExit;
         private final android.view.View.OnAttachStateChangeListener mOnAnchorRootDetachedListener = null;
@@ -212,5 +203,14 @@ public class PopupWindow {
         public void requestEnterTransition(android.transition.Transition p0) {}
         public void requestKeyboardShortcuts(java.util.List<android.view.KeyboardShortcutGroup> p0, int p1) {}
         public void startExitTransition(android.transition.Transition p0, android.view.View p1, android.graphics.Rect p2, android.transition.Transition.TransitionListener p3) {}
+    }
+
+    public static interface OnDismissListener {
+        public void onDismiss();
+    }
+
+    private class PopupBackgroundView extends android.widget.FrameLayout {
+        public PopupBackgroundView(android.widget.PopupWindow p0, android.content.Context p1) { super((android.content.Context)null); }
+        protected int[] onCreateDrawableState(int p0) { return null; }
     }
 }

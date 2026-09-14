@@ -22,28 +22,6 @@ public interface IFilter extends android.os.IInterface {
     public void start() throws android.os.RemoteException;
     public void stop() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.IFilter {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public void configure(android.hardware.tv.tuner.DemuxFilterSettings p0) throws android.os.RemoteException {}
-        public void configureAvStreamType(android.hardware.tv.tuner.AvStreamType p0) throws android.os.RemoteException {}
-        public void configureIpCid(int p0) throws android.os.RemoteException {}
-        public void configureMonitorEvent(int p0) throws android.os.RemoteException {}
-        public void flush() throws android.os.RemoteException {}
-        public long getAvSharedHandle(android.hardware.common.NativeHandle p0) throws android.os.RemoteException { return 0L; }
-        public int getId() throws android.os.RemoteException { return 0; }
-        public long getId64Bit() throws android.os.RemoteException { return 0L; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getQueueDesc(android.hardware.common.fmq.MQDescriptor<java.lang.Byte, java.lang.Byte> p0) throws android.os.RemoteException {}
-        public void releaseAvHandle(android.hardware.common.NativeHandle p0, long p1) throws android.os.RemoteException {}
-        public void setDataSource(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException {}
-        public void setDelayHint(android.hardware.tv.tuner.FilterDelayHint p0) throws android.os.RemoteException {}
-        public void start() throws android.os.RemoteException {}
-        public void stop() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.IFilter {
         static final int TRANSACTION_close = 2;
         static final int TRANSACTION_configure = 3;
@@ -92,5 +70,27 @@ public interface IFilter extends android.os.IInterface {
             public void start() throws android.os.RemoteException {}
             public void stop() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.IFilter {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public void configure(android.hardware.tv.tuner.DemuxFilterSettings p0) throws android.os.RemoteException {}
+        public void configureAvStreamType(android.hardware.tv.tuner.AvStreamType p0) throws android.os.RemoteException {}
+        public void configureIpCid(int p0) throws android.os.RemoteException {}
+        public void configureMonitorEvent(int p0) throws android.os.RemoteException {}
+        public void flush() throws android.os.RemoteException {}
+        public long getAvSharedHandle(android.hardware.common.NativeHandle p0) throws android.os.RemoteException { return 0L; }
+        public int getId() throws android.os.RemoteException { return 0; }
+        public long getId64Bit() throws android.os.RemoteException { return 0L; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getQueueDesc(android.hardware.common.fmq.MQDescriptor<java.lang.Byte, java.lang.Byte> p0) throws android.os.RemoteException {}
+        public void releaseAvHandle(android.hardware.common.NativeHandle p0, long p1) throws android.os.RemoteException {}
+        public void setDataSource(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException {}
+        public void setDelayHint(android.hardware.tv.tuner.FilterDelayHint p0) throws android.os.RemoteException {}
+        public void start() throws android.os.RemoteException {}
+        public void stop() throws android.os.RemoteException {}
     }
 }

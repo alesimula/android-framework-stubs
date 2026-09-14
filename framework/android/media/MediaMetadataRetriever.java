@@ -96,6 +96,10 @@ public class MediaMetadataRetriever implements java.lang.AutoCloseable {
     public void setDataSource(java.lang.String p0) throws java.lang.IllegalArgumentException {}
     public void setDataSource(java.lang.String p0, java.util.Map<java.lang.String, java.lang.String> p1) throws java.lang.IllegalArgumentException {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Option {
+    }
+
     public static final class BitmapParams {
         private android.graphics.Bitmap.Config inPreferredConfig;
         private android.graphics.Bitmap.Config outActualConfig;
@@ -103,9 +107,5 @@ public class MediaMetadataRetriever implements java.lang.AutoCloseable {
         public android.graphics.Bitmap.Config getActualConfig() { return null; }
         public android.graphics.Bitmap.Config getPreferredConfig() { return null; }
         public void setPreferredConfig(android.graphics.Bitmap.Config p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Option {
     }
 }

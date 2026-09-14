@@ -5,13 +5,6 @@ public interface IBootstrapAuthenticationCallback extends android.os.IInterface 
     public void onAuthenticationFailure(int p0, int p1) throws android.os.RemoteException;
     public void onKeysAvailable(int p0, byte[] p1, java.lang.String p2) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.IBootstrapAuthenticationCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAuthenticationFailure(int p0, int p1) throws android.os.RemoteException {}
-        public void onKeysAvailable(int p0, byte[] p1, java.lang.String p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.IBootstrapAuthenticationCallback {
         static final int TRANSACTION_onAuthenticationFailure = 2;
         static final int TRANSACTION_onKeysAvailable = 1;
@@ -30,5 +23,12 @@ public interface IBootstrapAuthenticationCallback extends android.os.IInterface 
             public void onAuthenticationFailure(int p0, int p1) throws android.os.RemoteException {}
             public void onKeysAvailable(int p0, byte[] p1, java.lang.String p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.IBootstrapAuthenticationCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAuthenticationFailure(int p0, int p1) throws android.os.RemoteException {}
+        public void onKeysAvailable(int p0, byte[] p1, java.lang.String p2) throws android.os.RemoteException {}
     }
 }

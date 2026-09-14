@@ -29,10 +29,6 @@ public final class TranslationResponseValue implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static abstract class BaseBuilder {
-        BaseBuilder() {}
-    }
-
     public static final class Builder extends android.view.translation.TranslationResponseValue.BaseBuilder {
         private long mBuilderFieldsSet;
         private android.os.Bundle mExtras;
@@ -49,5 +45,9 @@ public final class TranslationResponseValue implements android.os.Parcelable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Status {
+    }
+
+    static abstract class BaseBuilder {
+        BaseBuilder() {}
     }
 }

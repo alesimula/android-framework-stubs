@@ -45,54 +45,6 @@ public interface IFingerprintService extends android.os.IInterface {
     public void startPreparedClient(int p0, int p1) throws android.os.RemoteException;
     public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.fingerprint.IFingerprintService {
-        public Default() {}
-        public void addAuthenticatorsRegisteredCallback(android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback p0) throws android.os.RemoteException {}
-        public void addClientActiveCallback(android.hardware.fingerprint.IFingerprintClientActiveCallback p0) throws android.os.RemoteException {}
-        public void addLockoutResetCallback(android.hardware.biometrics.IBiometricServiceLockoutResetCallback p0, java.lang.String p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public long authenticate(android.os.IBinder p0, long p1, android.hardware.fingerprint.IFingerprintServiceReceiver p2, android.hardware.fingerprint.FingerprintAuthenticateOptions p3) throws android.os.RemoteException { return 0L; }
-        public void cancelAuthentication(android.os.IBinder p0, java.lang.String p1, java.lang.String p2, long p3) throws android.os.RemoteException {}
-        public void cancelAuthenticationFromService(int p0, android.os.IBinder p1, java.lang.String p2, long p3) throws android.os.RemoteException {}
-        public void cancelEnrollment(android.os.IBinder p0, long p1) throws android.os.RemoteException {}
-        public void cancelFingerprintDetect(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
-        public android.hardware.biometrics.ITestSession createTestSession(int p0, android.hardware.biometrics.ITestSessionCallback p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public long detectFingerprint(android.os.IBinder p0, android.hardware.fingerprint.IFingerprintServiceReceiver p1, android.hardware.fingerprint.FingerprintAuthenticateOptions p2) throws android.os.RemoteException { return 0L; }
-        public byte[] dumpSensorServiceStateProto(int p0, boolean p1) throws android.os.RemoteException { return null; }
-        public long enroll(android.os.IBinder p0, byte[] p1, int p2, android.hardware.fingerprint.IFingerprintServiceReceiver p3, java.lang.String p4, int p5, android.hardware.fingerprint.FingerprintEnrollOptions p6) throws android.os.RemoteException { return 0L; }
-        public void generateChallenge(android.os.IBinder p0, int p1, int p2, android.hardware.fingerprint.IFingerprintServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
-        public long getAuthenticatorId(int p0, int p1) throws android.os.RemoteException { return 0L; }
-        public java.util.List<android.hardware.fingerprint.Fingerprint> getEnrolledFingerprints(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public int getLockoutModeForUser(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public android.hardware.fingerprint.FingerprintSensorPropertiesInternal getSensorProperties(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.fingerprint.FingerprintSensorPropertiesInternal> getSensorPropertiesInternal(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public boolean hasEnrolledFingerprints(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return false; }
-        public boolean hasEnrolledFingerprintsDeprecated(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
-        public void invalidateAuthenticatorId(int p0, int p1, android.hardware.biometrics.IInvalidationCallback p2) throws android.os.RemoteException {}
-        public boolean isClientActive() throws android.os.RemoteException { return false; }
-        public boolean isHardwareDetected(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public boolean isHardwareDetectedDeprecated(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public void onPointerDown(long p0, int p1, android.hardware.biometrics.fingerprint.PointerContext p2) throws android.os.RemoteException {}
-        public void onPointerUp(long p0, int p1, android.hardware.biometrics.fingerprint.PointerContext p2) throws android.os.RemoteException {}
-        public void onPowerPressed() throws android.os.RemoteException {}
-        public void onUdfpsUiEvent(int p0, long p1, int p2) throws android.os.RemoteException {}
-        public void prepareForAuthentication(android.os.IBinder p0, long p1, android.hardware.biometrics.IBiometricSensorReceiver p2, android.hardware.fingerprint.FingerprintAuthenticateOptions p3, long p4, int p5, boolean p6, boolean p7) throws android.os.RemoteException {}
-        public void registerAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
-        public void registerAuthenticators(android.hardware.fingerprint.FingerprintSensorConfigurations p0) throws android.os.RemoteException {}
-        public void registerBiometricStateListener(android.hardware.biometrics.IBiometricStateListener p0) throws android.os.RemoteException {}
-        public void remove(android.os.IBinder p0, int p1, int p2, android.hardware.fingerprint.IFingerprintServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
-        public void removeAll(android.os.IBinder p0, int p1, android.hardware.fingerprint.IFingerprintServiceReceiver p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void removeClientActiveCallback(android.hardware.fingerprint.IFingerprintClientActiveCallback p0) throws android.os.RemoteException {}
-        public void rename(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void resetLockout(android.os.IBinder p0, int p1, int p2, byte[] p3, java.lang.String p4) throws android.os.RemoteException {}
-        public void revokeChallenge(android.os.IBinder p0, int p1, int p2, java.lang.String p3, long p4) throws android.os.RemoteException {}
-        public void scheduleWatchdog() throws android.os.RemoteException {}
-        public void setIgnoreDisplayTouches(long p0, int p1, boolean p2) throws android.os.RemoteException {}
-        public void setUdfpsOverlayController(android.hardware.fingerprint.IUdfpsOverlayController p0) throws android.os.RemoteException {}
-        public void startPreparedClient(int p0, int p1) throws android.os.RemoteException {}
-        public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.fingerprint.IFingerprintService {
         public static final java.lang.String DESCRIPTOR = "android.hardware.fingerprint.IFingerprintService";
         static final int TRANSACTION_addAuthenticatorsRegisteredCallback = 33;
@@ -234,5 +186,53 @@ public interface IFingerprintService extends android.os.IInterface {
             public void startPreparedClient(int p0, int p1) throws android.os.RemoteException {}
             public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.fingerprint.IFingerprintService {
+        public Default() {}
+        public void addAuthenticatorsRegisteredCallback(android.hardware.fingerprint.IFingerprintAuthenticatorsRegisteredCallback p0) throws android.os.RemoteException {}
+        public void addClientActiveCallback(android.hardware.fingerprint.IFingerprintClientActiveCallback p0) throws android.os.RemoteException {}
+        public void addLockoutResetCallback(android.hardware.biometrics.IBiometricServiceLockoutResetCallback p0, java.lang.String p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public long authenticate(android.os.IBinder p0, long p1, android.hardware.fingerprint.IFingerprintServiceReceiver p2, android.hardware.fingerprint.FingerprintAuthenticateOptions p3) throws android.os.RemoteException { return 0L; }
+        public void cancelAuthentication(android.os.IBinder p0, java.lang.String p1, java.lang.String p2, long p3) throws android.os.RemoteException {}
+        public void cancelAuthenticationFromService(int p0, android.os.IBinder p1, java.lang.String p2, long p3) throws android.os.RemoteException {}
+        public void cancelEnrollment(android.os.IBinder p0, long p1) throws android.os.RemoteException {}
+        public void cancelFingerprintDetect(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
+        public android.hardware.biometrics.ITestSession createTestSession(int p0, android.hardware.biometrics.ITestSessionCallback p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public long detectFingerprint(android.os.IBinder p0, android.hardware.fingerprint.IFingerprintServiceReceiver p1, android.hardware.fingerprint.FingerprintAuthenticateOptions p2) throws android.os.RemoteException { return 0L; }
+        public byte[] dumpSensorServiceStateProto(int p0, boolean p1) throws android.os.RemoteException { return null; }
+        public long enroll(android.os.IBinder p0, byte[] p1, int p2, android.hardware.fingerprint.IFingerprintServiceReceiver p3, java.lang.String p4, int p5, android.hardware.fingerprint.FingerprintEnrollOptions p6) throws android.os.RemoteException { return 0L; }
+        public void generateChallenge(android.os.IBinder p0, int p1, int p2, android.hardware.fingerprint.IFingerprintServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
+        public long getAuthenticatorId(int p0, int p1) throws android.os.RemoteException { return 0L; }
+        public java.util.List<android.hardware.fingerprint.Fingerprint> getEnrolledFingerprints(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public int getLockoutModeForUser(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public android.hardware.fingerprint.FingerprintSensorPropertiesInternal getSensorProperties(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.fingerprint.FingerprintSensorPropertiesInternal> getSensorPropertiesInternal(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public boolean hasEnrolledFingerprints(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return false; }
+        public boolean hasEnrolledFingerprintsDeprecated(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
+        public void invalidateAuthenticatorId(int p0, int p1, android.hardware.biometrics.IInvalidationCallback p2) throws android.os.RemoteException {}
+        public boolean isClientActive() throws android.os.RemoteException { return false; }
+        public boolean isHardwareDetected(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public boolean isHardwareDetectedDeprecated(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public void onPointerDown(long p0, int p1, android.hardware.biometrics.fingerprint.PointerContext p2) throws android.os.RemoteException {}
+        public void onPointerUp(long p0, int p1, android.hardware.biometrics.fingerprint.PointerContext p2) throws android.os.RemoteException {}
+        public void onPowerPressed() throws android.os.RemoteException {}
+        public void onUdfpsUiEvent(int p0, long p1, int p2) throws android.os.RemoteException {}
+        public void prepareForAuthentication(android.os.IBinder p0, long p1, android.hardware.biometrics.IBiometricSensorReceiver p2, android.hardware.fingerprint.FingerprintAuthenticateOptions p3, long p4, int p5, boolean p6, boolean p7) throws android.os.RemoteException {}
+        public void registerAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
+        public void registerAuthenticators(android.hardware.fingerprint.FingerprintSensorConfigurations p0) throws android.os.RemoteException {}
+        public void registerBiometricStateListener(android.hardware.biometrics.IBiometricStateListener p0) throws android.os.RemoteException {}
+        public void remove(android.os.IBinder p0, int p1, int p2, android.hardware.fingerprint.IFingerprintServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
+        public void removeAll(android.os.IBinder p0, int p1, android.hardware.fingerprint.IFingerprintServiceReceiver p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void removeClientActiveCallback(android.hardware.fingerprint.IFingerprintClientActiveCallback p0) throws android.os.RemoteException {}
+        public void rename(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void resetLockout(android.os.IBinder p0, int p1, int p2, byte[] p3, java.lang.String p4) throws android.os.RemoteException {}
+        public void revokeChallenge(android.os.IBinder p0, int p1, int p2, java.lang.String p3, long p4) throws android.os.RemoteException {}
+        public void scheduleWatchdog() throws android.os.RemoteException {}
+        public void setIgnoreDisplayTouches(long p0, int p1, boolean p2) throws android.os.RemoteException {}
+        public void setUdfpsOverlayController(android.hardware.fingerprint.IUdfpsOverlayController p0) throws android.os.RemoteException {}
+        public void startPreparedClient(int p0, int p1) throws android.os.RemoteException {}
+        public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
     }
 }

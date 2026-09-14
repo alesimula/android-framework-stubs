@@ -18,7 +18,7 @@ public class WearableSensingManager {
     public static final int STATUS_UNSUPPORTED_DATA_TYPE = 8;
     public static final int STATUS_UNSUPPORTED_OPERATION = 6;
     public static final int STATUS_WEARABLE_UNAVAILABLE = 4;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "WearableSensingManager";
     private final android.content.Context mContext = null;
     private final android.app.wearable.IWearableSensingManager mService = null;
     private final java.util.Map<android.app.wearable.WearableConnection, java.lang.Integer> mWearableConnectionIdMap = null;

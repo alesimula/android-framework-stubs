@@ -6,15 +6,6 @@ public interface IWapPushManager extends android.os.IInterface {
     public int processMessage(java.lang.String p0, java.lang.String p1, android.content.Intent p2) throws android.os.RemoteException;
     public boolean updatePackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, boolean p6) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.IWapPushManager {
-        public Default() {}
-        public boolean addPackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, boolean p6) throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public boolean deletePackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return false; }
-        public int processMessage(java.lang.String p0, java.lang.String p1, android.content.Intent p2) throws android.os.RemoteException { return 0; }
-        public boolean updatePackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, boolean p6) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.IWapPushManager {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.IWapPushManager";
         static final int TRANSACTION_addPackage = 2;
@@ -38,5 +29,14 @@ public interface IWapPushManager extends android.os.IInterface {
             public int processMessage(java.lang.String p0, java.lang.String p1, android.content.Intent p2) throws android.os.RemoteException { return 0; }
             public boolean updatePackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, boolean p6) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.IWapPushManager {
+        public Default() {}
+        public boolean addPackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, boolean p6) throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean deletePackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return false; }
+        public int processMessage(java.lang.String p0, java.lang.String p1, android.content.Intent p2) throws android.os.RemoteException { return 0; }
+        public boolean updatePackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, int p4, boolean p5, boolean p6) throws android.os.RemoteException { return false; }
     }
 }

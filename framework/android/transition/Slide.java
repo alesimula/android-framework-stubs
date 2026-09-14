@@ -26,6 +26,15 @@ public class Slide extends android.transition.Visibility {
     public void setSlideEdge(int p0) {}
     public void setSlideFraction(float p0) {}
 
+    private static abstract class CalculateSlideVertical implements android.transition.Slide.CalculateSlide {
+        private CalculateSlideVertical() {}
+        public float getGoneX(android.view.ViewGroup p0, android.view.View p1, float p2) { return 0.0f; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface GravityFlag {
+    }
+
     private static interface CalculateSlide {
         public float getGoneX(android.view.ViewGroup p0, android.view.View p1, float p2);
         public float getGoneY(android.view.ViewGroup p0, android.view.View p1, float p2);
@@ -34,14 +43,5 @@ public class Slide extends android.transition.Visibility {
     private static abstract class CalculateSlideHorizontal implements android.transition.Slide.CalculateSlide {
         private CalculateSlideHorizontal() {}
         public float getGoneY(android.view.ViewGroup p0, android.view.View p1, float p2) { return 0.0f; }
-    }
-
-    private static abstract class CalculateSlideVertical implements android.transition.Slide.CalculateSlide {
-        private CalculateSlideVertical() {}
-        public float getGoneX(android.view.ViewGroup p0, android.view.View p1, float p2) { return 0.0f; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GravityFlag {
     }
 }

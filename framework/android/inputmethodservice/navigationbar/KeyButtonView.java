@@ -2,7 +2,7 @@ package android.inputmethodservice.navigationbar;
 
 public class KeyButtonView extends android.widget.ImageView implements android.inputmethodservice.navigationbar.ButtonInterface {
     public static final float QUICKSTEP_TOUCH_SLOP_RATIO = 3.0f;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "KeyButtonView";
     private android.media.AudioManager mAudioManager;
     private final java.lang.Runnable mCheckLongPress = null;
     private int mCode;

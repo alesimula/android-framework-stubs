@@ -25,10 +25,6 @@ public final class SEService {
     public boolean isConnected() { return false; }
     public void shutdown() {}
 
-    public static interface OnConnectedListener {
-        public void onConnected();
-    }
-
     private class SEListener extends android.se.omapi.ISecureElementListener.Stub {
         public java.util.concurrent.Executor mExecutor;
         public android.se.omapi.SEService.OnConnectedListener mListener;
@@ -37,5 +33,9 @@ public final class SEService {
         public java.lang.String getInterfaceHash() { return null; }
         public int getInterfaceVersion() { return 0; }
         public void onConnected() {}
+    }
+
+    public static interface OnConnectedListener {
+        public void onConnected();
     }
 }

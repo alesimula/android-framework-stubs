@@ -5,14 +5,6 @@ public interface IConsumerIrService extends android.os.IInterface {
     public boolean hasIrEmitter() throws android.os.RemoteException;
     public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.IConsumerIrService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int[] getCarrierFrequencies() throws android.os.RemoteException { return null; }
-        public boolean hasIrEmitter() throws android.os.RemoteException { return false; }
-        public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.IConsumerIrService {
         public static final java.lang.String DESCRIPTOR = "android.hardware.IConsumerIrService";
         static final int TRANSACTION_getCarrierFrequencies = 3;
@@ -39,5 +31,13 @@ public interface IConsumerIrService extends android.os.IInterface {
             public boolean hasIrEmitter() throws android.os.RemoteException { return false; }
             public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.IConsumerIrService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int[] getCarrierFrequencies() throws android.os.RemoteException { return null; }
+        public boolean hasIrEmitter() throws android.os.RemoteException { return false; }
+        public void transmit(java.lang.String p0, int p1, int[] p2) throws android.os.RemoteException {}
     }
 }

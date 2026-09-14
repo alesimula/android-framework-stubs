@@ -30,10 +30,6 @@ public class PathIterator implements java.util.Iterator<android.graphics.PathIte
     public android.graphics.PathIterator.Segment next() { return null; }
     public int peek() { return 0; }
 
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
-    }
-
     public static class Segment {
         private final float mConicWeight = 0.0f;
         private final float[] mPoints = null;
@@ -42,6 +38,10 @@ public class PathIterator implements java.util.Iterator<android.graphics.PathIte
         public float getConicWeight() { return 0.0f; }
         public float[] getPoints() { return null; }
         public int getVerb() { return 0; }
+    }
+
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

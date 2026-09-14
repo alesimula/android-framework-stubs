@@ -23,16 +23,12 @@ public abstract class AndroidKeyStoreHmacSpi extends javax.crypto.MacSpi impleme
     public void finalize() throws java.lang.Throwable {}
     public long getOperationHandle() { return 0L; }
 
-    public static class HmacSHA1 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
-        public HmacSHA1() { super(0); }
+    public static class HmacSHA256 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
+        public HmacSHA256() { super(0); }
     }
 
     public static class HmacSHA224 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
         public HmacSHA224() { super(0); }
-    }
-
-    public static class HmacSHA256 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
-        public HmacSHA256() { super(0); }
     }
 
     public static class HmacSHA384 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
@@ -41,5 +37,9 @@ public abstract class AndroidKeyStoreHmacSpi extends javax.crypto.MacSpi impleme
 
     public static class HmacSHA512 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
         public HmacSHA512() { super(0); }
+    }
+
+    public static class HmacSHA1 extends android.security.keystore2.AndroidKeyStoreHmacSpi {
+        public HmacSHA1() { super(0); }
     }
 }

@@ -4,12 +4,6 @@ public interface ICameraInjectionSession extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.camera2.ICameraInjectionSession";
     public void stopInjection() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.ICameraInjectionSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void stopInjection() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.ICameraInjectionSession {
         static final int TRANSACTION_stopInjection = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICameraInjectionSession extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void stopInjection() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.camera2.ICameraInjectionSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void stopInjection() throws android.os.RemoteException {}
     }
 }

@@ -35,18 +35,58 @@ public final class Internal {
     public static byte[] toByteArray(java.lang.String p0) { return null; }
     public static java.lang.String toStringUtf8(byte[] p0) { return null; }
 
-    public static interface BooleanList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Boolean> {
-        public void addBoolean(boolean p0);
-        public boolean getBoolean(int p0);
-        public com.android.framework.protobuf.Internal.BooleanList mutableCopyWithCapacity(int p0);
-        public boolean setBoolean(int p0, boolean p1);
+    public static interface IntList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Integer> {
+        public void addInt(int p0);
+        public int getInt(int p0);
+        public com.android.framework.protobuf.Internal.IntList mutableCopyWithCapacity(int p0);
+        public int setInt(int p0, int p1);
     }
 
-    public static interface DoubleList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Double> {
-        public void addDouble(double p0);
-        public double getDouble(int p0);
-        public com.android.framework.protobuf.Internal.DoubleList mutableCopyWithCapacity(int p0);
-        public double setDouble(int p0, double p1);
+    public static class MapAdapter<K extends java.lang.Object, V extends java.lang.Object, RealValue extends java.lang.Object> extends java.util.AbstractMap<K, V> {
+        private final java.util.Map<K, RealValue> realMap = null;
+        private final com.android.framework.protobuf.Internal.MapAdapter.Converter<RealValue, V> valueConverter = null;
+        public MapAdapter(java.util.Map<K, RealValue> p0, com.android.framework.protobuf.Internal.MapAdapter.Converter<RealValue, V> p1) { super(); }
+        public static <T extends com.android.framework.protobuf.Internal.EnumLite> com.android.framework.protobuf.Internal.MapAdapter.Converter<java.lang.Integer, T> newEnumConverter(com.android.framework.protobuf.Internal.EnumLiteMap<T> p0, T p1) { return null; }
+        public java.util.Set<java.util.Map.Entry<K, V>> entrySet() { return null; }
+        public V get(java.lang.Object p0) { return null; }
+        public V put(K p0, V p1) { return null; }
+
+        private class EntryAdapter implements java.util.Map.Entry<K, V> {
+            private final java.util.Map.Entry<K, RealValue> realEntry = null;
+            public EntryAdapter(java.util.Map.Entry<K, RealValue> p0) {}
+            public boolean equals(java.lang.Object p0) { return false; }
+            public K getKey() { return null; }
+            public V getValue() { return null; }
+            public int hashCode() { return 0; }
+            public V setValue(V p0) { return null; }
+        }
+
+        private class SetAdapter extends java.util.AbstractSet<java.util.Map.Entry<K, V>> {
+            private final java.util.Set<java.util.Map.Entry<K, RealValue>> realSet = null;
+            public SetAdapter(java.util.Set<java.util.Map.Entry<K, RealValue>> p0) { super(); }
+            public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
+            public int size() { return 0; }
+        }
+
+        public static interface Converter<A extends java.lang.Object, B extends java.lang.Object> {
+            public A doBackward(B p0);
+            public B doForward(A p0);
+        }
+
+        private class IteratorAdapter implements java.util.Iterator<java.util.Map.Entry<K, V>> {
+            private final java.util.Iterator<java.util.Map.Entry<K, RealValue>> realIterator = null;
+            public IteratorAdapter(java.util.Iterator<java.util.Map.Entry<K, RealValue>> p0) {}
+            public boolean hasNext() { return false; }
+            public java.util.Map.Entry<K, V> next() { return null; }
+            public void remove() {}
+        }
+    }
+
+    public static interface LongList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Long> {
+        public void addLong(long p0);
+        public long getLong(int p0);
+        public com.android.framework.protobuf.Internal.LongList mutableCopyWithCapacity(int p0);
+        public long setLong(int p0, long p1);
     }
 
     public static interface EnumLite {
@@ -57,22 +97,17 @@ public final class Internal {
         public T findValueByNumber(int p0);
     }
 
-    public static interface EnumVerifier {
-        public boolean isInRange(int p0);
+    public static interface BooleanList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Boolean> {
+        public void addBoolean(boolean p0);
+        public boolean getBoolean(int p0);
+        public com.android.framework.protobuf.Internal.BooleanList mutableCopyWithCapacity(int p0);
+        public boolean setBoolean(int p0, boolean p1);
     }
 
-    public static interface FloatList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Float> {
-        public void addFloat(float p0);
-        public float getFloat(int p0);
-        public com.android.framework.protobuf.Internal.FloatList mutableCopyWithCapacity(int p0);
-        public float setFloat(int p0, float p1);
-    }
-
-    public static interface IntList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Integer> {
-        public void addInt(int p0);
-        public int getInt(int p0);
-        public com.android.framework.protobuf.Internal.IntList mutableCopyWithCapacity(int p0);
-        public int setInt(int p0, int p1);
+    public static interface ProtobufList<E extends java.lang.Object> extends java.util.List<E>, java.util.RandomAccess {
+        public boolean isModifiable();
+        public void makeImmutable();
+        public com.android.framework.protobuf.Internal.ProtobufList<E> mutableCopyWithCapacity(int p0);
     }
 
     public static class IntListAdapter<T extends java.lang.Object> extends java.util.AbstractList<T> {
@@ -87,6 +122,13 @@ public final class Internal {
         }
     }
 
+    public static interface DoubleList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Double> {
+        public void addDouble(double p0);
+        public double getDouble(int p0);
+        public com.android.framework.protobuf.Internal.DoubleList mutableCopyWithCapacity(int p0);
+        public double setDouble(int p0, double p1);
+    }
+
     public static class ListAdapter<F extends java.lang.Object, T extends java.lang.Object> extends java.util.AbstractList<T> {
         private final com.android.framework.protobuf.Internal.ListAdapter.Converter<F, T> converter = null;
         private final java.util.List<F> fromList = null;
@@ -99,56 +141,14 @@ public final class Internal {
         }
     }
 
-    public static interface LongList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Long> {
-        public void addLong(long p0);
-        public long getLong(int p0);
-        public com.android.framework.protobuf.Internal.LongList mutableCopyWithCapacity(int p0);
-        public long setLong(int p0, long p1);
+    public static interface EnumVerifier {
+        public boolean isInRange(int p0);
     }
 
-    public static class MapAdapter<K extends java.lang.Object, V extends java.lang.Object, RealValue extends java.lang.Object> extends java.util.AbstractMap<K, V> {
-        private final java.util.Map<K, RealValue> realMap = null;
-        private final com.android.framework.protobuf.Internal.MapAdapter.Converter<RealValue, V> valueConverter = null;
-        public MapAdapter(java.util.Map<K, RealValue> p0, com.android.framework.protobuf.Internal.MapAdapter.Converter<RealValue, V> p1) { super(); }
-        public static <T extends com.android.framework.protobuf.Internal.EnumLite> com.android.framework.protobuf.Internal.MapAdapter.Converter<java.lang.Integer, T> newEnumConverter(com.android.framework.protobuf.Internal.EnumLiteMap<T> p0, T p1) { return null; }
-        public java.util.Set<java.util.Map.Entry<K, V>> entrySet() { return null; }
-        public V get(java.lang.Object p0) { return null; }
-        public V put(K p0, V p1) { return null; }
-
-        public static interface Converter<A extends java.lang.Object, B extends java.lang.Object> {
-            public A doBackward(B p0);
-            public B doForward(A p0);
-        }
-
-        private class EntryAdapter implements java.util.Map.Entry<K, V> {
-            private final java.util.Map.Entry<K, RealValue> realEntry = null;
-            public EntryAdapter(java.util.Map.Entry<K, RealValue> p0) {}
-            public boolean equals(java.lang.Object p0) { return false; }
-            public K getKey() { return null; }
-            public V getValue() { return null; }
-            public int hashCode() { return 0; }
-            public V setValue(V p0) { return null; }
-        }
-
-        private class IteratorAdapter implements java.util.Iterator<java.util.Map.Entry<K, V>> {
-            private final java.util.Iterator<java.util.Map.Entry<K, RealValue>> realIterator = null;
-            public IteratorAdapter(java.util.Iterator<java.util.Map.Entry<K, RealValue>> p0) {}
-            public boolean hasNext() { return false; }
-            public java.util.Map.Entry<K, V> next() { return null; }
-            public void remove() {}
-        }
-
-        private class SetAdapter extends java.util.AbstractSet<java.util.Map.Entry<K, V>> {
-            private final java.util.Set<java.util.Map.Entry<K, RealValue>> realSet = null;
-            public SetAdapter(java.util.Set<java.util.Map.Entry<K, RealValue>> p0) { super(); }
-            public java.util.Iterator<java.util.Map.Entry<K, V>> iterator() { return null; }
-            public int size() { return 0; }
-        }
-    }
-
-    public static interface ProtobufList<E extends java.lang.Object> extends java.util.List<E>, java.util.RandomAccess {
-        public boolean isModifiable();
-        public void makeImmutable();
-        public com.android.framework.protobuf.Internal.ProtobufList<E> mutableCopyWithCapacity(int p0);
+    public static interface FloatList extends com.android.framework.protobuf.Internal.ProtobufList<java.lang.Float> {
+        public void addFloat(float p0);
+        public float getFloat(int p0);
+        public com.android.framework.protobuf.Internal.FloatList mutableCopyWithCapacity(int p0);
+        public float setFloat(int p0, float p1);
     }
 }

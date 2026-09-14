@@ -3,12 +3,6 @@ package android.hardware;
 public interface ICamera extends android.os.IInterface {
     public void disconnect() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.ICamera {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void disconnect() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.ICamera {
         public static final java.lang.String DESCRIPTOR = "android.hardware.ICamera";
         static final int TRANSACTION_disconnect = 1;
@@ -26,5 +20,11 @@ public interface ICamera extends android.os.IInterface {
             public void disconnect() throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.ICamera {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void disconnect() throws android.os.RemoteException {}
     }
 }

@@ -5,6 +5,10 @@ public final class ConfigUpdate {
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_UPDATE_CARRIER_ID_DB = "android.os.action.UPDATE_CARRIER_ID_DB";
     @android.annotation.SystemApi
+    public static final java.lang.String ACTION_UPDATE_CARRIER_PRESET_SIM_PIN_DB = "android.os.action.UPDATE_CARRIER_PRESET_SIM_PIN_DB";
+    @android.annotation.SystemApi
+    public static final java.lang.String ACTION_UPDATE_CARRIER_PRIVILEGES_DB = "android.os.action.UPDATE_CARRIER_PRIVILEGES_DB";
+    @android.annotation.SystemApi
     public static final java.lang.String ACTION_UPDATE_CARRIER_PROVISIONING_URLS = "android.intent.action.UPDATE_CARRIER_PROVISIONING_URLS";
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_UPDATE_CONFIG = "android.os.action.UPDATE_CONFIG";

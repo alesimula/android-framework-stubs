@@ -57,50 +57,6 @@ public interface IVibrator extends android.os.IInterface {
     public void setAmplitude(float p0) throws android.os.RemoteException;
     public void setExternalControl(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.vibrator.IVibrator {
-        public Default() {}
-        public void alwaysOnDisable(int p0) throws android.os.RemoteException {}
-        public void alwaysOnEnable(int p0, int p1, byte p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void compose(android.hardware.vibrator.CompositeEffect[] p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void composePwle(android.hardware.vibrator.PrimitivePwle[] p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
-        public void composePwleV2(android.hardware.vibrator.CompositePwleV2 p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public float[] getBandwidthAmplitudeMap() throws android.os.RemoteException { return null; }
-        public int getCapabilities() throws android.os.RemoteException { return 0; }
-        public int getCompositionDelayMax() throws android.os.RemoteException { return 0; }
-        public int getCompositionSizeMax() throws android.os.RemoteException { return 0; }
-        @java.lang.Deprecated
-        public float getFrequencyMinimum() throws android.os.RemoteException { return 0.0f; }
-        @java.lang.Deprecated
-        public float getFrequencyResolution() throws android.os.RemoteException { return 0.0f; }
-        public java.util.List<android.hardware.vibrator.FrequencyAccelerationMapEntry> getFrequencyToOutputAccelerationMap() throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public int getPrimitiveDuration(int p0) throws android.os.RemoteException { return 0; }
-        @java.lang.Deprecated
-        public int getPwleCompositionSizeMax() throws android.os.RemoteException { return 0; }
-        @java.lang.Deprecated
-        public int getPwlePrimitiveDurationMax() throws android.os.RemoteException { return 0; }
-        public int getPwleV2CompositionSizeMax() throws android.os.RemoteException { return 0; }
-        public int getPwleV2PrimitiveDurationMaxMillis() throws android.os.RemoteException { return 0; }
-        public int getPwleV2PrimitiveDurationMinMillis() throws android.os.RemoteException { return 0; }
-        public float getQFactor() throws android.os.RemoteException { return 0.0f; }
-        public float getResonantFrequency() throws android.os.RemoteException { return 0.0f; }
-        public int[] getSupportedAlwaysOnEffects() throws android.os.RemoteException { return null; }
-        @java.lang.Deprecated
-        public int[] getSupportedBraking() throws android.os.RemoteException { return null; }
-        public int[] getSupportedEffects() throws android.os.RemoteException { return null; }
-        public int[] getSupportedPrimitives() throws android.os.RemoteException { return null; }
-        public void off() throws android.os.RemoteException {}
-        public void on(int p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
-        public int perform(int p0, byte p1, android.hardware.vibrator.IVibratorCallback p2) throws android.os.RemoteException { return 0; }
-        public void performVendorEffect(android.hardware.vibrator.VendorEffect p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
-        public void setAmplitude(float p0) throws android.os.RemoteException {}
-        public void setExternalControl(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.vibrator.IVibrator {
         static final int TRANSACTION_alwaysOnDisable = 15;
         static final int TRANSACTION_alwaysOnEnable = 14;
@@ -186,5 +142,49 @@ public interface IVibrator extends android.os.IInterface {
             public void setAmplitude(float p0) throws android.os.RemoteException {}
             public void setExternalControl(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.vibrator.IVibrator {
+        public Default() {}
+        public void alwaysOnDisable(int p0) throws android.os.RemoteException {}
+        public void alwaysOnEnable(int p0, int p1, byte p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void compose(android.hardware.vibrator.CompositeEffect[] p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void composePwle(android.hardware.vibrator.PrimitivePwle[] p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
+        public void composePwleV2(android.hardware.vibrator.CompositePwleV2 p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public float[] getBandwidthAmplitudeMap() throws android.os.RemoteException { return null; }
+        public int getCapabilities() throws android.os.RemoteException { return 0; }
+        public int getCompositionDelayMax() throws android.os.RemoteException { return 0; }
+        public int getCompositionSizeMax() throws android.os.RemoteException { return 0; }
+        @java.lang.Deprecated
+        public float getFrequencyMinimum() throws android.os.RemoteException { return 0.0f; }
+        @java.lang.Deprecated
+        public float getFrequencyResolution() throws android.os.RemoteException { return 0.0f; }
+        public java.util.List<android.hardware.vibrator.FrequencyAccelerationMapEntry> getFrequencyToOutputAccelerationMap() throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public int getPrimitiveDuration(int p0) throws android.os.RemoteException { return 0; }
+        @java.lang.Deprecated
+        public int getPwleCompositionSizeMax() throws android.os.RemoteException { return 0; }
+        @java.lang.Deprecated
+        public int getPwlePrimitiveDurationMax() throws android.os.RemoteException { return 0; }
+        public int getPwleV2CompositionSizeMax() throws android.os.RemoteException { return 0; }
+        public int getPwleV2PrimitiveDurationMaxMillis() throws android.os.RemoteException { return 0; }
+        public int getPwleV2PrimitiveDurationMinMillis() throws android.os.RemoteException { return 0; }
+        public float getQFactor() throws android.os.RemoteException { return 0.0f; }
+        public float getResonantFrequency() throws android.os.RemoteException { return 0.0f; }
+        public int[] getSupportedAlwaysOnEffects() throws android.os.RemoteException { return null; }
+        @java.lang.Deprecated
+        public int[] getSupportedBraking() throws android.os.RemoteException { return null; }
+        public int[] getSupportedEffects() throws android.os.RemoteException { return null; }
+        public int[] getSupportedPrimitives() throws android.os.RemoteException { return null; }
+        public void off() throws android.os.RemoteException {}
+        public void on(int p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
+        public int perform(int p0, byte p1, android.hardware.vibrator.IVibratorCallback p2) throws android.os.RemoteException { return 0; }
+        public void performVendorEffect(android.hardware.vibrator.VendorEffect p0, android.hardware.vibrator.IVibratorCallback p1) throws android.os.RemoteException {}
+        public void setAmplitude(float p0) throws android.os.RemoteException {}
+        public void setExternalControl(boolean p0) throws android.os.RemoteException {}
     }
 }

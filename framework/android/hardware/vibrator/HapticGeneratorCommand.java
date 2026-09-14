@@ -38,14 +38,14 @@ public final class HapticGeneratorCommand implements android.os.Parcelable {
         public static final byte START = 0;
     }
 
-    public static @interface Session {
-        public static final byte CLOSE = 0;
-    }
-
     public static @interface Tag {
         public static final byte burstBytes = 3;
         public static final byte effect = 1;
         public static final byte reserved = 0;
         public static final byte session = 2;
+    }
+
+    public static @interface Session {
+        public static final byte CLOSE = 0;
     }
 }

@@ -5,6 +5,7 @@ public final class PerfettoTrace {
     private static final int PERFETTO_TE_TYPE_INSTANT = 3;
     private static final int PERFETTO_TE_TYPE_SLICE_BEGIN = 1;
     private static final int PERFETTO_TE_TYPE_SLICE_END = 2;
+    private static final int PERFETTO_TE_TYPE_STATE = 5;
     private static final java.lang.String TAG = "PerfettoTrace";
     private static final java.util.concurrent.atomic.AtomicBoolean sAttemptedSystemRegistration = null;
     private static final java.util.concurrent.atomic.AtomicInteger sFlowEventId = null;
@@ -21,6 +22,7 @@ public final class PerfettoTrace {
     public static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder counterWithDynamicName(com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category p0, long p1, java.lang.String p2) { return null; }
     public static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder end(com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category p0) { return null; }
     public static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder expensiveDebugCallStack(com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category p0, java.lang.String p1, java.lang.StackTraceElement[] p2) { return null; }
+    public static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder expensiveDebugCallStack(com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category p0, java.lang.String p1, java.lang.StackTraceElement[] p2, double p3) { return null; }
     public static boolean getAttempedSystemRegistration() { return false; }
     public static int getFlowId() { return 0; }
     public static long getGlobalTrackUuid() { return 0L; }
@@ -36,6 +38,15 @@ public final class PerfettoTrace {
     private static byte[] native_stop_session$ravenwood(long p0) { return null; }
     public static void register(boolean p0) {}
     public static void registerWithDebugChecks(boolean p0) {}
+    public static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder state(com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category p0, java.lang.String p1, java.lang.String p2) { return null; }
+    public static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder stateWithDynamicName(com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category p0, java.lang.String p1, java.lang.String p2) { return null; }
+    private static com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder writeCallStack(com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder p0, java.lang.StackTraceElement[] p1) { return null; }
+
+    public static final class Session {
+        private final long mPtr = 0L;
+        public Session(boolean p0, byte[] p1) {}
+        public byte[] close() { return null; }
+    }
 
     public static class Category implements com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.PerfettoPointer {
         private volatile boolean mIsRegistered;
@@ -56,11 +67,5 @@ public final class PerfettoTrace {
         public boolean isRegistered() { return false; }
         public com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category register() { return null; }
         public com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category unregister() { return null; }
-    }
-
-    public static final class Session {
-        private final long mPtr = 0L;
-        public Session(boolean p0, byte[] p1) {}
-        public byte[] close() { return null; }
     }
 }

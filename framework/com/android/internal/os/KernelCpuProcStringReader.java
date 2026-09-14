@@ -11,7 +11,7 @@ public final class KernelCpuProcStringReader {
     private static final java.lang.String PROC_UID_CLUSTER_TIME = "/proc/uid_concurrent_policy_time";
     private static final java.lang.String PROC_UID_FREQ_TIME = "/proc/uid_time_in_state";
     private static final java.lang.String PROC_UID_USER_SYS_TIME = "/proc/uid_cputime/show_uid_stat";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "KernelCpuProcStringReader";
     private static final com.android.internal.os.KernelCpuProcStringReader USER_SYS_TIME_READER = null;
     private char[] mBuf;
     private final com.android.internal.os.Clock mClock = null;

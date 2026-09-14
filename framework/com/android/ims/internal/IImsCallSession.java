@@ -39,48 +39,6 @@ public interface IImsCallSession extends android.os.IInterface {
     public void transfer(java.lang.String p0, boolean p1) throws android.os.RemoteException;
     public void update(int p0, android.telephony.ims.ImsStreamMediaProfile p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsCallSession {
-        public Default() {}
-        public void accept(int p0, android.telephony.ims.ImsStreamMediaProfile p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void callSessionNotifyAnbr(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void close() throws android.os.RemoteException {}
-        public void consultativeTransfer(com.android.ims.internal.IImsCallSession p0) throws android.os.RemoteException {}
-        public void deflect(java.lang.String p0) throws android.os.RemoteException {}
-        public void extendToConference(java.lang.String[] p0) throws android.os.RemoteException {}
-        public java.lang.String getCallId() throws android.os.RemoteException { return null; }
-        public android.telephony.ims.ImsCallProfile getCallProfile() throws android.os.RemoteException { return null; }
-        public android.telephony.ims.ImsCallProfile getLocalCallProfile() throws android.os.RemoteException { return null; }
-        public java.lang.String getProperty(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public android.telephony.ims.ImsCallProfile getRemoteCallProfile() throws android.os.RemoteException { return null; }
-        public int getState() throws android.os.RemoteException { return 0; }
-        public com.android.ims.internal.IImsVideoCallProvider getVideoCallProvider() throws android.os.RemoteException { return null; }
-        public void hold(android.telephony.ims.ImsStreamMediaProfile p0) throws android.os.RemoteException {}
-        public void inviteParticipants(java.lang.String[] p0) throws android.os.RemoteException {}
-        public boolean isInCall() throws android.os.RemoteException { return false; }
-        public boolean isMultiparty() throws android.os.RemoteException { return false; }
-        public void merge() throws android.os.RemoteException {}
-        public void reject(int p0) throws android.os.RemoteException {}
-        public void removeParticipants(java.lang.String[] p0) throws android.os.RemoteException {}
-        public void resume(android.telephony.ims.ImsStreamMediaProfile p0) throws android.os.RemoteException {}
-        public void sendDtmf(char p0, android.os.Message p1) throws android.os.RemoteException {}
-        public void sendRtpHeaderExtensions(java.util.List<android.telephony.ims.RtpHeaderExtension> p0) throws android.os.RemoteException {}
-        public void sendRttMessage(java.lang.String p0) throws android.os.RemoteException {}
-        public void sendRttModifyRequest(android.telephony.ims.ImsCallProfile p0) throws android.os.RemoteException {}
-        public void sendRttModifyResponse(boolean p0) throws android.os.RemoteException {}
-        public void sendUssd(java.lang.String p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setListener(android.telephony.ims.aidl.IImsCallSessionListener p0) throws android.os.RemoteException {}
-        public void setMute(boolean p0) throws android.os.RemoteException {}
-        public void start(java.lang.String p0, android.telephony.ims.ImsCallProfile p1) throws android.os.RemoteException {}
-        public void startConference(java.lang.String[] p0, android.telephony.ims.ImsCallProfile p1) throws android.os.RemoteException {}
-        public void startDtmf(char p0) throws android.os.RemoteException {}
-        public void stopDtmf() throws android.os.RemoteException {}
-        public void terminate(int p0) throws android.os.RemoteException {}
-        public void transfer(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
-        public void update(int p0, android.telephony.ims.ImsStreamMediaProfile p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsCallSession {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsCallSession";
         static final int TRANSACTION_accept = 13;
@@ -169,5 +127,47 @@ public interface IImsCallSession extends android.os.IInterface {
             public void transfer(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
             public void update(int p0, android.telephony.ims.ImsStreamMediaProfile p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsCallSession {
+        public Default() {}
+        public void accept(int p0, android.telephony.ims.ImsStreamMediaProfile p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void callSessionNotifyAnbr(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void close() throws android.os.RemoteException {}
+        public void consultativeTransfer(com.android.ims.internal.IImsCallSession p0) throws android.os.RemoteException {}
+        public void deflect(java.lang.String p0) throws android.os.RemoteException {}
+        public void extendToConference(java.lang.String[] p0) throws android.os.RemoteException {}
+        public java.lang.String getCallId() throws android.os.RemoteException { return null; }
+        public android.telephony.ims.ImsCallProfile getCallProfile() throws android.os.RemoteException { return null; }
+        public android.telephony.ims.ImsCallProfile getLocalCallProfile() throws android.os.RemoteException { return null; }
+        public java.lang.String getProperty(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public android.telephony.ims.ImsCallProfile getRemoteCallProfile() throws android.os.RemoteException { return null; }
+        public int getState() throws android.os.RemoteException { return 0; }
+        public com.android.ims.internal.IImsVideoCallProvider getVideoCallProvider() throws android.os.RemoteException { return null; }
+        public void hold(android.telephony.ims.ImsStreamMediaProfile p0) throws android.os.RemoteException {}
+        public void inviteParticipants(java.lang.String[] p0) throws android.os.RemoteException {}
+        public boolean isInCall() throws android.os.RemoteException { return false; }
+        public boolean isMultiparty() throws android.os.RemoteException { return false; }
+        public void merge() throws android.os.RemoteException {}
+        public void reject(int p0) throws android.os.RemoteException {}
+        public void removeParticipants(java.lang.String[] p0) throws android.os.RemoteException {}
+        public void resume(android.telephony.ims.ImsStreamMediaProfile p0) throws android.os.RemoteException {}
+        public void sendDtmf(char p0, android.os.Message p1) throws android.os.RemoteException {}
+        public void sendRtpHeaderExtensions(java.util.List<android.telephony.ims.RtpHeaderExtension> p0) throws android.os.RemoteException {}
+        public void sendRttMessage(java.lang.String p0) throws android.os.RemoteException {}
+        public void sendRttModifyRequest(android.telephony.ims.ImsCallProfile p0) throws android.os.RemoteException {}
+        public void sendRttModifyResponse(boolean p0) throws android.os.RemoteException {}
+        public void sendUssd(java.lang.String p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setListener(android.telephony.ims.aidl.IImsCallSessionListener p0) throws android.os.RemoteException {}
+        public void setMute(boolean p0) throws android.os.RemoteException {}
+        public void start(java.lang.String p0, android.telephony.ims.ImsCallProfile p1) throws android.os.RemoteException {}
+        public void startConference(java.lang.String[] p0, android.telephony.ims.ImsCallProfile p1) throws android.os.RemoteException {}
+        public void startDtmf(char p0) throws android.os.RemoteException {}
+        public void stopDtmf() throws android.os.RemoteException {}
+        public void terminate(int p0) throws android.os.RemoteException {}
+        public void transfer(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
+        public void update(int p0, android.telephony.ims.ImsStreamMediaProfile p1) throws android.os.RemoteException {}
     }
 }

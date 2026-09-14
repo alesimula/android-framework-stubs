@@ -5,14 +5,6 @@ public interface ITvInputServiceCallback extends android.os.IInterface {
     public void addHdmiInput(int p0, android.media.tv.TvInputInfo p1) throws android.os.RemoteException;
     public void removeHardwareInput(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.ITvInputServiceCallback {
-        public Default() {}
-        public void addHardwareInput(int p0, android.media.tv.TvInputInfo p1) throws android.os.RemoteException {}
-        public void addHdmiInput(int p0, android.media.tv.TvInputInfo p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void removeHardwareInput(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.ITvInputServiceCallback {
         public static final java.lang.String DESCRIPTOR = "android.media.tv.ITvInputServiceCallback";
         static final int TRANSACTION_addHardwareInput = 1;
@@ -34,5 +26,13 @@ public interface ITvInputServiceCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void removeHardwareInput(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.ITvInputServiceCallback {
+        public Default() {}
+        public void addHardwareInput(int p0, android.media.tv.TvInputInfo p1) throws android.os.RemoteException {}
+        public void addHdmiInput(int p0, android.media.tv.TvInputInfo p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void removeHardwareInput(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

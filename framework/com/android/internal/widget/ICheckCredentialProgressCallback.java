@@ -3,12 +3,6 @@ package com.android.internal.widget;
 public interface ICheckCredentialProgressCallback extends android.os.IInterface {
     public void onCredentialVerified() throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.widget.ICheckCredentialProgressCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCredentialVerified() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.widget.ICheckCredentialProgressCallback {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.widget.ICheckCredentialProgressCallback";
         static final int TRANSACTION_onCredentialVerified = 1;
@@ -26,5 +20,11 @@ public interface ICheckCredentialProgressCallback extends android.os.IInterface 
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onCredentialVerified() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.widget.ICheckCredentialProgressCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCredentialVerified() throws android.os.RemoteException {}
     }
 }

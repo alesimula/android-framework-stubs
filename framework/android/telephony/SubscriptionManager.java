@@ -284,6 +284,7 @@ public class SubscriptionManager {
     public java.util.List<android.telephony.SubscriptionInfo> getAllSubscriptionInfoList() { return null; }
     @android.annotation.SystemApi
     public java.util.List<android.telephony.SubscriptionInfo> getAvailableSubscriptionInfoList() { return null; }
+    public void getCarrierPresetSimPin(int p0, java.util.concurrent.Executor p1, java.util.function.Consumer<java.lang.String> p2) {}
     @android.annotation.SystemApi
     public int[] getCompleteActiveSubscriptionIdList() { return null; }
     public java.util.List<android.telephony.SubscriptionInfo> getCompleteActiveSubscriptionInfoList() { return null; }
@@ -299,6 +300,7 @@ public class SubscriptionManager {
     public java.util.List<android.telephony.SubscriptionInfo> getOpportunisticSubscriptions() { return null; }
     public java.lang.String getPhoneNumber(int p0) { return null; }
     public java.lang.String getPhoneNumber(int p0, int p1) { return null; }
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public int getPreferredDataSubscriptionId() { return 0; }
     public java.util.List<android.telephony.SubscriptionInfo> getSelectableSubscriptionInfoList() { return null; }
     @java.lang.Deprecated
@@ -307,6 +309,7 @@ public class SubscriptionManager {
     public java.util.List<android.telephony.SubscriptionPlan> getSubscriptionPlans(int p0) { return null; }
     public android.os.UserHandle getSubscriptionUserHandle(int p0) { return null; }
     public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionsInGroup(android.os.ParcelUuid p0) { return null; }
+    public boolean hasGroupedOpportunisticSubscriptions(int p0) { return false; }
     public boolean isActiveSubId(int p0) { return false; }
     public boolean isActiveSubscriptionId(int p0) { return false; }
     public boolean isNetworkRoaming(int p0) { return false; }
@@ -368,31 +371,8 @@ public class SubscriptionManager {
     @java.lang.Deprecated
     public void switchToSubscription(int p0, android.app.PendingIntent p1) {}
 
-    private static interface CallISubMethodHelper {
-        public int callMethod(com.android.internal.telephony.ISub p0) throws android.os.RemoteException;
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DataRoamingMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeviceToDeviceStatusSharingPreference {
-    }
-
-    private static class IntegerPropertyInvalidatedCache<T extends java.lang.Object> extends android.app.PropertyInvalidatedCache<java.lang.Integer, T> {
-        private final java.lang.String mCacheKeyProperty = null;
-        private final T mDefaultValue = null;
-        private final com.android.internal.util.FunctionalUtils.ThrowingBiFunction<com.android.internal.telephony.ISub, java.lang.Integer, T> mInterfaceMethod = null;
-        IntegerPropertyInvalidatedCache(com.android.internal.util.FunctionalUtils.ThrowingBiFunction<com.android.internal.telephony.ISub, java.lang.Integer, T> p0, java.lang.String p1, T p2) { super(0, (java.lang.String)null); }
-        public T query(java.lang.Integer p0) { return null; }
-        public T recompute(java.lang.Integer p0) { return null; }
-    }
-
-    public static class OnOpportunisticSubscriptionsChangedListener {
-        public OnOpportunisticSubscriptionsChangedListener() {}
-        private void log(java.lang.String p0) {}
-        public void onOpportunisticSubscriptionsChanged() {}
     }
 
     public static class OnSubscriptionsChangedListener {
@@ -407,6 +387,20 @@ public class SubscriptionManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SubscriptionType {
+    }
+
+    public static class OnOpportunisticSubscriptionsChangedListener {
+        public OnOpportunisticSubscriptionsChangedListener() {}
+        private void log(java.lang.String p0) {}
+        public void onOpportunisticSubscriptionsChanged() {}
+    }
+
+    private static interface CallISubMethodHelper {
+        public int callMethod(com.android.internal.telephony.ISub p0) throws android.os.RemoteException;
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PhoneNumberSource {
     }
 
@@ -414,16 +408,13 @@ public class SubscriptionManager {
     public static @interface ProfileClass {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ServiceCapability {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SimDisplayNameSource {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SubscriptionType {
+    private static class IntegerPropertyInvalidatedCache<T extends java.lang.Object> extends android.app.PropertyInvalidatedCache<java.lang.Integer, T> {
+        private final java.lang.String mCacheKeyProperty = null;
+        private final T mDefaultValue = null;
+        private final com.android.internal.util.FunctionalUtils.ThrowingBiFunction<com.android.internal.telephony.ISub, java.lang.Integer, T> mInterfaceMethod = null;
+        IntegerPropertyInvalidatedCache(com.android.internal.util.FunctionalUtils.ThrowingBiFunction<com.android.internal.telephony.ISub, java.lang.Integer, T> p0, java.lang.String p1, T p2) { super(0, (java.lang.String)null); }
+        public T query(java.lang.Integer p0) { return null; }
+        public T recompute(java.lang.Integer p0) { return null; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -431,7 +422,7 @@ public class SubscriptionManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface UsageSetting {
+    public static @interface SimDisplayNameSource {
     }
 
     private static class VoidPropertyInvalidatedCache<T extends java.lang.Object> extends android.app.PropertyInvalidatedCache<java.lang.Void, T> {
@@ -441,5 +432,17 @@ public class SubscriptionManager {
         VoidPropertyInvalidatedCache(com.android.internal.util.FunctionalUtils.ThrowingFunction<com.android.internal.telephony.ISub, T> p0, java.lang.String p1, T p2) { super(0, (java.lang.String)null); }
         public T query(java.lang.Void p0) { return null; }
         public T recompute(java.lang.Void p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DeviceToDeviceStatusSharingPreference {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ServiceCapability {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface UsageSetting {
     }
 }

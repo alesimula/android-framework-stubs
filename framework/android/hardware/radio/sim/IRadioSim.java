@@ -49,55 +49,6 @@ public interface IRadioSim extends android.os.IInterface {
     public void supplySimDepersonalization(int p0, int p1, java.lang.String p2) throws android.os.RemoteException;
     public void updateSimPhonebookRecords(int p0, android.hardware.radio.sim.PhonebookRecordInfo p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.sim.IRadioSim {
-        public Default() {}
-        public void areUiccApplicationsEnabled(int p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void changeIccPin2ForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void changeIccPinForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void enableUiccApplications(int p0, boolean p1) throws android.os.RemoteException {}
-        public void getAllowedCarriers(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getCdmaSubscription(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void getCdmaSubscriptionSource(int p0) throws android.os.RemoteException {}
-        public void getFacilityLockForApp(int p0, java.lang.String p1, java.lang.String p2, int p3, java.lang.String p4) throws android.os.RemoteException {}
-        public void getIccCardStatus(int p0) throws android.os.RemoteException {}
-        public void getImsiForApp(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getSimPhonebookCapacity(int p0) throws android.os.RemoteException {}
-        public void getSimPhonebookRecords(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void iccCloseLogicalChannel(int p0, int p1) throws android.os.RemoteException {}
-        public void iccCloseLogicalChannelWithSessionInfo(int p0, android.hardware.radio.sim.SessionInfo p1) throws android.os.RemoteException {}
-        public void iccIoForApp(int p0, android.hardware.radio.sim.IccIo p1) throws android.os.RemoteException {}
-        public void iccOpenLogicalChannel(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void iccTransmitApduBasicChannel(int p0, android.hardware.radio.sim.SimApdu p1) throws android.os.RemoteException {}
-        public void iccTransmitApduLogicalChannel(int p0, android.hardware.radio.sim.SimApdu p1) throws android.os.RemoteException {}
-        public void reportStkServiceIsRunning(int p0) throws android.os.RemoteException {}
-        public void requestIccSimAuthentication(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void responseAcknowledgement() throws android.os.RemoteException {}
-        public void sendEnvelope(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void sendEnvelopeWithStatus(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void sendTerminalResponseToSim(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void setAllowedCarriers(int p0, android.hardware.radio.sim.CarrierRestrictions p1, int p2) throws android.os.RemoteException {}
-        public void setCarrierInfoForImsiEncryption(int p0, android.hardware.radio.sim.ImsiEncryptionInfo p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setCdmaSubscriptionSource(int p0, int p1) throws android.os.RemoteException {}
-        public void setFacilityLockForApp(int p0, java.lang.String p1, boolean p2, java.lang.String p3, int p4, java.lang.String p5) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.sim.IRadioSimResponse p0, android.hardware.radio.sim.IRadioSimIndication p1) throws android.os.RemoteException {}
-        public void setSimCardPower(int p0, int p1) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void setUiccSubscription(int p0, android.hardware.radio.sim.SelectUiccSub p1) throws android.os.RemoteException {}
-        public void supplyIccPin2ForApp(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void supplyIccPinForApp(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void supplyIccPuk2ForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void supplyIccPukForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void supplySimDepersonalization(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void updateSimPhonebookRecords(int p0, android.hardware.radio.sim.PhonebookRecordInfo p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.sim.IRadioSim {
         static final int TRANSACTION_areUiccApplicationsEnabled = 1;
         static final int TRANSACTION_changeIccPin2ForApp = 2;
@@ -195,5 +146,54 @@ public interface IRadioSim extends android.os.IInterface {
             public void supplySimDepersonalization(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
             public void updateSimPhonebookRecords(int p0, android.hardware.radio.sim.PhonebookRecordInfo p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.sim.IRadioSim {
+        public Default() {}
+        public void areUiccApplicationsEnabled(int p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void changeIccPin2ForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void changeIccPinForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void enableUiccApplications(int p0, boolean p1) throws android.os.RemoteException {}
+        public void getAllowedCarriers(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getCdmaSubscription(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void getCdmaSubscriptionSource(int p0) throws android.os.RemoteException {}
+        public void getFacilityLockForApp(int p0, java.lang.String p1, java.lang.String p2, int p3, java.lang.String p4) throws android.os.RemoteException {}
+        public void getIccCardStatus(int p0) throws android.os.RemoteException {}
+        public void getImsiForApp(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getSimPhonebookCapacity(int p0) throws android.os.RemoteException {}
+        public void getSimPhonebookRecords(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void iccCloseLogicalChannel(int p0, int p1) throws android.os.RemoteException {}
+        public void iccCloseLogicalChannelWithSessionInfo(int p0, android.hardware.radio.sim.SessionInfo p1) throws android.os.RemoteException {}
+        public void iccIoForApp(int p0, android.hardware.radio.sim.IccIo p1) throws android.os.RemoteException {}
+        public void iccOpenLogicalChannel(int p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void iccTransmitApduBasicChannel(int p0, android.hardware.radio.sim.SimApdu p1) throws android.os.RemoteException {}
+        public void iccTransmitApduLogicalChannel(int p0, android.hardware.radio.sim.SimApdu p1) throws android.os.RemoteException {}
+        public void reportStkServiceIsRunning(int p0) throws android.os.RemoteException {}
+        public void requestIccSimAuthentication(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void responseAcknowledgement() throws android.os.RemoteException {}
+        public void sendEnvelope(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void sendEnvelopeWithStatus(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void sendTerminalResponseToSim(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void setAllowedCarriers(int p0, android.hardware.radio.sim.CarrierRestrictions p1, int p2) throws android.os.RemoteException {}
+        public void setCarrierInfoForImsiEncryption(int p0, android.hardware.radio.sim.ImsiEncryptionInfo p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setCdmaSubscriptionSource(int p0, int p1) throws android.os.RemoteException {}
+        public void setFacilityLockForApp(int p0, java.lang.String p1, boolean p2, java.lang.String p3, int p4, java.lang.String p5) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.sim.IRadioSimResponse p0, android.hardware.radio.sim.IRadioSimIndication p1) throws android.os.RemoteException {}
+        public void setSimCardPower(int p0, int p1) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void setUiccSubscription(int p0, android.hardware.radio.sim.SelectUiccSub p1) throws android.os.RemoteException {}
+        public void supplyIccPin2ForApp(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void supplyIccPinForApp(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void supplyIccPuk2ForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void supplyIccPukForApp(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void supplySimDepersonalization(int p0, int p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void updateSimPhonebookRecords(int p0, android.hardware.radio.sim.PhonebookRecordInfo p1) throws android.os.RemoteException {}
     }
 }

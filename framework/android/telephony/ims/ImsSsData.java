@@ -47,7 +47,7 @@ public final class ImsSsData implements android.os.Parcelable {
     public static final int SS_SMS_SERVICES = 4;
     public static final int SS_TELEPHONY = 2;
     public static final int SS_WAIT = 12;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "android.telephony.ims.ImsSsData";
     private java.util.List<android.telephony.ims.ImsCallForwardInfo> mCfInfo;
     private java.util.List<android.telephony.ims.ImsSsInfo> mImsSsInfo;
     private int[] mSsInfo;
@@ -85,6 +85,10 @@ public final class ImsSsData implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RequestType {
+    }
+
     public static final class Builder {
         private android.telephony.ims.ImsSsData mImsSsData;
         public Builder(int p0, int p1, int p2, int p3, int p4) {}
@@ -94,7 +98,7 @@ public final class ImsSsData implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RequestType {
+    public static @interface TeleserviceType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -103,9 +107,5 @@ public final class ImsSsData implements android.os.Parcelable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ServiceType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TeleserviceType {
     }
 }

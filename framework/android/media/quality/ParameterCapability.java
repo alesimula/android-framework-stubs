@@ -27,10 +27,10 @@ public final class ParameterCapability implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Capability {
+    public static @interface ParameterType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ParameterType {
+    public static @interface Capability {
     }
 }

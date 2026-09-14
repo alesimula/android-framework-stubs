@@ -9,8 +9,8 @@ abstract class AndroidKeyStoreMlDsaSignatureSpi extends android.security.keystor
     protected final void engineInitVerify(java.security.PublicKey p0) throws java.security.InvalidKeyException {}
     abstract boolean supportsAlgorithm(java.lang.String p0);
 
-    public static class MLDSA extends android.security.keystore2.AndroidKeyStoreMlDsaSignatureSpi {
-        public MLDSA() { super(); }
+    public static class MLDSA87 extends android.security.keystore2.AndroidKeyStoreMlDsaSignatureSpi {
+        public MLDSA87() { super(); }
         protected java.lang.String getAlgorithm() { return null; }
         public boolean supportsAlgorithm(java.lang.String p0) { return false; }
     }
@@ -21,8 +21,8 @@ abstract class AndroidKeyStoreMlDsaSignatureSpi extends android.security.keystor
         public boolean supportsAlgorithm(java.lang.String p0) { return false; }
     }
 
-    public static class MLDSA87 extends android.security.keystore2.AndroidKeyStoreMlDsaSignatureSpi {
-        public MLDSA87() { super(); }
+    public static class MLDSA extends android.security.keystore2.AndroidKeyStoreMlDsaSignatureSpi {
+        public MLDSA() { super(); }
         protected java.lang.String getAlgorithm() { return null; }
         public boolean supportsAlgorithm(java.lang.String p0) { return false; }
     }

@@ -2,13 +2,7 @@ package android.service.personalcontext.refiner;
 
 public interface IRefineCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.refiner.IRefineCallback";
-    public void onHintsRefined(java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p0) throws android.os.RemoteException;
-
-    public static class Default implements android.service.personalcontext.refiner.IRefineCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onHintsRefined(java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p0) throws android.os.RemoteException {}
-    }
+    public void onHintsRefined(java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p0) throws android.os.RemoteException;
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.refiner.IRefineCallback {
         static final int TRANSACTION_onHintsRefined = 1;
@@ -28,7 +22,13 @@ public interface IRefineCallback extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void onHintsRefined(java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p0) throws android.os.RemoteException {}
+            public void onHintsRefined(java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.personalcontext.refiner.IRefineCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onHintsRefined(java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p0) throws android.os.RemoteException {}
     }
 }

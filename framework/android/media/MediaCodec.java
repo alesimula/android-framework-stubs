@@ -197,187 +197,6 @@ public final class MediaCodec {
     public void subscribeToVendorParameters(java.util.List<java.lang.String> p0) {}
     public void unsubscribeFromVendorParameters(java.util.List<java.lang.String> p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BufferFlag {
-    }
-
-    public static final class BufferInfo {
-        public int flags;
-        public int offset;
-        public long presentationTimeUs;
-        public int size;
-        public BufferInfo() {}
-        public android.media.MediaCodec.BufferInfo dup() { return null; }
-        public void set(int p0, int p1, long p2, int p3) {}
-    }
-
-    private static class BufferMap {
-        private final java.util.Map<java.lang.Integer, android.media.MediaCodec.BufferMap.CodecBuffer> mMap = null;
-        private BufferMap() {}
-        public void clear() {}
-        public void put(int p0, android.media.Image p1) {}
-        public void put(int p0, java.nio.ByteBuffer p1) {}
-        public void remove(int p0) {}
-
-        private static class CodecBuffer {
-            private java.nio.ByteBuffer mByteBuffer;
-            private android.media.Image mImage;
-            private CodecBuffer() {}
-            public void free() {}
-            public void setByteBuffer(java.nio.ByteBuffer p0) {}
-            public void setImage(android.media.Image p0) {}
-        }
-    }
-
-    public static abstract class Callback {
-        public Callback() {}
-        public void onCryptoError(android.media.MediaCodec p0, android.media.MediaCodec.CryptoException p1) {}
-        public abstract void onError(android.media.MediaCodec p0, android.media.MediaCodec.CodecException p1);
-        public abstract void onInputBufferAvailable(android.media.MediaCodec p0, int p1);
-        public void onMetricsFlushed(android.media.MediaCodec p0, android.os.PersistableBundle p1) {}
-        public abstract void onOutputBufferAvailable(android.media.MediaCodec p0, int p1, android.media.MediaCodec.BufferInfo p2);
-        public void onOutputBuffersAvailable(android.media.MediaCodec p0, int p1, java.util.ArrayDeque<android.media.MediaCodec.BufferInfo> p2) {}
-        public abstract void onOutputFormatChanged(android.media.MediaCodec p0, android.media.MediaFormat p1);
-        public void onRequiredResourcesChanged(android.media.MediaCodec p0) {}
-    }
-
-    public static final class CodecException extends java.lang.IllegalStateException {
-        private static final int ACTION_RECOVERABLE = 2;
-        private static final int ACTION_TRANSIENT = 1;
-        public static final int ERROR_INSUFFICIENT_RESOURCE = 1100;
-        public static final int ERROR_RECLAIMED = 1101;
-        private final int mActionCode = 0;
-        private final java.lang.String mDiagnosticInfo = null;
-        private final int mErrorCode = 0;
-        CodecException(int p0, int p1, java.lang.String p2) { super(); }
-        public java.lang.String getDiagnosticInfo() { return null; }
-        public int getErrorCode() { return 0; }
-        public boolean isRecoverable() { return false; }
-        public boolean isTransient() { return false; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ReasonCode {
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConfigureFlag {
-    }
-
-    public static final class CryptoException extends java.lang.RuntimeException implements android.media.MediaDrmThrowable {
-        public static final int ERROR_FRAME_TOO_LARGE = 8;
-        public static final int ERROR_INSUFFICIENT_OUTPUT_PROTECTION = 4;
-        public static final int ERROR_INSUFFICIENT_SECURITY = 7;
-        public static final int ERROR_KEY_EXPIRED = 2;
-        public static final int ERROR_LOST_STATE = 9;
-        public static final int ERROR_NO_KEY = 1;
-        public static final int ERROR_RESOURCE_BUSY = 3;
-        public static final int ERROR_SESSION_NOT_OPENED = 5;
-        public static final int ERROR_UNSUPPORTED_OPERATION = 6;
-        private android.media.MediaCodec.CryptoInfo mCryptoInfo;
-        private final int mErrorCode = 0;
-        private final int mErrorContext = 0;
-        private final int mOemError = 0;
-        private final int mVendorError = 0;
-        public CryptoException(int p0, java.lang.String p1) { super(); }
-        public CryptoException(java.lang.String p0, int p1, int p2, int p3, int p4, android.media.MediaCodec.CryptoInfo p5) { super(); }
-        public android.media.MediaCodec.CryptoInfo getCryptoInfo() { return null; }
-        public int getErrorCode() { return 0; }
-        public int getErrorContext() { return 0; }
-        public int getOemError() { return 0; }
-        public int getVendorError() { return 0; }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface CryptoErrorCode {
-        }
-    }
-
-    public static final class CryptoInfo {
-        private static final android.media.MediaCodec.CryptoInfo.Pattern ZERO_PATTERN = null;
-        public byte[] iv;
-        public byte[] key;
-        private android.media.MediaCodec.CryptoInfo.Pattern mPattern;
-        public int mode;
-        public int[] numBytesOfClearData;
-        public int[] numBytesOfEncryptedData;
-        public int numSubSamples;
-        public CryptoInfo() {}
-        private void setPattern(int p0, int p1) {}
-        public android.media.MediaCodec.CryptoInfo.Pattern getPattern() { return null; }
-        public void set(int p0, int[] p1, int[] p2, byte[] p3, byte[] p4, int p5) {}
-        public void setPattern(android.media.MediaCodec.CryptoInfo.Pattern p0) {}
-        public java.lang.String toString() { return null; }
-
-        public static final class Pattern {
-            private int mEncryptBlocks;
-            private int mSkipBlocks;
-            public Pattern(int p0, int p1) {}
-            public int getEncryptBlocks() { return 0; }
-            public int getSkipBlocks() { return 0; }
-            public void set(int p0, int p1) {}
-        }
-    }
-
-    private class EventHandler extends android.os.Handler {
-        private android.media.MediaCodec mCodec;
-        public EventHandler(android.media.MediaCodec p0, android.media.MediaCodec p1, android.os.Looper p2) { super(); }
-        private void handleCallback(android.os.Message p0) {}
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    public static final class GlobalResourceInfo {
-        long mAvailable;
-        long mCapacity;
-        java.lang.String mName;
-        public GlobalResourceInfo() {}
-        public long getAvailable() { return 0L; }
-        public long getCapacity() { return 0L; }
-        public java.lang.String getName() { return null; }
-    }
-
-    public class IncompatibleWithBlockModelException extends java.lang.RuntimeException {
-        IncompatibleWithBlockModelException(android.media.MediaCodec p0) { super(); }
-        IncompatibleWithBlockModelException(android.media.MediaCodec p0, java.lang.String p1) { super(); }
-        IncompatibleWithBlockModelException(android.media.MediaCodec p0, java.lang.String p1, java.lang.Throwable p2) { super(); }
-        IncompatibleWithBlockModelException(android.media.MediaCodec p0, java.lang.Throwable p1) { super(); }
-    }
-
-    public static final class InstanceResourceInfo {
-        java.lang.String mName;
-        long mPerFrameCount;
-        long mStaticCount;
-        public InstanceResourceInfo() {}
-        public java.lang.String getName() { return null; }
-        public long getPerFrameCount() { return 0L; }
-        public long getStaticCount() { return 0L; }
-    }
-
-    public class InvalidBufferFlagsException extends java.lang.RuntimeException {
-        InvalidBufferFlagsException(android.media.MediaCodec p0, java.lang.String p1) { super(); }
-    }
-
-    public static final class LinearBlock {
-        private static final java.util.concurrent.BlockingQueue<android.media.MediaCodec.LinearBlock> sPool = null;
-        private boolean mInternal;
-        private final java.lang.Object mLock = null;
-        private boolean mMappable;
-        private java.nio.ByteBuffer mMapped;
-        private long mNativeContext;
-        private boolean mValid;
-        private LinearBlock() {}
-        public static boolean isCodecCopyFreeCompatible(java.lang.String[] p0) { return false; }
-        private static native boolean native_checkCompatible(java.lang.String[] p0);
-        private native java.nio.ByteBuffer native_map();
-        private native void native_obtain(int p0, java.lang.String[] p1);
-        private native void native_recycle();
-        public static android.media.MediaCodec.LinearBlock obtain(int p0, java.lang.String[] p1) { return null; }
-        private void setInternalStateLocked(long p0, boolean p1) {}
-        protected void finalize() {}
-        public boolean isMappable() { return false; }
-        public java.nio.ByteBuffer map() { return null; }
-        public void recycle() {}
-    }
-
     public static class MediaImage extends android.media.Image {
         private static final int TYPE_YUV = 1;
         private final java.nio.ByteBuffer mBuffer = null;
@@ -416,6 +235,117 @@ public final class MediaCodec {
         }
     }
 
+    public static final class GlobalResourceInfo {
+        long mAvailable;
+        long mCapacity;
+        java.lang.String mName;
+        public GlobalResourceInfo() {}
+        public long getAvailable() { return 0L; }
+        public long getCapacity() { return 0L; }
+        public java.lang.String getName() { return null; }
+    }
+
+    public static final class InstanceResourceInfo {
+        java.lang.String mName;
+        long mPerFrameCount;
+        long mStaticCount;
+        public InstanceResourceInfo() {}
+        public java.lang.String getName() { return null; }
+        public long getPerFrameCount() { return 0L; }
+        public long getStaticCount() { return 0L; }
+    }
+
+    private class EventHandler extends android.os.Handler {
+        private android.media.MediaCodec mCodec;
+        public EventHandler(android.media.MediaCodec p0, android.media.MediaCodec p1, android.os.Looper p2) { super(); }
+        private void handleCallback(android.os.Message p0) {}
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    public static final class CryptoInfo {
+        private static final android.media.MediaCodec.CryptoInfo.Pattern ZERO_PATTERN = null;
+        public byte[] iv;
+        public byte[] key;
+        private android.media.MediaCodec.CryptoInfo.Pattern mPattern;
+        public int mode;
+        public int[] numBytesOfClearData;
+        public int[] numBytesOfEncryptedData;
+        public int numSubSamples;
+        public CryptoInfo() {}
+        private void setPattern(int p0, int p1) {}
+        public android.media.MediaCodec.CryptoInfo.Pattern getPattern() { return null; }
+        public void set(int p0, int[] p1, int[] p2, byte[] p3, byte[] p4, int p5) {}
+        public void setPattern(android.media.MediaCodec.CryptoInfo.Pattern p0) {}
+        public java.lang.String toString() { return null; }
+
+        public static final class Pattern {
+            private int mEncryptBlocks;
+            private int mSkipBlocks;
+            public Pattern(int p0, int p1) {}
+            public int getEncryptBlocks() { return 0; }
+            public int getSkipBlocks() { return 0; }
+            public void set(int p0, int p1) {}
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OutputBufferInfo {
+    }
+
+    public static final class CryptoException extends java.lang.RuntimeException implements android.media.MediaDrmThrowable {
+        public static final int ERROR_FRAME_TOO_LARGE = 8;
+        public static final int ERROR_INSUFFICIENT_OUTPUT_PROTECTION = 4;
+        public static final int ERROR_INSUFFICIENT_SECURITY = 7;
+        public static final int ERROR_KEY_EXPIRED = 2;
+        public static final int ERROR_LOST_STATE = 9;
+        public static final int ERROR_NO_KEY = 1;
+        public static final int ERROR_RESOURCE_BUSY = 3;
+        public static final int ERROR_SESSION_NOT_OPENED = 5;
+        public static final int ERROR_UNSUPPORTED_OPERATION = 6;
+        private android.media.MediaCodec.CryptoInfo mCryptoInfo;
+        private final int mErrorCode = 0;
+        private final int mErrorContext = 0;
+        private final int mOemError = 0;
+        private final int mVendorError = 0;
+        public CryptoException(int p0, java.lang.String p1) { super(); }
+        public CryptoException(java.lang.String p0, int p1, int p2, int p3, int p4, android.media.MediaCodec.CryptoInfo p5) { super(); }
+        public android.media.MediaCodec.CryptoInfo getCryptoInfo() { return null; }
+        public int getErrorCode() { return 0; }
+        public int getErrorContext() { return 0; }
+        public int getOemError() { return 0; }
+        public int getVendorError() { return 0; }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface CryptoErrorCode {
+        }
+    }
+
+    public static interface OnFrameRenderedListener {
+        public void onFrameRendered(android.media.MediaCodec p0, long p1, long p2);
+    }
+
+    private static class BufferMap {
+        private final java.util.Map<java.lang.Integer, android.media.MediaCodec.BufferMap.CodecBuffer> mMap = null;
+        private BufferMap() {}
+        public void clear() {}
+        public void put(int p0, android.media.Image p1) {}
+        public void put(int p0, java.nio.ByteBuffer p1) {}
+        public void remove(int p0) {}
+
+        private static class CodecBuffer {
+            private java.nio.ByteBuffer mByteBuffer;
+            private android.media.Image mImage;
+            private CodecBuffer() {}
+            public void free() {}
+            public void setByteBuffer(java.nio.ByteBuffer p0) {}
+            public void setImage(android.media.Image p0) {}
+        }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BufferFlag {
+    }
+
     public static final class MetricsConstants {
         public static final java.lang.String CODEC = "android.media.mediacodec.codec";
         public static final java.lang.String ENCODER = "android.media.mediacodec.encoder";
@@ -430,16 +360,51 @@ public final class MediaCodec {
         private MetricsConstants() {}
     }
 
-    public static interface OnFirstTunnelFrameReadyListener {
-        public void onFirstTunnelFrameReady(android.media.MediaCodec p0);
+    public static abstract class Callback {
+        public Callback() {}
+        public void onCryptoError(android.media.MediaCodec p0, android.media.MediaCodec.CryptoException p1) {}
+        public abstract void onError(android.media.MediaCodec p0, android.media.MediaCodec.CodecException p1);
+        public abstract void onInputBufferAvailable(android.media.MediaCodec p0, int p1);
+        public void onMetricsFlushed(android.media.MediaCodec p0, android.os.PersistableBundle p1) {}
+        public abstract void onOutputBufferAvailable(android.media.MediaCodec p0, int p1, android.media.MediaCodec.BufferInfo p2);
+        public void onOutputBuffersAvailable(android.media.MediaCodec p0, int p1, java.util.ArrayDeque<android.media.MediaCodec.BufferInfo> p2) {}
+        public abstract void onOutputFormatChanged(android.media.MediaCodec p0, android.media.MediaFormat p1);
+        public void onRequiredResourcesChanged(android.media.MediaCodec p0) {}
     }
 
-    public static interface OnFrameRenderedListener {
-        public void onFrameRendered(android.media.MediaCodec p0, long p1, long p2);
+    static class PersistentSurface extends android.view.Surface {
+        private long mPersistentObject;
+        PersistentSurface() { super(); }
+        public void release() {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OutputBufferInfo {
+    public static final class CodecException extends java.lang.IllegalStateException {
+        private static final int ACTION_RECOVERABLE = 2;
+        private static final int ACTION_TRANSIENT = 1;
+        public static final int ERROR_INSUFFICIENT_RESOURCE = 1100;
+        public static final int ERROR_RECLAIMED = 1101;
+        private final int mActionCode = 0;
+        private final java.lang.String mDiagnosticInfo = null;
+        private final int mErrorCode = 0;
+        CodecException(int p0, int p1, java.lang.String p2) { super(); }
+        public java.lang.String getDiagnosticInfo() { return null; }
+        public int getErrorCode() { return 0; }
+        public boolean isRecoverable() { return false; }
+        public boolean isTransient() { return false; }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface ReasonCode {
+        }
+    }
+
+    public static final class BufferInfo {
+        public int flags;
+        public int offset;
+        public long presentationTimeUs;
+        public int size;
+        public BufferInfo() {}
+        public android.media.MediaCodec.BufferInfo dup() { return null; }
+        public void set(int p0, int p1, long p2, int p3) {}
     }
 
     public static final class OutputFrame {
@@ -471,6 +436,43 @@ public final class MediaCodec {
         void setLoaded(boolean p0) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConfigureFlag {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VideoScalingMode {
+    }
+
+    public static final class LinearBlock {
+        private static final java.util.concurrent.BlockingQueue<android.media.MediaCodec.LinearBlock> sPool = null;
+        private boolean mInternal;
+        private final java.lang.Object mLock = null;
+        private boolean mMappable;
+        private java.nio.ByteBuffer mMapped;
+        private long mNativeContext;
+        private boolean mValid;
+        private LinearBlock() {}
+        public static boolean isCodecCopyFreeCompatible(java.lang.String[] p0) { return false; }
+        private static native boolean native_checkCompatible(java.lang.String[] p0);
+        private native java.nio.ByteBuffer native_map();
+        private native void native_obtain(int p0, java.lang.String[] p1);
+        private native void native_recycle();
+        public static android.media.MediaCodec.LinearBlock obtain(int p0, java.lang.String[] p1) { return null; }
+        private void setInternalStateLocked(long p0, boolean p1) {}
+        protected void finalize() {}
+        public boolean isMappable() { return false; }
+        public java.nio.ByteBuffer map() { return null; }
+        public void recycle() {}
+    }
+
+    public class IncompatibleWithBlockModelException extends java.lang.RuntimeException {
+        IncompatibleWithBlockModelException(android.media.MediaCodec p0) { super(); }
+        IncompatibleWithBlockModelException(android.media.MediaCodec p0, java.lang.String p1) { super(); }
+        IncompatibleWithBlockModelException(android.media.MediaCodec p0, java.lang.String p1, java.lang.Throwable p2) { super(); }
+        IncompatibleWithBlockModelException(android.media.MediaCodec p0, java.lang.Throwable p1) { super(); }
+    }
+
     public static class ParameterDescriptor {
         private java.lang.String mName;
         private int mType;
@@ -481,10 +483,12 @@ public final class MediaCodec {
         public int hashCode() { return 0; }
     }
 
-    static class PersistentSurface extends android.view.Surface {
-        private long mPersistentObject;
-        PersistentSurface() { super(); }
-        public void release() {}
+    public static interface OnFirstTunnelFrameReadyListener {
+        public void onFirstTunnelFrameReady(android.media.MediaCodec p0);
+    }
+
+    public class InvalidBufferFlagsException extends java.lang.RuntimeException {
+        InvalidBufferFlagsException(android.media.MediaCodec p0, java.lang.String p1) { super(); }
     }
 
     public final class QueueRequest {
@@ -518,9 +522,5 @@ public final class MediaCodec {
         public android.media.MediaCodec.QueueRequest setMultiFrameLinearBlock(android.media.MediaCodec.LinearBlock p0, java.util.ArrayDeque<android.media.MediaCodec.BufferInfo> p1) { return null; }
         public android.media.MediaCodec.QueueRequest setPresentationTimeUs(long p0) { return null; }
         public android.media.MediaCodec.QueueRequest setStringParameter(java.lang.String p0, java.lang.String p1) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VideoScalingMode {
     }
 }

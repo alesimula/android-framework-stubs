@@ -14,6 +14,7 @@ public final class StartingWindowRemovalInfo implements android.os.Parcelable {
     public int taskId;
     public android.view.SurfaceControl windowAnimationLeash;
     public boolean windowlessSurface;
+    public boolean withTransition;
     public StartingWindowRemovalInfo() {}
     private StartingWindowRemovalInfo(android.os.Parcel p0) {}
     public int describeContents() { return 0; }

@@ -5,11 +5,11 @@ public class MessagingPropertyAnimator implements android.view.View.OnLayoutChan
     public static final android.view.animation.Interpolator ALPHA_OUT = null;
     private static final long APPEAR_ANIMATION_LENGTH = 210L;
     private static final com.android.internal.widget.ViewClippingUtil.ClippingParameters CLIPPING_PARAMETERS = null;
-    private static final int TAG_ALPHA_ANIMATOR = 16909738;
-    private static final int TAG_FIRST_LAYOUT = 16909739;
-    private static final int TAG_LAYOUT_TOP = 16909741;
-    private static final int TAG_TOP = 16909745;
-    private static final int TAG_TOP_ANIMATOR = 16909744;
+    private static final int TAG_ALPHA_ANIMATOR = 16909758;
+    private static final int TAG_FIRST_LAYOUT = 16909759;
+    private static final int TAG_LAYOUT_TOP = 16909761;
+    private static final int TAG_TOP = 16909765;
+    private static final int TAG_TOP_ANIMATOR = 16909764;
     private static final android.util.IntProperty<android.view.View> TOP = null;
     public MessagingPropertyAnimator() {}
     public static void fadeIn(android.view.View p0) {}

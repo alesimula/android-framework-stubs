@@ -36,6 +36,10 @@ public final class RcsContactUceCapability implements android.os.Parcelable {
     public static @interface CapabilityMechanism {
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SourceType {
+    }
+
     public static final class OptionsBuilder {
         private final android.telephony.ims.RcsContactUceCapability mCapabilities = null;
         public OptionsBuilder(android.net.Uri p0) {}
@@ -57,9 +61,5 @@ public final class RcsContactUceCapability implements android.os.Parcelable {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface RequestResult {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SourceType {
     }
 }

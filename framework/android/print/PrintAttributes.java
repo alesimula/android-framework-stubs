@@ -41,25 +41,6 @@ public final class PrintAttributes implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static final class Builder {
-        private final android.print.PrintAttributes mAttributes = null;
-        public Builder() {}
-        public android.print.PrintAttributes build() { return null; }
-        public android.print.PrintAttributes.Builder setColorMode(int p0) { return null; }
-        public android.print.PrintAttributes.Builder setDuplexMode(int p0) { return null; }
-        public android.print.PrintAttributes.Builder setMediaSize(android.print.PrintAttributes.MediaSize p0) { return null; }
-        public android.print.PrintAttributes.Builder setMinMargins(android.print.PrintAttributes.Margins p0) { return null; }
-        public android.print.PrintAttributes.Builder setResolution(android.print.PrintAttributes.Resolution p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface ColorMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface DuplexMode {
-    }
-
     public static final class Margins {
         public static final android.print.PrintAttributes.Margins NO_MARGINS = null;
         private final int mBottomMils = 0;
@@ -201,6 +182,10 @@ public final class PrintAttributes implements android.os.Parcelable {
         void writeToParcel(android.os.Parcel p0) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface ColorMode {
+    }
+
     public static final class Resolution {
         private final int mHorizontalDpi = 0;
         private final java.lang.String mId = null;
@@ -216,5 +201,20 @@ public final class PrintAttributes implements android.os.Parcelable {
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
         void writeToParcel(android.os.Parcel p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface DuplexMode {
+    }
+
+    public static final class Builder {
+        private final android.print.PrintAttributes mAttributes = null;
+        public Builder() {}
+        public android.print.PrintAttributes build() { return null; }
+        public android.print.PrintAttributes.Builder setColorMode(int p0) { return null; }
+        public android.print.PrintAttributes.Builder setDuplexMode(int p0) { return null; }
+        public android.print.PrintAttributes.Builder setMediaSize(android.print.PrintAttributes.MediaSize p0) { return null; }
+        public android.print.PrintAttributes.Builder setMinMargins(android.print.PrintAttributes.Margins p0) { return null; }
+        public android.print.PrintAttributes.Builder setResolution(android.print.PrintAttributes.Resolution p0) { return null; }
     }
 }

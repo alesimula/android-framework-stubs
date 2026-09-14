@@ -60,23 +60,6 @@ public final class SmsApplication {
     public static boolean shouldWriteMessageForPackageAsUser(java.lang.String p0, android.content.Context p1, android.os.UserHandle p2) { return false; }
     private static boolean tryFixExclusiveSmsAppops(android.content.Context p0, com.android.internal.telephony.SmsApplication.SmsApplicationData p1, boolean p2) { return false; }
 
-    public static class SmsApplicationData {
-        private java.lang.String mApplicationName;
-        private java.lang.String mMmsReceiverClass;
-        public java.lang.String mPackageName;
-        private java.lang.String mProviderChangedReceiverClass;
-        private java.lang.String mRespondViaMessageClass;
-        private java.lang.String mSendToClass;
-        private java.lang.String mSimFullReceiverClass;
-        private java.lang.String mSmsAppChangedReceiverClass;
-        private java.lang.String mSmsReceiverClass;
-        private int mUid;
-        public SmsApplicationData(java.lang.String p0, int p1) {}
-        public java.lang.String getApplicationName(android.content.Context p0) { return null; }
-        public boolean isComplete() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
     private static final class SmsPackageMonitor extends com.android.internal.telephony.PackageChangeReceiver {
         final android.content.Context mContext = null;
         public SmsPackageMonitor(android.content.Context p0) { super(); }
@@ -92,5 +75,22 @@ public final class SmsApplication {
         public SmsRoleListener(android.content.Context p0) {}
         private java.lang.String getSmsPackageName(android.os.UserHandle p0) { return null; }
         public void onRoleHoldersChanged(java.lang.String p0, android.os.UserHandle p1) {}
+    }
+
+    public static class SmsApplicationData {
+        private java.lang.String mApplicationName;
+        private java.lang.String mMmsReceiverClass;
+        public java.lang.String mPackageName;
+        private java.lang.String mProviderChangedReceiverClass;
+        private java.lang.String mRespondViaMessageClass;
+        private java.lang.String mSendToClass;
+        private java.lang.String mSimFullReceiverClass;
+        private java.lang.String mSmsAppChangedReceiverClass;
+        private java.lang.String mSmsReceiverClass;
+        private int mUid;
+        public SmsApplicationData(java.lang.String p0, int p1) {}
+        public java.lang.String getApplicationName(android.content.Context p0) { return null; }
+        public boolean isComplete() { return false; }
+        public java.lang.String toString() { return null; }
     }
 }

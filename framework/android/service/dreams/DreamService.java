@@ -13,10 +13,13 @@ public class DreamService extends android.app.Service implements android.view.Wi
     public static final java.lang.String DREAM_SERVICE = "dreams";
     static final java.lang.String EXTRA_DREAM_OVERLAY_COMPONENT = "android.service.dream.DreamService.dream_overlay_component";
     public static final java.lang.String SERVICE_INTERFACE = "android.service.dreams.DreamService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DreamService";
     private android.app.Activity mActivity;
     private boolean mCanDoze;
+    private final android.view.KeyEvent.Callback mConfirmKeyEventCallback = null;
     private boolean mDebug;
+    private boolean mDismissInteractiveDreamOnKey;
+    private boolean mDismissInteractiveDreamOnMouseMove;
     private java.lang.Runnable mDispatchAfterOnAttachedToWindow;
     private float mDozeScreenBrightness;
     private int mDozeScreenState;
@@ -32,6 +35,7 @@ public class DreamService extends android.app.Service implements android.view.Wi
     private final android.os.Handler mHandler = null;
     private final android.service.dreams.DreamService.Injector mInjector = null;
     private boolean mInteractive;
+    private final android.view.KeyEvent.DispatcherState mKeyDispatcherState = null;
     private android.service.dreams.IDreamOverlayCallback mOverlayCallback;
     private android.service.dreams.DreamOverlayConnectionHandler mOverlayConnection;
     private boolean mPreviewMode;
@@ -54,17 +58,21 @@ public class DreamService extends android.app.Service implements android.view.Wi
     private void comeToFront() {}
     private static android.content.ComponentName convertToComponentName(java.lang.String p0, android.content.pm.ServiceInfo p1, android.content.pm.PackageManager p2) { return null; }
     private void detach() {}
+    private boolean dreamSwitcherKeyboardEventsEnabled() { return false; }
     private static java.lang.CharSequence fetchDreamLabel(android.content.pm.PackageManager p0, android.content.res.Resources p1, android.content.pm.ServiceInfo p2, boolean p3) { return null; }
     private static android.content.pm.ServiceInfo fetchServiceInfo(android.content.Context p0, android.content.ComponentName p1) { return null; }
     private static boolean fetchShouldShowComplications(android.content.pm.PackageManager p0, android.content.pm.ServiceInfo p1) { return false; }
     public static android.service.dreams.DreamService.DreamMetadata getDreamMetadata(android.content.Context p0, android.content.pm.ServiceInfo p1) { return null; }
     public static android.service.dreams.DreamService.DreamMetadata getDreamMetadata(android.content.pm.PackageManager p0, android.content.pm.ServiceInfo p1) { return null; }
     private boolean getWindowFlagValue(int p0, boolean p1) { return false; }
+    private boolean handleConfirmKey(android.view.KeyEvent p0) { return false; }
     private boolean isCallerSystemUi() { return false; }
     private void onActivityCreated(android.service.dreams.DreamActivity p0, android.os.IBinder p1) {}
     private void onActivityDestroyed() {}
     private void onWindowCreated(android.view.Window p0) {}
     public static void setDreamOverlayComponent(android.content.Intent p0, android.content.ComponentName p1) {}
+    private boolean shouldWakeUpInteractiveDreamOnMouseMove(android.view.MotionEvent p0) { return false; }
+    private void triggerDreamSwitcherDialog() {}
     private void updateAccessibilityMessage() {}
     private void updateDoze() {}
     private void wakeUp(boolean p0) {}
@@ -149,18 +157,6 @@ public class DreamService extends android.app.Service implements android.view.Wi
         public void init(android.content.Context p0) {}
     }
 
-    public static final class DreamActivityCallbacks extends android.os.Binder {
-        private final android.os.IBinder mActivityDreamToken = null;
-        private java.lang.ref.WeakReference<android.service.dreams.DreamService> mService;
-        public DreamActivityCallbacks(android.os.IBinder p0, java.lang.ref.WeakReference<android.service.dreams.DreamService> p1) { super(); }
-        public void onActivityCreated(android.service.dreams.DreamActivity p0) {}
-        public void onActivityDestroyed() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface DreamCategory {
-    }
-
     public static final class DreamMetadata {
         public final int dreamCategory = 0;
         public final android.graphics.drawable.Drawable previewImage = null;
@@ -171,14 +167,16 @@ public class DreamService extends android.app.Service implements android.view.Wi
         public DreamMetadata(android.content.ComponentName p0, android.graphics.drawable.Drawable p1, int p2, boolean p3, int p4, boolean p5) {}
     }
 
-    static final class DreamServiceWrapper extends android.service.dreams.IDreamService.Stub {
-        final java.lang.ref.WeakReference<android.service.dreams.DreamService> mService = null;
-        DreamServiceWrapper(java.lang.ref.WeakReference<android.service.dreams.DreamService> p0) { super(); }
-        private void post(java.util.function.Consumer<android.service.dreams.DreamService> p0) {}
-        public void attach(android.os.IBinder p0, boolean p1, boolean p2, android.os.IRemoteCallback p3) {}
-        public void comeToFront() {}
-        public void detach() {}
-        public void wakeUp() {}
+    public static final class DreamActivityCallbacks extends android.os.Binder {
+        private final android.os.IBinder mActivityDreamToken = null;
+        private java.lang.ref.WeakReference<android.service.dreams.DreamService> mService;
+        public DreamActivityCallbacks(android.os.IBinder p0, java.lang.ref.WeakReference<android.service.dreams.DreamService> p1) { super(); }
+        public void onActivityCreated(android.service.dreams.DreamActivity p0) {}
+        public void onActivityDestroyed() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface DreamCategory {
     }
 
     public static interface Injector {
@@ -192,5 +190,15 @@ public class DreamService extends android.app.Service implements android.view.Wi
         public android.content.res.Resources getResources();
         public android.content.pm.ServiceInfo getServiceInfo();
         public void init(android.content.Context p0);
+    }
+
+    static final class DreamServiceWrapper extends android.service.dreams.IDreamService.Stub {
+        final java.lang.ref.WeakReference<android.service.dreams.DreamService> mService = null;
+        DreamServiceWrapper(java.lang.ref.WeakReference<android.service.dreams.DreamService> p0) { super(); }
+        private void post(java.util.function.Consumer<android.service.dreams.DreamService> p0) {}
+        public void attach(android.os.IBinder p0, boolean p1, boolean p2, android.os.IRemoteCallback p3) {}
+        public void comeToFront() {}
+        public void detach() {}
+        public void wakeUp() {}
     }
 }

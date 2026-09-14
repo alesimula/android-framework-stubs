@@ -17,12 +17,13 @@ public final class AssetManager implements java.lang.AutoCloseable {
     private static android.content.res.ApkAssets[] sSystemApkAssets;
     private static android.util.ArraySet<android.content.res.ApkAssets> sSystemApkAssetsSet;
     private android.content.res.ApkAssets[] mApkAssets;
+    private final java.lang.ref.Cleaner.Cleanable mCleanable = null;
     private android.content.res.loader.ResourcesLoader[] mLoaders;
     private java.util.concurrent.atomic.AtomicInteger mNumRefs;
     private long mObject;
     private final long[] mOffsets = null;
     private boolean mOpen;
-    private java.util.HashMap<java.lang.Long, java.lang.RuntimeException> mRefStacks;
+    private android.util.LongSparseArray<java.lang.RuntimeException> mRefStacks;
     private final android.util.TypedValue mValue = null;
     public AssetManager() {}
     private AssetManager(boolean p0) {}
@@ -32,12 +33,12 @@ public final class AssetManager implements java.lang.AutoCloseable {
     private void ensureOpenLocked() {}
     private void ensureValidLocked() {}
     public static native java.lang.String getAssetAllocations();
+    public static java.lang.ref.Cleaner getCleaner() { return null; }
     private static java.lang.String getFrameworkApkPath() { return null; }
     private static java.lang.String getFrameworkApkPath$ravenwood() { return null; }
     public static native int getGlobalAssetCount();
     public static native int getGlobalAssetManagerCount();
     public static android.content.res.AssetManager getSystem() { return null; }
-    static long getThemeFreeFunction() { return 0L; }
     private void incRefsLocked(long p0) {}
     private void invalidateCachesLocked(int p0) {}
     private static java.util.ArrayList<android.content.res.ApkAssets> loadAssets(java.util.ArrayList<android.app.ResourcesManager.ApkKey> p0) { return null; }
@@ -74,7 +75,6 @@ public final class AssetManager implements java.lang.AutoCloseable {
     private static native java.lang.String nativeGetResourceTypeName(long p0, int p1);
     private static native int nativeGetResourceValue(long p0, int p1, short p2, android.util.TypedValue p3, boolean p4);
     private static native int[] nativeGetStyleAttributes(long p0, int p1);
-    private static native long nativeGetThemeFreeFunction();
     private static native java.lang.String[] nativeList(long p0, java.lang.String p1) throws java.io.IOException;
     private static native long nativeOpenAsset(long p0, java.lang.String p1, int p2);
     private static native android.os.ParcelFileDescriptor nativeOpenAssetFd(long p0, java.lang.String p1, long[] p2) throws java.io.IOException;
@@ -91,6 +91,7 @@ public final class AssetManager implements java.lang.AutoCloseable {
     private static native void nativeThemeApplyStyle(long p0, long p1, int p2, boolean p3);
     private static native void nativeThemeCopy(long p0, long p1, long p2, long p3);
     private static native long nativeThemeCreate(long p0);
+    private static native void nativeThemeDestroy(long p0);
     private static native void nativeThemeDump(long p0, long p1, int p2, java.lang.String p3, java.lang.String p4);
     private static native int nativeThemeGetAttributeValue(long p0, long p1, int p2, android.util.TypedValue p3, boolean p4);
     static native int nativeThemeGetChangingConfigurations(long p0);
@@ -110,7 +111,6 @@ public final class AssetManager implements java.lang.AutoCloseable {
     long createTheme() { return 0L; }
     void dump(java.io.PrintWriter p0, java.lang.String p1) {}
     void dumpTheme(long p0, int p1, java.lang.String p2, java.lang.String p3) {}
-    protected void finalize() throws java.lang.Throwable {}
     public int findCookieForPath(java.lang.String p0) { return 0; }
     public android.content.res.ApkAssets[] getApkAssets() { return null; }
     public java.lang.String[] getApkPaths() { return null; }
@@ -171,14 +171,15 @@ public final class AssetManager implements java.lang.AutoCloseable {
     void xmlBlockGone(int p0) {}
 
     public final class AssetInputStream extends java.io.InputStream {
-        private long mAssetNativePtr;
+        private static final java.util.concurrent.atomic.AtomicLongFieldUpdater<android.content.res.AssetManager.AssetInputStream> sNativePtrUpdater = null;
+        private volatile long mAssetNativePtr;
+        private final java.lang.ref.Cleaner.Cleanable mCleanable = null;
         private long mLength;
         private long mMarkPos;
         private AssetInputStream(android.content.res.AssetManager p0, long p1) { super(); }
         private void ensureOpen() {}
         public final int available() throws java.io.IOException { return 0; }
         public final void close() throws java.io.IOException {}
-        protected void finalize() throws java.lang.Throwable {}
         public final int getAssetInt() { return 0; }
         public final long getNativeAsset() { return 0L; }
         public final void mark(int p0) {}
@@ -188,9 +189,17 @@ public final class AssetManager implements java.lang.AutoCloseable {
         public final int read(byte[] p0, int p1, int p2) throws java.io.IOException { return 0; }
         public final void reset() throws java.io.IOException {}
         public final long skip(long p0) throws java.io.IOException { return 0L; }
+
+        private static final class InputStreamDestroyer implements java.lang.Runnable {
+            private final android.content.res.AssetManager mAssetManager = null;
+            private long mAssetNativePtr;
+            private final int mStreamHashCode = 0;
+            InputStreamDestroyer(long p0, android.content.res.AssetManager p1, int p2) {}
+            public void run() {}
+        }
     }
 
-    public static class Builder {
+    public static final class Builder {
         private final java.util.ArrayList<android.content.res.loader.ResourcesLoader> mLoaders = null;
         private boolean mNoInit;
         private final java.util.ArrayList<android.content.res.ApkAssets> mUserApkAssets = null;
@@ -199,5 +208,14 @@ public final class AssetManager implements java.lang.AutoCloseable {
         public android.content.res.AssetManager.Builder addLoader(android.content.res.loader.ResourcesLoader p0) { return null; }
         public android.content.res.AssetManager build() { return null; }
         public android.content.res.AssetManager.Builder setNoInit() { return null; }
+    }
+
+    private static final class Destroyer implements java.lang.Runnable {
+        private final java.lang.String mAssetManagerString = null;
+        private long mNativePtr;
+        private final java.util.concurrent.atomic.AtomicInteger mNumRefs = null;
+        private final android.util.LongSparseArray<java.lang.RuntimeException> mRefStacks = null;
+        Destroyer(long p0, java.util.concurrent.atomic.AtomicInteger p1, android.util.LongSparseArray<java.lang.RuntimeException> p2, java.lang.String p3) {}
+        public void run() {}
     }
 }

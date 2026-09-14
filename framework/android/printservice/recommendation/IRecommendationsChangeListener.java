@@ -3,12 +3,6 @@ package android.printservice.recommendation;
 public interface IRecommendationsChangeListener extends android.os.IInterface {
     public void onRecommendationsChanged() throws android.os.RemoteException;
 
-    public static class Default implements android.printservice.recommendation.IRecommendationsChangeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onRecommendationsChanged() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.printservice.recommendation.IRecommendationsChangeListener {
         public static final java.lang.String DESCRIPTOR = "android.printservice.recommendation.IRecommendationsChangeListener";
         static final int TRANSACTION_onRecommendationsChanged = 1;
@@ -26,5 +20,11 @@ public interface IRecommendationsChangeListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onRecommendationsChanged() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.printservice.recommendation.IRecommendationsChangeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onRecommendationsChanged() throws android.os.RemoteException {}
     }
 }

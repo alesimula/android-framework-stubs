@@ -6,7 +6,7 @@ public final class SpellCheckerSubtype implements android.os.Parcelable {
     private static final java.lang.String EXTRA_VALUE_PAIR_SEPARATOR = ",";
     public static final int SUBTYPE_ID_NONE = 0;
     private static final java.lang.String SUBTYPE_LANGUAGE_TAG_NONE = "";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SpellCheckerSubtype";
     private java.util.HashMap<java.lang.String, java.lang.String> mExtraValueHashMapCache;
     private final java.lang.String mSubtypeExtraValue = null;
     private final int mSubtypeHashCode = 0;

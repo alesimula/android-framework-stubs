@@ -15,13 +15,13 @@ public final class CancellationSignal {
     public void setRemote(android.os.ICancellationSignal p0) {}
     public void throwIfCanceled() {}
 
-    public static interface OnCancelListener {
-        public void onCancel();
-    }
-
     private static final class Transport extends android.os.ICancellationSignal.Stub {
         final android.os.CancellationSignal mCancellationSignal = null;
         private Transport() { super(); }
         public void cancel() throws android.os.RemoteException {}
+    }
+
+    public static interface OnCancelListener {
+        public void onCancel();
     }
 }

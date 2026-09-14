@@ -19,25 +19,6 @@ public interface IThermal extends android.os.IInterface {
     public void unregisterCoolingDeviceChangedCallback(android.hardware.thermal.ICoolingDeviceChangedCallback p0) throws android.os.RemoteException;
     public void unregisterThermalChangedCallback(android.hardware.thermal.IThermalChangedCallback p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.thermal.IThermal {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public float forecastSkinTemperature(int p0) throws android.os.RemoteException { return 0.0f; }
-        public android.hardware.thermal.CoolingDevice[] getCoolingDevices() throws android.os.RemoteException { return null; }
-        public android.hardware.thermal.CoolingDevice[] getCoolingDevicesWithType(int p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public android.hardware.thermal.TemperatureThreshold[] getTemperatureThresholds() throws android.os.RemoteException { return null; }
-        public android.hardware.thermal.TemperatureThreshold[] getTemperatureThresholdsWithType(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.thermal.Temperature[] getTemperatures() throws android.os.RemoteException { return null; }
-        public android.hardware.thermal.Temperature[] getTemperaturesWithType(int p0) throws android.os.RemoteException { return null; }
-        public void registerCoolingDeviceChangedCallbackWithType(android.hardware.thermal.ICoolingDeviceChangedCallback p0, int p1) throws android.os.RemoteException {}
-        public void registerThermalChangedCallback(android.hardware.thermal.IThermalChangedCallback p0) throws android.os.RemoteException {}
-        public void registerThermalChangedCallbackWithType(android.hardware.thermal.IThermalChangedCallback p0, int p1) throws android.os.RemoteException {}
-        public void unregisterCoolingDeviceChangedCallback(android.hardware.thermal.ICoolingDeviceChangedCallback p0) throws android.os.RemoteException {}
-        public void unregisterThermalChangedCallback(android.hardware.thermal.IThermalChangedCallback p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.thermal.IThermal {
         static final int TRANSACTION_forecastSkinTemperature = 12;
         static final int TRANSACTION_getCoolingDevices = 1;
@@ -82,5 +63,24 @@ public interface IThermal extends android.os.IInterface {
             public void unregisterCoolingDeviceChangedCallback(android.hardware.thermal.ICoolingDeviceChangedCallback p0) throws android.os.RemoteException {}
             public void unregisterThermalChangedCallback(android.hardware.thermal.IThermalChangedCallback p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.thermal.IThermal {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public float forecastSkinTemperature(int p0) throws android.os.RemoteException { return 0.0f; }
+        public android.hardware.thermal.CoolingDevice[] getCoolingDevices() throws android.os.RemoteException { return null; }
+        public android.hardware.thermal.CoolingDevice[] getCoolingDevicesWithType(int p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public android.hardware.thermal.TemperatureThreshold[] getTemperatureThresholds() throws android.os.RemoteException { return null; }
+        public android.hardware.thermal.TemperatureThreshold[] getTemperatureThresholdsWithType(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.thermal.Temperature[] getTemperatures() throws android.os.RemoteException { return null; }
+        public android.hardware.thermal.Temperature[] getTemperaturesWithType(int p0) throws android.os.RemoteException { return null; }
+        public void registerCoolingDeviceChangedCallbackWithType(android.hardware.thermal.ICoolingDeviceChangedCallback p0, int p1) throws android.os.RemoteException {}
+        public void registerThermalChangedCallback(android.hardware.thermal.IThermalChangedCallback p0) throws android.os.RemoteException {}
+        public void registerThermalChangedCallbackWithType(android.hardware.thermal.IThermalChangedCallback p0, int p1) throws android.os.RemoteException {}
+        public void unregisterCoolingDeviceChangedCallback(android.hardware.thermal.ICoolingDeviceChangedCallback p0) throws android.os.RemoteException {}
+        public void unregisterThermalChangedCallback(android.hardware.thermal.IThermalChangedCallback p0) throws android.os.RemoteException {}
     }
 }

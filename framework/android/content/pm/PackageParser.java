@@ -189,6 +189,29 @@ public class PackageParser {
     public void setOnlyCoreApps(boolean p0) {}
     public void setSeparateProcesses(java.lang.String[] p0) {}
 
+    public static abstract class Component<II extends android.content.pm.PackageParser.IntentInfo> {
+        public final java.lang.String className = null;
+        android.content.ComponentName componentName;
+        java.lang.String componentShortName;
+        public final java.util.ArrayList<II> intents = null;
+        public android.os.Bundle metaData;
+        public int order;
+        public android.content.pm.PackageParser.Package owner;
+        public Component(android.content.pm.PackageParser.Component<II> p0) {}
+        public Component(android.content.pm.PackageParser.Package p0) {}
+        public Component(android.content.pm.PackageParser.Package p0, java.util.ArrayList<II> p1, java.lang.String p2) {}
+        public Component(android.content.pm.PackageParser.ParseComponentArgs p0, android.content.pm.ComponentInfo p1) {}
+        public Component(android.content.pm.PackageParser.ParsePackageItemArgs p0, android.content.pm.PackageItemInfo p1) {}
+        protected Component(android.os.Parcel p0) {}
+        private static <T extends android.content.pm.PackageParser.IntentInfo> java.util.ArrayList<T> createIntentsList(android.os.Parcel p0) { return null; }
+        private static void writeIntentsList(java.util.ArrayList<? extends android.content.pm.PackageParser.IntentInfo> p0, android.os.Parcel p1, int p2) {}
+        public void appendComponentShortName(java.lang.StringBuilder p0) {}
+        public android.content.ComponentName getComponentName() { return null; }
+        public void printComponentShortName(java.io.PrintWriter p0) {}
+        public void setPackageName(java.lang.String p0) {}
+        protected void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static final class Activity extends android.content.pm.PackageParser.Component<android.content.pm.PackageParser.ActivityIntentInfo> implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator CREATOR = null;
         public final android.content.pm.ActivityInfo info = null;
@@ -205,6 +228,19 @@ public class PackageParser {
         public void setPackageName(java.lang.String p0) {}
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static abstract class IntentInfo extends android.content.IntentFilter {
+        public int banner;
+        public boolean hasDefault;
+        public int icon;
+        public int labelRes;
+        public int logo;
+        public java.lang.CharSequence nonLocalizedLabel;
+        public int preferred;
+        protected IntentInfo() { super(); }
+        protected IntentInfo(android.os.Parcel p0) { super(); }
+        public void writeIntentInfoToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static final class ActivityIntentInfo extends android.content.pm.PackageParser.IntentInfo {
@@ -264,27 +300,11 @@ public class PackageParser {
         public boolean hasFeature(java.lang.String p0) { return false; }
     }
 
-    public static abstract class Component<II extends android.content.pm.PackageParser.IntentInfo> {
-        public final java.lang.String className = null;
-        android.content.ComponentName componentName;
-        java.lang.String componentShortName;
-        public final java.util.ArrayList<II> intents = null;
-        public android.os.Bundle metaData;
-        public int order;
-        public android.content.pm.PackageParser.Package owner;
-        public Component(android.content.pm.PackageParser.Component<II> p0) {}
-        public Component(android.content.pm.PackageParser.Package p0) {}
-        public Component(android.content.pm.PackageParser.Package p0, java.util.ArrayList<II> p1, java.lang.String p2) {}
-        public Component(android.content.pm.PackageParser.ParseComponentArgs p0, android.content.pm.ComponentInfo p1) {}
-        public Component(android.content.pm.PackageParser.ParsePackageItemArgs p0, android.content.pm.PackageItemInfo p1) {}
-        protected Component(android.os.Parcel p0) {}
-        private static <T extends android.content.pm.PackageParser.IntentInfo> java.util.ArrayList<T> createIntentsList(android.os.Parcel p0) { return null; }
-        private static void writeIntentsList(java.util.ArrayList<? extends android.content.pm.PackageParser.IntentInfo> p0, android.os.Parcel p1, int p2) {}
-        public void appendComponentShortName(java.lang.StringBuilder p0) {}
-        public android.content.ComponentName getComponentName() { return null; }
-        public void printComponentShortName(java.io.PrintWriter p0) {}
-        public void setPackageName(java.lang.String p0) {}
-        protected void writeToParcel(android.os.Parcel p0, int p1) {}
+    @java.lang.Deprecated
+    private static interface SplitAssetLoader extends java.lang.AutoCloseable {
+        public android.content.res.ApkAssets getBaseApkAssets();
+        public android.content.res.AssetManager getBaseAssetManager() throws android.content.pm.PackageParser.PackageParserException;
+        public android.content.res.AssetManager getSplitAssetManager(int p0) throws android.content.pm.PackageParser.PackageParserException;
     }
 
     @java.lang.Deprecated
@@ -311,19 +331,6 @@ public class PackageParser {
         public void setPackageName(java.lang.String p0) {}
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static abstract class IntentInfo extends android.content.IntentFilter {
-        public int banner;
-        public boolean hasDefault;
-        public int icon;
-        public int labelRes;
-        public int logo;
-        public java.lang.CharSequence nonLocalizedLabel;
-        public int preferred;
-        protected IntentInfo() { super(); }
-        protected IntentInfo(android.os.Parcel p0) { super(); }
-        public void writeIntentInfoToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static class NewPermissionInfo {
@@ -485,19 +492,6 @@ public class PackageParser {
         public PackageParserException(int p0, java.lang.String p1, java.lang.Throwable p2) { super(); }
     }
 
-    public static class ParseComponentArgs extends android.content.pm.PackageParser.ParsePackageItemArgs {
-        final int descriptionRes = 0;
-        final int enabledRes = 0;
-        int flags;
-        final int processRes = 0;
-        final java.lang.String[] sepProcesses = null;
-        public ParseComponentArgs(android.content.pm.PackageParser.Package p0, java.lang.String[] p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String[] p8, int p9, int p10, int p11) { super(null, null, 0, 0, 0, 0, 0, 0); }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ParseFlags {
-    }
-
     static class ParsePackageItemArgs {
         final int bannerRes = 0;
         final int iconRes = 0;
@@ -510,6 +504,19 @@ public class PackageParser {
         android.content.res.TypedArray sa;
         java.lang.String tag;
         ParsePackageItemArgs(android.content.pm.PackageParser.Package p0, java.lang.String[] p1, int p2, int p3, int p4, int p5, int p6, int p7) {}
+    }
+
+    public static class ParseComponentArgs extends android.content.pm.PackageParser.ParsePackageItemArgs {
+        final int descriptionRes = 0;
+        final int enabledRes = 0;
+        int flags;
+        final int processRes = 0;
+        final java.lang.String[] sepProcesses = null;
+        public ParseComponentArgs(android.content.pm.PackageParser.Package p0, java.lang.String[] p1, int p2, int p3, int p4, int p5, int p6, int p7, java.lang.String[] p8, int p9, int p10, int p11) { super(null, null, 0, 0, 0, 0, 0, 0); }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ParseFlags {
     }
 
     public static final class Permission extends android.content.pm.PackageParser.Component<android.content.pm.PackageParser.IntentInfo> implements android.os.Parcelable {
@@ -646,6 +653,22 @@ public class PackageParser {
     }
 
     @java.lang.Deprecated
+    private static abstract class SplitDependencyLoader<E extends java.lang.Exception> {
+        private final android.util.SparseArray<int[]> mDependencies = null;
+        protected SplitDependencyLoader(android.util.SparseArray<int[]> p0) {}
+        private static int[] append(int[] p0, int p1) { return null; }
+        private int[] collectConfigSplitIndices(int p0) { return null; }
+        public static android.util.SparseArray<int[]> createDependenciesFromPackage(android.content.pm.PackageParser.PackageLite p0) throws android.content.pm.PackageParser.SplitDependencyLoader.IllegalDependencyException { return null; }
+        protected abstract void constructSplit(int p0, int[] p1, int p2) throws E;
+        protected abstract boolean isSplitCached(int p0);
+        protected void loadDependenciesForSplit(int p0) throws E {}
+
+        public static class IllegalDependencyException extends java.lang.Exception {
+            private IllegalDependencyException(java.lang.String p0) { super(); }
+        }
+    }
+
+    @java.lang.Deprecated
     private static class SplitAssetDependencyLoader extends android.content.pm.PackageParser.SplitDependencyLoader<android.content.pm.PackageParser.PackageParserException> implements android.content.pm.PackageParser.SplitAssetLoader {
         private final android.content.res.AssetManager[] mCachedAssetManagers = null;
         private final android.content.res.ApkAssets[][] mCachedSplitApks = null;
@@ -660,29 +683,6 @@ public class PackageParser {
         public android.content.res.AssetManager getBaseAssetManager() throws android.content.pm.PackageParser.PackageParserException { return null; }
         public android.content.res.AssetManager getSplitAssetManager(int p0) throws android.content.pm.PackageParser.PackageParserException { return null; }
         protected boolean isSplitCached(int p0) { return false; }
-    }
-
-    @java.lang.Deprecated
-    private static interface SplitAssetLoader extends java.lang.AutoCloseable {
-        public android.content.res.ApkAssets getBaseApkAssets();
-        public android.content.res.AssetManager getBaseAssetManager() throws android.content.pm.PackageParser.PackageParserException;
-        public android.content.res.AssetManager getSplitAssetManager(int p0) throws android.content.pm.PackageParser.PackageParserException;
-    }
-
-    @java.lang.Deprecated
-    private static abstract class SplitDependencyLoader<E extends java.lang.Exception> {
-        private final android.util.SparseArray<int[]> mDependencies = null;
-        protected SplitDependencyLoader(android.util.SparseArray<int[]> p0) {}
-        private static int[] append(int[] p0, int p1) { return null; }
-        private int[] collectConfigSplitIndices(int p0) { return null; }
-        public static android.util.SparseArray<int[]> createDependenciesFromPackage(android.content.pm.PackageParser.PackageLite p0) throws android.content.pm.PackageParser.SplitDependencyLoader.IllegalDependencyException { return null; }
-        protected abstract void constructSplit(int p0, int[] p1, int p2) throws E;
-        protected abstract boolean isSplitCached(int p0);
-        protected void loadDependenciesForSplit(int p0) throws E {}
-
-        public static class IllegalDependencyException extends java.lang.Exception {
-            private IllegalDependencyException(java.lang.String p0) { super(); }
-        }
     }
 
     private static class SplitNameComparator implements java.util.Comparator<java.lang.String> {

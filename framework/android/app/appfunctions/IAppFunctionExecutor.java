@@ -4,12 +4,6 @@ public interface IAppFunctionExecutor extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.app.appfunctions.IAppFunctionExecutor";
     public void execute(android.app.appfunctions.ExecuteAppFunctionRequest p0, android.app.appfunctions.ICancellationCallback p1, android.app.appfunctions.IExecuteAppFunctionCallback p2) throws android.os.RemoteException;
 
-    public static class Default implements android.app.appfunctions.IAppFunctionExecutor {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void execute(android.app.appfunctions.ExecuteAppFunctionRequest p0, android.app.appfunctions.ICancellationCallback p1, android.app.appfunctions.IExecuteAppFunctionCallback p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.appfunctions.IAppFunctionExecutor {
         static final int TRANSACTION_execute = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IAppFunctionExecutor extends android.os.IInterface {
             public void execute(android.app.appfunctions.ExecuteAppFunctionRequest p0, android.app.appfunctions.ICancellationCallback p1, android.app.appfunctions.IExecuteAppFunctionCallback p2) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.app.appfunctions.IAppFunctionExecutor {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void execute(android.app.appfunctions.ExecuteAppFunctionRequest p0, android.app.appfunctions.ICancellationCallback p1, android.app.appfunctions.IExecuteAppFunctionCallback p2) throws android.os.RemoteException {}
     }
 }

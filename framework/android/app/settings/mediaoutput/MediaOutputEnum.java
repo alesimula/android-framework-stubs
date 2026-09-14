@@ -6,8 +6,6 @@ public final class MediaOutputEnum {
     public static final int BLUETOOTH_A2DP = 302;
     public static final int BLUETOOTH_HEARING_AID = 301;
     public static final int BUILTIN_SPEAKER = 1;
-    public static final int DEVICE_SUGGESTION_APP = 2;
-    public static final int DEVICE_SUGGESTION_OTHER = 3;
     public static final int ERROR = 0;
     public static final int INVALID_COMMAND = 5;
     public static final int NETWORK_ERROR = 3;
@@ -19,11 +17,13 @@ public final class MediaOutputEnum {
     public static final int REMOTE_SINGLE = 400;
     public static final int REMOTE_SPEAKER = 402;
     public static final int REMOTE_TV = 401;
-    public static final int ROUTE_LISTING_PREFERENCE = 1;
     public static final int ROUTE_NOT_AVAILABLE = 4;
+    public static final int SUGGESTION_PROVIDER_DEVICE_SUGGESTIONS_API_APP = 2;
+    public static final int SUGGESTION_PROVIDER_DEVICE_SUGGESTIONS_API_OTHER = 3;
+    public static final int SUGGESTION_PROVIDER_ROUTE_LISTING_PREFERENCE = 1;
+    public static final int SUGGESTION_PROVIDER_UNSPECIFIED = 0;
     public static final int UNKNOWN_ERROR = 0;
     public static final int UNKNOWN_TYPE = 0;
-    public static final int UNSPECIFIED = 0;
     public static final int USB_C_ACCESSORY = 203;
     public static final int USB_C_AUDIO = 200;
     public static final int USB_C_DEVICE = 201;

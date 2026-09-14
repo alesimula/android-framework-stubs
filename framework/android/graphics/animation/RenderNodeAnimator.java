@@ -86,6 +86,11 @@ public class RenderNodeAnimator extends android.animation.Animator {
     public void setViewListener(android.graphics.animation.RenderNodeAnimator.ViewListener p0) {}
     public void start() {}
 
+    public static interface ViewListener {
+        public void invalidateParent(boolean p0);
+        public void onAlphaAnimationStart(float p0);
+    }
+
     private static class DelayedAnimationHelper implements android.view.Choreographer.VsyncCallback {
         private boolean mCallbackScheduled;
         private final android.view.Choreographer mChoreographer = null;
@@ -95,10 +100,5 @@ public class RenderNodeAnimator extends android.animation.Animator {
         public void addDelayedAnimation(android.graphics.animation.RenderNodeAnimator p0) {}
         public void onVsync(android.view.Choreographer.FrameData p0) {}
         public void removeDelayedAnimation(android.graphics.animation.RenderNodeAnimator p0) {}
-    }
-
-    public static interface ViewListener {
-        public void invalidateParent(boolean p0);
-        public void onAlphaAnimationStart(float p0);
     }
 }

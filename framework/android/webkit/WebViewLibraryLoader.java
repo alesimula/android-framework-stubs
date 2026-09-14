@@ -4,7 +4,7 @@ public class WebViewLibraryLoader {
     private static final java.lang.String CHROMIUM_WEBVIEW_NATIVE_RELRO_32 = "/data/misc/shared_relro/libwebviewchromium32.relro";
     private static final java.lang.String CHROMIUM_WEBVIEW_NATIVE_RELRO_64 = "/data/misc/shared_relro/libwebviewchromium64.relro";
     private static final boolean DEBUG = false;
-    private static final java.lang.String LOGTAG = null;
+    private static final java.lang.String LOGTAG = "WebViewLibraryLoader";
     private static boolean sAddressSpaceReserved;
     public WebViewLibraryLoader() {}
     static void createRelroFile(boolean p0, java.lang.String p1, java.lang.String p2) {}

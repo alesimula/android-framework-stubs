@@ -1,7 +1,7 @@
 package android.widget;
 
 public class NumberPicker extends android.widget.LinearLayout {
-    private static final int DEFAULT_LAYOUT_RESOURCE_ID = 17367280;
+    private static final int DEFAULT_LAYOUT_RESOURCE_ID = 17367282;
     private static final long DEFAULT_LONG_PRESS_UPDATE_INTERVAL = 300L;
     private static final char[] DIGIT_CHARACTERS = null;
     private static final int SELECTOR_ADJUSTMENT_DURATION_MILLIS = 800;
@@ -157,74 +157,6 @@ public class NumberPicker extends android.widget.LinearLayout {
     public void setValue(int p0) {}
     public void setWrapSelectorWheel(boolean p0) {}
 
-    class AccessibilityNodeProviderImpl extends android.view.accessibility.AccessibilityNodeProvider {
-        private static final int UNDEFINED = -2147483648;
-        private static final int VIRTUAL_VIEW_ID_DECREMENT = 3;
-        private static final int VIRTUAL_VIEW_ID_INCREMENT = 1;
-        private static final int VIRTUAL_VIEW_ID_INPUT = 2;
-        private int mAccessibilityFocusedView;
-        private final int[] mTempArray = null;
-        private final android.graphics.Rect mTempRect = null;
-        AccessibilityNodeProviderImpl(android.widget.NumberPicker p0) { super(); }
-        private android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfoForNumberPicker(int p0, int p1, int p2, int p3) { return null; }
-        private android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfoForVirtualButton(int p0, java.lang.String p1, int p2, int p3, int p4, int p5) { return null; }
-        private android.view.accessibility.AccessibilityNodeInfo createAccessibiltyNodeInfoForInputText(int p0, int p1, int p2, int p3) { return null; }
-        private void findAccessibilityNodeInfosByTextInChild(java.lang.String p0, int p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2) {}
-        private java.lang.String getVirtualDecrementButtonText() { return null; }
-        private java.lang.String getVirtualIncrementButtonText() { return null; }
-        private boolean hasVirtualDecrementButton() { return false; }
-        private boolean hasVirtualIncrementButton() { return false; }
-        private void sendAccessibilityEventForVirtualButton(int p0, int p1, java.lang.String p2) {}
-        private void sendAccessibilityEventForVirtualText(int p0) {}
-        public android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfo(int p0) { return null; }
-        public java.util.List<android.view.accessibility.AccessibilityNodeInfo> findAccessibilityNodeInfosByText(java.lang.String p0, int p1) { return null; }
-        public boolean performAction(int p0, int p1, android.os.Bundle p2) { return false; }
-        public void sendAccessibilityEventForVirtualView(int p0, int p1) {}
-    }
-
-    class BeginSoftInputOnLongPressCommand implements java.lang.Runnable {
-        BeginSoftInputOnLongPressCommand(android.widget.NumberPicker p0) {}
-        public void run() {}
-    }
-
-    class ChangeCurrentByOneFromLongPressCommand implements java.lang.Runnable {
-        private boolean mIncrement;
-        ChangeCurrentByOneFromLongPressCommand(android.widget.NumberPicker p0) {}
-        private void setStep(boolean p0) {}
-        public void run() {}
-    }
-
-    public static class CustomEditText extends android.widget.EditText {
-        public CustomEditText(android.content.Context p0, android.util.AttributeSet p1) { super((android.content.Context)null); }
-        public void onEditorAction(int p0) {}
-    }
-
-    public static interface Formatter {
-        public java.lang.String format(int p0);
-    }
-
-    class InputTextFilter extends android.text.method.NumberKeyListener {
-        InputTextFilter(android.widget.NumberPicker p0) { super(); }
-        public java.lang.CharSequence filter(java.lang.CharSequence p0, int p1, int p2, android.text.Spanned p3, int p4, int p5) { return null; }
-        protected char[] getAcceptedChars() { return null; }
-        public int getInputType() { return 0; }
-    }
-
-    public static interface OnScrollListener {
-        public static final int SCROLL_STATE_FLING = 2;
-        public static final int SCROLL_STATE_IDLE = 0;
-        public static final int SCROLL_STATE_TOUCH_SCROLL = 1;
-        public void onScrollStateChange(android.widget.NumberPicker p0, int p1);
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface ScrollState {
-        }
-    }
-
-    public static interface OnValueChangeListener {
-        public void onValueChange(android.widget.NumberPicker p0, int p1, int p2);
-    }
-
     class PressedStateHelper implements java.lang.Runnable {
         public static final int BUTTON_DECREMENT = 2;
         public static final int BUTTON_INCREMENT = 1;
@@ -260,5 +192,73 @@ public class NumberPicker extends android.widget.LinearLayout {
         private static char getZeroDigit(java.util.Locale p0) { return 0; }
         private void init(java.util.Locale p0) {}
         public java.lang.String format(int p0) { return null; }
+    }
+
+    public static class CustomEditText extends android.widget.EditText {
+        public CustomEditText(android.content.Context p0, android.util.AttributeSet p1) { super((android.content.Context)null); }
+        public void onEditorAction(int p0) {}
+    }
+
+    class InputTextFilter extends android.text.method.NumberKeyListener {
+        InputTextFilter(android.widget.NumberPicker p0) { super(); }
+        public java.lang.CharSequence filter(java.lang.CharSequence p0, int p1, int p2, android.text.Spanned p3, int p4, int p5) { return null; }
+        protected char[] getAcceptedChars() { return null; }
+        public int getInputType() { return 0; }
+    }
+
+    class BeginSoftInputOnLongPressCommand implements java.lang.Runnable {
+        BeginSoftInputOnLongPressCommand(android.widget.NumberPicker p0) {}
+        public void run() {}
+    }
+
+    public static interface OnValueChangeListener {
+        public void onValueChange(android.widget.NumberPicker p0, int p1, int p2);
+    }
+
+    class ChangeCurrentByOneFromLongPressCommand implements java.lang.Runnable {
+        private boolean mIncrement;
+        ChangeCurrentByOneFromLongPressCommand(android.widget.NumberPicker p0) {}
+        private void setStep(boolean p0) {}
+        public void run() {}
+    }
+
+    public static interface OnScrollListener {
+        public static final int SCROLL_STATE_FLING = 2;
+        public static final int SCROLL_STATE_IDLE = 0;
+        public static final int SCROLL_STATE_TOUCH_SCROLL = 1;
+        public void onScrollStateChange(android.widget.NumberPicker p0, int p1);
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface ScrollState {
+        }
+    }
+
+    public static interface Formatter {
+        public java.lang.String format(int p0);
+    }
+
+    class AccessibilityNodeProviderImpl extends android.view.accessibility.AccessibilityNodeProvider {
+        private static final int UNDEFINED = -2147483648;
+        private static final int VIRTUAL_VIEW_ID_DECREMENT = 3;
+        private static final int VIRTUAL_VIEW_ID_INCREMENT = 1;
+        private static final int VIRTUAL_VIEW_ID_INPUT = 2;
+        private int mAccessibilityFocusedView;
+        private final int[] mTempArray = null;
+        private final android.graphics.Rect mTempRect = null;
+        AccessibilityNodeProviderImpl(android.widget.NumberPicker p0) { super(); }
+        private android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfoForNumberPicker(int p0, int p1, int p2, int p3) { return null; }
+        private android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfoForVirtualButton(int p0, java.lang.String p1, int p2, int p3, int p4, int p5) { return null; }
+        private android.view.accessibility.AccessibilityNodeInfo createAccessibiltyNodeInfoForInputText(int p0, int p1, int p2, int p3) { return null; }
+        private void findAccessibilityNodeInfosByTextInChild(java.lang.String p0, int p1, java.util.List<android.view.accessibility.AccessibilityNodeInfo> p2) {}
+        private java.lang.String getVirtualDecrementButtonText() { return null; }
+        private java.lang.String getVirtualIncrementButtonText() { return null; }
+        private boolean hasVirtualDecrementButton() { return false; }
+        private boolean hasVirtualIncrementButton() { return false; }
+        private void sendAccessibilityEventForVirtualButton(int p0, int p1, java.lang.String p2) {}
+        private void sendAccessibilityEventForVirtualText(int p0) {}
+        public android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfo(int p0) { return null; }
+        public java.util.List<android.view.accessibility.AccessibilityNodeInfo> findAccessibilityNodeInfosByText(java.lang.String p0, int p1) { return null; }
+        public boolean performAction(int p0, int p1, android.os.Bundle p2) { return false; }
+        public void sendAccessibilityEventForVirtualView(int p0, int p1) {}
     }
 }

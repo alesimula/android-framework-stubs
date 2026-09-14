@@ -34,13 +34,13 @@ public abstract class AbstractResolverComparator implements java.util.Comparator
     final void updateChooserCounts(java.lang.String p0, android.os.UserHandle p1, java.lang.String p2) {}
     void updateModel(com.android.internal.app.chooser.TargetInfo p0) {}
 
-    static interface AfterCompute {
-        public void afterCompute();
-    }
-
     class AzInfoComparator implements java.util.Comparator<android.content.pm.ResolveInfo> {
         java.text.Collator mCollator;
         AzInfoComparator(com.android.internal.app.AbstractResolverComparator p0, android.content.Context p1) {}
         public int compare(android.content.pm.ResolveInfo p0, android.content.pm.ResolveInfo p1) { return 0; }
+    }
+
+    static interface AfterCompute {
+        public void afterCompute();
     }
 }

@@ -33,32 +33,6 @@ public final class AudioHalCapParameter implements android.os.Parcelable {
     public void setStreamVolumeProfile(android.media.audio.common.AudioHalCapParameter.StreamVolumeProfile p0) {}
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static class InputSourceDevice implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.audio.common.AudioHalCapParameter.InputSourceDevice> CREATOR = null;
-        public android.media.audio.common.AudioDeviceDescription device;
-        public int inputSource;
-        public boolean isSelected;
-        public InputSourceDevice() {}
-        private int describeContents(java.lang.Object p0) { return 0; }
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class StrategyDevice implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.media.audio.common.AudioHalCapParameter.StrategyDevice> CREATOR = null;
-        public android.media.audio.common.AudioDeviceDescription device;
-        public int id;
-        public boolean isSelected;
-        public StrategyDevice() {}
-        private int describeContents(java.lang.Object p0) { return 0; }
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class StrategyDeviceAddress implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.audio.common.AudioHalCapParameter.StrategyDeviceAddress> CREATOR = null;
         public android.media.audio.common.AudioDeviceAddress deviceAddress;
@@ -82,10 +56,36 @@ public final class AudioHalCapParameter implements android.os.Parcelable {
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
+    public static class InputSourceDevice implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.audio.common.AudioHalCapParameter.InputSourceDevice> CREATOR = null;
+        public android.media.audio.common.AudioDeviceDescription device;
+        public int inputSource;
+        public boolean isSelected;
+        public InputSourceDevice() {}
+        private int describeContents(java.lang.Object p0) { return 0; }
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static @interface Tag {
         public static final int selectedInputSourceDevice = 1;
         public static final int selectedStrategyDevice = 0;
         public static final int strategyDeviceAddress = 2;
         public static final int streamVolumeProfile = 3;
+    }
+
+    public static class StrategyDevice implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.media.audio.common.AudioHalCapParameter.StrategyDevice> CREATOR = null;
+        public android.media.audio.common.AudioDeviceDescription device;
+        public int id;
+        public boolean isSelected;
+        public StrategyDevice() {}
+        private int describeContents(java.lang.Object p0) { return 0; }
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

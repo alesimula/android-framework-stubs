@@ -12,6 +12,7 @@ public final class AppProtoEnums {
     public static final int BROADCAST_DELIVERY_GROUP_POLICY_MOST_RECENT = 1;
     public static final int BROADCAST_TYPE_ALARM = 4;
     public static final int BROADCAST_TYPE_BACKGROUND = 1;
+    public static final int BROADCAST_TYPE_CROSS_APP_PENDING_INTENT = 16384;
     public static final int BROADCAST_TYPE_DEFERRABLE_UNTIL_ACTIVE = 128;
     public static final int BROADCAST_TYPE_FOREGROUND = 2;
     public static final int BROADCAST_TYPE_INITIAL_STICKY = 2048;

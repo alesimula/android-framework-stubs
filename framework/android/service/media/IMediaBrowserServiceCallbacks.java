@@ -6,15 +6,6 @@ public interface IMediaBrowserServiceCallbacks extends android.os.IInterface {
     public void onDisconnect() throws android.os.RemoteException;
     public void onLoadChildren(java.lang.String p0, android.content.pm.ParceledListSlice p1, android.os.Bundle p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.media.IMediaBrowserServiceCallbacks {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnect(java.lang.String p0, android.media.session.MediaSession.Token p1, android.os.Bundle p2) throws android.os.RemoteException {}
-        public void onConnectFailed() throws android.os.RemoteException {}
-        public void onDisconnect() throws android.os.RemoteException {}
-        public void onLoadChildren(java.lang.String p0, android.content.pm.ParceledListSlice p1, android.os.Bundle p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.media.IMediaBrowserServiceCallbacks {
         public static final java.lang.String DESCRIPTOR = "android.service.media.IMediaBrowserServiceCallbacks";
         static final int TRANSACTION_onConnect = 1;
@@ -38,5 +29,14 @@ public interface IMediaBrowserServiceCallbacks extends android.os.IInterface {
             public void onDisconnect() throws android.os.RemoteException {}
             public void onLoadChildren(java.lang.String p0, android.content.pm.ParceledListSlice p1, android.os.Bundle p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.media.IMediaBrowserServiceCallbacks {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnect(java.lang.String p0, android.media.session.MediaSession.Token p1, android.os.Bundle p2) throws android.os.RemoteException {}
+        public void onConnectFailed() throws android.os.RemoteException {}
+        public void onDisconnect() throws android.os.RemoteException {}
+        public void onLoadChildren(java.lang.String p0, android.content.pm.ParceledListSlice p1, android.os.Bundle p2) throws android.os.RemoteException {}
     }
 }

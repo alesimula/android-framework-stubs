@@ -2,11 +2,6 @@ package com.android.ims.internal;
 
 public interface IImsRcsFeature extends android.os.IInterface {
 
-    public static class Default implements com.android.ims.internal.IImsRcsFeature {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsRcsFeature {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsRcsFeature";
         public Stub() { super(); }
@@ -22,5 +17,10 @@ public interface IImsRcsFeature extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsRcsFeature {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

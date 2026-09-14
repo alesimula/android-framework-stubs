@@ -213,15 +213,72 @@ public class ChooserActivity extends com.android.internal.app.ResolverActivity i
     public void startSelected(int p0, boolean p1, boolean p2) {}
     void updateModelAndChooserCounts(com.android.internal.app.chooser.TargetInfo p0) {}
 
-    static class AzInfoComparator implements java.util.Comparator<com.android.internal.app.chooser.DisplayResolveInfo> {
-        java.util.Comparator<com.android.internal.app.chooser.DisplayResolveInfo> mComparator;
-        AzInfoComparator(android.content.Context p0) {}
-        public int compare(com.android.internal.app.chooser.DisplayResolveInfo p0, com.android.internal.app.chooser.DisplayResolveInfo p1) { return 0; }
+    private static class FinishAnimation extends android.view.animation.AlphaAnimation implements android.view.animation.Animation.AnimationListener {
+        private android.app.Activity mActivity;
+        private final float mFromAlpha = 0.0f;
+        private android.view.View mRootView;
+        FinishAnimation(android.app.Activity p0, android.view.View p1) { super(0.0f, 0.0f); }
+        private void cleanup() {}
+        public void cancel() {}
+        public void onAnimationEnd(android.view.animation.Animation p0) {}
+        public void onAnimationRepeat(android.view.animation.Animation p0) {}
+        public void onAnimationStart(android.view.animation.Animation p0) {}
+        public void setAnimationListener(android.view.animation.Animation.AnimationListener p0) {}
     }
 
-    static class BaseChooserTargetComparator implements java.util.Comparator<android.service.chooser.ChooserTarget> {
-        BaseChooserTargetComparator() {}
-        public int compare(android.service.chooser.ChooserTarget p0, android.service.chooser.ChooserTarget p1) { return 0; }
+    private class ChooserHandler extends android.os.Handler {
+        private static final int SHORTCUT_MANAGER_ALL_SHARE_TARGET_RESULTS = 7;
+        private ChooserHandler(com.android.internal.app.ChooserActivity p0) { super(); }
+        private void removeAllMessages() {}
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ShareTargetType {
+    }
+
+    private class ContentPreviewCoordinator {
+        private static final int IMAGE_FADE_IN_MILLIS = 150;
+        private static final int IMAGE_LOAD_INTO_VIEW = 2;
+        private static final int IMAGE_LOAD_TIMEOUT = 1;
+        private boolean mAtLeastOneLoaded;
+        private final android.os.Handler mHandler = null;
+        private boolean mHideParentOnFail;
+        private final int mImageLoadTimeoutMillis = 0;
+        private final android.view.View mParentView = null;
+        ContentPreviewCoordinator(com.android.internal.app.ChooserActivity p0, android.view.View p1, boolean p2) {}
+        private void cancelLoads() {}
+        private void collapseParentView() {}
+        private void loadUriIntoView(int p0, android.net.Uri p1, int p2) {}
+        private void maybeHideContentPreview() {}
+        private void setupPreDrawForSharedElementTransition(android.view.View p0) {}
+
+        class LoadUriTask {
+            public final android.graphics.Bitmap mBmp = null;
+            public final int mExtraCount = 0;
+            public final int mImageResourceId = 0;
+            public final android.net.Uri mUri = null;
+            LoadUriTask(com.android.internal.app.ChooserActivity.ContentPreviewCoordinator p0, int p1, android.net.Uri p2, int p3, android.graphics.Bitmap p4) {}
+        }
+    }
+
+    static abstract class ItemGroupViewHolder extends com.android.internal.app.ChooserActivity.ViewHolderBase {
+        protected final android.view.View[] mCells = null;
+        private final int mColumnCount = 0;
+        private int[] mItemIndices;
+        protected int mMeasuredRowHeight;
+        ItemGroupViewHolder(int p0, android.view.View p1, int p2) { super(null, 0); }
+        abstract android.view.ViewGroup addView(int p0, android.view.View p1);
+        public int getColumnCount() { return 0; }
+        public int getItemIndex(int p0) { return 0; }
+        public int getMeasuredRowHeight() { return 0; }
+        abstract android.view.ViewGroup getRow(int p0);
+        abstract android.view.ViewGroup getRowByIndex(int p0);
+        public android.view.View getView(int p0) { return null; }
+        abstract android.view.ViewGroup getViewGroup();
+        public void measure() {}
+        public void setItemIndex(int p0, int p1) {}
+        abstract void setViewVisibility(int p0, int p1);
     }
 
     public final class ChooserGridAdapter extends com.android.internal.widget.RecyclerView.Adapter<com.android.internal.widget.RecyclerView.ViewHolder> {
@@ -278,11 +335,88 @@ public class ChooserActivity extends com.android.internal.app.ResolverActivity i
         void updateDirectShareExpansion() {}
     }
 
-    private class ChooserHandler extends android.os.Handler {
-        private static final int SHORTCUT_MANAGER_ALL_SHARE_TARGET_RESULTS = 7;
-        private ChooserHandler(com.android.internal.app.ChooserActivity p0) { super(); }
-        private void removeAllMessages() {}
-        public void handleMessage(android.os.Message p0) {}
+    static abstract class ViewHolderBase extends com.android.internal.widget.RecyclerView.ViewHolder {
+        private int mViewType;
+        ViewHolderBase(android.view.View p0, int p1) { super(null); }
+        int getViewType() { return 0; }
+    }
+
+    static final class PlaceHolderTargetInfo extends com.android.internal.app.chooser.NotSelectableTargetInfo {
+        PlaceHolderTargetInfo() { super(); }
+        public android.graphics.drawable.Drawable getDisplayIcon(android.content.Context p0) { return null; }
+    }
+
+    static class SingleRowViewHolder extends com.android.internal.app.ChooserActivity.ItemGroupViewHolder {
+        private final android.view.ViewGroup mRow = null;
+        SingleRowViewHolder(android.view.ViewGroup p0, int p1, int p2) { super(0, null, 0); }
+        public android.view.ViewGroup addView(int p0, android.view.View p1) { return null; }
+        public android.view.ViewGroup getRow(int p0) { return null; }
+        public android.view.ViewGroup getRowByIndex(int p0) { return null; }
+        public android.view.ViewGroup getViewGroup() { return null; }
+        public void setViewVisibility(int p0, int p1) {}
+    }
+
+    static class ChooserTargetRankingInfo {
+        public final java.util.List<android.app.prediction.AppTarget> scores = null;
+        public final android.os.UserHandle userHandle = null;
+        ChooserTargetRankingInfo(java.util.List<android.app.prediction.AppTarget> p0, android.os.UserHandle p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    private static @interface ContentPreviewType {
+    }
+
+    private static class FileInfo {
+        public final boolean hasThumbnail = false;
+        public final java.lang.String name = null;
+        FileInfo(java.lang.String p0, boolean p1) {}
+    }
+
+    private class EnterTransitionAnimationDelegate implements android.view.View.OnLayoutChangeListener {
+        private boolean mOffsetCalculated;
+        private boolean mPreviewReady;
+        private EnterTransitionAnimationDelegate(com.android.internal.app.ChooserActivity p0) {}
+        private void maybeStartListenForLayout() {}
+        void markImagePreviewReady() {}
+        void markOffsetCalculated() {}
+        public void onLayoutChange(android.view.View p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
+        void postponeTransition() {}
+    }
+
+    static final class FooterViewHolder extends com.android.internal.app.ChooserActivity.ViewHolderBase {
+        FooterViewHolder(android.view.View p0, int p1) { super(null, 0); }
+    }
+
+    static class RefinementResultReceiver extends android.os.ResultReceiver {
+        private com.android.internal.app.ChooserActivity mChooserActivity;
+        private com.android.internal.app.chooser.TargetInfo mSelectedTarget;
+        public RefinementResultReceiver(com.android.internal.app.ChooserActivity p0, com.android.internal.app.chooser.TargetInfo p1, android.os.Handler p2) { super((android.os.Handler)null); }
+        public void destroy() {}
+        protected void onReceiveResult(int p0, android.os.Bundle p1) {}
+    }
+
+    public static class ServiceResultInfo {
+        public final com.android.internal.app.chooser.DisplayResolveInfo originalTarget = null;
+        public final java.util.List<android.service.chooser.ChooserTarget> resultTargets = null;
+        public final android.os.UserHandle userHandle = null;
+        public ServiceResultInfo(com.android.internal.app.chooser.DisplayResolveInfo p0, java.util.List<android.service.chooser.ChooserTarget> p1, android.os.UserHandle p2) {}
+    }
+
+    final class ItemViewHolder extends com.android.internal.app.ChooserActivity.ViewHolderBase {
+        int mListPosition;
+        com.android.internal.app.ResolverListAdapter.ViewHolder mWrappedViewHolder;
+        ItemViewHolder(com.android.internal.app.ChooserActivity p0, android.view.View p1, boolean p2, int p3) { super(null, 0); }
+    }
+
+    protected static final class EmptyTargetInfo extends com.android.internal.app.chooser.NotSelectableTargetInfo {
+        public EmptyTargetInfo() { super(); }
+        public android.graphics.drawable.Drawable getDisplayIcon(android.content.Context p0) { return null; }
+    }
+
+    static class AzInfoComparator implements java.util.Comparator<com.android.internal.app.chooser.DisplayResolveInfo> {
+        java.util.Comparator<com.android.internal.app.chooser.DisplayResolveInfo> mComparator;
+        AzInfoComparator(android.content.Context p0) {}
+        public int compare(com.android.internal.app.chooser.DisplayResolveInfo p0, com.android.internal.app.chooser.DisplayResolveInfo p1) { return 0; }
     }
 
     public class ChooserListController extends com.android.internal.app.ResolverListController {
@@ -292,39 +426,9 @@ public class ChooserActivity extends com.android.internal.app.ResolverActivity i
         public boolean isFixedAtTop(android.content.ComponentName p0) { return false; }
     }
 
-    static class ChooserTargetRankingInfo {
-        public final java.util.List<android.app.prediction.AppTarget> scores = null;
-        public final android.os.UserHandle userHandle = null;
-        ChooserTargetRankingInfo(java.util.List<android.app.prediction.AppTarget> p0, android.os.UserHandle p1) {}
-    }
-
-    private class ContentPreviewCoordinator {
-        private static final int IMAGE_FADE_IN_MILLIS = 150;
-        private static final int IMAGE_LOAD_INTO_VIEW = 2;
-        private static final int IMAGE_LOAD_TIMEOUT = 1;
-        private boolean mAtLeastOneLoaded;
-        private final android.os.Handler mHandler = null;
-        private boolean mHideParentOnFail;
-        private final int mImageLoadTimeoutMillis = 0;
-        private final android.view.View mParentView = null;
-        ContentPreviewCoordinator(com.android.internal.app.ChooserActivity p0, android.view.View p1, boolean p2) {}
-        private void cancelLoads() {}
-        private void collapseParentView() {}
-        private void loadUriIntoView(int p0, android.net.Uri p1, int p2) {}
-        private void maybeHideContentPreview() {}
-        private void setupPreDrawForSharedElementTransition(android.view.View p0) {}
-
-        class LoadUriTask {
-            public final android.graphics.Bitmap mBmp = null;
-            public final int mExtraCount = 0;
-            public final int mImageResourceId = 0;
-            public final android.net.Uri mUri = null;
-            LoadUriTask(com.android.internal.app.ChooserActivity.ContentPreviewCoordinator p0, int p1, android.net.Uri p2, int p3, android.graphics.Bitmap p4) {}
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    private static @interface ContentPreviewType {
+    static class BaseChooserTargetComparator implements java.util.Comparator<android.service.chooser.ChooserTarget> {
+        BaseChooserTargetComparator() {}
+        public int compare(android.service.chooser.ChooserTarget p0, android.service.chooser.ChooserTarget p1) { return 0; }
     }
 
     static class DirectShareViewHolder extends com.android.internal.app.ChooserActivity.ItemGroupViewHolder {
@@ -352,83 +456,6 @@ public class ChooserActivity extends com.android.internal.app.ResolverActivity i
         public void setViewVisibility(int p0, int p1) {}
     }
 
-    protected static final class EmptyTargetInfo extends com.android.internal.app.chooser.NotSelectableTargetInfo {
-        public EmptyTargetInfo() { super(); }
-        public android.graphics.drawable.Drawable getDisplayIcon(android.content.Context p0) { return null; }
-    }
-
-    private class EnterTransitionAnimationDelegate implements android.view.View.OnLayoutChangeListener {
-        private boolean mOffsetCalculated;
-        private boolean mPreviewReady;
-        private EnterTransitionAnimationDelegate(com.android.internal.app.ChooserActivity p0) {}
-        private void maybeStartListenForLayout() {}
-        void markImagePreviewReady() {}
-        void markOffsetCalculated() {}
-        public void onLayoutChange(android.view.View p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
-        void postponeTransition() {}
-    }
-
-    private static class FileInfo {
-        public final boolean hasThumbnail = false;
-        public final java.lang.String name = null;
-        FileInfo(java.lang.String p0, boolean p1) {}
-    }
-
-    private static class FinishAnimation extends android.view.animation.AlphaAnimation implements android.view.animation.Animation.AnimationListener {
-        private android.app.Activity mActivity;
-        private final float mFromAlpha = 0.0f;
-        private android.view.View mRootView;
-        FinishAnimation(android.app.Activity p0, android.view.View p1) { super(0.0f, 0.0f); }
-        private void cleanup() {}
-        public void cancel() {}
-        public void onAnimationEnd(android.view.animation.Animation p0) {}
-        public void onAnimationRepeat(android.view.animation.Animation p0) {}
-        public void onAnimationStart(android.view.animation.Animation p0) {}
-        public void setAnimationListener(android.view.animation.Animation.AnimationListener p0) {}
-    }
-
-    static final class FooterViewHolder extends com.android.internal.app.ChooserActivity.ViewHolderBase {
-        FooterViewHolder(android.view.View p0, int p1) { super(null, 0); }
-    }
-
-    static abstract class ItemGroupViewHolder extends com.android.internal.app.ChooserActivity.ViewHolderBase {
-        protected final android.view.View[] mCells = null;
-        private final int mColumnCount = 0;
-        private int[] mItemIndices;
-        protected int mMeasuredRowHeight;
-        ItemGroupViewHolder(int p0, android.view.View p1, int p2) { super(null, 0); }
-        abstract android.view.ViewGroup addView(int p0, android.view.View p1);
-        public int getColumnCount() { return 0; }
-        public int getItemIndex(int p0) { return 0; }
-        public int getMeasuredRowHeight() { return 0; }
-        abstract android.view.ViewGroup getRow(int p0);
-        abstract android.view.ViewGroup getRowByIndex(int p0);
-        public android.view.View getView(int p0) { return null; }
-        abstract android.view.ViewGroup getViewGroup();
-        public void measure() {}
-        public void setItemIndex(int p0, int p1) {}
-        abstract void setViewVisibility(int p0, int p1);
-    }
-
-    final class ItemViewHolder extends com.android.internal.app.ChooserActivity.ViewHolderBase {
-        int mListPosition;
-        com.android.internal.app.ResolverListAdapter.ViewHolder mWrappedViewHolder;
-        ItemViewHolder(com.android.internal.app.ChooserActivity p0, android.view.View p1, boolean p2, int p3) { super(null, 0); }
-    }
-
-    static final class PlaceHolderTargetInfo extends com.android.internal.app.chooser.NotSelectableTargetInfo {
-        PlaceHolderTargetInfo() { super(); }
-        public android.graphics.drawable.Drawable getDisplayIcon(android.content.Context p0) { return null; }
-    }
-
-    static class RefinementResultReceiver extends android.os.ResultReceiver {
-        private com.android.internal.app.ChooserActivity mChooserActivity;
-        private com.android.internal.app.chooser.TargetInfo mSelectedTarget;
-        public RefinementResultReceiver(com.android.internal.app.ChooserActivity p0, com.android.internal.app.chooser.TargetInfo p1, android.os.Handler p2) { super((android.os.Handler)null); }
-        public void destroy() {}
-        protected void onReceiveResult(int p0, android.os.Bundle p1) {}
-    }
-
     public static class RoundedRectImageView extends android.widget.ImageView {
         private java.lang.String mExtraImageCount;
         private android.graphics.Paint mOverlayPaint;
@@ -445,32 +472,5 @@ public class ChooserActivity extends com.android.internal.app.ResolverActivity i
         protected void onSizeChanged(int p0, int p1, int p2, int p3) {}
         public void setExtraImageCount(int p0) {}
         public void setRadius(int p0) {}
-    }
-
-    public static class ServiceResultInfo {
-        public final com.android.internal.app.chooser.DisplayResolveInfo originalTarget = null;
-        public final java.util.List<android.service.chooser.ChooserTarget> resultTargets = null;
-        public final android.os.UserHandle userHandle = null;
-        public ServiceResultInfo(com.android.internal.app.chooser.DisplayResolveInfo p0, java.util.List<android.service.chooser.ChooserTarget> p1, android.os.UserHandle p2) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ShareTargetType {
-    }
-
-    static class SingleRowViewHolder extends com.android.internal.app.ChooserActivity.ItemGroupViewHolder {
-        private final android.view.ViewGroup mRow = null;
-        SingleRowViewHolder(android.view.ViewGroup p0, int p1, int p2) { super(0, null, 0); }
-        public android.view.ViewGroup addView(int p0, android.view.View p1) { return null; }
-        public android.view.ViewGroup getRow(int p0) { return null; }
-        public android.view.ViewGroup getRowByIndex(int p0) { return null; }
-        public android.view.ViewGroup getViewGroup() { return null; }
-        public void setViewVisibility(int p0, int p1) {}
-    }
-
-    static abstract class ViewHolderBase extends com.android.internal.widget.RecyclerView.ViewHolder {
-        private int mViewType;
-        ViewHolderBase(android.view.View p0, int p1) { super(null); }
-        int getViewType() { return 0; }
     }
 }

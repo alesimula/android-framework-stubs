@@ -74,6 +74,7 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
     private boolean mIsChildViewEnabled;
     private boolean mIsDetaching;
     final boolean[] mIsScrap = null;
+    private boolean mIsTracingDrag;
     private int mLastHandledItemCount;
     private int mLastPositionDistanceGuess;
     private int mLastScrollState;
@@ -149,6 +150,7 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
     public AbsListView(android.content.Context p0, android.util.AttributeSet p1, int p2, int p3) { super((android.content.Context)null); }
     private boolean acceptFilter() { return false; }
     private void addAccessibilityActionIfEnabled(android.view.accessibility.AccessibilityNodeInfo p0, boolean p1, android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction p2) {}
+    private void beginDragTrace() {}
     private boolean canScrollDown() { return false; }
     private boolean canScrollUp() { return false; }
     private void clearScrollingCache() {}
@@ -159,6 +161,7 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
     private void dismissPopup() {}
     private boolean doesTouchStopStretch() { return false; }
     private void drawSelector(android.graphics.Canvas p0) {}
+    private void endDragTrace() {}
     private void finishGlows() {}
     static int getDistance(android.graphics.Rect p0, android.graphics.Rect p1, int p2) { return 0; }
     private int[] getDrawableStateForSelector() { return null; }
@@ -260,7 +263,7 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
     public int getVerticalScrollbarWidth() { return 0; }
     void handleBoundsChange() {}
     protected void handleDataChanged() {}
-    protected boolean handleScrollBarDragging(android.view.MotionEvent p0) { return false; }
+    protected final boolean handleScrollBarDragging(android.view.MotionEvent p0) { return false; }
     public boolean hasTextFilter() { return false; }
     void hideSelector() {}
     protected void internalSetPadding(int p0, int p1, int p2, int p3) {}
@@ -358,7 +361,7 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
     public void setItemChecked(int p0, boolean p1) {}
     public void setMultiChoiceModeListener(android.widget.AbsListView.MultiChoiceModeListener p0) {}
     public void setOnScrollListener(android.widget.AbsListView.OnScrollListener p0) {}
-    protected void setOnScrollStateChangeListener(android.widget.AbsListView.OnScrollListener p0) {}
+    protected final void setOnScrollStateChangeListener(android.widget.AbsListView.OnScrollListener p0) {}
     public void setRecyclerListener(android.widget.AbsListView.RecyclerListener p0) {}
     public void setRemoteViewsAdapter(android.content.Intent p0) {}
     public void setScrollBarStyle(int p0) {}
@@ -396,13 +399,16 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
     void updateSelectorState() {}
     public boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
 
-    static abstract class AbsPositionScroller {
-        AbsPositionScroller() {}
-        public abstract void start(int p0);
-        public abstract void start(int p0, int p1);
-        public abstract void startWithOffset(int p0, int p1);
-        public abstract void startWithOffset(int p0, int p1, int p2);
-        public abstract void stop();
+    public static interface RecyclerListener {
+        public void onMovedToScrapHeap(android.view.View p0);
+    }
+
+    public static interface OnScrollListener {
+        public static final int SCROLL_STATE_FLING = 2;
+        public static final int SCROLL_STATE_IDLE = 0;
+        public static final int SCROLL_STATE_TOUCH_SCROLL = 1;
+        public void onScroll(android.widget.AbsListView p0, int p1, int p2, int p3);
+        public void onScrollStateChanged(android.widget.AbsListView p0, int p1);
     }
 
     class AdapterDataSetObserver extends android.widget.AdapterView<android.widget.ListAdapter>.AdapterDataSetObserver {
@@ -411,18 +417,16 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
         public void onInvalidated() {}
     }
 
-    private class CheckForKeyLongPress extends android.widget.AbsListView.WindowRunnnable implements java.lang.Runnable {
-        private CheckForKeyLongPress(android.widget.AbsListView p0) { super(null); }
-        public void run() {}
-    }
-
-    private class CheckForLongPress extends android.widget.AbsListView.WindowRunnnable implements java.lang.Runnable {
-        private static final int INVALID_COORD = -1;
-        private float mX;
-        private float mY;
-        private CheckForLongPress(android.widget.AbsListView p0) { super(null); }
-        private void setCoords(float p0, float p1) {}
-        public void run() {}
+    class MultiChoiceModeWrapper implements android.widget.AbsListView.MultiChoiceModeListener {
+        private android.widget.AbsListView.MultiChoiceModeListener mWrapped;
+        MultiChoiceModeWrapper(android.widget.AbsListView p0) {}
+        public boolean hasWrappedCallback() { return false; }
+        public boolean onActionItemClicked(android.view.ActionMode p0, android.view.MenuItem p1) { return false; }
+        public boolean onCreateActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
+        public void onDestroyActionMode(android.view.ActionMode p0) {}
+        public void onItemCheckedStateChanged(android.view.ActionMode p0, int p1, long p2, boolean p3) {}
+        public boolean onPrepareActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
+        public void setWrapped(android.widget.AbsListView.MultiChoiceModeListener p0) {}
     }
 
     private final class CheckForTap implements java.lang.Runnable {
@@ -432,16 +436,66 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
         public void run() {}
     }
 
-    private static class DeviceConfigChangeListener {
-        private DeviceConfigChangeListener() {}
-        public void onPropertiesChanged(android.provider.DeviceConfig.Properties p0) {}
+    public static interface SelectionBoundsAdjuster {
+        public void adjustListItemSelectionBounds(android.graphics.Rect p0);
     }
 
-    private class DifferentialFlingTarget implements android.widget.DifferentialMotionFlingHelper.DifferentialMotionFlingTarget {
-        private DifferentialFlingTarget(android.widget.AbsListView p0) {}
-        public float getScaledScrollFactor() { return 0.0f; }
-        public boolean startDifferentialMotionFling(float p0) { return false; }
-        public void stopDifferentialMotionFling() {}
+    private class WindowRunnnable {
+        private int mOriginalAttachCount;
+        private WindowRunnnable(android.widget.AbsListView p0) {}
+        public void rememberWindowAttachCount() {}
+        public boolean sameWindow() { return false; }
+    }
+
+    private class PerformClick extends android.widget.AbsListView.WindowRunnnable implements java.lang.Runnable {
+        int mClickMotionPosition;
+        private PerformClick(android.widget.AbsListView p0) { super(null); }
+        public void run() {}
+    }
+
+    public static interface MultiChoiceModeListener extends android.view.ActionMode.Callback {
+        public void onItemCheckedStateChanged(android.view.ActionMode p0, int p1, long p2, boolean p3);
+    }
+
+    class PositionScroller extends android.widget.AbsListView.AbsPositionScroller implements java.lang.Runnable {
+        private static final int MOVE_DOWN_BOUND = 3;
+        private static final int MOVE_DOWN_POS = 1;
+        private static final int MOVE_OFFSET = 5;
+        private static final int MOVE_UP_BOUND = 4;
+        private static final int MOVE_UP_POS = 2;
+        private static final int SCROLL_DURATION = 200;
+        private int mBoundPos;
+        private final int mExtraScroll = 0;
+        private int mLastSeenPos;
+        private int mMode;
+        private int mOffsetFromTop;
+        private int mScrollDuration;
+        private int mTargetPos;
+        PositionScroller(android.widget.AbsListView p0) { super(); }
+        private void scrollToVisible(int p0, int p1, int p2) {}
+        public void run() {}
+        public void start(int p0) {}
+        public void start(int p0, int p1) {}
+        public void startWithOffset(int p0, int p1) {}
+        public void startWithOffset(int p0, int p1, int p2) {}
+        public void stop() {}
+    }
+
+    public static class LayoutParams extends android.view.ViewGroup.LayoutParams {
+        @android.view.ViewDebug.ExportedProperty(category="list")
+        boolean forceAdd;
+        boolean isEnabled;
+        long itemId;
+        @android.view.ViewDebug.ExportedProperty(category="list")
+        boolean recycledHeaderFooter;
+        int scrappedFromPosition;
+        @android.view.ViewDebug.ExportedProperty(category="list", mapping={@android.view.ViewDebug.IntToString(from=-1, to="ITEM_VIEW_TYPE_IGNORE"), @android.view.ViewDebug.IntToString(from=-2, to="ITEM_VIEW_TYPE_HEADER_OR_FOOTER")})
+        int viewType;
+        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(int p0, int p1, int p2) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
+        protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
     }
 
     private class FlingRunnable implements java.lang.Runnable {
@@ -460,6 +514,74 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
         void startOverfling(int p0) {}
         void startScroll(int p0, int p1, boolean p2, boolean p3) {}
         void startSpringback() {}
+    }
+
+    class ListItemAccessibilityDelegate extends android.view.View.AccessibilityDelegate {
+        ListItemAccessibilityDelegate(android.widget.AbsListView p0) { super(); }
+        public void onInitializeAccessibilityNodeInfo(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1) {}
+        public boolean performAccessibilityAction(android.view.View p0, int p1, android.os.Bundle p2) { return false; }
+    }
+
+    static abstract class AbsPositionScroller {
+        AbsPositionScroller() {}
+        public abstract void start(int p0);
+        public abstract void start(int p0, int p1);
+        public abstract void startWithOffset(int p0, int p1);
+        public abstract void startWithOffset(int p0, int p1, int p2);
+        public abstract void stop();
+    }
+
+    class RecycleBin {
+        private android.view.View[] mActiveViews;
+        private java.util.ArrayList<android.view.View> mCurrentScrap;
+        private int mFirstActivePosition;
+        private android.widget.AbsListView.RecyclerListener mRecyclerListener;
+        private java.util.ArrayList<android.view.View>[] mScrapViews;
+        private java.util.ArrayList<android.view.View> mSkippedScrap;
+        private android.util.SparseArray<android.view.View> mTransientStateViews;
+        private android.util.LongSparseArray<android.view.View> mTransientStateViewsById;
+        private int mViewTypeCount;
+        RecycleBin(android.widget.AbsListView p0) {}
+        private void clearScrap(java.util.ArrayList<android.view.View> p0) {}
+        private void clearScrapForRebind(android.view.View p0) {}
+        private java.util.ArrayList<android.view.View> getSkippedScrap() { return null; }
+        private void pruneScrapViews() {}
+        private void removeDetachedView(android.view.View p0, boolean p1) {}
+        private android.view.View retrieveFromScrap(java.util.ArrayList<android.view.View> p0, int p1) { return null; }
+        void addScrapView(android.view.View p0, int p1) {}
+        void clear() {}
+        void clearTransientStateViews() {}
+        void fillActiveViews(int p0, int p1) {}
+        void fullyDetachScrapViews() {}
+        android.view.View getActiveView(int p0) { return null; }
+        android.view.View getScrapView(int p0) { return null; }
+        android.view.View getTransientStateView(int p0) { return null; }
+        public void markChildrenDirty() {}
+        void reclaimScrapViews(java.util.List<android.view.View> p0) {}
+        void removeSkippedScrap() {}
+        void scrapActiveViews() {}
+        void setCacheColorHint(int p0) {}
+        public void setViewTypeCount(int p0) {}
+        public boolean shouldRecycleViewType(int p0) { return false; }
+    }
+
+    private class CheckForLongPress extends android.widget.AbsListView.WindowRunnnable implements java.lang.Runnable {
+        private static final int INVALID_COORD = -1;
+        private float mX;
+        private float mY;
+        private CheckForLongPress(android.widget.AbsListView p0) { super(null); }
+        private void setCoords(float p0, float p1) {}
+        public void run() {}
+    }
+
+    private static class DeviceConfigChangeListener {
+        private DeviceConfigChangeListener() {}
+        public void onPropertiesChanged(android.provider.DeviceConfig.Properties p0) {}
+    }
+
+    private class CheckForKeyLongPress extends android.widget.AbsListView.WindowRunnnable implements java.lang.Runnable {
+        private CheckForKeyLongPress(android.widget.AbsListView p0) { super(null); }
+        public void run() {}
     }
 
     private class InputConnectionWrapper implements android.view.inputmethod.InputConnection {
@@ -497,119 +619,11 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
         public boolean setSelection(int p0, int p1) { return false; }
     }
 
-    public static class LayoutParams extends android.view.ViewGroup.LayoutParams {
-        @android.view.ViewDebug.ExportedProperty(category="list")
-        boolean forceAdd;
-        boolean isEnabled;
-        long itemId;
-        @android.view.ViewDebug.ExportedProperty(category="list")
-        boolean recycledHeaderFooter;
-        int scrappedFromPosition;
-        @android.view.ViewDebug.ExportedProperty(category="list", mapping={@android.view.ViewDebug.IntToString(from=-1, to="ITEM_VIEW_TYPE_IGNORE"), @android.view.ViewDebug.IntToString(from=-2, to="ITEM_VIEW_TYPE_HEADER_OR_FOOTER")})
-        int viewType;
-        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(int p0, int p1, int p2) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
-        protected void encodeProperties(android.view.ViewHierarchyEncoder p0) {}
-    }
-
-    class ListItemAccessibilityDelegate extends android.view.View.AccessibilityDelegate {
-        ListItemAccessibilityDelegate(android.widget.AbsListView p0) { super(); }
-        public void onInitializeAccessibilityNodeInfo(android.view.View p0, android.view.accessibility.AccessibilityNodeInfo p1) {}
-        public boolean performAccessibilityAction(android.view.View p0, int p1, android.os.Bundle p2) { return false; }
-    }
-
-    public static interface MultiChoiceModeListener extends android.view.ActionMode.Callback {
-        public void onItemCheckedStateChanged(android.view.ActionMode p0, int p1, long p2, boolean p3);
-    }
-
-    class MultiChoiceModeWrapper implements android.widget.AbsListView.MultiChoiceModeListener {
-        private android.widget.AbsListView.MultiChoiceModeListener mWrapped;
-        MultiChoiceModeWrapper(android.widget.AbsListView p0) {}
-        public boolean hasWrappedCallback() { return false; }
-        public boolean onActionItemClicked(android.view.ActionMode p0, android.view.MenuItem p1) { return false; }
-        public boolean onCreateActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
-        public void onDestroyActionMode(android.view.ActionMode p0) {}
-        public void onItemCheckedStateChanged(android.view.ActionMode p0, int p1, long p2, boolean p3) {}
-        public boolean onPrepareActionMode(android.view.ActionMode p0, android.view.Menu p1) { return false; }
-        public void setWrapped(android.widget.AbsListView.MultiChoiceModeListener p0) {}
-    }
-
-    public static interface OnScrollListener {
-        public static final int SCROLL_STATE_FLING = 2;
-        public static final int SCROLL_STATE_IDLE = 0;
-        public static final int SCROLL_STATE_TOUCH_SCROLL = 1;
-        public void onScroll(android.widget.AbsListView p0, int p1, int p2, int p3);
-        public void onScrollStateChanged(android.widget.AbsListView p0, int p1);
-    }
-
-    private class PerformClick extends android.widget.AbsListView.WindowRunnnable implements java.lang.Runnable {
-        int mClickMotionPosition;
-        private PerformClick(android.widget.AbsListView p0) { super(null); }
-        public void run() {}
-    }
-
-    class PositionScroller extends android.widget.AbsListView.AbsPositionScroller implements java.lang.Runnable {
-        private static final int MOVE_DOWN_BOUND = 3;
-        private static final int MOVE_DOWN_POS = 1;
-        private static final int MOVE_OFFSET = 5;
-        private static final int MOVE_UP_BOUND = 4;
-        private static final int MOVE_UP_POS = 2;
-        private static final int SCROLL_DURATION = 200;
-        private int mBoundPos;
-        private final int mExtraScroll = 0;
-        private int mLastSeenPos;
-        private int mMode;
-        private int mOffsetFromTop;
-        private int mScrollDuration;
-        private int mTargetPos;
-        PositionScroller(android.widget.AbsListView p0) { super(); }
-        private void scrollToVisible(int p0, int p1, int p2) {}
-        public void run() {}
-        public void start(int p0) {}
-        public void start(int p0, int p1) {}
-        public void startWithOffset(int p0, int p1) {}
-        public void startWithOffset(int p0, int p1, int p2) {}
-        public void stop() {}
-    }
-
-    class RecycleBin {
-        private android.view.View[] mActiveViews;
-        private java.util.ArrayList<android.view.View> mCurrentScrap;
-        private int mFirstActivePosition;
-        private android.widget.AbsListView.RecyclerListener mRecyclerListener;
-        private java.util.ArrayList<android.view.View>[] mScrapViews;
-        private java.util.ArrayList<android.view.View> mSkippedScrap;
-        private android.util.SparseArray<android.view.View> mTransientStateViews;
-        private android.util.LongSparseArray<android.view.View> mTransientStateViewsById;
-        private int mViewTypeCount;
-        RecycleBin(android.widget.AbsListView p0) {}
-        private void clearScrap(java.util.ArrayList<android.view.View> p0) {}
-        private void clearScrapForRebind(android.view.View p0) {}
-        private java.util.ArrayList<android.view.View> getSkippedScrap() { return null; }
-        private void pruneScrapViews() {}
-        private void removeDetachedView(android.view.View p0, boolean p1) {}
-        private android.view.View retrieveFromScrap(java.util.ArrayList<android.view.View> p0, int p1) { return null; }
-        void addScrapView(android.view.View p0, int p1) {}
-        void clear() {}
-        void clearTransientStateViews() {}
-        void fillActiveViews(int p0, int p1) {}
-        void fullyDetachScrapViews() {}
-        android.view.View getActiveView(int p0) { return null; }
-        android.view.View getScrapView(int p0) { return null; }
-        android.view.View getTransientStateView(int p0) { return null; }
-        public void markChildrenDirty() {}
-        void reclaimScrapViews(java.util.List<android.view.View> p0) {}
-        void removeSkippedScrap() {}
-        void scrapActiveViews() {}
-        void setCacheColorHint(int p0) {}
-        public void setViewTypeCount(int p0) {}
-        public boolean shouldRecycleViewType(int p0) { return false; }
-    }
-
-    public static interface RecyclerListener {
-        public void onMovedToScrapHeap(android.view.View p0);
+    private class DifferentialFlingTarget implements android.widget.DifferentialMotionFlingHelper.DifferentialMotionFlingTarget {
+        private DifferentialFlingTarget(android.widget.AbsListView p0) {}
+        public float getScaledScrollFactor() { return 0.0f; }
+        public boolean startDifferentialMotionFling(float p0) { return false; }
+        public void stopDifferentialMotionFling() {}
     }
 
     static class SavedState extends android.view.View.BaseSavedState {
@@ -628,17 +642,6 @@ public abstract class AbsListView extends android.widget.AdapterView<android.wid
         SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static interface SelectionBoundsAdjuster {
-        public void adjustListItemSelectionBounds(android.graphics.Rect p0);
-    }
-
-    private class WindowRunnnable {
-        private int mOriginalAttachCount;
-        private WindowRunnnable(android.widget.AbsListView p0) {}
-        public void rememberWindowAttachCount() {}
-        public boolean sameWindow() { return false; }
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.AbsListView> {

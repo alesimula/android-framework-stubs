@@ -159,18 +159,6 @@ public final class MessageQueue {
     public void resetForTest() {}
     public void setLooperDoctor(android.os.LooperDoctor p0) {}
 
-    static final class FileDescriptorRecord {
-        public final java.io.FileDescriptor mDescriptor = null;
-        public int mEvents;
-        public android.os.MessageQueue.OnFileDescriptorEventListener mListener;
-        public int mSeq;
-        public FileDescriptorRecord(java.io.FileDescriptor p0, int p1, android.os.MessageQueue.OnFileDescriptorEventListener p2) {}
-    }
-
-    public static interface IdleHandler {
-        public boolean queueIdle();
-    }
-
     public static interface OnFileDescriptorEventListener {
         public static final int EVENT_ERROR = 4;
         public static final int EVENT_INPUT = 1;
@@ -180,5 +168,17 @@ public final class MessageQueue {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface Events {
         }
+    }
+
+    public static interface IdleHandler {
+        public boolean queueIdle();
+    }
+
+    static final class FileDescriptorRecord {
+        public final java.io.FileDescriptor mDescriptor = null;
+        public int mEvents;
+        public android.os.MessageQueue.OnFileDescriptorEventListener mListener;
+        public int mSeq;
+        public FileDescriptorRecord(java.io.FileDescriptor p0, int p1, android.os.MessageQueue.OnFileDescriptorEventListener p2) {}
     }
 }

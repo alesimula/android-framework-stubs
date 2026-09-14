@@ -44,10 +44,6 @@ public final class RcsContactPresenceTuple implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BasicStatus {
-    }
-
     public static final class Builder {
         private final android.telephony.ims.RcsContactPresenceTuple mPresenceTuple = null;
         public Builder(java.lang.String p0, java.lang.String p1, java.lang.String p2) {}
@@ -78,6 +74,10 @@ public final class RcsContactPresenceTuple implements android.os.Parcelable {
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface DuplexMode {
+        }
+
         public static final class Builder {
             private android.telephony.ims.RcsContactPresenceTuple.ServiceCapabilities mCapabilities;
             public Builder(boolean p0, boolean p1) {}
@@ -85,10 +85,10 @@ public final class RcsContactPresenceTuple implements android.os.Parcelable {
             public android.telephony.ims.RcsContactPresenceTuple.ServiceCapabilities.Builder addUnsupportedDuplexMode(java.lang.String p0) { return null; }
             public android.telephony.ims.RcsContactPresenceTuple.ServiceCapabilities build() { return null; }
         }
+    }
 
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface DuplexMode {
-        }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BasicStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

@@ -44,17 +44,6 @@ public class FocusFinder {
     boolean isCandidate(android.graphics.Rect p0, android.graphics.Rect p1, int p2) { return false; }
     boolean isToDirectionOf(int p0, android.graphics.Rect p1, android.graphics.Rect p2) { return false; }
 
-    static final class FocusSorter {
-        private int mLastPoolRect;
-        private java.util.HashMap<android.view.View, android.graphics.Rect> mRectByView;
-        private java.util.ArrayList<android.graphics.Rect> mRectPool;
-        private int mRtlMult;
-        private java.util.Comparator<android.view.View> mSidesComparator;
-        private java.util.Comparator<android.view.View> mTopsComparator;
-        FocusSorter() {}
-        public void sort(android.view.View[] p0, int p1, int p2, android.view.ViewGroup p3, boolean p4) {}
-    }
-
     private static final class UserSpecifiedFocusComparator implements java.util.Comparator<android.view.View> {
         private final android.util.ArrayMap<android.view.View, android.view.View> mHeadsOfChains = null;
         private final android.util.ArraySet<android.view.View> mIsConnectedTo = null;
@@ -71,5 +60,16 @@ public class FocusFinder {
         public static interface NextFocusGetter {
             public android.view.View get(android.view.View p0, android.view.View p1);
         }
+    }
+
+    static final class FocusSorter {
+        private int mLastPoolRect;
+        private java.util.HashMap<android.view.View, android.graphics.Rect> mRectByView;
+        private java.util.ArrayList<android.graphics.Rect> mRectPool;
+        private int mRtlMult;
+        private java.util.Comparator<android.view.View> mSidesComparator;
+        private java.util.Comparator<android.view.View> mTopsComparator;
+        FocusSorter() {}
+        public void sort(android.view.View[] p0, int p1, int p2, android.view.ViewGroup p3, boolean p4) {}
     }
 }

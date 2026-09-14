@@ -3,12 +3,6 @@ package android.print;
 public interface IPrintJobStateChangeListener extends android.os.IInterface {
     public void onPrintJobStateChanged(android.print.PrintJobId p0) throws android.os.RemoteException;
 
-    public static class Default implements android.print.IPrintJobStateChangeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPrintJobStateChanged(android.print.PrintJobId p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.print.IPrintJobStateChangeListener {
         public static final java.lang.String DESCRIPTOR = "android.print.IPrintJobStateChangeListener";
         static final int TRANSACTION_onPrintJobStateChanged = 1;
@@ -26,5 +20,11 @@ public interface IPrintJobStateChangeListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onPrintJobStateChanged(android.print.PrintJobId p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.print.IPrintJobStateChangeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPrintJobStateChanged(android.print.PrintJobId p0) throws android.os.RemoteException {}
     }
 }

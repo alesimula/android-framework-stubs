@@ -4,13 +4,6 @@ public interface IPackageInstallObserver2 extends android.os.IInterface {
     public void onPackageInstalled(java.lang.String p0, int p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException;
     public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.IPackageInstallObserver2 {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPackageInstalled(java.lang.String p0, int p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.IPackageInstallObserver2 {
         public static final java.lang.String DESCRIPTOR = "android.content.pm.IPackageInstallObserver2";
         static final int TRANSACTION_onPackageInstalled = 2;
@@ -30,5 +23,12 @@ public interface IPackageInstallObserver2 extends android.os.IInterface {
             public void onPackageInstalled(java.lang.String p0, int p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
             public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.IPackageInstallObserver2 {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPackageInstalled(java.lang.String p0, int p1, java.lang.String p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void onUserActionRequired(android.content.Intent p0) throws android.os.RemoteException {}
     }
 }

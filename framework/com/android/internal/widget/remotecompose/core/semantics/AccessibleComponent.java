@@ -7,14 +7,6 @@ public interface AccessibleComponent extends com.android.internal.widget.remotec
     default public java.lang.Integer getTextId() { return null; }
     default public boolean isClickable() { return false; }
 
-    public static enum Mode {
-        CLEAR_AND_SET,
-        MERGE,
-        SET;
-        private static final com.android.internal.widget.remotecompose.core.semantics.AccessibleComponent.Mode[] $VALUES = null;
-        private Mode() {}
-    }
-
     public static enum Role {
         BUTTON,
         CAROUSEL,
@@ -31,5 +23,13 @@ public interface AccessibleComponent extends com.android.internal.widget.remotec
         private Role() {}
         public static com.android.internal.widget.remotecompose.core.semantics.AccessibleComponent.Role fromInt(int p0) { return null; }
         public java.lang.String getDescription() { return null; }
+    }
+
+    public static enum Mode {
+        CLEAR_AND_SET,
+        MERGE,
+        SET;
+        private static final com.android.internal.widget.remotecompose.core.semantics.AccessibleComponent.Mode[] $VALUES = null;
+        private Mode() {}
     }
 }

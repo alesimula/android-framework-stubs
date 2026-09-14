@@ -4,12 +4,6 @@ public interface IVoiceInteractionAccessibilitySettingsListener extends android.
     public static final java.lang.String DESCRIPTOR = "com.android.internal.app.IVoiceInteractionAccessibilitySettingsListener";
     public void onAccessibilityDetectionChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IVoiceInteractionAccessibilitySettingsListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAccessibilityDetectionChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IVoiceInteractionAccessibilitySettingsListener {
         static final int TRANSACTION_onAccessibilityDetectionChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IVoiceInteractionAccessibilitySettingsListener extends android.
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAccessibilityDetectionChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.app.IVoiceInteractionAccessibilitySettingsListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAccessibilityDetectionChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

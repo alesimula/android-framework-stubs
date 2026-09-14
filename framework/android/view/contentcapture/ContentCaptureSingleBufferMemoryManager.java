@@ -1,7 +1,7 @@
 package android.view.contentcapture;
 
 public final class ContentCaptureSingleBufferMemoryManager {
-    private static final int ALLOCATOR_HEADER_SIZE = 8;
+    static final int ALLOCATOR_HEADER_SIZE = 8;
     private static final int BLOCK_FOOTER_SIZE_BYTES = 4;
     public static final int BLOCK_HEADER_SIZE_BYTES = 4;
     public static final int BLOCK_OVERHEAD_BYTES = 8;
@@ -9,7 +9,7 @@ public final class ContentCaptureSingleBufferMemoryManager {
     public static final byte BLOCK_TYPE_NODE = 1;
     public static final byte BLOCK_TYPE_STRING = 2;
     private static final int HEADER_ARENA_START = 4;
-    private static final int HEADER_ARENA_TOP = 0;
+    static final int HEADER_ARENA_TOP = 0;
     private static final int MIN_BLOCK_SIZE = Integer.valueOf(0);
     private static final int MISC_HEADER_OFFSET = 8;
     private static final int PREALLOCATED_NODE_COUNT = 100;
@@ -32,6 +32,7 @@ public final class ContentCaptureSingleBufferMemoryManager {
     private static int packMetadata(int p0, byte p1, boolean p2) { return 0; }
     private void preallocateNodes() {}
     private void removeFromFreeLists(int p0) {}
+    private void shrinkArena() {}
     private static boolean unpackIsFree(int p0) { return false; }
     private static int unpackSize(int p0) { return 0; }
     private static byte unpackType(int p0) { return 0; }
@@ -41,7 +42,9 @@ public final class ContentCaptureSingleBufferMemoryManager {
     public int allocateNode() { return 0; }
     public int allocateString(int p0) { return 0; }
     public void commit() {}
+    public void copyHeapStateFrom(android.view.contentcapture.ContentCaptureSingleBufferMemoryManager p0) {}
     public void free(int p0) {}
+    public int getArenaTop() { return 0; }
     public int getMiscHeaderOffset() { return 0; }
     public android.view.contentcapture.ContentCaptureSingleBufferMemoryManager moveTo(java.nio.ByteBuffer p0) { return null; }
 }

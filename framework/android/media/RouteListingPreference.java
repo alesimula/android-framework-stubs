@@ -21,19 +21,6 @@ public final class RouteListingPreference implements android.os.Parcelable {
     public int hashCode() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static final class Builder {
-        private java.util.List<android.media.RouteListingPreference.Item> mItems;
-        private android.content.ComponentName mLinkedItemComponentName;
-        private android.content.ComponentName mMissingPermissionsComponentName;
-        private boolean mUseSystemOrdering;
-        public Builder() {}
-        public android.media.RouteListingPreference build() { return null; }
-        public android.media.RouteListingPreference.Builder setItems(java.util.List<android.media.RouteListingPreference.Item> p0) { return null; }
-        public android.media.RouteListingPreference.Builder setLinkedItemComponentName(android.content.ComponentName p0) { return null; }
-        public android.media.RouteListingPreference.Builder setMissingPermissionsComponentName(android.content.ComponentName p0) { return null; }
-        public android.media.RouteListingPreference.Builder setUseSystemOrdering(boolean p0) { return null; }
-    }
-
     public static final class Item implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.RouteListingPreference.Item> CREATOR = null;
         public static final int FLAG_ONGOING_SESSION = 1;
@@ -72,6 +59,18 @@ public final class RouteListingPreference implements android.os.Parcelable {
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface SubText {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface SelectionBehavior {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Flags {
+        }
+
         public static final class Builder {
             private java.lang.CharSequence mCustomSubtextMessage;
             private int mFlags;
@@ -85,17 +84,18 @@ public final class RouteListingPreference implements android.os.Parcelable {
             public android.media.RouteListingPreference.Item.Builder setSelectionBehavior(int p0) { return null; }
             public android.media.RouteListingPreference.Item.Builder setSubText(int p0) { return null; }
         }
+    }
 
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Flags {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface SelectionBehavior {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface SubText {
-        }
+    public static final class Builder {
+        private java.util.List<android.media.RouteListingPreference.Item> mItems;
+        private android.content.ComponentName mLinkedItemComponentName;
+        private android.content.ComponentName mMissingPermissionsComponentName;
+        private boolean mUseSystemOrdering;
+        public Builder() {}
+        public android.media.RouteListingPreference build() { return null; }
+        public android.media.RouteListingPreference.Builder setItems(java.util.List<android.media.RouteListingPreference.Item> p0) { return null; }
+        public android.media.RouteListingPreference.Builder setLinkedItemComponentName(android.content.ComponentName p0) { return null; }
+        public android.media.RouteListingPreference.Builder setMissingPermissionsComponentName(android.content.ComponentName p0) { return null; }
+        public android.media.RouteListingPreference.Builder setUseSystemOrdering(boolean p0) { return null; }
     }
 }

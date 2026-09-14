@@ -7,16 +7,6 @@ public interface INetworkWatchlistManager extends android.os.IInterface {
     public boolean startWatchlistLogging() throws android.os.RemoteException;
     public boolean stopWatchlistLogging() throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.net.INetworkWatchlistManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public byte[] getWatchlistConfigHash() throws android.os.RemoteException { return null; }
-        public void reloadWatchlist() throws android.os.RemoteException {}
-        public void reportWatchlistIfNecessary() throws android.os.RemoteException {}
-        public boolean startWatchlistLogging() throws android.os.RemoteException { return false; }
-        public boolean stopWatchlistLogging() throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.net.INetworkWatchlistManager {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.net.INetworkWatchlistManager";
         static final int TRANSACTION_getWatchlistConfigHash = 5;
@@ -42,5 +32,15 @@ public interface INetworkWatchlistManager extends android.os.IInterface {
             public boolean startWatchlistLogging() throws android.os.RemoteException { return false; }
             public boolean stopWatchlistLogging() throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements com.android.internal.net.INetworkWatchlistManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public byte[] getWatchlistConfigHash() throws android.os.RemoteException { return null; }
+        public void reloadWatchlist() throws android.os.RemoteException {}
+        public void reportWatchlistIfNecessary() throws android.os.RemoteException {}
+        public boolean startWatchlistLogging() throws android.os.RemoteException { return false; }
+        public boolean stopWatchlistLogging() throws android.os.RemoteException { return false; }
     }
 }

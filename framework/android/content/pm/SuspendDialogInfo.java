@@ -5,7 +5,7 @@ public final class SuspendDialogInfo implements android.os.Parcelable {
     public static final int BUTTON_ACTION_MORE_DETAILS = 0;
     public static final int BUTTON_ACTION_UNSUSPEND = 1;
     public static final android.os.Parcelable.Creator<android.content.pm.SuspendDialogInfo> CREATOR = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SuspendDialogInfo";
     private static final java.lang.String XML_ATTR_BUTTON_ACTION = "buttonAction";
     private static final java.lang.String XML_ATTR_BUTTON_TEXT = "buttonText";
     private static final java.lang.String XML_ATTR_BUTTON_TEXT_RES_ID = "buttonTextResId";

@@ -1,7 +1,7 @@
 package com.android.internal.os;
 
 public class StoragedUidIoStatsReader {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "StoragedUidIoStatsReader";
     private static java.lang.String sUidIoFile;
     public StoragedUidIoStatsReader() {}
     public StoragedUidIoStatsReader(java.lang.String p0) {}

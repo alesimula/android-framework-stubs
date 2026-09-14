@@ -22,10 +22,13 @@ public class ClipDescription implements android.os.Parcelable {
     private int mClassificationStatus;
     private boolean mContainsContentUri;
     private final android.util.ArrayMap<java.lang.String, java.lang.Float> mEntityConfidence = null;
+    private boolean mExcludedFromRemoteClipboard;
     private android.os.PersistableBundle mExtras;
+    private boolean mIsRemoteClipboard;
     private boolean mIsStyledText;
     final java.lang.CharSequence mLabel = null;
     private final java.util.ArrayList<java.lang.String> mMimeTypes = null;
+    private java.lang.String mSourceDeviceName;
     private long mTimeStamp;
     public ClipDescription(android.content.ClipDescription p0) {}
     ClipDescription(android.os.Parcel p0) {}
@@ -44,15 +47,21 @@ public class ClipDescription implements android.os.Parcelable {
     public java.lang.CharSequence getLabel() { return null; }
     public java.lang.String getMimeType(int p0) { return null; }
     public int getMimeTypeCount() { return 0; }
+    public java.lang.String getSourceDeviceName() { return null; }
     public long getTimestamp() { return 0L; }
     public boolean hasMimeType(java.lang.String p0) { return false; }
     public boolean hasMimeType(java.lang.String[] p0) { return false; }
+    public boolean isExcludedFromRemoteClipboard() { return false; }
+    public boolean isRemoteClipboard() { return false; }
     public boolean isStyledText() { return false; }
     public void setClassificationStatus(int p0) {}
     public void setConfidenceScores(java.util.Map<java.lang.String, java.lang.Float> p0) {}
     void setContainsContentUri(boolean p0) {}
+    public void setExcludedFromRemoteClipboard(boolean p0) {}
     public void setExtras(android.os.PersistableBundle p0) {}
+    public void setIsRemoteClipboard(boolean p0) {}
     void setIsStyledText(boolean p0) {}
+    public void setSourceDeviceName(java.lang.String p0) {}
     public void setTimestamp(long p0) {}
     public boolean toShortString(java.lang.StringBuilder p0, boolean p1) { return false; }
     public boolean toShortStringTypesOnly(java.lang.StringBuilder p0) { return false; }

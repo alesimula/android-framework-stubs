@@ -29,10 +29,10 @@ public final class SyncParams {
     public android.media.SyncParams setTolerance(float p0) { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioAdjustMode {
+    public static @interface SyncSource {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SyncSource {
+    public static @interface AudioAdjustMode {
     }
 }

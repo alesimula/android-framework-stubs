@@ -8,7 +8,7 @@ public class LayoutComputeOperation extends com.android.internal.widget.remoteco
     public static final int TYPE_POSITION = 1;
     private final boolean mAnimateChanges = false;
     float[] mBounds;
-    private final int mBoundsId = 0;
+    private int mBoundsId;
     public java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> mList;
     private com.android.internal.widget.remotecompose.core.operations.layout.LayoutComponent mParent;
     private final int mType = 0;

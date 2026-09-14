@@ -27,12 +27,6 @@ public class MediaRouteControllerContentManager {
     public void requestUpdateRouteVolume(int p0) {}
     public void update() {}
 
-    public static interface Delegate {
-        public void dismissView();
-        public void setMediaRouteDeviceIcon(android.graphics.drawable.Drawable p0);
-        public void setMediaRouteDeviceTitle(java.lang.CharSequence p0);
-    }
-
     private final class MediaRouterCallback extends android.media.MediaRouter.SimpleCallback {
         private MediaRouterCallback(com.android.internal.app.MediaRouteControllerContentManager p0) { super(); }
         public void onRouteChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
@@ -40,5 +34,11 @@ public class MediaRouteControllerContentManager {
         public void onRouteUngrouped(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1, android.media.MediaRouter.RouteGroup p2) {}
         public void onRouteUnselected(android.media.MediaRouter p0, int p1, android.media.MediaRouter.RouteInfo p2) {}
         public void onRouteVolumeChanged(android.media.MediaRouter p0, android.media.MediaRouter.RouteInfo p1) {}
+    }
+
+    public static interface Delegate {
+        public void dismissView();
+        public void setMediaRouteDeviceIcon(android.graphics.drawable.Drawable p0);
+        public void setMediaRouteDeviceTitle(java.lang.CharSequence p0);
     }
 }

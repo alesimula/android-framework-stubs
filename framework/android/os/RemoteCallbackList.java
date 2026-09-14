@@ -36,6 +36,7 @@ public class RemoteCallbackList<E extends android.os.IInterface> {
     public void kill() {}
     public void onCallbackDied(E p0) {}
     public void onCallbackDied(E p0, java.lang.Object p1) {}
+    public void onCallbackUnfrozen(E p0, java.lang.Object p1) {}
     public boolean register(E p0) { return false; }
     public boolean register(E p0, java.lang.Object p1) { return false; }
     public boolean unregister(E p0) { return false; }
@@ -44,15 +45,21 @@ public class RemoteCallbackList<E extends android.os.IInterface> {
         private java.util.concurrent.Executor mExecutor;
         private int mFrozenCalleePolicy;
         private android.os.RemoteCallbackList.Builder.InterfaceDiedCallback mInterfaceDiedCallback;
+        private android.os.RemoteCallbackList.Builder.InterfaceUnfrozenCallback mInterfaceUnfrozenCallback;
         private int mMaxQueueSize;
         public Builder(int p0) {}
         public android.os.RemoteCallbackList<E> build() { return null; }
         public android.os.RemoteCallbackList.Builder setExecutor(java.util.concurrent.Executor p0) { return null; }
         public android.os.RemoteCallbackList.Builder setInterfaceDiedCallback(android.os.RemoteCallbackList.Builder.InterfaceDiedCallback<E> p0) { return null; }
+        public android.os.RemoteCallbackList.Builder setInterfaceUnfrozenCallback(android.os.RemoteCallbackList.Builder.InterfaceUnfrozenCallback<E> p0) { return null; }
         public android.os.RemoteCallbackList.Builder setMaxQueueSize(int p0) { return null; }
 
         public static interface InterfaceDiedCallback<E extends android.os.IInterface> {
             public void onInterfaceDied(android.os.RemoteCallbackList<E> p0, E p1, java.lang.Object p2);
+        }
+
+        public static interface InterfaceUnfrozenCallback<E extends android.os.IInterface> {
+            public void onInterfaceUnfrozen(android.os.RemoteCallbackList<E> p0, E p1, java.lang.Object p2);
         }
     }
 
@@ -66,7 +73,11 @@ public class RemoteCallbackList<E extends android.os.IInterface> {
         final java.lang.Object mCookie = null;
         int mCurrentState;
         final E mInterface = null;
+        int mStateGeneration;
         Interface(E p0, java.lang.Object p1) {}
+        private void notifyUnfrozen() {}
+        private void onFrozenStateChangedLocked(int p0) {}
+        private void onFrozenStateChangedUnlocked(int p0) {}
         void addCallback(java.util.function.Consumer<E> p0) {}
         public void binderDied() {}
         void maybeSubscribeToFrozenCallback() throws android.os.RemoteException {}

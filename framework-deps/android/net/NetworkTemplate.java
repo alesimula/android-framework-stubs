@@ -2,11 +2,11 @@ package android.net;
 
 public class NetworkTemplate {
     public NetworkTemplate() {}
-    public android.os.Parcelable.Creator CREATOR = null;
     public int getMatchRule() { return 0; }
     public java.util.Set getSubscriberIds() { return null; }
     public java.util.Set getWifiNetworkKeys() { return null; }
     public int getMeteredness() { return 0; }
+    public android.os.Parcelable.Creator CREATOR = null;
 
     public static class Builder {
         public Builder(int p0) {}

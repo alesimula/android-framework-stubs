@@ -13,15 +13,37 @@ public final class IpConnectivityLogClass {
     public static final int WIFI_P2P = 7;
     public IpConnectivityLogClass() {}
 
-    public final class ApfProgramEvent {
-        public static final long CURRENT_RAS = 1120986464259L;
-        public static final long DROP_MULTICAST = 1133871366149L;
-        public static final long EFFECTIVE_LIFETIME = 1112396529671L;
-        public static final long FILTERED_RAS = 1120986464258L;
-        public static final long HAS_IPV4_ADDR = 1133871366150L;
-        public static final long LIFETIME = 1112396529665L;
-        public static final long PROGRAM_LENGTH = 1120986464260L;
-        public ApfProgramEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    public final class NetworkEvent {
+        public static final long EVENT_TYPE = 1120986464258L;
+        public static final long LATENCY_MS = 1120986464259L;
+        public static final long NETWORK_ID = 1146756268033L;
+        public NetworkEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class ConnectStatistics {
+        public static final long CONNECT_BLOCKING_COUNT = 1120986464261L;
+        public static final long CONNECT_COUNT = 1120986464257L;
+        public static final long ERRNOS_COUNTERS = 2246267895812L;
+        public static final long IPV6_ADDR_COUNT = 1120986464258L;
+        public static final long LATENCIES_MS = 2220498092035L;
+        public static final long NON_BLOCKING_LATENCIES_MS = 2220498092038L;
+        public ConnectStatistics(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class DNSLatencies {
+        public static final long AAAA_COUNT = 1120986464261L;
+        public static final long A_COUNT = 1120986464260L;
+        public static final long LATENCIES_MS = 2220498092038L;
+        public static final long QUERY_COUNT = 1120986464259L;
+        public static final long RETURN_CODE = 1120986464258L;
+        public static final long TYPE = 1120986464257L;
+        public DNSLatencies(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class IpReachabilityEvent {
+        public static final long EVENT_TYPE = 1120986464258L;
+        public static final long IF_NAME = 1138166333441L;
+        public IpReachabilityEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
     }
 
     public final class ApfStatistics {
@@ -41,14 +63,46 @@ public final class IpConnectivityLogClass {
         public ApfStatistics(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
     }
 
-    public final class ConnectStatistics {
-        public static final long CONNECT_BLOCKING_COUNT = 1120986464261L;
-        public static final long CONNECT_COUNT = 1120986464257L;
-        public static final long ERRNOS_COUNTERS = 2246267895812L;
-        public static final long IPV6_ADDR_COUNT = 1120986464258L;
-        public static final long LATENCIES_MS = 2220498092035L;
-        public static final long NON_BLOCKING_LATENCIES_MS = 2220498092038L;
-        public ConnectStatistics(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    public final class NetworkId {
+        public static final long NETWORK_ID = 1120986464257L;
+        public NetworkId(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class NetworkStats {
+        public static final long DURATION_MS = 1112396529665L;
+        public static final long EVER_VALIDATED = 1133871366147L;
+        public static final long IP_SUPPORT = 1159641169922L;
+        public static final long NO_CONNECTIVITY_REPORTS = 1120986464261L;
+        public static final long PORTAL_FOUND = 1133871366148L;
+        public static final long VALIDATION_ATTEMPTS = 1120986464262L;
+        public static final long VALIDATION_EVENTS = 2246267895815L;
+        public static final long VALIDATION_STATES = 2246267895816L;
+        public NetworkStats(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class Pair {
+        public static final long KEY = 1120986464257L;
+        public static final long VALUE = 1120986464258L;
+        public Pair(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class ApfProgramEvent {
+        public static final long CURRENT_RAS = 1120986464259L;
+        public static final long DROP_MULTICAST = 1133871366149L;
+        public static final long EFFECTIVE_LIFETIME = 1112396529671L;
+        public static final long FILTERED_RAS = 1120986464258L;
+        public static final long HAS_IPV4_ADDR = 1133871366150L;
+        public static final long LIFETIME = 1112396529665L;
+        public static final long PROGRAM_LENGTH = 1120986464260L;
+        public ApfProgramEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
+    public final class DHCPEvent {
+        public static final long DURATION_MS = 1120986464260L;
+        public static final long ERROR_CODE = 1120986464259L;
+        public static final long IF_NAME = 1138166333441L;
+        public static final long STATE_TRANSITION = 1138166333442L;
+        public DHCPEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
     }
 
     public final class DefaultNetworkEvent {
@@ -74,38 +128,6 @@ public final class IpConnectivityLogClass {
         public DefaultNetworkEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
     }
 
-    public final class DHCPEvent {
-        public static final long DURATION_MS = 1120986464260L;
-        public static final long ERROR_CODE = 1120986464259L;
-        public static final long IF_NAME = 1138166333441L;
-        public static final long STATE_TRANSITION = 1138166333442L;
-        public DHCPEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class DNSLatencies {
-        public static final long AAAA_COUNT = 1120986464261L;
-        public static final long A_COUNT = 1120986464260L;
-        public static final long LATENCIES_MS = 2220498092038L;
-        public static final long QUERY_COUNT = 1120986464259L;
-        public static final long RETURN_CODE = 1120986464258L;
-        public static final long TYPE = 1120986464257L;
-        public DNSLatencies(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class DNSLookupBatch {
-        public static final long EVENT_TYPES = 2220498092034L;
-        public static final long GETADDRINFO_ERRORS = 2246267895817L;
-        public static final long GETADDRINFO_ERROR_COUNT = 1112396529671L;
-        public static final long GETADDRINFO_QUERY_COUNT = 1112396529669L;
-        public static final long GETHOSTBYNAME_ERRORS = 2246267895818L;
-        public static final long GETHOSTBYNAME_ERROR_COUNT = 1112396529672L;
-        public static final long GETHOSTBYNAME_QUERY_COUNT = 1112396529670L;
-        public static final long LATENCIES_MS = 2220498092036L;
-        public static final long NETWORK_ID = 1146756268033L;
-        public static final long RETURN_CODES = 2220498092035L;
-        public DNSLookupBatch(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
     public final class IpConnectivityEvent {
         public static final long APF_PROGRAM_EVENT = 1146756268041L;
         public static final long APF_STATISTICS = 1146756268042L;
@@ -129,6 +151,20 @@ public final class IpConnectivityLogClass {
         public IpConnectivityEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
     }
 
+    public final class DNSLookupBatch {
+        public static final long EVENT_TYPES = 2220498092034L;
+        public static final long GETADDRINFO_ERRORS = 2246267895817L;
+        public static final long GETADDRINFO_ERROR_COUNT = 1112396529671L;
+        public static final long GETADDRINFO_QUERY_COUNT = 1112396529669L;
+        public static final long GETHOSTBYNAME_ERRORS = 2246267895818L;
+        public static final long GETHOSTBYNAME_ERROR_COUNT = 1112396529672L;
+        public static final long GETHOSTBYNAME_QUERY_COUNT = 1112396529670L;
+        public static final long LATENCIES_MS = 2220498092036L;
+        public static final long NETWORK_ID = 1146756268033L;
+        public static final long RETURN_CODES = 2220498092035L;
+        public DNSLookupBatch(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
+    }
+
     public final class IpConnectivityLog {
         public static final long DROPPED_EVENTS = 1120986464258L;
         public static final long EVENTS = 2246267895809L;
@@ -141,42 +177,6 @@ public final class IpConnectivityLogClass {
         public static final long IF_NAME = 1138166333441L;
         public static final long LATENCY_MS = 1120986464259L;
         public IpProvisioningEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class IpReachabilityEvent {
-        public static final long EVENT_TYPE = 1120986464258L;
-        public static final long IF_NAME = 1138166333441L;
-        public IpReachabilityEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class NetworkEvent {
-        public static final long EVENT_TYPE = 1120986464258L;
-        public static final long LATENCY_MS = 1120986464259L;
-        public static final long NETWORK_ID = 1146756268033L;
-        public NetworkEvent(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class NetworkId {
-        public static final long NETWORK_ID = 1120986464257L;
-        public NetworkId(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class NetworkStats {
-        public static final long DURATION_MS = 1112396529665L;
-        public static final long EVER_VALIDATED = 1133871366147L;
-        public static final long IP_SUPPORT = 1159641169922L;
-        public static final long NO_CONNECTIVITY_REPORTS = 1120986464261L;
-        public static final long PORTAL_FOUND = 1133871366148L;
-        public static final long VALIDATION_ATTEMPTS = 1120986464262L;
-        public static final long VALIDATION_EVENTS = 2246267895815L;
-        public static final long VALIDATION_STATES = 2246267895816L;
-        public NetworkStats(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
-    }
-
-    public final class Pair {
-        public static final long KEY = 1120986464257L;
-        public static final long VALUE = 1120986464258L;
-        public Pair(com.android.server.connectivity.metrics.IpConnectivityLogClass p0) {}
     }
 
     public final class RaEvent {

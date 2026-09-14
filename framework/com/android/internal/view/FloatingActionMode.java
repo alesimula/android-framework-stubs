@@ -30,6 +30,7 @@ public final class FloatingActionMode extends android.view.ActionMode {
     private void reset() {}
     private void setFloatingToolbar(com.android.internal.widget.floatingtoolbar.FloatingToolbar p0) {}
     private void updateViewLocationInWindow(boolean p0) {}
+    public void clearTextSelection() {}
     public void finish() {}
     public android.view.View getCustomView() { return null; }
     public android.view.Menu getMenu() { return null; }
@@ -44,6 +45,7 @@ public final class FloatingActionMode extends android.view.ActionMode {
     public void setOutsideTouchable(boolean p0, android.widget.PopupWindow.OnDismissListener p1) {}
     public void setSubtitle(int p0) {}
     public void setSubtitle(java.lang.CharSequence p0) {}
+    public void setTextSelection(java.lang.CharSequence p0, int p1, int p2, android.os.LocaleList p3) {}
     public void setTitle(int p0) {}
     public void setTitle(java.lang.CharSequence p0) {}
     public void updateViewLocationInWindow() {}

@@ -27,6 +27,15 @@ public final class ValidationProbeEvent implements android.net.metrics.IpConnect
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    static final class Decoder {
+        static final android.util.SparseArray<java.lang.String> constants = null;
+        Decoder() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ReturnCode {
+    }
+
     public static final class Builder {
         private long mDurationMs;
         private int mProbeType;
@@ -36,14 +45,5 @@ public final class ValidationProbeEvent implements android.net.metrics.IpConnect
         public android.net.metrics.ValidationProbeEvent.Builder setDurationMs(long p0) { return null; }
         public android.net.metrics.ValidationProbeEvent.Builder setProbeType(int p0, boolean p1) { return null; }
         public android.net.metrics.ValidationProbeEvent.Builder setReturnCode(int p0) { return null; }
-    }
-
-    static final class Decoder {
-        static final android.util.SparseArray<java.lang.String> constants = null;
-        Decoder() {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ReturnCode {
     }
 }

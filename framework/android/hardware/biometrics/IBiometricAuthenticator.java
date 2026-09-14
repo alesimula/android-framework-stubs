@@ -15,23 +15,6 @@ public interface IBiometricAuthenticator extends android.os.IInterface {
     public void resetLockout(android.os.IBinder p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException;
     public void startPreparedClient(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.IBiometricAuthenticator {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelAuthenticationFromService(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
-        public android.hardware.biometrics.ITestSession createTestSession(android.hardware.biometrics.ITestSessionCallback p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public byte[] dumpSensorServiceStateProto(boolean p0) throws android.os.RemoteException { return null; }
-        public long getAuthenticatorId(int p0) throws android.os.RemoteException { return 0L; }
-        public int getLockoutModeForUser(int p0) throws android.os.RemoteException { return 0; }
-        public android.hardware.biometrics.SensorPropertiesInternal getSensorProperties(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public boolean hasEnrolledTemplates(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public void invalidateAuthenticatorId(int p0, android.hardware.biometrics.IInvalidationCallback p1) throws android.os.RemoteException {}
-        public boolean isHardwareDetected(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public void prepareForAuthentication(boolean p0, android.os.IBinder p1, long p2, int p3, android.hardware.biometrics.IBiometricSensorReceiver p4, java.lang.String p5, long p6, int p7, boolean p8, boolean p9, boolean p10) throws android.os.RemoteException {}
-        public void resetLockout(android.os.IBinder p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException {}
-        public void startPreparedClient(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.IBiometricAuthenticator {
         static final int TRANSACTION_cancelAuthenticationFromService = 6;
         static final int TRANSACTION_createTestSession = 1;
@@ -70,5 +53,22 @@ public interface IBiometricAuthenticator extends android.os.IInterface {
             public void resetLockout(android.os.IBinder p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException {}
             public void startPreparedClient(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.IBiometricAuthenticator {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelAuthenticationFromService(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
+        public android.hardware.biometrics.ITestSession createTestSession(android.hardware.biometrics.ITestSessionCallback p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public byte[] dumpSensorServiceStateProto(boolean p0) throws android.os.RemoteException { return null; }
+        public long getAuthenticatorId(int p0) throws android.os.RemoteException { return 0L; }
+        public int getLockoutModeForUser(int p0) throws android.os.RemoteException { return 0; }
+        public android.hardware.biometrics.SensorPropertiesInternal getSensorProperties(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public boolean hasEnrolledTemplates(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public void invalidateAuthenticatorId(int p0, android.hardware.biometrics.IInvalidationCallback p1) throws android.os.RemoteException {}
+        public boolean isHardwareDetected(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public void prepareForAuthentication(boolean p0, android.os.IBinder p1, long p2, int p3, android.hardware.biometrics.IBiometricSensorReceiver p4, java.lang.String p5, long p6, int p7, boolean p8, boolean p9, boolean p10) throws android.os.RemoteException {}
+        public void resetLockout(android.os.IBinder p0, java.lang.String p1, int p2, byte[] p3) throws android.os.RemoteException {}
+        public void startPreparedClient(int p0) throws android.os.RemoteException {}
     }
 }

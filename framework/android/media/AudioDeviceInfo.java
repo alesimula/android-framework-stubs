@@ -74,7 +74,7 @@ public final class AudioDeviceInfo {
     public java.lang.String toString() { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AudioDeviceType {
+    public static @interface SpeakerLayoutChannelMask {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -86,6 +86,6 @@ public final class AudioDeviceInfo {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SpeakerLayoutChannelMask {
+    public static @interface AudioDeviceType {
     }
 }

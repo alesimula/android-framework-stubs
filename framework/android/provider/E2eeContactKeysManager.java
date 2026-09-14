@@ -34,22 +34,6 @@ public final class E2eeContactKeysManager {
     public void updateOrInsertE2eeContactKey(java.lang.String p0, java.lang.String p1, java.lang.String p2, byte[] p3) {}
     public boolean updateOrInsertE2eeSelfKey(java.lang.String p0, java.lang.String p1, byte[] p2) { return false; }
 
-    static abstract class E2eeBaseKey {
-        protected final java.lang.String mAccountId = null;
-        protected final java.lang.String mDeviceId = null;
-        protected final byte[] mKeyValue = null;
-        protected final java.lang.String mOwnerPackageName = null;
-        protected final int mRemoteVerificationState = 0;
-        protected final long mTimeUpdated = 0L;
-        protected E2eeBaseKey(java.lang.String p0, java.lang.String p1, java.lang.String p2, long p3, byte[] p4, int p5) {}
-        public java.lang.String getAccountId() { return null; }
-        public java.lang.String getDeviceId() { return null; }
-        public byte[] getKeyValue() { return null; }
-        public java.lang.String getOwnerPackageName() { return null; }
-        public int getRemoteVerificationState() { return 0; }
-        public long getTimeUpdated() { return 0L; }
-    }
-
     public static final class E2eeContactKey extends android.provider.E2eeContactKeysManager.E2eeBaseKey implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.provider.E2eeContactKeysManager.E2eeContactKey> CREATOR = null;
         private final java.lang.String mDisplayName = null;
@@ -98,6 +82,26 @@ public final class E2eeContactKeysManager {
         private E2eeContactKeys() {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VerificationState {
+    }
+
+    static abstract class E2eeBaseKey {
+        protected final java.lang.String mAccountId = null;
+        protected final java.lang.String mDeviceId = null;
+        protected final byte[] mKeyValue = null;
+        protected final java.lang.String mOwnerPackageName = null;
+        protected final int mRemoteVerificationState = 0;
+        protected final long mTimeUpdated = 0L;
+        protected E2eeBaseKey(java.lang.String p0, java.lang.String p1, java.lang.String p2, long p3, byte[] p4, int p5) {}
+        public java.lang.String getAccountId() { return null; }
+        public java.lang.String getDeviceId() { return null; }
+        public byte[] getKeyValue() { return null; }
+        public java.lang.String getOwnerPackageName() { return null; }
+        public int getRemoteVerificationState() { return 0; }
+        public long getTimeUpdated() { return 0L; }
+    }
+
     public static final class E2eeSelfKey extends android.provider.E2eeContactKeysManager.E2eeBaseKey implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.provider.E2eeContactKeysManager.E2eeSelfKey> CREATOR = null;
         public E2eeSelfKey(java.lang.String p0, java.lang.String p1, java.lang.String p2, long p3, byte[] p4, int p5) { super(null, null, null, 0L, null, 0); }
@@ -105,9 +109,5 @@ public final class E2eeContactKeysManager {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VerificationState {
     }
 }

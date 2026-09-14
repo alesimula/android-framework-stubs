@@ -10,25 +10,28 @@ public final class CallHint extends android.service.personalcontext.hint.Context
     private static final java.lang.String TAG = "CallHint";
     private final int mModality = 0;
     private final java.util.HashSet<android.app.Person> mParticipants = null;
-    private CallHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, int p1, java.util.Set<android.app.Person> p2) { super(null); }
+    public CallHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, int p1, java.util.Set<android.app.Person> p2) { super(null); }
     CallHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.os.Bundle p1) { super(null); }
+    CallHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.os.Parcel p1) { super(null); }
     public boolean equals(java.lang.Object p0) { return false; }
     int getHintType() { return 0; }
     public int getModality() { return 0; }
     public java.util.Set<android.app.Person> getParticipants() { return null; }
     public int hashCode() { return 0; }
     android.os.Bundle toBundleImpl() { return null; }
+    void writeImplementationDataToParcel(android.os.Parcel p0, int p1) {}
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Modality {
+    }
 
     public static final class Builder {
         private final android.service.personalcontext.hint.ContextHint.ConstructorParams.Builder mBaseBuilder = null;
         private final int mModality = 0;
         private final java.util.Set<android.app.Person> mParticipants = null;
         public Builder(int p0, java.util.Set<android.app.Person> p1) {}
+        @java.lang.Deprecated
         public android.service.personalcontext.hint.CallHint.Builder addToken(android.service.personalcontext.Token p0) { return null; }
         public android.service.personalcontext.hint.CallHint build() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Modality {
     }
 }

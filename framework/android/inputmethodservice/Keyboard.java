@@ -72,6 +72,19 @@ public class Keyboard {
     public boolean setShifted(boolean p0) { return false; }
     protected void setVerticalGap(int p0) {}
 
+    public static class Row {
+        public int defaultHeight;
+        public int defaultHorizontalGap;
+        public int defaultWidth;
+        java.util.ArrayList<android.inputmethodservice.Keyboard.Key> mKeys;
+        public int mode;
+        private android.inputmethodservice.Keyboard parent;
+        public int rowEdgeFlags;
+        public int verticalGap;
+        public Row(android.content.res.Resources p0, android.inputmethodservice.Keyboard p1, android.content.res.XmlResourceParser p2) {}
+        public Row(android.inputmethodservice.Keyboard p0) {}
+    }
+
     public static class Key {
         private static final int[] KEY_STATE_NORMAL = null;
         private static final int[] KEY_STATE_NORMAL_OFF = null;
@@ -106,18 +119,5 @@ public class Keyboard {
         public void onReleased(boolean p0) {}
         int[] parseCSV(java.lang.String p0) { return null; }
         public int squaredDistanceFrom(int p0, int p1) { return 0; }
-    }
-
-    public static class Row {
-        public int defaultHeight;
-        public int defaultHorizontalGap;
-        public int defaultWidth;
-        java.util.ArrayList<android.inputmethodservice.Keyboard.Key> mKeys;
-        public int mode;
-        private android.inputmethodservice.Keyboard parent;
-        public int rowEdgeFlags;
-        public int verticalGap;
-        public Row(android.content.res.Resources p0, android.inputmethodservice.Keyboard p1, android.content.res.XmlResourceParser p2) {}
-        public Row(android.inputmethodservice.Keyboard p0) {}
     }
 }

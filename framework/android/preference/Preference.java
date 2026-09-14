@@ -150,15 +150,15 @@ public class Preference implements java.lang.Comparable<android.preference.Prefe
     public java.lang.String toString() { return null; }
 
     @java.lang.Deprecated
+    public static interface OnPreferenceClickListener {
+        public boolean onPreferenceClick(android.preference.Preference p0);
+    }
+
+    @java.lang.Deprecated
     public static class BaseSavedState extends android.view.AbsSavedState {
         public static final android.os.Parcelable.Creator<android.preference.Preference.BaseSavedState> CREATOR = null;
         public BaseSavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
         public BaseSavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
-    }
-
-    static interface OnPreferenceChangeInternalListener {
-        public void onPreferenceChange(android.preference.Preference p0);
-        public void onPreferenceHierarchyChange(android.preference.Preference p0);
     }
 
     @java.lang.Deprecated
@@ -166,8 +166,8 @@ public class Preference implements java.lang.Comparable<android.preference.Prefe
         public boolean onPreferenceChange(android.preference.Preference p0, java.lang.Object p1);
     }
 
-    @java.lang.Deprecated
-    public static interface OnPreferenceClickListener {
-        public boolean onPreferenceClick(android.preference.Preference p0);
+    static interface OnPreferenceChangeInternalListener {
+        public void onPreferenceChange(android.preference.Preference p0);
+        public void onPreferenceHierarchyChange(android.preference.Preference p0);
     }
 }

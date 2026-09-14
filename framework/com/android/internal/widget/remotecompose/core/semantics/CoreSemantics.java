@@ -1,6 +1,7 @@
 package com.android.internal.widget.remotecompose.core.semantics;
 
 public final class CoreSemantics extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.semantics.AccessibilityModifier {
+    private static final com.android.internal.widget.remotecompose.core.semantics.AccessibleComponent.Mode[] MODE_VALUES = null;
     public boolean mClickable;
     public int mContentDescriptionId;
     public boolean mEnabled;
@@ -12,6 +13,7 @@ public final class CoreSemantics extends com.android.internal.widget.remotecompo
     public CoreSemantics(int p0, byte p1, int p2, int p3, int p4, boolean p5, boolean p6) { super(); }
     public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, int p1, byte p2, int p3, int p4, int p5, boolean p6, boolean p7) {}
     public static void documentation(com.android.internal.widget.remotecompose.core.documentation.DocumentationBuilder p0) {}
+    private static com.android.internal.widget.remotecompose.core.semantics.AccessibleComponent.Mode modeFromInt(int p0) { return null; }
     private void read(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}

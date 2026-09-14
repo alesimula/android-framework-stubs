@@ -1,9 +1,11 @@
 package android.database.sqlite;
 
 public abstract class SQLiteClosable implements java.io.Closeable {
-    private java.lang.Throwable mClosedBy;
-    private int mReferenceCount;
-    protected boolean mTrackClosure;
+    private static final java.lang.invoke.VarHandle sClosedBy = null;
+    private static final java.lang.invoke.VarHandle sRef = null;
+    private volatile java.lang.Throwable mClosedBy;
+    private volatile int mReferenceCount;
+    protected volatile boolean mTrackClosure;
     public SQLiteClosable() {}
     public void acquireReference() {}
     public void close() {}

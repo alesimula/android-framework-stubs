@@ -62,12 +62,19 @@ public class AudioDeviceVolumeManager {
     @android.annotation.SystemApi
     public void setVolumeForDevice(android.media.VolumeInfo p0, android.media.AudioDeviceAttributes p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AbsoluteDeviceVolumeBehavior {
+    final class DeviceVolumeDispatcherStub extends android.media.IAudioDeviceVolumeDispatcher.Stub {
+        DeviceVolumeDispatcherStub(android.media.AudioDeviceVolumeManager p0) { super(); }
+        public void dispatchDeviceVolumeAdjusted(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1, int p2, int p3) {}
+        public void dispatchDeviceVolumeChanged(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1) {}
+        public void register(boolean p0, android.media.AudioDeviceAttributes p1, java.util.List<android.media.VolumeInfo> p2, boolean p3, int p4) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DeviceVolumeBehavior {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DeviceVolumeBehaviorState {
     }
 
     private final class DeviceVolumeBehaviorDispatcherStub extends android.media.IDeviceVolumeBehaviorDispatcher.Stub implements android.media.CallbackUtil.DispatcherStub {
@@ -76,15 +83,22 @@ public class AudioDeviceVolumeManager {
         public void register(boolean p0) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeviceVolumeBehaviorState {
+    public static interface OnDeviceVolumeBehaviorChangedListener {
+        public void onDeviceVolumeBehaviorChanged(android.media.AudioDeviceAttributes p0, int p1);
     }
 
-    final class DeviceVolumeDispatcherStub extends android.media.IAudioDeviceVolumeDispatcher.Stub {
-        DeviceVolumeDispatcherStub(android.media.AudioDeviceVolumeManager p0) { super(); }
-        public void dispatchDeviceVolumeAdjusted(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1, int p2, int p3) {}
-        public void dispatchDeviceVolumeChanged(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1) {}
-        public void register(boolean p0, android.media.AudioDeviceAttributes p1, java.util.List<android.media.VolumeInfo> p2, boolean p3, int p4) {}
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
+    public static interface OnAudioDeviceVolumeChangedListener {
+        public void onAudioDeviceVolumeAdjusted(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1, int p2, int p3);
+        public void onAudioDeviceVolumeChanged(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AbsoluteDeviceVolumeBehavior {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VolumeAdjustmentNoMute {
     }
 
     static class ListenerInfo {
@@ -95,21 +109,7 @@ public class AudioDeviceVolumeManager {
         ListenerInfo(android.media.AudioDeviceVolumeManager.OnAudioDeviceVolumeChangedListener p0, java.util.concurrent.Executor p1, android.media.AudioDeviceAttributes p2, boolean p3) {}
     }
 
-    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
-    public static interface OnAudioDeviceVolumeChangedListener {
-        public void onAudioDeviceVolumeAdjusted(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1, int p2, int p3);
-        public void onAudioDeviceVolumeChanged(android.media.AudioDeviceAttributes p0, android.media.VolumeInfo p1);
-    }
-
-    public static interface OnDeviceVolumeBehaviorChangedListener {
-        public void onDeviceVolumeBehaviorChanged(android.media.AudioDeviceAttributes p0, int p1);
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface VolumeAdjustmentMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VolumeAdjustmentNoMute {
     }
 }

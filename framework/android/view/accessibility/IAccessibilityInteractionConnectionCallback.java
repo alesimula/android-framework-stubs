@@ -8,17 +8,6 @@ public interface IAccessibilityInteractionConnectionCallback extends android.os.
     public void setPerformAccessibilityActionResult(boolean p0, int p1) throws android.os.RemoteException;
     public void setPrefetchAccessibilityNodeInfoResult(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.view.accessibility.IAccessibilityInteractionConnectionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void sendAttachOverlayResult(int p0, int p1) throws android.os.RemoteException {}
-        public void sendTakeScreenshotOfWindowError(int p0, int p1) throws android.os.RemoteException {}
-        public void setFindAccessibilityNodeInfoResult(android.view.accessibility.AccessibilityNodeInfo p0, int p1) throws android.os.RemoteException {}
-        public void setFindAccessibilityNodeInfosResult(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1) throws android.os.RemoteException {}
-        public void setPerformAccessibilityActionResult(boolean p0, int p1) throws android.os.RemoteException {}
-        public void setPrefetchAccessibilityNodeInfoResult(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IAccessibilityInteractionConnectionCallback {
         public static final java.lang.String DESCRIPTOR = "android.view.accessibility.IAccessibilityInteractionConnectionCallback";
         static final int TRANSACTION_sendAttachOverlayResult = 6;
@@ -46,5 +35,16 @@ public interface IAccessibilityInteractionConnectionCallback extends android.os.
             public void setPerformAccessibilityActionResult(boolean p0, int p1) throws android.os.RemoteException {}
             public void setPrefetchAccessibilityNodeInfoResult(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.accessibility.IAccessibilityInteractionConnectionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void sendAttachOverlayResult(int p0, int p1) throws android.os.RemoteException {}
+        public void sendTakeScreenshotOfWindowError(int p0, int p1) throws android.os.RemoteException {}
+        public void setFindAccessibilityNodeInfoResult(android.view.accessibility.AccessibilityNodeInfo p0, int p1) throws android.os.RemoteException {}
+        public void setFindAccessibilityNodeInfosResult(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1) throws android.os.RemoteException {}
+        public void setPerformAccessibilityActionResult(boolean p0, int p1) throws android.os.RemoteException {}
+        public void setPrefetchAccessibilityNodeInfoResult(java.util.List<android.view.accessibility.AccessibilityNodeInfo> p0, int p1) throws android.os.RemoteException {}
     }
 }

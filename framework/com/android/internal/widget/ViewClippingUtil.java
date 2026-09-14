@@ -1,9 +1,9 @@
 package com.android.internal.widget;
 
 public class ViewClippingUtil {
-    private static final int CLIP_CHILDREN_TAG = 16908986;
-    private static final int CLIP_CLIPPING_SET = 16908985;
-    private static final int CLIP_TO_PADDING = 16908988;
+    private static final int CLIP_CHILDREN_TAG = 16908991;
+    private static final int CLIP_CLIPPING_SET = 16908990;
+    private static final int CLIP_TO_PADDING = 16908993;
     public ViewClippingUtil() {}
     public static void setClippingDeactivated(android.view.View p0, boolean p1, com.android.internal.widget.ViewClippingUtil.ClippingParameters p2) {}
 

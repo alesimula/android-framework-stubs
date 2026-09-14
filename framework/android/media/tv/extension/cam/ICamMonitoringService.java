@@ -9,17 +9,6 @@ public interface ICamMonitoringService extends android.os.IInterface {
     public boolean isCamSupported() throws android.os.RemoteException;
     public void removeCamInfoListener(android.media.tv.extension.cam.ICamInfoListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.cam.ICamMonitoringService {
-        public Default() {}
-        public void addCamInfoListener(android.media.tv.extension.cam.ICamInfoListener p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.Bundle getCamInfo(int p0) throws android.os.RemoteException { return null; }
-        public int[] getSlotIds() throws android.os.RemoteException { return null; }
-        public android.os.Bundle getSlotInfo(int p0) throws android.os.RemoteException { return null; }
-        public boolean isCamSupported() throws android.os.RemoteException { return false; }
-        public void removeCamInfoListener(android.media.tv.extension.cam.ICamInfoListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.cam.ICamMonitoringService {
         static final int TRANSACTION_addCamInfoListener = 1;
         static final int TRANSACTION_getCamInfo = 3;
@@ -46,5 +35,16 @@ public interface ICamMonitoringService extends android.os.IInterface {
             public boolean isCamSupported() throws android.os.RemoteException { return false; }
             public void removeCamInfoListener(android.media.tv.extension.cam.ICamInfoListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.cam.ICamMonitoringService {
+        public Default() {}
+        public void addCamInfoListener(android.media.tv.extension.cam.ICamInfoListener p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.Bundle getCamInfo(int p0) throws android.os.RemoteException { return null; }
+        public int[] getSlotIds() throws android.os.RemoteException { return null; }
+        public android.os.Bundle getSlotInfo(int p0) throws android.os.RemoteException { return null; }
+        public boolean isCamSupported() throws android.os.RemoteException { return false; }
+        public void removeCamInfoListener(android.media.tv.extension.cam.ICamInfoListener p0) throws android.os.RemoteException {}
     }
 }

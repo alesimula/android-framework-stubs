@@ -13,6 +13,7 @@ public class AnimationHandler {
     private long mEndAnimationFrameVsyncId;
     private final android.view.Choreographer.FrameCallback mFrameCallback = null;
     private long mLastAnimationFrameVsyncId;
+    private final android.animation.AnimationLeakDetector mLeakDetector = null;
     private boolean mListDirty;
     private final java.util.ArrayList<android.animation.Animator> mPausedAnimators = null;
     private android.view.Choreographer.FrameCallback mPauser;
@@ -46,6 +47,7 @@ public class AnimationHandler {
 
     public static interface AnimationFrameCallback {
         public boolean doAnimationFrame(long p0);
+        default public java.lang.String getNameForTrace() { return null; }
     }
 
     public static interface AnimationFrameCallbackProvider {

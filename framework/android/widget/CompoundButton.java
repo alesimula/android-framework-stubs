@@ -2,7 +2,7 @@ package android.widget;
 
 public abstract class CompoundButton extends android.widget.Button implements android.widget.Checkable {
     private static final int[] CHECKED_STATE_SET = null;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "CompoundButton";
     private boolean mBroadcasting;
     private android.graphics.BlendMode mButtonBlendMode;
     private android.graphics.drawable.Drawable mButtonDrawable;
@@ -49,10 +49,10 @@ public abstract class CompoundButton extends android.widget.Button implements an
     @android.view.RemotableViewMethod(asyncImpl="setButtonDrawableAsync")
     public void setButtonDrawable(int p0) {}
     public void setButtonDrawable(android.graphics.drawable.Drawable p0) {}
-    public java.lang.Runnable setButtonDrawableAsync(int p0) { return null; }
+    public final java.lang.Runnable setButtonDrawableAsync(int p0) { return null; }
     @android.view.RemotableViewMethod(asyncImpl="setButtonIconAsync")
     public void setButtonIcon(android.graphics.drawable.Icon p0) {}
-    public java.lang.Runnable setButtonIconAsync(android.graphics.drawable.Icon p0) { return null; }
+    public final java.lang.Runnable setButtonIconAsync(android.graphics.drawable.Icon p0) { return null; }
     @android.view.RemotableViewMethod
     public void setButtonTintBlendMode(android.graphics.BlendMode p0) {}
     @android.view.RemotableViewMethod
@@ -66,10 +66,6 @@ public abstract class CompoundButton extends android.widget.Button implements an
     public void toggle() {}
     protected boolean verifyDrawable(android.graphics.drawable.Drawable p0) { return false; }
 
-    public static interface OnCheckedChangeListener {
-        public void onCheckedChanged(android.widget.CompoundButton p0, boolean p1);
-    }
-
     static class SavedState extends android.view.View.BaseSavedState {
         public static final android.os.Parcelable.Creator<android.widget.CompoundButton.SavedState> CREATOR = null;
         boolean checked;
@@ -77,6 +73,10 @@ public abstract class CompoundButton extends android.widget.Button implements an
         SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static interface OnCheckedChangeListener {
+        public void onCheckedChanged(android.widget.CompoundButton p0, boolean p1);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.CompoundButton> {

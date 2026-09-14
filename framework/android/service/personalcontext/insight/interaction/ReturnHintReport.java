@@ -6,6 +6,7 @@ public final class ReturnHintReport implements android.os.Parcelable {
     private final android.service.personalcontext.hint.InsightReferenceHint mInsightReferenceHint = null;
     private final java.util.List<android.service.personalcontext.RenderToken> mRenderTokens = null;
     private ReturnHintReport(android.os.Parcel p0) {}
+    public ReturnHintReport(android.service.personalcontext.hint.InsightReferenceHint p0, java.util.List<android.service.personalcontext.RenderToken> p1) {}
     public ReturnHintReport(android.service.personalcontext.insight.ActionableInsight p0) {}
     public int describeContents() { return 0; }
     public android.service.personalcontext.hint.InsightReferenceHint getInsightReferenceHint() { return null; }

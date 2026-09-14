@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations;
 
-public class ColorExpression extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.operations.ComponentData {
+public class ColorExpression extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.operations.ComponentData, com.android.internal.widget.remotecompose.core.VariableProvider {
     public static final byte ARGB_MODE = 5;
     private static final java.lang.String CLASS_NAME = "ColorExpression";
     public static final byte COLOR_COLOR_INTERPOLATE = 0;
@@ -44,10 +44,13 @@ public class ColorExpression extends com.android.internal.widget.remotecompose.c
     public static int id() { return 0; }
     public static java.lang.String name() { return null; }
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
+    private static float resolveFloat(com.android.internal.widget.remotecompose.core.WireBuffer p0, float p1) { return 0.0f; }
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
+    public int getId() { return 0; }
     public void registerListening(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
+    public void setId(int p0) {}
     public java.lang.String toString() { return null; }
     public void updateVariables(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void write(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}

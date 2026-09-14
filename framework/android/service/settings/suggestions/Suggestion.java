@@ -22,6 +22,10 @@ public final class Suggestion implements android.os.Parcelable {
     public java.lang.CharSequence getTitle() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Flags {
+    }
+
     public static class Builder {
         private int mFlags;
         private android.graphics.drawable.Icon mIcon;
@@ -36,9 +40,5 @@ public final class Suggestion implements android.os.Parcelable {
         public android.service.settings.suggestions.Suggestion.Builder setPendingIntent(android.app.PendingIntent p0) { return null; }
         public android.service.settings.suggestions.Suggestion.Builder setSummary(java.lang.CharSequence p0) { return null; }
         public android.service.settings.suggestions.Suggestion.Builder setTitle(java.lang.CharSequence p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Flags {
     }
 }

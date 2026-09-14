@@ -64,6 +64,14 @@ public class DvbsFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     public int getType() { return 0; }
     public int getVcmMode() { return 0; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScanType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Pilot {
+    }
+
     public static class Builder {
         private android.media.tv.tuner.frontend.DvbsCodeRate mCodeRate;
         private long mFrequency;
@@ -94,11 +102,7 @@ public class DvbsFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Modulation {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Pilot {
+    public static @interface VcmMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -106,14 +110,10 @@ public class DvbsFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScanType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Standard {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VcmMode {
+    public static @interface Modulation {
     }
 }

@@ -184,6 +184,12 @@ public class PropertyInvalidatedCache<Query extends java.lang.Object, Result ext
         int size() { return 0; }
     }
 
+    public static abstract class QueryHandler<Q extends java.lang.Object, R extends java.lang.Object> {
+        public QueryHandler() {}
+        public abstract R apply(Q p0);
+        public boolean shouldBypassCache(Q p0) { return false; }
+    }
+
     private static class DefaultComputer<Query extends java.lang.Object, Result extends java.lang.Object> extends android.app.PropertyInvalidatedCache.QueryHandler<Query, Result> {
         final android.app.PropertyInvalidatedCache<Query, Result> mCache = null;
         DefaultComputer(android.app.PropertyInvalidatedCache<Query, Result> p0) { super(); }
@@ -197,6 +203,12 @@ public class PropertyInvalidatedCache<Query extends java.lang.Object, Result ext
         public final int hashCode() { return 0; }
         public java.lang.String mName() { return null; }
         public final java.lang.String toString() { return null; }
+    }
+
+    private static final class NoPreloadHolder {
+        private static final java.util.concurrent.atomic.AtomicLong sNextNonce = null;
+        private NoPreloadHolder() {}
+        public static long next() { return 0L; }
     }
 
     private static abstract class NonceHandler {
@@ -306,17 +318,5 @@ public class PropertyInvalidatedCache<Query extends java.lang.Object, Result ext
         public int waitForChange() throws java.lang.InterruptedException { return 0; }
         public int waitForChange(long p0, java.util.concurrent.TimeUnit p1) throws java.lang.InterruptedException { return 0; }
         public void wakeUp() {}
-    }
-
-    private static final class NoPreloadHolder {
-        private static final java.util.concurrent.atomic.AtomicLong sNextNonce = null;
-        private NoPreloadHolder() {}
-        public static long next() { return 0L; }
-    }
-
-    public static abstract class QueryHandler<Q extends java.lang.Object, R extends java.lang.Object> {
-        public QueryHandler() {}
-        public abstract R apply(Q p0);
-        public boolean shouldBypassCache(Q p0) { return false; }
     }
 }

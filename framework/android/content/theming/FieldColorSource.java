@@ -2,6 +2,8 @@ package android.content.theming;
 
 public final class FieldColorSource extends android.content.theming.ThemeSettingsField<java.lang.String, java.lang.String> {
     public static final java.lang.String VALUE_HOME_WALLPAPER = "home_wallpaper";
+    @java.lang.Deprecated
+    public static final java.lang.String VALUE_LOCK_WALLPAPER = "lock_wallpaper";
     public static final java.lang.String VALUE_PRESET = "preset";
     public FieldColorSource() { super(); }
     public java.lang.Class<java.lang.String> getFieldType() { return null; }

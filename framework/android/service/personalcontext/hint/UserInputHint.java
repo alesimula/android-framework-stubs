@@ -7,7 +7,8 @@ public final class UserInputHint extends android.service.personalcontext.hint.Co
     private final android.content.ComponentName mSourceAppActivityComponentName = null;
     private final android.service.personalcontext.hint.UserInputText mUserInputText = null;
     UserInputHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.os.Bundle p1) { super(null); }
-    private UserInputHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.service.personalcontext.hint.UserInputText p1, android.content.ComponentName p2) { super(null); }
+    UserInputHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.os.Parcel p1) { super(null); }
+    public UserInputHint(android.service.personalcontext.hint.ContextHint.ConstructorParams p0, android.service.personalcontext.hint.UserInputText p1, android.content.ComponentName p2) { super(null); }
     public boolean equals(java.lang.Object p0) { return false; }
     int getHintType() { return 0; }
     public android.content.ComponentName getSourceAppActivityComponentName() { return null; }
@@ -16,12 +17,14 @@ public final class UserInputHint extends android.service.personalcontext.hint.Co
     public int hashCode() { return 0; }
     android.os.Bundle toBundleImpl() { return null; }
     public java.lang.String toString() { return null; }
+    void writeImplementationDataToParcel(android.os.Parcel p0, int p1) {}
 
     public static final class Builder {
         private final android.service.personalcontext.hint.ContextHint.ConstructorParams.Builder mBaseBuilder = null;
         private android.content.ComponentName mSourceAppActivityComponentName;
         private android.service.personalcontext.hint.UserInputText mUserInputText;
         public Builder(android.service.personalcontext.hint.UserInputText p0) {}
+        @java.lang.Deprecated
         public android.service.personalcontext.hint.UserInputHint.Builder addToken(android.service.personalcontext.Token p0) { return null; }
         public android.service.personalcontext.hint.UserInputHint build() { return null; }
         public android.service.personalcontext.hint.UserInputHint.Builder setSourceAppActivityComponentName(android.content.ComponentName p0) { return null; }

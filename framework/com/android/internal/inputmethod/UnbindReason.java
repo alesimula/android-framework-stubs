@@ -8,5 +8,6 @@ public @interface UnbindReason {
     public static final int SWITCH_IME = 2;
     public static final int SWITCH_IME_FAILED = 5;
     public static final int SWITCH_USER = 6;
+    public static final int SWITCH_USER_PROFILE_WARM = 7;
     public static final int UNSPECIFIED = 0;
 }

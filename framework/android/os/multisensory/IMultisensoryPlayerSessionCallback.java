@@ -6,14 +6,6 @@ public interface IMultisensoryPlayerSessionCallback extends android.os.IInterfac
     public void onOpenRealtimeSessionComplete(long p0, int p1, int p2, android.os.multisensory.IMultisensoryRealtimeSession p3) throws android.os.RemoteException;
     public void onStartRealtimeSessionComplete(long p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.os.multisensory.IMultisensoryPlayerSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCloseRealtimeSessionComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onOpenRealtimeSessionComplete(long p0, int p1, int p2, android.os.multisensory.IMultisensoryRealtimeSession p3) throws android.os.RemoteException {}
-        public void onStartRealtimeSessionComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.multisensory.IMultisensoryPlayerSessionCallback {
         static final int TRANSACTION_onCloseRealtimeSessionComplete = 4;
         static final int TRANSACTION_onOpenRealtimeSessionComplete = 2;
@@ -34,5 +26,13 @@ public interface IMultisensoryPlayerSessionCallback extends android.os.IInterfac
             public void onOpenRealtimeSessionComplete(long p0, int p1, int p2, android.os.multisensory.IMultisensoryRealtimeSession p3) throws android.os.RemoteException {}
             public void onStartRealtimeSessionComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.multisensory.IMultisensoryPlayerSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCloseRealtimeSessionComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onOpenRealtimeSessionComplete(long p0, int p1, int p2, android.os.multisensory.IMultisensoryRealtimeSession p3) throws android.os.RemoteException {}
+        public void onStartRealtimeSessionComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

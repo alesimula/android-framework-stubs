@@ -58,25 +58,6 @@ public final class DeviceProductInfo implements android.os.Parcelable {
         public android.hardware.display.DeviceProductInfo.Builder setVideoInputType(int p0) { return null; }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConnectionToSinkType {
-    }
-
-    public static final class EdidStructureMetadata implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.display.DeviceProductInfo.EdidStructureMetadata> CREATOR = null;
-        private final int mRevision = 0;
-        private final int mVersion = 0;
-        public EdidStructureMetadata(int p0, int p1) {}
-        private EdidStructureMetadata(android.os.Parcel p0) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getRevision() { return 0; }
-        public int getVersion() { return 0; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class ManufactureDate implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.display.DeviceProductInfo.ManufactureDate> CREATOR = null;
         private final java.lang.Integer mWeek = null;
@@ -93,6 +74,25 @@ public final class DeviceProductInfo implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConnectionToSinkType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface VideoInputType {
+    }
+
+    public static final class EdidStructureMetadata implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.display.DeviceProductInfo.EdidStructureMetadata> CREATOR = null;
+        private final int mRevision = 0;
+        private final int mVersion = 0;
+        public EdidStructureMetadata(int p0, int p1) {}
+        private EdidStructureMetadata(android.os.Parcel p0) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getRevision() { return 0; }
+        public int getVersion() { return 0; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

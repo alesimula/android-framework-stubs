@@ -30,6 +30,10 @@ public final class HdmiPortInfo implements android.os.Parcelable {
     @android.annotation.SystemApi
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PortType {
+    }
+
     public static final class Builder {
         private int mAddress;
         private boolean mArcSupported;
@@ -45,9 +49,5 @@ public final class HdmiPortInfo implements android.os.Parcelable {
         public android.hardware.hdmi.HdmiPortInfo.Builder setCecSupported(boolean p0) { return null; }
         public android.hardware.hdmi.HdmiPortInfo.Builder setEarcSupported(boolean p0) { return null; }
         public android.hardware.hdmi.HdmiPortInfo.Builder setMhlSupported(boolean p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PortType {
     }
 }

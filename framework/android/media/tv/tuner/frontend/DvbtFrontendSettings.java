@@ -100,7 +100,7 @@ public class DvbtFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     public boolean isMiso() { return false; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Bandwidth {
+    public static @interface CodeRate {
     }
 
     public static class Builder {
@@ -139,11 +139,7 @@ public class DvbtFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CodeRate {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Constellation {
+    public static @interface Bandwidth {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -155,7 +151,7 @@ public class DvbtFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PlpMode {
+    public static @interface TransmissionMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -163,6 +159,10 @@ public class DvbtFrontendSettings extends android.media.tv.tuner.frontend.Fronte
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransmissionMode {
+    public static @interface Constellation {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlpMode {
     }
 }

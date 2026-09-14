@@ -41,8 +41,8 @@ public abstract class LongDigest implements com.android.internal.org.bouncycastl
     protected void restoreState(byte[] p0) {}
     public void update(byte p0) {}
     public void update(byte[] p0, int p1, int p2) {}
-    private static long[] $d2j$hex$d5d7d4e4$decode_J(java.lang.String p0) { return null; }
-    private static int[] $d2j$hex$d5d7d4e4$decode_I(java.lang.String p0) { return null; }
-    private static short[] $d2j$hex$d5d7d4e4$decode_S(java.lang.String p0) { return null; }
-    private static byte[] $d2j$hex$d5d7d4e4$decode_B(java.lang.String p0) { return null; }
+    private static long[] $d2j$hex$faf630d0$decode_J(java.lang.String p0) { return null; }
+    private static int[] $d2j$hex$faf630d0$decode_I(java.lang.String p0) { return null; }
+    private static short[] $d2j$hex$faf630d0$decode_S(java.lang.String p0) { return null; }
+    private static byte[] $d2j$hex$faf630d0$decode_B(java.lang.String p0) { return null; }
 }

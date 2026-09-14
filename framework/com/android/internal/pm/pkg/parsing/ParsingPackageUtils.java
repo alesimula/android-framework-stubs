@@ -91,6 +91,7 @@ public class ParsingPackageUtils {
     public static android.content.pm.parsing.result.ParseResult<android.content.pm.SigningDetails> getSigningDetails(android.content.pm.parsing.result.ParseInput p0, java.lang.String p1, boolean p2, boolean p3, android.content.pm.SigningDetails p4, int p5, java.util.function.Supplier<java.io.File> p6, android.util.apk.InitAppScanMetrics p7) { return null; }
     private static java.lang.String getVolumeUuid(java.lang.String p0) { return null; }
     private static boolean hasDomainURLs(com.android.internal.pm.pkg.parsing.ParsingPackage p0) { return false; }
+    private static boolean isDefaultProcessSingleUser(com.android.internal.pm.pkg.parsing.ParsingPackage p0) { return false; }
     private boolean isMainComponentTag(java.lang.String p0) { return false; }
     private boolean isValidPurpose(java.lang.String p0, int p1, int p2) { return false; }
     private static java.lang.String nonConfigString(int p0, int p1, android.content.res.TypedArray p2) { return null; }
@@ -170,14 +171,14 @@ public class ParsingPackageUtils {
         public com.android.internal.pm.pkg.parsing.ParsingPackage startParsingPackage(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.content.res.TypedArray p3, boolean p4);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ParseFlags {
-    }
-
     private static class ParseMainComponentResult {
         boolean mHasActivityOrder;
         boolean mHasReceiverOrder;
         boolean mHasServiceOrder;
         private ParseMainComponentResult() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ParseFlags {
     }
 }

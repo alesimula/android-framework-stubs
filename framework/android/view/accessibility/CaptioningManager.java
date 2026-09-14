@@ -44,6 +44,12 @@ public class CaptioningManager {
     @android.annotation.SystemApi
     public final void setSystemAudioCaptioningUiEnabled(boolean p0) {}
 
+    private class MyContentObserver extends android.database.ContentObserver {
+        private final android.os.Handler mHandler = null;
+        public MyContentObserver(android.view.accessibility.CaptioningManager p0, android.os.Handler p1) { super((android.os.Handler)null); }
+        public void onChange(boolean p0, android.net.Uri p1) {}
+    }
+
     public static abstract class CaptioningChangeListener {
         public CaptioningChangeListener() {}
         public void onEnabledChanged(boolean p0) {}
@@ -94,12 +100,6 @@ public class CaptioningManager {
         public boolean hasEdgeType() { return false; }
         public boolean hasForegroundColor() { return false; }
         public boolean hasWindowColor() { return false; }
-    }
-
-    private class MyContentObserver extends android.database.ContentObserver {
-        private final android.os.Handler mHandler = null;
-        public MyContentObserver(android.view.accessibility.CaptioningManager p0, android.os.Handler p1) { super((android.os.Handler)null); }
-        public void onChange(boolean p0, android.net.Uri p1) {}
     }
 
     public static interface SystemAudioCaptioningAccessing {

@@ -65,6 +65,7 @@ public final class AppOpEnums {
     public static final int APP_OP_INTERACT_ACROSS_PROFILES = 93;
     public static final int APP_OP_LEGACY_STORAGE = 87;
     public static final int APP_OP_LOADER_USAGE_STATS = 95;
+    public static final int APP_OP_MANAGE_ASSISTANT_AUDIO = 181;
     public static final int APP_OP_MANAGE_CONTACTS = 180;
     public static final int APP_OP_MANAGE_CREDENTIALS = 104;
     public static final int APP_OP_MANAGE_EXTERNAL_STORAGE = 92;
@@ -147,6 +148,7 @@ public final class AppOpEnums {
     public static final int APP_OP_SCHEDULE_EXACT_ALARM = 107;
     public static final int APP_OP_SEND_SMS = 20;
     public static final int APP_OP_SMS_FINANCIAL_TRANSACTIONS = 80;
+    public static final int APP_OP_START_ACTIVITIES_ON_LOGIN_SCREEN = 182;
     public static final int APP_OP_START_FOREGROUND = 76;
     public static final int APP_OP_SYSTEM_ALERT_WINDOW = 24;
     public static final int APP_OP_SYSTEM_APPLICATION_OVERLAY = 164;

@@ -5,13 +5,6 @@ public interface ISoundDoseCallback extends android.os.IInterface {
     public void onMomentaryExposure(float p0, int p1) throws android.os.RemoteException;
     public void onNewCsdValue(float p0, android.media.SoundDoseRecord[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ISoundDoseCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMomentaryExposure(float p0, int p1) throws android.os.RemoteException {}
-        public void onNewCsdValue(float p0, android.media.SoundDoseRecord[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ISoundDoseCallback {
         static final int TRANSACTION_onMomentaryExposure = 1;
         static final int TRANSACTION_onNewCsdValue = 2;
@@ -28,5 +21,12 @@ public interface ISoundDoseCallback extends android.os.IInterface {
             public void onMomentaryExposure(float p0, int p1) throws android.os.RemoteException {}
             public void onNewCsdValue(float p0, android.media.SoundDoseRecord[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.ISoundDoseCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMomentaryExposure(float p0, int p1) throws android.os.RemoteException {}
+        public void onNewCsdValue(float p0, android.media.SoundDoseRecord[] p1) throws android.os.RemoteException {}
     }
 }

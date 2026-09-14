@@ -34,6 +34,77 @@ public final class MemInfoDumpProto {
     public static final long ZRAM_PHYSICAL_USED_IN_SWAP_KB = 1112396529681L;
     public MemInfoDumpProto() {}
 
+    public final class MemItem {
+        public static final long HAS_ACTIVITIES = 1133871366149L;
+        public static final long ID = 1120986464259L;
+        public static final long IS_PROC = 1133871366148L;
+        public static final long LABEL = 1138166333442L;
+        public static final long PSS_KB = 1112396529670L;
+        public static final long RSS_KB = 1112396529673L;
+        public static final long SUB_ITEMS = 2246267895816L;
+        public static final long SWAP_PSS_KB = 1112396529671L;
+        public static final long TAG = 1138166333441L;
+        public MemItem(com.android.server.am.MemInfoDumpProto p0) {}
+    }
+
+    public final class ProcessMemory {
+        public static final long APP_SUMMARY = 1146756268041L;
+        public static final long DALVIK_DETAILS = 2246267895816L;
+        public static final long DALVIK_HEAP = 1146756268036L;
+        public static final long NATIVE_HEAP = 1146756268035L;
+        public static final long OTHER_HEAPS = 2246267895813L;
+        public static final long PID = 1120986464257L;
+        public static final long PROCESS_NAME = 1138166333442L;
+        public static final long TOTAL_HEAP = 1146756268039L;
+        public static final long UNKNOWN_HEAP = 1146756268038L;
+        public ProcessMemory(com.android.server.am.MemInfoDumpProto p0) {}
+
+        public final class HeapInfo {
+            public static final long HEAP_ALLOC_KB = 1120986464259L;
+            public static final long HEAP_FREE_KB = 1120986464260L;
+            public static final long HEAP_SIZE_KB = 1120986464258L;
+            public static final long MEM_INFO = 1146756268033L;
+            public HeapInfo(com.android.server.am.MemInfoDumpProto.ProcessMemory p0) {}
+        }
+
+        public final class AppSummary {
+            public static final long CODE_PSS_KB = 1120986464259L;
+            public static final long CODE_RSS_KB = 1120986464268L;
+            public static final long GRAPHICS_PSS_KB = 1120986464261L;
+            public static final long GRAPHICS_RSS_KB = 1120986464270L;
+            public static final long JAVA_HEAP_PSS_KB = 1120986464257L;
+            public static final long JAVA_HEAP_RSS_KB = 1120986464266L;
+            public static final long NATIVE_HEAP_PSS_KB = 1120986464258L;
+            public static final long NATIVE_HEAP_RSS_KB = 1120986464267L;
+            public static final long PRIVATE_OTHER_PSS_KB = 1120986464262L;
+            public static final long STACK_PSS_KB = 1120986464260L;
+            public static final long STACK_RSS_KB = 1120986464269L;
+            public static final long SYSTEM_PSS_KB = 1120986464263L;
+            public static final long TOTAL_BITMAP_COUNT = 1112396529680L;
+            public static final long TOTAL_BITMAP_SIZE_KB = 1112396529681L;
+            public static final long TOTAL_SWAP_KB = 1120986464265L;
+            public static final long TOTAL_SWAP_PSS = 1120986464264L;
+            public static final long UNIQUE_BITMAP_COUNT = 1112396529682L;
+            public static final long UNIQUE_BITMAP_SIZE_KB = 1112396529683L;
+            public static final long UNKNOWN_RSS_KB = 1120986464271L;
+            public AppSummary(com.android.server.am.MemInfoDumpProto.ProcessMemory p0) {}
+        }
+
+        public final class MemoryInfo {
+            public static final long CLEAN_PSS_KB = 1120986464259L;
+            public static final long DIRTY_SWAP_KB = 1120986464264L;
+            public static final long DIRTY_SWAP_PSS_KB = 1120986464265L;
+            public static final long NAME = 1138166333441L;
+            public static final long PRIVATE_CLEAN_KB = 1120986464263L;
+            public static final long PRIVATE_DIRTY_KB = 1120986464261L;
+            public static final long SHARED_CLEAN_KB = 1120986464262L;
+            public static final long SHARED_DIRTY_KB = 1120986464260L;
+            public static final long TOTAL_PSS_KB = 1120986464258L;
+            public static final long TOTAL_RSS_KB = 1120986464266L;
+            public MemoryInfo(com.android.server.am.MemInfoDumpProto.ProcessMemory p0) {}
+        }
+    }
+
     public final class AppData {
         public static final long ASSET_ALLOCATIONS = 1138166333444L;
         public static final long OBJECTS = 1146756268034L;
@@ -77,77 +148,6 @@ public final class MemInfoDumpProto {
                 public static final long PAGE_SIZE = 1120986464258L;
                 public Database(com.android.server.am.MemInfoDumpProto.AppData.SqlStats p0) {}
             }
-        }
-    }
-
-    public final class MemItem {
-        public static final long HAS_ACTIVITIES = 1133871366149L;
-        public static final long ID = 1120986464259L;
-        public static final long IS_PROC = 1133871366148L;
-        public static final long LABEL = 1138166333442L;
-        public static final long PSS_KB = 1112396529670L;
-        public static final long RSS_KB = 1112396529673L;
-        public static final long SUB_ITEMS = 2246267895816L;
-        public static final long SWAP_PSS_KB = 1112396529671L;
-        public static final long TAG = 1138166333441L;
-        public MemItem(com.android.server.am.MemInfoDumpProto p0) {}
-    }
-
-    public final class ProcessMemory {
-        public static final long APP_SUMMARY = 1146756268041L;
-        public static final long DALVIK_DETAILS = 2246267895816L;
-        public static final long DALVIK_HEAP = 1146756268036L;
-        public static final long NATIVE_HEAP = 1146756268035L;
-        public static final long OTHER_HEAPS = 2246267895813L;
-        public static final long PID = 1120986464257L;
-        public static final long PROCESS_NAME = 1138166333442L;
-        public static final long TOTAL_HEAP = 1146756268039L;
-        public static final long UNKNOWN_HEAP = 1146756268038L;
-        public ProcessMemory(com.android.server.am.MemInfoDumpProto p0) {}
-
-        public final class AppSummary {
-            public static final long CODE_PSS_KB = 1120986464259L;
-            public static final long CODE_RSS_KB = 1120986464268L;
-            public static final long GRAPHICS_PSS_KB = 1120986464261L;
-            public static final long GRAPHICS_RSS_KB = 1120986464270L;
-            public static final long JAVA_HEAP_PSS_KB = 1120986464257L;
-            public static final long JAVA_HEAP_RSS_KB = 1120986464266L;
-            public static final long NATIVE_HEAP_PSS_KB = 1120986464258L;
-            public static final long NATIVE_HEAP_RSS_KB = 1120986464267L;
-            public static final long PRIVATE_OTHER_PSS_KB = 1120986464262L;
-            public static final long STACK_PSS_KB = 1120986464260L;
-            public static final long STACK_RSS_KB = 1120986464269L;
-            public static final long SYSTEM_PSS_KB = 1120986464263L;
-            public static final long TOTAL_BITMAP_COUNT = 1112396529680L;
-            public static final long TOTAL_BITMAP_SIZE_KB = 1112396529681L;
-            public static final long TOTAL_SWAP_KB = 1120986464265L;
-            public static final long TOTAL_SWAP_PSS = 1120986464264L;
-            public static final long UNIQUE_BITMAP_COUNT = 1112396529682L;
-            public static final long UNIQUE_BITMAP_SIZE_KB = 1112396529683L;
-            public static final long UNKNOWN_RSS_KB = 1120986464271L;
-            public AppSummary(com.android.server.am.MemInfoDumpProto.ProcessMemory p0) {}
-        }
-
-        public final class HeapInfo {
-            public static final long HEAP_ALLOC_KB = 1120986464259L;
-            public static final long HEAP_FREE_KB = 1120986464260L;
-            public static final long HEAP_SIZE_KB = 1120986464258L;
-            public static final long MEM_INFO = 1146756268033L;
-            public HeapInfo(com.android.server.am.MemInfoDumpProto.ProcessMemory p0) {}
-        }
-
-        public final class MemoryInfo {
-            public static final long CLEAN_PSS_KB = 1120986464259L;
-            public static final long DIRTY_SWAP_KB = 1120986464264L;
-            public static final long DIRTY_SWAP_PSS_KB = 1120986464265L;
-            public static final long NAME = 1138166333441L;
-            public static final long PRIVATE_CLEAN_KB = 1120986464263L;
-            public static final long PRIVATE_DIRTY_KB = 1120986464261L;
-            public static final long SHARED_CLEAN_KB = 1120986464262L;
-            public static final long SHARED_DIRTY_KB = 1120986464260L;
-            public static final long TOTAL_PSS_KB = 1120986464258L;
-            public static final long TOTAL_RSS_KB = 1120986464266L;
-            public MemoryInfo(com.android.server.am.MemInfoDumpProto.ProcessMemory p0) {}
         }
     }
 }

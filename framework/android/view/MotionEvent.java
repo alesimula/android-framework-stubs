@@ -81,6 +81,7 @@ public final class MotionEvent extends android.view.InputEvent implements androi
     public static final int AXIS_TOOL_MINOR = 7;
     public static final int AXIS_TOUCH_MAJOR = 4;
     public static final int AXIS_TOUCH_MINOR = 5;
+    public static final int AXIS_TWIST = 54;
     public static final int AXIS_VSCROLL = 9;
     public static final int AXIS_WHEEL = 21;
     public static final int AXIS_X = 0;
@@ -351,18 +352,6 @@ public final class MotionEvent extends android.view.InputEvent implements androi
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Axis {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface Button {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Classification {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     static @interface Flag {
     }
 
@@ -392,6 +381,14 @@ public final class MotionEvent extends android.view.InputEvent implements androi
         public void setAxisValue(int p0, float p1) {}
     }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Axis {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface Button {
+    }
+
     public static final class PointerProperties {
         public int id;
         public int toolType;
@@ -407,5 +404,9 @@ public final class MotionEvent extends android.view.InputEvent implements androi
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ToolType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Classification {
     }
 }

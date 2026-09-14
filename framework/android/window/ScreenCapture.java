@@ -9,14 +9,11 @@ public class ScreenCapture {
     public static void capture(android.window.ScreenCapture.ScreenCaptureParams p0, java.util.concurrent.Executor p1, android.os.OutcomeReceiver<android.window.ScreenCapture.ScreenCaptureResult, java.lang.Exception> p2) {}
     public static boolean isScreenCaptureOptimizationEnabled() { return false; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScreenCaptureErrorCode {
-    }
-
     public static final class ScreenCaptureParams implements android.os.Parcelable {
         public static final int CAPTURE_MODE_NONE = 0;
         public static final int CAPTURE_MODE_REQUIRE_OPTIMIZED = 1;
         public static final android.os.Parcelable.Creator<android.window.ScreenCapture.ScreenCaptureParams> CREATOR = null;
+        public static final int FLAG_DATA_LEAK_PREVENTION_SCREENSHOT = 32;
         public static final int FLAG_IME = 8;
         public static final int FLAG_MOUSE_CURSOR = 1;
         public static final int FLAG_SCREENSHOT_UI = 2;
@@ -48,6 +45,17 @@ public class ScreenCapture {
         public boolean isUseDisplayInstallationOrientation() { return false; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+        public static @interface CompositionFilterFlag {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface SecureContentPolicy {
+        }
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface CaptureMode {
+        }
+
         public static final class Builder {
             private int mCaptureMode;
             private int mDisplayId;
@@ -69,19 +77,12 @@ public class ScreenCapture {
         }
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface CaptureMode {
-        }
-
-        public static @interface CompositionFilterFlag {
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ProtectedContentPolicy {
         }
+    }
 
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface SecureContentPolicy {
-        }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScreenCaptureErrorCode {
     }
 
     public static final class ScreenCaptureResult implements android.os.Parcelable {

@@ -5,6 +5,7 @@ public class WindowingExemptionsInfo {
     private final boolean mIsActivityStackTransparent = false;
     private final boolean mIsTopActivityNoDisplay = false;
     private final int mNumActivities = 0;
+    private final android.content.ComponentName mTopActivity = null;
     private final android.content.pm.ActivityInfo mTopActivityInfo = null;
     private final int mTopActivityType = 0;
     private final int mUserId = 0;
@@ -13,6 +14,7 @@ public class WindowingExemptionsInfo {
     public boolean equals(java.lang.Object p0) { return false; }
     public android.content.ComponentName getBaseActivity() { return null; }
     public int getNumActivities() { return 0; }
+    public android.content.ComponentName getTopActivity() { return null; }
     public android.content.pm.ActivityInfo getTopActivityInfo() { return null; }
     public int getTopActivityType() { return 0; }
     public int getUserId() { return 0; }
@@ -26,6 +28,7 @@ public class WindowingExemptionsInfo {
         private boolean mIsActivityStackTransparent;
         private boolean mIsTopActivityNoDisplay;
         private int mNumActivities;
+        private android.content.ComponentName mTopActivity;
         private android.content.pm.ActivityInfo mTopActivityInfo;
         private int mTopActivityType;
         private int mUserId;
@@ -36,6 +39,7 @@ public class WindowingExemptionsInfo {
         public com.android.internal.policy.WindowingExemptionsInfo.Builder setIsActivityStackTransparent(boolean p0) { return null; }
         public com.android.internal.policy.WindowingExemptionsInfo.Builder setIsTopActivityNoDisplay(boolean p0) { return null; }
         public com.android.internal.policy.WindowingExemptionsInfo.Builder setNumActivities(int p0) { return null; }
+        public com.android.internal.policy.WindowingExemptionsInfo.Builder setTopActivity(android.content.ComponentName p0) { return null; }
         public com.android.internal.policy.WindowingExemptionsInfo.Builder setTopActivityInfo(android.content.pm.ActivityInfo p0) { return null; }
         public com.android.internal.policy.WindowingExemptionsInfo.Builder setTopActivityNoDisplay(boolean p0) { return null; }
         public com.android.internal.policy.WindowingExemptionsInfo.Builder setTopActivityType(int p0) { return null; }

@@ -285,6 +285,10 @@ public final class SmsManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SMS_RP_CAUSE {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PremiumSmsConsent {
     }
 
@@ -296,16 +300,12 @@ public final class SmsManager {
     public static @interface SmsShortCodeCategory {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SMS_RP_CAUSE {
+    private static interface SubscriptionResolverResult {
+        public void onFailure();
+        public void onSuccess(int p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface StatusOnIcc {
-    }
-
-    private static interface SubscriptionResolverResult {
-        public void onFailure();
-        public void onSuccess(int p0);
     }
 }

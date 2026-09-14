@@ -35,6 +35,16 @@ public final class DeviceState {
     public int hashCode() { return 0; }
     public java.lang.String toString() { return null; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
+    public static @interface DeviceStateProperties {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
+    public static @interface PhysicalDeviceStateProperties {
+    }
+
     public static final class Configuration implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.devicestate.DeviceState.Configuration> CREATOR = null;
         private final int mIdentifier = 0;
@@ -62,16 +72,6 @@ public final class DeviceState {
             public android.hardware.devicestate.DeviceState.Configuration.Builder setPhysicalProperties(java.util.Set<java.lang.Integer> p0) { return null; }
             public android.hardware.devicestate.DeviceState.Configuration.Builder setSystemProperties(java.util.Set<java.lang.Integer> p0) { return null; }
         }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
-    public static @interface DeviceStateProperties {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
-    public static @interface PhysicalDeviceStateProperties {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

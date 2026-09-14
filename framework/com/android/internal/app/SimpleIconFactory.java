@@ -63,6 +63,12 @@ public class SimpleIconFactory {
     @java.lang.Deprecated
     void setWrapperBackgroundColor(int p0) {}
 
+    private static class FixedSizeBitmapDrawable extends android.graphics.drawable.BitmapDrawable {
+        FixedSizeBitmapDrawable(android.graphics.Bitmap p0) { super(); }
+        public int getIntrinsicHeight() { return 0; }
+        public int getIntrinsicWidth() { return 0; }
+    }
+
     public static class FixedScaleDrawable extends android.graphics.drawable.DrawableWrapper {
         private static final float LEGACY_ICON_SCALE = 0.4666900038719177f;
         private float mScaleX;
@@ -72,11 +78,5 @@ public class SimpleIconFactory {
         public void inflate(android.content.res.Resources p0, org.xmlpull.v1.XmlPullParser p1, android.util.AttributeSet p2) {}
         public void inflate(android.content.res.Resources p0, org.xmlpull.v1.XmlPullParser p1, android.util.AttributeSet p2, android.content.res.Resources.Theme p3) {}
         public void setScale(float p0) {}
-    }
-
-    private static class FixedSizeBitmapDrawable extends android.graphics.drawable.BitmapDrawable {
-        FixedSizeBitmapDrawable(android.graphics.Bitmap p0) { super(); }
-        public int getIntrinsicHeight() { return 0; }
-        public int getIntrinsicWidth() { return 0; }
     }
 }

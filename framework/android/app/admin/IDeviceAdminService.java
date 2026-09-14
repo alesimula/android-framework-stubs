@@ -2,11 +2,6 @@ package android.app.admin;
 
 public interface IDeviceAdminService extends android.os.IInterface {
 
-    public static class Default implements android.app.admin.IDeviceAdminService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.admin.IDeviceAdminService {
         public static final java.lang.String DESCRIPTOR = "android.app.admin.IDeviceAdminService";
         public Stub() { super(); }
@@ -22,5 +17,10 @@ public interface IDeviceAdminService extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.app.admin.IDeviceAdminService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

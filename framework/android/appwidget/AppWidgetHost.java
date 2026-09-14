@@ -2,6 +2,7 @@ package android.appwidget;
 
 public class AppWidgetHost {
     static final int HANDLE_APP_WIDGET_REMOVED = 4;
+    static final int HANDLE_OPTIONS_CHANGED = 6;
     static final int HANDLE_PROVIDERS_CHANGED = 3;
     static final int HANDLE_PROVIDER_CHANGED = 2;
     static final int HANDLE_UPDATE = 1;
@@ -23,6 +24,7 @@ public class AppWidgetHost {
     public static void deleteAllHosts() {}
     private android.appwidget.AppWidgetHost.AppWidgetHostListener getListener(int p0) { return null; }
     private void updateAppWidgetDeferred(int p0) {}
+    private void updateAppWidgetOptions(int p0, android.os.Bundle p1) {}
     public int allocateAppWidgetId() { return 0; }
     protected void clearViews() {}
     public final android.appwidget.AppWidgetHostView createView(android.content.Context p0, int p1, android.appwidget.AppWidgetProviderInfo p2) { return null; }
@@ -48,6 +50,7 @@ public class AppWidgetHost {
 
     public static interface AppWidgetHostListener {
         default public android.appwidget.AppWidgetEvent collectWidgetEvent() { return null; }
+        default public void onUpdateAppWidgetOptions(android.os.Bundle p0) {}
         public void onUpdateProviderInfo(android.appwidget.AppWidgetProviderInfo p0);
         public void onViewDataChanged(int p0);
         public void updateAppWidget(android.widget.RemoteViews p0);
@@ -58,6 +61,7 @@ public class AppWidgetHost {
         private final java.lang.ref.WeakReference<android.os.Handler> mWeakHandler = null;
         public Callbacks(android.os.Handler p0) { super(); }
         private static boolean isLocalBinder() { return false; }
+        public void appWidgetOptionsChanged(int p0, android.os.Bundle p1) {}
         public void appWidgetRemoved(int p0) {}
         public void providerChanged(int p0, android.appwidget.AppWidgetProviderInfo p1) {}
         public void providersChanged() {}

@@ -69,6 +69,21 @@ final class PhysicalKeyLayout {
     public android.hardware.input.PhysicalKeyLayout.EnterKey getEnterKey() { return null; }
     public android.hardware.input.PhysicalKeyLayout.LayoutKey[][] getKeys() { return null; }
 
+    public static final class LayoutKey {
+        private final android.hardware.input.PhysicalKeyLayout.KeyGlyph glyph = null;
+        private final int keyCode = 0;
+        private final float keyWeight = 0.0f;
+        private final int scanCode = 0;
+        public LayoutKey(int p0, int p1, float p2, android.hardware.input.PhysicalKeyLayout.KeyGlyph p3) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public android.hardware.input.PhysicalKeyLayout.KeyGlyph glyph() { return null; }
+        public final int hashCode() { return 0; }
+        public int keyCode() { return 0; }
+        public float keyWeight() { return 0.0f; }
+        public int scanCode() { return 0; }
+        public final java.lang.String toString() { return null; }
+    }
+
     public static final class EnterKey {
         private final float bottomKeyWeight = 0.0f;
         private final int column = 0;
@@ -98,20 +113,5 @@ final class PhysicalKeyLayout {
         public boolean hasValidAltGrShiftText() { return false; }
         public boolean hasValidAltGrText() { return false; }
         public boolean hasValidShiftText() { return false; }
-    }
-
-    public static final class LayoutKey {
-        private final android.hardware.input.PhysicalKeyLayout.KeyGlyph glyph = null;
-        private final int keyCode = 0;
-        private final float keyWeight = 0.0f;
-        private final int scanCode = 0;
-        public LayoutKey(int p0, int p1, float p2, android.hardware.input.PhysicalKeyLayout.KeyGlyph p3) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public android.hardware.input.PhysicalKeyLayout.KeyGlyph glyph() { return null; }
-        public final int hashCode() { return 0; }
-        public int keyCode() { return 0; }
-        public float keyWeight() { return 0.0f; }
-        public int scanCode() { return 0; }
-        public final java.lang.String toString() { return null; }
     }
 }

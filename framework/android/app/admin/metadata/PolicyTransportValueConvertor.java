@@ -1,7 +1,6 @@
 package android.app.admin.metadata;
 
 public abstract class PolicyTransportValueConvertor<T extends java.lang.Object> {
-    private static final android.app.admin.metadata.PolicyTransportValueConvertor<java.lang.Boolean> BOOLEAN_CONVERTOR = null;
     private static final android.app.admin.metadata.PolicyTransportValueConvertor<java.lang.Integer> INTEGER_CONVERTOR = null;
     private static final android.app.admin.metadata.PolicyTransportValueConvertor<java.util.List<android.app.admin.PackageIdentifier>> LIST_OF_PACKAGE_CONVERTOR = null;
     private static final android.app.admin.metadata.PolicyTransportValueConvertor<java.util.List<java.lang.String>> LIST_OF_STRING_CONVERTOR = null;

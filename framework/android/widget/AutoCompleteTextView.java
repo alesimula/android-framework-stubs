@@ -115,8 +115,23 @@ public class AutoCompleteTextView extends android.widget.EditText implements and
         public void onItemClick(android.widget.AdapterView p0, android.view.View p1, int p2, long p3) {}
     }
 
+    private class PassThroughClickListener implements android.view.View.OnClickListener {
+        private android.view.View.OnClickListener mWrapped;
+        private PassThroughClickListener(android.widget.AutoCompleteTextView p0) {}
+        public void onClick(android.view.View p0) {}
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface InputMethodMode {
+    }
+
+    public static interface OnDismissListener {
+        public void onDismiss();
+    }
+
+    public static interface Validator {
+        public java.lang.CharSequence fixText(java.lang.CharSequence p0);
+        public boolean isValid(java.lang.CharSequence p0);
     }
 
     private class MyWatcher implements android.text.TextWatcher {
@@ -127,26 +142,11 @@ public class AutoCompleteTextView extends android.widget.EditText implements and
         public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
     }
 
-    public static interface OnDismissListener {
-        public void onDismiss();
-    }
-
-    private class PassThroughClickListener implements android.view.View.OnClickListener {
-        private android.view.View.OnClickListener mWrapped;
-        private PassThroughClickListener(android.widget.AutoCompleteTextView p0) {}
-        public void onClick(android.view.View p0) {}
-    }
-
     private static class PopupDataSetObserver extends android.database.DataSetObserver {
         private final java.lang.ref.WeakReference<android.widget.AutoCompleteTextView> mViewReference = null;
         private final java.lang.Runnable updateRunnable = null;
         private PopupDataSetObserver(android.widget.AutoCompleteTextView p0) { super(); }
         public void onChanged() {}
-    }
-
-    public static interface Validator {
-        public java.lang.CharSequence fixText(java.lang.CharSequence p0);
-        public boolean isValid(java.lang.CharSequence p0);
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.AutoCompleteTextView> {

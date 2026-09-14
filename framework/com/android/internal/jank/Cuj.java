@@ -1,6 +1,10 @@
 package com.android.internal.jank;
 
 public class Cuj {
+    public static final int CUJ_AGENT_ICON_ANIMATION = 183;
+    public static final int CUJ_AGENT_ICON_WHISPER_BG_ANIMATION = 184;
+    public static final int CUJ_AGENT_ICON_WHISPER_SHORT_ENTER = 181;
+    public static final int CUJ_AGENT_ICON_WHISPER_SHORT_EXIT = 182;
     public static final int CUJ_AMBIENT_CUE_COLLAPSE = 148;
     public static final int CUJ_AMBIENT_CUE_EXPAND = 147;
     public static final int CUJ_AMBIENT_CUE_HIDE = 146;
@@ -25,7 +29,9 @@ public class Cuj {
     public static final int CUJ_DESKTOP_MODE_ENTER_APP_HANDLE_DRAG_RELEASE = 116;
     public static final int CUJ_DESKTOP_MODE_ENTER_FROM_OVERVIEW_MENU = 120;
     public static final int CUJ_DESKTOP_MODE_ENTER_MODE_APP_HANDLE_MENU = 112;
+    public static final int CUJ_DESKTOP_MODE_ENTER_MODE_KEYBOARD_SHORTCUT = 185;
     public static final int CUJ_DESKTOP_MODE_EXIT_MODE = 108;
+    public static final int CUJ_DESKTOP_MODE_EXIT_MODE_KEYBOARD_SHORTCUT = 186;
     public static final int CUJ_DESKTOP_MODE_EXIT_MODE_ON_LAST_WINDOW_CLOSE = 117;
     public static final int CUJ_DESKTOP_MODE_FULLSCREEN_TO_DESK_SLIDE = 180;
     public static final int CUJ_DESKTOP_MODE_HOME_SCREEN_PEEK = 167;
@@ -44,6 +50,7 @@ public class Cuj {
     public static final int CUJ_DESKTOP_MODE_TILE_RESIZING = 140;
     public static final int CUJ_DESKTOP_MODE_UNMAXIMIZE_WINDOW = 119;
     public static final int CUJ_DREAM_SWITCHER_EDGE_SWIPE = 173;
+    public static final int CUJ_FACE_AUTH_LOW_LIGHT_ANIMATION = 195;
     public static final int CUJ_FOLD_ANIM = 105;
     public static final int CUJ_HUN_TO_DUAL_SHADE_NOTIF_OVERLAY = 152;
     public static final int CUJ_IME_INSETS_HIDE_ANIMATION = 81;
@@ -122,6 +129,10 @@ public class Cuj {
     public static final int CUJ_PREDICTIVE_BACK_CROSS_ACTIVITY = 84;
     public static final int CUJ_PREDICTIVE_BACK_CROSS_TASK = 85;
     public static final int CUJ_PREDICTIVE_BACK_HOME = 86;
+    public static final int CUJ_QS_SHADE_OVERLAY_FROM_DEFAULT_TO_EDIT = 187;
+    public static final int CUJ_QS_SHADE_OVERLAY_FROM_DEFAULT_TO_TILE_DETAILS = 189;
+    public static final int CUJ_QS_SHADE_OVERLAY_FROM_EDIT_TO_DEFAULT = 188;
+    public static final int CUJ_QS_SHADE_OVERLAY_FROM_TILE_DETAILS_TO_DEFAULT = 190;
     public static final int CUJ_RECENTS_SCROLLING = 65;
     public static final int CUJ_SETTINGS_PAGE_SCROLL = 28;
     public static final int CUJ_SETTINGS_SLIDER = 53;
@@ -144,6 +155,10 @@ public class Cuj {
     public static final int CUJ_STATUS_BAR_APP_LAUNCH_FROM_CALL_CHIP = 34;
     public static final int CUJ_STATUS_BAR_APP_RETURN_TO_CALL_CHIP = 130;
     public static final int CUJ_STATUS_BAR_APP_RETURN_TO_ONGOING_CHIP = 151;
+    public static final int CUJ_STATUS_BAR_HEADLINE_COLLAPSE = 192;
+    public static final int CUJ_STATUS_BAR_HEADLINE_EXPAND = 191;
+    public static final int CUJ_STATUS_BAR_HEADLINE_SWIPE = 193;
+    public static final int CUJ_STATUS_BAR_HEADLINE_SYSTEM_TRANSITION = 194;
     public static final int CUJ_STATUS_BAR_LAUNCH_DIALOG_FROM_CHIP = 111;
     public static final int CUJ_SUW_LOADING_SCREEN_FOR_STATUS = 48;
     public static final int CUJ_SUW_LOADING_TO_NEXT_FLOW = 47;
@@ -172,7 +187,7 @@ public class Cuj {
     public static final int CUJ_WEAR_NOTIFICATION_TRAY_OPEN = 137;
     public static final int CUJ_WEAR_ORIGIN_TRANSITION_OPEN = 169;
     public static final int CUJ_WEAR_QSS_TRAY_OPEN = 136;
-    static final int LAST_CUJ = 180;
+    static final int LAST_CUJ = 195;
     public static final int MAX_LENGTH_OF_CUJ_NAME = 82;
     private static final int NO_STATSD_LOGGING = -1;
     private static final java.lang.String TAG = "Cuj";

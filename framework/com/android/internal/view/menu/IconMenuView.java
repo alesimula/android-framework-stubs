@@ -54,6 +54,14 @@ public final class IconMenuView extends android.view.ViewGroup implements com.an
     public void run() {}
     void setNumActualItemsShown(int p0) {}
 
+    private static class SavedState extends android.view.View.BaseSavedState {
+        public static final android.os.Parcelable.Creator<com.android.internal.view.menu.IconMenuView.SavedState> CREATOR = null;
+        int focusedPosition;
+        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        public SavedState(android.os.Parcelable p0, int p1) { super((android.os.Parcel)null); }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
         int bottom;
         int desiredWidth;
@@ -63,13 +71,5 @@ public final class IconMenuView extends android.view.ViewGroup implements com.an
         int top;
         public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
         public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
-    }
-
-    private static class SavedState extends android.view.View.BaseSavedState {
-        public static final android.os.Parcelable.Creator<com.android.internal.view.menu.IconMenuView.SavedState> CREATOR = null;
-        int focusedPosition;
-        private SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        public SavedState(android.os.Parcelable p0, int p1) { super((android.os.Parcel)null); }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

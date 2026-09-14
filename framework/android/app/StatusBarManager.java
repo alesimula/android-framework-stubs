@@ -35,6 +35,7 @@ public class StatusBarManager {
     public static final int DISABLE_SEARCH = 33554432;
     public static final int DISABLE_SYSTEM_INFO = 1048576;
     public static final java.lang.String EXTRA_KM_PRIVATE_NOTIFS_ALLOWED = "android.app.extra.KM_PRIVATE_NOTIFS_ALLOWED";
+    private static final long GET_AGENT_STATE_SCREEN_LOCATION_TIMEOUT_MILLIS = 3000L;
     private static final long MEDIA_CONTROL_BLANK_TITLE = 274775190L;
     private static final long MEDIA_CONTROL_MEDIA3_ACTIONS = 360196209L;
     private static final long MEDIA_CONTROL_SESSION_ACTIONS = 203800354L;
@@ -118,6 +119,7 @@ public class StatusBarManager {
     public void expandNotificationsPanel() {}
     public void expandSettingsPanel() {}
     public void expandSettingsPanel(java.lang.String p0) {}
+    public android.graphics.Rect getAgentStateScreenLocation(int p0) throws java.util.concurrent.ExecutionException { return null; }
     @android.annotation.SystemApi
     public android.app.StatusBarManager.DisableInfo getDisableInfo() { return null; }
     public int getIcon(java.lang.String p0) { return 0; }
@@ -126,6 +128,7 @@ public class StatusBarManager {
     public int getNavBarMode() { return 0; }
     public void handleSystemKey(android.view.KeyEvent p0) {}
     public boolean isAgentTaskFeatureSupported() { return false; }
+    public boolean isAgentTaskLaunchSupported() { return false; }
     public void logBlankMediaTitle(java.lang.String p0, int p1) throws java.lang.RuntimeException {}
     @android.annotation.SystemApi
     public void registerNearbyMediaDevicesProvider(android.media.NearbyMediaDevicesProvider p0) {}
@@ -221,11 +224,11 @@ public class StatusBarManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NavbarFlags {
+    public static @interface NavBarMode {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NavBarMode {
+    public static @interface NavbarFlags {
     }
 
     static final class NearbyMediaDevicesProviderWrapper extends android.media.INearbyMediaDevicesProvider.Stub {

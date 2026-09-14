@@ -12,7 +12,7 @@ public final class Choreographer {
     private static final boolean DEBUG_JANK = false;
     private static final long DEFAULT_FRAME_DELAY = Long.valueOf(0L);
     private static final java.lang.Object FRAME_CALLBACK_TOKEN = null;
-    private static final int MSG_DO_FRAME = 0;
+    static final int MSG_DO_FRAME = 0;
     private static final int MSG_DO_SCHEDULE_CALLBACK = 2;
     private static final int MSG_DO_SCHEDULE_VSYNC = 1;
     private static final int SKIPPED_FRAME_WARNING_LIMIT = Integer.valueOf(0);
@@ -37,6 +37,7 @@ public final class Choreographer {
     @java.lang.Deprecated
     private long mFrameIntervalNanos;
     private boolean mFrameScheduled;
+    private android.view.FrameWorkloadTracker mFrameWorkloadTracker;
     private final android.view.Choreographer.FrameHandler mHandler = null;
     private volatile boolean mInDoFrameCallback;
     private long mLastFrameIntervalNanos;
@@ -60,11 +61,11 @@ public final class Choreographer {
     public static android.view.Choreographer getSfInstance() { return null; }
     private static boolean getUseVsync() { return false; }
     private static boolean getUseVsync$ravenwood() { return false; }
-    private boolean hasPendingInput() { return false; }
     private static boolean isNoMoreResyncFlagEnabled() { return false; }
     private boolean isRunningOnLooperThreadLocked() { return false; }
     private android.view.Choreographer.CallbackRecord obtainCallbackLocked(long p0, java.lang.Object p1, java.lang.Object p2) { return null; }
     private void postCallbackDelayedInternal(int p0, java.lang.Object p1, java.lang.Object p2, long p3) {}
+    static void postFrameMessage(android.os.Handler p0, long p1) {}
     private void recycleCallbackLocked(android.view.Choreographer.CallbackRecord p0) {}
     public static void releaseInstance() {}
     private void removeCallbacksInternal(int p0, java.lang.Object p1, java.lang.Object p2) {}
@@ -89,8 +90,10 @@ public final class Choreographer {
     public long getLatestExpectedPresentTimeNanos() { return 0L; }
     public android.os.Looper getLooper() { return null; }
     public long getVsyncId() { return 0L; }
+    public int getWatchdogTid() { return 0; }
     void invalidate() {}
     boolean isTheLooperSame(android.os.Looper p0) { return false; }
+    public void onRenderThreadFinished(long p0, long p1) {}
     public void onWaitForBufferRelease(long p0) {}
     public void postCallback(int p0, java.lang.Runnable p1, java.lang.Object p2) {}
     public void postCallbackDelayed(int p0, java.lang.Runnable p1, java.lang.Object p2, long p3) {}
@@ -104,6 +107,70 @@ public final class Choreographer {
     public void removeVsyncCallback(android.view.Choreographer.VsyncCallback p0) {}
     void setFPSDivisor(int p0) {}
     android.view.Choreographer.BufferStuffingState.RecoveryAction updateBufferStuffingState(long p0, android.view.DisplayEventReceiver.VsyncEventData p1) { return null; }
+
+    private final class CallbackQueue {
+        private android.view.Choreographer.CallbackRecord mHead;
+        private CallbackQueue(android.view.Choreographer p0) {}
+        public void addCallbackLocked(long p0, java.lang.Object p1, java.lang.Object p2) {}
+        public android.view.Choreographer.CallbackRecord extractDueCallbacksLocked(long p0) { return null; }
+        public boolean hasDueCallbacksLocked(long p0) { return false; }
+        public void removeCallbacksLocked(java.lang.Object p0, java.lang.Object p1) {}
+    }
+
+    private final class FrameDisplayEventReceiver extends android.view.DisplayEventReceiver implements java.lang.Runnable {
+        private int mFrame;
+        private boolean mHavePendingVsync;
+        private final android.view.DisplayEventReceiver.VsyncEventData mLastVsyncEventData = null;
+        private long mTimestampNanos;
+        FrameDisplayEventReceiver(android.view.Choreographer p0, android.os.Looper p1, long p2) { super((android.os.Looper)null); }
+        public void onVsync(long p0, long p1, int p2, android.view.DisplayEventReceiver.VsyncEventData p3) {}
+        public void run() {}
+    }
+
+    public static class FrameTimeline {
+        private long mDeadlineNanos;
+        private long mExpectedPresentationTimeNanos;
+        private boolean mInCallback;
+        private long mVsyncId;
+        FrameTimeline() {}
+        private void checkInCallback() {}
+        public long getDeadlineNanos() { return 0L; }
+        public long getExpectedPresentationTimeNanos() { return 0L; }
+        public long getVsyncId() { return 0L; }
+        void setInCallback(boolean p0) {}
+        void update(long p0, long p1, long p2) {}
+    }
+
+    private static final class CallbackRecord {
+        public java.lang.Object action;
+        public long dueTime;
+        public android.view.Choreographer.CallbackRecord next;
+        public java.lang.Object token;
+        private CallbackRecord() {}
+        public void run(long p0) {}
+        void run(android.view.Choreographer.FrameData p0) {}
+    }
+
+    public static class FrameData {
+        private long mAnimationTime;
+        private long mFrameTimeNanos;
+        private android.view.Choreographer.FrameTimeline[] mFrameTimelines;
+        private boolean mInCallback;
+        private int mPreferredFrameTimelineIndex;
+        FrameData() {}
+        public FrameData(long p0) {}
+        private void allocateFrameTimelines(int p0) {}
+        private void checkInCallback() {}
+        public long getAnimationTimeNanos() { return 0L; }
+        public long getFrameTimeNanos() { return 0L; }
+        public android.view.Choreographer.FrameTimeline[] getFrameTimelines() { return null; }
+        public android.view.Choreographer.FrameTimeline getPreferredFrameTimeline() { return null; }
+        android.view.Choreographer.FrameTimeline resync(android.view.DisplayEventReceiver p0, long p1) { return null; }
+        void setInCallback(boolean p0) {}
+        android.view.Choreographer.FrameTimeline update(long p0, android.view.DisplayEventReceiver.VsyncEventData p1) { return null; }
+        android.view.Choreographer.FrameTimeline update(long p0, android.view.DisplayEventReceiver p1, long p2) { return null; }
+        void update(long p0, int p1) {}
+    }
 
     private static class BufferStuffingState {
         private static final long MAX_BUFFER_STUFFING_DELAY_NS = 100000000L;
@@ -124,80 +191,16 @@ public final class Choreographer {
         }
     }
 
-    private final class CallbackQueue {
-        private android.view.Choreographer.CallbackRecord mHead;
-        private CallbackQueue(android.view.Choreographer p0) {}
-        public void addCallbackLocked(long p0, java.lang.Object p1, java.lang.Object p2) {}
-        public android.view.Choreographer.CallbackRecord extractDueCallbacksLocked(long p0) { return null; }
-        public boolean hasDueCallbacksLocked(long p0) { return false; }
-        public void removeCallbacksLocked(java.lang.Object p0, java.lang.Object p1) {}
-    }
-
-    private static final class CallbackRecord {
-        public java.lang.Object action;
-        public long dueTime;
-        public android.view.Choreographer.CallbackRecord next;
-        public java.lang.Object token;
-        private CallbackRecord() {}
-        public void run(long p0) {}
-        void run(android.view.Choreographer.FrameData p0) {}
-    }
-
-    public static interface FrameCallback {
-        public void doFrame(long p0);
-    }
-
-    public static class FrameData {
-        private long mFrameTimeNanos;
-        private long mFrameTimeNanosForInput;
-        private android.view.Choreographer.FrameTimeline[] mFrameTimelines;
-        private boolean mInCallback;
-        private int mPreferredFrameTimelineIndex;
-        FrameData() {}
-        public FrameData(long p0) {}
-        private void allocateFrameTimelines(int p0) {}
-        private void checkInCallback() {}
-        public long getFrameTimeNanos() { return 0L; }
-        public long getFrameTimeNanosForInput() { return 0L; }
-        public android.view.Choreographer.FrameTimeline[] getFrameTimelines() { return null; }
-        public android.view.Choreographer.FrameTimeline getPreferredFrameTimeline() { return null; }
-        android.view.Choreographer.FrameTimeline resync(android.view.DisplayEventReceiver p0, long p1) { return null; }
-        void setInCallback(boolean p0) {}
-        android.view.Choreographer.FrameTimeline update(long p0, android.view.DisplayEventReceiver.VsyncEventData p1) { return null; }
-        android.view.Choreographer.FrameTimeline update(long p0, android.view.DisplayEventReceiver p1, long p2) { return null; }
-        void update(long p0, int p1) {}
-    }
-
-    private final class FrameDisplayEventReceiver extends android.view.DisplayEventReceiver implements java.lang.Runnable {
-        private int mFrame;
-        private boolean mHavePendingVsync;
-        private final android.view.DisplayEventReceiver.VsyncEventData mLastVsyncEventData = null;
-        private long mTimestampNanos;
-        FrameDisplayEventReceiver(android.view.Choreographer p0, android.os.Looper p1, long p2) { super((android.os.Looper)null); }
-        public void onVsync(long p0, long p1, int p2, android.view.DisplayEventReceiver.VsyncEventData p3) {}
-        public void run() {}
-    }
-
     private final class FrameHandler extends android.os.Handler {
         public FrameHandler(android.view.Choreographer p0, android.os.Looper p1) { super(); }
         public void handleMessage(android.os.Message p0) {}
     }
 
-    public static class FrameTimeline {
-        private long mDeadlineNanos;
-        private long mExpectedPresentationTimeNanos;
-        private boolean mInCallback;
-        private long mVsyncId;
-        FrameTimeline() {}
-        private void checkInCallback() {}
-        public long getDeadlineNanos() { return 0L; }
-        public long getExpectedPresentationTimeNanos() { return 0L; }
-        public long getVsyncId() { return 0L; }
-        void setInCallback(boolean p0) {}
-        void update(long p0, long p1, long p2) {}
-    }
-
     public static interface VsyncCallback {
         public void onVsync(android.view.Choreographer.FrameData p0);
+    }
+
+    public static interface FrameCallback {
+        public void doFrame(long p0);
     }
 }

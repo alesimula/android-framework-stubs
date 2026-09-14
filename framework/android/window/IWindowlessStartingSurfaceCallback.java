@@ -4,12 +4,6 @@ public interface IWindowlessStartingSurfaceCallback extends android.os.IInterfac
     public static final java.lang.String DESCRIPTOR = "android.window.IWindowlessStartingSurfaceCallback";
     public void onSurfaceAdded(android.view.SurfaceControl p0) throws android.os.RemoteException;
 
-    public static class Default implements android.window.IWindowlessStartingSurfaceCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSurfaceAdded(android.view.SurfaceControl p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.IWindowlessStartingSurfaceCallback {
         static final int TRANSACTION_onSurfaceAdded = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IWindowlessStartingSurfaceCallback extends android.os.IInterfac
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onSurfaceAdded(android.view.SurfaceControl p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.IWindowlessStartingSurfaceCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSurfaceAdded(android.view.SurfaceControl p0) throws android.os.RemoteException {}
     }
 }

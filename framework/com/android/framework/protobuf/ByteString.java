@@ -80,45 +80,60 @@ public abstract class ByteString implements java.lang.Iterable<java.lang.Byte>, 
     abstract void writeToInternal(java.io.OutputStream p0, int p1, int p2) throws java.io.IOException;
     abstract void writeToReverse(com.android.framework.protobuf.ByteOutput p0) throws java.io.IOException;
 
+    private static final class NioByteString extends com.android.framework.protobuf.ByteString.LeafByteString {
+        private final java.nio.ByteBuffer buffer = null;
+        NioByteString(java.nio.ByteBuffer p0) { super(); }
+        private void readObject(java.io.ObjectInputStream p0) throws java.io.IOException {}
+        private java.nio.ByteBuffer slice(int p0, int p1) { return null; }
+        private java.lang.Object writeReplace() { return null; }
+        public java.nio.ByteBuffer asReadOnlyByteBuffer() { return null; }
+        public java.util.List<java.nio.ByteBuffer> asReadOnlyByteBufferList() { return null; }
+        public byte byteAt(int p0) { return 0; }
+        public void copyTo(java.nio.ByteBuffer p0) {}
+        protected void copyToInternal(byte[] p0, int p1, int p2, int p3) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        boolean equalsRange(com.android.framework.protobuf.ByteString p0, int p1, int p2) { return false; }
+        public byte internalByteAt(int p0) { return 0; }
+        public boolean isValidUtf8() { return false; }
+        public com.android.framework.protobuf.CodedInputStream newCodedInput() { return null; }
+        public java.io.InputStream newInput() { return null; }
+        protected int partialHash(int p0, int p1, int p2) { return 0; }
+        protected int partialIsValidUtf8(int p0, int p1, int p2) { return 0; }
+        public int size() { return 0; }
+        public com.android.framework.protobuf.ByteString substring(int p0, int p1) { return null; }
+        protected java.lang.String toStringInternal(java.nio.charset.Charset p0) { return null; }
+        void writeTo(com.android.framework.protobuf.ByteOutput p0) throws java.io.IOException {}
+        public void writeTo(java.io.OutputStream p0) throws java.io.IOException {}
+        void writeToInternal(java.io.OutputStream p0, int p1, int p2) throws java.io.IOException {}
+    }
+
     static abstract class AbstractByteIterator implements com.android.framework.protobuf.ByteString.ByteIterator {
         AbstractByteIterator() {}
         public final java.lang.Byte next() { return null; }
         public final void remove() {}
     }
 
-    private static final class ArraysByteArrayCopier implements com.android.framework.protobuf.ByteString.ByteArrayCopier {
-        private ArraysByteArrayCopier() {}
-        public byte[] copyFrom(byte[] p0, int p1, int p2) { return null; }
-    }
-
-    private static final class BoundedByteString extends com.android.framework.protobuf.ByteString.LiteralByteString {
-        private static final long serialVersionUID = 1L;
-        private final int bytesLength = 0;
-        private final int bytesOffset = 0;
-        BoundedByteString(byte[] p0, int p1, int p2) { super(null); }
-        private void readObject(java.io.ObjectInputStream p0) throws java.io.IOException {}
-        public byte byteAt(int p0) { return 0; }
-        protected void copyToInternal(byte[] p0, int p1, int p2, int p3) {}
-        protected int getOffsetIntoBytes() { return 0; }
-        byte internalByteAt(int p0) { return 0; }
-        public int size() { return 0; }
-        java.lang.Object writeReplace() { return null; }
-    }
-
     private static interface ByteArrayCopier {
         public byte[] copyFrom(byte[] p0, int p1, int p2);
     }
 
-    public static interface ByteIterator extends java.util.Iterator<java.lang.Byte> {
-        public byte nextByte();
-    }
-
-    static final class CodedBuilder {
-        private final byte[] buffer = null;
-        private final com.android.framework.protobuf.CodedOutputStream output = null;
-        private CodedBuilder(int p0) {}
-        public com.android.framework.protobuf.ByteString build() { return null; }
-        public com.android.framework.protobuf.CodedOutputStream getCodedOutput() { return null; }
+    public static final class Output extends java.io.OutputStream {
+        private static final byte[] EMPTY_BYTE_ARRAY = null;
+        private byte[] buffer;
+        private int bufferPos;
+        private final java.util.ArrayList<com.android.framework.protobuf.ByteString> flushedBuffers = null;
+        private int flushedBuffersTotalBytes;
+        private final int initialCapacity = 0;
+        Output(int p0) { super(); }
+        private void flushFullBuffer(int p0) {}
+        private void flushLastBuffer() {}
+        public void reset() {}
+        public int size() { return 0; }
+        public com.android.framework.protobuf.ByteString toByteString() { return null; }
+        public java.lang.String toString() { return null; }
+        public void write(int p0) {}
+        public void write(byte[] p0, int p1, int p2) {}
+        public void writeTo(java.io.OutputStream p0) throws java.io.IOException {}
     }
 
     static abstract class LeafByteString extends com.android.framework.protobuf.ByteString {
@@ -128,6 +143,19 @@ public abstract class ByteString implements java.lang.Iterable<java.lang.Byte>, 
         protected final int getTreeDepth() { return 0; }
         protected final boolean isBalanced() { return false; }
         void writeToReverse(com.android.framework.protobuf.ByteOutput p0) throws java.io.IOException {}
+    }
+
+    private static final class SystemByteArrayCopier implements com.android.framework.protobuf.ByteString.ByteArrayCopier {
+        private SystemByteArrayCopier() {}
+        public byte[] copyFrom(byte[] p0, int p1, int p2) { return null; }
+    }
+
+    static final class CodedBuilder {
+        private final byte[] buffer = null;
+        private final com.android.framework.protobuf.CodedOutputStream output = null;
+        private CodedBuilder(int p0) {}
+        public com.android.framework.protobuf.ByteString build() { return null; }
+        public com.android.framework.protobuf.CodedOutputStream getCodedOutput() { return null; }
     }
 
     private static class LiteralByteString extends com.android.framework.protobuf.ByteString.LeafByteString {
@@ -156,54 +184,26 @@ public abstract class ByteString implements java.lang.Iterable<java.lang.Byte>, 
         final void writeToInternal(java.io.OutputStream p0, int p1, int p2) throws java.io.IOException {}
     }
 
-    private static final class NioByteString extends com.android.framework.protobuf.ByteString.LeafByteString {
-        private final java.nio.ByteBuffer buffer = null;
-        NioByteString(java.nio.ByteBuffer p0) { super(); }
-        private void readObject(java.io.ObjectInputStream p0) throws java.io.IOException {}
-        private java.nio.ByteBuffer slice(int p0, int p1) { return null; }
-        private java.lang.Object writeReplace() { return null; }
-        public java.nio.ByteBuffer asReadOnlyByteBuffer() { return null; }
-        public java.util.List<java.nio.ByteBuffer> asReadOnlyByteBufferList() { return null; }
-        public byte byteAt(int p0) { return 0; }
-        public void copyTo(java.nio.ByteBuffer p0) {}
-        protected void copyToInternal(byte[] p0, int p1, int p2, int p3) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        boolean equalsRange(com.android.framework.protobuf.ByteString p0, int p1, int p2) { return false; }
-        public byte internalByteAt(int p0) { return 0; }
-        public boolean isValidUtf8() { return false; }
-        public com.android.framework.protobuf.CodedInputStream newCodedInput() { return null; }
-        public java.io.InputStream newInput() { return null; }
-        protected int partialHash(int p0, int p1, int p2) { return 0; }
-        protected int partialIsValidUtf8(int p0, int p1, int p2) { return 0; }
-        public int size() { return 0; }
-        public com.android.framework.protobuf.ByteString substring(int p0, int p1) { return null; }
-        protected java.lang.String toStringInternal(java.nio.charset.Charset p0) { return null; }
-        void writeTo(com.android.framework.protobuf.ByteOutput p0) throws java.io.IOException {}
-        public void writeTo(java.io.OutputStream p0) throws java.io.IOException {}
-        void writeToInternal(java.io.OutputStream p0, int p1, int p2) throws java.io.IOException {}
-    }
-
-    public static final class Output extends java.io.OutputStream {
-        private static final byte[] EMPTY_BYTE_ARRAY = null;
-        private byte[] buffer;
-        private int bufferPos;
-        private final java.util.ArrayList<com.android.framework.protobuf.ByteString> flushedBuffers = null;
-        private int flushedBuffersTotalBytes;
-        private final int initialCapacity = 0;
-        Output(int p0) { super(); }
-        private void flushFullBuffer(int p0) {}
-        private void flushLastBuffer() {}
-        public void reset() {}
-        public int size() { return 0; }
-        public com.android.framework.protobuf.ByteString toByteString() { return null; }
-        public java.lang.String toString() { return null; }
-        public void write(int p0) {}
-        public void write(byte[] p0, int p1, int p2) {}
-        public void writeTo(java.io.OutputStream p0) throws java.io.IOException {}
-    }
-
-    private static final class SystemByteArrayCopier implements com.android.framework.protobuf.ByteString.ByteArrayCopier {
-        private SystemByteArrayCopier() {}
+    private static final class ArraysByteArrayCopier implements com.android.framework.protobuf.ByteString.ByteArrayCopier {
+        private ArraysByteArrayCopier() {}
         public byte[] copyFrom(byte[] p0, int p1, int p2) { return null; }
+    }
+
+    public static interface ByteIterator extends java.util.Iterator<java.lang.Byte> {
+        public byte nextByte();
+    }
+
+    private static final class BoundedByteString extends com.android.framework.protobuf.ByteString.LiteralByteString {
+        private static final long serialVersionUID = 1L;
+        private final int bytesLength = 0;
+        private final int bytesOffset = 0;
+        BoundedByteString(byte[] p0, int p1, int p2) { super(null); }
+        private void readObject(java.io.ObjectInputStream p0) throws java.io.IOException {}
+        public byte byteAt(int p0) { return 0; }
+        protected void copyToInternal(byte[] p0, int p1, int p2, int p3) {}
+        protected int getOffsetIntoBytes() { return 0; }
+        byte internalByteAt(int p0) { return 0; }
+        public int size() { return 0; }
+        java.lang.Object writeReplace() { return null; }
     }
 }

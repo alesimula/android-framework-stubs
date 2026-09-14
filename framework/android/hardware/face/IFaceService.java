@@ -37,45 +37,6 @@ public interface IFaceService extends android.os.IInterface {
     public void startPreparedClient(int p0, int p1) throws android.os.RemoteException;
     public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.face.IFaceService {
-        public Default() {}
-        public void addAuthenticatorsRegisteredCallback(android.hardware.face.IFaceAuthenticatorsRegisteredCallback p0) throws android.os.RemoteException {}
-        public void addLockoutResetCallback(android.hardware.biometrics.IBiometricServiceLockoutResetCallback p0, java.lang.String p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public long authenticate(android.os.IBinder p0, long p1, android.hardware.face.IFaceServiceReceiver p2, android.hardware.face.FaceAuthenticateOptions p3) throws android.os.RemoteException { return 0L; }
-        public void cancelAuthentication(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
-        public void cancelAuthenticationFromService(int p0, android.os.IBinder p1, java.lang.String p2, long p3) throws android.os.RemoteException {}
-        public void cancelEnrollment(android.os.IBinder p0, long p1) throws android.os.RemoteException {}
-        public void cancelFaceDetect(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
-        public android.hardware.biometrics.ITestSession createTestSession(int p0, android.hardware.biometrics.ITestSessionCallback p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public long detectFace(android.os.IBinder p0, android.hardware.face.IFaceServiceReceiver p1, android.hardware.face.FaceAuthenticateOptions p2) throws android.os.RemoteException { return 0L; }
-        public byte[] dumpSensorServiceStateProto(int p0, boolean p1) throws android.os.RemoteException { return null; }
-        public long enroll(int p0, android.os.IBinder p1, byte[] p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4, int[] p5, android.view.Surface p6, boolean p7, android.hardware.face.FaceEnrollOptions p8) throws android.os.RemoteException { return 0L; }
-        public long enrollRemotely(int p0, android.os.IBinder p1, byte[] p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4, int[] p5) throws android.os.RemoteException { return 0L; }
-        public void generateChallenge(android.os.IBinder p0, int p1, int p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
-        public long getAuthenticatorId(int p0, int p1) throws android.os.RemoteException { return 0L; }
-        public java.util.List<android.hardware.face.Face> getEnrolledFaces(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public void getFeature(android.os.IBinder p0, int p1, int p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
-        public int getLockoutModeForUser(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public android.hardware.face.FaceSensorPropertiesInternal getSensorProperties(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.hardware.face.FaceSensorPropertiesInternal> getSensorPropertiesInternal(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public boolean hasEnrolledFaces(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return false; }
-        public void invalidateAuthenticatorId(int p0, int p1, android.hardware.biometrics.IInvalidationCallback p2) throws android.os.RemoteException {}
-        public boolean isHardwareDetected(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
-        public void prepareForAuthentication(boolean p0, android.os.IBinder p1, long p2, android.hardware.biometrics.IBiometricSensorReceiver p3, android.hardware.face.FaceAuthenticateOptions p4, long p5, int p6, boolean p7) throws android.os.RemoteException {}
-        public void registerAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
-        public void registerAuthenticators(android.hardware.face.FaceSensorConfigurations p0) throws android.os.RemoteException {}
-        public void registerBiometricStateListener(android.hardware.biometrics.IBiometricStateListener p0) throws android.os.RemoteException {}
-        public void remove(android.os.IBinder p0, int p1, int p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
-        public void removeAll(android.os.IBinder p0, int p1, android.hardware.face.IFaceServiceReceiver p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void resetLockout(android.os.IBinder p0, int p1, int p2, byte[] p3, java.lang.String p4) throws android.os.RemoteException {}
-        public void revokeChallenge(android.os.IBinder p0, int p1, int p2, java.lang.String p3, long p4) throws android.os.RemoteException {}
-        public void scheduleWatchdog() throws android.os.RemoteException {}
-        public void setFeature(android.os.IBinder p0, int p1, int p2, boolean p3, byte[] p4, android.hardware.face.IFaceServiceReceiver p5, java.lang.String p6) throws android.os.RemoteException {}
-        public void startPreparedClient(int p0, int p1) throws android.os.RemoteException {}
-        public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.face.IFaceService {
         static final int TRANSACTION_addAuthenticatorsRegisteredCallback = 30;
         static final int TRANSACTION_addLockoutResetCallback = 26;
@@ -193,5 +154,44 @@ public interface IFaceService extends android.os.IInterface {
             public void startPreparedClient(int p0, int p1) throws android.os.RemoteException {}
             public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.face.IFaceService {
+        public Default() {}
+        public void addAuthenticatorsRegisteredCallback(android.hardware.face.IFaceAuthenticatorsRegisteredCallback p0) throws android.os.RemoteException {}
+        public void addLockoutResetCallback(android.hardware.biometrics.IBiometricServiceLockoutResetCallback p0, java.lang.String p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public long authenticate(android.os.IBinder p0, long p1, android.hardware.face.IFaceServiceReceiver p2, android.hardware.face.FaceAuthenticateOptions p3) throws android.os.RemoteException { return 0L; }
+        public void cancelAuthentication(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
+        public void cancelAuthenticationFromService(int p0, android.os.IBinder p1, java.lang.String p2, long p3) throws android.os.RemoteException {}
+        public void cancelEnrollment(android.os.IBinder p0, long p1) throws android.os.RemoteException {}
+        public void cancelFaceDetect(android.os.IBinder p0, java.lang.String p1, long p2) throws android.os.RemoteException {}
+        public android.hardware.biometrics.ITestSession createTestSession(int p0, android.hardware.biometrics.ITestSessionCallback p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public long detectFace(android.os.IBinder p0, android.hardware.face.IFaceServiceReceiver p1, android.hardware.face.FaceAuthenticateOptions p2) throws android.os.RemoteException { return 0L; }
+        public byte[] dumpSensorServiceStateProto(int p0, boolean p1) throws android.os.RemoteException { return null; }
+        public long enroll(int p0, android.os.IBinder p1, byte[] p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4, int[] p5, android.view.Surface p6, boolean p7, android.hardware.face.FaceEnrollOptions p8) throws android.os.RemoteException { return 0L; }
+        public long enrollRemotely(int p0, android.os.IBinder p1, byte[] p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4, int[] p5) throws android.os.RemoteException { return 0L; }
+        public void generateChallenge(android.os.IBinder p0, int p1, int p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
+        public long getAuthenticatorId(int p0, int p1) throws android.os.RemoteException { return 0L; }
+        public java.util.List<android.hardware.face.Face> getEnrolledFaces(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public void getFeature(android.os.IBinder p0, int p1, int p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
+        public int getLockoutModeForUser(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public android.hardware.face.FaceSensorPropertiesInternal getSensorProperties(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.hardware.face.FaceSensorPropertiesInternal> getSensorPropertiesInternal(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public boolean hasEnrolledFaces(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return false; }
+        public void invalidateAuthenticatorId(int p0, int p1, android.hardware.biometrics.IInvalidationCallback p2) throws android.os.RemoteException {}
+        public boolean isHardwareDetected(int p0, java.lang.String p1) throws android.os.RemoteException { return false; }
+        public void prepareForAuthentication(boolean p0, android.os.IBinder p1, long p2, android.hardware.biometrics.IBiometricSensorReceiver p3, android.hardware.face.FaceAuthenticateOptions p4, long p5, int p6, boolean p7) throws android.os.RemoteException {}
+        public void registerAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
+        public void registerAuthenticators(android.hardware.face.FaceSensorConfigurations p0) throws android.os.RemoteException {}
+        public void registerBiometricStateListener(android.hardware.biometrics.IBiometricStateListener p0) throws android.os.RemoteException {}
+        public void remove(android.os.IBinder p0, int p1, int p2, android.hardware.face.IFaceServiceReceiver p3, java.lang.String p4) throws android.os.RemoteException {}
+        public void removeAll(android.os.IBinder p0, int p1, android.hardware.face.IFaceServiceReceiver p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void resetLockout(android.os.IBinder p0, int p1, int p2, byte[] p3, java.lang.String p4) throws android.os.RemoteException {}
+        public void revokeChallenge(android.os.IBinder p0, int p1, int p2, java.lang.String p3, long p4) throws android.os.RemoteException {}
+        public void scheduleWatchdog() throws android.os.RemoteException {}
+        public void setFeature(android.os.IBinder p0, int p1, int p2, boolean p3, byte[] p4, android.hardware.face.IFaceServiceReceiver p5, java.lang.String p6) throws android.os.RemoteException {}
+        public void startPreparedClient(int p0, int p1) throws android.os.RemoteException {}
+        public void unregisterAuthenticationStateListener(android.hardware.biometrics.AuthenticationStateListener p0) throws android.os.RemoteException {}
     }
 }

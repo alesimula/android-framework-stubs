@@ -3,7 +3,7 @@ package android.printservice;
 @android.annotation.SystemApi
 public final class PrintServiceInfo implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.printservice.PrintServiceInfo> CREATOR = null;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "PrintServiceInfo";
     private static final java.lang.String TAG_PRINT_SERVICE = "print-service";
     private final java.lang.String mAddPrintersActivityName = null;
     private final java.lang.String mAdvancedPrintOptionsActivityName = null;

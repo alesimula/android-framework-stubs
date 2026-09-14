@@ -25,13 +25,14 @@ public final class SQLiteConnectionPool implements java.io.Closeable {
     private final java.util.concurrent.atomic.AtomicLong mTotalStatementsTime = null;
     private SQLiteConnectionPool(android.database.sqlite.SQLiteDatabaseConfiguration p0) {}
     private void cancelConnectionWaiterLocked(android.database.sqlite.SQLiteConnectionPool.ConnectionWaiter p0) {}
+    private void closeAcquiredConnectionsLocked() {}
     private boolean closeAvailableConnectionLocked(int p0) { return false; }
     private void closeAvailableConnectionsAndLogExceptionsLocked() {}
     private void closeAvailableNonPrimaryConnectionsAndLogExceptionsLocked() {}
     private void closeConnectionAndLogExceptionsLocked(android.database.sqlite.SQLiteConnection p0) {}
     private void closeExcessConnectionsAndLogExceptionsLocked() {}
     private void discardAcquiredConnectionsLocked() {}
-    private void dispose(boolean p0) {}
+    private void dispose(boolean p0, boolean p1) {}
     private void finishAcquireConnectionLocked(android.database.sqlite.SQLiteConnection p0, int p1) {}
     private static int getPriority(int p0) { return 0; }
     private boolean isSessionBlockingImportantConnectionWaitersLocked(boolean p0, int p1) { return false; }
@@ -53,6 +54,7 @@ public final class SQLiteConnectionPool implements java.io.Closeable {
     public android.database.sqlite.SQLiteConnection acquireConnection(java.lang.String p0, int p1, android.os.CancellationSignal p2) { return null; }
     void clearAcquiredConnectionsPreparedStatementCache() {}
     public void close() {}
+    void close(boolean p0) {}
     void closeAvailableNonPrimaryConnectionsAndLogExceptions() {}
     public void collectDbStats(java.util.ArrayList<android.database.sqlite.SQLiteDebug.DbStats> p0) {}
     void disableIdleConnectionHandler() {}

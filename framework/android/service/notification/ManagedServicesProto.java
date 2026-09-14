@@ -8,16 +8,16 @@ public final class ManagedServicesProto {
     public static final long SNOOZED = 2246267895814L;
     public ManagedServicesProto() {}
 
+    public final class SnoozedServices {
+        public static final long SNOOZED = 2246267895810L;
+        public static final long USER_ID = 1120986464257L;
+        public SnoozedServices(android.service.notification.ManagedServicesProto p0) {}
+    }
+
     public final class ServiceProto {
         public static final long IS_PRIMARY = 1133871366147L;
         public static final long NAME = 2237677961217L;
         public static final long USER_ID = 1120986464258L;
         public ServiceProto(android.service.notification.ManagedServicesProto p0) {}
-    }
-
-    public final class SnoozedServices {
-        public static final long SNOOZED = 2246267895810L;
-        public static final long USER_ID = 1120986464257L;
-        public SnoozedServices(android.service.notification.ManagedServicesProto p0) {}
     }
 }

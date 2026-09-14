@@ -2,7 +2,7 @@ package android.window.sharedsurface;
 
 public class SharedAnimationController implements android.window.sharedsurface.SharedSurfaceDispatcher {
     static final boolean DEBUG = false;
-    static final java.lang.String TAG = null;
+    static final java.lang.String TAG = "SharedAnimationController";
     private final android.os.Handler mHandler = null;
     private final java.lang.Object mLock = null;
     private final java.util.List<android.window.sharedsurface.SharedAnimationProvider> mPendingProviders = null;

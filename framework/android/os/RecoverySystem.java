@@ -7,6 +7,7 @@ public class RecoverySystem {
     private static final long DEFAULT_EUICC_FACTORY_RESET_TIMEOUT_MILLIS = 30000L;
     private static final long DEFAULT_EUICC_REMOVING_INVISIBLE_PROFILES_TIMEOUT_MILLIS = 45000L;
     private static final java.io.File DEFAULT_KEYSTORE = null;
+    private static final long DEFAULT_SIM_PIN_UNENROLLMENT_TIMEOUT_MILLIS = 5000L;
     private static final java.lang.String LAST_INSTALL_PATH = "last_install";
     private static final java.lang.String LAST_PREFIX = "last_";
     private static final java.io.File LOG_FILE = null;
@@ -86,6 +87,7 @@ public class RecoverySystem {
     public static void scheduleUpdateOnBoot(android.content.Context p0, java.io.File p1) throws java.io.IOException {}
     private boolean setupBcb(java.lang.String p0) { return false; }
     private boolean uncrypt(java.lang.String p0, android.os.IRecoverySystemProgressListener p1) { return false; }
+    private static void unenrollSimsFromAutomaticPinManagement(android.content.Context p0) {}
     public static void verifyPackage(java.io.File p0, android.os.RecoverySystem.ProgressListener p1, java.io.File p2) throws java.io.IOException, java.security.GeneralSecurityException {}
     @android.annotation.SystemApi
     @java.lang.Deprecated
@@ -95,11 +97,11 @@ public class RecoverySystem {
     public static boolean wipeEuiccData(android.content.Context p0, java.lang.String p1) { return false; }
     public void wipePartitionToExt4() throws java.io.IOException {}
 
-    public static interface ProgressListener {
-        public void onProgress(int p0);
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ResumeOnRebootRebootErrorCode {
+    }
+
+    public static interface ProgressListener {
+        public void onProgress(int p0);
     }
 }

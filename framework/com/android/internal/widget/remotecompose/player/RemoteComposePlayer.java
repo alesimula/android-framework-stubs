@@ -3,15 +3,18 @@ package com.android.internal.widget.remotecompose.player;
 @android.widget.RemoteViews.RemoteView
 public class RemoteComposePlayer extends android.widget.FrameLayout implements com.android.internal.widget.remotecompose.core.RemoteContextActions {
     private static final int MAX_SUPPORTED_MAJOR_VERSION = 1;
-    private static final int MAX_SUPPORTED_MINOR_VERSION = 3;
+    private static final int MAX_SUPPORTED_MINOR_VERSION = 4;
     public static final int THEME_DARK = -2;
     public static final int THEME_LIGHT = -3;
     public static final int THEME_UNSPECIFIED = -1;
     private com.android.internal.widget.remotecompose.player.RemoteComposePlayer.FloatSystemVariables mFloatSystemVariables;
     private final com.android.internal.widget.remotecompose.player.platform.HapticSupport mHapticSupport = null;
     protected com.android.internal.widget.remotecompose.player.platform.RemoteComposeView mInner;
+    private final java.util.HashMap<java.lang.String, com.android.internal.widget.remotecompose.core.RemoteComposeBuffer> mLoadedMacros = null;
+    private final com.android.internal.widget.remotecompose.core.operations.loom.PatternCallback mPatternCallbackInternal = null;
     private final com.android.internal.widget.remotecompose.player.platform.SensorSupport mSensorsSupport = null;
     private com.android.internal.widget.remotecompose.core.CoreDocument.ShaderControl mShaderControl;
+    private final com.android.internal.widget.remotecompose.player.platform.SoundSupport mSoundSupport = null;
     private com.android.internal.widget.remotecompose.player.state.StateUpdater mStateUpdater;
     private final com.android.internal.widget.remotecompose.player.platform.ThemeSupport mThemeSupport = null;
     public RemoteComposePlayer(android.content.Context p0) { super((android.content.Context)null); }
@@ -22,6 +25,7 @@ public class RemoteComposePlayer extends android.widget.FrameLayout implements c
     private com.android.internal.widget.remotecompose.core.RemoteContext getRemoteContext() { return null; }
     private void init(android.content.Context p0, android.util.AttributeSet p1, int p2) {}
     private boolean isCompatible(com.android.internal.widget.remotecompose.player.RemoteDocument p0) { return false; }
+    private void saveMacro(java.lang.String p0, com.android.internal.widget.remotecompose.core.RemoteComposeBuffer p1) {}
     public void addIdActionListener(com.android.internal.widget.remotecompose.player.RemoteComposePlayer.IdActionCallbacks p0) {}
     public void clearLocalString(java.lang.String p0, java.lang.String p1) {}
     public void clearSystemLocalString(java.lang.String p0) {}
@@ -41,8 +45,10 @@ public class RemoteComposePlayer extends android.widget.FrameLayout implements c
     public java.lang.String[] getNamedStrings() { return null; }
     public int getOpsPerFrame() { return 0; }
     public com.android.internal.widget.remotecompose.player.state.StateUpdater getStateUpdater() { return null; }
+    public com.android.internal.widget.remotecompose.player.platform.TypefaceResolver getTypefaceResolver() { return null; }
     public void invalidate() {}
     public boolean isDraggable() { return false; }
+    public void loadMacros() {}
     protected void onDetachedFromWindow() {}
     public void onFocusChanged(boolean p0, int p1, android.graphics.Rect p2) {}
     public boolean performClick(com.android.internal.widget.remotecompose.core.CoreDocument p0, com.android.internal.widget.remotecompose.core.operations.layout.Component p1, java.lang.String p2) { return false; }
@@ -53,6 +59,7 @@ public class RemoteComposePlayer extends android.widget.FrameLayout implements c
     public boolean scrollDirection(com.android.internal.widget.remotecompose.core.operations.layout.Component p0, com.android.internal.widget.remotecompose.core.semantics.ScrollableComponent.ScrollDirection p1) { return false; }
     public void setBitmapLoader(com.android.internal.widget.remotecompose.player.platform.BitmapLoader p0) {}
     public void setColor(java.lang.String p0, int p1) {}
+    public void setCustomSupport(com.android.internal.widget.remotecompose.player.platform.AndroidCustomContext p0) {}
     public void setDebug(int p0) {}
     public void setDefaultMaxFps(int p0) {}
     public void setDocument(com.android.internal.widget.remotecompose.player.RemoteDocument p0) {}
@@ -70,6 +77,7 @@ public class RemoteComposePlayer extends android.widget.FrameLayout implements c
     public void setShaderControl(com.android.internal.widget.remotecompose.core.CoreDocument.ShaderControl p0) {}
     public void setSystemLocalString(java.lang.String p0, java.lang.String p1) {}
     public void setTheme(int p0) {}
+    public void setTypefaceResolver(com.android.internal.widget.remotecompose.player.platform.TypefaceResolver p0) {}
     public void setUseChoreographer(boolean p0) {}
     public void setUserLocalBitmap(java.lang.String p0, android.graphics.Bitmap p1) {}
     public void setUserLocalColor(java.lang.String p0, int p1) {}

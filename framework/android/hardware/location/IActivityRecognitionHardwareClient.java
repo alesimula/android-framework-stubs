@@ -3,12 +3,6 @@ package android.hardware.location;
 public interface IActivityRecognitionHardwareClient extends android.os.IInterface {
     public void onAvailabilityChanged(boolean p0, android.hardware.location.IActivityRecognitionHardware p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.location.IActivityRecognitionHardwareClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAvailabilityChanged(boolean p0, android.hardware.location.IActivityRecognitionHardware p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.location.IActivityRecognitionHardwareClient {
         public static final java.lang.String DESCRIPTOR = "android.hardware.location.IActivityRecognitionHardwareClient";
         static final int TRANSACTION_onAvailabilityChanged = 1;
@@ -26,5 +20,11 @@ public interface IActivityRecognitionHardwareClient extends android.os.IInterfac
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAvailabilityChanged(boolean p0, android.hardware.location.IActivityRecognitionHardware p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.location.IActivityRecognitionHardwareClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAvailabilityChanged(boolean p0, android.hardware.location.IActivityRecognitionHardware p1) throws android.os.RemoteException {}
     }
 }

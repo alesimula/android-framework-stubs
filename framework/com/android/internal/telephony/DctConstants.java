@@ -59,16 +59,6 @@ public class DctConstants {
     public static final java.lang.String RAT_NAME_NR_SA_MMWAVE = "NR_MMWAVE";
     public DctConstants() {}
 
-    public static enum Activity {
-        DATAIN,
-        DATAINANDOUT,
-        DATAOUT,
-        DORMANT,
-        NONE;
-        private static final com.android.internal.telephony.DctConstants.Activity[] $VALUES = null;
-        private Activity() {}
-    }
-
     public static enum State {
         CONNECTED,
         CONNECTING,
@@ -78,5 +68,15 @@ public class DctConstants {
         RETRYING;
         private static final com.android.internal.telephony.DctConstants.State[] $VALUES = null;
         private State() {}
+    }
+
+    public static enum Activity {
+        DATAIN,
+        DATAINANDOUT,
+        DATAOUT,
+        DORMANT,
+        NONE;
+        private static final com.android.internal.telephony.DctConstants.Activity[] $VALUES = null;
+        private Activity() {}
     }
 }

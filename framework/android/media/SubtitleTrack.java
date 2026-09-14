@@ -48,6 +48,19 @@ public abstract class SubtitleTrack implements android.media.MediaTimeProvider.O
         public void onTime(long p0) {}
     }
 
+    public static interface RenderingWidget {
+        public void draw(android.graphics.Canvas p0);
+        public void onAttachedToWindow();
+        public void onDetachedFromWindow();
+        public void setOnChangedListener(android.media.SubtitleTrack.RenderingWidget.OnChangedListener p0);
+        public void setSize(int p0, int p1);
+        public void setVisible(boolean p0);
+
+        public static interface OnChangedListener {
+            public void onChanged(android.media.SubtitleTrack.RenderingWidget p0);
+        }
+    }
+
     static class CueList {
         private static final java.lang.String TAG = "CueList";
         public boolean DEBUG;
@@ -72,19 +85,6 @@ public abstract class SubtitleTrack implements android.media.MediaTimeProvider.O
             public boolean hasNext() { return false; }
             public android.util.Pair<java.lang.Long, android.media.SubtitleTrack.Cue> next() { return null; }
             public void remove() {}
-        }
-    }
-
-    public static interface RenderingWidget {
-        public void draw(android.graphics.Canvas p0);
-        public void onAttachedToWindow();
-        public void onDetachedFromWindow();
-        public void setOnChangedListener(android.media.SubtitleTrack.RenderingWidget.OnChangedListener p0);
-        public void setSize(int p0, int p1);
-        public void setVisible(boolean p0);
-
-        public static interface OnChangedListener {
-            public void onChanged(android.media.SubtitleTrack.RenderingWidget p0);
         }
     }
 

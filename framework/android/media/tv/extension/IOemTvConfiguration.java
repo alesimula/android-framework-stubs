@@ -2,6 +2,19 @@ package android.media.tv.extension;
 
 public interface IOemTvConfiguration extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.IOemTvConfiguration";
+    public static final java.lang.String FEATURE_ATV_SCAN = "atv_scan";
+    public static final java.lang.String FEATURE_BLUE_MUTE = "blue_mute";
+    public static final java.lang.String FEATURE_CI = "ci";
+    public static final java.lang.String FEATURE_GINGA = "ginga";
+    public static final java.lang.String FEATURE_HBBTV = "hbbtv";
+    public static final java.lang.String FEATURE_OAD = "oad";
+    public static final java.lang.String FEATURE_PVR = "pvr";
+    public static final java.lang.String FEATURE_PVR_ACTIVE_ACTIVITY = "pvr_active_activity";
+    public static final java.lang.String FEATURE_PVR_ACTIVE_CLASS = "pvr_active_class";
+    public static final java.lang.String FEATURE_PVR_ACTIVE_ENABLE = "pvr_active_enable";
+    public static final java.lang.String FEATURE_TELETEXT_ENABLE_COLUMN = "teletext_enable_column";
+    public static final java.lang.String FEATURE_TIMESHIFT = "timeshift";
+    public static final java.lang.String FEATURE_VIRTUAL_RCU = "virtual_rcu";
     public java.lang.String getStringConfig(java.lang.String p0) throws android.os.RemoteException;
     public boolean isFeatureEnabled(java.lang.String p0) throws android.os.RemoteException;
 

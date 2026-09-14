@@ -13,22 +13,6 @@ public interface IAccessibilityInteractionConnection extends android.os.IInterfa
     public void performAccessibilityAction(long p0, int p1, android.os.Bundle p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7) throws android.os.RemoteException;
     public void takeScreenshotOfWindow(int p0, android.window.ScreenCaptureInternal.ScreenCaptureListener p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) throws android.os.RemoteException;
 
-    public static class Default implements android.view.accessibility.IAccessibilityInteractionConnection {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void attachAccessibilityOverlayToWindow(android.view.SurfaceControl p0, int p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) throws android.os.RemoteException {}
-        public void clearAccessibilityFocus() throws android.os.RemoteException {}
-        public void findAccessibilityNodeInfoByAccessibilityId(long p0, android.graphics.Region p1, int p2, android.view.accessibility.IAccessibilityInteractionConnectionCallback p3, int p4, int p5, long p6, android.view.MagnificationSpec p7, float[] p8, android.os.Bundle p9) throws android.os.RemoteException {}
-        public void findAccessibilityNodeInfosByText(long p0, java.lang.String p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
-        public void findAccessibilityNodeInfosByViewId(long p0, java.lang.String p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
-        public void findFocus(long p0, int p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
-        public void focusSearch(long p0, int p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
-        public void getWindowSurfaceInfo(android.view.accessibility.IWindowSurfaceInfoCallback p0) throws android.os.RemoteException {}
-        public void notifyOutsideTouch() throws android.os.RemoteException {}
-        public void performAccessibilityAction(long p0, int p1, android.os.Bundle p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7) throws android.os.RemoteException {}
-        public void takeScreenshotOfWindow(int p0, android.window.ScreenCaptureInternal.ScreenCaptureListener p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IAccessibilityInteractionConnection {
         public static final java.lang.String DESCRIPTOR = "android.view.accessibility.IAccessibilityInteractionConnection";
         static final int TRANSACTION_attachAccessibilityOverlayToWindow = 11;
@@ -66,5 +50,21 @@ public interface IAccessibilityInteractionConnection extends android.os.IInterfa
             public void performAccessibilityAction(long p0, int p1, android.os.Bundle p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7) throws android.os.RemoteException {}
             public void takeScreenshotOfWindow(int p0, android.window.ScreenCaptureInternal.ScreenCaptureListener p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.accessibility.IAccessibilityInteractionConnection {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void attachAccessibilityOverlayToWindow(android.view.SurfaceControl p0, int p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) throws android.os.RemoteException {}
+        public void clearAccessibilityFocus() throws android.os.RemoteException {}
+        public void findAccessibilityNodeInfoByAccessibilityId(long p0, android.graphics.Region p1, int p2, android.view.accessibility.IAccessibilityInteractionConnectionCallback p3, int p4, int p5, long p6, android.view.MagnificationSpec p7, float[] p8, android.os.Bundle p9) throws android.os.RemoteException {}
+        public void findAccessibilityNodeInfosByText(long p0, java.lang.String p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
+        public void findAccessibilityNodeInfosByViewId(long p0, java.lang.String p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
+        public void findFocus(long p0, int p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
+        public void focusSearch(long p0, int p1, android.graphics.Region p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7, android.view.MagnificationSpec p8, float[] p9) throws android.os.RemoteException {}
+        public void getWindowSurfaceInfo(android.view.accessibility.IWindowSurfaceInfoCallback p0) throws android.os.RemoteException {}
+        public void notifyOutsideTouch() throws android.os.RemoteException {}
+        public void performAccessibilityAction(long p0, int p1, android.os.Bundle p2, int p3, android.view.accessibility.IAccessibilityInteractionConnectionCallback p4, int p5, int p6, long p7) throws android.os.RemoteException {}
+        public void takeScreenshotOfWindow(int p0, android.window.ScreenCaptureInternal.ScreenCaptureListener p1, android.view.accessibility.IAccessibilityInteractionConnectionCallback p2) throws android.os.RemoteException {}
     }
 }

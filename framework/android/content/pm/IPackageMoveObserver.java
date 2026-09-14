@@ -4,13 +4,6 @@ public interface IPackageMoveObserver extends android.os.IInterface {
     public void onCreated(int p0, android.os.Bundle p1) throws android.os.RemoteException;
     public void onStatusChanged(int p0, int p1, long p2) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.IPackageMoveObserver {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCreated(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void onStatusChanged(int p0, int p1, long p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.IPackageMoveObserver {
         public static final java.lang.String DESCRIPTOR = "android.content.pm.IPackageMoveObserver";
         static final int TRANSACTION_onCreated = 1;
@@ -30,5 +23,12 @@ public interface IPackageMoveObserver extends android.os.IInterface {
             public void onCreated(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
             public void onStatusChanged(int p0, int p1, long p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.IPackageMoveObserver {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCreated(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void onStatusChanged(int p0, int p1, long p2) throws android.os.RemoteException {}
     }
 }

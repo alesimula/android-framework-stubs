@@ -7,6 +7,7 @@ public class RemoteComposeView extends android.widget.FrameLayout implements and
     com.android.internal.widget.remotecompose.player.platform.AndroidRemoteContext mARContext;
     android.graphics.Point mActionCurrentPoint;
     android.graphics.Point mActionDownPoint;
+    com.android.internal.widget.remotecompose.player.platform.AndroidCustomContext mAndroidCustomContext;
     private android.view.Choreographer mChoreographer;
     com.android.internal.widget.remotecompose.core.RemoteClock mClock;
     private int mCount;
@@ -40,6 +41,7 @@ public class RemoteComposeView extends android.widget.FrameLayout implements and
     long mLongPressTimeout;
     long mMaxFrameDelay;
     float mMaxFrameRate;
+    com.android.internal.widget.remotecompose.core.operations.loom.PatternCallback mPatternCallback;
     private android.view.ViewTreeObserver mRegisteredObserver;
     java.util.Map<java.lang.Integer, java.lang.Object> mResolvedData;
     long mStart;
@@ -86,6 +88,7 @@ public class RemoteComposeView extends android.widget.FrameLayout implements and
     public void onViewDetachedFromWindow(android.view.View p0) {}
     public boolean performClick() { return false; }
     public void setColor(java.lang.String p0, int p1) {}
+    public void setCustomSupport(com.android.internal.widget.remotecompose.player.platform.AndroidCustomContext p0) {}
     public void setDebug(int p0) {}
     public void setDocument(com.android.internal.widget.remotecompose.player.RemoteDocument p0) {}
     public void setExternalFloat(int p0, float p1) {}
@@ -96,7 +99,9 @@ public class RemoteComposeView extends android.widget.FrameLayout implements and
     public void setLocalInt(java.lang.String p0, int p1) {}
     public void setLocalString(java.lang.String p0, java.lang.String p1) {}
     public void setLong(java.lang.String p0, long p1) {}
+    public void setMacroCallback(com.android.internal.widget.remotecompose.core.operations.loom.PatternCallback p0) {}
     public void setResolvedData(java.util.Map<java.lang.Integer, java.lang.Object> p0) {}
+    public void setSoundEngine(com.android.internal.widget.remotecompose.core.CoreDocument.SoundEngine p0) {}
     public void setTheme(int p0) {}
     public void setUseChoreographer(boolean p0) {}
 

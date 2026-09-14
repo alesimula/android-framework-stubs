@@ -8,6 +8,7 @@ public abstract class VibratorManager {
     public abstract void cancel();
     public abstract void cancel(int p0);
     public abstract android.os.Vibrator getDefaultVibrator();
+    public int[] getTargetVibratorIds() { return null; }
     public abstract android.os.Vibrator getVibrator(int p0);
     public abstract int[] getVibratorIds();
     public boolean hasCapabilities(int p0) { return false; }

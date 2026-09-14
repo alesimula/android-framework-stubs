@@ -26,32 +26,6 @@ public interface IRadioData extends android.os.IInterface {
     public void startKeepalive(int p0, android.hardware.radio.data.KeepaliveRequest p1) throws android.os.RemoteException;
     public void stopKeepalive(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.data.IRadioData {
-        public Default() {}
-        public void allocatePduSessionId(int p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelHandover(int p0, int p1) throws android.os.RemoteException {}
-        public void deactivateDataCall(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void getDataCallList(int p0) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getSlicingConfig(int p0) throws android.os.RemoteException {}
-        public void notifyImsDataNetwork(int p0, android.hardware.radio.data.ImsDataNetworkInfo p1) throws android.os.RemoteException {}
-        public void releasePduSessionId(int p0, int p1) throws android.os.RemoteException {}
-        public void responseAcknowledgement() throws android.os.RemoteException {}
-        public void setDataAllowed(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setDataProfile(int p0, android.hardware.radio.data.DataProfileInfo[] p1) throws android.os.RemoteException {}
-        public void setDataThrottling(int p0, byte p1, long p2) throws android.os.RemoteException {}
-        public void setInitialAttachApn(int p0, android.hardware.radio.data.DataProfileInfo p1) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.data.IRadioDataResponse p0, android.hardware.radio.data.IRadioDataIndication p1) throws android.os.RemoteException {}
-        public void setUserDataEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setUserDataRoamingEnabled(int p0, boolean p1) throws android.os.RemoteException {}
-        public void setupDataCall(int p0, int p1, android.hardware.radio.data.DataProfileInfo p2, boolean p3, int p4, android.hardware.radio.data.LinkAddress[] p5, java.lang.String[] p6, int p7, android.hardware.radio.data.SliceInfo p8, boolean p9) throws android.os.RemoteException {}
-        public void startHandover(int p0, int p1) throws android.os.RemoteException {}
-        public void startKeepalive(int p0, android.hardware.radio.data.KeepaliveRequest p1) throws android.os.RemoteException {}
-        public void stopKeepalive(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.data.IRadioData {
         static final int TRANSACTION_allocatePduSessionId = 1;
         static final int TRANSACTION_cancelHandover = 2;
@@ -108,5 +82,31 @@ public interface IRadioData extends android.os.IInterface {
             public void startKeepalive(int p0, android.hardware.radio.data.KeepaliveRequest p1) throws android.os.RemoteException {}
             public void stopKeepalive(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.data.IRadioData {
+        public Default() {}
+        public void allocatePduSessionId(int p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelHandover(int p0, int p1) throws android.os.RemoteException {}
+        public void deactivateDataCall(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void getDataCallList(int p0) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getSlicingConfig(int p0) throws android.os.RemoteException {}
+        public void notifyImsDataNetwork(int p0, android.hardware.radio.data.ImsDataNetworkInfo p1) throws android.os.RemoteException {}
+        public void releasePduSessionId(int p0, int p1) throws android.os.RemoteException {}
+        public void responseAcknowledgement() throws android.os.RemoteException {}
+        public void setDataAllowed(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setDataProfile(int p0, android.hardware.radio.data.DataProfileInfo[] p1) throws android.os.RemoteException {}
+        public void setDataThrottling(int p0, byte p1, long p2) throws android.os.RemoteException {}
+        public void setInitialAttachApn(int p0, android.hardware.radio.data.DataProfileInfo p1) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.data.IRadioDataResponse p0, android.hardware.radio.data.IRadioDataIndication p1) throws android.os.RemoteException {}
+        public void setUserDataEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setUserDataRoamingEnabled(int p0, boolean p1) throws android.os.RemoteException {}
+        public void setupDataCall(int p0, int p1, android.hardware.radio.data.DataProfileInfo p2, boolean p3, int p4, android.hardware.radio.data.LinkAddress[] p5, java.lang.String[] p6, int p7, android.hardware.radio.data.SliceInfo p8, boolean p9) throws android.os.RemoteException {}
+        public void startHandover(int p0, int p1) throws android.os.RemoteException {}
+        public void startKeepalive(int p0, android.hardware.radio.data.KeepaliveRequest p1) throws android.os.RemoteException {}
+        public void stopKeepalive(int p0, int p1) throws android.os.RemoteException {}
     }
 }

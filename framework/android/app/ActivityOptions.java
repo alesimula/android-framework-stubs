@@ -48,7 +48,6 @@ public class ActivityOptions extends android.app.ComponentOptions {
     public static final java.lang.String KEY_LAUNCH_COOKIE = "android.activity.launchCookie";
     private static final java.lang.String KEY_LAUNCH_DISPLAY_ID = "android.activity.launchDisplayId";
     private static final java.lang.String KEY_LAUNCH_INTO_PIP_PARAMS = "android.activity.launchIntoPipParams";
-    private static final java.lang.String KEY_LAUNCH_NEXT_TO_BUBBLE = "android.activity.launchNextToBubble";
     public static final java.lang.String KEY_LAUNCH_ROOT_TASK_TOKEN = "android.activity.launchRootTaskToken";
     private static final java.lang.String KEY_LAUNCH_TASK_DISPLAY_AREA_FEATURE_ID = "android.activity.launchTaskDisplayAreaFeatureId";
     private static final java.lang.String KEY_LAUNCH_TASK_DISPLAY_AREA_TOKEN = "android.activity.launchTaskDisplayAreaToken";
@@ -110,10 +109,9 @@ public class ActivityOptions extends android.app.ComponentOptions {
     private boolean mIsEligibleForLegacyPermissionPrompt;
     private int mLaunchActivityType;
     private android.graphics.Rect mLaunchBounds;
-    private android.os.IBinder mLaunchCookie;
+    private android.app.ActivityOptions.LaunchCookie mLaunchCookie;
     private int mLaunchDisplayId;
     private android.app.PictureInPictureParams mLaunchIntoPipParams;
-    private boolean mLaunchNextToBubble;
     private android.window.WindowContainerToken mLaunchRootTask;
     private android.window.WindowContainerToken mLaunchTaskDisplayArea;
     private int mLaunchTaskDisplayAreaFeatureId;
@@ -203,10 +201,9 @@ public class ActivityOptions extends android.app.ComponentOptions {
     public int getHeight() { return 0; }
     public int getLaunchActivityType() { return 0; }
     public android.graphics.Rect getLaunchBounds() { return null; }
-    public android.os.IBinder getLaunchCookie() { return null; }
+    public android.app.ActivityOptions.LaunchCookie getLaunchCookie() { return null; }
     public int getLaunchDisplayId() { return 0; }
     public android.app.PictureInPictureParams getLaunchIntoPipParams() { return null; }
-    public boolean getLaunchNextToBubble() { return false; }
     public android.window.WindowContainerToken getLaunchRootTask() { return null; }
     public boolean getLaunchTaskBehind() { return false; }
     public android.window.WindowContainerToken getLaunchTaskDisplayArea() { return null; }
@@ -270,7 +267,6 @@ public class ActivityOptions extends android.app.ComponentOptions {
     public void setLaunchCookie(android.app.ActivityOptions.LaunchCookie p0) {}
     public void setLaunchCookie(android.os.IBinder p0) {}
     public android.app.ActivityOptions setLaunchDisplayId(int p0) { return null; }
-    public android.app.ActivityOptions setLaunchNextToBubble(boolean p0) { return null; }
     public android.app.ActivityOptions setLaunchRootTask(android.window.WindowContainerToken p0) { return null; }
     public android.app.ActivityOptions setLaunchTaskDisplayArea(android.window.WindowContainerToken p0) { return null; }
     public void setLaunchTaskDisplayAreaFeatureId(int p0) {}
@@ -297,7 +293,9 @@ public class ActivityOptions extends android.app.ComponentOptions {
     public android.app.ActivityOptions setSceneTransitionInfo(android.app.ActivityOptions.SceneTransitionInfo p0) { return null; }
     public android.app.ActivityOptions setShareIdentityEnabled(boolean p0) { return null; }
     public android.app.ActivityOptions setSharedSurfaceAnimationProvider(android.window.sharedsurface.SharedSurfaceDispatcher p0, android.window.sharedsurface.SharedAnimationProvider p1) { return null; }
+    @java.lang.Deprecated
     public void setSourceInfo(int p0, long p1) {}
+    public void setSourceInfoNanos(int p0, long p1) {}
     public android.app.ActivityOptions setSplashScreenStyle(int p0) { return null; }
     public void setSplitScreenCreateMode(int p0) {}
     public void setTaskAlwaysOnTop(boolean p0) {}
@@ -361,6 +359,30 @@ public class ActivityOptions extends android.app.ComponentOptions {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
+    public static class SourceInfo implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.app.ActivityOptions.SourceInfo> CREATOR = null;
+        public static final int TYPE_COMPLICATION = 8;
+        public static final int TYPE_DESKTOP_ANIMATION = 5;
+        public static final int TYPE_LAUNCHER = 1;
+        public static final int TYPE_LOCKSCREEN = 3;
+        public static final int TYPE_NOTIFICATION = 2;
+        public static final int TYPE_ONGOING_LIVE_UPDATE = 9;
+        public static final int TYPE_QSS = 6;
+        public static final int TYPE_RECENTS_ANIMATION = 4;
+        public static final int TYPE_TILE = 7;
+        public final long eventTimeNs = 0L;
+        public final boolean isEventTimeConvertedFromMs = false;
+        public final int type = 0;
+        SourceInfo(int p0, long p1) {}
+        SourceInfo(int p0, long p1, boolean p2) {}
+        public int describeContents() { return 0; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface SourceType {
+        }
+    }
+
     public static class SharedSurfaceAnimationInfo implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.app.ActivityOptions.SharedSurfaceAnimationInfo> CREATOR = null;
         final android.window.sharedsurface.ISharedAnimationProvider mISharedAnimationProvider = null;
@@ -373,27 +395,5 @@ public class ActivityOptions extends android.app.ComponentOptions {
         public android.view.IWindow getPivotWindow() { return null; }
         public android.window.sharedsurface.SharedAnimationParams getSharedAnimationParams() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class SourceInfo implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.app.ActivityOptions.SourceInfo> CREATOR = null;
-        public static final int TYPE_COMPLICATION = 8;
-        public static final int TYPE_DESKTOP_ANIMATION = 5;
-        public static final int TYPE_LAUNCHER = 1;
-        public static final int TYPE_LOCKSCREEN = 3;
-        public static final int TYPE_NOTIFICATION = 2;
-        public static final int TYPE_ONGOING_LIVE_UPDATE = 9;
-        public static final int TYPE_QSS = 6;
-        public static final int TYPE_RECENTS_ANIMATION = 4;
-        public static final int TYPE_TILE = 7;
-        public final long eventTimeMs = 0L;
-        public final int type = 0;
-        SourceInfo(int p0, long p1) {}
-        public int describeContents() { return 0; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface SourceType {
-        }
     }
 }

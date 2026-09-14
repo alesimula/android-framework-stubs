@@ -239,25 +239,6 @@ public class ZenModeConfig implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeXml(com.android.modules.utils.TypedXmlSerializer p0, java.lang.Integer p1, boolean p2, android.app.backup.BackupRestoreEventLogger p3) throws java.io.IOException {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConfigOrigin {
-    }
-
-    public static class EventInfo {
-        public static final int REPLY_ANY_EXCEPT_NO = 0;
-        public static final int REPLY_YES = 2;
-        public static final int REPLY_YES_OR_MAYBE = 1;
-        public java.lang.String calName;
-        public java.lang.Long calendarId;
-        public int reply;
-        public int userId;
-        public EventInfo() {}
-        public static int resolveUserId(int p0) { return 0; }
-        public android.service.notification.ZenModeConfig.EventInfo copy() { return null; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
     public static class ScheduleInfo {
         public int[] days;
         public int endHour;
@@ -330,5 +311,24 @@ public class ZenModeConfig implements android.os.Parcelable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ConditionOverride {
         }
+    }
+
+    public static class EventInfo {
+        public static final int REPLY_ANY_EXCEPT_NO = 0;
+        public static final int REPLY_YES = 2;
+        public static final int REPLY_YES_OR_MAYBE = 1;
+        public java.lang.String calName;
+        public java.lang.Long calendarId;
+        public int reply;
+        public int userId;
+        public EventInfo() {}
+        public static int resolveUserId(int p0) { return 0; }
+        public android.service.notification.ZenModeConfig.EventInfo copy() { return null; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConfigOrigin {
     }
 }

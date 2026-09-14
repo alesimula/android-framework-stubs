@@ -67,75 +67,6 @@ public interface IMediaQualityManager extends android.os.IInterface {
     public void updateSoundProfile(java.lang.String p0, android.media.quality.SoundProfile p1, int p2) throws android.os.RemoteException;
     public boolean usesDisplayTechnology(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.quality.IMediaQualityManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void changeStreamStatus(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void createPictureProfile(android.media.quality.PictureProfile p0, int p1) throws android.os.RemoteException {}
-        public void createSoundProfile(android.media.quality.SoundProfile p0, int p1) throws android.os.RemoteException {}
-        public java.util.List<android.media.quality.PictureProfile> getAllPictureProfilesForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.PictureProfile> getAvailablePictureProfiles(boolean p0, int p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.SoundProfile> getAvailableSoundProfiles(boolean p0, int p1) throws android.os.RemoteException { return null; }
-        public android.media.quality.PictureProfile getCurrentPictureProfileForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.media.quality.PictureProfileHandle getCurrentPictureProfileHandleForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
-        public android.media.quality.PictureProfile getDefaultPictureProfile() throws android.os.RemoteException { return null; }
-        public long getDefaultPictureProfileHandleValue(int p0) throws android.os.RemoteException { return 0L; }
-        public android.media.quality.SoundProfile getDefaultSoundProfile() throws android.os.RemoteException { return null; }
-        public android.media.quality.DolbyAudioProcessingCapabilities getDolbyAudioProcessingCapabilities(int p0) throws android.os.RemoteException { return null; }
-        public android.media.quality.DolbyAudioProcessingSettings getDolbyAudioProcessingSettings(int p0) throws android.os.RemoteException { return null; }
-        public android.media.quality.DtsVirtualXCapabilities getDtsVirtualXCapabilities(int p0) throws android.os.RemoteException { return null; }
-        public android.media.quality.DtsVirtualXSettings getDtsVirtualXSettings(int p0) throws android.os.RemoteException { return null; }
-        public android.media.quality.EqualizerCapabilities getEqualizerCapabilities(int p0) throws android.os.RemoteException { return null; }
-        public android.media.quality.EqualizerSettings getEqualizerSettings(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.ParameterCapability> getParameterCapabilities(java.util.List<java.lang.String> p0, int p1) throws android.os.RemoteException { return null; }
-        public android.media.quality.PictureProfile getPictureProfile(int p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getPictureProfileAllowList(int p0) throws android.os.RemoteException { return null; }
-        public long getPictureProfileForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return 0L; }
-        public java.util.List<android.media.quality.PictureProfileHandle> getPictureProfileHandle(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
-        public long getPictureProfileHandleValue(java.lang.String p0, int p1) throws android.os.RemoteException { return 0L; }
-        public java.util.List<android.media.quality.PictureProfileHandle> getPictureProfileHandles(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getPictureProfilePackageNames(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.PictureProfile> getPictureProfilesByPackage(java.lang.String p0, boolean p1, int p2) throws android.os.RemoteException { return null; }
-        public android.media.quality.SoundProfile getSoundProfile(int p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getSoundProfileAllowList(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.SoundProfileHandle> getSoundProfileHandle(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.SoundProfileHandle> getSoundProfileHandles(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
-        public java.util.List<java.lang.String> getSoundProfilePackageNames(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.media.quality.SoundProfile> getSoundProfilesByPackage(java.lang.String p0, boolean p1, int p2) throws android.os.RemoteException { return null; }
-        public boolean isAmbientBacklightEnabled(int p0) throws android.os.RemoteException { return false; }
-        public boolean isAutoPictureQualityEnabled(int p0) throws android.os.RemoteException { return false; }
-        public boolean isAutoSoundQualityEnabled(int p0) throws android.os.RemoteException { return false; }
-        public boolean isPanelMuted(int p0) throws android.os.RemoteException { return false; }
-        public boolean isSuperResolutionEnabled(int p0) throws android.os.RemoteException { return false; }
-        public boolean isSupported(int p0) throws android.os.RemoteException { return false; }
-        public void notifyPictureProfileHandleSelection(long p0, int p1) throws android.os.RemoteException {}
-        public void registerActiveProcessingPictureListener(android.media.quality.IActiveProcessingPictureListener p0) throws android.os.RemoteException {}
-        public void registerAmbientBacklightCallback(android.media.quality.IAmbientBacklightCallback p0) throws android.os.RemoteException {}
-        public void registerPictureProfileCallback(android.media.quality.IPictureProfileCallback p0) throws android.os.RemoteException {}
-        public void registerSoundProfileCallback(android.media.quality.ISoundProfileCallback p0) throws android.os.RemoteException {}
-        public void removePictureProfile(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void removeSoundProfile(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void setAmbientBacklightEnabled(boolean p0, int p1) throws android.os.RemoteException {}
-        public void setAmbientBacklightSettings(android.media.quality.AmbientBacklightSettings p0, int p1) throws android.os.RemoteException {}
-        public void setAutoPictureQualityEnabled(boolean p0, int p1) throws android.os.RemoteException {}
-        public void setAutoSoundQualityEnabled(boolean p0, int p1) throws android.os.RemoteException {}
-        public void setColorMuteEnabled(boolean p0, int p1) throws android.os.RemoteException {}
-        public boolean setDefaultPictureProfile(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
-        public boolean setDefaultSoundProfile(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
-        public void setDolbyAudioProcessingSettings(android.media.quality.DolbyAudioProcessingSettings p0, int p1) throws android.os.RemoteException {}
-        public void setDtsVirtualXSettings(android.media.quality.DtsVirtualXSettings p0, int p1) throws android.os.RemoteException {}
-        public void setEqualizerSettings(android.media.quality.EqualizerSettings p0, int p1) throws android.os.RemoteException {}
-        public void setMutedColor(int p0, int p1) throws android.os.RemoteException {}
-        public boolean setPanelMute(boolean p0, int p1) throws android.os.RemoteException { return false; }
-        public void setPictureProfileAllowList(java.util.List<java.lang.String> p0, int p1) throws android.os.RemoteException {}
-        public void setSoundProfileAllowList(java.util.List<java.lang.String> p0, int p1) throws android.os.RemoteException {}
-        public void setSuperResolutionEnabled(boolean p0, int p1) throws android.os.RemoteException {}
-        public void updatePictureProfile(java.lang.String p0, android.media.quality.PictureProfile p1, int p2) throws android.os.RemoteException {}
-        public void updatePictureProfileVariant(java.lang.String p0, java.lang.String p1, android.os.PersistableBundle p2, int p3) throws android.os.RemoteException {}
-        public void updateSoundProfile(java.lang.String p0, android.media.quality.SoundProfile p1, int p2) throws android.os.RemoteException {}
-        public boolean usesDisplayTechnology(int p0, int p1) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.quality.IMediaQualityManager {
         static final int TRANSACTION_changeStreamStatus = 18;
         static final int TRANSACTION_createPictureProfile = 1;
@@ -276,5 +207,74 @@ public interface IMediaQualityManager extends android.os.IInterface {
             public void updateSoundProfile(java.lang.String p0, android.media.quality.SoundProfile p1, int p2) throws android.os.RemoteException {}
             public boolean usesDisplayTechnology(int p0, int p1) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.media.quality.IMediaQualityManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void changeStreamStatus(java.lang.String p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void createPictureProfile(android.media.quality.PictureProfile p0, int p1) throws android.os.RemoteException {}
+        public void createSoundProfile(android.media.quality.SoundProfile p0, int p1) throws android.os.RemoteException {}
+        public java.util.List<android.media.quality.PictureProfile> getAllPictureProfilesForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.PictureProfile> getAvailablePictureProfiles(boolean p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.SoundProfile> getAvailableSoundProfiles(boolean p0, int p1) throws android.os.RemoteException { return null; }
+        public android.media.quality.PictureProfile getCurrentPictureProfileForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public android.media.quality.PictureProfileHandle getCurrentPictureProfileHandleForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return null; }
+        public android.media.quality.PictureProfile getDefaultPictureProfile() throws android.os.RemoteException { return null; }
+        public long getDefaultPictureProfileHandleValue(int p0) throws android.os.RemoteException { return 0L; }
+        public android.media.quality.SoundProfile getDefaultSoundProfile() throws android.os.RemoteException { return null; }
+        public android.media.quality.DolbyAudioProcessingCapabilities getDolbyAudioProcessingCapabilities(int p0) throws android.os.RemoteException { return null; }
+        public android.media.quality.DolbyAudioProcessingSettings getDolbyAudioProcessingSettings(int p0) throws android.os.RemoteException { return null; }
+        public android.media.quality.DtsVirtualXCapabilities getDtsVirtualXCapabilities(int p0) throws android.os.RemoteException { return null; }
+        public android.media.quality.DtsVirtualXSettings getDtsVirtualXSettings(int p0) throws android.os.RemoteException { return null; }
+        public android.media.quality.EqualizerCapabilities getEqualizerCapabilities(int p0) throws android.os.RemoteException { return null; }
+        public android.media.quality.EqualizerSettings getEqualizerSettings(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.ParameterCapability> getParameterCapabilities(java.util.List<java.lang.String> p0, int p1) throws android.os.RemoteException { return null; }
+        public android.media.quality.PictureProfile getPictureProfile(int p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getPictureProfileAllowList(int p0) throws android.os.RemoteException { return null; }
+        public long getPictureProfileForTvInput(java.lang.String p0, int p1) throws android.os.RemoteException { return 0L; }
+        public java.util.List<android.media.quality.PictureProfileHandle> getPictureProfileHandle(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
+        public long getPictureProfileHandleValue(java.lang.String p0, int p1) throws android.os.RemoteException { return 0L; }
+        public java.util.List<android.media.quality.PictureProfileHandle> getPictureProfileHandles(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getPictureProfilePackageNames(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.PictureProfile> getPictureProfilesByPackage(java.lang.String p0, boolean p1, int p2) throws android.os.RemoteException { return null; }
+        public android.media.quality.SoundProfile getSoundProfile(int p0, java.lang.String p1, boolean p2, int p3) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getSoundProfileAllowList(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.SoundProfileHandle> getSoundProfileHandle(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.SoundProfileHandle> getSoundProfileHandles(java.lang.String[] p0, int p1) throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getSoundProfilePackageNames(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.media.quality.SoundProfile> getSoundProfilesByPackage(java.lang.String p0, boolean p1, int p2) throws android.os.RemoteException { return null; }
+        public boolean isAmbientBacklightEnabled(int p0) throws android.os.RemoteException { return false; }
+        public boolean isAutoPictureQualityEnabled(int p0) throws android.os.RemoteException { return false; }
+        public boolean isAutoSoundQualityEnabled(int p0) throws android.os.RemoteException { return false; }
+        public boolean isPanelMuted(int p0) throws android.os.RemoteException { return false; }
+        public boolean isSuperResolutionEnabled(int p0) throws android.os.RemoteException { return false; }
+        public boolean isSupported(int p0) throws android.os.RemoteException { return false; }
+        public void notifyPictureProfileHandleSelection(long p0, int p1) throws android.os.RemoteException {}
+        public void registerActiveProcessingPictureListener(android.media.quality.IActiveProcessingPictureListener p0) throws android.os.RemoteException {}
+        public void registerAmbientBacklightCallback(android.media.quality.IAmbientBacklightCallback p0) throws android.os.RemoteException {}
+        public void registerPictureProfileCallback(android.media.quality.IPictureProfileCallback p0) throws android.os.RemoteException {}
+        public void registerSoundProfileCallback(android.media.quality.ISoundProfileCallback p0) throws android.os.RemoteException {}
+        public void removePictureProfile(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void removeSoundProfile(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void setAmbientBacklightEnabled(boolean p0, int p1) throws android.os.RemoteException {}
+        public void setAmbientBacklightSettings(android.media.quality.AmbientBacklightSettings p0, int p1) throws android.os.RemoteException {}
+        public void setAutoPictureQualityEnabled(boolean p0, int p1) throws android.os.RemoteException {}
+        public void setAutoSoundQualityEnabled(boolean p0, int p1) throws android.os.RemoteException {}
+        public void setColorMuteEnabled(boolean p0, int p1) throws android.os.RemoteException {}
+        public boolean setDefaultPictureProfile(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean setDefaultSoundProfile(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public void setDolbyAudioProcessingSettings(android.media.quality.DolbyAudioProcessingSettings p0, int p1) throws android.os.RemoteException {}
+        public void setDtsVirtualXSettings(android.media.quality.DtsVirtualXSettings p0, int p1) throws android.os.RemoteException {}
+        public void setEqualizerSettings(android.media.quality.EqualizerSettings p0, int p1) throws android.os.RemoteException {}
+        public void setMutedColor(int p0, int p1) throws android.os.RemoteException {}
+        public boolean setPanelMute(boolean p0, int p1) throws android.os.RemoteException { return false; }
+        public void setPictureProfileAllowList(java.util.List<java.lang.String> p0, int p1) throws android.os.RemoteException {}
+        public void setSoundProfileAllowList(java.util.List<java.lang.String> p0, int p1) throws android.os.RemoteException {}
+        public void setSuperResolutionEnabled(boolean p0, int p1) throws android.os.RemoteException {}
+        public void updatePictureProfile(java.lang.String p0, android.media.quality.PictureProfile p1, int p2) throws android.os.RemoteException {}
+        public void updatePictureProfileVariant(java.lang.String p0, java.lang.String p1, android.os.PersistableBundle p2, int p3) throws android.os.RemoteException {}
+        public void updateSoundProfile(java.lang.String p0, android.media.quality.SoundProfile p1, int p2) throws android.os.RemoteException {}
+        public boolean usesDisplayTechnology(int p0, int p1) throws android.os.RemoteException { return false; }
     }
 }

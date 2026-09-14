@@ -116,6 +116,25 @@ public class HubEndpoint {
         public android.hardware.contexthub.HubEndpoint.Builder setVersion(int p0) { return null; }
     }
 
+    private static interface DataFlowJniCallback {
+        public void onNotificationCallback(long p0, int p1, boolean p2);
+    }
+
+    static interface EndpointConsumer {
+        public void accept(android.hardware.contexthub.IContextHubEndpoint p0) throws android.os.RemoteException;
+    }
+
+    private static final class DataFlowIdWrapper {
+        private final android.hardware.contexthub.DataFlowId id = null;
+        DataFlowIdWrapper(android.hardware.contexthub.DataFlowId p0) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Reason {
+    }
+
     private static final class CloseableDataFlowInfo implements java.lang.AutoCloseable {
         android.hardware.contexthub.DataFlowInfo info;
         CloseableDataFlowInfo(android.hardware.contexthub.DataFlowInfo p0) {}
@@ -126,24 +145,5 @@ public class HubEndpoint {
         android.hardware.contexthub.DataFlowSinkContext context;
         CloseableDataFlowSinkContext(android.hardware.contexthub.DataFlowSinkContext p0) {}
         public void close() {}
-    }
-
-    private static final class DataFlowIdWrapper {
-        private final android.hardware.contexthub.DataFlowId id = null;
-        DataFlowIdWrapper(android.hardware.contexthub.DataFlowId p0) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
-    private static interface DataFlowJniCallback {
-        public void onNotificationCallback(long p0, int p1, boolean p2);
-    }
-
-    static interface EndpointConsumer {
-        public void accept(android.hardware.contexthub.IContextHubEndpoint p0) throws android.os.RemoteException;
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Reason {
     }
 }

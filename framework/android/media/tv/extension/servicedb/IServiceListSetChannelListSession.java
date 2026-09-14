@@ -5,13 +5,6 @@ public interface IServiceListSetChannelListSession extends android.os.IInterface
     public int release() throws android.os.RemoteException;
     public int setChannelList(android.os.Bundle[] p0, android.os.Bundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.servicedb.IServiceListSetChannelListSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int release() throws android.os.RemoteException { return 0; }
-        public int setChannelList(android.os.Bundle[] p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.servicedb.IServiceListSetChannelListSession {
         static final int TRANSACTION_release = 2;
         static final int TRANSACTION_setChannelList = 1;
@@ -30,5 +23,12 @@ public interface IServiceListSetChannelListSession extends android.os.IInterface
             public int release() throws android.os.RemoteException { return 0; }
             public int setChannelList(android.os.Bundle[] p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.servicedb.IServiceListSetChannelListSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int release() throws android.os.RemoteException { return 0; }
+        public int setChannelList(android.os.Bundle[] p0, android.os.Bundle p1) throws android.os.RemoteException { return 0; }
     }
 }

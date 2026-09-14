@@ -108,12 +108,16 @@ public final class LocalFloatingToolbarPopup implements com.android.internal.wid
     public void setWidthChanged(boolean p0) {}
     public void show(java.util.List<android.view.MenuItem> p0, android.view.MenuItem.OnMenuItemClickListener p1, android.graphics.Rect p2) {}
 
-    private static final class LogAccelerateInterpolator implements android.view.animation.Interpolator {
-        private static final int BASE = 100;
-        private static final float LOGS_SCALE = Float.valueOf(0.0f);
-        private LogAccelerateInterpolator() {}
-        private static float computeLog(float p0, int p1) { return 0.0f; }
-        public float getInterpolation(float p0) { return 0.0f; }
+    private static final class OverflowPanelViewHelper {
+        private final android.view.View mCalculator = null;
+        private final android.content.Context mContext = null;
+        private final int mIconTextSpacing = 0;
+        private final int mSidePadding = 0;
+        OverflowPanelViewHelper(android.content.Context p0, int p1) {}
+        private android.view.View createMenuButton(android.view.MenuItem p0) { return null; }
+        private boolean shouldShowIcon(android.view.MenuItem p0) { return false; }
+        public int calculateWidth(android.view.MenuItem p0) { return 0; }
+        public android.view.View getView(android.view.MenuItem p0, int p1, android.view.View p2) { return null; }
     }
 
     public static final class MenuItemRepr {
@@ -128,23 +132,19 @@ public final class LocalFloatingToolbarPopup implements com.android.internal.wid
         public int hashCode() { return 0; }
     }
 
+    private static final class LogAccelerateInterpolator implements android.view.animation.Interpolator {
+        private static final int BASE = 100;
+        private static final float LOGS_SCALE = Float.valueOf(0.0f);
+        private LogAccelerateInterpolator() {}
+        private static float computeLog(float p0, int p1) { return 0.0f; }
+        public float getInterpolation(float p0) { return 0.0f; }
+    }
+
     private static final class OverflowPanel extends android.widget.ListView {
         private final com.android.internal.widget.floatingtoolbar.LocalFloatingToolbarPopup mPopup = null;
         OverflowPanel(com.android.internal.widget.floatingtoolbar.LocalFloatingToolbarPopup p0) { super((android.content.Context)null); }
         protected boolean awakenScrollBars() { return false; }
         public boolean dispatchTouchEvent(android.view.MotionEvent p0) { return false; }
         protected void onMeasure(int p0, int p1) {}
-    }
-
-    private static final class OverflowPanelViewHelper {
-        private final android.view.View mCalculator = null;
-        private final android.content.Context mContext = null;
-        private final int mIconTextSpacing = 0;
-        private final int mSidePadding = 0;
-        OverflowPanelViewHelper(android.content.Context p0, int p1) {}
-        private android.view.View createMenuButton(android.view.MenuItem p0) { return null; }
-        private boolean shouldShowIcon(android.view.MenuItem p0) { return false; }
-        public int calculateWidth(android.view.MenuItem p0) { return 0; }
-        public android.view.View getView(android.view.MenuItem p0, int p1, android.view.View p2) { return null; }
     }
 }

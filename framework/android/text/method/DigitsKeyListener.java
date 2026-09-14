@@ -16,7 +16,6 @@ public class DigitsKeyListener extends android.text.method.NumberKeyListener {
     private char[] mAccepted;
     private final boolean mDecimal = false;
     private java.lang.String mDecimalPointChars;
-    private final java.util.Locale mLocale = null;
     private boolean mNeedsAdvancedInput;
     private final boolean mSign = false;
     private java.lang.String mSignChars;

@@ -32,6 +32,10 @@ public final class HotspotNetwork implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface NetworkType {
+    }
+
     public static final class Builder {
         private long mDeviceId;
         private android.os.Bundle mExtras;
@@ -51,9 +55,5 @@ public final class HotspotNetwork implements android.os.Parcelable {
         public android.net.wifi.sharedconnectivity.app.HotspotNetwork.Builder setHotspotSsid(java.lang.String p0) { return null; }
         public android.net.wifi.sharedconnectivity.app.HotspotNetwork.Builder setNetworkName(java.lang.String p0) { return null; }
         public android.net.wifi.sharedconnectivity.app.HotspotNetwork.Builder setNetworkProviderInfo(android.net.wifi.sharedconnectivity.app.NetworkProviderInfo p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NetworkType {
     }
 }

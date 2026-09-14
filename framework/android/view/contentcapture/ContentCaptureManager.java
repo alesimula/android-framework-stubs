@@ -30,6 +30,7 @@ public final class ContentCaptureManager {
     public static final java.lang.String DEVICE_CONFIG_PROPERTY_CONTENT_PROTECTION_OPTIONAL_GROUPS_CONFIG = "content_protection_optional_groups_config";
     public static final java.lang.String DEVICE_CONFIG_PROPERTY_CONTENT_PROTECTION_OPTIONAL_GROUPS_THRESHOLD = "content_protection_optional_groups_threshold";
     public static final java.lang.String DEVICE_CONFIG_PROPERTY_CONTENT_PROTECTION_REQUIRED_GROUPS_CONFIG = "content_protection_required_groups_config";
+    public static final java.lang.String DEVICE_CONFIG_PROPERTY_ENABLE_CONTENT_CAPTURE_PROCESSING = "enable_content_capture_processing";
     public static final java.lang.String DEVICE_CONFIG_PROPERTY_ENABLE_CONTENT_PROTECTION_RECEIVER = "enable_content_protection_receiver";
     public static final java.lang.String DEVICE_CONFIG_PROPERTY_IDLE_FLUSH_FREQUENCY = "idle_flush_frequency";
     public static final java.lang.String DEVICE_CONFIG_PROPERTY_IDLE_UNBIND_TIMEOUT = "idle_unbind_timeout";
@@ -50,7 +51,7 @@ public final class ContentCaptureManager {
     public static final int RESULT_CODE_SECURITY_EXCEPTION = -1;
     public static final int RESULT_CODE_TRUE = 1;
     private static final int SYNC_CALLS_TIMEOUT_MS = 5000;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureManager";
     private java.util.Set<android.view.contentcapture.ContentCaptureCondition> mContentCaptureConditionBuffer;
     private android.os.Handler mContentCaptureHandler;
     private final com.android.internal.util.RingBuffer<android.view.contentcapture.ContentCaptureEvent> mContentProtectionEventBuffer = null;
@@ -82,6 +83,8 @@ public final class ContentCaptureManager {
     public boolean isContentCaptureEnabled() { return false; }
     @android.annotation.SystemApi
     public boolean isContentCaptureFeatureEnabled() { return false; }
+    @android.annotation.SystemApi
+    public void notifyContentCaptureProcessingConfigurationChanged() {}
     public void onActivityCreated(android.os.IBinder p0, android.os.IBinder p1, android.content.ComponentName p2) {}
     public void onActivityDestroyed() {}
     public void onActivityPaused() {}
@@ -109,14 +112,24 @@ public final class ContentCaptureManager {
         public void write(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DataShareError {
-    }
-
     private final class Dumper implements android.util.Dumpable {
         private Dumper(android.view.contentcapture.ContentCaptureManager p0) {}
         public void dump(java.io.PrintWriter p0, java.lang.String[] p1) {}
         public java.lang.String getDumpableName() { return null; }
+    }
+
+    public static class StrippedContext {
+        final java.lang.String mContext = null;
+        final java.lang.String mPackageName = null;
+        final int mUserId = 0;
+        public StrippedContext(android.content.Context p0) {}
+        public java.lang.String getPackageName() { return null; }
+        public int getUserId() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface LoggingLevel {
     }
 
     private static class LocalDataShareAdapterResourceManager {
@@ -129,21 +142,11 @@ public final class ContentCaptureManager {
         void initializeForDelegate(android.view.contentcapture.ContentCaptureManager.DataShareAdapterDelegate p0, android.view.contentcapture.DataShareWriteAdapter p1, java.util.concurrent.Executor p2) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface LoggingLevel {
-    }
-
     private static interface MyRunnable {
         public void run(com.android.internal.util.SyncResultReceiver p0) throws android.os.RemoteException;
     }
 
-    public static class StrippedContext {
-        final java.lang.String mContext = null;
-        final java.lang.String mPackageName = null;
-        final int mUserId = 0;
-        public StrippedContext(android.content.Context p0) {}
-        public java.lang.String getPackageName() { return null; }
-        public int getUserId() { return 0; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DataShareError {
     }
 }

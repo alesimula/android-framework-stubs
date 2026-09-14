@@ -52,6 +52,10 @@ public class AudioMix implements android.os.Parcelable {
     public void setVirtualDeviceId(int p0) {}
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RouteFlags {
+    }
+
     public static class Builder {
         private int mCallbackFlags;
         private java.lang.String mDeviceAddress;
@@ -75,9 +79,5 @@ public class AudioMix implements android.os.Parcelable {
         public android.media.audiopolicy.AudioMix.Builder setRouteFlags(int p0) throws java.lang.IllegalArgumentException { return null; }
         android.media.audiopolicy.AudioMix.Builder setToken(android.os.IBinder p0) { return null; }
         android.media.audiopolicy.AudioMix.Builder setVirtualDeviceId(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RouteFlags {
     }
 }

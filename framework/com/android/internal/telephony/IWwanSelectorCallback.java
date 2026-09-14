@@ -6,14 +6,6 @@ public interface IWwanSelectorCallback extends android.os.IInterface {
     public void onDomainSelected(int p0, boolean p1) throws android.os.RemoteException;
     public void onRequestEmergencyNetworkScan(int[] p0, int p1, boolean p2, com.android.internal.telephony.IWwanSelectorResultCallback p3) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.IWwanSelectorCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCancel() throws android.os.RemoteException {}
-        public void onDomainSelected(int p0, boolean p1) throws android.os.RemoteException {}
-        public void onRequestEmergencyNetworkScan(int[] p0, int p1, boolean p2, com.android.internal.telephony.IWwanSelectorResultCallback p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.IWwanSelectorCallback {
         static final int TRANSACTION_onCancel = 3;
         static final int TRANSACTION_onDomainSelected = 2;
@@ -34,5 +26,13 @@ public interface IWwanSelectorCallback extends android.os.IInterface {
             public void onDomainSelected(int p0, boolean p1) throws android.os.RemoteException {}
             public void onRequestEmergencyNetworkScan(int[] p0, int p1, boolean p2, com.android.internal.telephony.IWwanSelectorResultCallback p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.IWwanSelectorCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCancel() throws android.os.RemoteException {}
+        public void onDomainSelected(int p0, boolean p1) throws android.os.RemoteException {}
+        public void onRequestEmergencyNetworkScan(int[] p0, int p1, boolean p2, com.android.internal.telephony.IWwanSelectorResultCallback p3) throws android.os.RemoteException {}
     }
 }

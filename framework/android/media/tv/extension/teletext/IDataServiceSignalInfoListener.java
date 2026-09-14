@@ -4,12 +4,6 @@ public interface IDataServiceSignalInfoListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.teletext.IDataServiceSignalInfoListener";
     public void onDataServiceSignalInfoChanged(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.teletext.IDataServiceSignalInfoListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDataServiceSignalInfoChanged(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.teletext.IDataServiceSignalInfoListener {
         static final int TRANSACTION_onDataServiceSignalInfoChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IDataServiceSignalInfoListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onDataServiceSignalInfoChanged(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.teletext.IDataServiceSignalInfoListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDataServiceSignalInfoChanged(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
     }
 }

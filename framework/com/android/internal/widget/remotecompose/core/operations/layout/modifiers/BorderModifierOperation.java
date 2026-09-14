@@ -14,16 +14,20 @@ public class BorderModifierOperation extends com.android.internal.widget.remotec
     public com.android.internal.widget.remotecompose.core.operations.paint.PaintBundle mPaint;
     float mR;
     float mRoundedCorner;
+    float mRoundedCornerValue;
     int mShapeType;
     boolean mUseColorId;
+    boolean mUseLegacyDrawing;
     float mWidth;
     float mX;
     float mY;
     public BorderModifierOperation(int p0, int p1, int p2, int p3, float p4, float p5, float p6, float p7, float p8, float p9, int p10) { super(); }
     public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, int p1, int p2, int p3, int p4, float p5, float p6, float p7, float p8, float p9, float p10, int p11) {}
+    private void defaultDrawing(com.android.internal.widget.remotecompose.core.PaintContext p0, float p1, float p2) {}
     public static void documentation(com.android.internal.widget.remotecompose.core.documentation.DocumentationBuilder p0) {}
     public static int id() { return 0; }
     private static boolean isAtLeastVersion7(com.android.internal.widget.remotecompose.core.RemoteContext p0) { return false; }
+    private void legacyDrawing(com.android.internal.widget.remotecompose.core.PaintContext p0, float p1, float p2) {}
     public static java.lang.String name() { return null; }
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
     public void layout(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.operations.layout.Component p1, float p2, float p3) {}

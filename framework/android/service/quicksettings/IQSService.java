@@ -13,22 +13,6 @@ public interface IQSService extends android.os.IInterface {
     public void updateQsTile(android.service.quicksettings.Tile p0, android.os.IBinder p1) throws android.os.RemoteException;
     public void updateStatusIcon(android.os.IBinder p0, android.graphics.drawable.Icon p1, java.lang.String p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.quicksettings.IQSService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.service.quicksettings.Tile getTile(android.os.IBinder p0) throws android.os.RemoteException { return null; }
-        public boolean isLocked() throws android.os.RemoteException { return false; }
-        public boolean isSecure() throws android.os.RemoteException { return false; }
-        public void onDialogHidden(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void onShowDialog(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void onStartActivity(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void onStartSuccessful(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void startActivity(android.os.IBinder p0, android.app.PendingIntent p1) throws android.os.RemoteException {}
-        public void startUnlockAndRun(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void updateQsTile(android.service.quicksettings.Tile p0, android.os.IBinder p1) throws android.os.RemoteException {}
-        public void updateStatusIcon(android.os.IBinder p0, android.graphics.drawable.Icon p1, java.lang.String p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.quicksettings.IQSService {
         public static final java.lang.String DESCRIPTOR = "android.service.quicksettings.IQSService";
         static final int TRANSACTION_getTile = 1;
@@ -66,5 +50,21 @@ public interface IQSService extends android.os.IInterface {
             public void updateQsTile(android.service.quicksettings.Tile p0, android.os.IBinder p1) throws android.os.RemoteException {}
             public void updateStatusIcon(android.os.IBinder p0, android.graphics.drawable.Icon p1, java.lang.String p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.quicksettings.IQSService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.service.quicksettings.Tile getTile(android.os.IBinder p0) throws android.os.RemoteException { return null; }
+        public boolean isLocked() throws android.os.RemoteException { return false; }
+        public boolean isSecure() throws android.os.RemoteException { return false; }
+        public void onDialogHidden(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void onShowDialog(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void onStartActivity(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void onStartSuccessful(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void startActivity(android.os.IBinder p0, android.app.PendingIntent p1) throws android.os.RemoteException {}
+        public void startUnlockAndRun(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void updateQsTile(android.service.quicksettings.Tile p0, android.os.IBinder p1) throws android.os.RemoteException {}
+        public void updateStatusIcon(android.os.IBinder p0, android.graphics.drawable.Icon p1, java.lang.String p2) throws android.os.RemoteException {}
     }
 }

@@ -4,12 +4,6 @@ public interface ISpatializerHeadTrackerAvailableCallback extends android.os.IIn
     public static final java.lang.String DESCRIPTOR = "android.media.ISpatializerHeadTrackerAvailableCallback";
     public void dispatchSpatializerHeadTrackerAvailable(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ISpatializerHeadTrackerAvailableCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchSpatializerHeadTrackerAvailable(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ISpatializerHeadTrackerAvailableCallback {
         static final int TRANSACTION_dispatchSpatializerHeadTrackerAvailable = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ISpatializerHeadTrackerAvailableCallback extends android.os.IIn
             public void dispatchSpatializerHeadTrackerAvailable(boolean p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.ISpatializerHeadTrackerAvailableCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchSpatializerHeadTrackerAvailable(boolean p0) throws android.os.RemoteException {}
     }
 }

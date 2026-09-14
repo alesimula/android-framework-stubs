@@ -20,24 +20,24 @@ public abstract class AttentionService extends android.app.Service {
     public void onStartProximityUpdates(android.service.attention.AttentionService.ProximityUpdateCallback p0) {}
     public void onStopProximityUpdates() {}
 
-    public static final class AttentionCallback {
-        private final android.service.attention.IAttentionCallback mCallback = null;
-        private AttentionCallback(android.service.attention.IAttentionCallback p0) {}
-        public void onFailure(int p0) {}
-        public void onSuccess(int p0, long p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttentionFailureCodes {
+    public static final class ProximityUpdateCallback {
+        private final java.lang.ref.WeakReference<android.service.attention.IProximityUpdateCallback> mCallback = null;
+        private ProximityUpdateCallback(android.service.attention.IProximityUpdateCallback p0) {}
+        public void onProximityUpdate(double p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AttentionSuccessCodes {
     }
 
-    public static final class ProximityUpdateCallback {
-        private final java.lang.ref.WeakReference<android.service.attention.IProximityUpdateCallback> mCallback = null;
-        private ProximityUpdateCallback(android.service.attention.IProximityUpdateCallback p0) {}
-        public void onProximityUpdate(double p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AttentionFailureCodes {
+    }
+
+    public static final class AttentionCallback {
+        private final android.service.attention.IAttentionCallback mCallback = null;
+        private AttentionCallback(android.service.attention.IAttentionCallback p0) {}
+        public void onFailure(int p0) {}
+        public void onSuccess(int p0, long p1) {}
     }
 }

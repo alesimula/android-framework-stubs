@@ -57,6 +57,7 @@ public final class RoutingSessionInfo implements android.os.Parcelable {
     public int getVolumeHandling() { return 0; }
     public int getVolumeMax() { return 0; }
     public int hashCode() { return 0; }
+    public boolean isRemoteSession() { return false; }
     public boolean isSystemSession() { return false; }
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
@@ -111,10 +112,10 @@ public final class RoutingSessionInfo implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ReleaseType {
+    public static @interface TransferReason {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransferReason {
+    public static @interface ReleaseType {
     }
 }

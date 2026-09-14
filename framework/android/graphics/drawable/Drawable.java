@@ -108,13 +108,6 @@ public abstract class Drawable {
     android.graphics.BlendModeColorFilter updateBlendModeFilter(android.graphics.BlendModeColorFilter p0, android.content.res.ColorStateList p1, android.graphics.BlendMode p2) { return null; }
     android.graphics.PorterDuffColorFilter updateTintFilter(android.graphics.PorterDuffColorFilter p0, android.content.res.ColorStateList p1, android.graphics.PorterDuff.Mode p2) { return null; }
 
-    public static interface Callback {
-        public void invalidateDrawable(android.graphics.drawable.Drawable p0);
-        default public void onFrameRateHint(android.graphics.drawable.Drawable p0, float p1) {}
-        public void scheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1, long p2);
-        public void unscheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1);
-    }
-
     public static abstract class ConstantState {
         public ConstantState() {}
         public boolean canApplyTheme() { return false; }
@@ -122,5 +115,12 @@ public abstract class Drawable {
         public abstract android.graphics.drawable.Drawable newDrawable();
         public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
         public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0, android.content.res.Resources.Theme p1) { return null; }
+    }
+
+    public static interface Callback {
+        public void invalidateDrawable(android.graphics.drawable.Drawable p0);
+        default public void onFrameRateHint(android.graphics.drawable.Drawable p0, float p1) {}
+        public void scheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1, long p2);
+        public void unscheduleDrawable(android.graphics.drawable.Drawable p0, java.lang.Runnable p1);
     }
 }

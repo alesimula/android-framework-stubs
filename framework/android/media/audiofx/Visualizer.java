@@ -67,15 +67,15 @@ public class Visualizer {
     public int setScalingMode(int p0) throws java.lang.IllegalStateException { return 0; }
     public int setServerDiedListener(android.media.audiofx.Visualizer.OnServerDiedListener p0) { return 0; }
 
+    public static interface OnDataCaptureListener {
+        public void onFftDataCapture(android.media.audiofx.Visualizer p0, byte[] p1, int p2);
+        public void onWaveFormDataCapture(android.media.audiofx.Visualizer p0, byte[] p1, int p2);
+    }
+
     public static final class MeasurementPeakRms {
         public int mPeak;
         public int mRms;
         public MeasurementPeakRms() {}
-    }
-
-    public static interface OnDataCaptureListener {
-        public void onFftDataCapture(android.media.audiofx.Visualizer p0, byte[] p1, int p2);
-        public void onWaveFormDataCapture(android.media.audiofx.Visualizer p0, byte[] p1, int p2);
     }
 
     public static interface OnServerDiedListener {

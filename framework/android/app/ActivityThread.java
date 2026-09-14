@@ -14,15 +14,10 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
     private static final boolean DEBUG_PROVIDER = false;
     private static final boolean DEBUG_RESULTS = false;
     private static final boolean DEBUG_SERVICE = false;
-    private static final boolean DEBUG_STORE_ENABLED = Boolean.valueOf(false);
     private static final java.lang.String DEFAULT_FULL_BACKUP_AGENT = "android.app.backup.FullBackupAgent";
-    private static final java.lang.String HEAP_COLUMN = "%13s %8s %8s %8s %8s %8s %8s %8s %8s";
-    private static final java.lang.String HEAP_FULL_COLUMN = "%13s %8s %8s %8s %8s %8s %8s %8s %8s %8s %8s %8s";
     public static final long INVALID_PROC_STATE_SEQ = -1L;
     private static final long LONG_MESSAGE_THRESHOLD_MS = Long.valueOf(0L);
     private static final long MIN_TIME_BETWEEN_GCS = 5000L;
-    private static final java.lang.String ONE_ALT_COUNT_COLUMN = "%21s %8s %21s %8d";
-    private static final java.lang.String ONE_COUNT_COLUMN = "%21s %8d";
     private static final java.util.Set<java.lang.String> PERFETTO_TRACING_ALLOWLIST = null;
     public static final java.lang.String PROC_START_SEQ_IDENT = "seq=";
     private static final int REQUEST_DIRECT_ACTIONS_RETRY_MAX_COUNT = 7;
@@ -34,9 +29,6 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
     public static final int SERVICE_DONE_EXECUTING_UNBIND = 4;
     private static final int SQLITE_MEM_RELEASED_EVENT_LOG_TAG = 75003;
     public static final java.lang.String TAG = "ActivityThread";
-    private static final java.lang.String THREE_COUNT_COLUMNS = "%21s %8d %21s %8d %21s %8d";
-    private static final java.lang.String TWO_COUNT_COLUMNS = "%21s %8d %21s %8d";
-    private static final java.lang.String TWO_COUNT_COLUMN_HEADER = "%21s %8s %21s %8s";
     private static final int VM_PROCESS_STATE_JANK_IMPERCEPTIBLE = 1;
     private static final int VM_PROCESS_STATE_JANK_PERCEPTIBLE = 0;
     static final boolean localLOGV = false;
@@ -137,6 +129,8 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
     private void deliverNewIntents(android.app.ActivityThread.ActivityClientRecord p0, java.util.List<com.android.internal.content.ReferrerIntent> p1) {}
     private void deliverResults(android.app.ActivityThread.ActivityClientRecord p0, java.util.List<android.app.ResultInfo> p1, java.lang.String p2) {}
     public static void dumpBitmapsProto(android.util.proto.ProtoOutputStream p0, int p1, java.lang.String p2, java.lang.String p3) {}
+    public static void dumpMemInfoNativeAllocations(java.io.PrintWriter p0) {}
+    public static void dumpMemInfoNativeAllocations(java.io.PrintWriter p0, java.lang.Iterable<libcore.util.NativeAllocationRegistry.Metrics> p1) {}
     public static void dumpMemInfoTable(android.util.proto.ProtoOutputStream p0, android.os.Debug.MemoryInfo p1, boolean p2, boolean p3, long p4, long p5, long p6, long p7, long p8, long p9) {}
     public static void dumpMemInfoTable(java.io.PrintWriter p0, android.os.Debug.MemoryInfo p1, boolean p2, boolean p3, boolean p4, boolean p5, int p6, java.lang.String p7, long p8, long p9, long p10, long p11, long p12, long p13) {}
     private static void dumpMemoryInfo(android.util.proto.ProtoOutputStream p0, long p1, java.lang.String p2, int p3, int p4, int p5, int p6, int p7, int p8, boolean p9, int p10, int p11, int p12) {}
@@ -223,7 +217,20 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
     private void performPauseActivityIfNeeded(android.app.ActivityThread.ActivityClientRecord p0, java.lang.String p1) {}
     private void performStopActivityInner(android.app.ActivityThread.ActivityClientRecord p0, android.app.servertransaction.PendingTransactionActions.StopInfo p1, boolean p2, boolean p3, java.lang.String p4) {}
     private android.content.pm.InstrumentationInfo prepareInstrumentation(android.app.ActivityThread.AppBindData p0) { return null; }
-    static void printRow(java.io.PrintWriter p0, java.lang.String p1, java.lang.Object... p2) {}
+    private static void printColumn(java.io.PrintWriter p0, long p1, int p2) {}
+    private static void printColumn(java.io.PrintWriter p0, java.lang.String p1, int p2) {}
+    private static void printHeapColumn(java.io.PrintWriter p0, java.lang.String p1, long p2, long p3, long p4, long p5, long p6, long p7, long p8, long p9) {}
+    private static void printHeapColumn(java.io.PrintWriter p0, java.lang.String p1, long p2, long p3, long p4, long p5, long p6, java.lang.String p7, java.lang.String p8, java.lang.String p9) {}
+    private static void printHeapFullColumn(java.io.PrintWriter p0, java.lang.String p1, long p2, long p3, long p4, long p5, long p6, long p7, long p8, long p9, long p10, long p11, long p12) {}
+    private static void printHeapFullColumn(java.io.PrintWriter p0, java.lang.String p1, long p2, long p3, long p4, long p5, long p6, long p7, long p8, long p9, java.lang.String p10, java.lang.String p11, java.lang.String p12) {}
+    private static void printHeapFullHeader(java.io.PrintWriter p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7, java.lang.String p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12) {}
+    private static void printHeapHeader(java.io.PrintWriter p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7, java.lang.String p8, java.lang.String p9) {}
+    private static void printOneAltCountColumn(java.io.PrintWriter p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, long p4) {}
+    private static void printOneCountColumn(java.io.PrintWriter p0, java.lang.String p1, long p2) {}
+    private static void printRow(java.io.PrintWriter p0, java.lang.String p1, java.lang.Object... p2) {}
+    private static void printThreeCountColumns(java.io.PrintWriter p0, java.lang.String p1, long p2, java.lang.String p3, long p4, java.lang.String p5, long p6) {}
+    private static void printTwoCountColumns(java.io.PrintWriter p0, java.lang.String p1, long p2, java.lang.String p3, long p4) {}
+    private static void printTwoCountHeader(java.io.PrintWriter p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4) {}
     private void purgePendingResources() {}
     private void relaunchAllActivities(boolean p0, java.lang.String p1) {}
     private android.os.CancellationSignal removeSafeCancellationTransport(android.app.ActivityThread.SafeCancellationTransport p0) { return null; }
@@ -356,6 +363,8 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
     final void scheduleContextCleanup(android.app.ContextImpl p0, java.lang.String p1, java.lang.String p2) {}
     void scheduleGcIdler() {}
     void schedulePurgeIdler() {}
+    void scheduleReceiver(android.content.Intent p0, android.content.pm.ActivityInfo p1, android.content.res.CompatibilityInfo p2, int p3, java.lang.String p4, android.os.Bundle p5, boolean p6, boolean p7, int p8, int p9, int p10, java.lang.String p11, android.content.ReceiverFinishController p12) {}
+    void scheduleRegisteredReceiver(android.content.IIntentReceiver p0, android.content.Intent p1, int p2, java.lang.String p3, android.os.Bundle p4, boolean p5, boolean p6, boolean p7, int p8, int p9, int p10, java.lang.String p11, android.content.ReceiverFinishController p12) throws android.os.RemoteException {}
     void scheduleRelaunchActivity(android.os.IBinder p0) {}
     public void sendActivityResult(android.os.IBinder p0, java.lang.String p1, int p2, int p3, android.content.Intent p4) {}
     void sendMessage(int p0, java.lang.Object p1) {}
@@ -474,7 +483,6 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
         private void dumpDatabaseInfo(android.os.ParcelFileDescriptor p0, java.lang.String[] p1, boolean p2) {}
         private void dumpMemInfo(android.util.proto.ProtoOutputStream p0, android.os.Debug.MemoryInfo p1, boolean p2, boolean p3, boolean p4, boolean p5) {}
         private void dumpMemInfo(java.io.PrintWriter p0, android.os.Debug.MemoryInfo p1, boolean p2, boolean p3, boolean p4, boolean p5, boolean p6, boolean p7) {}
-        private void dumpMemInfoNativeAllocations(java.io.PrintWriter p0) {}
         private void dumpMemInfoSharedBitmaps(java.io.PrintWriter p0, android.os.Debug.MemoryInfo p1) {}
         private java.io.File getDatabasesDir(android.content.Context p0) { return null; }
         private void updateCameraCompatInfo(android.content.res.CompatibilityInfo p0) {}
@@ -525,6 +533,7 @@ public final class ActivityThread extends android.app.ClientTransactionHandler i
         public final void scheduleReceiver(android.content.Intent p0, android.content.pm.ActivityInfo p1, android.content.res.CompatibilityInfo p2, int p3, java.lang.String p4, android.os.Bundle p5, boolean p6, boolean p7, int p8, int p9, int p10, java.lang.String p11) {}
         public final void scheduleReceiverList(java.util.List<android.app.ReceiverInfo> p0) throws android.os.RemoteException {}
         public void scheduleRegisteredReceiver(android.content.IIntentReceiver p0, android.content.Intent p1, int p2, java.lang.String p3, android.os.Bundle p4, boolean p5, boolean p6, boolean p7, int p8, int p9, int p10, java.lang.String p11) throws android.os.RemoteException {}
+        public final void scheduleSelfBroadcast(android.app.SelfBroadcastData p0) {}
         public final void scheduleServiceArgs(android.os.IBinder p0, android.content.pm.ParceledListSlice p1) {}
         public final void scheduleStopService(android.os.IBinder p0) {}
         public final void scheduleSuicide() {}

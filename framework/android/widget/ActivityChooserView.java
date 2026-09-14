@@ -40,7 +40,7 @@ public class ActivityChooserView extends android.view.ViewGroup implements andro
     public void setExpandActivityOverflowButtonDrawable(android.graphics.drawable.Drawable p0) {}
     public void setInitialActivityCount(int p0) {}
     public void setOnDismissListener(android.widget.PopupWindow.OnDismissListener p0) {}
-    public void setProvider(android.view.ActionProvider p0) {}
+    public final void setProvider(android.view.ActionProvider p0) {}
     public boolean showPopup() { return false; }
 
     private class ActivityChooserViewAdapter extends android.widget.BaseAdapter {

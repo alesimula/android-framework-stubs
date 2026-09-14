@@ -4,7 +4,7 @@ package android.permission;
 public abstract class PermissionControllerService extends android.app.Service {
     private static final long CAMERA_MIC_INDICATORS_NOT_PRESENT = 162547999L;
     private static final long LOCATION_INDICATORS_NOT_PRESENT = 430681066L;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "PermissionControllerService";
     public static final java.lang.String SERVICE_INTERFACE = "android.permission.PermissionControllerService";
     public PermissionControllerService() { super(); }
     @android.annotation.SystemApi

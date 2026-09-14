@@ -10,21 +10,6 @@ public final class SurfaceflingerLayers {
     public static final int HWC_TYPE_UNSPECIFIED = 0;
     public SurfaceflingerLayers() {}
 
-    public final class ActiveBufferProto {
-        public static final long FORMAT = 1120986464260L;
-        public static final long HEIGHT = 1155346202626L;
-        public static final long STRIDE = 1155346202627L;
-        public static final long USAGE = 1116691496965L;
-        public static final long WIDTH = 1155346202625L;
-        public ActiveBufferProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
-    }
-
-    public final class BarrierLayerProto {
-        public static final long FRAME_NUMBER = 1116691496962L;
-        public static final long ID = 1120986464257L;
-        public BarrierLayerProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
-    }
-
     public final class DisplayProto {
         public static final long DPI_X = 1103806595080L;
         public static final long DPI_Y = 1103806595081L;
@@ -38,12 +23,10 @@ public final class SurfaceflingerLayers {
         public DisplayProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
     }
 
-    public final class FloatRectProto {
-        public static final long BOTTOM = 1108101562372L;
-        public static final long LEFT = 1108101562369L;
-        public static final long RIGHT = 1108101562371L;
-        public static final long TOP = 1108101562370L;
-        public FloatRectProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
+    public final class BarrierLayerProto {
+        public static final long FRAME_NUMBER = 1116691496962L;
+        public static final long ID = 1120986464257L;
+        public BarrierLayerProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
     }
 
     public final class LayerProto {
@@ -125,6 +108,31 @@ public final class SurfaceflingerLayers {
         }
     }
 
+    public final class LayersTraceFileProto {
+        public static final long ENTRY = 2246267895810L;
+        public static final int INVALID = 0;
+        public static final long MAGIC_NUMBER = 1125281431553L;
+        public static final int MAGIC_NUMBER_H = 1162035538;
+        public static final int MAGIC_NUMBER_L = 1414682956;
+        public static final long REAL_TO_ELAPSED_TIME_OFFSET_NANOS = 1125281431555L;
+        public LayersTraceFileProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
+    }
+
+    public final class PositionProto {
+        public static final long X = 1108101562369L;
+        public static final long Y = 1108101562370L;
+        public PositionProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
+    }
+
+    public final class ActiveBufferProto {
+        public static final long FORMAT = 1120986464260L;
+        public static final long HEIGHT = 1155346202626L;
+        public static final long STRIDE = 1155346202627L;
+        public static final long USAGE = 1116691496965L;
+        public static final long WIDTH = 1155346202625L;
+        public ActiveBufferProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
+    }
+
     public final class LayersPatchProto {
         public static final long DELETED_DISPLAY_IDS = 2216203124740L;
         public static final long DELETED_LAYER_IDS = 2220498092035L;
@@ -156,19 +164,11 @@ public final class SurfaceflingerLayers {
         public LayersSnapshotProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
     }
 
-    public final class LayersTraceFileProto {
-        public static final long ENTRY = 2246267895810L;
-        public static final int INVALID = 0;
-        public static final long MAGIC_NUMBER = 1125281431553L;
-        public static final int MAGIC_NUMBER_H = 1162035538;
-        public static final int MAGIC_NUMBER_L = 1414682956;
-        public static final long REAL_TO_ELAPSED_TIME_OFFSET_NANOS = 1125281431555L;
-        public LayersTraceFileProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
-    }
-
-    public final class PositionProto {
-        public static final long X = 1108101562369L;
-        public static final long Y = 1108101562370L;
-        public PositionProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
+    public final class FloatRectProto {
+        public static final long BOTTOM = 1108101562372L;
+        public static final long LEFT = 1108101562369L;
+        public static final long RIGHT = 1108101562371L;
+        public static final long TOP = 1108101562370L;
+        public FloatRectProto(com.android.internal.tracing.winscope.protos.SurfaceflingerLayers p0) {}
     }
 }

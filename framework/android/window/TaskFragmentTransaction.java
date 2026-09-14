@@ -21,6 +21,10 @@ public final class TaskFragmentTransaction implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface ChangeType {
+    }
+
     public static final class Change implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.TaskFragmentTransaction.Change> CREATOR = null;
         private android.content.Intent mActivityIntent;
@@ -63,9 +67,5 @@ public final class TaskFragmentTransaction implements android.os.Parcelable {
         public android.window.TaskFragmentTransaction.Change setTaskId(int p0) { return null; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface ChangeType {
     }
 }

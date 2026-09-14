@@ -1,7 +1,6 @@
 package com.android.internal.widget.remotecompose.core;
 
 public class RemoteComposeBuffer {
-    private static final boolean DEBUG = false;
     public static final int EASING_CUBIC_ACCELERATE = 2;
     public static final int EASING_CUBIC_ANTICIPATE = 5;
     public static final int EASING_CUBIC_CUSTOM = 11;
@@ -23,6 +22,7 @@ public class RemoteComposeBuffer {
     private int mGeneratedComponentId;
     protected int mLastComponentId;
     com.android.internal.widget.remotecompose.core.Operations.UniqueIntMap<com.android.internal.widget.remotecompose.core.CompanionOperation> mMap;
+    private final java.util.Stack<java.lang.Integer> mPatternDefineOffsets = null;
     protected int mProfileMask;
     public RemoteComposeBuffer() {}
     public RemoteComposeBuffer(int p0) {}
@@ -130,7 +130,9 @@ public class RemoteComposeBuffer {
     public void addModifierBackground(float p0, float p1, float p2, float p3, int p4) {}
     public void addModifierBackground(int p0, int p1) {}
     public void addModifierBorder(float p0, float p1, int p2, int p3) {}
+    public void addModifierBorder(float p0, float p1, int p2, int p3, boolean p4) {}
     public void addModifierDynamicBorder(float p0, float p1, int p2, int p3) {}
+    public void addModifierDynamicBorder(float p0, float p1, int p2, int p3, boolean p4) {}
     public void addModifierGraphicsLayer(java.util.HashMap<java.lang.Integer, java.lang.Object> p0) {}
     public void addModifierMarquee(int p0, int p1, float p2, float p3, float p4, float p5) {}
     public void addModifierOffset(float p0, float p1) {}
@@ -146,12 +148,18 @@ public class RemoteComposeBuffer {
     public int addPathData(int p0, float[] p1) { return 0; }
     public int addPathData(int p0, float[] p1, int p2) { return 0; }
     public void addPathExpression(int p0, float[] p1, float[] p2, float p3, float p4, float p5, int p6) {}
+    public void addPatternArgument(int p0) {}
+    public void addPatternBlock(int p0) {}
+    public void addPatternForEach(int p0, int p1) {}
+    public void addReferencedOperations(int p0) {}
     public void addRootContentDescription(int p0) {}
     public void addRootStart() {}
     public void addRoundClipRectModifier(float p0, float p1, float p2, float p3) {}
     public void addRowStart(int p0, int p1, int p2, int p3, float p4) {}
     public void addRunActionsStart() {}
     public void addSemanticsModifier(int p0, byte p1, int p2, int p3, int p4, boolean p5, boolean p6) {}
+    public int addSound(int p0, byte[] p1) { return 0; }
+    public int addSoundExpression(int p0, float[] p1, float p2, float p3, float p4) { return 0; }
     public void addStateLayout(int p0, int p1, int p2, int p3, int p4) {}
     public void addText(int p0, java.lang.String p1) {}
     public void addTextComponentStart(int p0, int p1, int p2, int p3, float p4, int p5, float p6, int p7, short p8, short p9, int p10, int p11) {}
@@ -180,6 +188,9 @@ public class RemoteComposeBuffer {
     public int createBitmap(int p0, short p1, short p2) { return 0; }
     public int createTextFromFloat(int p0, float p1, short p2, short p3, int p4) { return 0; }
     public void defineFloatFunction(int p0, int[] p1) {}
+    public int definePattern(int p0, int[] p1) { return 0; }
+    public int definePattern(java.lang.String p0, int[] p1) { return 0; }
+    public int definePatternParameter(java.lang.String p0) { return 0; }
     public void drawBitmap(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11) {}
     public void drawBitmapTextAnchored(int p0, int p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8) {}
     public void drawComponentContent() {}
@@ -188,6 +199,10 @@ public class RemoteComposeBuffer {
     public void drawTextAnchored(int p0, float p1, float p2, float p3, float p4, int p5) {}
     public void endConditionalOperations() {}
     public void endLayoutCompute() {}
+    public void endPatternBlock() {}
+    public void endPatternDefine() {}
+    public void endPatternForEach() {}
+    public void endPatternInflation() {}
     public void endSkip(int p0) {}
     public com.android.internal.widget.remotecompose.core.RemoteComposeBuffer fromFile(java.io.File p0) throws java.io.IOException { return null; }
     public com.android.internal.widget.remotecompose.core.WireBuffer getBuffer() { return null; }
@@ -197,12 +212,15 @@ public class RemoteComposeBuffer {
     public void header(int p0, int p1, float p2, long p3) {}
     public void idLookup(int p0, float p1, float p2) {}
     public void inflateFromBuffer(java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p0) {}
+    public void inflateFromBuffer(java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p0, com.android.internal.widget.remotecompose.core.operations.loom.RemapContext p1) {}
+    public void inflatePattern(int p0, int[] p1) {}
     public void mapLookup(int p0, int p1, int p2) {}
     public void pathAppend(int p0, float... p1) {}
     public void pathCombine(int p0, int p1, int p2, byte p3) {}
     public int pathCreate(int p0, float p1, float p2) { return 0; }
     public int pathTween(int p0, int p1, int p2, float p3) { return 0; }
     public void performHaptic(int p0) {}
+    public void playSound(int p0) {}
     public void rem(java.lang.String p0) {}
     public void reset(int p0) {}
     public void setArrayValue(int p0, float p1, float p2) {}
@@ -210,6 +228,7 @@ public class RemoteComposeBuffer {
     public void setBuffer(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}
     public void setMatrixFromPath(int p0, float p1, float p2, int p3) {}
     public void setNamedVariable(int p0, java.lang.String p1, int p2) {}
+    public void setProfileMask(int p0) {}
     public void setRootContentBehavior(int p0, int p1, int p2, int p3) {}
     public void setTheme(int p0) {}
     public void setVersion(int p0, int p1) {}
@@ -217,7 +236,7 @@ public class RemoteComposeBuffer {
     public void startLayoutCompute(int p0, int p1, boolean p2) {}
     public int storeBitmap(int p0, int p1, int p2, byte[] p3) { return 0; }
     public int storeBitmapA8(int p0, int p1, int p2, byte[] p3) { return 0; }
-    public int storeBitmapUrl(int p0, java.lang.String p1) { return 0; }
+    public int storeBitmapUrl(int p0, java.lang.String p1, int p2, int p3) { return 0; }
     public void textAttribute(int p0, int p1, short p2) {}
     public void textLength(int p0, int p1) {}
     public void textLookup(int p0, float p1, float p2) {}

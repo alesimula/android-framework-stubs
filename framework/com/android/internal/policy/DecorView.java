@@ -175,6 +175,16 @@ public class DecorView extends android.widget.FrameLayout implements com.android
         public android.app.jank.JankTracker getAppJankTracker();
     }
 
+    private static class ColorViewState {
+        final com.android.internal.policy.DecorView.ColorViewAttributes attributes = null;
+        int color;
+        boolean present;
+        int targetVisibility;
+        android.view.View view;
+        boolean visible;
+        ColorViewState(com.android.internal.policy.DecorView.ColorViewAttributes p0) {}
+    }
+
     public static class ColorViewAttributes {
         final int horizontalGravity = 0;
         final int id = 0;
@@ -187,15 +197,5 @@ public class DecorView extends android.widget.FrameLayout implements com.android
         public boolean isPresent(boolean p0, int p1, boolean p2) { return false; }
         public boolean isVisible(int p0, int p1, int p2, boolean p3) { return false; }
         public boolean isVisible(boolean p0, int p1, int p2, boolean p3) { return false; }
-    }
-
-    private static class ColorViewState {
-        final com.android.internal.policy.DecorView.ColorViewAttributes attributes = null;
-        int color;
-        boolean present;
-        int targetVisibility;
-        android.view.View view;
-        boolean visible;
-        ColorViewState(com.android.internal.policy.DecorView.ColorViewAttributes p0) {}
     }
 }

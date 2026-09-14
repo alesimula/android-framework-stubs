@@ -5,14 +5,6 @@ public interface IMidiDeviceListener extends android.os.IInterface {
     public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException;
     public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.midi.IMidiDeviceListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDeviceAdded(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
-        public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
-        public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.midi.IMidiDeviceListener {
         public static final java.lang.String DESCRIPTOR = "android.media.midi.IMidiDeviceListener";
         static final int TRANSACTION_onDeviceAdded = 1;
@@ -34,5 +26,13 @@ public interface IMidiDeviceListener extends android.os.IInterface {
             public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
             public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.midi.IMidiDeviceListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDeviceAdded(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
+        public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) throws android.os.RemoteException {}
+        public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) throws android.os.RemoteException {}
     }
 }

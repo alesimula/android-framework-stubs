@@ -6,7 +6,7 @@ public class SpellChecker implements android.view.textservice.SpellCheckerSessio
     public static final int MAX_NUMBER_OF_WORDS = 50;
     private static final int MAX_SENTENCE_LENGTH = 350;
     private static final int SPELL_PAUSE_DURATION = 400;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "SpellChecker";
     private static final int USE_SPAN_RANGE = -1;
     public static final int WORD_ITERATOR_INTERVAL = 350;
     final int mCookie = 0;

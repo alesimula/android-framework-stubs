@@ -123,12 +123,13 @@ public class Notification implements android.os.Parcelable {
     public static final java.lang.String EXTRA_TEMPLATE = "android.template";
     public static final java.lang.String EXTRA_TEXT = "android.text";
     public static final java.lang.String EXTRA_TEXT_LINES = "android.textLines";
+    public static final java.lang.String EXTRA_TEXT_LIVE_REGION = "android.textLiveRegion";
     public static final java.lang.String EXTRA_TITLE = "android.title";
     public static final java.lang.String EXTRA_TITLE_BIG = "android.title.big";
     public static final java.lang.String EXTRA_VERIFICATION_ICON = "android.verificationIcon";
     public static final java.lang.String EXTRA_VERIFICATION_TEXT = "android.verificationText";
     public static final int FLAG_AGENT_TASK_INTERACTION_HIDE_STATUS_BAR_ICON = 1;
-    public static final int FLAG_AGENT_TASK_INTERACTION_SILENT = 2;
+    public static final int FLAG_AGENT_TASK_INTERACTION_HIDE_VISUAL_ALERTS = 2;
     @android.annotation.SystemApi
     public static final int FLAG_AUTOGROUP_SUMMARY = 1024;
     public static final int FLAG_AUTO_CANCEL = 16;
@@ -278,7 +279,7 @@ public class Notification implements android.os.Parcelable {
     private void fixDuplicateExtras() {}
     public static java.lang.String flagsToString(int p0) { return null; }
     private android.content.pm.ApplicationInfo getApplicationInfo(android.content.Context p0) { return null; }
-    private android.app.Notification.BasicCompactContent getDefaultCompactContent(android.content.Context p0, android.app.Notification.Builder p1) { return null; }
+    private android.app.Notification.BasicCompactContent getDefaultCompactContent(android.app.Notification.Builder p0) { return null; }
     private static android.graphics.drawable.Drawable getDefaultProfileBadgeDrawable(android.content.Context p0) { return null; }
     private static java.util.function.LongSupplier getElapsedRealtimeClock() { return null; }
     public static java.lang.Class<? extends android.app.Notification.Style> getNotificationStyleClass(java.lang.String p0) { return null; }
@@ -543,6 +544,15 @@ public class Notification implements android.os.Parcelable {
     public static @interface AgentTaskInteractionFlag {
     }
 
+    public static abstract class CompactContent {
+        private static final java.lang.String KEY_DATA = "bundle";
+        private static final java.lang.String KEY_TYPE = "type";
+        private static final int TYPE_BASIC = 1;
+        private CompactContent() {}
+        static final android.app.Notification.CompactContent fromExtras(android.os.Bundle p0) { return null; }
+        static final void toExtras(android.app.Notification.CompactContent p0, android.os.Bundle p1) {}
+    }
+
     public static final class BasicCompactContent extends android.app.Notification.CompactContent implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.app.Notification.BasicCompactContent> CREATOR = null;
         private final android.app.Notification.CompactIcon mIcon = null;
@@ -556,6 +566,37 @@ public class Notification implements android.os.Parcelable {
         public int describeContents() { return 0; }
         public android.app.Notification.BasicCompactContent setSemanticStyle(int p0) { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static abstract class Style {
+        static final int MAX_REMOTE_INPUT_HISTORY_LINES = 3;
+        private java.lang.CharSequence mBigContentTitle;
+        protected android.app.Notification.Builder mBuilder;
+        protected java.lang.CharSequence mSummaryText;
+        protected boolean mSummaryTextSet;
+        @java.lang.Deprecated
+        public Style() {}
+        public void addExtras(android.os.Bundle p0) {}
+        public abstract boolean areNotificationsVisiblyDifferent(android.app.Notification.Style p0);
+        public android.app.Notification build() { return null; }
+        public android.app.Notification buildStyled(android.app.Notification p0) { return null; }
+        protected void checkBuilder() {}
+        public boolean displayCustomViewInline() { return false; }
+        public java.lang.CharSequence getHeadsUpStatusBarText() { return null; }
+        public java.lang.CharSequence getHistoryText(android.content.Context p0) { return null; }
+        protected android.widget.RemoteViews getStandardView(int p0) { return null; }
+        protected android.widget.RemoteViews getStandardView(int p0, android.app.Notification.StandardTemplateParams p1, android.app.Notification.TemplateBindResult p2) { return null; }
+        public boolean hasSummaryInHeader() { return false; }
+        protected void internalSetBigContentTitle(java.lang.CharSequence p0) {}
+        protected void internalSetSummaryText(java.lang.CharSequence p0) {}
+        public android.widget.RemoteViews makeCompactHeadsUpContentView() { return null; }
+        public android.widget.RemoteViews makeContentView() { return null; }
+        public android.widget.RemoteViews makeExpandedContentView() { return null; }
+        public android.widget.RemoteViews makeHeadsUpContentView() { return null; }
+        protected void reduceImageSizes(android.content.Context p0) {}
+        protected void restoreFromExtras(android.os.Bundle p0) {}
+        public void setBuilder(android.app.Notification.Builder p0) {}
+        public void validate(android.content.Context p0) {}
     }
 
     public static class BigPictureStyle extends android.app.Notification.Style {
@@ -1030,6 +1071,10 @@ public class Notification implements android.os.Parcelable {
         }
     }
 
+    public static interface Extender {
+        public android.app.Notification.Builder extend(android.app.Notification.Builder p0);
+    }
+
     public static final class CarExtender implements android.app.Notification.Extender {
         private static final java.lang.String EXTRA_CAR_EXTENDER = "android.car.EXTENSIONS";
         private static final java.lang.String EXTRA_COLOR = "app_color";
@@ -1092,6 +1137,11 @@ public class Notification implements android.os.Parcelable {
         }
     }
 
+    @java.lang.FunctionalInterface
+    public static interface SemanticColors {
+        public int getSemanticColor(int p0);
+    }
+
     public static class Colors implements android.app.Notification.SemanticColors {
         private static final double MINIMAL_CONTRAST = 1.3;
         private static final double TEXT_CONTRAST = 4.5;
@@ -1149,21 +1199,15 @@ public class Notification implements android.os.Parcelable {
         public void resolvePalette(android.content.Context p0, int p1, boolean p2, boolean p3) {}
     }
 
-    public static abstract class CompactContent {
-        private static final java.lang.String KEY_DATA = "bundle";
-        private static final java.lang.String KEY_TYPE = "type";
-        private static final int TYPE_BASIC = 1;
-        private CompactContent() {}
-        static final android.app.Notification.CompactContent fromExtras(android.os.Bundle p0) { return null; }
-        static final void toExtras(android.app.Notification.CompactContent p0, android.os.Bundle p1) {}
-    }
-
     private static class CompactContentResolver {
         private CompactContentResolver() {}
+        private static boolean appIconAllowedInCompactContent() { return false; }
+        private static boolean preferSmallIconDefaultForCompactContent(android.content.res.Resources p0, android.content.pm.ApplicationInfo p1) { return false; }
         private static android.app.Notification.ResolvedBasicCompactContent resolveBasicCompactContent(android.content.Context p0, android.app.Notification p1, android.app.Notification.Builder p2, android.app.Notification.BasicCompactContent p3) { return null; }
         private static android.app.Notification.ResolvedCompactContent resolveCompactContent(android.content.Context p0, android.app.Notification p1, android.app.Notification.Builder p2, android.app.Notification.CompactContent p3) { return null; }
         private static android.app.Notification.ResolvedCompactIcon resolveCompactIcon(android.content.Context p0, android.app.Notification p1, android.app.Notification.CompactIcon p2) { return null; }
         private static android.app.Notification.Metric.MetricValue resolveCompactText(android.app.Notification p0, android.app.Notification.Builder p1, android.app.Notification.CompactText p2) { return null; }
+        private static boolean useAppIconInCompactContent(android.content.Context p0, android.app.Notification p1, android.app.Notification.CompactIcon p2) { return false; }
     }
 
     public static final class CompactIcon implements android.os.Parcelable {
@@ -1222,42 +1266,6 @@ public class Notification implements android.os.Parcelable {
         public void reduceImageSizes(android.content.Context p0) {}
     }
 
-    public static class DecoratedMediaCustomViewStyle extends android.app.Notification.MediaStyle {
-        public DecoratedMediaCustomViewStyle() { super(); }
-        public boolean areNotificationsVisiblyDifferent(android.app.Notification.Style p0) { return false; }
-        public boolean displayCustomViewInline() { return false; }
-        public android.widget.RemoteViews makeContentView() { return null; }
-        public android.widget.RemoteViews makeExpandedContentView() { return null; }
-        public android.widget.RemoteViews makeHeadsUpContentView() { return null; }
-        public void reduceImageSizes(android.content.Context p0) {}
-    }
-
-    public static interface Extender {
-        public android.app.Notification.Builder extend(android.app.Notification.Builder p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GroupAlertBehavior {
-    }
-
-    public static class InboxStyle extends android.app.Notification.Style {
-        private static final int NUMBER_OF_HISTORY_ALLOWED_UNTIL_REDUCTION = 1;
-        private java.util.ArrayList<java.lang.CharSequence> mTexts;
-        public InboxStyle() { super(); }
-        @java.lang.Deprecated
-        public InboxStyle(android.app.Notification.Builder p0) { super(); }
-        public void addExtras(android.os.Bundle p0) {}
-        public android.app.Notification.InboxStyle addLine(java.lang.CharSequence p0) { return null; }
-        public boolean areNotificationsVisiblyDifferent(android.app.Notification.Style p0) { return false; }
-        public android.app.Notification.InboxStyle clearLines() { return null; }
-        public java.util.ArrayList<java.lang.CharSequence> getLines() { return null; }
-        public android.widget.RemoteViews makeExpandedContentView() { return null; }
-        public void reduceImageSizes(android.content.Context p0) {}
-        protected void restoreFromExtras(android.os.Bundle p0) {}
-        public android.app.Notification.InboxStyle setBigContentTitle(java.lang.CharSequence p0) { return null; }
-        public android.app.Notification.InboxStyle setSummaryText(java.lang.CharSequence p0) { return null; }
-    }
-
     public static class MediaStyle extends android.app.Notification.Style {
         static final int MAX_MEDIA_BUTTONS = 5;
         static final int MAX_MEDIA_BUTTONS_IN_COMPACT = 3;
@@ -1284,6 +1292,38 @@ public class Notification implements android.os.Parcelable {
         public android.app.Notification.MediaStyle setMediaSession(android.media.session.MediaSession.Token p0) { return null; }
         public android.app.Notification.MediaStyle setRemotePlaybackInfo(java.lang.CharSequence p0, int p1, android.app.PendingIntent p2) { return null; }
         public android.app.Notification.MediaStyle setShowActionsInCompactView(int... p0) { return null; }
+    }
+
+    public static class DecoratedMediaCustomViewStyle extends android.app.Notification.MediaStyle {
+        public DecoratedMediaCustomViewStyle() { super(); }
+        public boolean areNotificationsVisiblyDifferent(android.app.Notification.Style p0) { return false; }
+        public boolean displayCustomViewInline() { return false; }
+        public android.widget.RemoteViews makeContentView() { return null; }
+        public android.widget.RemoteViews makeExpandedContentView() { return null; }
+        public android.widget.RemoteViews makeHeadsUpContentView() { return null; }
+        public void reduceImageSizes(android.content.Context p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface GroupAlertBehavior {
+    }
+
+    public static class InboxStyle extends android.app.Notification.Style {
+        private static final int NUMBER_OF_HISTORY_ALLOWED_UNTIL_REDUCTION = 1;
+        private java.util.ArrayList<java.lang.CharSequence> mTexts;
+        public InboxStyle() { super(); }
+        @java.lang.Deprecated
+        public InboxStyle(android.app.Notification.Builder p0) { super(); }
+        public void addExtras(android.os.Bundle p0) {}
+        public android.app.Notification.InboxStyle addLine(java.lang.CharSequence p0) { return null; }
+        public boolean areNotificationsVisiblyDifferent(android.app.Notification.Style p0) { return false; }
+        public android.app.Notification.InboxStyle clearLines() { return null; }
+        public java.util.ArrayList<java.lang.CharSequence> getLines() { return null; }
+        public android.widget.RemoteViews makeExpandedContentView() { return null; }
+        public void reduceImageSizes(android.content.Context p0) {}
+        protected void restoreFromExtras(android.os.Bundle p0) {}
+        public android.app.Notification.InboxStyle setBigContentTitle(java.lang.CharSequence p0) { return null; }
+        public android.app.Notification.InboxStyle setSummaryText(java.lang.CharSequence p0) { return null; }
     }
 
     public static class MessagingStyle extends android.app.Notification.Style {
@@ -1404,6 +1444,35 @@ public class Notification implements android.os.Parcelable {
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
 
+        public static abstract class MetricValue {
+            private static final java.lang.String KEY_TYPE = "_type";
+            private static final int TYPE_FIXED_DATE = 2;
+            private static final int TYPE_FIXED_FLOAT = 5;
+            private static final int TYPE_FIXED_INT = 4;
+            private static final int TYPE_FIXED_TEXT = 6;
+            private static final int TYPE_FIXED_TIME = 3;
+            private static final int TYPE_TIME_DIFFERENCE = 1;
+            private MetricValue() {}
+            private static android.app.Notification.Metric.MetricValue fromBundle(android.os.Bundle p0) { return null; }
+            private static android.os.Bundle toBundle(android.app.Notification.Metric.MetricValue p0) { return null; }
+            protected abstract void toBundle(android.os.Bundle p0);
+            public abstract android.app.Notification.Metric.MetricValue.ValueString toValueString(android.content.Context p0);
+
+            public static final class ValueString {
+                private static final android.app.Notification.Metric.MetricValue.ValueString EMPTY = null;
+                private final java.lang.String subtext = null;
+                private final java.util.List<java.lang.String> textVariants = null;
+                public ValueString(java.lang.String p0) {}
+                public ValueString(java.lang.String p0, java.lang.String p1) {}
+                public ValueString(java.util.List<java.lang.String> p0, java.lang.String p1) {}
+                public final boolean equals(java.lang.Object p0) { return false; }
+                public final int hashCode() { return 0; }
+                public java.lang.String subtext() { return null; }
+                public java.util.List<java.lang.String> textVariants() { return null; }
+                public final java.lang.String toString() { return null; }
+            }
+        }
+
         public static final class FixedDate extends android.app.Notification.Metric.MetricValue {
             private static final int CLOSE_DATE_MONTH_SPAN = 3;
             public static final int FORMAT_AUTOMATIC = 0;
@@ -1509,35 +1578,6 @@ public class Notification implements android.os.Parcelable {
             public android.app.Notification.Metric.MetricValue.ValueString toValueString(android.content.Context p0) { return null; }
         }
 
-        public static abstract class MetricValue {
-            private static final java.lang.String KEY_TYPE = "_type";
-            private static final int TYPE_FIXED_DATE = 2;
-            private static final int TYPE_FIXED_FLOAT = 5;
-            private static final int TYPE_FIXED_INT = 4;
-            private static final int TYPE_FIXED_TEXT = 6;
-            private static final int TYPE_FIXED_TIME = 3;
-            private static final int TYPE_TIME_DIFFERENCE = 1;
-            private MetricValue() {}
-            private static android.app.Notification.Metric.MetricValue fromBundle(android.os.Bundle p0) { return null; }
-            private static android.os.Bundle toBundle(android.app.Notification.Metric.MetricValue p0) { return null; }
-            protected abstract void toBundle(android.os.Bundle p0);
-            public abstract android.app.Notification.Metric.MetricValue.ValueString toValueString(android.content.Context p0);
-
-            public static final class ValueString {
-                private static final android.app.Notification.Metric.MetricValue.ValueString EMPTY = null;
-                private final java.lang.String subtext = null;
-                private final java.util.List<java.lang.String> textVariants = null;
-                public ValueString(java.lang.String p0) {}
-                public ValueString(java.lang.String p0, java.lang.String p1) {}
-                public ValueString(java.util.List<java.lang.String> p0, java.lang.String p1) {}
-                public final boolean equals(java.lang.Object p0) { return false; }
-                public final int hashCode() { return 0; }
-                public java.lang.String subtext() { return null; }
-                public java.util.List<java.lang.String> textVariants() { return null; }
-                public final java.lang.String toString() { return null; }
-            }
-        }
-
         public static final class TimeDifference extends android.app.Notification.Metric.MetricValue {
             public static final int FORMAT_ADAPTIVE = 1;
             public static final int FORMAT_CHRONOMETER = 2;
@@ -1584,8 +1624,10 @@ public class Notification implements android.os.Parcelable {
         private int mCriticalMetric;
         private final java.util.List<android.app.Notification.Metric> mMetrics = null;
         public MetricStyle() { super(); }
+        private void adjustCollapsedMetricsLayoutDirection(android.widget.RemoteViews p0, android.app.Notification.MetricStyle.MetricView p1, android.app.Notification.Metric p2, boolean p3) {}
         private android.widget.RemoteViews bindMetricStyleMetrics(android.widget.RemoteViews p0, android.app.Notification.StandardTemplateParams p1, java.util.List<android.app.Notification.Metric> p2, boolean p3) { return null; }
         private android.widget.RemoteViews buildMetricView(int p0, android.app.Notification.StandardTemplateParams p1, boolean p2, java.util.List<android.app.Notification.Metric> p3) { return null; }
+        private java.lang.CharSequence formatBidiMetricLabel(android.content.Context p0, java.lang.CharSequence p1) { return null; }
         private java.lang.CharSequence formatBidiMetricLabel(android.content.Context p0, java.lang.CharSequence p1, java.lang.CharSequence p2) { return null; }
         private java.util.List<android.app.Notification.Metric> getCompactHeadsUpMetrics() { return null; }
         private java.lang.CharSequence getMetricLabel(android.app.Notification.Metric p0, boolean p1) { return null; }
@@ -1614,11 +1656,13 @@ public class Notification implements android.os.Parcelable {
             private static final java.util.List<android.app.Notification.MetricStyle.MetricView> VIEWS = null;
             private final int chronometerId = 0;
             private final int containerId = 0;
+            private final int dividerId = 0;
             private final int labelId = 0;
             private final int textValueId = 0;
-            private MetricView(int p0, int p1, int p2, int p3) {}
+            private MetricView(int p0, int p1, int p2, int p3, int p4) {}
             public int chronometerId() { return 0; }
             public int containerId() { return 0; }
+            public int dividerId() { return 0; }
             public final boolean equals(java.lang.Object p0) { return false; }
             public final int hashCode() { return 0; }
             public int labelId() { return 0; }
@@ -1740,6 +1784,10 @@ public class Notification implements android.os.Parcelable {
         public android.app.Notification.ProjectedExtender setContentIntent(android.app.PendingIntent p0) { return null; }
     }
 
+    public static abstract class ResolvedCompactContent {
+        private ResolvedCompactContent() {}
+    }
+
     public static final class ResolvedBasicCompactContent extends android.app.Notification.ResolvedCompactContent {
         private final android.app.Notification.ResolvedCompactIcon mIcon = null;
         private final int mSemanticStyle = 0;
@@ -1751,10 +1799,6 @@ public class Notification implements android.os.Parcelable {
         public android.app.Notification.Metric.MetricValue getText() { return null; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
-    }
-
-    public static abstract class ResolvedCompactContent {
-        private ResolvedCompactContent() {}
     }
 
     public static class ResolvedCompactIcon {
@@ -1774,11 +1818,6 @@ public class Notification implements android.os.Parcelable {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface ResolvedCompactIconSource {
         }
-    }
-
-    @java.lang.FunctionalInterface
-    public static interface SemanticColors {
-        public int getSemanticColor(int p0);
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -1861,37 +1900,6 @@ public class Notification implements android.os.Parcelable {
         final android.app.Notification.StandardTemplateParams title(java.lang.CharSequence p0) { return null; }
         public android.app.Notification.StandardTemplateParams titleViewId(int p0) { return null; }
         final android.app.Notification.StandardTemplateParams viewType(int p0) { return null; }
-    }
-
-    public static abstract class Style {
-        static final int MAX_REMOTE_INPUT_HISTORY_LINES = 3;
-        private java.lang.CharSequence mBigContentTitle;
-        protected android.app.Notification.Builder mBuilder;
-        protected java.lang.CharSequence mSummaryText;
-        protected boolean mSummaryTextSet;
-        @java.lang.Deprecated
-        public Style() {}
-        public void addExtras(android.os.Bundle p0) {}
-        public abstract boolean areNotificationsVisiblyDifferent(android.app.Notification.Style p0);
-        public android.app.Notification build() { return null; }
-        public android.app.Notification buildStyled(android.app.Notification p0) { return null; }
-        protected void checkBuilder() {}
-        public boolean displayCustomViewInline() { return false; }
-        public java.lang.CharSequence getHeadsUpStatusBarText() { return null; }
-        public java.lang.CharSequence getHistoryText(android.content.Context p0) { return null; }
-        protected android.widget.RemoteViews getStandardView(int p0) { return null; }
-        protected android.widget.RemoteViews getStandardView(int p0, android.app.Notification.StandardTemplateParams p1, android.app.Notification.TemplateBindResult p2) { return null; }
-        public boolean hasSummaryInHeader() { return false; }
-        protected void internalSetBigContentTitle(java.lang.CharSequence p0) {}
-        protected void internalSetSummaryText(java.lang.CharSequence p0) {}
-        public android.widget.RemoteViews makeCompactHeadsUpContentView() { return null; }
-        public android.widget.RemoteViews makeContentView() { return null; }
-        public android.widget.RemoteViews makeExpandedContentView() { return null; }
-        public android.widget.RemoteViews makeHeadsUpContentView() { return null; }
-        protected void reduceImageSizes(android.content.Context p0) {}
-        protected void restoreFromExtras(android.os.Bundle p0) {}
-        public void setBuilder(android.app.Notification.Builder p0) {}
-        public void validate(android.content.Context p0) {}
     }
 
     private static class TemplateBindResult {

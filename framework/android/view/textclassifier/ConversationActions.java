@@ -64,6 +64,10 @@ public final class ConversationActions implements android.os.Parcelable {
         void setSystemTextClassifierMetadata(android.view.textclassifier.SystemTextClassifierMetadata p0) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface Hint {
+        }
+
         public static final class Builder {
             private java.util.List<android.view.textclassifier.ConversationActions.Message> mConversation;
             private android.os.Bundle mExtras;
@@ -76,10 +80,6 @@ public final class ConversationActions implements android.os.Parcelable {
             public android.view.textclassifier.ConversationActions.Request.Builder setHints(java.util.List<java.lang.String> p0) { return null; }
             public android.view.textclassifier.ConversationActions.Request.Builder setMaxSuggestions(int p0) { return null; }
             public android.view.textclassifier.ConversationActions.Request.Builder setTypeConfig(android.view.textclassifier.TextClassifier.EntityConfig p0) { return null; }
-        }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface Hint {
         }
     }
 }

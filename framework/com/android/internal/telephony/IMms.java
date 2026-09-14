@@ -15,24 +15,6 @@ public interface IMms extends android.os.IInterface {
     public void setAutoPersisting(java.lang.String p0, boolean p1) throws android.os.RemoteException;
     public boolean updateStoredMessageStatus(java.lang.String p0, android.net.Uri p1, android.content.ContentValues p2) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.IMms {
-        public Default() {}
-        public android.net.Uri addMultimediaMessageDraft(int p0, java.lang.String p1, android.net.Uri p2) throws android.os.RemoteException { return null; }
-        public android.net.Uri addTextMessageDraft(java.lang.String p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public boolean archiveStoredConversation(java.lang.String p0, long p1, boolean p2) throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public boolean deleteStoredConversation(java.lang.String p0, long p1) throws android.os.RemoteException { return false; }
-        public boolean deleteStoredMessage(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException { return false; }
-        public void downloadMessage(int p0, int p1, java.lang.String p2, java.lang.String p3, android.net.Uri p4, android.os.Bundle p5, android.app.PendingIntent p6, long p7, java.lang.String p8) throws android.os.RemoteException {}
-        public boolean getAutoPersisting() throws android.os.RemoteException { return false; }
-        public android.net.Uri importMultimediaMessage(int p0, java.lang.String p1, android.net.Uri p2, java.lang.String p3, long p4, boolean p5, boolean p6) throws android.os.RemoteException { return null; }
-        public android.net.Uri importTextMessage(java.lang.String p0, java.lang.String p1, int p2, java.lang.String p3, long p4, boolean p5, boolean p6) throws android.os.RemoteException { return null; }
-        public void sendMessage(int p0, int p1, java.lang.String p2, android.net.Uri p3, java.lang.String p4, android.os.Bundle p5, android.app.PendingIntent p6, long p7, java.lang.String p8) throws android.os.RemoteException {}
-        public void sendStoredMessage(int p0, java.lang.String p1, android.net.Uri p2, android.os.Bundle p3, android.app.PendingIntent p4) throws android.os.RemoteException {}
-        public void setAutoPersisting(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
-        public boolean updateStoredMessageStatus(java.lang.String p0, android.net.Uri p1, android.content.ContentValues p2) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.IMms {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.IMms";
         static final int TRANSACTION_addMultimediaMessageDraft = 10;
@@ -74,5 +56,23 @@ public interface IMms extends android.os.IInterface {
             public void setAutoPersisting(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
             public boolean updateStoredMessageStatus(java.lang.String p0, android.net.Uri p1, android.content.ContentValues p2) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.IMms {
+        public Default() {}
+        public android.net.Uri addMultimediaMessageDraft(int p0, java.lang.String p1, android.net.Uri p2) throws android.os.RemoteException { return null; }
+        public android.net.Uri addTextMessageDraft(java.lang.String p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public boolean archiveStoredConversation(java.lang.String p0, long p1, boolean p2) throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean deleteStoredConversation(java.lang.String p0, long p1) throws android.os.RemoteException { return false; }
+        public boolean deleteStoredMessage(java.lang.String p0, android.net.Uri p1) throws android.os.RemoteException { return false; }
+        public void downloadMessage(int p0, int p1, java.lang.String p2, java.lang.String p3, android.net.Uri p4, android.os.Bundle p5, android.app.PendingIntent p6, long p7, java.lang.String p8) throws android.os.RemoteException {}
+        public boolean getAutoPersisting() throws android.os.RemoteException { return false; }
+        public android.net.Uri importMultimediaMessage(int p0, java.lang.String p1, android.net.Uri p2, java.lang.String p3, long p4, boolean p5, boolean p6) throws android.os.RemoteException { return null; }
+        public android.net.Uri importTextMessage(java.lang.String p0, java.lang.String p1, int p2, java.lang.String p3, long p4, boolean p5, boolean p6) throws android.os.RemoteException { return null; }
+        public void sendMessage(int p0, int p1, java.lang.String p2, android.net.Uri p3, java.lang.String p4, android.os.Bundle p5, android.app.PendingIntent p6, long p7, java.lang.String p8) throws android.os.RemoteException {}
+        public void sendStoredMessage(int p0, java.lang.String p1, android.net.Uri p2, android.os.Bundle p3, android.app.PendingIntent p4) throws android.os.RemoteException {}
+        public void setAutoPersisting(java.lang.String p0, boolean p1) throws android.os.RemoteException {}
+        public boolean updateStoredMessageStatus(java.lang.String p0, android.net.Uri p1, android.content.ContentValues p2) throws android.os.RemoteException { return false; }
     }
 }

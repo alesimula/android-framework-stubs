@@ -28,7 +28,7 @@ public abstract class DataService extends android.app.Service {
     public static final int REQUEST_REASON_SHUTDOWN = 2;
     public static final int REQUEST_REASON_UNKNOWN = 0;
     public static final java.lang.String SERVICE_INTERFACE = "android.telephony.data.DataService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DataService";
     public final android.telephony.data.DataService.IDataServiceWrapper mBinder = null;
     private final android.telephony.data.DataService.DataServiceHandler mHandler = null;
     private final java.util.concurrent.Executor mHandlerExecutor = null;
@@ -42,6 +42,14 @@ public abstract class DataService extends android.app.Service {
     public void onDestroy() {}
     public boolean onUnbind(android.content.Intent p0) { return false; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DeactivateDataReason {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SetupDataReason {
+    }
+
     private static final class ApnUnthrottledIndication {
         public final java.lang.String apn = null;
         public final android.telephony.data.IDataServiceCallback callback = null;
@@ -50,27 +58,31 @@ public abstract class DataService extends android.app.Service {
         ApnUnthrottledIndication(java.lang.String p0, android.telephony.data.IDataServiceCallback p1) {}
     }
 
-    private static final class BeginCancelHandoverRequest {
-        public final android.telephony.data.IDataServiceCallback callback = null;
+    private static final class ValidationRequest {
+        public final com.android.internal.telephony.IIntegerConsumer callback = null;
         public final int cid = 0;
-        BeginCancelHandoverRequest(int p0, android.telephony.data.IDataServiceCallback p1) {}
+        public final java.util.concurrent.Executor executor = null;
+        ValidationRequest(int p0, java.util.concurrent.Executor p1, com.android.internal.telephony.IIntegerConsumer p2) {}
     }
 
-    private static final class DataCallListChangedIndication {
+    private static final class SetupDataCallRequest {
+        public final int accessNetworkType = 0;
+        public final boolean allowRoaming = false;
         public final android.telephony.data.IDataServiceCallback callback = null;
-        public final java.util.List<android.telephony.data.DataCallResponse> dataCallList = null;
-        DataCallListChangedIndication(java.util.List<android.telephony.data.DataCallResponse> p0, android.telephony.data.IDataServiceCallback p1) {}
+        public final android.telephony.data.DataProfile dataProfile = null;
+        public final boolean isRoaming = false;
+        public final boolean matchAllRuleAllowed = false;
+        public final int pduSessionId = 0;
+        public final int reason = 0;
+        public final android.telephony.data.NetworkSliceInfo sliceInfo = null;
+        public final android.telephony.data.TrafficDescriptor trafficDescriptor = null;
+        SetupDataCallRequest(int p0, android.telephony.data.DataProfile p1, boolean p2, boolean p3, int p4, android.net.LinkProperties p5, int p6, android.telephony.data.NetworkSliceInfo p7, android.telephony.data.TrafficDescriptor p8, boolean p9, android.telephony.data.IDataServiceCallback p10) {}
     }
 
     private static final class DataCallListUpdatedIndication {
         public final android.telephony.data.IDataServiceCallback callback = null;
         public final java.util.List<android.telephony.data.DataCallResponse> dataCallList = null;
         DataCallListUpdatedIndication(java.util.List<android.telephony.data.DataCallResponse> p0, android.telephony.data.IDataServiceCallback p1) {}
-    }
-
-    private class DataServiceHandler extends android.os.Handler {
-        DataServiceHandler(android.telephony.data.DataService p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
     }
 
     public abstract class DataServiceProvider implements java.lang.AutoCloseable {
@@ -102,15 +114,40 @@ public abstract class DataService extends android.app.Service {
         public void startHandover(int p0, android.telephony.data.DataServiceCallback p1) {}
     }
 
-    private static final class DeactivateDataCallRequest {
+    private static final class BeginCancelHandoverRequest {
         public final android.telephony.data.IDataServiceCallback callback = null;
         public final int cid = 0;
-        public final int reason = 0;
-        DeactivateDataCallRequest(int p0, int p1, android.telephony.data.IDataServiceCallback p2) {}
+        BeginCancelHandoverRequest(int p0, android.telephony.data.IDataServiceCallback p1) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DeactivateDataReason {
+    private static final class NotifyImsDataNetworkRequest {
+        public final int accessNetwork = 0;
+        public final com.android.internal.telephony.IIntegerConsumer callback = null;
+        public final int dataNetworkState = 0;
+        public final java.util.concurrent.Executor executor = null;
+        public final int physicalNetworkSlotIndex = 0;
+        public final int physicalTransportType = 0;
+        NotifyImsDataNetworkRequest(int p0, int p1, int p2, int p3, java.util.concurrent.Executor p4, com.android.internal.telephony.IIntegerConsumer p5) {}
+    }
+
+    private static final class DataCallListChangedIndication {
+        public final android.telephony.data.IDataServiceCallback callback = null;
+        public final java.util.List<android.telephony.data.DataCallResponse> dataCallList = null;
+        DataCallListChangedIndication(java.util.List<android.telephony.data.DataCallResponse> p0, android.telephony.data.IDataServiceCallback p1) {}
+    }
+
+    private static final class SetDataProfileRequest {
+        public final android.telephony.data.IDataServiceCallback callback = null;
+        public final java.util.List<android.telephony.data.DataProfile> dps = null;
+        public final boolean isRoaming = false;
+        SetDataProfileRequest(java.util.List<android.telephony.data.DataProfile> p0, boolean p1, android.telephony.data.IDataServiceCallback p2) {}
+    }
+
+    private static final class NotifyUserDataEnabledRequest {
+        public final com.android.internal.telephony.IIntegerConsumer callback = null;
+        public final boolean enabled = false;
+        public final java.util.concurrent.Executor executor = null;
+        NotifyUserDataEnabledRequest(boolean p0, java.util.concurrent.Executor p1, com.android.internal.telephony.IIntegerConsumer p2) {}
     }
 
     private class IDataServiceWrapper extends android.telephony.data.IDataService.Stub {
@@ -134,21 +171,11 @@ public abstract class DataService extends android.app.Service {
         public void unregisterForUnthrottleApn(int p0, android.telephony.data.IDataServiceCallback p1) {}
     }
 
-    private static final class NotifyImsDataNetworkRequest {
-        public final int accessNetwork = 0;
-        public final com.android.internal.telephony.IIntegerConsumer callback = null;
-        public final int dataNetworkState = 0;
-        public final java.util.concurrent.Executor executor = null;
-        public final int physicalNetworkSlotIndex = 0;
-        public final int physicalTransportType = 0;
-        NotifyImsDataNetworkRequest(int p0, int p1, int p2, int p3, java.util.concurrent.Executor p4, com.android.internal.telephony.IIntegerConsumer p5) {}
-    }
-
-    private static final class NotifyUserDataEnabledRequest {
-        public final com.android.internal.telephony.IIntegerConsumer callback = null;
-        public final boolean enabled = false;
-        public final java.util.concurrent.Executor executor = null;
-        NotifyUserDataEnabledRequest(boolean p0, java.util.concurrent.Executor p1, com.android.internal.telephony.IIntegerConsumer p2) {}
+    private static final class SetInitialAttachApnRequest {
+        public final android.telephony.data.IDataServiceCallback callback = null;
+        public final android.telephony.data.DataProfile dataProfile = null;
+        public final boolean isRoaming = false;
+        SetInitialAttachApnRequest(android.telephony.data.DataProfile p0, boolean p1, android.telephony.data.IDataServiceCallback p2) {}
     }
 
     private static final class NotifyUserDataRoamingEnabledRequest {
@@ -158,42 +185,15 @@ public abstract class DataService extends android.app.Service {
         NotifyUserDataRoamingEnabledRequest(boolean p0, java.util.concurrent.Executor p1, com.android.internal.telephony.IIntegerConsumer p2) {}
     }
 
-    private static final class SetDataProfileRequest {
+    private class DataServiceHandler extends android.os.Handler {
+        DataServiceHandler(android.telephony.data.DataService p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    private static final class DeactivateDataCallRequest {
         public final android.telephony.data.IDataServiceCallback callback = null;
-        public final java.util.List<android.telephony.data.DataProfile> dps = null;
-        public final boolean isRoaming = false;
-        SetDataProfileRequest(java.util.List<android.telephony.data.DataProfile> p0, boolean p1, android.telephony.data.IDataServiceCallback p2) {}
-    }
-
-    private static final class SetInitialAttachApnRequest {
-        public final android.telephony.data.IDataServiceCallback callback = null;
-        public final android.telephony.data.DataProfile dataProfile = null;
-        public final boolean isRoaming = false;
-        SetInitialAttachApnRequest(android.telephony.data.DataProfile p0, boolean p1, android.telephony.data.IDataServiceCallback p2) {}
-    }
-
-    private static final class SetupDataCallRequest {
-        public final int accessNetworkType = 0;
-        public final boolean allowRoaming = false;
-        public final android.telephony.data.IDataServiceCallback callback = null;
-        public final android.telephony.data.DataProfile dataProfile = null;
-        public final boolean isRoaming = false;
-        public final boolean matchAllRuleAllowed = false;
-        public final int pduSessionId = 0;
-        public final int reason = 0;
-        public final android.telephony.data.NetworkSliceInfo sliceInfo = null;
-        public final android.telephony.data.TrafficDescriptor trafficDescriptor = null;
-        SetupDataCallRequest(int p0, android.telephony.data.DataProfile p1, boolean p2, boolean p3, int p4, android.net.LinkProperties p5, int p6, android.telephony.data.NetworkSliceInfo p7, android.telephony.data.TrafficDescriptor p8, boolean p9, android.telephony.data.IDataServiceCallback p10) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SetupDataReason {
-    }
-
-    private static final class ValidationRequest {
-        public final com.android.internal.telephony.IIntegerConsumer callback = null;
         public final int cid = 0;
-        public final java.util.concurrent.Executor executor = null;
-        ValidationRequest(int p0, java.util.concurrent.Executor p1, com.android.internal.telephony.IIntegerConsumer p2) {}
+        public final int reason = 0;
+        DeactivateDataCallRequest(int p0, int p1, android.telephony.data.IDataServiceCallback p2) {}
     }
 }

@@ -4,12 +4,6 @@ public interface IIncrementalServiceConnector extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.os.incremental.IIncrementalServiceConnector";
     public int setStorageParams(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.incremental.IIncrementalServiceConnector {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int setStorageParams(boolean p0) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.incremental.IIncrementalServiceConnector {
         static final int TRANSACTION_setStorageParams = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IIncrementalServiceConnector extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public int setStorageParams(boolean p0) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.os.incremental.IIncrementalServiceConnector {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int setStorageParams(boolean p0) throws android.os.RemoteException { return 0; }
     }
 }

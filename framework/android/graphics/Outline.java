@@ -7,6 +7,7 @@ public final class Outline {
     private static final float RADIUS_UNDEFINED = Float.NEGATIVE_INFINITY;
     public float mAlpha;
     public int mMode;
+    public boolean mOuterShadowOnly;
     public android.graphics.Path mPath;
     public float mRadius;
     public final android.graphics.Rect mRect = null;
@@ -17,12 +18,14 @@ public final class Outline {
     public float getRadius() { return 0.0f; }
     public boolean getRect(android.graphics.Rect p0) { return false; }
     public boolean isEmpty() { return false; }
+    public boolean isOuterShadowOnly() { return false; }
     public void offset(int p0, int p1) {}
     public void set(android.graphics.Outline p0) {}
     public void setAlpha(float p0) {}
     @java.lang.Deprecated
     public void setConvexPath(android.graphics.Path p0) {}
     public void setEmpty() {}
+    public void setOuterShadowOnly(boolean p0) {}
     public void setOval(int p0, int p1, int p2, int p3) {}
     public void setOval(android.graphics.Rect p0) {}
     public void setPath(android.graphics.Path p0) {}

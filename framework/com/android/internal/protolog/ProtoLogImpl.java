@@ -8,13 +8,19 @@ public class ProtoLogImpl {
     private static java.lang.String sViewerConfigPath;
     public ProtoLogImpl() {}
     public static void d(com.android.internal.protolog.common.IProtoLogGroup p0, long p1, long p2, java.lang.Object... p3) {}
+    public static void d(java.lang.Throwable p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object... p4) {}
     public static void e(com.android.internal.protolog.common.IProtoLogGroup p0, long p1, long p2, java.lang.Object... p3) {}
+    public static void e(java.lang.Throwable p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object... p4) {}
     public static com.android.internal.protolog.common.IProtoLog getSingleInstance() { return null; }
     public static void i(com.android.internal.protolog.common.IProtoLogGroup p0, long p1, long p2, java.lang.Object... p3) {}
+    public static void i(java.lang.Throwable p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object... p4) {}
     private static boolean isEnabled(com.android.internal.protolog.common.IProtoLog p0, com.android.internal.protolog.common.IProtoLogGroup p1, com.android.internal.protolog.common.LogLevel p2) { return false; }
     public static boolean isEnabled(com.android.internal.protolog.common.IProtoLogGroup p0, com.android.internal.protolog.common.LogLevel p1) { return false; }
     public static void setSingleInstance(com.android.internal.protolog.common.IProtoLog p0) {}
     public static void v(com.android.internal.protolog.common.IProtoLogGroup p0, long p1, long p2, java.lang.Object... p3) {}
+    public static void v(java.lang.Throwable p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object... p4) {}
     public static void w(com.android.internal.protolog.common.IProtoLogGroup p0, long p1, long p2, java.lang.Object... p3) {}
+    public static void w(java.lang.Throwable p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object... p4) {}
     public static void wtf(com.android.internal.protolog.common.IProtoLogGroup p0, long p1, long p2, java.lang.Object... p3) {}
+    public static void wtf(java.lang.Throwable p0, com.android.internal.protolog.common.IProtoLogGroup p1, long p2, long p3, java.lang.Object... p4) {}
 }

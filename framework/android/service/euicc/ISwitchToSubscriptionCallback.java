@@ -3,12 +3,6 @@ package android.service.euicc;
 public interface ISwitchToSubscriptionCallback extends android.os.IInterface {
     public void onComplete(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.euicc.ISwitchToSubscriptionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onComplete(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.euicc.ISwitchToSubscriptionCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.euicc.ISwitchToSubscriptionCallback";
         static final int TRANSACTION_onComplete = 1;
@@ -26,5 +20,11 @@ public interface ISwitchToSubscriptionCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onComplete(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.euicc.ISwitchToSubscriptionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onComplete(int p0) throws android.os.RemoteException {}
     }
 }

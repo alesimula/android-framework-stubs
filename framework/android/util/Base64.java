@@ -17,14 +17,6 @@ public class Base64 {
     public static java.lang.String encodeToString(byte[] p0, int p1) { return null; }
     public static java.lang.String encodeToString(byte[] p0, int p1, int p2, int p3) { return null; }
 
-    static abstract class Coder {
-        public int op;
-        public byte[] output;
-        Coder() {}
-        public abstract int maxOutputSize(int p0);
-        public abstract boolean process(byte[] p0, int p1, int p2, boolean p3);
-    }
-
     static class Decoder extends android.util.Base64.Coder {
         private static final int[] DECODE = null;
         private static final int[] DECODE_WEBSAFE = null;
@@ -36,10 +28,18 @@ public class Base64 {
         public Decoder(int p0, byte[] p1) { super(); }
         public int maxOutputSize(int p0) { return 0; }
         public boolean process(byte[] p0, int p1, int p2, boolean p3) { return false; }
-        private static long[] $d2j$hex$bce79157$decode_J(java.lang.String p0) { return null; }
-        private static int[] $d2j$hex$bce79157$decode_I(java.lang.String p0) { return null; }
-        private static short[] $d2j$hex$bce79157$decode_S(java.lang.String p0) { return null; }
-        private static byte[] $d2j$hex$bce79157$decode_B(java.lang.String p0) { return null; }
+        private static long[] $d2j$hex$cce649e7$decode_J(java.lang.String p0) { return null; }
+        private static int[] $d2j$hex$cce649e7$decode_I(java.lang.String p0) { return null; }
+        private static short[] $d2j$hex$cce649e7$decode_S(java.lang.String p0) { return null; }
+        private static byte[] $d2j$hex$cce649e7$decode_B(java.lang.String p0) { return null; }
+    }
+
+    static abstract class Coder {
+        public int op;
+        public byte[] output;
+        Coder() {}
+        public abstract int maxOutputSize(int p0);
+        public abstract boolean process(byte[] p0, int p1, int p2, boolean p3);
     }
 
     static class Encoder extends android.util.Base64.Coder {

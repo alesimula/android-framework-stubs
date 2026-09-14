@@ -7,15 +7,6 @@ public interface ITrustPairingCallback extends android.os.IInterface {
     public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException;
     public void onTrustPairingPending(android.content.IntentSender p0) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.ITrustPairingCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDeviceTrusted(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
-        public void onFailure(int p0) throws android.os.RemoteException {}
-        public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
-        public void onTrustPairingPending(android.content.IntentSender p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.ITrustPairingCallback {
         static final int TRANSACTION_onDeviceTrusted = 3;
         static final int TRANSACTION_onFailure = 4;
@@ -38,5 +29,14 @@ public interface ITrustPairingCallback extends android.os.IInterface {
             public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
             public void onTrustPairingPending(android.content.IntentSender p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.ITrustPairingCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDeviceTrusted(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
+        public void onFailure(int p0) throws android.os.RemoteException {}
+        public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
+        public void onTrustPairingPending(android.content.IntentSender p0) throws android.os.RemoteException {}
     }
 }

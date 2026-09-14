@@ -2,6 +2,7 @@ package android.os.allowlist;
 
 public interface AllowlistManagerInternal {
     public java.util.Set<java.lang.String> getAllowlistProviderPackageNames(int p0);
+    public void reRegisterListeners();
     public void registerTestProviderChangeListener(android.os.allowlist.AllowlistManagerInternal.TestProviderChangeListener p0);
     public void unregisterTestProviderChangeListener(android.os.allowlist.AllowlistManagerInternal.TestProviderChangeListener p0);
 

@@ -45,6 +45,43 @@ public class PlatLogoActivity extends android.app.Activity {
     public void onStart() {}
     public void onStop() {}
 
+    private static class Starfield extends android.graphics.drawable.Drawable {
+        private static final int NUM_PLANES = 4;
+        private static final int NUM_STARS = 128;
+        private static final float ROTATION = 45.0f;
+        private float mBuffer;
+        private long mDt;
+        private float mRadius;
+        private final java.util.Random mRng = null;
+        private final float mSize = 0.0f;
+        private final android.graphics.Paint mStarPaint = null;
+        private final float[] mStars = null;
+        private float mWarp;
+        Starfield(java.util.Random p0, float p1) { super(); }
+        public void draw(android.graphics.Canvas p0) {}
+        public int getOpacity() { return 0; }
+        public float getWarp() { return 0.0f; }
+        public void onBoundsChange(android.graphics.Rect p0) {}
+        public void setAlpha(int p0) {}
+        public void setColorFilter(android.graphics.ColorFilter p0) {}
+        public void setWarp(float p0) {}
+        public void update(long p0) {}
+    }
+
+    private class RumblePack implements android.os.Handler.Callback {
+        private static final int INTERVAL = 50;
+        private static final int MSG = 6464;
+        private long mLastVibe;
+        private boolean mSpinPrimitiveSupported;
+        private final android.os.Handler mVibeHandler = null;
+        private final android.os.VibratorManager mVibeMan = null;
+        private final android.os.HandlerThread mVibeThread = null;
+        RumblePack(com.android.internal.app.PlatLogoActivity p0) {}
+        private void rumble(float p0) {}
+        public void destroy() {}
+        public boolean handleMessage(android.os.Message p0) { return false; }
+    }
+
     private static class Heptadecagram extends android.graphics.drawable.Drawable {
         public static final int MAX_DOTS = 17;
         private final android.graphics.Paint mBgPaint = null;
@@ -71,42 +108,5 @@ public class PlatLogoActivity extends android.app.Activity {
         public boolean onTouch(android.view.MotionEvent p0) { return false; }
         public void setAlpha(int p0) {}
         public void setColorFilter(android.graphics.ColorFilter p0) {}
-    }
-
-    private class RumblePack implements android.os.Handler.Callback {
-        private static final int INTERVAL = 50;
-        private static final int MSG = 6464;
-        private long mLastVibe;
-        private boolean mSpinPrimitiveSupported;
-        private final android.os.Handler mVibeHandler = null;
-        private final android.os.VibratorManager mVibeMan = null;
-        private final android.os.HandlerThread mVibeThread = null;
-        RumblePack(com.android.internal.app.PlatLogoActivity p0) {}
-        private void rumble(float p0) {}
-        public void destroy() {}
-        public boolean handleMessage(android.os.Message p0) { return false; }
-    }
-
-    private static class Starfield extends android.graphics.drawable.Drawable {
-        private static final int NUM_PLANES = 4;
-        private static final int NUM_STARS = 128;
-        private static final float ROTATION = 45.0f;
-        private float mBuffer;
-        private long mDt;
-        private float mRadius;
-        private final java.util.Random mRng = null;
-        private final float mSize = 0.0f;
-        private final android.graphics.Paint mStarPaint = null;
-        private final float[] mStars = null;
-        private float mWarp;
-        Starfield(java.util.Random p0, float p1) { super(); }
-        public void draw(android.graphics.Canvas p0) {}
-        public int getOpacity() { return 0; }
-        public float getWarp() { return 0.0f; }
-        public void onBoundsChange(android.graphics.Rect p0) {}
-        public void setAlpha(int p0) {}
-        public void setColorFilter(android.graphics.ColorFilter p0) {}
-        public void setWarp(float p0) {}
-        public void update(long p0) {}
     }
 }

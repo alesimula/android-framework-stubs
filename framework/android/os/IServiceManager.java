@@ -29,17 +29,6 @@ public interface IServiceManager extends android.os.IInterface {
     public void unregisterForNotifications(java.lang.String p0, android.os.IServiceCallback p1) throws android.os.RemoteException;
     public java.lang.String updatableViaApex(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class CallerContext implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.os.IServiceManager.CallerContext> CREATOR = null;
-        public int debugPid;
-        public java.lang.String sidName;
-        public int uid;
-        public CallerContext() {}
-        public int describeContents() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class Default implements android.os.IServiceManager {
         public Default() {}
         public void addService(java.lang.String p0, android.os.IBinder p1, boolean p2, int p3) throws android.os.RemoteException {}
@@ -114,5 +103,16 @@ public interface IServiceManager extends android.os.IInterface {
             public void unregisterForNotifications(java.lang.String p0, android.os.IServiceCallback p1) throws android.os.RemoteException {}
             public java.lang.String updatableViaApex(java.lang.String p0) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class CallerContext implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.os.IServiceManager.CallerContext> CREATOR = null;
+        public int debugPid;
+        public java.lang.String sidName;
+        public int uid;
+        public CallerContext() {}
+        public int describeContents() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

@@ -9,18 +9,6 @@ public interface IActivityRecognitionHardware extends android.os.IInterface {
     public boolean registerSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException;
     public boolean unregisterSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.location.IActivityRecognitionHardware {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean disableActivityEvent(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
-        public boolean enableActivityEvent(java.lang.String p0, int p1, long p2) throws android.os.RemoteException { return false; }
-        public boolean flush() throws android.os.RemoteException { return false; }
-        public java.lang.String[] getSupportedActivities() throws android.os.RemoteException { return null; }
-        public boolean isActivitySupported(java.lang.String p0) throws android.os.RemoteException { return false; }
-        public boolean registerSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException { return false; }
-        public boolean unregisterSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.location.IActivityRecognitionHardware {
         public static final java.lang.String DESCRIPTOR = "android.hardware.location.IActivityRecognitionHardware";
         static final int TRANSACTION_disableActivityEvent = 6;
@@ -60,5 +48,17 @@ public interface IActivityRecognitionHardware extends android.os.IInterface {
             public boolean registerSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException { return false; }
             public boolean unregisterSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.hardware.location.IActivityRecognitionHardware {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean disableActivityEvent(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public boolean enableActivityEvent(java.lang.String p0, int p1, long p2) throws android.os.RemoteException { return false; }
+        public boolean flush() throws android.os.RemoteException { return false; }
+        public java.lang.String[] getSupportedActivities() throws android.os.RemoteException { return null; }
+        public boolean isActivitySupported(java.lang.String p0) throws android.os.RemoteException { return false; }
+        public boolean registerSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException { return false; }
+        public boolean unregisterSink(android.hardware.location.IActivityRecognitionHardwareSink p0) throws android.os.RemoteException { return false; }
     }
 }

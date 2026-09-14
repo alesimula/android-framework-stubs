@@ -21,6 +21,11 @@ public final class ApfProgramEvent implements android.net.metrics.IpConnectivity
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    static final class Decoder {
+        static final android.util.SparseArray<java.lang.String> constants = null;
+        Decoder() {}
+    }
+
     public static final class Builder {
         private long mActualLifetime;
         private int mCurrentRas;
@@ -36,11 +41,6 @@ public final class ApfProgramEvent implements android.net.metrics.IpConnectivity
         public android.net.metrics.ApfProgramEvent.Builder setFlags(boolean p0, boolean p1) { return null; }
         public android.net.metrics.ApfProgramEvent.Builder setLifetime(long p0) { return null; }
         public android.net.metrics.ApfProgramEvent.Builder setProgramLength(int p0) { return null; }
-    }
-
-    static final class Decoder {
-        static final android.util.SparseArray<java.lang.String> constants = null;
-        Decoder() {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

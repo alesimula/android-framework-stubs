@@ -2,6 +2,8 @@ package com.android.internal.os;
 
 public class ApplicationSharedMemory implements java.lang.AutoCloseable {
     private static final boolean DEBUG = false;
+    public static final int FLAG_PM_IS_DEVICE_IDLE_MODE = 0;
+    public static final int FLAG_PM_IS_LIGHT_DEVICE_IDLE_MODE = 1;
     public static final long INVALID_NETWORK_TIME = -1L;
     private static final java.lang.String LOG_TAG = "ApplicationSharedMemory";
     public static final int MAX_FLAGS = 32;

@@ -23,20 +23,6 @@ public abstract class NetworkService extends android.app.Service {
     public void onDestroy() {}
     public boolean onUnbind(android.content.Intent p0) { return false; }
 
-    private class INetworkServiceWrapper extends android.telephony.INetworkService.Stub {
-        private INetworkServiceWrapper(android.telephony.NetworkService p0) { super(); }
-        public void createNetworkServiceProvider(int p0) {}
-        public void registerForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) {}
-        public void removeNetworkServiceProvider(int p0) {}
-        public void requestNetworkRegistrationInfo(int p0, int p1, android.telephony.INetworkServiceCallback p2) {}
-        public void unregisterForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) {}
-    }
-
-    private class NetworkServiceHandler extends android.os.Handler {
-        NetworkServiceHandler(android.telephony.NetworkService p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
     public abstract class NetworkServiceProvider implements java.lang.AutoCloseable {
         private final java.util.List<android.telephony.INetworkServiceCallback> mNetworkRegistrationInfoChangedCallbacks = null;
         private final int mSlotIndex = 0;
@@ -48,5 +34,19 @@ public abstract class NetworkService extends android.app.Service {
         public final int getSlotIndex() { return 0; }
         public final void notifyNetworkRegistrationInfoChanged() {}
         public void requestNetworkRegistrationInfo(int p0, android.telephony.NetworkServiceCallback p1) {}
+    }
+
+    private class NetworkServiceHandler extends android.os.Handler {
+        NetworkServiceHandler(android.telephony.NetworkService p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    private class INetworkServiceWrapper extends android.telephony.INetworkService.Stub {
+        private INetworkServiceWrapper(android.telephony.NetworkService p0) { super(); }
+        public void createNetworkServiceProvider(int p0) {}
+        public void registerForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) {}
+        public void removeNetworkServiceProvider(int p0) {}
+        public void requestNetworkRegistrationInfo(int p0, int p1, android.telephony.INetworkServiceCallback p2) {}
+        public void unregisterForNetworkRegistrationInfoChanged(int p0, android.telephony.INetworkServiceCallback p1) {}
     }
 }

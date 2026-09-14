@@ -4,13 +4,6 @@ public interface IVoldTaskListener extends android.os.IInterface {
     public void onFinished(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException;
     public void onStatus(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IVoldTaskListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFinished(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
-        public void onStatus(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IVoldTaskListener {
         public static final java.lang.String DESCRIPTOR = "android.os.IVoldTaskListener";
         static final int TRANSACTION_onFinished = 2;
@@ -30,5 +23,12 @@ public interface IVoldTaskListener extends android.os.IInterface {
             public void onFinished(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
             public void onStatus(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IVoldTaskListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFinished(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
+        public void onStatus(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
     }
 }

@@ -19,6 +19,14 @@ public class TracingConfig {
     public int getPredefinedCategories() { return 0; }
     public int getTracingMode() { return 0; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TracingMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PredefinedCategories {
+    }
+
     public static class Builder {
         private final java.util.List<java.lang.String> mCustomIncludedCategories = null;
         private int mPredefinedCategories;
@@ -29,13 +37,5 @@ public class TracingConfig {
         public android.webkit.TracingConfig.Builder addCategories(java.lang.String... p0) { return null; }
         public android.webkit.TracingConfig build() { return null; }
         public android.webkit.TracingConfig.Builder setTracingMode(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PredefinedCategories {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TracingMode {
     }
 }

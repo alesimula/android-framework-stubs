@@ -11,4 +11,6 @@ public final class AiSealManager {
     private boolean isEnabled() { return false; }
     @android.annotation.SystemApi
     public android.os.IBinder connectService(java.lang.String p0) throws android.aiseal.AiSealException { return null; }
+    @android.annotation.SystemApi
+    public boolean isMemoryDonationSupported() { return false; }
 }

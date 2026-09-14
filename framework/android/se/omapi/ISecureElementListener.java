@@ -6,13 +6,6 @@ public interface ISecureElementListener extends android.os.IInterface {
     public java.lang.String getInterfaceHash() throws android.os.RemoteException;
     public int getInterfaceVersion() throws android.os.RemoteException;
 
-    public static class Default implements android.se.omapi.ISecureElementListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.se.omapi.ISecureElementListener {
         public static final java.lang.String DESCRIPTOR = null;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -32,5 +25,12 @@ public interface ISecureElementListener extends android.os.IInterface {
             public java.lang.String getInterfaceHash() throws android.os.RemoteException { return null; }
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.se.omapi.ISecureElementListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
     }
 }

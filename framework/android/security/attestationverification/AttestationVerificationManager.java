@@ -30,7 +30,8 @@ public class AttestationVerificationManager {
     public int verifyToken(android.security.attestationverification.AttestationProfile p0, int p1, android.os.Bundle p2, android.security.attestationverification.VerificationToken p3, java.time.Duration p4) { return 0; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttestationProfileId {
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
+    public static @interface VerificationResultFlags {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -38,7 +39,6 @@ public class AttestationVerificationManager {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE_PARAMETER, java.lang.annotation.ElementType.TYPE_USE})
-    public static @interface VerificationResultFlags {
+    public static @interface AttestationProfileId {
     }
 }

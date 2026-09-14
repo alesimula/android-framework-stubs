@@ -3,12 +3,6 @@ package android.view;
 public interface IRotationWatcher extends android.os.IInterface {
     public void onRotationChanged(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.IRotationWatcher {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onRotationChanged(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IRotationWatcher {
         public static final java.lang.String DESCRIPTOR = "android.view.IRotationWatcher";
         static final int TRANSACTION_onRotationChanged = 1;
@@ -26,5 +20,11 @@ public interface IRotationWatcher extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onRotationChanged(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IRotationWatcher {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onRotationChanged(int p0) throws android.os.RemoteException {}
     }
 }

@@ -46,52 +46,6 @@ public interface IRadioVoiceResponse extends android.os.IInterface {
     public void stopDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException;
     public void switchWaitingOrHoldingAndActiveResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.voice.IRadioVoiceResponse {
-        public Default() {}
-        public void acceptCallResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void acknowledgeRequest(int p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelPendingUssdResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void conferenceResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void dialResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void emergencyDialResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void exitEmergencyCallbackModeResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void explicitCallTransferResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void getCallForwardStatusResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.voice.CallForwardInfo[] p1) throws android.os.RemoteException {}
-        public void getCallWaitingResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1, int p2) throws android.os.RemoteException {}
-        public void getClipResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
-        public void getClirResponse(android.hardware.radio.RadioResponseInfo p0, int p1, int p2) throws android.os.RemoteException {}
-        public void getCurrentCallsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.voice.Call[] p1) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getLastCallFailCauseResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.voice.LastCallFailCauseInfo p1) throws android.os.RemoteException {}
-        public void getMuteResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1) throws android.os.RemoteException {}
-        public void getPreferredVoicePrivacyResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1) throws android.os.RemoteException {}
-        public void getTtyModeResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
-        public void handleStkCallSetupRequestFromSimResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void hangupConnectionResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void hangupForegroundResumeBackgroundResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void hangupWaitingOrBackgroundResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void isVoNrEnabledResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1) throws android.os.RemoteException {}
-        public void rejectCallResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void sendBurstDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public void sendCdmaFeatureCodeResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void sendDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void sendUssdResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void separateConnectionResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setCallForwardResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setCallWaitingResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setClirResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setMuteResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setPreferredVoicePrivacyResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setTtyModeResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void setVoNrEnabledResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void startDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void stopDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-        public void switchWaitingOrHoldingAndActiveResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.voice.IRadioVoiceResponse {
         static final int TRANSACTION_acceptCallResponse = 1;
         static final int TRANSACTION_acknowledgeRequest = 2;
@@ -187,5 +141,51 @@ public interface IRadioVoiceResponse extends android.os.IInterface {
             public void stopDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
             public void switchWaitingOrHoldingAndActiveResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.voice.IRadioVoiceResponse {
+        public Default() {}
+        public void acceptCallResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void acknowledgeRequest(int p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelPendingUssdResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void conferenceResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void dialResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void emergencyDialResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void exitEmergencyCallbackModeResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void explicitCallTransferResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void getCallForwardStatusResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.voice.CallForwardInfo[] p1) throws android.os.RemoteException {}
+        public void getCallWaitingResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1, int p2) throws android.os.RemoteException {}
+        public void getClipResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
+        public void getClirResponse(android.hardware.radio.RadioResponseInfo p0, int p1, int p2) throws android.os.RemoteException {}
+        public void getCurrentCallsResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.voice.Call[] p1) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getLastCallFailCauseResponse(android.hardware.radio.RadioResponseInfo p0, android.hardware.radio.voice.LastCallFailCauseInfo p1) throws android.os.RemoteException {}
+        public void getMuteResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1) throws android.os.RemoteException {}
+        public void getPreferredVoicePrivacyResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1) throws android.os.RemoteException {}
+        public void getTtyModeResponse(android.hardware.radio.RadioResponseInfo p0, int p1) throws android.os.RemoteException {}
+        public void handleStkCallSetupRequestFromSimResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void hangupConnectionResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void hangupForegroundResumeBackgroundResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void hangupWaitingOrBackgroundResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void isVoNrEnabledResponse(android.hardware.radio.RadioResponseInfo p0, boolean p1) throws android.os.RemoteException {}
+        public void rejectCallResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void sendBurstDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public void sendCdmaFeatureCodeResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void sendDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void sendUssdResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void separateConnectionResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setCallForwardResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setCallWaitingResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setClirResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setMuteResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setPreferredVoicePrivacyResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setTtyModeResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void setVoNrEnabledResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void startDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void stopDtmfResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
+        public void switchWaitingOrHoldingAndActiveResponse(android.hardware.radio.RadioResponseInfo p0) throws android.os.RemoteException {}
     }
 }

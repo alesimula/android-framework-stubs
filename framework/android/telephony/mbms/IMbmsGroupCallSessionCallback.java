@@ -7,15 +7,6 @@ public interface IMbmsGroupCallSessionCallback extends android.os.IInterface {
     public void onMiddlewareReady() throws android.os.RemoteException;
     public void onServiceInterfaceAvailable(java.lang.String p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.mbms.IMbmsGroupCallSessionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAvailableSaisUpdated(java.util.List p0, java.util.List p1) throws android.os.RemoteException {}
-        public void onError(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onMiddlewareReady() throws android.os.RemoteException {}
-        public void onServiceInterfaceAvailable(java.lang.String p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.mbms.IMbmsGroupCallSessionCallback {
         static final int TRANSACTION_onAvailableSaisUpdated = 2;
         static final int TRANSACTION_onError = 1;
@@ -38,5 +29,14 @@ public interface IMbmsGroupCallSessionCallback extends android.os.IInterface {
             public void onMiddlewareReady() throws android.os.RemoteException {}
             public void onServiceInterfaceAvailable(java.lang.String p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.mbms.IMbmsGroupCallSessionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAvailableSaisUpdated(java.util.List p0, java.util.List p1) throws android.os.RemoteException {}
+        public void onError(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onMiddlewareReady() throws android.os.RemoteException {}
+        public void onServiceInterfaceAvailable(java.lang.String p0, int p1) throws android.os.RemoteException {}
     }
 }

@@ -6,14 +6,6 @@ public interface IImsCapabilityCallback extends android.os.IInterface {
     public void onChangeCapabilityConfigurationError(int p0, int p1, int p2) throws android.os.RemoteException;
     public void onQueryCapabilityConfiguration(int p0, int p1, boolean p2) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IImsCapabilityCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCapabilitiesStatusChanged(int p0) throws android.os.RemoteException {}
-        public void onChangeCapabilityConfigurationError(int p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onQueryCapabilityConfiguration(int p0, int p1, boolean p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IImsCapabilityCallback {
         static final int TRANSACTION_onCapabilitiesStatusChanged = 3;
         static final int TRANSACTION_onChangeCapabilityConfigurationError = 2;
@@ -34,5 +26,13 @@ public interface IImsCapabilityCallback extends android.os.IInterface {
             public void onChangeCapabilityConfigurationError(int p0, int p1, int p2) throws android.os.RemoteException {}
             public void onQueryCapabilityConfiguration(int p0, int p1, boolean p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IImsCapabilityCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCapabilitiesStatusChanged(int p0) throws android.os.RemoteException {}
+        public void onChangeCapabilityConfigurationError(int p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onQueryCapabilityConfiguration(int p0, int p1, boolean p2) throws android.os.RemoteException {}
     }
 }

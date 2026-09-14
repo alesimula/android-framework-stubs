@@ -81,6 +81,24 @@ public final class TvInputInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @android.annotation.SystemApi
+    public static final class TvInputSettings {
+        private static final java.lang.String CUSTOM_NAME_SEPARATOR = ",";
+        private static final java.lang.String TV_INPUT_SEPARATOR = ":";
+        private TvInputSettings() {}
+        private static void ensureValidField(java.lang.String p0) {}
+        private static java.lang.String getCustomLabel(android.content.Context p0, java.lang.String p1, int p2) { return null; }
+        @android.annotation.SystemApi
+        public static java.util.Map<java.lang.String, java.lang.String> getCustomLabels(android.content.Context p0, int p1) { return null; }
+        @android.annotation.SystemApi
+        public static java.util.Set<java.lang.String> getHiddenTvInputIds(android.content.Context p0, int p1) { return null; }
+        private static boolean isHidden(android.content.Context p0, java.lang.String p1, int p2) { return false; }
+        @android.annotation.SystemApi
+        public static void putCustomLabels(android.content.Context p0, java.util.Map<java.lang.String, java.lang.String> p1, int p2) {}
+        @android.annotation.SystemApi
+        public static void putHiddenTvInputs(android.content.Context p0, java.util.Set<java.lang.String> p1, int p2) {}
+    }
+
     public static final class Builder {
         private static final java.lang.String DELIMITER_INFO_IN_ID = "/";
         private static final int LENGTH_HDMI_DEVICE_ID = 2;
@@ -130,24 +148,6 @@ public final class TvInputInfo implements android.os.Parcelable {
         public android.media.tv.TvInputInfo.Builder setTunerCount(int p0) { return null; }
         @android.annotation.SystemApi
         public android.media.tv.TvInputInfo.Builder setTvInputHardwareInfo(android.media.tv.TvInputHardwareInfo p0) { return null; }
-    }
-
-    @android.annotation.SystemApi
-    public static final class TvInputSettings {
-        private static final java.lang.String CUSTOM_NAME_SEPARATOR = ",";
-        private static final java.lang.String TV_INPUT_SEPARATOR = ":";
-        private TvInputSettings() {}
-        private static void ensureValidField(java.lang.String p0) {}
-        private static java.lang.String getCustomLabel(android.content.Context p0, java.lang.String p1, int p2) { return null; }
-        @android.annotation.SystemApi
-        public static java.util.Map<java.lang.String, java.lang.String> getCustomLabels(android.content.Context p0, int p1) { return null; }
-        @android.annotation.SystemApi
-        public static java.util.Set<java.lang.String> getHiddenTvInputIds(android.content.Context p0, int p1) { return null; }
-        private static boolean isHidden(android.content.Context p0, java.lang.String p1, int p2) { return false; }
-        @android.annotation.SystemApi
-        public static void putCustomLabels(android.content.Context p0, java.util.Map<java.lang.String, java.lang.String> p1, int p2) {}
-        @android.annotation.SystemApi
-        public static void putHiddenTvInputs(android.content.Context p0, java.util.Set<java.lang.String> p1, int p2) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

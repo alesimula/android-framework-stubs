@@ -12,18 +12,6 @@ public interface IDescrambler extends android.os.IInterface {
     public void setDemuxSource(int p0) throws android.os.RemoteException;
     public void setKeyToken(byte[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.IDescrambler {
-        public Default() {}
-        public void addPid(android.hardware.tv.tuner.DemuxPid p0, android.hardware.tv.tuner.IFilter p1) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void removePid(android.hardware.tv.tuner.DemuxPid p0, android.hardware.tv.tuner.IFilter p1) throws android.os.RemoteException {}
-        public void setDemuxSource(int p0) throws android.os.RemoteException {}
-        public void setKeyToken(byte[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.IDescrambler {
         static final int TRANSACTION_addPid = 3;
         static final int TRANSACTION_close = 5;
@@ -52,5 +40,17 @@ public interface IDescrambler extends android.os.IInterface {
             public void setDemuxSource(int p0) throws android.os.RemoteException {}
             public void setKeyToken(byte[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.IDescrambler {
+        public Default() {}
+        public void addPid(android.hardware.tv.tuner.DemuxPid p0, android.hardware.tv.tuner.IFilter p1) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void removePid(android.hardware.tv.tuner.DemuxPid p0, android.hardware.tv.tuner.IFilter p1) throws android.os.RemoteException {}
+        public void setDemuxSource(int p0) throws android.os.RemoteException {}
+        public void setKeyToken(byte[] p0) throws android.os.RemoteException {}
     }
 }

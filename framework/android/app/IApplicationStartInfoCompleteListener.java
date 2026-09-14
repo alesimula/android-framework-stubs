@@ -4,12 +4,6 @@ public interface IApplicationStartInfoCompleteListener extends android.os.IInter
     public static final java.lang.String DESCRIPTOR = "android.app.IApplicationStartInfoCompleteListener";
     public void onApplicationStartInfoComplete(android.app.ApplicationStartInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.app.IApplicationStartInfoCompleteListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onApplicationStartInfoComplete(android.app.ApplicationStartInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.app.IApplicationStartInfoCompleteListener {
         static final int TRANSACTION_onApplicationStartInfoComplete = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IApplicationStartInfoCompleteListener extends android.os.IInter
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onApplicationStartInfoComplete(android.app.ApplicationStartInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.app.IApplicationStartInfoCompleteListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onApplicationStartInfoComplete(android.app.ApplicationStartInfo p0) throws android.os.RemoteException {}
     }
 }

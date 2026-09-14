@@ -283,7 +283,7 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public static final java.lang.String ACTION_USER_INFO_CHANGED = "android.intent.action.USER_INFO_CHANGED";
     public static final java.lang.String ACTION_USER_INFO_CHANGED_BACKGROUND = "android.intent.action.USER_INFO_CHANGED_BACKGROUND";
     public static final java.lang.String ACTION_USER_INITIALIZE = "android.intent.action.USER_INITIALIZE";
-    public static final java.lang.String ACTION_USER_LOCKSCREEN_KNOWLEDGE_FACTOR_CHANGED = "android.intent.action.USER_LOCKSCREEN_KNOWLEDGE_FACTOR_CHANGED";
+    public static final java.lang.String ACTION_USER_LOCKSCREEN_KNOWLEDGE_FACTOR_CHANGED = "com.android.internal.action.USER_LOCKSCREEN_KNOWLEDGE_FACTOR_CHANGED";
     public static final java.lang.String ACTION_USER_PRESENT = "android.intent.action.USER_PRESENT";
     @android.annotation.SystemApi
     public static final java.lang.String ACTION_USER_REMOVED = "android.intent.action.USER_REMOVED";
@@ -308,6 +308,7 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     @java.lang.Deprecated
     public static final java.lang.String ACTION_WALLPAPER_CHANGED = "android.intent.action.WALLPAPER_CHANGED";
     public static final java.lang.String ACTION_WEB_SEARCH = "android.intent.action.WEB_SEARCH";
+    @android.annotation.SystemApi
     public static final java.lang.String ACTION_WELLBEING_CONFIRM_WITH_SPEEDBUMP = "android.intent.action.WELLBEING_CONFIRM_WITH_SPEEDBUMP";
     private static final java.lang.String ATTR_ACTION = "action";
     private static final java.lang.String ATTR_CATEGORY = "category";
@@ -644,6 +645,11 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     @android.annotation.SystemApi
     @java.lang.Deprecated
     public static final java.lang.String EXTRA_VOICE_ROAMING_TYPE = "voiceRoamingType";
+    public static final java.lang.String EXTRA_WELLBEING_SPEEDBUMP_ACTIVITY_START_SOURCE = "android.intent.extra.WELLBEING_START_SOURCE";
+    public static final int EXTRA_WELLBEING_SPEEDBUMP_ACTIVITY_START_SOURCE_LAUNCHER = 0;
+    public static final int EXTRA_WELLBEING_SPEEDBUMP_ACTIVITY_START_SOURCE_LOCK_SCREEN = 2;
+    public static final int EXTRA_WELLBEING_SPEEDBUMP_ACTIVITY_START_SOURCE_NOTIFICATION = 1;
+    public static final int EXTRA_WELLBEING_SPEEDBUMP_ACTIVITY_START_SOURCE_UNKNOWN = -1;
     public static final java.lang.String EXTRA_WIPE_ESIMS = "com.android.internal.intent.extra.WIPE_ESIMS";
     public static final java.lang.String EXTRA_WIPE_EXTERNAL_STORAGE = "android.intent.extra.WIPE_EXTERNAL_STORAGE";
     public static final int FILL_IN_ACTION = 1;
@@ -772,6 +778,7 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     private android.content.Intent extractIntentFromKey(android.content.Intent.NestedIntentKey p0) { return null; }
     private void fillInCreatorTokenInfo(android.content.Intent.CreatorTokenInfo p0, int p1) {}
     private void forEachNestedCreatorToken(java.util.function.Consumer<? super android.content.Intent> p0, java.util.function.Consumer<? super android.content.Intent> p1) {}
+    private void forEachNestedCreatorToken(java.util.function.Consumer<? super android.content.Intent> p0, java.util.function.Consumer<? super android.content.Intent> p1, java.util.Set<android.content.Intent> p2) {}
     @java.lang.Deprecated
     public static android.content.Intent getIntent(java.lang.String p0) throws java.net.URISyntaxException { return null; }
     public static android.content.Intent getIntentOld(java.lang.String p0) throws java.net.URISyntaxException { return null; }
@@ -802,22 +809,22 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public android.content.Intent addCategory(java.lang.String p0) { return null; }
     public android.content.Intent addExtendedFlags(int p0) { return null; }
     public android.content.Intent addFlags(int p0) { return null; }
-    public boolean canStripForHistory() { return false; }
-    public void checkCreatorToken() {}
+    public final boolean canStripForHistory() { return false; }
+    public final void checkCreatorToken() {}
     public java.lang.Object clone() { return null; }
     public android.content.Intent cloneFilter() { return null; }
     public android.content.Intent cloneForCreatorToken() { return null; }
-    public void collectExtraIntentKeys() {}
-    public void collectExtraIntentKeys(boolean p0) {}
+    public final void collectExtraIntentKeys() {}
+    public final void collectExtraIntentKeys(boolean p0) {}
     public int describeContents() { return 0; }
-    public void dumpDebug(android.util.proto.ProtoOutputStream p0) {}
-    public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
+    public final void dumpDebug(android.util.proto.ProtoOutputStream p0) {}
+    public final void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
     public void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1, boolean p2, boolean p3, boolean p4, boolean p5) {}
     public int fillIn(android.content.Intent p0, int p1) { return 0; }
     public boolean filterEquals(android.content.Intent p0) { return false; }
     public int filterHashCode() { return 0; }
     public void fixUris(int p0) {}
-    public void forEachNestedCreatorToken(java.util.function.Consumer<? super android.content.Intent> p0) {}
+    public final void forEachNestedCreatorToken(java.util.function.Consumer<? super android.content.Intent> p0) {}
     public java.lang.String getAction() { return null; }
     public boolean[] getBooleanArrayExtra(java.lang.String p0) { return null; }
     public boolean getBooleanExtra(java.lang.String p0, boolean p1) { return false; }
@@ -840,25 +847,25 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public double getDoubleExtra(java.lang.String p0, double p1) { return 0.0; }
     public int getExtendedFlags() { return 0; }
     @java.lang.Deprecated
-    public java.lang.Object getExtra(java.lang.String p0) { return null; }
+    public final java.lang.Object getExtra(java.lang.String p0) { return null; }
     @java.lang.Deprecated
-    public java.lang.Object getExtra(java.lang.String p0, java.lang.Object p1) { return null; }
-    public java.util.Set<android.content.Intent.NestedIntentKey> getExtraIntentKeys() { return null; }
+    public final java.lang.Object getExtra(java.lang.String p0, java.lang.Object p1) { return null; }
+    public final java.util.Set<android.content.Intent.NestedIntentKey> getExtraIntentKeys() { return null; }
     public android.os.Bundle getExtras() { return null; }
-    public int getExtrasTotalSize() { return 0; }
+    public final int getExtrasTotalSize() { return 0; }
     public int getFlags() { return 0; }
     public float[] getFloatArrayExtra(java.lang.String p0) { return null; }
     public float getFloatExtra(java.lang.String p0, float p1) { return 0.0f; }
     @java.lang.Deprecated
-    public android.os.IBinder getIBinderExtra(java.lang.String p0) { return null; }
+    public final android.os.IBinder getIBinderExtra(java.lang.String p0) { return null; }
     public java.lang.String getIdentifier() { return null; }
     public int[] getIntArrayExtra(java.lang.String p0) { return null; }
     public int getIntExtra(java.lang.String p0, int p1) { return 0; }
     public java.util.ArrayList<java.lang.Integer> getIntegerArrayListExtra(java.lang.String p0) { return null; }
-    public java.lang.String getLaunchToken() { return null; }
+    public final java.lang.String getLaunchToken() { return null; }
     public long[] getLongArrayExtra(java.lang.String p0) { return null; }
     public long getLongExtra(java.lang.String p0, long p1) { return 0L; }
-    public android.content.Intent getOriginalIntent() { return null; }
+    public final android.content.Intent getOriginalIntent() { return null; }
     public java.lang.String getPackage() { return null; }
     @java.lang.Deprecated
     public android.os.Parcelable[] getParcelableArrayExtra(java.lang.String p0) { return null; }
@@ -883,20 +890,20 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public boolean hasCategory(java.lang.String p0) { return false; }
     public boolean hasExtra(java.lang.String p0) { return false; }
     public boolean hasFileDescriptors() { return false; }
-    public boolean hasWebURI() { return false; }
-    public boolean isDocument() { return false; }
-    public boolean isExcludingStopped() { return false; }
-    public boolean isImplicitImageCaptureIntent() { return false; }
+    public final boolean hasWebURI() { return false; }
+    public final boolean isDocument() { return false; }
+    public final boolean isExcludingStopped() { return false; }
+    public final boolean isImplicitImageCaptureIntent() { return false; }
     public boolean isMismatchingFilter() { return false; }
-    public boolean isWebIntent() { return false; }
-    public android.content.Intent maybeStripForHistory() { return null; }
-    public void mergeExtras(android.content.Intent p0, android.os.BundleMerger p1) {}
-    public boolean migrateExtraStreamToClipData() { return false; }
+    public final boolean isWebIntent() { return false; }
+    public final android.content.Intent maybeStripForHistory() { return null; }
+    public final void mergeExtras(android.content.Intent p0, android.os.BundleMerger p1) {}
+    public final boolean migrateExtraStreamToClipData() { return false; }
     public boolean migrateExtraStreamToClipData(android.content.Context p0) { return false; }
-    public void prepareToEnterProcess(int p0, android.content.AttributionSource p1) {}
-    public void prepareToEnterProcess(boolean p0, android.content.AttributionSource p1) {}
-    public void prepareToLeaveProcess(android.content.Context p0) {}
-    public void prepareToLeaveProcess(boolean p0) {}
+    public final void prepareToEnterProcess(int p0, android.content.AttributionSource p1) {}
+    public final void prepareToEnterProcess(boolean p0, android.content.AttributionSource p1) {}
+    public final void prepareToLeaveProcess(android.content.Context p0) {}
+    public final void prepareToLeaveProcess(boolean p0) {}
     void prepareToLeaveProcess(boolean p0, boolean p1) {}
     public void prepareToLeaveUser(int p0) {}
     public android.content.Intent putCharSequenceArrayListExtra(java.lang.String p0, java.util.ArrayList<java.lang.CharSequence> p1) { return null; }
@@ -933,9 +940,9 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public android.content.Intent putStringArrayListExtra(java.lang.String p0, java.util.ArrayList<java.lang.String> p1) { return null; }
     public void readFromParcel(android.os.Parcel p0) {}
     public void removeCategory(java.lang.String p0) {}
-    public void removeCreatorToken() {}
-    public void removeCreatorTokenInfo() {}
-    public void removeExtendedFlags(int p0) {}
+    public final void removeCreatorToken() {}
+    public final void removeCreatorTokenInfo() {}
+    public final void removeExtendedFlags(int p0) {}
     public void removeExtra(java.lang.String p0) {}
     public void removeFlags(int p0) {}
     public void removeLaunchSecurityProtection() {}
@@ -947,7 +954,7 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public java.lang.String resolveType(android.content.ContentResolver p0) { return null; }
     public java.lang.String resolveType(android.content.Context p0) { return null; }
     public java.lang.String resolveTypeIfNeeded(android.content.ContentResolver p0) { return null; }
-    public void saveToXml(org.xmlpull.v1.XmlSerializer p0) throws java.io.IOException {}
+    public final void saveToXml(org.xmlpull.v1.XmlSerializer p0) throws java.io.IOException {}
     public android.content.Intent setAction(java.lang.String p0) { return null; }
     public void setAllowFds(boolean p0) {}
     public android.content.Intent setClass(android.content.Context p0, java.lang.Class<?> p1) { return null; }
@@ -955,24 +962,24 @@ public class Intent implements android.os.Parcelable, java.lang.Cloneable {
     public android.content.Intent setClassName(java.lang.String p0, java.lang.String p1) { return null; }
     public void setClipData(android.content.ClipData p0) {}
     public android.content.Intent setComponent(android.content.ComponentName p0) { return null; }
-    public void setCreatorToken(android.os.IBinder p0) {}
+    public final void setCreatorToken(android.os.IBinder p0) {}
     public android.content.Intent setData(android.net.Uri p0) { return null; }
     public android.content.Intent setDataAndNormalize(android.net.Uri p0) { return null; }
     public android.content.Intent setDataAndType(android.net.Uri p0, java.lang.String p1) { return null; }
     public android.content.Intent setDataAndTypeAndNormalize(android.net.Uri p0, java.lang.String p1) { return null; }
-    public void setDefusable(boolean p0) {}
+    public final void setDefusable(boolean p0) {}
     public void setExtrasClassLoader(java.lang.ClassLoader p0) {}
     public android.content.Intent setFlags(int p0) { return null; }
     public android.content.Intent setIdentifier(java.lang.String p0) { return null; }
-    public void setLaunchToken(java.lang.String p0) {}
-    public void setOriginalIntent(android.content.Intent p0) {}
+    public final void setLaunchToken(java.lang.String p0) {}
+    public final void setOriginalIntent(android.content.Intent p0) {}
     public android.content.Intent setPackage(java.lang.String p0) { return null; }
     public void setSelector(android.content.Intent p0) {}
     public void setSourceBounds(android.graphics.Rect p0) {}
     public android.content.Intent setType(java.lang.String p0) { return null; }
     public android.content.Intent setTypeAndNormalize(java.lang.String p0) { return null; }
-    public java.lang.String toInsecureString() { return null; }
-    public java.lang.String toShortString(boolean p0, boolean p1, boolean p2, boolean p3) { return null; }
+    public final java.lang.String toInsecureString() { return null; }
+    public final java.lang.String toShortString(boolean p0, boolean p1, boolean p2, boolean p3) { return null; }
     public void toShortString(java.lang.StringBuilder p0, boolean p1, boolean p2, boolean p3, boolean p4) {}
     public java.lang.String toString() { return null; }
     public void toString(java.lang.StringBuilder p0) {}

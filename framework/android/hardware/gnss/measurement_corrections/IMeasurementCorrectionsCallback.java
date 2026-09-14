@@ -11,14 +11,6 @@ public interface IMeasurementCorrectionsCallback extends android.os.IInterface {
     public int getInterfaceVersion() throws android.os.RemoteException;
     public void setCapabilitiesCb(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void setCapabilitiesCb(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -41,5 +33,13 @@ public interface IMeasurementCorrectionsCallback extends android.os.IInterface {
             public int getInterfaceVersion() throws android.os.RemoteException { return 0; }
             public void setCapabilitiesCb(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.gnss.measurement_corrections.IMeasurementCorrectionsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void setCapabilitiesCb(int p0) throws android.os.RemoteException {}
     }
 }

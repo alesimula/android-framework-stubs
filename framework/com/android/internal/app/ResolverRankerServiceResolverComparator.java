@@ -40,13 +40,6 @@ class ResolverRankerServiceResolverComparator extends com.android.internal.app.A
     public void handleResultMessage(android.os.Message p0) {}
     public void updateModel(com.android.internal.app.chooser.TargetInfo p0) {}
 
-    private static class ResolverRankerResultCallback extends android.service.resolver.IResolverRankerResult.Stub {
-        private final java.lang.ref.WeakReference<android.os.Handler> mHandlerRef = null;
-        private final java.lang.Object mLock = null;
-        private ResolverRankerResultCallback(java.lang.Object p0, android.os.Handler p1) { super(); }
-        public void sendResult(java.util.List<android.service.resolver.ResolverTarget> p0) throws android.os.RemoteException {}
-    }
-
     static class ResolverRankerServiceComparatorModel implements com.android.internal.app.ResolverComparatorModel {
         private final boolean mAnnotationsUsed = false;
         private final java.text.Collator mCollator = null;
@@ -62,6 +55,13 @@ class ResolverRankerServiceResolverComparator extends com.android.internal.app.A
         public java.util.Comparator<android.content.pm.ResolveInfo> getComparator() { return null; }
         public float getScore(com.android.internal.app.chooser.TargetInfo p0) { return 0.0f; }
         public void notifyOnTargetSelected(com.android.internal.app.chooser.TargetInfo p0) {}
+    }
+
+    private static class ResolverRankerResultCallback extends android.service.resolver.IResolverRankerResult.Stub {
+        private final java.lang.ref.WeakReference<android.os.Handler> mHandlerRef = null;
+        private final java.lang.Object mLock = null;
+        private ResolverRankerResultCallback(java.lang.Object p0, android.os.Handler p1) { super(); }
+        public void sendResult(java.util.List<android.service.resolver.ResolverTarget> p0) throws android.os.RemoteException {}
     }
 
     private class ResolverRankerServiceConnection implements android.content.ServiceConnection {

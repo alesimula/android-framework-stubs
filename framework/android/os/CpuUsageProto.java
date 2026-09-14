@@ -19,13 +19,6 @@ public final class CpuUsageProto {
     public static final long TOTAL_USER_TIME = 1120986464265L;
     public CpuUsageProto() {}
 
-    public final class Load {
-        public static final long LOAD1 = 1108101562369L;
-        public static final long LOAD15 = 1108101562371L;
-        public static final long LOAD5 = 1108101562370L;
-        public Load(android.os.CpuUsageProto p0) {}
-    }
-
     public final class Stat {
         public static final long ADDED = 1133871366148L;
         public static final long MAJOR_FAULTS = 1120986464266L;
@@ -39,5 +32,12 @@ public final class CpuUsageProto {
         public static final long UPTIME = 1120986464262L;
         public static final long USER_TIME = 1120986464263L;
         public Stat(android.os.CpuUsageProto p0) {}
+    }
+
+    public final class Load {
+        public static final long LOAD1 = 1108101562369L;
+        public static final long LOAD15 = 1108101562371L;
+        public static final long LOAD5 = 1108101562370L;
+        public Load(android.os.CpuUsageProto p0) {}
     }
 }

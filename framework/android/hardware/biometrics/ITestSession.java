@@ -12,20 +12,6 @@ public interface ITestSession extends android.os.IInterface {
     public void setTestHalEnabled(boolean p0) throws android.os.RemoteException;
     public void startEnroll(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.ITestSession {
-        public Default() {}
-        public void acceptAuthentication(int p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cleanupInternalState(int p0) throws android.os.RemoteException {}
-        public void finishEnroll(int p0) throws android.os.RemoteException {}
-        public int getSensorId() throws android.os.RemoteException { return 0; }
-        public void notifyAcquired(int p0, int p1) throws android.os.RemoteException {}
-        public void notifyError(int p0, int p1) throws android.os.RemoteException {}
-        public void rejectAuthentication(int p0) throws android.os.RemoteException {}
-        public void setTestHalEnabled(boolean p0) throws android.os.RemoteException {}
-        public void startEnroll(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.ITestSession {
         static final int TRANSACTION_acceptAuthentication = 4;
         static final int TRANSACTION_cleanupInternalState = 8;
@@ -70,5 +56,19 @@ public interface ITestSession extends android.os.IInterface {
             public void setTestHalEnabled(boolean p0) throws android.os.RemoteException {}
             public void startEnroll(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.ITestSession {
+        public Default() {}
+        public void acceptAuthentication(int p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cleanupInternalState(int p0) throws android.os.RemoteException {}
+        public void finishEnroll(int p0) throws android.os.RemoteException {}
+        public int getSensorId() throws android.os.RemoteException { return 0; }
+        public void notifyAcquired(int p0, int p1) throws android.os.RemoteException {}
+        public void notifyError(int p0, int p1) throws android.os.RemoteException {}
+        public void rejectAuthentication(int p0) throws android.os.RemoteException {}
+        public void setTestHalEnabled(boolean p0) throws android.os.RemoteException {}
+        public void startEnroll(int p0) throws android.os.RemoteException {}
     }
 }

@@ -3,12 +3,6 @@ package android.content;
 public interface IOnPrimaryClipChangedListener extends android.os.IInterface {
     public void dispatchPrimaryClipChanged() throws android.os.RemoteException;
 
-    public static class Default implements android.content.IOnPrimaryClipChangedListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchPrimaryClipChanged() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.IOnPrimaryClipChangedListener {
         public static final java.lang.String DESCRIPTOR = "android.content.IOnPrimaryClipChangedListener";
         static final int TRANSACTION_dispatchPrimaryClipChanged = 1;
@@ -26,5 +20,11 @@ public interface IOnPrimaryClipChangedListener extends android.os.IInterface {
             public void dispatchPrimaryClipChanged() throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.content.IOnPrimaryClipChangedListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchPrimaryClipChanged() throws android.os.RemoteException {}
     }
 }

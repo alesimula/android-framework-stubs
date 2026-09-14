@@ -19,19 +19,19 @@ public class DSASigner extends java.security.SignatureSpi implements com.android
     protected void engineUpdate(byte[] p0, int p1, int p2) throws java.security.SignatureException {}
     protected boolean engineVerify(byte[] p0) throws java.security.SignatureException { return false; }
 
-    public static class dsa224 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner {
-        public dsa224() { super(null, null); }
-    }
-
-    public static class dsa256 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner {
-        public dsa256() { super(null, null); }
-    }
-
     public static class noneDSA extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner {
         public noneDSA() { super(null, null); }
     }
 
     public static class stdDSA extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner {
         public stdDSA() { super(null, null); }
+    }
+
+    public static class dsa224 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner {
+        public dsa224() { super(null, null); }
+    }
+
+    public static class dsa256 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner {
+        public dsa256() { super(null, null); }
     }
 }

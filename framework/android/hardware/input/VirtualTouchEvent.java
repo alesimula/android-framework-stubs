@@ -35,7 +35,7 @@ public final class VirtualTouchEvent implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Action {
+    public static @interface ToolType {
     }
 
     public static final class Builder {
@@ -60,6 +60,6 @@ public final class VirtualTouchEvent implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ToolType {
+    public static @interface Action {
     }
 }

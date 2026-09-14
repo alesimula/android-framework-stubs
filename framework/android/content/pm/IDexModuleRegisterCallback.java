@@ -3,12 +3,6 @@ package android.content.pm;
 public interface IDexModuleRegisterCallback extends android.os.IInterface {
     public void onDexModuleRegistered(java.lang.String p0, boolean p1, java.lang.String p2) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.IDexModuleRegisterCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDexModuleRegistered(java.lang.String p0, boolean p1, java.lang.String p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.IDexModuleRegisterCallback {
         public static final java.lang.String DESCRIPTOR = "android.content.pm.IDexModuleRegisterCallback";
         static final int TRANSACTION_onDexModuleRegistered = 1;
@@ -26,5 +20,11 @@ public interface IDexModuleRegisterCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onDexModuleRegistered(java.lang.String p0, boolean p1, java.lang.String p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.IDexModuleRegisterCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDexModuleRegistered(java.lang.String p0, boolean p1, java.lang.String p2) throws android.os.RemoteException {}
     }
 }

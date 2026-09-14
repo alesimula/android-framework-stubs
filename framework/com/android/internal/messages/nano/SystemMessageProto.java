@@ -32,6 +32,7 @@ public interface SystemMessageProto {
         public static final int NOTE_HEAVY_WEIGHT_NOTIFICATION = 11;
         public static final int NOTE_HIDDEN_NOTIFICATIONS = 5;
         public static final int NOTE_HIGH_TEMP = 4;
+        public static final int NOTE_ID_SIM_PROTECTION = 78;
         public static final int NOTE_ID_WIFI_SIM_REQUIRED = 60;
         public static final int NOTE_INSTANT_APPS = 7;
         public static final int NOTE_LOCATION_CHANGED = 59;
@@ -99,6 +100,7 @@ public interface SystemMessageProto {
         public static final int NOTE_USB_MTP = 27;
         public static final int NOTE_USB_MTP_TAP = 25;
         public static final int NOTE_USB_PTP = 28;
+        public static final int NOTE_USB_RNDIS_UNSUPPORTED = 1017;
         public static final int NOTE_USB_SUPPLYING = 31;
         public static final int NOTE_USB_TETHER = 47;
         public static final int NOTE_USB_UVC = 75;
@@ -106,6 +108,7 @@ public interface SystemMessageProto {
         public static final int NOTE_VPN_STATUS = 20;
         public static final int NOTE_WIFI_APM_NOTIFICATION = 73;
         public static final int NOTE_WIFI_EAP_FAILURE = 57;
+        public static final int NOTE_WIFI_TETHERING_MINIMUM_SECURITY_LEVEL_CHANGED = 1016;
         public static final int NOTE_WIFI_WAKE_ONBOARD = 43;
         public static final int NOTE_WIFI_WAKE_TURNED_BACK_ON = 44;
         public static final int NOTE_WIFI_WRONG_PASSWORD = 42;

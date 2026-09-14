@@ -19,6 +19,10 @@ public class DvrSettings {
     public long getPacketSize() { return 0L; }
     public int getStatusMask() { return 0; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DataFormat {
+    }
+
     public static final class Builder {
         private int mDataFormat;
         private long mHighThreshold;
@@ -32,9 +36,5 @@ public class DvrSettings {
         public android.media.tv.tuner.dvr.DvrSettings.Builder setLowThreshold(long p0) { return null; }
         public android.media.tv.tuner.dvr.DvrSettings.Builder setPacketSize(long p0) { return null; }
         public android.media.tv.tuner.dvr.DvrSettings.Builder setStatusMask(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DataFormat {
     }
 }

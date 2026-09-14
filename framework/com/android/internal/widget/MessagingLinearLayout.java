@@ -22,14 +22,6 @@ public class MessagingLinearLayout extends android.view.ViewGroup {
     public void setMaxDisplayedLines(int p0) {}
     public void setSpacing(int p0) {}
 
-    public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
-        public boolean hide;
-        public int lastVisibleHeight;
-        public boolean visibleBefore;
-        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
-        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
-    }
-
     public static interface MessagingChild {
         public static final int MEASURED_NORMAL = 0;
         public static final int MEASURED_SHORTENED = 1;
@@ -43,5 +35,13 @@ public class MessagingLinearLayout extends android.view.ViewGroup {
         public void recycle();
         default public void setIsFirstInLayout(boolean p0) {}
         public void setMaxDisplayedLines(int p0);
+    }
+
+    public static class LayoutParams extends android.view.ViewGroup.MarginLayoutParams {
+        public boolean hide;
+        public int lastVisibleHeight;
+        public boolean visibleBefore;
+        public LayoutParams(int p0, int p1) { super((android.view.ViewGroup.LayoutParams)null); }
+        public LayoutParams(android.content.Context p0, android.util.AttributeSet p1) { super((android.view.ViewGroup.LayoutParams)null); }
     }
 }

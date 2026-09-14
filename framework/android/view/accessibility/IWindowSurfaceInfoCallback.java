@@ -5,13 +5,6 @@ public interface IWindowSurfaceInfoCallback extends android.os.IInterface {
     public void provideWindowSurfaceInfo(int p0, int p1, android.view.SurfaceControl p2) throws android.os.RemoteException;
     public void provideWindowSurfaceInfoWithBounds(int p0, int p1, android.view.SurfaceControl p2, android.graphics.Rect p3) throws android.os.RemoteException;
 
-    public static class Default implements android.view.accessibility.IWindowSurfaceInfoCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void provideWindowSurfaceInfo(int p0, int p1, android.view.SurfaceControl p2) throws android.os.RemoteException {}
-        public void provideWindowSurfaceInfoWithBounds(int p0, int p1, android.view.SurfaceControl p2, android.graphics.Rect p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.accessibility.IWindowSurfaceInfoCallback {
         static final int TRANSACTION_provideWindowSurfaceInfo = 1;
         static final int TRANSACTION_provideWindowSurfaceInfoWithBounds = 2;
@@ -30,5 +23,12 @@ public interface IWindowSurfaceInfoCallback extends android.os.IInterface {
             public void provideWindowSurfaceInfo(int p0, int p1, android.view.SurfaceControl p2) throws android.os.RemoteException {}
             public void provideWindowSurfaceInfoWithBounds(int p0, int p1, android.view.SurfaceControl p2, android.graphics.Rect p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.accessibility.IWindowSurfaceInfoCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void provideWindowSurfaceInfo(int p0, int p1, android.view.SurfaceControl p2) throws android.os.RemoteException {}
+        public void provideWindowSurfaceInfoWithBounds(int p0, int p1, android.view.SurfaceControl p2, android.graphics.Rect p3) throws android.os.RemoteException {}
     }
 }

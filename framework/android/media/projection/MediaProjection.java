@@ -8,16 +8,17 @@ public final class MediaProjection {
     private final int mDisplayId = 0;
     private final android.hardware.display.DisplayManager mDisplayManager = null;
     private final android.media.projection.IMediaProjection mImpl = null;
+    private android.view.WindowId mLowestExcludedLayer;
     public MediaProjection(android.content.Context p0, android.media.projection.IMediaProjection p1) {}
     public MediaProjection(android.content.Context p0, android.media.projection.IMediaProjection p1, android.hardware.display.DisplayManager p2) {}
     private boolean shouldMediaProjectionRequireCallback() { return false; }
-    public android.hardware.display.VirtualDisplay createVirtualDisplay(android.hardware.display.VirtualDisplayConfig.Builder p0, android.hardware.display.VirtualDisplay.Callback p1, android.os.Handler p2) { return null; }
+    public android.hardware.display.VirtualDisplay createVirtualDisplay(android.hardware.display.VirtualDisplayConfig p0, android.hardware.display.VirtualDisplay.Callback p1, android.os.Handler p2) { return null; }
     public android.hardware.display.VirtualDisplay createVirtualDisplay(java.lang.String p0, int p1, int p2, int p3, int p4, android.view.Surface p5, android.hardware.display.VirtualDisplay.Callback p6, android.os.Handler p7) { return null; }
     public android.hardware.display.VirtualDisplay createVirtualDisplay(java.lang.String p0, int p1, int p2, int p3, boolean p4, android.view.Surface p5, android.hardware.display.VirtualDisplay.Callback p6, android.os.Handler p7) { return null; }
     public android.media.projection.IMediaProjection getProjection() { return null; }
     public void registerCallback(android.media.projection.MediaProjection.Callback p0, android.os.Handler p1) {}
     @android.annotation.SystemApi
-    public void setRecordingOverlayStopAtLayer(android.view.View p0) {}
+    public void setCaptureLayersBelow(android.view.WindowId p0) {}
     public void stop() {}
     public void stop(int p0) {}
     public void unregisterCallback(android.media.projection.MediaProjection.Callback p0) {}

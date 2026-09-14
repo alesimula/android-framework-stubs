@@ -22,22 +22,6 @@ public final class AutoGrowArray {
         public int size() { return 0; }
     }
 
-    public static class FloatArray {
-        private int mSize;
-        private float[] mValues;
-        public FloatArray() {}
-        public FloatArray(int p0) {}
-        private void ensureCapacity(int p0) {}
-        public void append(float p0) {}
-        public void clear() {}
-        public void clearWithReleasingLargeArray() {}
-        public float get(int p0) { return 0.0f; }
-        public float[] getRawArray() { return null; }
-        public void resize(int p0) {}
-        public void set(int p0, float p1) {}
-        public int size() { return 0; }
-    }
-
     public static class IntArray {
         private int mSize;
         private int[] mValues;
@@ -51,6 +35,22 @@ public final class AutoGrowArray {
         public int[] getRawArray() { return null; }
         public void resize(int p0) {}
         public void set(int p0, int p1) {}
+        public int size() { return 0; }
+    }
+
+    public static class FloatArray {
+        private int mSize;
+        private float[] mValues;
+        public FloatArray() {}
+        public FloatArray(int p0) {}
+        private void ensureCapacity(int p0) {}
+        public void append(float p0) {}
+        public void clear() {}
+        public void clearWithReleasingLargeArray() {}
+        public float get(int p0) { return 0.0f; }
+        public float[] getRawArray() { return null; }
+        public void resize(int p0) {}
+        public void set(int p0, float p1) {}
         public int size() { return 0; }
     }
 }

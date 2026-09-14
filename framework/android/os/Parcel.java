@@ -242,6 +242,7 @@ public final class Parcel {
     public final java.lang.Object getClassCookie(java.lang.Class p0) { return null; }
     public int getFlags() { return 0; }
     public long getOpenAshmemSize() { return 0L; }
+    public android.os.Parcel.ReadWriteHelper getReadWriteHelper() { return null; }
     public boolean hasBinders() { return false; }
     public boolean hasBinders(int p0, int p1) { return false; }
     public boolean hasClassCookie(java.lang.Class p0) { return false; }
@@ -440,10 +441,6 @@ public final class Parcel {
     public void writeValue(int p0, java.lang.Object p1) {}
     public final void writeValue(java.lang.Object p0) {}
 
-    public static interface ClassLoaderProvider {
-        public java.lang.ClassLoader getClassLoader();
-    }
-
     private static final class LazyValue implements java.util.function.BiFunction<java.lang.Class<?>, java.lang.Class<?>[], java.lang.Object> {
         private final int mLength = 0;
         private final android.os.Parcel.ClassLoaderProvider mLoaderProvider = null;
@@ -461,8 +458,8 @@ public final class Parcel {
         public void writeToParcel(android.os.Parcel p0) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ParcelFlags {
+    public static interface SquashReadHelper<T extends java.lang.Object> {
+        public T readRawParceled(android.os.Parcel p0);
     }
 
     public static class ReadWriteHelper {
@@ -476,7 +473,11 @@ public final class Parcel {
         public void writeStrongBinder(android.os.Parcel p0, android.os.IBinder p1) {}
     }
 
-    public static interface SquashReadHelper<T extends java.lang.Object> {
-        public T readRawParceled(android.os.Parcel p0);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ParcelFlags {
+    }
+
+    public static interface ClassLoaderProvider {
+        public java.lang.ClassLoader getClassLoader();
     }
 }

@@ -208,6 +208,7 @@ public class PhoneStateListener {
         public void onPreciseDataConnectionStateChanged(android.telephony.PreciseDataConnectionState p0) {}
         public void onRadioPowerStateChanged(int p0) {}
         public void onRegistrationFailed(android.telephony.CellIdentity p0, java.lang.String p1, int p2, int p3, int p4) {}
+        public final void onSatelliteEntitlementStatusUpdated(int p0, android.telephony.satellite.SatelliteEntitlementStatus p1) {}
         public final void onSatellitePurchaseModeChanged(int p0, boolean p1, int p2) {}
         public final void onSecurityAlgorithmsChanged(android.telephony.SecurityAlgorithmUpdate p0) {}
         public void onServiceStateChanged(android.telephony.ServiceState p0) {}

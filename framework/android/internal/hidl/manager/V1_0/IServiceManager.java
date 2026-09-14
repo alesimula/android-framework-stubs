@@ -30,31 +30,6 @@ public interface IServiceManager extends android.internal.hidl.base.V1_0.IBase {
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class InstanceDebugInfo {
-        public int arch;
-        public java.util.ArrayList<java.lang.Integer> clientPids;
-        public java.lang.String instanceName;
-        public java.lang.String interfaceName;
-        public int pid;
-        public InstanceDebugInfo() {}
-        public static final java.util.ArrayList<android.internal.hidl.manager.V1_0.IServiceManager.InstanceDebugInfo> readVectorFromParcel(android.os.HwParcel p0) { return null; }
-        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.internal.hidl.manager.V1_0.IServiceManager.InstanceDebugInfo> p1) {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public final int hashCode() { return 0; }
-        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
-        public final void readFromParcel(android.os.HwParcel p0) {}
-        public final java.lang.String toString() { return null; }
-        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
-        public final void writeToParcel(android.os.HwParcel p0) {}
-    }
-
-    public static final class PidConstant {
-        public static final int NO_PID = -1;
-        public PidConstant() {}
-        public static final java.lang.String dumpBitfield(int p0) { return null; }
-        public static final java.lang.String toString(int p0) { return null; }
-    }
-
     public static final class Proxy implements android.internal.hidl.manager.V1_0.IServiceManager {
         private android.os.IHwBinder mRemote;
         public Proxy(android.os.IHwBinder p0) {}
@@ -108,5 +83,30 @@ public interface IServiceManager extends android.internal.hidl.base.V1_0.IBase {
         public Transport() {}
         public static final java.lang.String dumpBitfield(byte p0) { return null; }
         public static final java.lang.String toString(byte p0) { return null; }
+    }
+
+    public static final class InstanceDebugInfo {
+        public int arch;
+        public java.util.ArrayList<java.lang.Integer> clientPids;
+        public java.lang.String instanceName;
+        public java.lang.String interfaceName;
+        public int pid;
+        public InstanceDebugInfo() {}
+        public static final java.util.ArrayList<android.internal.hidl.manager.V1_0.IServiceManager.InstanceDebugInfo> readVectorFromParcel(android.os.HwParcel p0) { return null; }
+        public static final void writeVectorToParcel(android.os.HwParcel p0, java.util.ArrayList<android.internal.hidl.manager.V1_0.IServiceManager.InstanceDebugInfo> p1) {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public final void readEmbeddedFromParcel(android.os.HwParcel p0, android.os.HwBlob p1, long p2) {}
+        public final void readFromParcel(android.os.HwParcel p0) {}
+        public final java.lang.String toString() { return null; }
+        public final void writeEmbeddedToBlob(android.os.HwBlob p0, long p1) {}
+        public final void writeToParcel(android.os.HwParcel p0) {}
+    }
+
+    public static final class PidConstant {
+        public static final int NO_PID = -1;
+        public PidConstant() {}
+        public static final java.lang.String dumpBitfield(int p0) { return null; }
+        public static final java.lang.String toString(int p0) { return null; }
     }
 }

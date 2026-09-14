@@ -7,6 +7,8 @@ public abstract class AbstractRemoteService<S extends com.android.internal.infra
     private static final int MSG_UNBIND = 2;
     public static final long PERMANENT_BOUND_TIMEOUT_MS = 0L;
     private static final int SERVICE_NOT_EXIST = -1;
+    static final long STABILITY_COOLDOWN_MS = 60000L;
+    private static final java.util.Map<com.android.internal.infra.AbstractRemoteService.ServiceKey, java.lang.Long> sLastCrashTimes = null;
     private final int mBindingFlags = 0;
     private boolean mBound;
     private boolean mCompleted;
@@ -22,6 +24,7 @@ public abstract class AbstractRemoteService<S extends com.android.internal.infra
     private boolean mServiceDied;
     private int mServiceExitReason;
     private int mServiceExitSubReason;
+    private final com.android.internal.infra.AbstractRemoteService.ServiceKey mServiceKey = null;
     protected final java.lang.String mTag = null;
     protected final java.util.ArrayList<com.android.internal.infra.AbstractRemoteService.BasePendingRequest<S, I>> mUnfinishedRequests = null;
     private final int mUserId = 0;
@@ -30,6 +33,8 @@ public abstract class AbstractRemoteService<S extends com.android.internal.infra
     AbstractRemoteService(android.content.Context p0, java.lang.String p1, android.content.ComponentName p2, int p3, com.android.internal.infra.AbstractRemoteService.VultureCallback<S> p4, android.os.Handler p5, int p6, boolean p7) {}
     private void cancelScheduledUnbind() {}
     private boolean checkIfDestroyed() { return false; }
+    public static void clearLastCrashTime(android.content.ComponentName p0, int p1) {}
+    private boolean fastFailRequired() { return false; }
     private void handleBinderDied() {}
     private void handleDestroy() {}
     private void handleEnsureBound() {}
@@ -39,8 +44,10 @@ public abstract class AbstractRemoteService<S extends com.android.internal.infra
     private void handleOnConnectedStateChangedInternal(boolean p0) {}
     private void handleUnbind() {}
     private void scheduleUnbind(boolean p0) {}
+    public static void setLastCrashTime(android.content.ComponentName p0, int p1, long p2) {}
     private void updateServicelicationExitInfo(android.content.ComponentName p0, int p1) {}
     public void binderDied() {}
+    protected final boolean checkIsPccService() { return false; }
     public final void destroy() {}
     public void dump(java.lang.String p0, java.io.PrintWriter p1) {}
     protected void executeAsyncRequest(com.android.internal.infra.AbstractRemoteService.AsyncRequest<I> p0) {}
@@ -61,32 +68,18 @@ public abstract class AbstractRemoteService<S extends com.android.internal.infra
     protected void scheduleBind() {}
     protected void scheduleRequest(com.android.internal.infra.AbstractRemoteService.BasePendingRequest<S, I> p0) {}
     protected void scheduleUnbind() {}
+    protected boolean shouldBackoffOnCrash() { return false; }
     public java.lang.String toString() { return null; }
 
-    public static interface AsyncRequest<I extends android.os.IInterface> {
-        public void run(I p0) throws android.os.RemoteException;
-    }
-
-    public static abstract class BasePendingRequest<S extends com.android.internal.infra.AbstractRemoteService<S, I>, I extends android.os.IInterface> implements java.lang.Runnable {
-        boolean mCancelled;
-        boolean mCompleted;
-        protected final java.lang.Object mLock = null;
-        protected final java.lang.String mTag = null;
-        final java.lang.ref.WeakReference<S> mWeakService = null;
-        BasePendingRequest(S p0) {}
-        public boolean cancel() { return false; }
-        protected final boolean finish() { return false; }
-        protected final S getService() { return null; }
-        protected final boolean isCancelledLocked() { return false; }
-        protected boolean isFinal() { return false; }
-        protected boolean isRequestCompleted() { return false; }
-        void onCancel() {}
-        protected void onFailed() {}
-        void onFinished() {}
+    private class RemoteServiceConnection implements android.content.ServiceConnection {
+        private RemoteServiceConnection(com.android.internal.infra.AbstractRemoteService p0) {}
+        public void onBindingDied(android.content.ComponentName p0) {}
+        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
+        public void onServiceDisconnected(android.content.ComponentName p0) {}
     }
 
     private static final class MyAsyncPendingRequest<S extends com.android.internal.infra.AbstractRemoteService<S, I>, I extends android.os.IInterface> extends com.android.internal.infra.AbstractRemoteService.BasePendingRequest<S, I> {
-        private static final java.lang.String TAG = null;
+        private static final java.lang.String TAG = "MyAsyncPendingRequest";
         private final com.android.internal.infra.AbstractRemoteService.AsyncRequest<I> mRequest = null;
         protected MyAsyncPendingRequest(S p0, com.android.internal.infra.AbstractRemoteService.AsyncRequest<I> p1) { super(null); }
         public void run() {}
@@ -101,14 +94,40 @@ public abstract class AbstractRemoteService<S extends com.android.internal.infra
         protected abstract void onTimeout(S p0);
     }
 
-    private class RemoteServiceConnection implements android.content.ServiceConnection {
-        private RemoteServiceConnection(com.android.internal.infra.AbstractRemoteService p0) {}
-        public void onBindingDied(android.content.ComponentName p0) {}
-        public void onServiceConnected(android.content.ComponentName p0, android.os.IBinder p1) {}
-        public void onServiceDisconnected(android.content.ComponentName p0) {}
+    public static interface AsyncRequest<I extends android.os.IInterface> {
+        public void run(I p0) throws android.os.RemoteException;
+    }
+
+    public static abstract class BasePendingRequest<S extends com.android.internal.infra.AbstractRemoteService<S, I>, I extends android.os.IInterface> implements java.lang.Runnable {
+        boolean mCancelled;
+        boolean mCompleted;
+        protected final java.lang.Object mLock = null;
+        protected final java.lang.String mTag = null;
+        final java.lang.ref.WeakReference<S> mWeakService = null;
+        protected BasePendingRequest(S p0) {}
+        public boolean cancel() { return false; }
+        protected final boolean finish() { return false; }
+        protected final S getService() { return null; }
+        protected final boolean isCancelledLocked() { return false; }
+        protected boolean isFinal() { return false; }
+        protected boolean isRequestCompleted() { return false; }
+        void onCancel() {}
+        protected void onFailed() {}
+        void onFinished() {}
     }
 
     public static interface VultureCallback<T extends java.lang.Object> {
         public void onServiceDied(T p0);
+    }
+
+    private static final class ServiceKey {
+        private final android.content.ComponentName componentName = null;
+        private final int userId = 0;
+        private ServiceKey(android.content.ComponentName p0, int p1) {}
+        public android.content.ComponentName componentName() { return null; }
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public final int hashCode() { return 0; }
+        public final java.lang.String toString() { return null; }
+        public int userId() { return 0; }
     }
 }

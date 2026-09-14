@@ -4,6 +4,7 @@ public final class Flags {
     public static final java.lang.String FLAG_ACCOUNT_MANAGEMENT_DISABLED_IN_ENGINE_V2 = "android.app.admin.flags.account_management_disabled_in_engine_v2";
     public static final java.lang.String FLAG_ADD_USER_INFO_IN_PROFILE_OFF_DEADLINE_ALARM = "android.app.admin.flags.add_user_info_in_profile_off_deadline_alarm";
     public static final java.lang.String FLAG_ALLOW_QUERYING_PROFILE_TYPE = "android.app.admin.flags.allow_querying_profile_type";
+    public static final java.lang.String FLAG_ALLOW_REMOVING_LAST_NON_HEADLESS_USER = "android.app.admin.flags.allow_removing_last_non_headless_user";
     public static final java.lang.String FLAG_ALL_POLICIES_IN_ENGINE_V2 = "android.app.admin.flags.all_policies_in_engine_v2";
     public static final java.lang.String FLAG_APPLICATION_HIDDEN_IN_ENGINE_V2 = "android.app.admin.flags.application_hidden_in_engine_v2";
     public static final java.lang.String FLAG_APPLICATION_RESTRICTIONS_IN_ENGINE_V2 = "android.app.admin.flags.application_restrictions_in_engine_v2";
@@ -27,12 +28,14 @@ public final class Flags {
     public static final java.lang.String FLAG_DEVICE_THEFT_IMPL_ENABLED = "android.app.admin.flags.device_theft_impl_enabled";
     public static final java.lang.String FLAG_DISALLOW_USER_CONTROL_STOPPED_STATE_FIX = "android.app.admin.flags.disallow_user_control_stopped_state_fix";
     public static final java.lang.String FLAG_DPM_SECURITY_LEVEL_WPA_ONLY = "android.app.admin.flags.dpm_security_level_wpa_only";
+    public static final java.lang.String FLAG_ENABLE_ADD_USER_DISABLED_FOR_MULTIUSER_MANAGEMENT_PO = "android.app.admin.flags.enable_add_user_disabled_for_multiuser_management_po";
     public static final java.lang.String FLAG_ENABLE_NULLABLE_ADMIN_COMPONENT = "android.app.admin.flags.enable_nullable_admin_component";
     public static final java.lang.String FLAG_ENABLE_SUPERVISION_SERVICE_SYNC = "android.app.admin.flags.enable_supervision_service_sync";
     public static final java.lang.String FLAG_ENFORCING_ADMIN_EXTRA_ENABLED = "android.app.admin.flags.enforcing_admin_extra_enabled";
     public static final java.lang.String FLAG_ENFORCING_ADMIN_GET_COMPONENT_NAME_ENABLED = "android.app.admin.flags.enforcing_admin_get_component_name_enabled";
     public static final java.lang.String FLAG_ESIM_MANAGEMENT_ENABLED = "android.app.admin.flags.esim_management_enabled";
     public static final java.lang.String FLAG_ESIM_MANAGEMENT_UX_ENABLED = "android.app.admin.flags.esim_management_ux_enabled";
+    public static final java.lang.String FLAG_EXTEND_ESID_SN_LENGTH = "android.app.admin.flags.extend_esid_sn_length";
     public static final java.lang.String FLAG_FORCE_REMOVE_ADMIN_SKIP_FEATURE_CHECK_FOR_RETAIL_DEMO = "android.app.admin.flags.force_remove_admin_skip_feature_check_for_retail_demo";
     public static final java.lang.String FLAG_GLOBAL_ONLY_USER_RESTRICTIONS_IN_ENGINE_V2 = "android.app.admin.flags.global_only_user_restrictions_in_engine_v2";
     public static final java.lang.String FLAG_GLOBAL_PRIVATE_DNS_PROFILE_OWNER = "android.app.admin.flags.global_private_dns_profile_owner";
@@ -54,10 +57,12 @@ public final class Flags {
     public static final java.lang.String FLAG_MULTI_USER_MANAGEMENT_DEVICE_PROVISIONING = "android.app.admin.flags.multi_user_management_device_provisioning";
     public static final java.lang.String FLAG_MULTI_USER_MANAGEMENT_REPORTING = "android.app.admin.flags.multi_user_management_reporting";
     public static final java.lang.String FLAG_MULTI_USER_MANAGEMENT_USER_PROVISIONING = "android.app.admin.flags.multi_user_management_user_provisioning";
+    public static final java.lang.String FLAG_NETWORK_LOG_STREAMING_ENABLED = "android.app.admin.flags.network_log_streaming_enabled";
     public static final java.lang.String FLAG_ONBOARDING_BUGREPORT_STORAGE_BUG_FIX = "android.app.admin.flags.onboarding_bugreport_storage_bug_fix";
     public static final java.lang.String FLAG_ONBOARDING_BUGREPORT_V2_ENABLED = "android.app.admin.flags.onboarding_bugreport_v2_enabled";
     public static final java.lang.String FLAG_ONBOARDING_CONSENTLESS_BUGREPORTS = "android.app.admin.flags.onboarding_consentless_bugreports";
     public static final java.lang.String FLAG_PACKAGES_SUSPENDED_IN_ENGINE_V2 = "android.app.admin.flags.packages_suspended_in_engine_v2";
+    public static final java.lang.String FLAG_PACKAGE_FAILURE_SECURITY_LOGGING_ENABLED = "android.app.admin.flags.package_failure_security_logging_enabled";
     public static final java.lang.String FLAG_PACKAGE_UNINSTALL_BLOCKED_IN_ENGINE_V2 = "android.app.admin.flags.package_uninstall_blocked_in_engine_v2";
     public static final java.lang.String FLAG_PASSWORD_COMPLEXITY_IN_ENGINE_V2 = "android.app.admin.flags.password_complexity_in_engine_v2";
     public static final java.lang.String FLAG_PERMISSION_GRANT_IN_ENGINE_V2 = "android.app.admin.flags.permission_grant_in_engine_v2";
@@ -76,23 +81,37 @@ public final class Flags {
     public static final java.lang.String FLAG_POLICY_STREAMLINING_AUTO_TIME_ZONE = "android.app.admin.flags.policy_streamlining_auto_time_zone";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_BLUETOOTH_SHARING = "android.app.admin.flags.policy_streamlining_bluetooth_sharing";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_CELLULAR_DATA_USAGE = "android.app.admin.flags.policy_streamlining_cellular_data_usage";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_CONTENT_PROTECTION = "android.app.admin.flags.policy_streamlining_content_protection";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_DEVELOPER_OPTIONS = "android.app.admin.flags.policy_streamlining_developer_options";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_DISALLOW_FACTORY_RESET = "android.app.admin.flags.policy_streamlining_disallow_factory_reset";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_DISALLOW_USB_FILE_TRANSFER = "android.app.admin.flags.policy_streamlining_disallow_usb_file_transfer";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_EASTER_EGGS = "android.app.admin.flags.policy_streamlining_easter_eggs";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_ETHERNET_STATE = "android.app.admin.flags.policy_streamlining_ethernet_state";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_FIRST_USE_HINTS = "android.app.admin.flags.policy_streamlining_first_use_hints";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_KEYGUARD_STATUS = "android.app.admin.flags.policy_streamlining_keyguard_status";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_LOCKSCREEN_MESSAGE = "android.app.admin.flags.policy_streamlining_lockscreen_message";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_LOGIN_SCREEN = "android.app.admin.flags.policy_streamlining_login_screen";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_MAXIMUM_TIME_TO_LOCK = "android.app.admin.flags.policy_streamlining_maximum_time_to_lock";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_MEMORY_TAGGING_EXTENSION = "android.app.admin.flags.policy_streamlining_memory_tagging_extension";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_NETWORK_LOGGING_ENABLED = "android.app.admin.flags.policy_streamlining_network_logging_enabled";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_NETWORK_RESET = "android.app.admin.flags.policy_streamlining_network_reset";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_PHYSICAL_MEDIA_ACCESS = "android.app.admin.flags.policy_streamlining_physical_media_access";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_SAFE_BOOT = "android.app.admin.flags.policy_streamlining_safe_boot";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_SCREEN_CAPTURE = "android.app.admin.flags.policy_streamlining_screen_capture";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_SCREEN_CAPTURE_API = "android.app.admin.flags.policy_streamlining_screen_capture_api";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_SECURITY_LOGGING_ENABLED = "android.app.admin.flags.policy_streamlining_security_logging_enabled";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_SHORT_SUPPORT_MESSAGE = "android.app.admin.flags.policy_streamlining_short_support_message";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_SUBSCRIPTIONS = "android.app.admin.flags.policy_streamlining_subscriptions";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_TASK_CONTINUITY_HANDOFF = "android.app.admin.flags.policy_streamlining_task_continuity_handoff";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_TETHERING_SETTINGS = "android.app.admin.flags.policy_streamlining_tethering_settings";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_THE_FEATURE_PACK = "android.app.admin.flags.policy_streamlining_the_feature_pack";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_UNTRUSTED_APPS = "android.app.admin.flags.policy_streamlining_untrusted_apps";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_USB_DATA_SIGNALING = "android.app.admin.flags.policy_streamlining_usb_data_signaling";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_USER_CONFIGURED_VPN = "android.app.admin.flags.policy_streamlining_user_configured_vpn";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_VERIFY_APPS = "android.app.admin.flags.policy_streamlining_verify_apps";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_WIFI_LOCAL_ONLY_HOTSPOT = "android.app.admin.flags.policy_streamlining_wifi_local_only_hotspot";
     public static final java.lang.String FLAG_POLICY_STREAMLINING_WIFI_NETWORK_SELECTION = "android.app.admin.flags.policy_streamlining_wifi_network_selection";
+    public static final java.lang.String FLAG_POLICY_STREAMLINING_WIFI_TETHERING_MINIMUM_SECURITY_LEVEL = "android.app.admin.flags.policy_streamlining_wifi_tethering_minimum_security_level";
     public static final java.lang.String FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED = "android.app.admin.flags.policy_transparency_refactor_enabled";
     public static final java.lang.String FLAG_POLICY_TRANSPARENCY_REFACTOR_V2 = "android.app.admin.flags.policy_transparency_refactor_v2";
     public static final java.lang.String FLAG_PROVISIONING_CONTEXT_PARAMETER = "android.app.admin.flags.provisioning_context_parameter";
@@ -116,21 +135,27 @@ public final class Flags {
     public static final java.lang.String FLAG_SET_MTE_POLICY_COEXISTENCE = "android.app.admin.flags.set_mte_policy_coexistence";
     public static final java.lang.String FLAG_SET_PERMISSION_GRANT_STATE_COEXISTENCE = "android.app.admin.flags.set_permission_grant_state_coexistence";
     public static final java.lang.String FLAG_SET_TIME_COEXISTENCE = "android.app.admin.flags.set_time_coexistence";
+    public static final java.lang.String FLAG_SINGLE_USER_DEVICE_MANAGEMENT_MODES_CONFIG_ENABLED = "android.app.admin.flags.single_user_device_management_modes_config_enabled";
     public static final java.lang.String FLAG_SKIP_ADMIN_FEATURE_CHECK_FOR_KEYGUARD_RESTRICTIONS = "android.app.admin.flags.skip_admin_feature_check_for_keyguard_restrictions";
     public static final java.lang.String FLAG_SPLIT_CREATE_MANAGED_PROFILE_ENABLED = "android.app.admin.flags.split_create_managed_profile_enabled";
     public static final java.lang.String FLAG_SUSPEND_PACKAGES_COEXISTENCE = "android.app.admin.flags.suspend_packages_coexistence";
     public static final java.lang.String FLAG_UNMANAGED_MODE_MIGRATION = "android.app.admin.flags.unmanaged_mode_migration";
     public static final java.lang.String FLAG_USB_DATA_SIGNALING_IN_ENGINE_V2 = "android.app.admin.flags.usb_data_signaling_in_engine_v2";
     public static final java.lang.String FLAG_USER_CONTROL_DISABLED_PACKAGES_IN_ENGINE_V2 = "android.app.admin.flags.user_control_disabled_packages_in_engine_v2";
+    public static final java.lang.String FLAG_USER_LOGIN_ATTEMPT_SECURITY_LOGGING_ENABLED = "android.app.admin.flags.user_login_attempt_security_logging_enabled";
+    public static final java.lang.String FLAG_USER_LOGOUT_SECURITY_LOGGING_ENABLED = "android.app.admin.flags.user_logout_security_logging_enabled";
     public static final java.lang.String FLAG_USER_RESTRICTIONS_IN_ENGINE_V2 = "android.app.admin.flags.user_restrictions_in_engine_v2";
     public static final java.lang.String FLAG_USE_ADMIN_RECORD = "android.app.admin.flags.use_admin_record";
     public static final java.lang.String FLAG_USE_HARDENED_FRP_ACTIVE_CHECK = "android.app.admin.flags.use_hardened_frp_active_check";
+    public static final java.lang.String FLAG_USE_REMOVE_USER_WHEN_POSSIBLE_FOR_WIPE_FOREGROUND_USER = "android.app.admin.flags.use_remove_user_when_possible_for_wipe_foreground_user";
     public static final java.lang.String FLAG_WIPE_DEVICE_WHEN_USER_CANNOT_BE_REMOVED = "android.app.admin.flags.wipe_device_when_user_cannot_be_removed";
+    public static final java.lang.String FLAG_XDR_REPORTING_ENABLED = "android.app.admin.flags.xdr_reporting_enabled";
     public Flags() {}
     public static boolean accountManagementDisabledInEngineV2() { return false; }
     public static boolean addUserInfoInProfileOffDeadlineAlarm() { return false; }
     public static boolean allPoliciesInEngineV2() { return false; }
     public static boolean allowQueryingProfileType() { return false; }
+    public static boolean allowRemovingLastNonHeadlessUser() { return false; }
     public static boolean appFunctionsInEngineV2() { return false; }
     public static boolean appRestrictionsCoexistence() { return false; }
     public static boolean applicationHiddenInEngineV2() { return false; }
@@ -153,12 +178,14 @@ public final class Flags {
     public static boolean deviceTheftImplEnabled() { return false; }
     public static boolean disallowUserControlStoppedStateFix() { return false; }
     public static boolean dpmSecurityLevelWpaOnly() { return false; }
+    public static boolean enableAddUserDisabledForMultiuserManagementPo() { return false; }
     public static boolean enableNullableAdminComponent() { return false; }
     public static boolean enableSupervisionServiceSync() { return false; }
     public static boolean enforcingAdminExtraEnabled() { return false; }
     public static boolean enforcingAdminGetComponentNameEnabled() { return false; }
     public static boolean esimManagementEnabled() { return false; }
     public static boolean esimManagementUxEnabled() { return false; }
+    public static boolean extendEsidSnLength() { return false; }
     public static boolean forceRemoveAdminSkipFeatureCheckForRetailDemo() { return false; }
     public static boolean globalOnlyUserRestrictionsInEngineV2() { return false; }
     public static boolean globalPrivateDnsProfileOwner() { return false; }
@@ -180,9 +207,11 @@ public final class Flags {
     public static boolean multiUserManagementDeviceProvisioning() { return false; }
     public static boolean multiUserManagementReporting() { return false; }
     public static boolean multiUserManagementUserProvisioning() { return false; }
+    public static boolean networkLogStreamingEnabled() { return false; }
     public static boolean onboardingBugreportStorageBugFix() { return false; }
     public static boolean onboardingBugreportV2Enabled() { return false; }
     public static boolean onboardingConsentlessBugreports() { return false; }
+    public static boolean packageFailureSecurityLoggingEnabled() { return false; }
     public static boolean packageUninstallBlockedInEngineV2() { return false; }
     public static boolean packagesSuspendedInEngineV2() { return false; }
     public static boolean passwordComplexityInEngineV2() { return false; }
@@ -202,23 +231,37 @@ public final class Flags {
     public static boolean policyStreamliningAutoTimeZone() { return false; }
     public static boolean policyStreamliningBluetoothSharing() { return false; }
     public static boolean policyStreamliningCellularDataUsage() { return false; }
+    public static boolean policyStreamliningContentProtection() { return false; }
+    public static boolean policyStreamliningDeveloperOptions() { return false; }
     public static boolean policyStreamliningDisallowFactoryReset() { return false; }
     public static boolean policyStreamliningDisallowUsbFileTransfer() { return false; }
     public static boolean policyStreamliningEasterEggs() { return false; }
+    public static boolean policyStreamliningEthernetState() { return false; }
+    public static boolean policyStreamliningFirstUseHints() { return false; }
     public static boolean policyStreamliningKeyguardStatus() { return false; }
     public static boolean policyStreamliningLockscreenMessage() { return false; }
+    public static boolean policyStreamliningLoginScreen() { return false; }
     public static boolean policyStreamliningMaximumTimeToLock() { return false; }
+    public static boolean policyStreamliningMemoryTaggingExtension() { return false; }
     public static boolean policyStreamliningNetworkLoggingEnabled() { return false; }
     public static boolean policyStreamliningNetworkReset() { return false; }
+    public static boolean policyStreamliningPhysicalMediaAccess() { return false; }
     public static boolean policyStreamliningSafeBoot() { return false; }
     public static boolean policyStreamliningScreenCapture() { return false; }
     public static boolean policyStreamliningScreenCaptureApi() { return false; }
+    public static boolean policyStreamliningSecurityLoggingEnabled() { return false; }
+    public static boolean policyStreamliningShortSupportMessage() { return false; }
     public static boolean policyStreamliningSubscriptions() { return false; }
+    public static boolean policyStreamliningTaskContinuityHandoff() { return false; }
+    public static boolean policyStreamliningTetheringSettings() { return false; }
+    public static boolean policyStreamliningTheFeaturePack() { return false; }
     public static boolean policyStreamliningUntrustedApps() { return false; }
     public static boolean policyStreamliningUsbDataSignaling() { return false; }
     public static boolean policyStreamliningUserConfiguredVpn() { return false; }
     public static boolean policyStreamliningVerifyApps() { return false; }
+    public static boolean policyStreamliningWifiLocalOnlyHotspot() { return false; }
     public static boolean policyStreamliningWifiNetworkSelection() { return false; }
+    public static boolean policyStreamliningWifiTetheringMinimumSecurityLevel() { return false; }
     public static boolean policyTransparencyRefactorEnabled() { return false; }
     public static boolean policyTransparencyRefactorV2() { return false; }
     public static boolean provisioningContextParameter() { return false; }
@@ -242,6 +285,7 @@ public final class Flags {
     public static boolean setMtePolicyCoexistence() { return false; }
     public static boolean setPermissionGrantStateCoexistence() { return false; }
     public static boolean setTimeCoexistence() { return false; }
+    public static boolean singleUserDeviceManagementModesConfigEnabled() { return false; }
     public static boolean skipAdminFeatureCheckForKeyguardRestrictions() { return false; }
     public static boolean splitCreateManagedProfileEnabled() { return false; }
     public static boolean suspendPackagesCoexistence() { return false; }
@@ -249,7 +293,11 @@ public final class Flags {
     public static boolean usbDataSignalingInEngineV2() { return false; }
     public static boolean useAdminRecord() { return false; }
     public static boolean useHardenedFrpActiveCheck() { return false; }
+    public static boolean useRemoveUserWhenPossibleForWipeForegroundUser() { return false; }
     public static boolean userControlDisabledPackagesInEngineV2() { return false; }
+    public static boolean userLoginAttemptSecurityLoggingEnabled() { return false; }
+    public static boolean userLogoutSecurityLoggingEnabled() { return false; }
     public static boolean userRestrictionsInEngineV2() { return false; }
     public static boolean wipeDeviceWhenUserCannotBeRemoved() { return false; }
+    public static boolean xdrReportingEnabled() { return false; }
 }

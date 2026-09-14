@@ -12,7 +12,7 @@ public final class CellIdentityCdma extends android.telephony.CellIdentity {
     private static final int LONGITUDE_MIN = -2592000;
     private static final int NETWORK_ID_MAX = 65535;
     private static final int SYSTEM_ID_MAX = 32767;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "CellIdentityCdma";
     private final int mBasestationId = 0;
     private final int mLatitude = 0;
     private final int mLongitude = 0;
@@ -24,6 +24,7 @@ public final class CellIdentityCdma extends android.telephony.CellIdentity {
     private CellIdentityCdma(android.telephony.CellIdentityCdma p0) { super((java.lang.String)null, 0, (android.os.Parcel)null); }
     protected static android.telephony.CellIdentityCdma createFromParcelBody(android.os.Parcel p0) { return null; }
     private boolean isNullIsland(int p0, int p1) { return false; }
+    @android.annotation.SystemApi
     @java.lang.Deprecated
     public android.telephony.cdma.CdmaCellLocation asCellLocation() { return null; }
     android.telephony.CellIdentityCdma copy() { return null; }
@@ -39,6 +40,7 @@ public final class CellIdentityCdma extends android.telephony.CellIdentity {
     @java.lang.Deprecated
     public int getSystemId() { return 0; }
     public int hashCode() { return 0; }
+    @android.annotation.SystemApi
     @java.lang.Deprecated
     public android.telephony.CellIdentityCdma sanitizeLocationInfo() { return null; }
     public java.lang.String toString() { return null; }

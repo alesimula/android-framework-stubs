@@ -15,6 +15,16 @@ public final class Enums {
     public static final int AUTH_NO_TYPE = 6;
     public static final int AUTH_PASSWORD = 2;
     public static final int AUTH_PASSWORD_OR_FINGERPRINT = 4;
+    public static final int AUTH_TIMEOUT_NONE = 1;
+    public static final int AUTH_TIMEOUT_OVER_ONE_DAY = 9;
+    public static final int AUTH_TIMEOUT_PER_OP = 2;
+    public static final int AUTH_TIMEOUT_UNSPECIFIED = 0;
+    public static final int AUTH_TIMEOUT_WITHIN_FIVE_MIN = 6;
+    public static final int AUTH_TIMEOUT_WITHIN_ONE_DAY = 8;
+    public static final int AUTH_TIMEOUT_WITHIN_ONE_HOUR = 7;
+    public static final int AUTH_TIMEOUT_WITHIN_ONE_MIN = 5;
+    public static final int AUTH_TIMEOUT_WITHIN_ONE_SEC = 3;
+    public static final int AUTH_TIMEOUT_WITHIN_TEN_SEC = 4;
     public static final int AUTH_TYPE_UNSPECIFIED = 0;
     public static final int EC_CURVE_25519 = 5;
     public static final int EC_CURVE_P_224 = 1;

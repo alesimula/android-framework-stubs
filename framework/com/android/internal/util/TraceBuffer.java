@@ -20,16 +20,16 @@ public class TraceBuffer<P extends java.lang.Object, S extends P, T extends P> {
     public int size() { return 0; }
     public void writeTraceToFile(java.io.File p0, S p1) throws java.io.IOException {}
 
+    public static interface ProtoProvider<P extends java.lang.Object, S extends P, T extends P> {
+        public byte[] getBytes(P p0);
+        public int getItemSize(P p0);
+        public void write(S p0, java.util.Queue<T> p1, java.io.OutputStream p2) throws java.io.IOException;
+    }
+
     private static class ProtoOutputStreamProvider implements com.android.internal.util.TraceBuffer.ProtoProvider<android.util.proto.ProtoOutputStream, android.util.proto.ProtoOutputStream, android.util.proto.ProtoOutputStream> {
         private ProtoOutputStreamProvider() {}
         public byte[] getBytes(android.util.proto.ProtoOutputStream p0) { return null; }
         public int getItemSize(android.util.proto.ProtoOutputStream p0) { return 0; }
         public void write(android.util.proto.ProtoOutputStream p0, java.util.Queue<android.util.proto.ProtoOutputStream> p1, java.io.OutputStream p2) throws java.io.IOException {}
-    }
-
-    public static interface ProtoProvider<P extends java.lang.Object, S extends P, T extends P> {
-        public byte[] getBytes(P p0);
-        public int getItemSize(P p0);
-        public void write(S p0, java.util.Queue<T> p1, java.io.OutputStream p2) throws java.io.IOException;
     }
 }

@@ -7,7 +7,7 @@ public abstract class ContentCaptureService extends android.app.Service {
     public static final java.lang.String PROTECTION_SERVICE_INTERFACE = "android.service.contentcapture.ContentProtectionService";
     public static final java.lang.String SERVICE_INTERFACE = "android.service.contentcapture.ContentCaptureService";
     public static final java.lang.String SERVICE_META_DATA = "android.content_capture";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ContentCaptureService";
     private long mCallerMismatchTimeout;
     private final android.view.contentcapture.IContentCaptureDirectManager mContentCaptureClientInterface = null;
     private final android.service.contentcapture.IContentCaptureService mContentCaptureServerInterface = null;
@@ -19,10 +19,12 @@ public abstract class ContentCaptureService extends android.app.Service {
     private long mLastCallerMismatchLog;
     public final android.util.SparseArray<android.service.contentcapture.ContentCaptureService.PendingMetrics> mPendingMetrics = null;
     private final android.util.SparseIntArray mSessionUids = null;
+    private final android.util.SparseArray<android.view.contentcapture.ContentCaptureDoubleBuffer> mSharedMemoryDoubleBuffers = null;
     public ContentCaptureService() { super(); }
     private void flushAllPendingMetrics() {}
     private void flushMetricsForSession(int p0) {}
     private void handleFinishSession(int p0) {}
+    private boolean handleIsRightCallerFor(int p0, int p1) { return false; }
     private boolean handleIsRightCallerFor(android.view.contentcapture.ContentCaptureEvent p0, int p1) { return false; }
     private void handleOnActivityEvent(android.service.contentcapture.ActivityEvent p0) {}
     private void handleOnActivitySnapshot(int p0, android.service.contentcapture.SnapshotData p1) {}
@@ -34,7 +36,9 @@ public abstract class ContentCaptureService extends android.app.Service {
     private void handleOnLoginDetected(int p0, android.content.pm.ParceledListSlice<android.view.contentcapture.ContentCaptureEvent> p1) {}
     private void handleOnUpdateAllowlistRequest(int p0, android.os.IBinder p1) {}
     private void handleSendEvents(int p0, android.content.pm.ParceledListSlice<android.view.contentcapture.ContentCaptureEvent> p1, int p2, android.content.ContentCaptureOptions p3) {}
+    private void handleSendSharedMemory(android.os.ParcelFileDescriptor p0, int p1, int p2, int p3) {}
     private static boolean isOverThreshold(android.service.contentcapture.FlushMetrics p0) { return false; }
+    private void onContentCaptureFrameCommit(int p0, int p1) {}
     public static void setClientState(com.android.internal.os.IResultReceiver p0, int p1, android.os.IBinder p2) {}
     private void writeFlushMetrics(int p0, android.content.ComponentName p1, android.service.contentcapture.FlushMetrics p2, android.content.ContentCaptureOptions p3, int p4) {}
     public final void disableSelf() {}
@@ -44,6 +48,8 @@ public abstract class ContentCaptureService extends android.app.Service {
     public final android.os.IBinder onBind(android.content.Intent p0) { return null; }
     public void onConnected() {}
     public void onContentCaptureEvent(android.view.contentcapture.ContentCaptureSessionId p0, android.view.contentcapture.ContentCaptureEvent p1) {}
+    @android.annotation.SystemApi
+    public void onContentCaptureFrameAvailable(android.view.contentcapture.ContentCaptureSessionId p0, android.view.contentcapture.SharedContentCaptureFrame p1) {}
     public void onCreate() {}
     public void onCreateContentCaptureSession(android.view.contentcapture.ContentCaptureContext p0, android.view.contentcapture.ContentCaptureSessionId p1) {}
     public void onDataRemovalRequest(android.view.contentcapture.DataRemovalRequest p0) {}

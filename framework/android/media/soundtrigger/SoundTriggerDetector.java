@@ -29,28 +29,6 @@ public final class SoundTriggerDetector {
     @java.lang.Deprecated
     public boolean stopRecognition() { return false; }
 
-    public static abstract class Callback {
-        public Callback() {}
-        public abstract void onAvailabilityChanged(int p0);
-        public abstract void onDetected(android.media.soundtrigger.SoundTriggerDetector.EventPayload p0);
-        public abstract void onError();
-        public abstract void onRecognitionPaused();
-        public abstract void onRecognitionResumed();
-    }
-
-    public static class EventPayload {
-        private final android.media.AudioFormat mAudioFormat = null;
-        private final boolean mCaptureAvailable = false;
-        private final int mCaptureSession = 0;
-        private final byte[] mData = null;
-        private final boolean mTriggerAvailable = false;
-        private EventPayload(boolean p0, boolean p1, android.media.AudioFormat p2, int p3, byte[] p4) {}
-        public android.media.AudioFormat getCaptureAudioFormat() { return null; }
-        public java.lang.Integer getCaptureSession() { return null; }
-        public byte[] getData() { return null; }
-        public byte[] getTriggerAudio() { return null; }
-    }
-
     private class MyHandler extends android.os.Handler {
         MyHandler(android.media.soundtrigger.SoundTriggerDetector p0) { super(); }
         MyHandler(android.media.soundtrigger.SoundTriggerDetector p0, android.os.Looper p1) { super(); }
@@ -67,6 +45,28 @@ public final class SoundTriggerDetector {
         public void onRecognitionPaused() {}
         public void onRecognitionResumed() {}
         public void onResumeFailed(int p0) {}
+    }
+
+    public static class EventPayload {
+        private final android.media.AudioFormat mAudioFormat = null;
+        private final boolean mCaptureAvailable = false;
+        private final int mCaptureSession = 0;
+        private final byte[] mData = null;
+        private final boolean mTriggerAvailable = false;
+        private EventPayload(boolean p0, boolean p1, android.media.AudioFormat p2, int p3, byte[] p4) {}
+        public android.media.AudioFormat getCaptureAudioFormat() { return null; }
+        public java.lang.Integer getCaptureSession() { return null; }
+        public byte[] getData() { return null; }
+        public byte[] getTriggerAudio() { return null; }
+    }
+
+    public static abstract class Callback {
+        public Callback() {}
+        public abstract void onAvailabilityChanged(int p0);
+        public abstract void onDetected(android.media.soundtrigger.SoundTriggerDetector.EventPayload p0);
+        public abstract void onError();
+        public abstract void onRecognitionPaused();
+        public abstract void onRecognitionResumed();
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

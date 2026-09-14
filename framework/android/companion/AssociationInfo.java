@@ -5,6 +5,8 @@ public final class AssociationInfo implements android.os.Parcelable {
     private static final java.lang.String LAST_TIME_CONNECTED_NONE = "None";
     public static final java.lang.String METADATA_TIMESTAMP = "_timestamp_";
     private final android.companion.AssociatedDevice mAssociatedDevice = null;
+    private final java.util.UUID mAssociationToken = null;
+    private final int mAttestationLevel = 0;
     private final android.graphics.drawable.Icon mDeviceIcon = null;
     private final android.companion.DeviceId mDeviceId = null;
     private final java.lang.String mDeviceProfile = null;
@@ -18,6 +20,7 @@ public final class AssociationInfo implements android.os.Parcelable {
     private final java.util.List<java.lang.String> mPackagesToNotify = null;
     private final boolean mPending = false;
     private final boolean mRemoteAiAgentSupported = false;
+    private final int[] mRequestedTrustTypes = null;
     private final boolean mRevoked = false;
     private final boolean mSelfManaged = false;
     private final int mSystemDataSyncFlags = 0;
@@ -29,11 +32,14 @@ public final class AssociationInfo implements android.os.Parcelable {
     private final int mUserId = 0;
     private AssociationInfo(android.companion.AssociationInfo.Builder p0) {}
     private AssociationInfo(android.os.Parcel p0) {}
+    private static boolean isEqualConstantTime(java.util.UUID p0, java.util.UUID p1) { return false; }
     private boolean isSameIcon(android.graphics.drawable.Icon p0, android.graphics.drawable.Icon p1) { return false; }
     public boolean belongsToPackage(int p0, java.lang.String p1) { return false; }
     public int describeContents() { return 0; }
     public boolean equals(java.lang.Object p0) { return false; }
     public android.companion.AssociatedDevice getAssociatedDevice() { return null; }
+    public java.util.UUID getAssociationToken() { return null; }
+    public int getAttestationLevel() { return 0; }
     public android.graphics.drawable.Icon getDeviceIcon() { return null; }
     public android.companion.DeviceId getDeviceId() { return null; }
     public android.net.MacAddress getDeviceMacAddress() { return null; }
@@ -50,6 +56,7 @@ public final class AssociationInfo implements android.os.Parcelable {
     @android.annotation.SystemApi
     public java.lang.String getPackageName() { return null; }
     public java.util.List<java.lang.String> getPackagesToNotify() { return null; }
+    public int[] getRequestedTrustTypes() { return null; }
     public int getSystemDataSyncFlags() { return 0; }
     public long getTimeApprovedMs() { return 0L; }
     public int getTransportFlags() { return 0; }
@@ -71,6 +78,8 @@ public final class AssociationInfo implements android.os.Parcelable {
 
     public static final class Builder {
         private android.companion.AssociatedDevice mAssociatedDevice;
+        private java.util.UUID mAssociationToken;
+        private int mAttestationLevel;
         private android.graphics.drawable.Icon mDeviceIcon;
         private android.companion.DeviceId mDeviceId;
         private java.lang.String mDeviceProfile;
@@ -84,6 +93,7 @@ public final class AssociationInfo implements android.os.Parcelable {
         private java.util.List<java.lang.String> mPackagesToNotify;
         private boolean mPending;
         private boolean mRemoteAiAgentSupported;
+        private int[] mRequestedTrustTypes;
         private boolean mRevoked;
         private boolean mSelfManaged;
         private int mSystemDataSyncFlags;
@@ -98,6 +108,8 @@ public final class AssociationInfo implements android.os.Parcelable {
         public Builder(android.companion.AssociationInfo p0) {}
         public android.companion.AssociationInfo build() { return null; }
         public android.companion.AssociationInfo.Builder setAssociatedDevice(android.companion.AssociatedDevice p0) { return null; }
+        public android.companion.AssociationInfo.Builder setAssociationToken(java.util.UUID p0) { return null; }
+        public android.companion.AssociationInfo.Builder setAttestationLevel(int p0) { return null; }
         public android.companion.AssociationInfo.Builder setDeviceIcon(android.graphics.drawable.Icon p0) { return null; }
         public android.companion.AssociationInfo.Builder setDeviceId(android.companion.DeviceId p0) { return null; }
         public android.companion.AssociationInfo.Builder setDeviceMacAddress(android.net.MacAddress p0) { return null; }
@@ -110,6 +122,7 @@ public final class AssociationInfo implements android.os.Parcelable {
         public android.companion.AssociationInfo.Builder setPackagesToNotify(java.util.List<java.lang.String> p0) { return null; }
         public android.companion.AssociationInfo.Builder setPending(boolean p0) { return null; }
         public android.companion.AssociationInfo.Builder setRemoteAiAgentSupported(boolean p0) { return null; }
+        public android.companion.AssociationInfo.Builder setRequestedTrustTypes(int[] p0) { return null; }
         public android.companion.AssociationInfo.Builder setRevoked(boolean p0) { return null; }
         public android.companion.AssociationInfo.Builder setSelfManaged(boolean p0) { return null; }
         public android.companion.AssociationInfo.Builder setSystemDataSyncFlags(int p0) { return null; }

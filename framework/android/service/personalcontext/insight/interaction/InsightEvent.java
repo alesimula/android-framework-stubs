@@ -1,14 +1,14 @@
 package android.service.personalcontext.insight.interaction;
 
-@android.annotation.SystemApi
 public final class InsightEvent implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.service.personalcontext.insight.interaction.InsightEvent> CREATOR = null;
     public static final int EVENT_HIDE = 2;
-    public static final int EVENT_RETIRED = 9;
+    public static final int EVENT_RETIRED = 10;
     public static final int EVENT_SHOW = 1;
     public static final int EVENT_UNKNOWN = 0;
     public static final int EVENT_USER_ATTRIBUTION_REQUESTED = 6;
     public static final int EVENT_USER_DISMISS = 5;
+    public static final int EVENT_USER_EGRESS_REQUESTED = 9;
     public static final int EVENT_USER_FEEDBACK_NEGATIVE = 8;
     public static final int EVENT_USER_FEEDBACK_POSITIVE = 7;
     public static final int EVENT_USER_LONG_PRESS = 4;
@@ -20,9 +20,11 @@ public final class InsightEvent implements android.os.Parcelable {
     private InsightEvent(android.os.Parcel p0) {}
     public int describeContents() { return 0; }
     public android.service.personalcontext.insight.ContextInsight getContextInsight() { return null; }
+    public android.app.personalcontext.insight.ContextInsight getEventInsight() { return null; }
     public int getEventType() { return 0; }
     @android.annotation.SystemApi
     public android.service.personalcontext.insight.PublishedContextInsight getInsight() { return null; }
+    @android.annotation.SystemApi
     public android.service.personalcontext.RenderToken getRenderToken() { return null; }
     public long getTimestamp() { return 0L; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}

@@ -85,29 +85,10 @@ public class Spatializer {
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.PRIVILEGED_APPS)
     public void setOnSpatializerOutputChangedListener(java.util.concurrent.Executor p0, android.media.Spatializer.OnSpatializerOutputChangedListener p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HeadTrackingMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HeadTrackingModeSet {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HeadTrackingModeSupported {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ImmersiveAudioLevel {
-    }
-
-    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.PRIVILEGED_APPS)
-    public static interface OnHeadToSoundstagePoseUpdatedListener {
-        public void onHeadToSoundstagePoseUpdated(android.media.Spatializer p0, float[] p1);
-    }
-
-    public static interface OnHeadTrackerAvailableListener {
-        public void onHeadTrackerAvailableChanged(android.media.Spatializer p0, boolean p1);
+    private final class SpatializerHeadTrackerAvailableDispatcherStub extends android.media.ISpatializerHeadTrackerAvailableCallback.Stub implements android.media.CallbackUtil.DispatcherStub {
+        private SpatializerHeadTrackerAvailableDispatcherStub(android.media.Spatializer p0) { super(); }
+        public void dispatchSpatializerHeadTrackerAvailable(boolean p0) {}
+        public void register(boolean p0) {}
     }
 
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.PRIVILEGED_APPS)
@@ -116,20 +97,12 @@ public class Spatializer {
         public void onHeadTrackingModeChanged(android.media.Spatializer p0, int p1);
     }
 
-    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.PRIVILEGED_APPS)
-    public static interface OnSpatializerOutputChangedListener {
-        public void onSpatializerOutputChanged(android.media.Spatializer p0, int p1);
+    public static interface OnHeadTrackerAvailableListener {
+        public void onHeadTrackerAvailableChanged(android.media.Spatializer p0, boolean p1);
     }
 
-    public static interface OnSpatializerStateChangedListener {
-        public void onSpatializerAvailableChanged(android.media.Spatializer p0, boolean p1);
-        public void onSpatializerEnabledChanged(android.media.Spatializer p0, boolean p1);
-    }
-
-    private final class SpatializerHeadTrackerAvailableDispatcherStub extends android.media.ISpatializerHeadTrackerAvailableCallback.Stub implements android.media.CallbackUtil.DispatcherStub {
-        private SpatializerHeadTrackerAvailableDispatcherStub(android.media.Spatializer p0) { super(); }
-        public void dispatchSpatializerHeadTrackerAvailable(boolean p0) {}
-        public void register(boolean p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HeadTrackingModeSet {
     }
 
     private final class SpatializerHeadTrackingDispatcherStub extends android.media.ISpatializerHeadTrackingModeCallback.Stub implements android.media.CallbackUtil.DispatcherStub {
@@ -146,13 +119,40 @@ public class Spatializer {
         public void register(boolean p0) {}
     }
 
+    private final class SpatializerPoseDispatcherStub extends android.media.ISpatializerHeadToSoundStagePoseCallback.Stub {
+        private SpatializerPoseDispatcherStub(android.media.Spatializer p0) { super(); }
+        public void dispatchPoseChanged(float[] p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HeadTrackingMode {
+    }
+
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.PRIVILEGED_APPS)
+    public static interface OnSpatializerOutputChangedListener {
+        public void onSpatializerOutputChanged(android.media.Spatializer p0, int p1);
+    }
+
+    @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.PRIVILEGED_APPS)
+    public static interface OnHeadToSoundstagePoseUpdatedListener {
+        public void onHeadToSoundstagePoseUpdated(android.media.Spatializer p0, float[] p1);
+    }
+
+    public static interface OnSpatializerStateChangedListener {
+        public void onSpatializerAvailableChanged(android.media.Spatializer p0, boolean p1);
+        public void onSpatializerEnabledChanged(android.media.Spatializer p0, boolean p1);
+    }
+
     private final class SpatializerOutputDispatcherStub extends android.media.ISpatializerOutputCallback.Stub {
         private SpatializerOutputDispatcherStub(android.media.Spatializer p0) { super(); }
         public void dispatchSpatializerOutputChanged(int p0) {}
     }
 
-    private final class SpatializerPoseDispatcherStub extends android.media.ISpatializerHeadToSoundStagePoseCallback.Stub {
-        private SpatializerPoseDispatcherStub(android.media.Spatializer p0) { super(); }
-        public void dispatchPoseChanged(float[] p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ImmersiveAudioLevel {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HeadTrackingModeSupported {
     }
 }

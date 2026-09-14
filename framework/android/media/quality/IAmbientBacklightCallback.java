@@ -4,12 +4,6 @@ public interface IAmbientBacklightCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.quality.IAmbientBacklightCallback";
     public void onAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.quality.IAmbientBacklightCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.quality.IAmbientBacklightCallback {
         static final int TRANSACTION_onAmbientBacklightEvent = 1;
         public Stub() { super(); }
@@ -24,5 +18,11 @@ public interface IAmbientBacklightCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.quality.IAmbientBacklightCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0) throws android.os.RemoteException {}
     }
 }

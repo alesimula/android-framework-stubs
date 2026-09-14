@@ -6,12 +6,6 @@ public interface ICredentialStoreFactory extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.security.identity.ICredentialStoreFactory";
     public android.security.identity.ICredentialStore getCredentialStore(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.identity.ICredentialStoreFactory {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.security.identity.ICredentialStore getCredentialStore(int p0) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.identity.ICredentialStoreFactory {
         static final int TRANSACTION_getCredentialStore = 1;
         public Stub() { super(); }
@@ -28,5 +22,11 @@ public interface ICredentialStoreFactory extends android.os.IInterface {
             public android.security.identity.ICredentialStore getCredentialStore(int p0) throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.security.identity.ICredentialStoreFactory {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.security.identity.ICredentialStore getCredentialStore(int p0) throws android.os.RemoteException { return null; }
     }
 }

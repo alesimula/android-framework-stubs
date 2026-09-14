@@ -11,6 +11,7 @@ public interface ISystemConfig extends android.os.IInterface {
     public java.util.List<android.content.pm.SignedPackageParcel> getEnhancedConfirmationTrustedInstallersLegacy() throws android.os.RemoteException;
     public java.util.List<android.content.pm.SignedPackage> getEnhancedConfirmationTrustedPackages() throws android.os.RemoteException;
     public java.util.List<android.content.pm.SignedPackageParcel> getEnhancedConfirmationTrustedPackagesLegacy() throws android.os.RemoteException;
+    public java.util.List<java.lang.String> getImmutableBackgroundAndDataSaverPackages() throws android.os.RemoteException;
     public java.util.List<java.lang.String> getPreventUserDisablePackages() throws android.os.RemoteException;
     public int[] getSystemPermissionUids(java.lang.String p0) throws android.os.RemoteException;
 
@@ -26,6 +27,7 @@ public interface ISystemConfig extends android.os.IInterface {
         public java.util.List<android.content.pm.SignedPackageParcel> getEnhancedConfirmationTrustedInstallersLegacy() throws android.os.RemoteException { return null; }
         public java.util.List<android.content.pm.SignedPackage> getEnhancedConfirmationTrustedPackages() throws android.os.RemoteException { return null; }
         public java.util.List<android.content.pm.SignedPackageParcel> getEnhancedConfirmationTrustedPackagesLegacy() throws android.os.RemoteException { return null; }
+        public java.util.List<java.lang.String> getImmutableBackgroundAndDataSaverPackages() throws android.os.RemoteException { return null; }
         public java.util.List<java.lang.String> getPreventUserDisablePackages() throws android.os.RemoteException { return null; }
         public int[] getSystemPermissionUids(java.lang.String p0) throws android.os.RemoteException { return null; }
     }
@@ -40,6 +42,7 @@ public interface ISystemConfig extends android.os.IInterface {
         static final int TRANSACTION_getEnhancedConfirmationTrustedInstallersLegacy = 11;
         static final int TRANSACTION_getEnhancedConfirmationTrustedPackages = 8;
         static final int TRANSACTION_getEnhancedConfirmationTrustedPackagesLegacy = 9;
+        static final int TRANSACTION_getImmutableBackgroundAndDataSaverPackages = 12;
         static final int TRANSACTION_getPreventUserDisablePackages = 7;
         static final int TRANSACTION_getSystemPermissionUids = 4;
         public Stub() { super(); }
@@ -62,6 +65,7 @@ public interface ISystemConfig extends android.os.IInterface {
             public java.util.List<android.content.pm.SignedPackageParcel> getEnhancedConfirmationTrustedInstallersLegacy() throws android.os.RemoteException { return null; }
             public java.util.List<android.content.pm.SignedPackage> getEnhancedConfirmationTrustedPackages() throws android.os.RemoteException { return null; }
             public java.util.List<android.content.pm.SignedPackageParcel> getEnhancedConfirmationTrustedPackagesLegacy() throws android.os.RemoteException { return null; }
+            public java.util.List<java.lang.String> getImmutableBackgroundAndDataSaverPackages() throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public java.util.List<java.lang.String> getPreventUserDisablePackages() throws android.os.RemoteException { return null; }
             public int[] getSystemPermissionUids(java.lang.String p0) throws android.os.RemoteException { return null; }

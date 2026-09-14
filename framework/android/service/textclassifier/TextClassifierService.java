@@ -32,19 +32,19 @@ public abstract class TextClassifierService extends android.app.Service {
     public void onTextClassifierEvent(android.view.textclassifier.TextClassificationSessionId p0, android.view.textclassifier.TextClassifierEvent p1) {}
     public boolean onUnbind(android.content.Intent p0) { return false; }
 
-    public static interface Callback<T extends java.lang.Object> {
-        public void onFailure(java.lang.CharSequence p0);
-        public void onSuccess(T p0);
+    private static final class ProxyCallback<T extends android.os.Parcelable> implements android.service.textclassifier.TextClassifierService.Callback<T> {
+        private android.service.textclassifier.ITextClassifierCallback mTextClassifierCallback;
+        private ProxyCallback(android.service.textclassifier.ITextClassifierCallback p0) {}
+        public void onFailure(java.lang.CharSequence p0) {}
+        public void onSuccess(T p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface ConnectionState {
     }
 
-    private static final class ProxyCallback<T extends android.os.Parcelable> implements android.service.textclassifier.TextClassifierService.Callback<T> {
-        private android.service.textclassifier.ITextClassifierCallback mTextClassifierCallback;
-        private ProxyCallback(android.service.textclassifier.ITextClassifierCallback p0) {}
-        public void onFailure(java.lang.CharSequence p0) {}
-        public void onSuccess(T p0) {}
+    public static interface Callback<T extends java.lang.Object> {
+        public void onFailure(java.lang.CharSequence p0);
+        public void onSuccess(T p0);
     }
 }

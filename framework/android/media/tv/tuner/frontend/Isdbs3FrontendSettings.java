@@ -62,11 +62,11 @@ public class Isdbs3FrontendSettings extends android.media.tv.tuner.frontend.Fron
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CodeRate {
+    public static @interface Modulation {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Modulation {
+    public static @interface CodeRate {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

@@ -51,6 +51,7 @@ public final class PerfettoTrackEventBuilder {
     private void updateNativeMemoryCleanerForDebug(boolean p0) {}
     private com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingCounterTrack(long p0, java.lang.String p1, boolean p2) { return null; }
     private com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingNamedTrack(long p0, java.lang.String p1, long p2, boolean p3) { return null; }
+    private com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingStateTrack(long p0, java.lang.String p1, boolean p2) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addArg(java.lang.String p0, double p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addArg(java.lang.String p0, long p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addArg(java.lang.String p0, java.lang.String p1) { return null; }
@@ -58,6 +59,7 @@ public final class PerfettoTrackEventBuilder {
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addField(long p0, double p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addField(long p0, long p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addField(long p0, java.lang.String p1) { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addField(long p0, boolean p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addFieldWithInterning(long p0, java.lang.String p1, long p2) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addFlow(long p0) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder addTerminatingFlow(long p0) { return null; }
@@ -66,6 +68,8 @@ public final class PerfettoTrackEventBuilder {
     public void emit() {}
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder endNested() { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder endProto() { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder setCorrelationId(long p0) { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder setCorrelationId(java.lang.String p0) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder setCounter(double p0) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder setCounter(long p0) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder setEventName(java.lang.String p0) { return null; }
@@ -79,24 +83,31 @@ public final class PerfettoTrackEventBuilder {
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingProcessCounterTrackWithDynamicName(java.lang.String p0) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingProcessNamedTrack(long p0, java.lang.String p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingProcessNamedTrackWithDynamicName(long p0, java.lang.String p1) { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingProcessStateTrack(java.lang.String p0) { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingProcessStateTrackWithDynamicName(java.lang.String p0) { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingStateTrack(long p0, java.lang.String p1) { return null; }
+    public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingStateTrackWithDynamicName(long p0, java.lang.String p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingThreadCounterTrack(long p0, java.lang.String p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingThreadCounterTrackWithDynamicName(long p0, java.lang.String p1) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingThreadNamedTrack(long p0, java.lang.String p1, long p2) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingThreadNamedTrackWithDynamicName(long p0, java.lang.String p1, long p2) { return null; }
     public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder usingTrack(com.android.internal.dev.perfetto.sdk.PerfettoTrack p0) { return null; }
 
-    private static final class LazyInitObjects {
-        private com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.Counter mCounter;
-        private final com.android.internal.dev.perfetto.sdk.PerfettoNativeMemoryCleaner mNativeMemoryCleaner = null;
-        private LazyInitObjects(com.android.internal.dev.perfetto.sdk.PerfettoNativeMemoryCleaner p0) {}
-        public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.Counter getCounter() { return null; }
-    }
-
     private static final class ObjectsCache {
         public final com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder.RingBuffer<com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.Arg> mArgCache = null;
         public final com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder.RingBuffer<com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.CounterTrack> mCounterTrackCache = null;
         public final com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder.RingBuffer<com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.NamedTrack> mNamedTrackCache = null;
+        public final com.android.internal.dev.perfetto.sdk.PerfettoTrackEventBuilder.RingBuffer<com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.StateTrack> mStateTrackCache = null;
         public ObjectsCache(int p0) {}
+    }
+
+    private static final class LazyInitObjects {
+        private com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.CorrelationId mCorrelationId;
+        private com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.Counter mCounter;
+        private final com.android.internal.dev.perfetto.sdk.PerfettoNativeMemoryCleaner mNativeMemoryCleaner = null;
+        private LazyInitObjects(com.android.internal.dev.perfetto.sdk.PerfettoNativeMemoryCleaner p0) {}
+        public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.CorrelationId getCorrelationId() { return null; }
+        public com.android.internal.dev.perfetto.sdk.PerfettoTrackEventExtra.Counter getCounter() { return null; }
     }
 
     private static final class ObjectsPool {

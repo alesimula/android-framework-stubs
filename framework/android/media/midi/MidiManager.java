@@ -24,19 +24,19 @@ public final class MidiManager {
     public void registerDeviceCallback(android.media.midi.MidiManager.DeviceCallback p0, android.os.Handler p1) {}
     public void unregisterDeviceCallback(android.media.midi.MidiManager.DeviceCallback p0) {}
 
-    public static class DeviceCallback {
-        public DeviceCallback() {}
-        public void onDeviceAdded(android.media.midi.MidiDeviceInfo p0) {}
-        public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) {}
-        public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) {}
-    }
-
     private class DeviceListener extends android.media.midi.IMidiDeviceListener.Stub {
         private final android.media.midi.MidiManager.DeviceCallback mCallback = null;
         private final java.util.concurrent.Executor mExecutor = null;
         private final int mTransport = 0;
         DeviceListener(android.media.midi.MidiManager p0, android.media.midi.MidiManager.DeviceCallback p1, java.util.concurrent.Executor p2, int p3) { super(); }
         private boolean shouldInvokeCallback(android.media.midi.MidiDeviceInfo p0) { return false; }
+        public void onDeviceAdded(android.media.midi.MidiDeviceInfo p0) {}
+        public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) {}
+        public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) {}
+    }
+
+    public static class DeviceCallback {
+        public DeviceCallback() {}
         public void onDeviceAdded(android.media.midi.MidiDeviceInfo p0) {}
         public void onDeviceRemoved(android.media.midi.MidiDeviceInfo p0) {}
         public void onDeviceStatusChanged(android.media.midi.MidiDeviceStatus p0) {}

@@ -6,14 +6,6 @@ public interface ICamHostControlService extends android.os.IInterface {
     public void removeCamHostcontrolInfoListener(android.media.tv.extension.cam.ICamHostControlInfoListener p0) throws android.os.RemoteException;
     public int sendCamHostControlAskRelease(java.lang.String p0, android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.cam.ICamHostControlService {
-        public Default() {}
-        public void addCamHostcontrolInfoListener(android.media.tv.extension.cam.ICamHostControlInfoListener p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public void removeCamHostcontrolInfoListener(android.media.tv.extension.cam.ICamHostControlInfoListener p0) throws android.os.RemoteException {}
-        public int sendCamHostControlAskRelease(java.lang.String p0, android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback p1) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.cam.ICamHostControlService {
         static final int TRANSACTION_addCamHostcontrolInfoListener = 1;
         static final int TRANSACTION_removeCamHostcontrolInfoListener = 2;
@@ -34,5 +26,13 @@ public interface ICamHostControlService extends android.os.IInterface {
             public void removeCamHostcontrolInfoListener(android.media.tv.extension.cam.ICamHostControlInfoListener p0) throws android.os.RemoteException {}
             public int sendCamHostControlAskRelease(java.lang.String p0, android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback p1) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.cam.ICamHostControlService {
+        public Default() {}
+        public void addCamHostcontrolInfoListener(android.media.tv.extension.cam.ICamHostControlInfoListener p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public void removeCamHostcontrolInfoListener(android.media.tv.extension.cam.ICamHostControlInfoListener p0) throws android.os.RemoteException {}
+        public int sendCamHostControlAskRelease(java.lang.String p0, android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback p1) throws android.os.RemoteException { return 0; }
     }
 }

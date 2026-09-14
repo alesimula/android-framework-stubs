@@ -27,34 +27,6 @@ public interface IVirtualHal extends android.os.IInterface {
     public void setSensorStrength(byte p0) throws android.os.RemoteException;
     public void setType(byte p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.biometrics.face.virtualhal.IVirtualHal {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.biometrics.face.IFace getFaceHal() throws android.os.RemoteException { return null; }
-        public void resetConfigurations() throws android.os.RemoteException {}
-        public void setAuthenticatorId(long p0) throws android.os.RemoteException {}
-        public void setChallenge(long p0) throws android.os.RemoteException {}
-        public void setEnrollmentHit(int p0) throws android.os.RemoteException {}
-        public void setEnrollments(int[] p0) throws android.os.RemoteException {}
-        public void setLockout(boolean p0) throws android.os.RemoteException {}
-        public void setLockoutEnable(boolean p0) throws android.os.RemoteException {}
-        public void setLockoutPermanentThreshold(int p0) throws android.os.RemoteException {}
-        public void setLockoutTimedDuration(int p0) throws android.os.RemoteException {}
-        public void setLockoutTimedEnable(boolean p0) throws android.os.RemoteException {}
-        public void setLockoutTimedThreshold(int p0) throws android.os.RemoteException {}
-        public void setNextEnrollment(android.hardware.biometrics.face.virtualhal.NextEnrollment p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateAcquired(android.hardware.biometrics.face.virtualhal.AcquiredInfoAndVendorCode[] p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateDuration(int p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateError(int p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateFails(boolean p0) throws android.os.RemoteException {}
-        public void setOperationAuthenticateLatency(int[] p0) throws android.os.RemoteException {}
-        public void setOperationDetectInteractionFails(boolean p0) throws android.os.RemoteException {}
-        public void setOperationDetectInteractionLatency(int[] p0) throws android.os.RemoteException {}
-        public void setOperationEnrollLatency(int[] p0) throws android.os.RemoteException {}
-        public void setSensorStrength(byte p0) throws android.os.RemoteException {}
-        public void setType(byte p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.biometrics.face.virtualhal.IVirtualHal {
         static final int TRANSACTION_getFaceHal = 23;
         static final int TRANSACTION_resetConfigurations = 20;
@@ -115,5 +87,33 @@ public interface IVirtualHal extends android.os.IInterface {
             public void setSensorStrength(byte p0) throws android.os.RemoteException {}
             public void setType(byte p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.biometrics.face.virtualhal.IVirtualHal {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.biometrics.face.IFace getFaceHal() throws android.os.RemoteException { return null; }
+        public void resetConfigurations() throws android.os.RemoteException {}
+        public void setAuthenticatorId(long p0) throws android.os.RemoteException {}
+        public void setChallenge(long p0) throws android.os.RemoteException {}
+        public void setEnrollmentHit(int p0) throws android.os.RemoteException {}
+        public void setEnrollments(int[] p0) throws android.os.RemoteException {}
+        public void setLockout(boolean p0) throws android.os.RemoteException {}
+        public void setLockoutEnable(boolean p0) throws android.os.RemoteException {}
+        public void setLockoutPermanentThreshold(int p0) throws android.os.RemoteException {}
+        public void setLockoutTimedDuration(int p0) throws android.os.RemoteException {}
+        public void setLockoutTimedEnable(boolean p0) throws android.os.RemoteException {}
+        public void setLockoutTimedThreshold(int p0) throws android.os.RemoteException {}
+        public void setNextEnrollment(android.hardware.biometrics.face.virtualhal.NextEnrollment p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateAcquired(android.hardware.biometrics.face.virtualhal.AcquiredInfoAndVendorCode[] p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateDuration(int p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateError(int p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateFails(boolean p0) throws android.os.RemoteException {}
+        public void setOperationAuthenticateLatency(int[] p0) throws android.os.RemoteException {}
+        public void setOperationDetectInteractionFails(boolean p0) throws android.os.RemoteException {}
+        public void setOperationDetectInteractionLatency(int[] p0) throws android.os.RemoteException {}
+        public void setOperationEnrollLatency(int[] p0) throws android.os.RemoteException {}
+        public void setSensorStrength(byte p0) throws android.os.RemoteException {}
+        public void setType(byte p0) throws android.os.RemoteException {}
     }
 }

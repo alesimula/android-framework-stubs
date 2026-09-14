@@ -14,11 +14,9 @@ public final class ClientListenerMultiplexer<TListener extends java.lang.Object,
     public boolean hasListeners() { return false; }
     public void removeListener(TListener p0) {}
 
-    private static class ListenerInfo<TListener extends java.lang.Object> {
-        final java.util.concurrent.Executor mExecutor = null;
-        ListenerInfo(TListener p0, java.util.concurrent.Executor p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
+    @java.lang.FunctionalInterface
+    public static interface ServiceUnregistrar<TService extends java.lang.Object, TCallback extends java.lang.Object> {
+        public void unregister(TService p0, TCallback p1) throws android.os.RemoteException;
     }
 
     @java.lang.FunctionalInterface
@@ -26,8 +24,10 @@ public final class ClientListenerMultiplexer<TListener extends java.lang.Object,
         public void register(TService p0, TCallback p1) throws android.os.RemoteException;
     }
 
-    @java.lang.FunctionalInterface
-    public static interface ServiceUnregistrar<TService extends java.lang.Object, TCallback extends java.lang.Object> {
-        public void unregister(TService p0, TCallback p1) throws android.os.RemoteException;
+    private static class ListenerInfo<TListener extends java.lang.Object> {
+        final java.util.concurrent.Executor mExecutor = null;
+        ListenerInfo(TListener p0, java.util.concurrent.Executor p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
     }
 }

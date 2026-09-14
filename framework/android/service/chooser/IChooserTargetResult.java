@@ -3,12 +3,6 @@ package android.service.chooser;
 public interface IChooserTargetResult extends android.os.IInterface {
     public void sendResult(java.util.List<android.service.chooser.ChooserTarget> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.chooser.IChooserTargetResult {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void sendResult(java.util.List<android.service.chooser.ChooserTarget> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.chooser.IChooserTargetResult {
         public static final java.lang.String DESCRIPTOR = "android.service.chooser.IChooserTargetResult";
         static final int TRANSACTION_sendResult = 1;
@@ -26,5 +20,11 @@ public interface IChooserTargetResult extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void sendResult(java.util.List<android.service.chooser.ChooserTarget> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.chooser.IChooserTargetResult {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void sendResult(java.util.List<android.service.chooser.ChooserTarget> p0) throws android.os.RemoteException {}
     }
 }

@@ -43,6 +43,25 @@ public class LooperStats implements android.os.Looper.Observer {
     public void setTrackScreenInteractive(boolean p0) {}
     protected boolean shouldCollectDetailedData() { return false; }
 
+    public static class ExportedEntry {
+        public final long cpuUsageMicros = 0L;
+        public final long delayMillis = 0L;
+        public final long exceptionCount = 0L;
+        public final java.lang.String handlerClassName = null;
+        public final boolean isInteractive = false;
+        public final long maxCpuUsageMicros = 0L;
+        public final long maxDelayMillis = 0L;
+        public final long maxLatencyMicros = 0L;
+        public final long messageCount = 0L;
+        public final java.lang.String messageName = null;
+        public final long recordedDelayMessageCount = 0L;
+        public final long recordedMessageCount = 0L;
+        public final java.lang.String threadName = null;
+        public final long totalLatencyMicros = 0L;
+        public final int workSourceUid = 0;
+        ExportedEntry(com.android.internal.os.LooperStats.Entry p0) {}
+    }
+
     private static class DispatchSession {
         static final com.android.internal.os.LooperStats.DispatchSession NOT_SAMPLED = null;
         public long cpuStartMicro;
@@ -70,24 +89,5 @@ public class LooperStats implements android.os.Looper.Observer {
         Entry(java.lang.String p0) {}
         static int idFor(android.os.Message p0, boolean p1) { return 0; }
         void reset() {}
-    }
-
-    public static class ExportedEntry {
-        public final long cpuUsageMicros = 0L;
-        public final long delayMillis = 0L;
-        public final long exceptionCount = 0L;
-        public final java.lang.String handlerClassName = null;
-        public final boolean isInteractive = false;
-        public final long maxCpuUsageMicros = 0L;
-        public final long maxDelayMillis = 0L;
-        public final long maxLatencyMicros = 0L;
-        public final long messageCount = 0L;
-        public final java.lang.String messageName = null;
-        public final long recordedDelayMessageCount = 0L;
-        public final long recordedMessageCount = 0L;
-        public final java.lang.String threadName = null;
-        public final long totalLatencyMicros = 0L;
-        public final int workSourceUid = 0;
-        ExportedEntry(com.android.internal.os.LooperStats.Entry p0) {}
     }
 }

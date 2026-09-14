@@ -2,7 +2,7 @@ package android.widget;
 
 @android.widget.RemoteViews.RemoteView
 public class RadioGroup extends android.widget.LinearLayout {
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "RadioGroup";
     private int mCheckedId;
     private android.widget.CompoundButton.OnCheckedChangeListener mChildOnCheckedChangeListener;
     private int mInitialCheckedId;
@@ -34,6 +34,13 @@ public class RadioGroup extends android.widget.LinearLayout {
     public void setOnCheckedChangeListener(android.widget.RadioGroup.OnCheckedChangeListener p0) {}
     public void setOnHierarchyChangeListener(android.view.ViewGroup.OnHierarchyChangeListener p0) {}
 
+    private class PassThroughHierarchyChangeListener implements android.view.ViewGroup.OnHierarchyChangeListener {
+        private android.view.ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
+        private PassThroughHierarchyChangeListener(android.widget.RadioGroup p0) {}
+        public void onChildViewAdded(android.view.View p0, android.view.View p1) {}
+        public void onChildViewRemoved(android.view.View p0, android.view.View p1) {}
+    }
+
     private class CheckedStateTracker implements android.widget.CompoundButton.OnCheckedChangeListener {
         private CheckedStateTracker(android.widget.RadioGroup p0) {}
         public void onCheckedChanged(android.widget.CompoundButton p0, boolean p1) {}
@@ -50,12 +57,5 @@ public class RadioGroup extends android.widget.LinearLayout {
 
     public static interface OnCheckedChangeListener {
         public void onCheckedChanged(android.widget.RadioGroup p0, int p1);
-    }
-
-    private class PassThroughHierarchyChangeListener implements android.view.ViewGroup.OnHierarchyChangeListener {
-        private android.view.ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
-        private PassThroughHierarchyChangeListener(android.widget.RadioGroup p0) {}
-        public void onChildViewAdded(android.view.View p0, android.view.View p1) {}
-        public void onChildViewRemoved(android.view.View p0, android.view.View p1) {}
     }
 }

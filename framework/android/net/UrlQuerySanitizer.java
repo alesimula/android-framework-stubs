@@ -65,7 +65,7 @@ public class UrlQuerySanitizer {
         public static final int GT_OK = 64;
         private static final java.lang.String JAVASCRIPT_PREFIX = "javascript:";
         public static final int LT_OK = 32;
-        private static final int MIN_SCRIPT_PREFIX_LENGTH = Integer.valueOf(0);
+        private static final int MIN_SCRIPT_PREFIX_LENGTH = 9;
         public static final int NON_7_BIT_ASCII_OK = 4;
         public static final int NUL_OK = 512;
         public static final int OTHER_WHITESPACE_OK = 2;

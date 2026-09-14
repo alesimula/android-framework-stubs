@@ -7,15 +7,6 @@ public interface IRemoteComputerControlInputConnection extends android.os.IInter
     public void replaceText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2, java.lang.CharSequence p3, int p4) throws android.os.RemoteException;
     public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IRemoteComputerControlInputConnection {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void commitText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, java.lang.CharSequence p1, int p2) throws android.os.RemoteException {}
-        public void performEditorAction(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
-        public void replaceText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2, java.lang.CharSequence p3, int p4) throws android.os.RemoteException {}
-        public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IRemoteComputerControlInputConnection {
         static final int TRANSACTION_commitText = 1;
         static final int TRANSACTION_performEditorAction = 4;
@@ -38,5 +29,14 @@ public interface IRemoteComputerControlInputConnection extends android.os.IInter
             public void replaceText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2, java.lang.CharSequence p3, int p4) throws android.os.RemoteException {}
             public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IRemoteComputerControlInputConnection {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void commitText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, java.lang.CharSequence p1, int p2) throws android.os.RemoteException {}
+        public void performEditorAction(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1) throws android.os.RemoteException {}
+        public void replaceText(com.android.internal.inputmethod.InputConnectionCommandHeader p0, int p1, int p2, java.lang.CharSequence p3, int p4) throws android.os.RemoteException {}
+        public void sendKeyEvent(com.android.internal.inputmethod.InputConnectionCommandHeader p0, android.view.KeyEvent p1) throws android.os.RemoteException {}
     }
 }

@@ -36,6 +36,10 @@ public final class TvInputHardwareInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CableConnectionStatus {
+    }
+
     public static final class Builder {
         private java.lang.String mAudioAddress;
         private int mAudioType;
@@ -51,9 +55,5 @@ public final class TvInputHardwareInfo implements android.os.Parcelable {
         public android.media.tv.TvInputHardwareInfo.Builder deviceId(int p0) { return null; }
         public android.media.tv.TvInputHardwareInfo.Builder hdmiPortId(int p0) { return null; }
         public android.media.tv.TvInputHardwareInfo.Builder type(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CableConnectionStatus {
     }
 }

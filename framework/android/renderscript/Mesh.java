@@ -13,65 +13,6 @@ public class Mesh extends android.renderscript.BaseObj {
     public int getVertexAllocationCount() { return 0; }
     void updateFromNative() {}
 
-    public static class AllocationBuilder {
-        java.util.Vector mIndexTypes;
-        android.renderscript.RenderScript mRS;
-        int mVertexTypeCount;
-        android.renderscript.Mesh.AllocationBuilder.Entry[] mVertexTypes;
-        public AllocationBuilder(android.renderscript.RenderScript p0) {}
-        public android.renderscript.Mesh.AllocationBuilder addIndexSetAllocation(android.renderscript.Allocation p0, android.renderscript.Mesh.Primitive p1) { return null; }
-        public android.renderscript.Mesh.AllocationBuilder addIndexSetType(android.renderscript.Mesh.Primitive p0) { return null; }
-        public android.renderscript.Mesh.AllocationBuilder addVertexAllocation(android.renderscript.Allocation p0) throws java.lang.IllegalStateException { return null; }
-        public android.renderscript.Mesh create() { return null; }
-        public int getCurrentIndexSetIndex() { return 0; }
-        public int getCurrentVertexTypeIndex() { return 0; }
-
-        class Entry {
-            android.renderscript.Allocation a;
-            android.renderscript.Mesh.Primitive prim;
-            Entry(android.renderscript.Mesh.AllocationBuilder p0) {}
-        }
-    }
-
-    public static class Builder {
-        java.util.Vector mIndexTypes;
-        android.renderscript.RenderScript mRS;
-        int mUsage;
-        int mVertexTypeCount;
-        android.renderscript.Mesh.Builder.Entry[] mVertexTypes;
-        public Builder(android.renderscript.RenderScript p0, int p1) {}
-        public android.renderscript.Mesh.Builder addIndexSetType(android.renderscript.Element p0, int p1, android.renderscript.Mesh.Primitive p2) { return null; }
-        public android.renderscript.Mesh.Builder addIndexSetType(android.renderscript.Mesh.Primitive p0) { return null; }
-        public android.renderscript.Mesh.Builder addIndexSetType(android.renderscript.Type p0, android.renderscript.Mesh.Primitive p1) { return null; }
-        public android.renderscript.Mesh.Builder addVertexType(android.renderscript.Element p0, int p1) throws java.lang.IllegalStateException { return null; }
-        public android.renderscript.Mesh.Builder addVertexType(android.renderscript.Type p0) throws java.lang.IllegalStateException { return null; }
-        public android.renderscript.Mesh create() { return null; }
-        public int getCurrentIndexSetIndex() { return 0; }
-        public int getCurrentVertexTypeIndex() { return 0; }
-        android.renderscript.Type newType(android.renderscript.Element p0, int p1) { return null; }
-
-        class Entry {
-            android.renderscript.Element e;
-            android.renderscript.Mesh.Primitive prim;
-            int size;
-            android.renderscript.Type t;
-            int usage;
-            Entry(android.renderscript.Mesh.Builder p0) {}
-        }
-    }
-
-    public static enum Primitive {
-        LINE,
-        LINE_STRIP,
-        POINT,
-        TRIANGLE,
-        TRIANGLE_FAN,
-        TRIANGLE_STRIP;
-        private static final android.renderscript.Mesh.Primitive[] $VALUES = null;
-        int mID;
-        private Primitive() {}
-    }
-
     public static class TriangleMeshBuilder {
         public static final int COLOR = 1;
         public static final int NORMAL = 2;
@@ -104,5 +45,64 @@ public class Mesh extends android.renderscript.BaseObj {
         public android.renderscript.Mesh.TriangleMeshBuilder setColor(float p0, float p1, float p2, float p3) { return null; }
         public android.renderscript.Mesh.TriangleMeshBuilder setNormal(float p0, float p1, float p2) { return null; }
         public android.renderscript.Mesh.TriangleMeshBuilder setTexture(float p0, float p1) { return null; }
+    }
+
+    public static class AllocationBuilder {
+        java.util.Vector mIndexTypes;
+        android.renderscript.RenderScript mRS;
+        int mVertexTypeCount;
+        android.renderscript.Mesh.AllocationBuilder.Entry[] mVertexTypes;
+        public AllocationBuilder(android.renderscript.RenderScript p0) {}
+        public android.renderscript.Mesh.AllocationBuilder addIndexSetAllocation(android.renderscript.Allocation p0, android.renderscript.Mesh.Primitive p1) { return null; }
+        public android.renderscript.Mesh.AllocationBuilder addIndexSetType(android.renderscript.Mesh.Primitive p0) { return null; }
+        public android.renderscript.Mesh.AllocationBuilder addVertexAllocation(android.renderscript.Allocation p0) throws java.lang.IllegalStateException { return null; }
+        public android.renderscript.Mesh create() { return null; }
+        public int getCurrentIndexSetIndex() { return 0; }
+        public int getCurrentVertexTypeIndex() { return 0; }
+
+        class Entry {
+            android.renderscript.Allocation a;
+            android.renderscript.Mesh.Primitive prim;
+            Entry(android.renderscript.Mesh.AllocationBuilder p0) {}
+        }
+    }
+
+    public static enum Primitive {
+        LINE,
+        LINE_STRIP,
+        POINT,
+        TRIANGLE,
+        TRIANGLE_FAN,
+        TRIANGLE_STRIP;
+        private static final android.renderscript.Mesh.Primitive[] $VALUES = null;
+        int mID;
+        private Primitive() {}
+    }
+
+    public static class Builder {
+        java.util.Vector mIndexTypes;
+        android.renderscript.RenderScript mRS;
+        int mUsage;
+        int mVertexTypeCount;
+        android.renderscript.Mesh.Builder.Entry[] mVertexTypes;
+        public Builder(android.renderscript.RenderScript p0, int p1) {}
+        public android.renderscript.Mesh.Builder addIndexSetType(android.renderscript.Element p0, int p1, android.renderscript.Mesh.Primitive p2) { return null; }
+        public android.renderscript.Mesh.Builder addIndexSetType(android.renderscript.Mesh.Primitive p0) { return null; }
+        public android.renderscript.Mesh.Builder addIndexSetType(android.renderscript.Type p0, android.renderscript.Mesh.Primitive p1) { return null; }
+        public android.renderscript.Mesh.Builder addVertexType(android.renderscript.Element p0, int p1) throws java.lang.IllegalStateException { return null; }
+        public android.renderscript.Mesh.Builder addVertexType(android.renderscript.Type p0) throws java.lang.IllegalStateException { return null; }
+        public android.renderscript.Mesh create() { return null; }
+        public int getCurrentIndexSetIndex() { return 0; }
+        public int getCurrentVertexTypeIndex() { return 0; }
+        android.renderscript.Type newType(android.renderscript.Element p0, int p1) { return null; }
+
+        class Entry {
+            android.renderscript.Element e;
+            android.renderscript.Mesh.Primitive prim;
+            int size;
+            android.renderscript.Type t;
+            int usage;
+            Entry(android.renderscript.Mesh.Builder p0) {}
+        }
     }
 }

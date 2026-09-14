@@ -8,16 +8,6 @@ public interface ISession extends android.os.IInterface {
     public void setReaderEphemeralPublicKey(byte[] p0) throws android.os.RemoteException;
     public void setSessionTranscript(byte[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.security.identity.ISession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public long getAuthChallenge() throws android.os.RemoteException { return 0L; }
-        public android.security.identity.ICredential getCredentialForPresentation(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public byte[] getEphemeralKeyPair() throws android.os.RemoteException { return null; }
-        public void setReaderEphemeralPublicKey(byte[] p0) throws android.os.RemoteException {}
-        public void setSessionTranscript(byte[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.identity.ISession {
         static final int TRANSACTION_getAuthChallenge = 2;
         static final int TRANSACTION_getCredentialForPresentation = 5;
@@ -42,5 +32,15 @@ public interface ISession extends android.os.IInterface {
             public void setReaderEphemeralPublicKey(byte[] p0) throws android.os.RemoteException {}
             public void setSessionTranscript(byte[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.identity.ISession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public long getAuthChallenge() throws android.os.RemoteException { return 0L; }
+        public android.security.identity.ICredential getCredentialForPresentation(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public byte[] getEphemeralKeyPair() throws android.os.RemoteException { return null; }
+        public void setReaderEphemeralPublicKey(byte[] p0) throws android.os.RemoteException {}
+        public void setSessionTranscript(byte[] p0) throws android.os.RemoteException {}
     }
 }

@@ -1,6 +1,6 @@
 package com.android.internal.widget;
 
-@android.widget.RemoteViews.RemoteView
+@android.widget.RemoteViews.NotificationOnlyRemoteView
 public class MessagingLayout extends com.android.internal.widget.NotificationFrameLayout implements com.android.internal.widget.ImageMessageConsumer, com.android.internal.widget.IMessagingLayout {
     public static final android.view.animation.Interpolator FAST_OUT_LINEAR_IN = null;
     public static final android.view.animation.Interpolator FAST_OUT_SLOW_IN = null;

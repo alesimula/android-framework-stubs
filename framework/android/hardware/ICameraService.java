@@ -38,7 +38,9 @@ public interface ICameraService extends android.os.IInterface {
     public android.hardware.camera2.impl.CameraMetadataNative getSessionCharacteristics(java.lang.String p0, int p1, android.content.res.CameraCompatibilityInfo p2, android.hardware.camera2.params.SessionConfiguration p3, android.content.AttributionSourceState p4, int p5) throws android.os.RemoteException;
     public int getTorchStrengthLevel(java.lang.String p0, android.content.AttributionSourceState p1, int p2) throws android.os.RemoteException;
     public android.hardware.camera2.ICameraInjectionSession injectCamera(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.hardware.camera2.ICameraInjectionCallback p3) throws android.os.RemoteException;
+    @java.lang.Deprecated
     public void injectSessionParams(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException;
+    public void injectSessionParamsN(java.lang.String p0, int p1, java.lang.String p2, android.hardware.camera2.impl.CameraMetadataNative p3, android.hardware.camera2.ICameraInjectionToken p4) throws android.os.RemoteException;
     public boolean isConcurrentSessionConfigurationSupported(android.hardware.camera2.utils.CameraIdAndSessionConfiguration[] p0, int p1, android.content.AttributionSourceState p2, int p3) throws android.os.RemoteException;
     public boolean isHiddenPhysicalCamera(java.lang.String p0) throws android.os.RemoteException;
     public boolean isSessionConfigurationWithParametersSupported(java.lang.String p0, int p1, android.hardware.camera2.params.SessionConfiguration p2, android.content.AttributionSourceState p3, int p4) throws android.os.RemoteException;
@@ -68,7 +70,9 @@ public interface ICameraService extends android.os.IInterface {
         public android.hardware.camera2.impl.CameraMetadataNative getSessionCharacteristics(java.lang.String p0, int p1, android.content.res.CameraCompatibilityInfo p2, android.hardware.camera2.params.SessionConfiguration p3, android.content.AttributionSourceState p4, int p5) throws android.os.RemoteException { return null; }
         public int getTorchStrengthLevel(java.lang.String p0, android.content.AttributionSourceState p1, int p2) throws android.os.RemoteException { return 0; }
         public android.hardware.camera2.ICameraInjectionSession injectCamera(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.hardware.camera2.ICameraInjectionCallback p3) throws android.os.RemoteException { return null; }
+        @java.lang.Deprecated
         public void injectSessionParams(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
+        public void injectSessionParamsN(java.lang.String p0, int p1, java.lang.String p2, android.hardware.camera2.impl.CameraMetadataNative p3, android.hardware.camera2.ICameraInjectionToken p4) throws android.os.RemoteException {}
         public boolean isConcurrentSessionConfigurationSupported(android.hardware.camera2.utils.CameraIdAndSessionConfiguration[] p0, int p1, android.content.AttributionSourceState p2, int p3) throws android.os.RemoteException { return false; }
         public boolean isHiddenPhysicalCamera(java.lang.String p0) throws android.os.RemoteException { return false; }
         public boolean isSessionConfigurationWithParametersSupported(java.lang.String p0, int p1, android.hardware.camera2.params.SessionConfiguration p2, android.content.AttributionSourceState p3, int p4) throws android.os.RemoteException { return false; }
@@ -87,29 +91,30 @@ public interface ICameraService extends android.os.IInterface {
         static final int TRANSACTION_addListener = 5;
         static final int TRANSACTION_connect = 3;
         static final int TRANSACTION_connectDevice = 4;
-        static final int TRANSACTION_createDefaultRequest = 23;
-        static final int TRANSACTION_getCameraCharacteristics = 10;
+        static final int TRANSACTION_createDefaultRequest = 24;
+        static final int TRANSACTION_getCameraCharacteristics = 11;
         static final int TRANSACTION_getCameraInfo = 2;
-        static final int TRANSACTION_getCameraVendorTagCache = 12;
-        static final int TRANSACTION_getCameraVendorTagDescriptor = 11;
+        static final int TRANSACTION_getCameraVendorTagCache = 13;
+        static final int TRANSACTION_getCameraVendorTagDescriptor = 12;
         static final int TRANSACTION_getConcurrentCameraIds = 6;
-        static final int TRANSACTION_getLegacyParameters = 13;
+        static final int TRANSACTION_getLegacyParameters = 14;
         static final int TRANSACTION_getNumberOfCameras = 1;
-        static final int TRANSACTION_getSessionCharacteristics = 25;
-        static final int TRANSACTION_getTorchStrengthLevel = 18;
-        static final int TRANSACTION_injectCamera = 15;
+        static final int TRANSACTION_getSessionCharacteristics = 26;
+        static final int TRANSACTION_getTorchStrengthLevel = 19;
+        static final int TRANSACTION_injectCamera = 16;
         static final int TRANSACTION_injectSessionParams = 8;
+        static final int TRANSACTION_injectSessionParamsN = 9;
         static final int TRANSACTION_isConcurrentSessionConfigurationSupported = 7;
-        static final int TRANSACTION_isHiddenPhysicalCamera = 14;
-        static final int TRANSACTION_isSessionConfigurationWithParametersSupported = 24;
-        static final int TRANSACTION_notifyDeviceStateChange = 21;
-        static final int TRANSACTION_notifyDisplayConfigurationChange = 20;
-        static final int TRANSACTION_notifySystemEvent = 19;
-        static final int TRANSACTION_removeListener = 9;
-        static final int TRANSACTION_reportExtensionSessionStats = 22;
-        static final int TRANSACTION_setTorchMode = 16;
-        static final int TRANSACTION_turnOnTorchWithStrengthLevel = 17;
-        static final int TRANSACTION_warmUp = 26;
+        static final int TRANSACTION_isHiddenPhysicalCamera = 15;
+        static final int TRANSACTION_isSessionConfigurationWithParametersSupported = 25;
+        static final int TRANSACTION_notifyDeviceStateChange = 22;
+        static final int TRANSACTION_notifyDisplayConfigurationChange = 21;
+        static final int TRANSACTION_notifySystemEvent = 20;
+        static final int TRANSACTION_removeListener = 10;
+        static final int TRANSACTION_reportExtensionSessionStats = 23;
+        static final int TRANSACTION_setTorchMode = 17;
+        static final int TRANSACTION_turnOnTorchWithStrengthLevel = 18;
+        static final int TRANSACTION_warmUp = 27;
         public Stub() { super(); }
         public static android.hardware.ICameraService asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -136,7 +141,9 @@ public interface ICameraService extends android.os.IInterface {
             public android.hardware.camera2.impl.CameraMetadataNative getSessionCharacteristics(java.lang.String p0, int p1, android.content.res.CameraCompatibilityInfo p2, android.hardware.camera2.params.SessionConfiguration p3, android.content.AttributionSourceState p4, int p5) throws android.os.RemoteException { return null; }
             public int getTorchStrengthLevel(java.lang.String p0, android.content.AttributionSourceState p1, int p2) throws android.os.RemoteException { return 0; }
             public android.hardware.camera2.ICameraInjectionSession injectCamera(java.lang.String p0, java.lang.String p1, java.lang.String p2, android.hardware.camera2.ICameraInjectionCallback p3) throws android.os.RemoteException { return null; }
+            @java.lang.Deprecated
             public void injectSessionParams(java.lang.String p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
+            public void injectSessionParamsN(java.lang.String p0, int p1, java.lang.String p2, android.hardware.camera2.impl.CameraMetadataNative p3, android.hardware.camera2.ICameraInjectionToken p4) throws android.os.RemoteException {}
             public boolean isConcurrentSessionConfigurationSupported(android.hardware.camera2.utils.CameraIdAndSessionConfiguration[] p0, int p1, android.content.AttributionSourceState p2, int p3) throws android.os.RemoteException { return false; }
             public boolean isHiddenPhysicalCamera(java.lang.String p0) throws android.os.RemoteException { return false; }
             public boolean isSessionConfigurationWithParametersSupported(java.lang.String p0, int p1, android.hardware.camera2.params.SessionConfiguration p2, android.content.AttributionSourceState p3, int p4) throws android.os.RemoteException { return false; }

@@ -6,6 +6,18 @@ public class SignatureSpi extends com.android.internal.org.bouncycastle.jcajce.p
     protected void engineInitSign(java.security.PrivateKey p0) throws java.security.InvalidKeyException {}
     protected void engineInitVerify(java.security.PublicKey p0) throws java.security.InvalidKeyException {}
 
+    public static class ecDSA384 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
+        public ecDSA384() { super(null, null, null); }
+    }
+
+    public static class ecDSAnone extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
+        public ecDSAnone() { super(null, null, null); }
+    }
+
+    public static class ecDSA512 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
+        public ecDSA512() { super(null, null, null); }
+    }
+
     public static class ecDSA extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
         public ecDSA() { super(null, null, null); }
     }
@@ -16,17 +28,5 @@ public class SignatureSpi extends com.android.internal.org.bouncycastle.jcajce.p
 
     public static class ecDSA256 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
         public ecDSA256() { super(null, null, null); }
-    }
-
-    public static class ecDSA384 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
-        public ecDSA384() { super(null, null, null); }
-    }
-
-    public static class ecDSA512 extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
-        public ecDSA512() { super(null, null, null); }
-    }
-
-    public static class ecDSAnone extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi {
-        public ecDSAnone() { super(null, null, null); }
     }
 }

@@ -3,7 +3,6 @@ package android.app;
 public final class LoadedApk {
     static final boolean $assertionsDisabled = false;
     static final boolean DEBUG = false;
-    private static final boolean DEBUG_STORE_ENABLED = Boolean.valueOf(false);
     static final java.lang.String TAG = "LoadedApk";
     private static final android.util.ArrayMap<java.lang.String, android.app.Application> sApplications = null;
     private final android.app.ActivityThread mActivityThread = null;
@@ -113,16 +112,6 @@ public final class LoadedApk {
     void setSdkSandboxStorage(java.lang.String p0, java.lang.String p1) {}
     public void updateApplicationInfo(android.content.pm.ApplicationInfo p0, java.util.List<java.lang.String> p1) {}
 
-    public static final class LinkerNamespaceParams {
-        public final boolean isShared = false;
-        public final java.lang.String libPath = null;
-        public final java.lang.String nativeSharedLibs = null;
-        public final java.lang.String permittedLibsDir = null;
-        public final int targetSdkVersion = 0;
-        public final java.lang.String zipPath = null;
-        LinkerNamespaceParams(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, boolean p4, java.lang.String p5) {}
-    }
-
     static final class ReceiverDispatcher {
         final android.os.Handler mActivityThread = null;
         final android.app.IApplicationThread mAppThread = null;
@@ -139,7 +128,7 @@ public final class LoadedApk {
         android.content.BroadcastReceiver getIntentReceiver() { return null; }
         android.app.IntentReceiverLeaked getLocation() { return null; }
         java.lang.RuntimeException getUnregisterLocation() { return null; }
-        public void performReceive(android.content.Intent p0, int p1, java.lang.String p2, android.os.Bundle p3, boolean p4, boolean p5, boolean p6, int p7, int p8, java.lang.String p9) {}
+        public void performReceive(android.content.Intent p0, int p1, java.lang.String p2, android.os.Bundle p3, boolean p4, boolean p5, boolean p6, int p7, int p8, java.lang.String p9, android.content.ReceiverFinishController p10) {}
         void setUnregisterLocation(java.lang.RuntimeException p0) {}
         void validate(android.content.Context p0, android.os.Handler p1) {}
 
@@ -157,7 +146,7 @@ public final class LoadedApk {
             final android.app.LoadedApk.ReceiverDispatcher mStrongRef = null;
             InnerReceiver(android.app.IApplicationThread p0, android.app.LoadedApk.ReceiverDispatcher p1, boolean p2) { super(); }
             public void performReceive(android.content.Intent p0, int p1, java.lang.String p2, android.os.Bundle p3, boolean p4, boolean p5, int p6) {}
-            public void performReceive(android.content.Intent p0, int p1, java.lang.String p2, android.os.Bundle p3, boolean p4, boolean p5, boolean p6, int p7, int p8, java.lang.String p9) {}
+            public void performReceive(android.content.Intent p0, int p1, java.lang.String p2, android.os.Bundle p3, boolean p4, boolean p5, boolean p6, int p7, int p8, java.lang.String p9, android.content.ReceiverFinishController p10) {}
         }
     }
 
@@ -240,5 +229,15 @@ public final class LoadedApk {
         public void setClassAssertionStatus(java.lang.String p0, boolean p1) {}
         public void setDefaultAssertionStatus(boolean p0) {}
         public void setPackageAssertionStatus(java.lang.String p0, boolean p1) {}
+    }
+
+    public static final class LinkerNamespaceParams {
+        public final boolean isShared = false;
+        public final java.lang.String libPath = null;
+        public final java.lang.String nativeSharedLibs = null;
+        public final java.lang.String permittedLibsDir = null;
+        public final int targetSdkVersion = 0;
+        public final java.lang.String zipPath = null;
+        LinkerNamespaceParams(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3, boolean p4, java.lang.String p5) {}
     }
 }

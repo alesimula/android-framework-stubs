@@ -5,7 +5,7 @@ public class VoiceInteractionService extends android.app.Service {
     public static final java.lang.String SERVICE_INTERFACE = "android.service.voice.VoiceInteractionService";
     public static final java.lang.String SERVICE_META_DATA = "android.voice_interaction";
     private static final boolean SYSPROP_VISUAL_QUERY_SERVICE_ENABLED = Boolean.valueOf(false);
-    static final java.lang.String TAG = null;
+    static final java.lang.String TAG = "VoiceInteractionService";
     private final java.util.Set<android.service.voice.HotwordDetector> mActiveDetectors = null;
     private android.service.voice.VisualQueryDetector mActiveVisualQueryDetector;
     private android.os.IBinder.DeathRecipient mDeathRecipient;

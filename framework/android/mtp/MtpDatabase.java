@@ -9,7 +9,7 @@ public class MtpDatabase implements java.lang.AutoCloseable {
     private static final java.lang.String NO_MEDIA = ".nomedia";
     private static final java.lang.String PATH_WHERE = "_data=?";
     private static final int[] PLAYBACK_FORMATS = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MtpDatabase";
     private static final int[] VIDEO_PROPERTIES = null;
     private int mBatteryLevel;
     private android.content.BroadcastReceiver mBatteryReceiver;

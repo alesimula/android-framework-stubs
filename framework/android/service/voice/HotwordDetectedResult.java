@@ -80,9 +80,29 @@ public final class HotwordDetectedResult implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Proximity {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface HotwordConfidenceLevelValue {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface Limit {
+    }
+
     static abstract class BaseBuilder {
         BaseBuilder() {}
         public android.service.voice.HotwordDetectedResult.Builder setAudioStreams(java.util.List<android.service.voice.HotwordAudioStream> p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConfidenceLevel {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ProximityValue {
     }
 
     public static final class Builder extends android.service.voice.HotwordDetectedResult.BaseBuilder {
@@ -115,25 +135,5 @@ public final class HotwordDetectedResult implements android.os.Parcelable {
         public android.service.voice.HotwordDetectedResult.Builder setPersonalizedScore(int p0) { return null; }
         public android.service.voice.HotwordDetectedResult.Builder setScore(int p0) { return null; }
         public android.service.voice.HotwordDetectedResult.Builder setSpeakerId(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConfidenceLevel {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface HotwordConfidenceLevelValue {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface Limit {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Proximity {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ProximityValue {
     }
 }

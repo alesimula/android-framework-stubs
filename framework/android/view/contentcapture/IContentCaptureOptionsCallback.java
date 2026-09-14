@@ -4,12 +4,6 @@ public interface IContentCaptureOptionsCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.view.contentcapture.IContentCaptureOptionsCallback";
     public void setContentCaptureOptions(android.content.ContentCaptureOptions p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.contentcapture.IContentCaptureOptionsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void setContentCaptureOptions(android.content.ContentCaptureOptions p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.contentcapture.IContentCaptureOptionsCallback {
         static final int TRANSACTION_setContentCaptureOptions = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IContentCaptureOptionsCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void setContentCaptureOptions(android.content.ContentCaptureOptions p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.contentcapture.IContentCaptureOptionsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void setContentCaptureOptions(android.content.ContentCaptureOptions p0) throws android.os.RemoteException {}
     }
 }

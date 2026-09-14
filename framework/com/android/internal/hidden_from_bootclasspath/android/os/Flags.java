@@ -1,7 +1,7 @@
 package com.android.internal.hidden_from_bootclasspath.android.os;
 
 public final class Flags {
-    public static final java.lang.String FLAG_ADPF_AUDIO_PERFORMANCE = "android.os.adpf_audio_performance";
+    public static final java.lang.String FLAG_ADMIN_STATES_ON_MANAGED_DEVICES = "android.os.admin_states_on_managed_devices";
     public static final java.lang.String FLAG_ADPF_CAP_MAX_BATCH_SIZE = "android.os.adpf_cap_max_batch_size";
     public static final java.lang.String FLAG_ADPF_GPU_REPORT_ACTUAL_WORK_DURATION = "android.os.adpf_gpu_report_actual_work_duration";
     public static final java.lang.String FLAG_ADPF_MEASURE_DURING_INPUT_EVENT_BOOST = "android.os.adpf_measure_during_input_event_boost";
@@ -29,9 +29,12 @@ public final class Flags {
     public static final java.lang.String FLAG_DISALLOW_ADD_GUEST = "android.os.disallow_add_guest";
     public static final java.lang.String FLAG_DO_NOT_SET_NATIVE_DRIVER_OPTION_FOR_DEFAULT_ANGLE_QUERY_RESULT = "android.os.do_not_set_native_driver_option_for_default_angle_query_result";
     public static final java.lang.String FLAG_EARLY_INIT_EGL_DRIVER = "android.os.early_init_egl_driver";
+    public static final java.lang.String FLAG_ENABLE_ANGLE_DENYLIST_WILDCARD = "android.os.enable_angle_denylist_wildcard";
     public static final java.lang.String FLAG_ENABLE_ANGLE_FOR_GAMES = "android.os.enable_angle_for_games";
+    public static final java.lang.String FLAG_ENABLE_DELIQUEUE_FOR_ALL_APPS = "android.os.enable_deliqueue_for_all_apps";
     public static final java.lang.String FLAG_ENABLE_FROZEN_OBJECT_EXCEPTION = "android.os.enable_frozen_object_exception";
     public static final java.lang.String FLAG_ENABLE_HAS_BINDERS = "android.os.enable_has_binders";
+    public static final java.lang.String FLAG_EXPOSE_SET_PROCESS_THREAD_GROUP = "android.os.expose_set_process_thread_group";
     public static final java.lang.String FLAG_FIX_MAIN_THREAD_BLOCKING_ON_FIRST_UNLOCK = "android.os.fix_main_thread_blocking_on_first_unlock";
     public static final java.lang.String FLAG_GET_PRIVATE_SPACE_SETTINGS = "android.os.get_private_space_settings";
     public static final java.lang.String FLAG_INITIATE_BUGREPORT_AS_NON_ADMIN = "android.os.initiate_bugreport_as_non_admin";
@@ -48,11 +51,12 @@ public final class Flags {
     public static final java.lang.String FLAG_MESSAGE_QUEUE_MONITORING_ENABLED = "android.os.message_queue_monitoring_enabled";
     public static final java.lang.String FLAG_NATIVE_APP_ZYGOTE = "android.os.native_app_zygote";
     public static final java.lang.String FLAG_NATIVE_FRAMEWORK_PROTOTYPE = "android.os.native_framework_prototype";
-    public static final java.lang.String FLAG_NATIVE_LOOPER_SKIP_EPOLL_WAIT_FOR_ZERO_TIMEOUT = "android.os.native_looper_skip_epoll_wait_for_zero_timeout";
     public static final java.lang.String FLAG_NETWORK_TIME_USES_SHARED_MEMORY = "android.os.network_time_uses_shared_memory";
     public static final java.lang.String FLAG_ORDERED_BROADCAST_MULTIPLE_PERMISSIONS = "android.os.ordered_broadcast_multiple_permissions";
     public static final java.lang.String FLAG_PERFETTO_SDK_TRACING_DISABLE_APP_REGISTRATION_SHARDING = "android.os.perfetto_sdk_tracing_disable_app_registration_sharding";
     public static final java.lang.String FLAG_PERFETTO_SDK_TRACING_ENABLE_APP_REGISTRATION = "android.os.perfetto_sdk_tracing_enable_app_registration";
+    public static final java.lang.String FLAG_REMOTE_CALLBACK_LIST_DEADLOCK_RESOLUTION = "android.os.remote_callback_list_deadlock_resolution";
+    public static final java.lang.String FLAG_REMOTE_CALLBACK_LIST_UNFROZEN_CALLBACK = "android.os.remote_callback_list_unfrozen_callback";
     public static final java.lang.String FLAG_REMOVE_APP_PROFILER_PSS_COLLECTION = "android.os.remove_app_profiler_pss_collection";
     public static final java.lang.String FLAG_REMOVE_SETUP_ANGLE_FROM_SETTINGS_APK = "android.os.remove_setup_angle_from_settings_apk";
     public static final java.lang.String FLAG_SCUDO_PURGE_ALL_ENABLED = "android.os.scudo_purge_all_enabled";
@@ -66,7 +70,7 @@ public final class Flags {
     public static final java.lang.String FLAG_UPDATE_ENGINE_API = "android.os.update_engine_api";
     public static final java.lang.String FLAG_USE_QUERY_ANGLE_CHOICE = "android.os.use_query_angle_choice";
     public Flags() {}
-    public static boolean adpfAudioPerformance() { return false; }
+    public static boolean adminStatesOnManagedDevices() { return false; }
     public static boolean adpfCapMaxBatchSize() { return false; }
     public static boolean adpfGpuReportActualWorkDuration() { return false; }
     public static boolean adpfMeasureDuringInputEventBoost() { return false; }
@@ -94,9 +98,12 @@ public final class Flags {
     public static boolean disallowAddGuest() { return false; }
     public static boolean doNotSetNativeDriverOptionForDefaultAngleQueryResult() { return false; }
     public static boolean earlyInitEglDriver() { return false; }
+    public static boolean enableAngleDenylistWildcard() { return false; }
     public static boolean enableAngleForGames() { return false; }
+    public static boolean enableDeliqueueForAllApps() { return false; }
     public static boolean enableFrozenObjectException() { return false; }
     public static boolean enableHasBinders() { return false; }
+    public static boolean exposeSetProcessThreadGroup() { return false; }
     public static boolean fixMainThreadBlockingOnFirstUnlock() { return false; }
     public static boolean getPrivateSpaceSettings() { return false; }
     public static boolean initiateBugreportAsNonAdmin() { return false; }
@@ -113,11 +120,12 @@ public final class Flags {
     public static boolean messageQueueMonitoringEnabled() { return false; }
     public static boolean nativeAppZygote() { return false; }
     public static boolean nativeFrameworkPrototype() { return false; }
-    public static boolean nativeLooperSkipEpollWaitForZeroTimeout() { return false; }
     public static boolean networkTimeUsesSharedMemory() { return false; }
     public static boolean orderedBroadcastMultiplePermissions() { return false; }
     public static boolean perfettoSdkTracingDisableAppRegistrationSharding() { return false; }
     public static boolean perfettoSdkTracingEnableAppRegistration() { return false; }
+    public static boolean remoteCallbackListDeadlockResolution() { return false; }
+    public static boolean remoteCallbackListUnfrozenCallback() { return false; }
     public static boolean removeAppProfilerPssCollection() { return false; }
     public static boolean removeSetupAngleFromSettingsApk() { return false; }
     public static boolean scudoPurgeAllEnabled() { return false; }

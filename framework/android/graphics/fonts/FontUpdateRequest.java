@@ -4,6 +4,7 @@ public final class FontUpdateRequest implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.graphics.fonts.FontUpdateRequest> CREATOR = null;
     public static final int TYPE_UPDATE_FONT_FAMILY = 1;
     public static final int TYPE_UPDATE_FONT_FILE = 0;
+    public static final int TYPE_UPDATE_SUPPLEMENTAL_FONT_FILE = 2;
     private final android.os.ParcelFileDescriptor mFd = null;
     private final android.graphics.fonts.FontUpdateRequest.Family mFontFamily = null;
     private final byte[] mSignature = null;
@@ -12,9 +13,13 @@ public final class FontUpdateRequest implements android.os.Parcelable {
     public FontUpdateRequest(android.os.LocaleList p0, java.util.List<android.graphics.fonts.FontFamilyUpdateRequest.Font> p1, int p2) {}
     protected FontUpdateRequest(android.os.Parcel p0) {}
     public FontUpdateRequest(android.os.ParcelFileDescriptor p0, byte[] p1) {}
+    public FontUpdateRequest(android.os.ParcelFileDescriptor p0, byte[] p1, int p2) {}
     public FontUpdateRequest(java.lang.String p0, java.util.List<android.graphics.fonts.FontFamilyUpdateRequest.Font> p1) {}
+    public FontUpdateRequest(java.util.List<android.graphics.fonts.FontFamilyUpdateRequest.Font> p0, boolean p1) {}
     private static android.graphics.fonts.FontUpdateRequest.Family createFontFamily(java.lang.String p0, java.util.List<android.graphics.fonts.FontFamilyUpdateRequest.Font> p1) { return null; }
+    private static android.graphics.fonts.FontUpdateRequest.Family createFontFamily(java.util.List<android.graphics.fonts.FontFamilyUpdateRequest.Font> p0, boolean p1) { return null; }
     private static android.graphics.fonts.FontUpdateRequest.Family createFontFamilyByLang(android.os.LocaleList p0, java.util.List<android.graphics.fonts.FontFamilyUpdateRequest.Font> p1, int p2) { return null; }
+    private static boolean getAttributeValueBoolean(org.xmlpull.v1.XmlPullParser p0, java.lang.String p1, boolean p2) { return false; }
     private static int getAttributeValueInt(org.xmlpull.v1.XmlPullParser p0, java.lang.String p1, int p2) { return 0; }
     public int describeContents() { return 0; }
     public android.os.ParcelFileDescriptor getFd() { return null; }
@@ -22,33 +27,6 @@ public final class FontUpdateRequest implements android.os.Parcelable {
     public byte[] getSignature() { return null; }
     public int getType() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-    public static final class Family implements android.os.Parcelable {
-        private static final java.lang.String ATTR_LANG = "lang";
-        private static final java.lang.String ATTR_NAME = "name";
-        private static final java.lang.String ATTR_PRIORITY = "priority";
-        public static final android.os.Parcelable.Creator<android.graphics.fonts.FontUpdateRequest.Family> CREATOR = null;
-        private static final java.lang.String TAG_FAMILY = "family";
-        private static final java.lang.String TAG_FONT = "font";
-        private final java.util.List<android.graphics.fonts.FontUpdateRequest.Font> mFonts = null;
-        private final android.os.LocaleList mLang = null;
-        private final java.lang.String mName = null;
-        private final int mPriority = 0;
-        public Family(android.os.LocaleList p0, java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p1, int p2) {}
-        public Family(java.lang.String p0, java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p1) {}
-        public Family(java.lang.String p0, java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p1, int p2) {}
-        public static android.graphics.fonts.FontUpdateRequest.Family readFromXml(org.xmlpull.v1.XmlPullParser p0) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
-        public static void writeFamilyToXml(com.android.modules.utils.TypedXmlSerializer p0, android.graphics.fonts.FontUpdateRequest.Family p1) throws java.io.IOException {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public java.util.List<android.graphics.fonts.FontUpdateRequest.Font> getFonts() { return null; }
-        public android.os.LocaleList getLang() { return null; }
-        public java.lang.String getName() { return null; }
-        public int getPriority() { return 0; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
 
     public static final class Font implements android.os.Parcelable {
         private static final java.lang.String ATTR_AXIS = "axis";
@@ -71,6 +49,39 @@ public final class FontUpdateRequest implements android.os.Parcelable {
         public int getIndex() { return 0; }
         public java.lang.String getPostScriptName() { return null; }
         public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class Family implements android.os.Parcelable {
+        private static final java.lang.String ATTR_LANG = "lang";
+        private static final java.lang.String ATTR_NAME = "name";
+        private static final java.lang.String ATTR_PRIORITY = "priority";
+        private static final java.lang.String ATTR_SUPPLEMENTAL = "supplemental";
+        public static final android.os.Parcelable.Creator<android.graphics.fonts.FontUpdateRequest.Family> CREATOR = null;
+        private static final java.lang.String TAG_FAMILY = "family";
+        private static final java.lang.String TAG_FONT = "font";
+        private final java.util.List<android.graphics.fonts.FontUpdateRequest.Font> mFonts = null;
+        private final boolean mIsFallback = false;
+        private final boolean mIsSupplemental = false;
+        private final android.os.LocaleList mLang = null;
+        private final java.lang.String mName = null;
+        private final int mPriority = 0;
+        public Family(android.os.LocaleList p0, java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p1, int p2) {}
+        public Family(java.lang.String p0, java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p1) {}
+        public Family(java.lang.String p0, java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p1, int p2) {}
+        public Family(java.util.List<android.graphics.fonts.FontUpdateRequest.Font> p0, boolean p1) {}
+        public static android.graphics.fonts.FontUpdateRequest.Family readFromXml(org.xmlpull.v1.XmlPullParser p0) throws org.xmlpull.v1.XmlPullParserException, java.io.IOException { return null; }
+        public static void writeFamilyToXml(com.android.modules.utils.TypedXmlSerializer p0, android.graphics.fonts.FontUpdateRequest.Family p1) throws java.io.IOException {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public java.util.List<android.graphics.fonts.FontUpdateRequest.Font> getFonts() { return null; }
+        public android.os.LocaleList getLang() { return null; }
+        public java.lang.String getName() { return null; }
+        public int getPriority() { return 0; }
+        public int hashCode() { return 0; }
+        public boolean isFallback() { return false; }
+        public boolean isSupplemental() { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }

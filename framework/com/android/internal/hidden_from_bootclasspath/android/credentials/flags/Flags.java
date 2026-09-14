@@ -8,7 +8,6 @@ public final class Flags {
     public static final java.lang.String FLAG_MULTI_USER_FIX_ENABLED = "android.credentials.flags.multi_user_fix_enabled";
     public static final java.lang.String FLAG_NEW_FRAMEWORK_METRICS = "android.credentials.flags.new_framework_metrics";
     public static final java.lang.String FLAG_NEW_SETTINGS_INTENTS = "android.credentials.flags.new_settings_intents";
-    public static final java.lang.String FLAG_PACKAGE_UPDATE_FIX_ENABLED = "android.credentials.flags.package_update_fix_enabled";
     public static final java.lang.String FLAG_PROPAGATE_USER_CONTEXT_FOR_INTENT_CREATION = "android.credentials.flags.propagate_user_context_for_intent_creation";
     public static final java.lang.String FLAG_SAFEGUARD_CANDIDATE_CREDENTIALS_API_CALLER = "android.credentials.flags.safeguard_candidate_credentials_api_caller";
     public static final java.lang.String FLAG_SETTINGS_ACTIVITY_ENABLED = "android.credentials.flags.settings_activity_enabled";
@@ -22,7 +21,6 @@ public final class Flags {
     public static boolean multiUserFixEnabled() { return false; }
     public static boolean newFrameworkMetrics() { return false; }
     public static boolean newSettingsIntents() { return false; }
-    public static boolean packageUpdateFixEnabled() { return false; }
     public static boolean propagateUserContextForIntentCreation() { return false; }
     public static boolean safeguardCandidateCredentialsApiCaller() { return false; }
     public static boolean settingsActivityEnabled() { return false; }

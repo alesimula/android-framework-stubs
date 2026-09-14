@@ -2,6 +2,7 @@ package android.os;
 
 public final class PerfettoCategories {
     public static final java.util.List<com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category> ALL_CATEGORIES = null;
+    public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category ANIMATION_LEAKS = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category ANR_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category BIG_LOCKS_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category BITMAP_CATEGORY = null;
@@ -14,13 +15,16 @@ public final class PerfettoCategories {
     public static final java.lang.String FREEZER_TRACK_NAME = "freezer";
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category JOB_SCHEDULER_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category MQ_CATEGORY = null;
+    public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category NET_POLICY_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category PROC_LIFECYCLE_CATEGORY = null;
     public static final java.lang.String PROC_LIFECYCLE_TRACK_NAME = "proc_lifecycle";
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category PROC_STATE_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category PROC_STATE_COUNTER_CATEGORY = null;
     public static final java.lang.String PROC_STATE_TRACK_NAME = "proc_state";
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category PROVIDER_STATE_CATEGORY = null;
+    public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category PSC_VALIDATION_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category SERVICE_STATE_CATEGORY = null;
+    public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category SYSUI_TRACK_GROUPS_CATEGORY = null;
     public static final com.android.internal.dev.perfetto.sdk.PerfettoTrace.Category VIEW_INVALIDATION_CATEGORY = null;
     private PerfettoCategories() {}
     public static void registerCategories() {}

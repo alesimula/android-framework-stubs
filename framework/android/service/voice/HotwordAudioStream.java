@@ -30,11 +30,6 @@ public final class HotwordAudioStream implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static abstract class BaseBuilder {
-        BaseBuilder() {}
-        public android.service.voice.HotwordAudioStream.Builder setInitialAudio(byte[] p0) { return null; }
-    }
-
     public static final class Builder extends android.service.voice.HotwordAudioStream.BaseBuilder {
         private android.media.AudioFormat mAudioFormat;
         private android.os.ParcelFileDescriptor mAudioStreamParcelFileDescriptor;
@@ -49,5 +44,10 @@ public final class HotwordAudioStream implements android.os.Parcelable {
         public android.service.voice.HotwordAudioStream.Builder setAudioStreamParcelFileDescriptor(android.os.ParcelFileDescriptor p0) { return null; }
         public android.service.voice.HotwordAudioStream.Builder setMetadata(android.os.PersistableBundle p0) { return null; }
         public android.service.voice.HotwordAudioStream.Builder setTimestamp(android.media.AudioTimestamp p0) { return null; }
+    }
+
+    static abstract class BaseBuilder {
+        BaseBuilder() {}
+        public android.service.voice.HotwordAudioStream.Builder setInitialAudio(byte[] p0) { return null; }
     }
 }

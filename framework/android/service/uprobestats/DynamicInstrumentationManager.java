@@ -2,7 +2,7 @@ package android.service.uprobestats;
 
 @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
 public final class DynamicInstrumentationManager {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DynamicInstrumentationManager";
     private static volatile android.content.ComponentName sDynamicInstrumentationEventConsumer;
     private static final java.lang.Object sLock = null;
     private final android.content.Context mContext = null;

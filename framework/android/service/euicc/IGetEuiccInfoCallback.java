@@ -3,12 +3,6 @@ package android.service.euicc;
 public interface IGetEuiccInfoCallback extends android.os.IInterface {
     public void onSuccess(android.telephony.euicc.EuiccInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.euicc.IGetEuiccInfoCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSuccess(android.telephony.euicc.EuiccInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.euicc.IGetEuiccInfoCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.euicc.IGetEuiccInfoCallback";
         static final int TRANSACTION_onSuccess = 1;
@@ -26,5 +20,11 @@ public interface IGetEuiccInfoCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onSuccess(android.telephony.euicc.EuiccInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.euicc.IGetEuiccInfoCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSuccess(android.telephony.euicc.EuiccInfo p0) throws android.os.RemoteException {}
     }
 }

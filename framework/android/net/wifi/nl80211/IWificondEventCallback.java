@@ -4,12 +4,6 @@ public interface IWificondEventCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.net.wifi.nl80211.IWificondEventCallback";
     public void OnRegDomainChanged(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.net.wifi.nl80211.IWificondEventCallback {
-        public Default() {}
-        public void OnRegDomainChanged(java.lang.String p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.net.wifi.nl80211.IWificondEventCallback {
         static final int TRANSACTION_OnRegDomainChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IWificondEventCallback extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.net.wifi.nl80211.IWificondEventCallback {
+        public Default() {}
+        public void OnRegDomainChanged(java.lang.String p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
     }
 }

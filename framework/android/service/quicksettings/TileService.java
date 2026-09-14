@@ -45,10 +45,6 @@ public class TileService extends android.app.Service {
     public final void startActivityAndCollapse(android.content.Intent p0) {}
     public final void unlockAndRun(java.lang.Runnable p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Categories {
-    }
-
     private class H extends android.os.Handler {
         private static final int MSG_START_LISTENING = 1;
         private static final int MSG_START_SUCCESS = 7;
@@ -61,5 +57,9 @@ public class TileService extends android.app.Service {
         public H(android.service.quicksettings.TileService p0, android.os.Looper p1) { super(); }
         private void logMessage(java.lang.String p0) {}
         public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Categories {
     }
 }

@@ -1,9 +1,9 @@
 package com.android.internal.widget.remotecompose.core.types;
 
-public class LongConstant extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.serialize.Serializable {
+public class LongConstant extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.VariableProvider, com.android.internal.widget.remotecompose.core.operations.ComponentData {
     private static final java.lang.String CLASS_NAME = "LongConstant";
     private static final int OP_CODE = 148;
-    public final int mId = 0;
+    public int mId;
     private long mValue;
     public LongConstant(int p0, long p1) { super(); }
     public static void apply(com.android.internal.widget.remotecompose.core.WireBuffer p0, int p1, long p2) {}
@@ -11,8 +11,10 @@ public class LongConstant extends com.android.internal.widget.remotecompose.core
     public static void read(com.android.internal.widget.remotecompose.core.WireBuffer p0, java.util.List<com.android.internal.widget.remotecompose.core.Operation> p1) {}
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
+    public int getId() { return 0; }
     public long getValue() { return 0L; }
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
+    public void setId(int p0) {}
     public void setValue(long p0) {}
     public java.lang.String toString() { return null; }
     public void update(com.android.internal.widget.remotecompose.core.types.LongConstant p0) {}

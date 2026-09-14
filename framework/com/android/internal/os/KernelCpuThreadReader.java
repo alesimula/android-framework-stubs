@@ -33,6 +33,21 @@ public class KernelCpuThreadReader {
     final void setNumBuckets(int p0) {}
     public final void setUidPredicate(java.util.function.Predicate<java.lang.Integer> p0) {}
 
+    public static final class ProcessCpuUsage {
+        public final int processId = 0;
+        public final java.lang.String processName = null;
+        public java.util.ArrayList<com.android.internal.os.KernelCpuThreadReader.ThreadCpuUsage> threadCpuUsages;
+        public final int uid = 0;
+        public ProcessCpuUsage(int p0, java.lang.String p1, int p2, java.util.ArrayList<com.android.internal.os.KernelCpuThreadReader.ThreadCpuUsage> p3) {}
+    }
+
+    public static final class ThreadCpuUsage {
+        public final int threadId = 0;
+        public final java.lang.String threadName = null;
+        public int[] usageTimesMillis;
+        public ThreadCpuUsage(int p0, java.lang.String p1, int[] p2) {}
+    }
+
     public static final class FrequencyBucketCreator {
         private final int[] mBucketStartIndices = null;
         private final int mNumBuckets = 0;
@@ -49,20 +64,5 @@ public class KernelCpuThreadReader {
     public static class Injector {
         public Injector() {}
         public int getUidForPid(int p0) { return 0; }
-    }
-
-    public static final class ProcessCpuUsage {
-        public final int processId = 0;
-        public final java.lang.String processName = null;
-        public java.util.ArrayList<com.android.internal.os.KernelCpuThreadReader.ThreadCpuUsage> threadCpuUsages;
-        public final int uid = 0;
-        public ProcessCpuUsage(int p0, java.lang.String p1, int p2, java.util.ArrayList<com.android.internal.os.KernelCpuThreadReader.ThreadCpuUsage> p3) {}
-    }
-
-    public static final class ThreadCpuUsage {
-        public final int threadId = 0;
-        public final java.lang.String threadName = null;
-        public int[] usageTimesMillis;
-        public ThreadCpuUsage(int p0, java.lang.String p1, int[] p2) {}
     }
 }

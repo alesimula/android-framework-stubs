@@ -32,8 +32,8 @@ public class AESEngine extends com.android.internal.org.bouncycastle.crypto.Defa
     public void init(boolean p0, com.android.internal.org.bouncycastle.crypto.CipherParameters p1) {}
     public int processBlock(byte[] p0, int p1, byte[] p2, int p3) { return 0; }
     public void reset() {}
-    private static long[] $d2j$hex$24dc0ea2$decode_J(java.lang.String p0) { return null; }
-    private static int[] $d2j$hex$24dc0ea2$decode_I(java.lang.String p0) { return null; }
-    private static short[] $d2j$hex$24dc0ea2$decode_S(java.lang.String p0) { return null; }
-    private static byte[] $d2j$hex$24dc0ea2$decode_B(java.lang.String p0) { return null; }
+    private static long[] $d2j$hex$8c366d49$decode_J(java.lang.String p0) { return null; }
+    private static int[] $d2j$hex$8c366d49$decode_I(java.lang.String p0) { return null; }
+    private static short[] $d2j$hex$8c366d49$decode_S(java.lang.String p0) { return null; }
+    private static byte[] $d2j$hex$8c366d49$decode_B(java.lang.String p0) { return null; }
 }

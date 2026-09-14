@@ -1,7 +1,7 @@
 package com.android.internal.os;
 
 public final class AtomicDirectory {
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "AtomicDirectory";
     private final java.io.File mBackupDirectory = null;
     private final java.io.File mBaseDirectory = null;
     private final android.util.ArrayMap<java.io.File, java.io.FileOutputStream> mOpenFiles = null;

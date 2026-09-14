@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations;
 
-public class TouchExpression extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.operations.ComponentData, com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.TouchListener, com.android.internal.widget.remotecompose.core.serialize.Serializable {
+public class TouchExpression extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.operations.ComponentData, com.android.internal.widget.remotecompose.core.VariableSupport, com.android.internal.widget.remotecompose.core.TouchListener, com.android.internal.widget.remotecompose.core.serialize.Serializable, com.android.internal.widget.remotecompose.core.VariableProvider {
     private static final java.lang.String CLASS_NAME = "TouchExpression";
     private static final int OP_CODE = 157;
     public static final int STOP_ABSOLUTE_POS = 6;
@@ -63,10 +63,12 @@ public class TouchExpression extends com.android.internal.widget.remotecompose.c
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     void crossNotchCheck(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
+    public int getId() { return 0; }
     void haptic(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void registerListening(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void serialize(com.android.internal.widget.remotecompose.core.serialize.MapSerializer p0) {}
     public void setComponent(com.android.internal.widget.remotecompose.core.operations.layout.Component p0) {}
+    public void setId(int p0) {}
     public java.lang.String toString() { return null; }
     public void touchDown(com.android.internal.widget.remotecompose.core.RemoteContext p0, float p1, float p2) {}
     public void touchDrag(com.android.internal.widget.remotecompose.core.RemoteContext p0, float p1, float p2) {}

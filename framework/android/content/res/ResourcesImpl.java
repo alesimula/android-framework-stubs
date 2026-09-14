@@ -4,6 +4,7 @@ public class ResourcesImpl {
     private static final boolean DEBUG_CONFIG = false;
     private static final boolean DEBUG_LOAD = false;
     private static final int ID_OTHER = 16777220;
+    private static final int MAX_ICON_SIZE = 2048;
     static final java.lang.String TAG = "Resources";
     private static final boolean TRACE_FOR_MISS_PRELOAD = false;
     private static final boolean TRACE_FOR_PRELOAD = false;
@@ -39,8 +40,10 @@ public class ResourcesImpl {
     private static java.lang.String adjustLanguageTag(java.lang.String p0) { return null; }
     private static int attrForQuantityCode(java.lang.String p0) { return 0; }
     private void cacheDrawable(android.util.TypedValue p0, boolean p1, android.content.res.DrawableCache p2, android.content.res.Resources.Theme p3, boolean p4, long p5, android.graphics.drawable.Drawable p6, int p7) {}
-    private android.graphics.drawable.Drawable decodeImageDrawable(android.content.res.AssetManager.AssetInputStream p0, android.content.res.Resources p1, android.util.TypedValue p2) { return null; }
-    private android.graphics.drawable.Drawable decodeImageDrawable(java.io.FileInputStream p0, android.content.res.Resources p1) { return null; }
+    private static long cacheKeyForCookieAsset(int p0, int p1, boolean p2) { return 0L; }
+    private void capImageSize(android.graphics.ImageDecoder p0, android.graphics.ImageDecoder.ImageInfo p1) {}
+    private android.graphics.drawable.Drawable decodeImageDrawable(android.content.res.AssetManager.AssetInputStream p0, android.content.res.Resources p1, android.util.TypedValue p2, boolean p3) { return null; }
+    private android.graphics.drawable.Drawable decodeImageDrawable(java.io.FileInputStream p0, android.content.res.Resources p1, boolean p2) { return null; }
     static int getAttributeSetSourceResId(android.util.AttributeSet p0) { return 0; }
     private android.content.res.ColorStateList getColorStateListFromInt(android.util.TypedValue p0, long p1) { return null; }
     private android.icu.text.PluralRules getPluralRule() { return null; }
@@ -48,7 +51,7 @@ public class ResourcesImpl {
     private android.graphics.drawable.Drawable loadColorOrXmlDrawable(android.content.res.Resources p0, android.util.TypedValue p1, int p2, int p3, java.lang.String p4) { return null; }
     private android.content.res.ComplexColor loadComplexColorForCookie(android.content.res.Resources p0, android.util.TypedValue p1, int p2, android.content.res.Resources.Theme p3) { return null; }
     private android.content.res.ComplexColor loadComplexColorFromName(android.content.res.Resources p0, android.content.res.Resources.Theme p1, android.util.TypedValue p2, int p3) { return null; }
-    private android.graphics.drawable.Drawable loadDrawableForCookie(android.content.res.Resources p0, android.util.TypedValue p1, int p2, int p3) { return null; }
+    private android.graphics.drawable.Drawable loadDrawableForCookie(android.content.res.Resources p0, android.util.TypedValue p1, int p2, int p3, boolean p4) { return null; }
     private android.graphics.drawable.Drawable loadXmlDrawable(android.content.res.Resources p0, android.util.TypedValue p1, int p2, int p3, java.lang.String p4) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException { return null; }
     static void resetDrawableStateCache() {}
     private void updateConfigurationImpl(android.content.res.Configuration p0, android.util.DisplayMetrics p1, android.content.res.CompatibilityInfo p2, boolean p3, int p4) {}
@@ -83,6 +86,7 @@ public class ResourcesImpl {
     android.content.res.ColorStateList loadColorStateList(android.content.res.Resources p0, android.util.TypedValue p1, int p2, android.content.res.Resources.Theme p3) throws android.content.res.Resources.NotFoundException { return null; }
     android.content.res.ComplexColor loadComplexColor(android.content.res.Resources p0, android.util.TypedValue p1, int p2, android.content.res.Resources.Theme p3) { return null; }
     android.graphics.drawable.Drawable loadDrawable(android.content.res.Resources p0, android.util.TypedValue p1, int p2, int p3, android.content.res.Resources.Theme p4) throws android.content.res.Resources.NotFoundException { return null; }
+    android.graphics.drawable.Drawable loadDrawable(android.content.res.Resources p0, android.util.TypedValue p1, int p2, int p3, android.content.res.Resources.Theme p4, boolean p5) throws android.content.res.Resources.NotFoundException { return null; }
     public android.graphics.Typeface loadFont(android.content.res.Resources p0, android.util.TypedValue p1, int p2) { return null; }
     android.content.res.XmlResourceParser loadXmlResourceParser(java.lang.String p0, int p1, int p2, java.lang.String p3, boolean p4) throws android.content.res.Resources.NotFoundException { return null; }
     android.content.res.ResourcesImpl.ThemeImpl newThemeImpl() { return null; }
@@ -103,14 +107,15 @@ public class ResourcesImpl {
     }
 
     public class ThemeImpl {
-        private android.content.res.AssetManager mAssets;
+        private static final int THEME_NATIVE_ALLOCATION_SIZE_BYTES = 300;
         private final android.content.res.Resources.ThemeKey mKey = null;
         private final long mTheme = 0L;
         private int mThemeResId;
+        private final android.content.res.ResourcesImpl.ThemeImpl.ThemeState mThemeState = null;
         ThemeImpl(android.content.res.ResourcesImpl p0) {}
+        private android.content.res.AssetManager getAssets() { return null; }
         void applyStyle(int p0, boolean p1) {}
         public void dump(int p0, java.lang.String p1, java.lang.String p2) {}
-        protected void finalize() throws java.lang.Throwable {}
         int[] getAllAttributes() { return null; }
         int getAppliedStyleResId() { return 0; }
         public int[] getAttributeResolutionStack(int p0, int p1, int p2) { return null; }
@@ -125,5 +130,17 @@ public class ResourcesImpl {
         boolean resolveAttribute(int p0, android.util.TypedValue p1, boolean p2) { return false; }
         android.content.res.TypedArray resolveAttributes(android.content.res.Resources.Theme p0, int[] p1, int[] p2) { return null; }
         void setTo(android.content.res.ResourcesImpl.ThemeImpl p0) {}
+
+        private static final class ThemeDestroyer implements java.lang.Runnable {
+            private final long mTheme = 0L;
+            private final android.content.res.ResourcesImpl.ThemeImpl.ThemeState mThemeState = null;
+            ThemeDestroyer(long p0, android.content.res.ResourcesImpl.ThemeImpl.ThemeState p1) {}
+            public void run() {}
+        }
+
+        private static final class ThemeState {
+            android.content.res.AssetManager mAssets;
+            ThemeState(android.content.res.AssetManager p0) {}
+        }
     }
 }

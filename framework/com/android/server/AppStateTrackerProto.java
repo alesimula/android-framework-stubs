@@ -16,15 +16,15 @@ public final class AppStateTrackerProto {
     public static final long TEMP_POWER_SAVE_EXEMPT_APP_IDS = 2220498092036L;
     public AppStateTrackerProto() {}
 
-    public final class ExemptedPackage {
-        public static final long PACKAGE_NAME = 1138166333442L;
-        public static final long USER_ID = 1120986464257L;
-        public ExemptedPackage(com.android.server.AppStateTrackerProto p0) {}
-    }
-
     public final class RunAnyInBackgroundRestrictedPackages {
         public static final long PACKAGE_NAME = 1138166333442L;
         public static final long UID = 1120986464257L;
         public RunAnyInBackgroundRestrictedPackages(com.android.server.AppStateTrackerProto p0) {}
+    }
+
+    public final class ExemptedPackage {
+        public static final long PACKAGE_NAME = 1138166333442L;
+        public static final long USER_ID = 1120986464257L;
+        public ExemptedPackage(com.android.server.AppStateTrackerProto p0) {}
     }
 }

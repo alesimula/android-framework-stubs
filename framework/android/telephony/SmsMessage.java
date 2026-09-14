@@ -29,7 +29,9 @@ public class SmsMessage {
     @java.lang.Deprecated
     public static android.telephony.SmsMessage createFromPdu(byte[] p0) { return null; }
     public static android.telephony.SmsMessage createFromPdu(byte[] p0, java.lang.String p1) { return null; }
-    private static android.telephony.SmsMessage createFromPdu(byte[] p0, java.lang.String p1, boolean p2) { return null; }
+    @android.annotation.SystemApi
+    public static android.telephony.SmsMessage createFromPdu(byte[] p0, java.lang.String p1, android.telephony.NetworkSecurityEvent p2) { return null; }
+    private static android.telephony.SmsMessage createFromPdu(byte[] p0, java.lang.String p1, boolean p2, android.telephony.NetworkSecurityEvent p3) { return null; }
     public static java.util.ArrayList<java.lang.String> fragmentText(java.lang.String p0) { return null; }
     public static java.util.ArrayList<java.lang.String> fragmentText(java.lang.String p0, int p1) { return null; }
     @android.annotation.SystemApi
@@ -56,6 +58,8 @@ public class SmsMessage {
     public int getIndexOnSim() { return 0; }
     public java.lang.String getMessageBody() { return null; }
     public android.telephony.SmsMessage.MessageClass getMessageClass() { return null; }
+    @android.annotation.SystemApi
+    public android.telephony.NetworkSecurityEvent getNetworkSecurityEvent() { return null; }
     public java.lang.String getOriginatingAddress() { return null; }
     public byte[] getPdu() { return null; }
     public int getProtocolIdentifier() { return 0; }
@@ -81,14 +85,6 @@ public class SmsMessage {
     public boolean isStatusReportMessage() { return false; }
     public void setSubId(int p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EncodingSize {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Format {
-    }
-
     public static enum MessageClass {
         CLASS_0,
         CLASS_1,
@@ -99,18 +95,26 @@ public class SmsMessage {
         private MessageClass() {}
     }
 
+    public static class SubmitPdu {
+        public byte[] encodedMessage;
+        public byte[] encodedScAddress;
+        protected SubmitPdu(com.android.internal.telephony.SmsMessageBase.SubmitPduBase p0) {}
+        public java.lang.String toString() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EncodingSize {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Format {
+    }
+
     private static class NoEmsSupportConfig {
         java.lang.String mGid1;
         boolean mIsPrefix;
         java.lang.String mOperatorNumber;
         public NoEmsSupportConfig(java.lang.String[] p0) {}
-        public java.lang.String toString() { return null; }
-    }
-
-    public static class SubmitPdu {
-        public byte[] encodedMessage;
-        public byte[] encodedScAddress;
-        protected SubmitPdu(com.android.internal.telephony.SmsMessageBase.SubmitPduBase p0) {}
         public java.lang.String toString() { return null; }
     }
 }

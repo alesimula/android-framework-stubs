@@ -13,6 +13,10 @@ public interface SharedPreferences {
     public void registerOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener p0);
     public void unregisterOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener p0);
 
+    public static interface OnSharedPreferenceChangeListener {
+        public void onSharedPreferenceChanged(android.content.SharedPreferences p0, java.lang.String p1);
+    }
+
     public static interface Editor {
         public void apply();
         public android.content.SharedPreferences.Editor clear();
@@ -24,9 +28,5 @@ public interface SharedPreferences {
         public android.content.SharedPreferences.Editor putString(java.lang.String p0, java.lang.String p1);
         public android.content.SharedPreferences.Editor putStringSet(java.lang.String p0, java.util.Set<java.lang.String> p1);
         public android.content.SharedPreferences.Editor remove(java.lang.String p0);
-    }
-
-    public static interface OnSharedPreferenceChangeListener {
-        public void onSharedPreferenceChanged(android.content.SharedPreferences p0, java.lang.String p1);
     }
 }

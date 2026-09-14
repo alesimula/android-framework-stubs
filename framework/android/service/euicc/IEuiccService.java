@@ -18,27 +18,6 @@ public interface IEuiccService extends android.os.IInterface {
     public void switchToSubscription(int p0, int p1, java.lang.String p2, boolean p3, android.service.euicc.ISwitchToSubscriptionCallback p4, boolean p5) throws android.os.RemoteException;
     public void updateSubscriptionNickname(int p0, java.lang.String p1, java.lang.String p2, android.service.euicc.IUpdateSubscriptionNicknameCallback p3) throws android.os.RemoteException;
 
-    public static class Default implements android.service.euicc.IEuiccService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void deleteSubscription(int p0, java.lang.String p1, android.service.euicc.IDeleteSubscriptionCallback p2) throws android.os.RemoteException {}
-        public void downloadSubscription(int p0, int p1, android.telephony.euicc.DownloadableSubscription p2, boolean p3, boolean p4, android.os.Bundle p5, android.service.euicc.IDownloadSubscriptionCallback p6) throws android.os.RemoteException {}
-        public void dump(android.service.euicc.IEuiccServiceDumpResultCallback p0) throws android.os.RemoteException {}
-        public void eraseSubscriptions(int p0, android.service.euicc.IEraseSubscriptionsCallback p1) throws android.os.RemoteException {}
-        public void eraseSubscriptionsWithOptions(int p0, int p1, android.service.euicc.IEraseSubscriptionsCallback p2) throws android.os.RemoteException {}
-        public void getAvailableMemoryInBytes(int p0, android.service.euicc.IGetAvailableMemoryInBytesCallback p1) throws android.os.RemoteException {}
-        public void getDefaultDownloadableSubscriptionList(int p0, boolean p1, android.service.euicc.IGetDefaultDownloadableSubscriptionListCallback p2) throws android.os.RemoteException {}
-        public void getDownloadableSubscriptionMetadata(int p0, int p1, android.telephony.euicc.DownloadableSubscription p2, boolean p3, boolean p4, android.service.euicc.IGetDownloadableSubscriptionMetadataCallback p5) throws android.os.RemoteException {}
-        public void getEid(int p0, android.service.euicc.IGetEidCallback p1) throws android.os.RemoteException {}
-        public void getEuiccInfo(int p0, android.service.euicc.IGetEuiccInfoCallback p1) throws android.os.RemoteException {}
-        public void getEuiccProfileInfoList(int p0, android.service.euicc.IGetEuiccProfileInfoListCallback p1) throws android.os.RemoteException {}
-        public void getOtaStatus(int p0, android.service.euicc.IGetOtaStatusCallback p1) throws android.os.RemoteException {}
-        public void retainSubscriptionsForFactoryReset(int p0, android.service.euicc.IRetainSubscriptionsForFactoryResetCallback p1) throws android.os.RemoteException {}
-        public void startOtaIfNecessary(int p0, android.service.euicc.IOtaStatusChangedCallback p1) throws android.os.RemoteException {}
-        public void switchToSubscription(int p0, int p1, java.lang.String p2, boolean p3, android.service.euicc.ISwitchToSubscriptionCallback p4, boolean p5) throws android.os.RemoteException {}
-        public void updateSubscriptionNickname(int p0, java.lang.String p1, java.lang.String p2, android.service.euicc.IUpdateSubscriptionNicknameCallback p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.euicc.IEuiccService {
         public static final java.lang.String DESCRIPTOR = "android.service.euicc.IEuiccService";
         static final int TRANSACTION_deleteSubscription = 9;
@@ -86,5 +65,26 @@ public interface IEuiccService extends android.os.IInterface {
             public void switchToSubscription(int p0, int p1, java.lang.String p2, boolean p3, android.service.euicc.ISwitchToSubscriptionCallback p4, boolean p5) throws android.os.RemoteException {}
             public void updateSubscriptionNickname(int p0, java.lang.String p1, java.lang.String p2, android.service.euicc.IUpdateSubscriptionNicknameCallback p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.euicc.IEuiccService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void deleteSubscription(int p0, java.lang.String p1, android.service.euicc.IDeleteSubscriptionCallback p2) throws android.os.RemoteException {}
+        public void downloadSubscription(int p0, int p1, android.telephony.euicc.DownloadableSubscription p2, boolean p3, boolean p4, android.os.Bundle p5, android.service.euicc.IDownloadSubscriptionCallback p6) throws android.os.RemoteException {}
+        public void dump(android.service.euicc.IEuiccServiceDumpResultCallback p0) throws android.os.RemoteException {}
+        public void eraseSubscriptions(int p0, android.service.euicc.IEraseSubscriptionsCallback p1) throws android.os.RemoteException {}
+        public void eraseSubscriptionsWithOptions(int p0, int p1, android.service.euicc.IEraseSubscriptionsCallback p2) throws android.os.RemoteException {}
+        public void getAvailableMemoryInBytes(int p0, android.service.euicc.IGetAvailableMemoryInBytesCallback p1) throws android.os.RemoteException {}
+        public void getDefaultDownloadableSubscriptionList(int p0, boolean p1, android.service.euicc.IGetDefaultDownloadableSubscriptionListCallback p2) throws android.os.RemoteException {}
+        public void getDownloadableSubscriptionMetadata(int p0, int p1, android.telephony.euicc.DownloadableSubscription p2, boolean p3, boolean p4, android.service.euicc.IGetDownloadableSubscriptionMetadataCallback p5) throws android.os.RemoteException {}
+        public void getEid(int p0, android.service.euicc.IGetEidCallback p1) throws android.os.RemoteException {}
+        public void getEuiccInfo(int p0, android.service.euicc.IGetEuiccInfoCallback p1) throws android.os.RemoteException {}
+        public void getEuiccProfileInfoList(int p0, android.service.euicc.IGetEuiccProfileInfoListCallback p1) throws android.os.RemoteException {}
+        public void getOtaStatus(int p0, android.service.euicc.IGetOtaStatusCallback p1) throws android.os.RemoteException {}
+        public void retainSubscriptionsForFactoryReset(int p0, android.service.euicc.IRetainSubscriptionsForFactoryResetCallback p1) throws android.os.RemoteException {}
+        public void startOtaIfNecessary(int p0, android.service.euicc.IOtaStatusChangedCallback p1) throws android.os.RemoteException {}
+        public void switchToSubscription(int p0, int p1, java.lang.String p2, boolean p3, android.service.euicc.ISwitchToSubscriptionCallback p4, boolean p5) throws android.os.RemoteException {}
+        public void updateSubscriptionNickname(int p0, java.lang.String p1, java.lang.String p2, android.service.euicc.IUpdateSubscriptionNicknameCallback p3) throws android.os.RemoteException {}
     }
 }

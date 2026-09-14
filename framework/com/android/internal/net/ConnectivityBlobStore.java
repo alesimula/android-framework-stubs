@@ -4,7 +4,7 @@ public class ConnectivityBlobStore {
     private static final java.lang.String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS blob_table (owner INTEGER,name BLOB,blob BLOB,UNIQUE(owner, name));";
     private static final java.lang.String ROOT_DIR = "/data/misc/connectivityblobdb/";
     private static final java.lang.String TABLENAME = "blob_table";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ConnectivityBlobStore";
     private final android.database.sqlite.SQLiteDatabase mDb = null;
     public ConnectivityBlobStore(java.io.File p0) {}
     public ConnectivityBlobStore(java.lang.String p0) {}

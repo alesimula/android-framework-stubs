@@ -13,6 +13,16 @@ public abstract class CameraExtensionService extends android.app.Service {
     public abstract boolean onRegisterClient(android.os.IBinder p0);
     public abstract void onUnregisterClient(android.os.IBinder p0);
 
+    private final class CameraTracker implements android.hardware.camera2.extension.CameraUsageTracker {
+        private final android.app.AppOpsManager mAppOpsService = null;
+        private final java.lang.String mAttributionTag = null;
+        private final java.lang.String mPackageName = null;
+        private int mUid;
+        private CameraTracker(android.hardware.camera2.extension.CameraExtensionService p0) {}
+        public void finishCameraOperation() {}
+        public void startCameraOperation() {}
+    }
+
     private class CameraExtensionServiceImpl extends android.hardware.camera2.extension.ICameraExtensionsProxyService.Stub {
         private CameraExtensionServiceImpl(android.hardware.camera2.extension.CameraExtensionService p0) { super(); }
         public boolean advancedExtensionsSupported() throws android.os.RemoteException { return false; }
@@ -23,15 +33,5 @@ public abstract class CameraExtensionService extends android.app.Service {
         public boolean registerClient(android.os.IBinder p0) throws android.os.RemoteException { return false; }
         public void releaseSession() {}
         public void unregisterClient(android.os.IBinder p0) throws android.os.RemoteException {}
-    }
-
-    private final class CameraTracker implements android.hardware.camera2.extension.CameraUsageTracker {
-        private final android.app.AppOpsManager mAppOpsService = null;
-        private final java.lang.String mAttributionTag = null;
-        private final java.lang.String mPackageName = null;
-        private int mUid;
-        private CameraTracker(android.hardware.camera2.extension.CameraExtensionService p0) {}
-        public void finishCameraOperation() {}
-        public void startCameraOperation() {}
     }
 }

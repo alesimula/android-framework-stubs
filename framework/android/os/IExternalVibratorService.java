@@ -5,13 +5,6 @@ public interface IExternalVibratorService extends android.os.IInterface {
     public android.os.ExternalVibrationScale onExternalVibrationStart(android.os.ExternalVibration p0) throws android.os.RemoteException;
     public void onExternalVibrationStop(android.os.ExternalVibration p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IExternalVibratorService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.ExternalVibrationScale onExternalVibrationStart(android.os.ExternalVibration p0) throws android.os.RemoteException { return null; }
-        public void onExternalVibrationStop(android.os.ExternalVibration p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IExternalVibratorService {
         static final int TRANSACTION_onExternalVibrationStart = 1;
         static final int TRANSACTION_onExternalVibrationStop = 2;
@@ -30,5 +23,12 @@ public interface IExternalVibratorService extends android.os.IInterface {
             public android.os.ExternalVibrationScale onExternalVibrationStart(android.os.ExternalVibration p0) throws android.os.RemoteException { return null; }
             public void onExternalVibrationStop(android.os.ExternalVibration p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IExternalVibratorService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.ExternalVibrationScale onExternalVibrationStart(android.os.ExternalVibration p0) throws android.os.RemoteException { return null; }
+        public void onExternalVibrationStop(android.os.ExternalVibration p0) throws android.os.RemoteException {}
     }
 }

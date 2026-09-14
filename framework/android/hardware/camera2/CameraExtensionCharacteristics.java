@@ -10,7 +10,7 @@ public final class CameraExtensionCharacteristics {
     private static final int[] EXTENSION_LIST = null;
     public static final int EXTENSION_NIGHT = 4;
     @android.annotation.SystemApi
-    public static final int EXTENSION_SELFIE_SEGMENTATION = 5;
+    public static final int EXTENSION_SUBJECT_SEGMENTATION = 5;
     @android.annotation.SystemApi
     public static final int EXTENSION_VENDOR_START = 16384;
     public static final int NON_PROCESSING_INPUT_FORMAT = 34;
@@ -48,8 +48,8 @@ public final class CameraExtensionCharacteristics {
     public boolean isPostviewAvailable(int p0) { return false; }
 
     private static final class CameraExtensionManagerGlobal {
-        private static final int FALLBACK_PACKAGE_NAME = 17040069;
-        private static final int FALLBACK_SERVICE_NAME = 17040070;
+        private static final int FALLBACK_PACKAGE_NAME = 17040088;
+        private static final int FALLBACK_SERVICE_NAME = 17040089;
         private static final android.hardware.camera2.CameraExtensionCharacteristics.CameraExtensionManagerGlobal GLOBAL_CAMERA_MANAGER = null;
         private static final java.lang.String PROXY_PACKAGE_NAME = "com.android.cameraextensions";
         private static final java.lang.String PROXY_SERVICE_NAME = "com.android.cameraextensions.CameraExtensionsProxyService";
@@ -71,6 +71,18 @@ public final class CameraExtensionCharacteristics {
         public boolean registerClientHelper(android.content.Context p0, android.os.IBinder p1, int p2, boolean p3) { return false; }
         public void releaseSession(int p0) {}
         public void unregisterClient(android.content.Context p0, android.os.IBinder p1, int p2) {}
+
+        private static class InitializerFuture implements java.util.concurrent.Future<java.lang.Boolean> {
+            android.os.ConditionVariable mCondVar;
+            private volatile java.lang.Boolean mStatus;
+            private InitializerFuture() {}
+            public boolean cancel(boolean p0) { return false; }
+            public java.lang.Boolean get() { return null; }
+            public java.lang.Boolean get(long p0, java.util.concurrent.TimeUnit p1) throws java.util.concurrent.TimeoutException { return null; }
+            public boolean isCancelled() { return false; }
+            public boolean isDone() { return false; }
+            public void setStatus(boolean p0) {}
+        }
 
         private class ExtensionConnectionManager {
             private java.util.Map<java.lang.Integer, android.hardware.camera2.CameraExtensionCharacteristics.CameraExtensionManagerGlobal.ExtensionConnectionManager.ExtensionConnection> mConnections;
@@ -96,18 +108,6 @@ public final class CameraExtensionCharacteristics {
                 public boolean mSupportsAdvancedExtensions;
                 private ExtensionConnection(android.hardware.camera2.CameraExtensionCharacteristics.CameraExtensionManagerGlobal.ExtensionConnectionManager p0) {}
             }
-        }
-
-        private static class InitializerFuture implements java.util.concurrent.Future<java.lang.Boolean> {
-            android.os.ConditionVariable mCondVar;
-            private volatile java.lang.Boolean mStatus;
-            private InitializerFuture() {}
-            public boolean cancel(boolean p0) { return false; }
-            public java.lang.Boolean get() { return null; }
-            public java.lang.Boolean get(long p0, java.util.concurrent.TimeUnit p1) throws java.util.concurrent.TimeoutException { return null; }
-            public boolean isCancelled() { return false; }
-            public boolean isDone() { return false; }
-            public void setStatus(boolean p0) {}
         }
     }
 

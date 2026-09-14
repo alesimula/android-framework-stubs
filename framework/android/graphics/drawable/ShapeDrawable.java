@@ -5,7 +5,7 @@ public class ShapeDrawable extends android.graphics.drawable.Drawable {
     private boolean mMutated;
     private android.graphics.drawable.ShapeDrawable.ShapeState mShapeState;
     public ShapeDrawable() { super(); }
-    private ShapeDrawable(android.graphics.drawable.ShapeDrawable.ShapeState p0, android.content.res.Resources p1) { super(); }
+    private ShapeDrawable(android.graphics.drawable.ShapeDrawable.ShapeState p0) { super(); }
     public ShapeDrawable(android.graphics.drawable.shapes.Shape p0) { super(); }
     private static int modulateAlpha(int p0, int p1) { return 0; }
     private void updateLocalState() {}

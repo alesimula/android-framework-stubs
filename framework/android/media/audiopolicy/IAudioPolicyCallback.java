@@ -9,18 +9,6 @@ public interface IAudioPolicyCallback extends android.os.IInterface {
     public void notifyUnregistration() throws android.os.RemoteException;
     public void notifyVolumeAdjust(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.audiopolicy.IAudioPolicyCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void notifyAudioFocusAbandon(android.media.AudioFocusInfo p0) throws android.os.RemoteException {}
-        public void notifyAudioFocusGrant(android.media.AudioFocusInfo p0, int p1) throws android.os.RemoteException {}
-        public void notifyAudioFocusLoss(android.media.AudioFocusInfo p0, boolean p1) throws android.os.RemoteException {}
-        public void notifyAudioFocusRequest(android.media.AudioFocusInfo p0, int p1) throws android.os.RemoteException {}
-        public void notifyMixStateUpdate(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void notifyUnregistration() throws android.os.RemoteException {}
-        public void notifyVolumeAdjust(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.audiopolicy.IAudioPolicyCallback {
         public static final java.lang.String DESCRIPTOR = "android.media.audiopolicy.IAudioPolicyCallback";
         static final int TRANSACTION_notifyAudioFocusAbandon = 4;
@@ -50,5 +38,17 @@ public interface IAudioPolicyCallback extends android.os.IInterface {
             public void notifyUnregistration() throws android.os.RemoteException {}
             public void notifyVolumeAdjust(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.audiopolicy.IAudioPolicyCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void notifyAudioFocusAbandon(android.media.AudioFocusInfo p0) throws android.os.RemoteException {}
+        public void notifyAudioFocusGrant(android.media.AudioFocusInfo p0, int p1) throws android.os.RemoteException {}
+        public void notifyAudioFocusLoss(android.media.AudioFocusInfo p0, boolean p1) throws android.os.RemoteException {}
+        public void notifyAudioFocusRequest(android.media.AudioFocusInfo p0, int p1) throws android.os.RemoteException {}
+        public void notifyMixStateUpdate(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void notifyUnregistration() throws android.os.RemoteException {}
+        public void notifyVolumeAdjust(int p0) throws android.os.RemoteException {}
     }
 }

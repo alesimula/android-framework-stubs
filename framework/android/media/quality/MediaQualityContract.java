@@ -101,6 +101,18 @@ public class MediaQualityContract {
     public static final java.lang.String THREE_D_MODE_UNKNOWN = "unknown";
     private MediaQualityContract() {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ColorSpaceValue {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SoundStyleValue {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DolbySoundModeValue {
+    }
+
     public static interface BaseParameters {
         public static final java.lang.String PARAMETER_ID = "_id";
         public static final java.lang.String PARAMETER_INPUT_ID = "_input_id";
@@ -110,23 +122,11 @@ public class MediaQualityContract {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ColorSpaceValue {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ColorTempValue {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DigitalOutputModeValue {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DolbySoundModeValue {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DownMixModeValue {
+    public static @interface StreamStatusValue {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -134,19 +134,11 @@ public class MediaQualityContract {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HdmiRgbRangeValue {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Level {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface LevelRangeValue {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PanelTechnology {
+    public static @interface ColorTempValue {
     }
 
     public static final class PictureQuality {
@@ -242,7 +234,7 @@ public class MediaQualityContract {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PictureQualityEventTypeValue {
+    public static @interface ThreeDModeValue {
     }
 
     public static final class SoundQuality {
@@ -298,14 +290,22 @@ public class MediaQualityContract {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SoundStyleValue {
+    public static @interface DownMixModeValue {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StreamStatusValue {
+    public static @interface PanelTechnology {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ThreeDModeValue {
+    public static @interface Level {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HdmiRgbRangeValue {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PictureQualityEventTypeValue {
     }
 }

@@ -23,15 +23,25 @@ public interface IGnssMeasurementCallback extends android.hardware.gnss.V1_0.IGn
     public void setHALInstrumentation() throws android.os.RemoteException;
     public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException;
 
-    public static final class GnssAccumulatedDeltaRangeState {
-        public static final short ADR_STATE_CYCLE_SLIP = 4;
-        public static final short ADR_STATE_HALF_CYCLE_RESOLVED = 8;
-        public static final short ADR_STATE_RESET = 2;
-        public static final short ADR_STATE_UNKNOWN = 0;
-        public static final short ADR_STATE_VALID = 1;
-        public GnssAccumulatedDeltaRangeState() {}
-        public static final java.lang.String dumpBitfield(short p0) { return null; }
-        public static final java.lang.String toString(short p0) { return null; }
+    public static final class Proxy implements android.hardware.gnss.V1_1.IGnssMeasurementCallback {
+        private android.os.IHwBinder mRemote;
+        public Proxy(android.os.IHwBinder p0) {}
+        public void GnssMeasurementCb(android.hardware.gnss.V1_0.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) throws android.os.RemoteException {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() throws android.os.RemoteException { return null; }
+        public java.util.ArrayList<byte[]> getHashChain() throws android.os.RemoteException { return null; }
+        public void gnssMeasurementCb(android.hardware.gnss.V1_1.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
+        public final int hashCode() { return 0; }
+        public java.util.ArrayList<java.lang.String> interfaceChain() throws android.os.RemoteException { return null; }
+        public java.lang.String interfaceDescriptor() throws android.os.RemoteException { return null; }
+        public boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) throws android.os.RemoteException { return false; }
+        public void notifySyspropsChanged() throws android.os.RemoteException {}
+        public void ping() throws android.os.RemoteException {}
+        public void setHALInstrumentation() throws android.os.RemoteException {}
+        public java.lang.String toString() { return null; }
+        public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
     }
 
     public static final class GnssData {
@@ -64,25 +74,15 @@ public interface IGnssMeasurementCallback extends android.hardware.gnss.V1_0.IGn
         public final void writeToParcel(android.os.HwParcel p0) {}
     }
 
-    public static final class Proxy implements android.hardware.gnss.V1_1.IGnssMeasurementCallback {
-        private android.os.IHwBinder mRemote;
-        public Proxy(android.os.IHwBinder p0) {}
-        public void GnssMeasurementCb(android.hardware.gnss.V1_0.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) throws android.os.RemoteException {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() throws android.os.RemoteException { return null; }
-        public java.util.ArrayList<byte[]> getHashChain() throws android.os.RemoteException { return null; }
-        public void gnssMeasurementCb(android.hardware.gnss.V1_1.IGnssMeasurementCallback.GnssData p0) throws android.os.RemoteException {}
-        public final int hashCode() { return 0; }
-        public java.util.ArrayList<java.lang.String> interfaceChain() throws android.os.RemoteException { return null; }
-        public java.lang.String interfaceDescriptor() throws android.os.RemoteException { return null; }
-        public boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) throws android.os.RemoteException { return false; }
-        public void notifySyspropsChanged() throws android.os.RemoteException {}
-        public void ping() throws android.os.RemoteException {}
-        public void setHALInstrumentation() throws android.os.RemoteException {}
-        public java.lang.String toString() { return null; }
-        public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
+    public static final class GnssAccumulatedDeltaRangeState {
+        public static final short ADR_STATE_CYCLE_SLIP = 4;
+        public static final short ADR_STATE_HALF_CYCLE_RESOLVED = 8;
+        public static final short ADR_STATE_RESET = 2;
+        public static final short ADR_STATE_UNKNOWN = 0;
+        public static final short ADR_STATE_VALID = 1;
+        public GnssAccumulatedDeltaRangeState() {}
+        public static final java.lang.String dumpBitfield(short p0) { return null; }
+        public static final java.lang.String toString(short p0) { return null; }
     }
 
     public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.V1_1.IGnssMeasurementCallback {

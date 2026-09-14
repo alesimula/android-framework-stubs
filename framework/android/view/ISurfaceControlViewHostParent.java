@@ -3,6 +3,7 @@ package android.view;
 public interface ISurfaceControlViewHostParent extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.view.ISurfaceControlViewHostParent";
     public void forwardBackKeyToParent(android.view.KeyEvent p0) throws android.os.RemoteException;
+    public void requestRectangleOnScreen(android.graphics.Rect p0, int p1) throws android.os.RemoteException;
     public void transferFocusToParent(int p0) throws android.os.RemoteException;
     public void updateParams(android.view.WindowManager.LayoutParams[] p0) throws android.os.RemoteException;
 
@@ -10,12 +11,14 @@ public interface ISurfaceControlViewHostParent extends android.os.IInterface {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
         public void forwardBackKeyToParent(android.view.KeyEvent p0) throws android.os.RemoteException {}
+        public void requestRectangleOnScreen(android.graphics.Rect p0, int p1) throws android.os.RemoteException {}
         public void transferFocusToParent(int p0) throws android.os.RemoteException {}
         public void updateParams(android.view.WindowManager.LayoutParams[] p0) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.view.ISurfaceControlViewHostParent {
         static final int TRANSACTION_forwardBackKeyToParent = 2;
+        static final int TRANSACTION_requestRectangleOnScreen = 4;
         static final int TRANSACTION_transferFocusToParent = 3;
         static final int TRANSACTION_updateParams = 1;
         public Stub() { super(); }
@@ -31,6 +34,7 @@ public interface ISurfaceControlViewHostParent extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public void forwardBackKeyToParent(android.view.KeyEvent p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
+            public void requestRectangleOnScreen(android.graphics.Rect p0, int p1) throws android.os.RemoteException {}
             public void transferFocusToParent(int p0) throws android.os.RemoteException {}
             public void updateParams(android.view.WindowManager.LayoutParams[] p0) throws android.os.RemoteException {}
         }

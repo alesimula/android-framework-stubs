@@ -105,6 +105,20 @@ public class Path {
     public void transform(android.graphics.Matrix p0) {}
     public void transform(android.graphics.Matrix p0, android.graphics.Path p1) {}
 
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
+    }
+
+    public static enum Op {
+        DIFFERENCE,
+        INTERSECT,
+        REVERSE_DIFFERENCE,
+        UNION,
+        XOR;
+        private static final android.graphics.Path.Op[] $VALUES = null;
+        private Op() {}
+    }
+
     public static enum Direction {
         CCW,
         CW;
@@ -121,19 +135,5 @@ public class Path {
         private static final android.graphics.Path.FillType[] $VALUES = null;
         final int nativeInt = 0;
         private FillType() {}
-    }
-
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
-    }
-
-    public static enum Op {
-        DIFFERENCE,
-        INTERSECT,
-        REVERSE_DIFFERENCE,
-        UNION,
-        XOR;
-        private static final android.graphics.Path.Op[] $VALUES = null;
-        private Op() {}
     }
 }

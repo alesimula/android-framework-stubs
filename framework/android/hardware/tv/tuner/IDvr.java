@@ -16,22 +16,6 @@ public interface IDvr extends android.os.IInterface {
     public void start() throws android.os.RemoteException;
     public void stop() throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.IDvr {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void attachFilter(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException {}
-        public void close() throws android.os.RemoteException {}
-        public void configure(android.hardware.tv.tuner.DvrSettings p0) throws android.os.RemoteException {}
-        public void detachFilter(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException {}
-        public void flush() throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getQueueDesc(android.hardware.common.fmq.MQDescriptor<java.lang.Byte, java.lang.Byte> p0) throws android.os.RemoteException {}
-        public void setStatusCheckIntervalHint(long p0) throws android.os.RemoteException {}
-        public void start() throws android.os.RemoteException {}
-        public void stop() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.IDvr {
         static final int TRANSACTION_attachFilter = 3;
         static final int TRANSACTION_close = 8;
@@ -68,5 +52,21 @@ public interface IDvr extends android.os.IInterface {
             public void start() throws android.os.RemoteException {}
             public void stop() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.IDvr {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void attachFilter(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException {}
+        public void close() throws android.os.RemoteException {}
+        public void configure(android.hardware.tv.tuner.DvrSettings p0) throws android.os.RemoteException {}
+        public void detachFilter(android.hardware.tv.tuner.IFilter p0) throws android.os.RemoteException {}
+        public void flush() throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getQueueDesc(android.hardware.common.fmq.MQDescriptor<java.lang.Byte, java.lang.Byte> p0) throws android.os.RemoteException {}
+        public void setStatusCheckIntervalHint(long p0) throws android.os.RemoteException {}
+        public void start() throws android.os.RemoteException {}
+        public void stop() throws android.os.RemoteException {}
     }
 }

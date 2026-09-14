@@ -418,12 +418,15 @@ public class CarrierConfigManager {
     public static final java.lang.String KEY_NR_ADVANCED_CAPABLE_PCO_ID_INT = "nr_advanced_capable_pco_id_int";
     public static final java.lang.String KEY_NR_ADVANCED_PCI_CHANGE_SECONDARY_TIMER_SECONDS_INT = "nr_advanced_pci_change_secondary_timer_seconds_int";
     public static final java.lang.String KEY_NR_ADVANCED_REQUIRES_SINGLE_CC_ABOVE_BANDWIDTH_THRESHOLD_BOOL = "nr_advanced_requires_single_cc_above_bandwidth_threshold";
+    public static final java.lang.String KEY_NR_ADVANCED_SA_ICON_SUPPORTED_BOOL = "nr_advanced_sa_icon_supported_bool";
     public static final java.lang.String KEY_NR_ADVANCED_THRESHOLD_BANDWIDTH_KHZ_INT = "nr_advanced_threshold_bandwidth_khz_int";
     public static final java.lang.String KEY_NR_TIMERS_RESET_IF_NON_ENDC_AND_RRC_IDLE_BOOL = "nr_timers_reset_if_non_endc_and_rrc_idle_bool";
     public static final java.lang.String KEY_NR_TIMERS_RESET_IF_NR_ADVANCED_AND_RRC_IDLE_BOOL = "nr_timers_reset_if_nr_advanced_and_rrc_idle_bool";
     public static final java.lang.String KEY_NR_TIMERS_RESET_ON_ENDC_TO_SA_TRANSIT_BOOL = "nr_timers_reset_on_endc_to_sa_transit_bool";
     public static final java.lang.String KEY_NR_TIMERS_RESET_ON_PLMN_CHANGE_BOOL = "nr_timers_reset_on_plmn_change_bool";
+    public static final java.lang.String KEY_NR_TIMERS_RESET_ON_SA_TO_LTE_TRANSIT_BOOL = "nr_timers_reset_on_sa_to_lte_transit_bool";
     public static final java.lang.String KEY_NR_TIMERS_RESET_ON_VOICE_QOS_BOOL = "nr_timers_reset_on_voice_qos_bool";
+    public static final java.lang.String KEY_NSA_TO_SA_GRACE_TIME_SEC_INT = "nsa_to_sa_grace_time_sec_int";
     public static final java.lang.String KEY_NTN_5G_NR_SSRSRP_THRESHOLDS_INT_ARRAY = "ntn_5g_nr_ssrsrp_thresholds_int_array";
     public static final java.lang.String KEY_NTN_5G_NR_SSRSRQ_THRESHOLDS_INT_ARRAY = "ntn_5g_nr_ssrsrq_thresholds_int_array";
     public static final java.lang.String KEY_NTN_5G_NR_SSSINR_THRESHOLDS_INT_ARRAY = "ntn_5g_nr_sssinr_thresholds_int_array";
@@ -534,6 +537,7 @@ public class CarrierConfigManager {
     public static final java.lang.String KEY_SATELLITE_SUPPORTED_MSG_APPS_STRING_ARRAY = "satellite_supported_msg_apps_string_array";
     @android.annotation.SystemApi
     public static final java.lang.String KEY_SATELLITE_TECHNOLOGY_INT_ARRAY = "satellite_technology_type_int_array";
+    public static final java.lang.String KEY_SA_TO_NSA_GRACE_TIME_SEC_INT = "sa_to_nsa_grace_time_sec_int";
     public static final java.lang.String KEY_SHOW_4GLTE_FOR_LTE_DATA_ICON_BOOL = "show_4glte_for_lte_data_icon_bool";
     public static final java.lang.String KEY_SHOW_4G_FOR_3G_DATA_ICON_BOOL = "show_4g_for_3g_data_icon_bool";
     public static final java.lang.String KEY_SHOW_4G_FOR_LTE_DATA_ICON_BOOL = "show_4g_for_lte_data_icon_bool";
@@ -729,6 +733,45 @@ public class CarrierConfigManager {
     @android.annotation.SystemApi
     public void updateConfigForPhoneId(int p0, java.lang.String p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CARRIER_ROAMING_NTN_CONNECT_TYPE {
+    }
+
+    public static final class ImsSms {
+        public static final java.lang.String KEY_EMERGENCY_SMS_OVER_EMERGENCY_PDN_INT_ARRAY = "imssms.emergency_sms_over_emergency_pdn_int_array";
+        public static final java.lang.String KEY_PREFIX = "imssms.";
+        public static final java.lang.String KEY_SMS_CSFB_RETRY_ON_FAILURE_BOOL = "imssms.sms_csfb_retry_on_failure_bool";
+        public static final java.lang.String KEY_SMS_MAX_RETRY_COUNT_INT = "imssms.sms_max_retry_count_int";
+        public static final java.lang.String KEY_SMS_MAX_RETRY_OVER_IMS_COUNT_INT = "imssms.sms_max_retry_over_ims_count_int";
+        public static final java.lang.String KEY_SMS_OVER_IMS_FORMAT_INT = "imssms.sms_over_ims_format_int";
+        public static final java.lang.String KEY_SMS_OVER_IMS_SEND_RETRY_DELAY_MILLIS_INT = "imssms.sms_over_ims_send_retry_delay_millis_int";
+        public static final java.lang.String KEY_SMS_OVER_IMS_SUPPORTED_BOOL = "imssms.sms_over_ims_supported_bool";
+        public static final java.lang.String KEY_SMS_OVER_IMS_SUPPORTED_RATS_INT_ARRAY = "imssms.sms_over_ims_supported_rats_int_array";
+        public static final java.lang.String KEY_SMS_RP_CAUSE_VALUES_TO_FALLBACK_INT_ARRAY = "imssms.sms_rp_cause_values_to_fallback_int_array";
+        public static final java.lang.String KEY_SMS_RP_CAUSE_VALUES_TO_RETRY_OVER_IMS_INT_ARRAY = "imssms.sms_rp_cause_values_to_retry_over_ims_int_array";
+        public static final java.lang.String KEY_SMS_TR1_TIMER_MILLIS_INT = "imssms.sms_tr1_timer_millis_int";
+        public static final java.lang.String KEY_SMS_TR2_TIMER_MILLIS_INT = "imssms.sms_tr2_timer_millis_int";
+        public static final int SMS_FORMAT_3GPP = 0;
+        public static final int SMS_FORMAT_3GPP2 = 1;
+        private ImsSms() {}
+        private static android.os.PersistableBundle getDefaults() { return null; }
+
+        public static @interface SmsFormat {
+        }
+    }
+
+    public static @interface SATELLITE_DATA_SUPPORT_MODE {
+    }
+
+    public static final class Bsf {
+        public static final java.lang.String KEY_BSF_SERVER_FQDN_STRING = "bsf.bsf_server_fqdn_string";
+        public static final java.lang.String KEY_BSF_SERVER_PORT_INT = "bsf.bsf_server_port_int";
+        public static final java.lang.String KEY_BSF_TRANSPORT_TYPE_INT = "bsf.bsf_transport_type_int";
+        public static final java.lang.String KEY_PREFIX = "bsf.";
+        private Bsf() {}
+        private static android.os.PersistableBundle getDefaults() { return null; }
+    }
+
     public static final class Apn {
         @java.lang.Deprecated
         public static final java.lang.String KEY_PREFIX = "apn.";
@@ -741,21 +784,46 @@ public class CarrierConfigManager {
         private static android.os.PersistableBundle getDefaults() { return null; }
     }
 
-    public static final class Bsf {
-        public static final java.lang.String KEY_BSF_SERVER_FQDN_STRING = "bsf.bsf_server_fqdn_string";
-        public static final java.lang.String KEY_BSF_SERVER_PORT_INT = "bsf.bsf_server_port_int";
-        public static final java.lang.String KEY_BSF_TRANSPORT_TYPE_INT = "bsf.bsf_transport_type_int";
-        public static final java.lang.String KEY_PREFIX = "bsf.";
-        private Bsf() {}
+    public static final class ImsVt {
+        public static final java.lang.String KEY_H264_PAYLOAD_DESCRIPTION_BUNDLE = "imsvt.h264_payload_description_bundle";
+        public static final java.lang.String KEY_H264_PAYLOAD_TYPE_INT_ARRAY = "imsvt.h264_payload_type_int_array";
+        public static final java.lang.String KEY_H264_VIDEO_CODEC_ATTRIBUTE_PROFILE_LEVEL_ID_STRING = "imsvt.h264_video_codec_attribute_profile_level_id_string";
+        public static final java.lang.String KEY_PREFIX = "imsvt.";
+        public static final java.lang.String KEY_VIDEO_AS_BANDWIDTH_KBPS_INT = "imsvt.video_as_bandwidth_kbps_int";
+        public static final java.lang.String KEY_VIDEO_CODEC_ATTRIBUTE_FRAME_RATE_INT = "imsvt.video_codec_attribute_frame_rate_int";
+        public static final java.lang.String KEY_VIDEO_CODEC_ATTRIBUTE_PACKETIZATION_MODE_INT = "imsvt.video_codec_attribute_packetization_mode_int";
+        public static final java.lang.String KEY_VIDEO_CODEC_ATTRIBUTE_RESOLUTION_INT_ARRAY = "imsvt.video_codec_attribute_resolution_int_array";
+        public static final java.lang.String KEY_VIDEO_CODEC_CAPABILITY_PAYLOAD_TYPES_BUNDLE = "imsvt.video_codec_capability_payload_types_bundle";
+        public static final java.lang.String KEY_VIDEO_ON_DEFAULT_BEARER_SUPPORTED_BOOL = "imsvt.video_on_default_bearer_supported_bool";
+        public static final java.lang.String KEY_VIDEO_QOS_PRECONDITION_SUPPORTED_BOOL = "imsvt.video_qos_precondition_supported_bool";
+        public static final java.lang.String KEY_VIDEO_RR_BANDWIDTH_BPS_INT = "imsvt.video_rr_bandwidth_bps_int";
+        public static final java.lang.String KEY_VIDEO_RS_BANDWIDTH_BPS_INT = "imsvt.video_rs_bandwidth_bps_int";
+        public static final java.lang.String KEY_VIDEO_RTCP_INACTIVITY_TIMER_MILLIS_INT = "imsvt.video_rtcp_inactivity_timer_millis_int";
+        public static final java.lang.String KEY_VIDEO_RTP_DSCP_INT = "imsvt.video_rtp_dscp_int";
+        public static final java.lang.String KEY_VIDEO_RTP_INACTIVITY_TIMER_MILLIS_INT = "imsvt.video_rtp_inactivity_timer_millis_int";
+        private ImsVt() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
     }
 
-    public static interface CarrierConfigChangeListener {
-        public void onCarrierConfigChanged(int p0, int p1, int p2, int p3);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CARRIER_ROAMING_NTN_CONNECT_TYPE {
+    public static final class OpportunisticNetwork {
+        public static final java.lang.String KEY_5G_BACKOFF_TIME_LONG = "opportunistic.5g_backoff_time_long";
+        public static final java.lang.String KEY_5G_DATA_SWITCH_EXIT_HYSTERESIS_TIME_LONG = "opportunistic.5g_data_switch_exit_hysteresis_time_long";
+        public static final java.lang.String KEY_5G_DATA_SWITCH_EXIT_HYSTERESIS_TIME_LONG_BUNDLE = "opportunistic.5g_data_switch_exit_hysteresis_time_long_bundle";
+        public static final java.lang.String KEY_5G_DATA_SWITCH_HYSTERESIS_TIME_LONG = "opportunistic.5g_data_switch_hysteresis_time_long";
+        public static final java.lang.String KEY_5G_DATA_SWITCH_HYSTERESIS_TIME_LONG_BUNDLE = "opportunistic.5g_data_switch_hysteresis_time_long_bundle";
+        public static final java.lang.String KEY_5G_MAX_BACKOFF_TIME_LONG = "opportunistic.5g_max_backoff_time_long";
+        public static final java.lang.String KEY_5G_PING_PONG_TIME_LONG = "opportunistic.5g_ping_pong_time_long";
+        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRP_INT = "opportunistic.entry_threshold_ss_rsrp_int";
+        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRP_INT_BUNDLE = "opportunistic.entry_threshold_ss_rsrp_int_bundle";
+        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRQ_DOUBLE = "opportunistic.entry_threshold_ss_rsrq_double";
+        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRQ_DOUBLE_BUNDLE = "opportunistic.entry_threshold_ss_rsrq_double_bundle";
+        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRP_INT = "opportunistic.exit_threshold_ss_rsrp_int";
+        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRP_INT_BUNDLE = "opportunistic.exit_threshold_ss_rsrp_int_bundle";
+        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRQ_DOUBLE = "opportunistic.exit_threshold_ss_rsrq_double";
+        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRQ_DOUBLE_BUNDLE = "opportunistic.exit_threshold_ss_rsrq_double_bundle";
+        public static final java.lang.String PREFIX = "opportunistic.";
+        private OpportunisticNetwork() {}
+        private static android.os.PersistableBundle getDefaults() { return null; }
     }
 
     public static final class Gps {
@@ -782,117 +850,109 @@ public class CarrierConfigManager {
         private static android.os.PersistableBundle getDefaults() { return null; }
     }
 
-    public static final class Ims {
-        public static final int E911_RTCP_INACTIVITY_ON_CONNECTED = 3;
-        public static final int E911_RTP_INACTIVITY_ON_CONNECTED = 4;
-        public static final int GEOLOCATION_PIDF_FOR_EMERGENCY_ON_CELLULAR = 4;
-        public static final int GEOLOCATION_PIDF_FOR_EMERGENCY_ON_WIFI = 2;
-        public static final int GEOLOCATION_PIDF_FOR_NON_EMERGENCY_ON_CELLULAR = 3;
-        public static final int GEOLOCATION_PIDF_FOR_NON_EMERGENCY_ON_WIFI = 1;
-        public static final int IPSEC_AUTHENTICATION_ALGORITHM_HMAC_MD5 = 0;
-        public static final int IPSEC_AUTHENTICATION_ALGORITHM_HMAC_SHA1 = 1;
-        public static final int IPSEC_ENCRYPTION_ALGORITHM_AES_CBC = 2;
-        public static final int IPSEC_ENCRYPTION_ALGORITHM_DES_EDE3_CBC = 1;
-        public static final int IPSEC_ENCRYPTION_ALGORITHM_NULL = 0;
-        public static final java.lang.String KEY_ALLOW_NON_GLOBAL_PHONE_NUMBER_FORMAT_BOOL = "ims.allow_non_global_phone_number_format_bool";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_CALL_COMPOSER_INT_ARRAY = "ims.capability_type_call_composer_int_array";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_OPTIONS_UCE_INT_ARRAY = "ims.capability_type_options_uce_int_array";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_PRESENCE_UCE_INT_ARRAY = "ims.capability_type_presence_uce_int_array";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_SMS_INT_ARRAY = "ims.capability_type_sms_int_array";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_UT_INT_ARRAY = "ims.capability_type_ut_int_array";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_VIDEO_INT_ARRAY = "ims.capability_type_video_int_array";
-        public static final java.lang.String KEY_CAPABILITY_TYPE_VOICE_INT_ARRAY = "ims.capability_type_voice_int_array";
-        public static final java.lang.String KEY_ENABLE_PRESENCE_CAPABILITY_EXCHANGE_BOOL = "ims.enable_presence_capability_exchange_bool";
-        public static final java.lang.String KEY_ENABLE_PRESENCE_GROUP_SUBSCRIBE_BOOL = "ims.enable_presence_group_subscribe_bool";
-        public static final java.lang.String KEY_ENABLE_PRESENCE_PUBLISH_BOOL = "ims.enable_presence_publish_bool";
-        public static final java.lang.String KEY_GEOLOCATION_PIDF_IN_SIP_INVITE_SUPPORT_INT_ARRAY = "ims.geolocation_pidf_in_sip_invite_support_int_array";
-        public static final java.lang.String KEY_GEOLOCATION_PIDF_IN_SIP_REGISTER_SUPPORT_INT_ARRAY = "ims.geolocation_pidf_in_sip_register_support_int_array";
-        public static final java.lang.String KEY_GRUU_ENABLED_BOOL = "ims.gruu_enabled_bool";
-        public static final java.lang.String KEY_IMS_PDN_ENABLED_IN_NO_VOPS_SUPPORT_INT_ARRAY = "ims.ims_pdn_enabled_in_no_vops_support_int_array";
-        public static final java.lang.String KEY_IMS_SINGLE_REGISTRATION_REQUIRED_BOOL = "ims.ims_single_registration_required_bool";
-        public static final java.lang.String KEY_IMS_USER_AGENT_STRING = "ims.ims_user_agent_string";
-        public static final java.lang.String KEY_IPSEC_AUTHENTICATION_ALGORITHMS_INT_ARRAY = "ims.ipsec_authentication_algorithms_int_array";
-        public static final java.lang.String KEY_IPSEC_ENCRYPTION_ALGORITHMS_INT_ARRAY = "ims.ipsec_encryption_algorithms_int_array";
-        public static final java.lang.String KEY_IPV4_SIP_MTU_SIZE_CELLULAR_INT = "ims.ipv4_sip_mtu_size_cellular_int";
-        public static final java.lang.String KEY_IPV6_SIP_MTU_SIZE_CELLULAR_INT = "ims.ipv6_sip_mtu_size_cellular_int";
-        public static final java.lang.String KEY_KEEP_PDN_UP_IN_NO_VOPS_BOOL = "ims.keep_pdn_up_in_no_vops_bool";
-        public static final java.lang.String KEY_MMTEL_REQUIRES_PROVISIONING_BUNDLE = "ims.mmtel_requires_provisioning_bundle";
-        public static final java.lang.String KEY_NON_RCS_CAPABILITIES_CACHE_EXPIRATION_SEC_INT = "ims.non_rcs_capabilities_cache_expiration_sec_int";
-        public static final java.lang.String KEY_NR_SA_DISABLE_POLICY_FOR_EMERGENCY_INT = "ims.sa_disable_policy_for_emergency_int";
-        public static final java.lang.String KEY_NR_SA_DISABLE_POLICY_INT = "ims.sa_disable_policy_int";
-        public static final java.lang.String KEY_PHONE_CONTEXT_DOMAIN_NAME_STRING = "ims.phone_context_domain_name_string";
-        public static final java.lang.String KEY_PREFIX = "ims.";
-        public static final java.lang.String KEY_PUBLISH_SERVICE_DESC_FEATURE_TAG_MAP_OVERRIDE_STRING_ARRAY = "ims.publish_service_desc_feature_tag_map_override_string_array";
-        public static final java.lang.String KEY_RCS_BULK_CAPABILITY_EXCHANGE_BOOL = "ims.rcs_bulk_capability_exchange_bool";
-        public static final java.lang.String KEY_RCS_FEATURE_TAG_ALLOWED_STRING_ARRAY = "ims.rcs_feature_tag_allowed_string_array";
-        public static final java.lang.String KEY_RCS_REQUEST_FORBIDDEN_BY_SIP_489_BOOL = "ims.rcs_request_forbidden_by_sip_489_bool";
-        public static final java.lang.String KEY_RCS_REQUEST_RETRY_INTERVAL_MILLIS_LONG = "ims.rcs_request_retry_interval_millis_long";
-        public static final java.lang.String KEY_RCS_REQUIRES_PROVISIONING_BUNDLE = "ims.rcs_requires_provisioning_bundle";
-        public static final java.lang.String KEY_REGISTRATION_EVENT_PACKAGE_SUPPORTED_BOOL = "ims.registration_event_package_supported_bool";
-        public static final java.lang.String KEY_REGISTRATION_EXPIRY_TIMER_SEC_INT = "ims.registration_expiry_timer_sec_int";
-        public static final java.lang.String KEY_REGISTRATION_RETRY_BASE_TIMER_MILLIS_INT = "ims.registration_retry_base_timer_millis_int";
-        public static final java.lang.String KEY_REGISTRATION_RETRY_MAX_TIMER_MILLIS_INT = "ims.registration_retry_max_timer_millis_int";
-        public static final java.lang.String KEY_REGISTRATION_SUBSCRIBE_EXPIRY_TIMER_SEC_INT = "ims.registration_subscribe_expiry_timer_sec_int";
-        public static final java.lang.String KEY_REQUEST_URI_TYPE_INT = "ims.request_uri_type_int";
-        public static final java.lang.String KEY_SIP_OVER_IPSEC_ENABLED_BOOL = "ims.sip_over_ipsec_enabled_bool";
-        public static final java.lang.String KEY_SIP_PREFERRED_TRANSPORT_INT = "ims.sip_preferred_transport_int";
-        public static final java.lang.String KEY_SIP_SERVER_PORT_NUMBER_INT = "ims.sip_server_port_number_int";
-        public static final java.lang.String KEY_SIP_TIMER_B_MILLIS_INT = "ims.sip_timer_b_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_C_MILLIS_INT = "ims.sip_timer_c_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_D_MILLIS_INT = "ims.sip_timer_d_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_F_MILLIS_INT = "ims.sip_timer_f_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_H_MILLIS_INT = "ims.sip_timer_h_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_J_MILLIS_INT = "ims.sip_timer_j_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_T1_MILLIS_INT = "ims.sip_timer_t1_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_T2_MILLIS_INT = "ims.sip_timer_t2_millis_int";
-        public static final java.lang.String KEY_SIP_TIMER_T4_MILLIS_INT = "ims.sip_timer_t4_millis_int";
-        public static final java.lang.String KEY_SUBSCRIBE_RETRY_DURATION_MILLIS_LONG = "ims.subscribe_retry_duration_millis_long";
-        public static final java.lang.String KEY_SUPPORTED_RATS_INT_ARRAY = "ims.supported_rats_int_array";
-        public static final java.lang.String KEY_USE_SIP_URI_FOR_PRESENCE_SUBSCRIBE_BOOL = "ims.use_sip_uri_for_presence_subscribe_bool";
-        public static final java.lang.String KEY_USE_TEL_URI_FOR_PIDF_XML_BOOL = "ims.use_tel_uri_for_pidf_xml";
-        public static final java.lang.String KEY_WIFI_OFF_DEFERRING_TIME_MILLIS_INT = "ims.wifi_off_deferring_time_millis_int";
-        public static final int NETWORK_TYPE_HOME = 0;
-        public static final int NETWORK_TYPE_ROAMING = 1;
-        public static final int NR_SA_DISABLE_POLICY_NONE = 0;
-        public static final int NR_SA_DISABLE_POLICY_VONR_UNPROVISIONED = 4;
-        public static final int NR_SA_DISABLE_POLICY_VOWIFI_REGISTERED = 3;
-        public static final int NR_SA_DISABLE_POLICY_WFC_ESTABLISHED = 1;
-        public static final int NR_SA_DISABLE_POLICY_WFC_ESTABLISHED_WHEN_VONR_DISABLED = 2;
-        public static final int PREFERRED_TRANSPORT_DYNAMIC_UDP_TCP = 2;
-        public static final int PREFERRED_TRANSPORT_TCP = 1;
-        public static final int PREFERRED_TRANSPORT_TLS = 3;
-        public static final int PREFERRED_TRANSPORT_UDP = 0;
-        public static final int REQUEST_URI_FORMAT_SIP = 1;
-        public static final int REQUEST_URI_FORMAT_TEL = 0;
-        public static final int RTCP_INACTIVITY_ON_CONNECTED = 1;
-        public static final int RTCP_INACTIVITY_ON_HOLD = 0;
-        public static final int RTP_INACTIVITY_ON_CONNECTED = 2;
-        private Ims() {}
+    public static final class ImsRtt {
+        public static final java.lang.String KEY_PREFIX = "imsrtt.";
+        public static final java.lang.String KEY_RED_PAYLOAD_TYPE_INT = "imsrtt.red_payload_type_int";
+        public static final java.lang.String KEY_T140_PAYLOAD_TYPE_INT = "imsrtt.t140_payload_type_int";
+        public static final java.lang.String KEY_TEXT_AS_BANDWIDTH_KBPS_INT = "imsrtt.text_as_bandwidth_kbps_int";
+        public static final java.lang.String KEY_TEXT_CODEC_CAPABILITY_PAYLOAD_TYPES_BUNDLE = "imsrtt.text_codec_capability_payload_types_bundle";
+        public static final java.lang.String KEY_TEXT_ON_DEFAULT_BEARER_SUPPORTED_BOOL = "imsrtt.text_on_default_bearer_supported_bool";
+        public static final java.lang.String KEY_TEXT_QOS_PRECONDITION_SUPPORTED_BOOL = "imsrtt.text_qos_precondition_supported_bool";
+        public static final java.lang.String KEY_TEXT_RR_BANDWIDTH_BPS_INT = "imsrtt.text_rr_bandwidth_bps_int";
+        public static final java.lang.String KEY_TEXT_RS_BANDWIDTH_BPS_INT = "imsrtt.text_rs_bandwidth_bps_int";
+        private ImsRtt() {}
+        private static android.os.PersistableBundle getDefaults() { return null; }
+    }
+
+    public static final class Iwlan {
+        public static final int AUTHENTICATION_METHOD_CERT = 1;
+        public static final int AUTHENTICATION_METHOD_EAP_ONLY = 0;
+        public static final int EPDG_ADDRESS_CELLULAR_LOC = 3;
+        public static final int EPDG_ADDRESS_IPV4_ONLY = 2;
+        public static final int EPDG_ADDRESS_IPV4_PREFERRED = 0;
+        public static final int EPDG_ADDRESS_IPV6_ONLY = 3;
+        public static final int EPDG_ADDRESS_IPV6_PREFERRED = 1;
+        public static final int EPDG_ADDRESS_PCO = 2;
+        public static final int EPDG_ADDRESS_PLMN = 1;
+        public static final int EPDG_ADDRESS_STATIC = 0;
+        public static final int EPDG_ADDRESS_SYSTEM_PREFERRED = 4;
+        public static final int EPDG_ADDRESS_VISITED_COUNTRY = 4;
+        public static final int EPDG_PLMN_EHPLMN_ALL = 2;
+        public static final int EPDG_PLMN_EHPLMN_FIRST = 3;
+        public static final int EPDG_PLMN_HPLMN = 1;
+        public static final int EPDG_PLMN_RPLMN = 0;
+        public static final int ID_TYPE_FQDN = 2;
+        public static final int ID_TYPE_KEY_ID = 11;
+        public static final int ID_TYPE_RFC822_ADDR = 3;
+        public static final java.lang.String KEY_ADD_KE_TO_CHILD_SESSION_REKEY_BOOL = "iwlan.add_ke_to_child_session_rekey_bool";
+        public static final java.lang.String KEY_CHILD_SA_REKEY_HARD_TIMER_SEC_INT = "iwlan.child_sa_rekey_hard_timer_sec_int";
+        public static final java.lang.String KEY_CHILD_SA_REKEY_SOFT_TIMER_SEC_INT = "iwlan.child_sa_rekey_soft_timer_sec_int";
+        public static final java.lang.String KEY_CHILD_SESSION_AES_CBC_KEY_SIZE_INT_ARRAY = "iwlan.child_session_aes_cbc_key_size_int_array";
+        public static final java.lang.String KEY_CHILD_SESSION_AES_CTR_KEY_SIZE_INT_ARRAY = "iwlan.child_session_aes_ctr_key_size_int_array";
+        public static final java.lang.String KEY_CHILD_SESSION_AES_GCM_KEY_SIZE_INT_ARRAY = "iwlan.child_session_aes_gcm_key_size_int_array";
+        public static final java.lang.String KEY_DIFFIE_HELLMAN_GROUPS_INT_ARRAY = "iwlan.diffie_hellman_groups_int_array";
+        public static final java.lang.String KEY_DPD_TIMER_SEC_INT = "iwlan.dpd_timer_sec_int";
+        public static final java.lang.String KEY_EPDG_ADDRESS_IP_TYPE_PREFERENCE_INT = "iwlan.epdg_address_ip_type_preference_int";
+        public static final java.lang.String KEY_EPDG_ADDRESS_PRIORITY_INT_ARRAY = "iwlan.epdg_address_priority_int_array";
+        public static final java.lang.String KEY_EPDG_AUTHENTICATION_METHOD_INT = "iwlan.epdg_authentication_method_int";
+        public static final java.lang.String KEY_EPDG_PCO_ID_IPV4_INT = "iwlan.epdg_pco_id_ipv4_int";
+        public static final java.lang.String KEY_EPDG_PCO_ID_IPV6_INT = "iwlan.epdg_pco_id_ipv6_int";
+        public static final java.lang.String KEY_EPDG_PLMN_PRIORITY_INT_ARRAY = "iwlan.epdg_plmn_priority_int_array";
+        public static final java.lang.String KEY_EPDG_STATIC_ADDRESS_ROAMING_STRING = "iwlan.epdg_static_address_roaming_string";
+        public static final java.lang.String KEY_EPDG_STATIC_ADDRESS_STRING = "iwlan.epdg_static_address_string";
+        public static final java.lang.String KEY_IKE_LOCAL_ID_TYPE_INT = "iwlan.ike_local_id_type_int";
+        public static final java.lang.String KEY_IKE_REKEY_HARD_TIMER_SEC_INT = "iwlan.ike_rekey_hard_timer_in_sec";
+        public static final java.lang.String KEY_IKE_REKEY_SOFT_TIMER_SEC_INT = "iwlan.ike_rekey_soft_timer_sec_int";
+        public static final java.lang.String KEY_IKE_REMOTE_ID_TYPE_INT = "iwlan.ike_remote_id_type_int";
+        public static final java.lang.String KEY_IKE_SESSION_AES_CBC_KEY_SIZE_INT_ARRAY = "iwlan.ike_session_encryption_aes_cbc_key_size_int_array";
+        public static final java.lang.String KEY_IKE_SESSION_AES_CTR_KEY_SIZE_INT_ARRAY = "iwlan.ike_session_encryption_aes_ctr_key_size_int_array";
+        public static final java.lang.String KEY_IKE_SESSION_AES_GCM_KEY_SIZE_INT_ARRAY = "iwlan.ike_session_encryption_aes_gcm_key_size_int_array";
+        public static final java.lang.String KEY_MAX_RETRIES_INT = "iwlan.max_retries_int";
+        public static final java.lang.String KEY_MCC_MNCS_STRING_ARRAY = "iwlan.mcc_mncs_string_array";
+        public static final java.lang.String KEY_NATT_KEEP_ALIVE_TIMER_SEC_INT = "iwlan.natt_keep_alive_timer_sec_int";
+        public static final java.lang.String KEY_PREFIX = "iwlan.";
+        public static final java.lang.String KEY_RETRANSMIT_TIMER_MSEC_INT_ARRAY = "iwlan.retransmit_timer_sec_int_array";
+        public static final java.lang.String KEY_SUPPORTED_CHILD_SESSION_AEAD_ALGORITHMS_INT_ARRAY = "iwlan.supported_child_session_aead_algorithms_int_array";
+        public static final java.lang.String KEY_SUPPORTED_CHILD_SESSION_ENCRYPTION_ALGORITHMS_INT_ARRAY = "iwlan.supported_child_session_encryption_algorithms_int_array";
+        public static final java.lang.String KEY_SUPPORTED_IKE_SESSION_AEAD_ALGORITHMS_INT_ARRAY = "iwlan.supported_ike_session_aead_algorithms_int_array";
+        public static final java.lang.String KEY_SUPPORTED_IKE_SESSION_ENCRYPTION_ALGORITHMS_INT_ARRAY = "iwlan.supported_ike_session_encryption_algorithms_int_array";
+        public static final java.lang.String KEY_SUPPORTED_INTEGRITY_ALGORITHMS_INT_ARRAY = "iwlan.supported_integrity_algorithms_int_array";
+        public static final java.lang.String KEY_SUPPORTED_PRF_ALGORITHMS_INT_ARRAY = "iwlan.supported_prf_algorithms_int_array";
+        public static final java.lang.String KEY_SUPPORTS_CHILD_SESSION_MULTIPLE_SA_PROPOSALS_BOOL = "iwlan.supports_child_session_multiple_sa_proposals_bool";
+        public static final java.lang.String KEY_SUPPORTS_EAP_AKA_FAST_REAUTH_BOOL = "iwlan.supports_eap_aka_fast_reauth_bool";
+        public static final java.lang.String KEY_SUPPORTS_IKE_SESSION_MULTIPLE_SA_PROPOSALS_BOOL = "iwlan.supports_ike_session_multiple_sa_proposals_bool";
+        private Iwlan() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
 
-        public static @interface GeolocationPidfAllowedType {
+        public static @interface EpdgAddressPlmnType {
         }
 
-        public static @interface IpsecAuthenticationAlgorithmType {
+        public static @interface AuthenticationMethodType {
         }
 
-        public static @interface IpsecEncryptionAlgorithmType {
+        public static @interface IkeIdType {
         }
 
-        public static @interface MediaInactivityReason {
+        public static @interface EpdgAddressType {
         }
 
-        public static @interface NetworkType {
+        public static @interface EpdgAddressIpPreference {
         }
+    }
 
-        public static @interface NrSaDisablePolicy {
-        }
+    @android.annotation.SystemApi
+    public static final class Wifi {
+        public static final java.lang.String KEY_AVOID_5GHZ_SOFTAP_FOR_LAA_BOOL = "wifi.avoid_5ghz_softap_for_laa_bool";
+        public static final java.lang.String KEY_AVOID_5GHZ_WIFI_DIRECT_FOR_LAA_BOOL = "wifi.avoid_5ghz_wifi_direct_for_laa_bool";
+        public static final java.lang.String KEY_HOTSPOT_MAX_CLIENT_COUNT = "wifi.hotspot_maximum_client_count";
+        public static final java.lang.String KEY_PREFIX = "wifi.";
+        public static final java.lang.String KEY_SUGGESTION_SSID_LIST_WITH_MAC_RANDOMIZATION_DISABLED = "wifi.suggestion_ssid_list_with_mac_randomization_disabled";
+        private Wifi() {}
+        private static android.os.PersistableBundle getDefaults() { return null; }
+    }
 
-        public static @interface PreferredTransportType {
-        }
-
-        public static @interface RequestUriFormatType {
-        }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OpportunisticNetworkSwitchPolicy {
     }
 
     public static final class ImsEmergency {
@@ -939,27 +999,21 @@ public class CarrierConfigManager {
         private ImsEmergency() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
 
-        public static @interface EmergencyDomain {
+        public static @interface VoWiFiRequires {
         }
 
         public static @interface EmergencyScanType {
         }
 
-        public static @interface VoWiFiRequires {
+        public static @interface EmergencyDomain {
         }
     }
 
-    public static final class ImsRtt {
-        public static final java.lang.String KEY_PREFIX = "imsrtt.";
-        public static final java.lang.String KEY_RED_PAYLOAD_TYPE_INT = "imsrtt.red_payload_type_int";
-        public static final java.lang.String KEY_T140_PAYLOAD_TYPE_INT = "imsrtt.t140_payload_type_int";
-        public static final java.lang.String KEY_TEXT_AS_BANDWIDTH_KBPS_INT = "imsrtt.text_as_bandwidth_kbps_int";
-        public static final java.lang.String KEY_TEXT_CODEC_CAPABILITY_PAYLOAD_TYPES_BUNDLE = "imsrtt.text_codec_capability_payload_types_bundle";
-        public static final java.lang.String KEY_TEXT_ON_DEFAULT_BEARER_SUPPORTED_BOOL = "imsrtt.text_on_default_bearer_supported_bool";
-        public static final java.lang.String KEY_TEXT_QOS_PRECONDITION_SUPPORTED_BOOL = "imsrtt.text_qos_precondition_supported_bool";
-        public static final java.lang.String KEY_TEXT_RR_BANDWIDTH_BPS_INT = "imsrtt.text_rr_bandwidth_bps_int";
-        public static final java.lang.String KEY_TEXT_RS_BANDWIDTH_BPS_INT = "imsrtt.text_rs_bandwidth_bps_int";
-        private ImsRtt() {}
+    public static final class ImsWfc {
+        public static final java.lang.String KEY_EMERGENCY_CALL_OVER_EMERGENCY_PDN_BOOL = "imswfc.emergency_call_over_emergency_pdn_bool";
+        public static final java.lang.String KEY_PIDF_SHORT_CODE_STRING_ARRAY = "imswfc.pidf_short_code_string_array";
+        public static final java.lang.String KEY_PREFIX = "imswfc.";
+        private ImsWfc() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
     }
 
@@ -974,84 +1028,6 @@ public class CarrierConfigManager {
         public static final java.lang.String KEY_SKIP_WFC_ACTIVATION_BOOL = "imsserviceentitlement.skip_wfc_activation_bool";
         private ImsServiceEntitlement() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
-    }
-
-    public static final class ImsSms {
-        public static final java.lang.String KEY_EMERGENCY_SMS_OVER_EMERGENCY_PDN_INT_ARRAY = "imssms.emergency_sms_over_emergency_pdn_int_array";
-        public static final java.lang.String KEY_PREFIX = "imssms.";
-        public static final java.lang.String KEY_SMS_CSFB_RETRY_ON_FAILURE_BOOL = "imssms.sms_csfb_retry_on_failure_bool";
-        public static final java.lang.String KEY_SMS_MAX_RETRY_COUNT_INT = "imssms.sms_max_retry_count_int";
-        public static final java.lang.String KEY_SMS_MAX_RETRY_OVER_IMS_COUNT_INT = "imssms.sms_max_retry_over_ims_count_int";
-        public static final java.lang.String KEY_SMS_OVER_IMS_FORMAT_INT = "imssms.sms_over_ims_format_int";
-        public static final java.lang.String KEY_SMS_OVER_IMS_SEND_RETRY_DELAY_MILLIS_INT = "imssms.sms_over_ims_send_retry_delay_millis_int";
-        public static final java.lang.String KEY_SMS_OVER_IMS_SUPPORTED_BOOL = "imssms.sms_over_ims_supported_bool";
-        public static final java.lang.String KEY_SMS_OVER_IMS_SUPPORTED_RATS_INT_ARRAY = "imssms.sms_over_ims_supported_rats_int_array";
-        public static final java.lang.String KEY_SMS_RP_CAUSE_VALUES_TO_FALLBACK_INT_ARRAY = "imssms.sms_rp_cause_values_to_fallback_int_array";
-        public static final java.lang.String KEY_SMS_RP_CAUSE_VALUES_TO_RETRY_OVER_IMS_INT_ARRAY = "imssms.sms_rp_cause_values_to_retry_over_ims_int_array";
-        public static final java.lang.String KEY_SMS_TR1_TIMER_MILLIS_INT = "imssms.sms_tr1_timer_millis_int";
-        public static final java.lang.String KEY_SMS_TR2_TIMER_MILLIS_INT = "imssms.sms_tr2_timer_millis_int";
-        public static final int SMS_FORMAT_3GPP = 0;
-        public static final int SMS_FORMAT_3GPP2 = 1;
-        private ImsSms() {}
-        private static android.os.PersistableBundle getDefaults() { return null; }
-
-        public static @interface SmsFormat {
-        }
-    }
-
-    public static final class ImsSs {
-        public static final int CALL_WAITING_SYNC_FIRST_CHANGE = 3;
-        public static final int CALL_WAITING_SYNC_FIRST_POWER_UP = 2;
-        public static final int CALL_WAITING_SYNC_IMS_ONLY = 4;
-        public static final int CALL_WAITING_SYNC_MAX = 4;
-        public static final int CALL_WAITING_SYNC_NONE = 0;
-        public static final int CALL_WAITING_SYNC_USER_CHANGE = 1;
-        public static final java.lang.String KEY_NETWORK_INITIATED_USSD_OVER_IMS_SUPPORTED_BOOL = "imsss.network_initiated_ussd_over_ims_supported_bool";
-        public static final java.lang.String KEY_PREFIX = "imsss.";
-        public static final java.lang.String KEY_TERMINAL_BASED_CALL_WAITING_DEFAULT_ENABLED_BOOL = "imsss.terminal_based_call_waiting_default_enabled_bool";
-        public static final java.lang.String KEY_TERMINAL_BASED_CALL_WAITING_SYNC_TYPE_INT = "imsss.terminal_based_call_waiting_sync_type_int";
-        public static final java.lang.String KEY_USE_CSFB_ON_XCAP_OVER_UT_FAILURE_BOOL = "imsss.use_csfb_on_xcap_over_ut_failure_bool";
-        public static final java.lang.String KEY_UT_AS_SERVER_FQDN_STRING = "imsss.ut_as_server_fqdn_string";
-        public static final java.lang.String KEY_UT_AS_SERVER_PORT_INT = "imsss.ut_as_server_port_int";
-        public static final java.lang.String KEY_UT_IPTYPE_HOME_INT = "imsss.ut_iptype_home_int";
-        public static final java.lang.String KEY_UT_IPTYPE_ROAMING_INT = "imsss.ut_iptype_roaming_int";
-        public static final java.lang.String KEY_UT_REQUIRES_IMS_REGISTRATION_BOOL = "imsss.ut_requires_ims_registration_bool";
-        public static final java.lang.String KEY_UT_SERVER_BASED_SERVICES_INT_ARRAY = "imsss.ut_server_based_services_int_array";
-        public static final java.lang.String KEY_UT_SUPPORTED_WHEN_PS_DATA_OFF_BOOL = "imsss.ut_supported_when_ps_data_off_bool";
-        public static final java.lang.String KEY_UT_SUPPORTED_WHEN_ROAMING_BOOL = "imsss.ut_supported_when_roaming_bool";
-        public static final java.lang.String KEY_UT_TERMINAL_BASED_SERVICES_INT_ARRAY = "imsss.ut_terminal_based_services_int_array";
-        public static final java.lang.String KEY_UT_TRANSPORT_TYPE_INT = "imsss.ut_transport_type_int";
-        public static final java.lang.String KEY_XCAP_OVER_UT_SUPPORTED_RATS_INT_ARRAY = "imsss.xcap_over_ut_supported_rats_int_array";
-        public static final int SUPPLEMENTARY_SERVICE_CB_ACR = 20;
-        public static final int SUPPLEMENTARY_SERVICE_CB_ALL = 12;
-        public static final int SUPPLEMENTARY_SERVICE_CB_BAIC = 18;
-        public static final int SUPPLEMENTARY_SERVICE_CB_BAOC = 14;
-        public static final int SUPPLEMENTARY_SERVICE_CB_BIC_ROAM = 19;
-        public static final int SUPPLEMENTARY_SERVICE_CB_BIL = 21;
-        public static final int SUPPLEMENTARY_SERVICE_CB_BOIC = 15;
-        public static final int SUPPLEMENTARY_SERVICE_CB_BOIC_EXHC = 16;
-        public static final int SUPPLEMENTARY_SERVICE_CB_IBS = 17;
-        public static final int SUPPLEMENTARY_SERVICE_CB_OBS = 13;
-        public static final int SUPPLEMENTARY_SERVICE_CF_ALL = 1;
-        public static final int SUPPLEMENTARY_SERVICE_CF_ALL_CONDITONAL_FORWARDING = 3;
-        public static final int SUPPLEMENTARY_SERVICE_CF_CFB = 4;
-        public static final int SUPPLEMENTARY_SERVICE_CF_CFNL = 7;
-        public static final int SUPPLEMENTARY_SERVICE_CF_CFNRC = 6;
-        public static final int SUPPLEMENTARY_SERVICE_CF_CFNRY = 5;
-        public static final int SUPPLEMENTARY_SERVICE_CF_CFU = 2;
-        public static final int SUPPLEMENTARY_SERVICE_CW = 0;
-        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_OIP = 8;
-        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_OIR = 10;
-        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_TIP = 9;
-        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_TIR = 11;
-        private ImsSs() {}
-        private static android.os.PersistableBundle getDefaults() { return null; }
-
-        public static @interface CwSyncType {
-        }
-
-        public static @interface SsType {
-        }
     }
 
     public static final class ImsVoice {
@@ -1150,10 +1126,19 @@ public class CarrierConfigManager {
         private ImsVoice() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
 
+        public static @interface SessionRefresherType {
+        }
+
+        public static @interface SessionPrivacyType {
+        }
+
         public static @interface AmrPayloadFormat {
         }
 
-        public static @interface ConferenceSubscribeType {
+        public static @interface EvsPrimaryModeBitRate {
+        }
+
+        public static @interface SrvccType {
         }
 
         public static @interface EvsEncodedBwType {
@@ -1162,167 +1147,186 @@ public class CarrierConfigManager {
         public static @interface EvsOperationalMode {
         }
 
-        public static @interface EvsPrimaryModeBitRate {
-        }
-
-        public static @interface SessionPrivacyType {
-        }
-
-        public static @interface SessionRefresherType {
+        public static @interface ConferenceSubscribeType {
         }
 
         public static @interface SessionRefreshMethod {
         }
-
-        public static @interface SrvccType {
-        }
     }
 
-    public static final class ImsVt {
-        public static final java.lang.String KEY_H264_PAYLOAD_DESCRIPTION_BUNDLE = "imsvt.h264_payload_description_bundle";
-        public static final java.lang.String KEY_H264_PAYLOAD_TYPE_INT_ARRAY = "imsvt.h264_payload_type_int_array";
-        public static final java.lang.String KEY_H264_VIDEO_CODEC_ATTRIBUTE_PROFILE_LEVEL_ID_STRING = "imsvt.h264_video_codec_attribute_profile_level_id_string";
-        public static final java.lang.String KEY_PREFIX = "imsvt.";
-        public static final java.lang.String KEY_VIDEO_AS_BANDWIDTH_KBPS_INT = "imsvt.video_as_bandwidth_kbps_int";
-        public static final java.lang.String KEY_VIDEO_CODEC_ATTRIBUTE_FRAME_RATE_INT = "imsvt.video_codec_attribute_frame_rate_int";
-        public static final java.lang.String KEY_VIDEO_CODEC_ATTRIBUTE_PACKETIZATION_MODE_INT = "imsvt.video_codec_attribute_packetization_mode_int";
-        public static final java.lang.String KEY_VIDEO_CODEC_ATTRIBUTE_RESOLUTION_INT_ARRAY = "imsvt.video_codec_attribute_resolution_int_array";
-        public static final java.lang.String KEY_VIDEO_CODEC_CAPABILITY_PAYLOAD_TYPES_BUNDLE = "imsvt.video_codec_capability_payload_types_bundle";
-        public static final java.lang.String KEY_VIDEO_ON_DEFAULT_BEARER_SUPPORTED_BOOL = "imsvt.video_on_default_bearer_supported_bool";
-        public static final java.lang.String KEY_VIDEO_QOS_PRECONDITION_SUPPORTED_BOOL = "imsvt.video_qos_precondition_supported_bool";
-        public static final java.lang.String KEY_VIDEO_RR_BANDWIDTH_BPS_INT = "imsvt.video_rr_bandwidth_bps_int";
-        public static final java.lang.String KEY_VIDEO_RS_BANDWIDTH_BPS_INT = "imsvt.video_rs_bandwidth_bps_int";
-        public static final java.lang.String KEY_VIDEO_RTCP_INACTIVITY_TIMER_MILLIS_INT = "imsvt.video_rtcp_inactivity_timer_millis_int";
-        public static final java.lang.String KEY_VIDEO_RTP_DSCP_INT = "imsvt.video_rtp_dscp_int";
-        public static final java.lang.String KEY_VIDEO_RTP_INACTIVITY_TIMER_MILLIS_INT = "imsvt.video_rtp_inactivity_timer_millis_int";
-        private ImsVt() {}
-        private static android.os.PersistableBundle getDefaults() { return null; }
-    }
-
-    public static final class ImsWfc {
-        public static final java.lang.String KEY_EMERGENCY_CALL_OVER_EMERGENCY_PDN_BOOL = "imswfc.emergency_call_over_emergency_pdn_bool";
-        public static final java.lang.String KEY_PIDF_SHORT_CODE_STRING_ARRAY = "imswfc.pidf_short_code_string_array";
-        public static final java.lang.String KEY_PREFIX = "imswfc.";
-        private ImsWfc() {}
-        private static android.os.PersistableBundle getDefaults() { return null; }
-    }
-
-    public static final class Iwlan {
-        public static final int AUTHENTICATION_METHOD_CERT = 1;
-        public static final int AUTHENTICATION_METHOD_EAP_ONLY = 0;
-        public static final int EPDG_ADDRESS_CELLULAR_LOC = 3;
-        public static final int EPDG_ADDRESS_IPV4_ONLY = 2;
-        public static final int EPDG_ADDRESS_IPV4_PREFERRED = 0;
-        public static final int EPDG_ADDRESS_IPV6_ONLY = 3;
-        public static final int EPDG_ADDRESS_IPV6_PREFERRED = 1;
-        public static final int EPDG_ADDRESS_PCO = 2;
-        public static final int EPDG_ADDRESS_PLMN = 1;
-        public static final int EPDG_ADDRESS_STATIC = 0;
-        public static final int EPDG_ADDRESS_SYSTEM_PREFERRED = 4;
-        public static final int EPDG_ADDRESS_VISITED_COUNTRY = 4;
-        public static final int EPDG_PLMN_EHPLMN_ALL = 2;
-        public static final int EPDG_PLMN_EHPLMN_FIRST = 3;
-        public static final int EPDG_PLMN_HPLMN = 1;
-        public static final int EPDG_PLMN_RPLMN = 0;
-        public static final int ID_TYPE_FQDN = 2;
-        public static final int ID_TYPE_KEY_ID = 11;
-        public static final int ID_TYPE_RFC822_ADDR = 3;
-        public static final java.lang.String KEY_ADD_KE_TO_CHILD_SESSION_REKEY_BOOL = "iwlan.add_ke_to_child_session_rekey_bool";
-        public static final java.lang.String KEY_CHILD_SA_REKEY_HARD_TIMER_SEC_INT = "iwlan.child_sa_rekey_hard_timer_sec_int";
-        public static final java.lang.String KEY_CHILD_SA_REKEY_SOFT_TIMER_SEC_INT = "iwlan.child_sa_rekey_soft_timer_sec_int";
-        public static final java.lang.String KEY_CHILD_SESSION_AES_CBC_KEY_SIZE_INT_ARRAY = "iwlan.child_session_aes_cbc_key_size_int_array";
-        public static final java.lang.String KEY_CHILD_SESSION_AES_CTR_KEY_SIZE_INT_ARRAY = "iwlan.child_session_aes_ctr_key_size_int_array";
-        public static final java.lang.String KEY_CHILD_SESSION_AES_GCM_KEY_SIZE_INT_ARRAY = "iwlan.child_session_aes_gcm_key_size_int_array";
-        public static final java.lang.String KEY_DIFFIE_HELLMAN_GROUPS_INT_ARRAY = "iwlan.diffie_hellman_groups_int_array";
-        public static final java.lang.String KEY_DPD_TIMER_SEC_INT = "iwlan.dpd_timer_sec_int";
-        public static final java.lang.String KEY_EPDG_ADDRESS_IP_TYPE_PREFERENCE_INT = "iwlan.epdg_address_ip_type_preference_int";
-        public static final java.lang.String KEY_EPDG_ADDRESS_PRIORITY_INT_ARRAY = "iwlan.epdg_address_priority_int_array";
-        public static final java.lang.String KEY_EPDG_AUTHENTICATION_METHOD_INT = "iwlan.epdg_authentication_method_int";
-        public static final java.lang.String KEY_EPDG_PCO_ID_IPV4_INT = "iwlan.epdg_pco_id_ipv4_int";
-        public static final java.lang.String KEY_EPDG_PCO_ID_IPV6_INT = "iwlan.epdg_pco_id_ipv6_int";
-        public static final java.lang.String KEY_EPDG_PLMN_PRIORITY_INT_ARRAY = "iwlan.epdg_plmn_priority_int_array";
-        public static final java.lang.String KEY_EPDG_STATIC_ADDRESS_ROAMING_STRING = "iwlan.epdg_static_address_roaming_string";
-        public static final java.lang.String KEY_EPDG_STATIC_ADDRESS_STRING = "iwlan.epdg_static_address_string";
-        public static final java.lang.String KEY_IKE_LOCAL_ID_TYPE_INT = "iwlan.ike_local_id_type_int";
-        public static final java.lang.String KEY_IKE_REKEY_HARD_TIMER_SEC_INT = "iwlan.ike_rekey_hard_timer_in_sec";
-        public static final java.lang.String KEY_IKE_REKEY_SOFT_TIMER_SEC_INT = "iwlan.ike_rekey_soft_timer_sec_int";
-        public static final java.lang.String KEY_IKE_REMOTE_ID_TYPE_INT = "iwlan.ike_remote_id_type_int";
-        public static final java.lang.String KEY_IKE_SESSION_AES_CBC_KEY_SIZE_INT_ARRAY = "iwlan.ike_session_encryption_aes_cbc_key_size_int_array";
-        public static final java.lang.String KEY_IKE_SESSION_AES_CTR_KEY_SIZE_INT_ARRAY = "iwlan.ike_session_encryption_aes_ctr_key_size_int_array";
-        public static final java.lang.String KEY_IKE_SESSION_AES_GCM_KEY_SIZE_INT_ARRAY = "iwlan.ike_session_encryption_aes_gcm_key_size_int_array";
-        public static final java.lang.String KEY_MAX_RETRIES_INT = "iwlan.max_retries_int";
-        public static final java.lang.String KEY_MCC_MNCS_STRING_ARRAY = "iwlan.mcc_mncs_string_array";
-        public static final java.lang.String KEY_NATT_KEEP_ALIVE_TIMER_SEC_INT = "iwlan.natt_keep_alive_timer_sec_int";
-        public static final java.lang.String KEY_PREFIX = "iwlan.";
-        public static final java.lang.String KEY_RETRANSMIT_TIMER_MSEC_INT_ARRAY = "iwlan.retransmit_timer_sec_int_array";
-        public static final java.lang.String KEY_SUPPORTED_CHILD_SESSION_AEAD_ALGORITHMS_INT_ARRAY = "iwlan.supported_child_session_aead_algorithms_int_array";
-        public static final java.lang.String KEY_SUPPORTED_CHILD_SESSION_ENCRYPTION_ALGORITHMS_INT_ARRAY = "iwlan.supported_child_session_encryption_algorithms_int_array";
-        public static final java.lang.String KEY_SUPPORTED_IKE_SESSION_AEAD_ALGORITHMS_INT_ARRAY = "iwlan.supported_ike_session_aead_algorithms_int_array";
-        public static final java.lang.String KEY_SUPPORTED_IKE_SESSION_ENCRYPTION_ALGORITHMS_INT_ARRAY = "iwlan.supported_ike_session_encryption_algorithms_int_array";
-        public static final java.lang.String KEY_SUPPORTED_INTEGRITY_ALGORITHMS_INT_ARRAY = "iwlan.supported_integrity_algorithms_int_array";
-        public static final java.lang.String KEY_SUPPORTED_PRF_ALGORITHMS_INT_ARRAY = "iwlan.supported_prf_algorithms_int_array";
-        public static final java.lang.String KEY_SUPPORTS_CHILD_SESSION_MULTIPLE_SA_PROPOSALS_BOOL = "iwlan.supports_child_session_multiple_sa_proposals_bool";
-        public static final java.lang.String KEY_SUPPORTS_EAP_AKA_FAST_REAUTH_BOOL = "iwlan.supports_eap_aka_fast_reauth_bool";
-        public static final java.lang.String KEY_SUPPORTS_IKE_SESSION_MULTIPLE_SA_PROPOSALS_BOOL = "iwlan.supports_ike_session_multiple_sa_proposals_bool";
-        private Iwlan() {}
+    public static final class Ims {
+        public static final int E911_RTCP_INACTIVITY_ON_CONNECTED = 3;
+        public static final int E911_RTP_INACTIVITY_ON_CONNECTED = 4;
+        public static final int GEOLOCATION_PIDF_FOR_EMERGENCY_ON_CELLULAR = 4;
+        public static final int GEOLOCATION_PIDF_FOR_EMERGENCY_ON_WIFI = 2;
+        public static final int GEOLOCATION_PIDF_FOR_NON_EMERGENCY_ON_CELLULAR = 3;
+        public static final int GEOLOCATION_PIDF_FOR_NON_EMERGENCY_ON_WIFI = 1;
+        public static final int IPSEC_AUTHENTICATION_ALGORITHM_HMAC_MD5 = 0;
+        public static final int IPSEC_AUTHENTICATION_ALGORITHM_HMAC_SHA1 = 1;
+        public static final int IPSEC_ENCRYPTION_ALGORITHM_AES_CBC = 2;
+        public static final int IPSEC_ENCRYPTION_ALGORITHM_DES_EDE3_CBC = 1;
+        public static final int IPSEC_ENCRYPTION_ALGORITHM_NULL = 0;
+        public static final java.lang.String KEY_ALLOW_NON_GLOBAL_PHONE_NUMBER_FORMAT_BOOL = "ims.allow_non_global_phone_number_format_bool";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_CALL_COMPOSER_INT_ARRAY = "ims.capability_type_call_composer_int_array";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_OPTIONS_UCE_INT_ARRAY = "ims.capability_type_options_uce_int_array";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_PRESENCE_UCE_INT_ARRAY = "ims.capability_type_presence_uce_int_array";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_SMS_INT_ARRAY = "ims.capability_type_sms_int_array";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_UT_INT_ARRAY = "ims.capability_type_ut_int_array";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_VIDEO_INT_ARRAY = "ims.capability_type_video_int_array";
+        public static final java.lang.String KEY_CAPABILITY_TYPE_VOICE_INT_ARRAY = "ims.capability_type_voice_int_array";
+        public static final java.lang.String KEY_ENABLE_PRESENCE_CAPABILITY_EXCHANGE_BOOL = "ims.enable_presence_capability_exchange_bool";
+        public static final java.lang.String KEY_ENABLE_PRESENCE_GROUP_SUBSCRIBE_BOOL = "ims.enable_presence_group_subscribe_bool";
+        public static final java.lang.String KEY_ENABLE_PRESENCE_PUBLISH_BOOL = "ims.enable_presence_publish_bool";
+        public static final java.lang.String KEY_GEOLOCATION_PIDF_IN_SIP_INVITE_SUPPORT_INT_ARRAY = "ims.geolocation_pidf_in_sip_invite_support_int_array";
+        public static final java.lang.String KEY_GEOLOCATION_PIDF_IN_SIP_REGISTER_SUPPORT_INT_ARRAY = "ims.geolocation_pidf_in_sip_register_support_int_array";
+        public static final java.lang.String KEY_GRUU_ENABLED_BOOL = "ims.gruu_enabled_bool";
+        public static final java.lang.String KEY_IMS_PDN_ENABLED_IN_NO_VOPS_SUPPORT_INT_ARRAY = "ims.ims_pdn_enabled_in_no_vops_support_int_array";
+        public static final java.lang.String KEY_IMS_SINGLE_REGISTRATION_REQUIRED_BOOL = "ims.ims_single_registration_required_bool";
+        public static final java.lang.String KEY_IMS_USER_AGENT_STRING = "ims.ims_user_agent_string";
+        public static final java.lang.String KEY_IPSEC_AUTHENTICATION_ALGORITHMS_INT_ARRAY = "ims.ipsec_authentication_algorithms_int_array";
+        public static final java.lang.String KEY_IPSEC_ENCRYPTION_ALGORITHMS_INT_ARRAY = "ims.ipsec_encryption_algorithms_int_array";
+        public static final java.lang.String KEY_IPV4_SIP_MTU_SIZE_CELLULAR_INT = "ims.ipv4_sip_mtu_size_cellular_int";
+        public static final java.lang.String KEY_IPV6_SIP_MTU_SIZE_CELLULAR_INT = "ims.ipv6_sip_mtu_size_cellular_int";
+        public static final java.lang.String KEY_KEEP_PDN_UP_IN_NO_VOPS_BOOL = "ims.keep_pdn_up_in_no_vops_bool";
+        public static final java.lang.String KEY_MMTEL_REQUIRES_PROVISIONING_BUNDLE = "ims.mmtel_requires_provisioning_bundle";
+        public static final java.lang.String KEY_NON_RCS_CAPABILITIES_CACHE_EXPIRATION_SEC_INT = "ims.non_rcs_capabilities_cache_expiration_sec_int";
+        public static final java.lang.String KEY_NR_SA_DISABLE_POLICY_FOR_EMERGENCY_INT = "ims.sa_disable_policy_for_emergency_int";
+        public static final java.lang.String KEY_NR_SA_DISABLE_POLICY_INT = "ims.sa_disable_policy_int";
+        public static final java.lang.String KEY_PHONE_CONTEXT_DOMAIN_NAME_STRING = "ims.phone_context_domain_name_string";
+        public static final java.lang.String KEY_PREFIX = "ims.";
+        public static final java.lang.String KEY_PUBLISH_SERVICE_DESC_FEATURE_TAG_MAP_OVERRIDE_STRING_ARRAY = "ims.publish_service_desc_feature_tag_map_override_string_array";
+        public static final java.lang.String KEY_RCS_BULK_CAPABILITY_EXCHANGE_BOOL = "ims.rcs_bulk_capability_exchange_bool";
+        public static final java.lang.String KEY_RCS_FEATURE_TAG_ALLOWED_STRING_ARRAY = "ims.rcs_feature_tag_allowed_string_array";
+        public static final java.lang.String KEY_RCS_REQUEST_FORBIDDEN_BY_SIP_489_BOOL = "ims.rcs_request_forbidden_by_sip_489_bool";
+        public static final java.lang.String KEY_RCS_REQUEST_RETRY_INTERVAL_MILLIS_LONG = "ims.rcs_request_retry_interval_millis_long";
+        public static final java.lang.String KEY_RCS_REQUIRES_PROVISIONING_BUNDLE = "ims.rcs_requires_provisioning_bundle";
+        public static final java.lang.String KEY_REGISTRATION_EVENT_PACKAGE_SUPPORTED_BOOL = "ims.registration_event_package_supported_bool";
+        public static final java.lang.String KEY_REGISTRATION_EXPIRY_TIMER_SEC_INT = "ims.registration_expiry_timer_sec_int";
+        public static final java.lang.String KEY_REGISTRATION_RETRY_BASE_TIMER_MILLIS_INT = "ims.registration_retry_base_timer_millis_int";
+        public static final java.lang.String KEY_REGISTRATION_RETRY_MAX_TIMER_MILLIS_INT = "ims.registration_retry_max_timer_millis_int";
+        public static final java.lang.String KEY_REGISTRATION_SUBSCRIBE_EXPIRY_TIMER_SEC_INT = "ims.registration_subscribe_expiry_timer_sec_int";
+        public static final java.lang.String KEY_REQUEST_URI_TYPE_INT = "ims.request_uri_type_int";
+        public static final java.lang.String KEY_SIP_OVER_IPSEC_ENABLED_BOOL = "ims.sip_over_ipsec_enabled_bool";
+        public static final java.lang.String KEY_SIP_PREFERRED_TRANSPORT_INT = "ims.sip_preferred_transport_int";
+        public static final java.lang.String KEY_SIP_SERVER_PORT_NUMBER_INT = "ims.sip_server_port_number_int";
+        public static final java.lang.String KEY_SIP_TIMER_B_MILLIS_INT = "ims.sip_timer_b_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_C_MILLIS_INT = "ims.sip_timer_c_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_D_MILLIS_INT = "ims.sip_timer_d_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_F_MILLIS_INT = "ims.sip_timer_f_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_H_MILLIS_INT = "ims.sip_timer_h_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_J_MILLIS_INT = "ims.sip_timer_j_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_T1_MILLIS_INT = "ims.sip_timer_t1_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_T2_MILLIS_INT = "ims.sip_timer_t2_millis_int";
+        public static final java.lang.String KEY_SIP_TIMER_T4_MILLIS_INT = "ims.sip_timer_t4_millis_int";
+        public static final java.lang.String KEY_SUBSCRIBE_RETRY_DURATION_MILLIS_LONG = "ims.subscribe_retry_duration_millis_long";
+        public static final java.lang.String KEY_SUPPORTED_RATS_INT_ARRAY = "ims.supported_rats_int_array";
+        public static final java.lang.String KEY_USE_SIP_URI_FOR_PRESENCE_SUBSCRIBE_BOOL = "ims.use_sip_uri_for_presence_subscribe_bool";
+        public static final java.lang.String KEY_USE_TEL_URI_FOR_PIDF_XML_BOOL = "ims.use_tel_uri_for_pidf_xml";
+        public static final java.lang.String KEY_WIFI_OFF_DEFERRING_TIME_MILLIS_INT = "ims.wifi_off_deferring_time_millis_int";
+        public static final int NETWORK_TYPE_HOME = 0;
+        public static final int NETWORK_TYPE_ROAMING = 1;
+        public static final int NR_SA_DISABLE_POLICY_NONE = 0;
+        public static final int NR_SA_DISABLE_POLICY_VONR_UNPROVISIONED = 4;
+        public static final int NR_SA_DISABLE_POLICY_VOWIFI_REGISTERED = 3;
+        public static final int NR_SA_DISABLE_POLICY_WFC_ESTABLISHED = 1;
+        public static final int NR_SA_DISABLE_POLICY_WFC_ESTABLISHED_WHEN_VONR_DISABLED = 2;
+        public static final int PREFERRED_TRANSPORT_DYNAMIC_UDP_TCP = 2;
+        public static final int PREFERRED_TRANSPORT_TCP = 1;
+        public static final int PREFERRED_TRANSPORT_TLS = 3;
+        public static final int PREFERRED_TRANSPORT_UDP = 0;
+        public static final int REQUEST_URI_FORMAT_SIP = 1;
+        public static final int REQUEST_URI_FORMAT_TEL = 0;
+        public static final int RTCP_INACTIVITY_ON_CONNECTED = 1;
+        public static final int RTCP_INACTIVITY_ON_HOLD = 0;
+        public static final int RTP_INACTIVITY_ON_CONNECTED = 2;
+        private Ims() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
 
-        public static @interface AuthenticationMethodType {
+        public static @interface IpsecAuthenticationAlgorithmType {
         }
 
-        public static @interface EpdgAddressIpPreference {
+        public static @interface NrSaDisablePolicy {
         }
 
-        public static @interface EpdgAddressPlmnType {
+        public static @interface GeolocationPidfAllowedType {
         }
 
-        public static @interface EpdgAddressType {
+        public static @interface MediaInactivityReason {
         }
 
-        public static @interface IkeIdType {
+        public static @interface NetworkType {
+        }
+
+        public static @interface PreferredTransportType {
+        }
+
+        public static @interface IpsecEncryptionAlgorithmType {
+        }
+
+        public static @interface RequestUriFormatType {
         }
     }
 
-    public static class OpportunisticNetwork {
-        public static final java.lang.String KEY_5G_BACKOFF_TIME_LONG = "opportunistic.5g_backoff_time_long";
-        public static final java.lang.String KEY_5G_DATA_SWITCH_EXIT_HYSTERESIS_TIME_LONG = "opportunistic.5g_data_switch_exit_hysteresis_time_long";
-        public static final java.lang.String KEY_5G_DATA_SWITCH_EXIT_HYSTERESIS_TIME_LONG_BUNDLE = "opportunistic.5g_data_switch_exit_hysteresis_time_long_bundle";
-        public static final java.lang.String KEY_5G_DATA_SWITCH_HYSTERESIS_TIME_LONG = "opportunistic.5g_data_switch_hysteresis_time_long";
-        public static final java.lang.String KEY_5G_DATA_SWITCH_HYSTERESIS_TIME_LONG_BUNDLE = "opportunistic.5g_data_switch_hysteresis_time_long_bundle";
-        public static final java.lang.String KEY_5G_MAX_BACKOFF_TIME_LONG = "opportunistic.5g_max_backoff_time_long";
-        public static final java.lang.String KEY_5G_PING_PONG_TIME_LONG = "opportunistic.5g_ping_pong_time_long";
-        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRP_INT = "opportunistic.entry_threshold_ss_rsrp_int";
-        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRP_INT_BUNDLE = "opportunistic.entry_threshold_ss_rsrp_int_bundle";
-        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRQ_DOUBLE = "opportunistic.entry_threshold_ss_rsrq_double";
-        public static final java.lang.String KEY_ENTRY_THRESHOLD_SS_RSRQ_DOUBLE_BUNDLE = "opportunistic.entry_threshold_ss_rsrq_double_bundle";
-        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRP_INT = "opportunistic.exit_threshold_ss_rsrp_int";
-        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRP_INT_BUNDLE = "opportunistic.exit_threshold_ss_rsrp_int_bundle";
-        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRQ_DOUBLE = "opportunistic.exit_threshold_ss_rsrq_double";
-        public static final java.lang.String KEY_EXIT_THRESHOLD_SS_RSRQ_DOUBLE_BUNDLE = "opportunistic.exit_threshold_ss_rsrq_double_bundle";
-        public static final java.lang.String PREFIX = "opportunistic.";
-        public OpportunisticNetwork() {}
+    public static interface CarrierConfigChangeListener {
+        public void onCarrierConfigChanged(int p0, int p1, int p2, int p3);
+    }
+
+    public static final class ImsSs {
+        public static final int CALL_WAITING_SYNC_FIRST_CHANGE = 3;
+        public static final int CALL_WAITING_SYNC_FIRST_POWER_UP = 2;
+        public static final int CALL_WAITING_SYNC_IMS_ONLY = 4;
+        public static final int CALL_WAITING_SYNC_MAX = 4;
+        public static final int CALL_WAITING_SYNC_NONE = 0;
+        public static final int CALL_WAITING_SYNC_USER_CHANGE = 1;
+        public static final java.lang.String KEY_NETWORK_INITIATED_USSD_OVER_IMS_SUPPORTED_BOOL = "imsss.network_initiated_ussd_over_ims_supported_bool";
+        public static final java.lang.String KEY_PREFIX = "imsss.";
+        public static final java.lang.String KEY_TERMINAL_BASED_CALL_WAITING_DEFAULT_ENABLED_BOOL = "imsss.terminal_based_call_waiting_default_enabled_bool";
+        public static final java.lang.String KEY_TERMINAL_BASED_CALL_WAITING_SYNC_TYPE_INT = "imsss.terminal_based_call_waiting_sync_type_int";
+        public static final java.lang.String KEY_USE_CSFB_ON_XCAP_OVER_UT_FAILURE_BOOL = "imsss.use_csfb_on_xcap_over_ut_failure_bool";
+        public static final java.lang.String KEY_UT_AS_SERVER_FQDN_STRING = "imsss.ut_as_server_fqdn_string";
+        public static final java.lang.String KEY_UT_AS_SERVER_PORT_INT = "imsss.ut_as_server_port_int";
+        public static final java.lang.String KEY_UT_IPTYPE_HOME_INT = "imsss.ut_iptype_home_int";
+        public static final java.lang.String KEY_UT_IPTYPE_ROAMING_INT = "imsss.ut_iptype_roaming_int";
+        public static final java.lang.String KEY_UT_REQUIRES_IMS_REGISTRATION_BOOL = "imsss.ut_requires_ims_registration_bool";
+        public static final java.lang.String KEY_UT_SERVER_BASED_SERVICES_INT_ARRAY = "imsss.ut_server_based_services_int_array";
+        public static final java.lang.String KEY_UT_SUPPORTED_WHEN_PS_DATA_OFF_BOOL = "imsss.ut_supported_when_ps_data_off_bool";
+        public static final java.lang.String KEY_UT_SUPPORTED_WHEN_ROAMING_BOOL = "imsss.ut_supported_when_roaming_bool";
+        public static final java.lang.String KEY_UT_TERMINAL_BASED_SERVICES_INT_ARRAY = "imsss.ut_terminal_based_services_int_array";
+        public static final java.lang.String KEY_UT_TRANSPORT_TYPE_INT = "imsss.ut_transport_type_int";
+        public static final java.lang.String KEY_XCAP_OVER_UT_SUPPORTED_RATS_INT_ARRAY = "imsss.xcap_over_ut_supported_rats_int_array";
+        public static final int SUPPLEMENTARY_SERVICE_CB_ACR = 20;
+        public static final int SUPPLEMENTARY_SERVICE_CB_ALL = 12;
+        public static final int SUPPLEMENTARY_SERVICE_CB_BAIC = 18;
+        public static final int SUPPLEMENTARY_SERVICE_CB_BAOC = 14;
+        public static final int SUPPLEMENTARY_SERVICE_CB_BIC_ROAM = 19;
+        public static final int SUPPLEMENTARY_SERVICE_CB_BIL = 21;
+        public static final int SUPPLEMENTARY_SERVICE_CB_BOIC = 15;
+        public static final int SUPPLEMENTARY_SERVICE_CB_BOIC_EXHC = 16;
+        public static final int SUPPLEMENTARY_SERVICE_CB_IBS = 17;
+        public static final int SUPPLEMENTARY_SERVICE_CB_OBS = 13;
+        public static final int SUPPLEMENTARY_SERVICE_CF_ALL = 1;
+        public static final int SUPPLEMENTARY_SERVICE_CF_ALL_CONDITONAL_FORWARDING = 3;
+        public static final int SUPPLEMENTARY_SERVICE_CF_CFB = 4;
+        public static final int SUPPLEMENTARY_SERVICE_CF_CFNL = 7;
+        public static final int SUPPLEMENTARY_SERVICE_CF_CFNRC = 6;
+        public static final int SUPPLEMENTARY_SERVICE_CF_CFNRY = 5;
+        public static final int SUPPLEMENTARY_SERVICE_CF_CFU = 2;
+        public static final int SUPPLEMENTARY_SERVICE_CW = 0;
+        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_OIP = 8;
+        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_OIR = 10;
+        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_TIP = 9;
+        public static final int SUPPLEMENTARY_SERVICE_IDENTIFICATION_TIR = 11;
+        private ImsSs() {}
         private static android.os.PersistableBundle getDefaults() { return null; }
-    }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OpportunisticNetworkSwitchPolicy {
+        public static @interface SsType {
+        }
+
+        public static @interface CwSyncType {
+        }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface OpportunisticNetworkSwitchPolicyBitmask {
-    }
-
-    public static @interface SATELLITE_DATA_SUPPORT_MODE {
-    }
-
-    @android.annotation.SystemApi
-    public static final class Wifi {
-        public static final java.lang.String KEY_AVOID_5GHZ_SOFTAP_FOR_LAA_BOOL = "wifi.avoid_5ghz_softap_for_laa_bool";
-        public static final java.lang.String KEY_AVOID_5GHZ_WIFI_DIRECT_FOR_LAA_BOOL = "wifi.avoid_5ghz_wifi_direct_for_laa_bool";
-        public static final java.lang.String KEY_HOTSPOT_MAX_CLIENT_COUNT = "wifi.hotspot_maximum_client_count";
-        public static final java.lang.String KEY_PREFIX = "wifi.";
-        public static final java.lang.String KEY_SUGGESTION_SSID_LIST_WITH_MAC_RANDOMIZATION_DISABLED = "wifi.suggestion_ssid_list_with_mac_randomization_disabled";
-        private Wifi() {}
-        private static android.os.PersistableBundle getDefaults() { return null; }
     }
 }

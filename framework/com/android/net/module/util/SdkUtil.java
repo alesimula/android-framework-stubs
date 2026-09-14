@@ -4,6 +4,8 @@ public class SdkUtil {
     public SdkUtil() {}
     public static boolean isAtLeast25Q4() { return false; }
     public static boolean isAtLeast26Q2() { return false; }
+    public static boolean isAtLeast26Q3() { return false; }
+    public static boolean isAtLeast26Q4() { return false; }
     public static boolean isFullSdkVersionAtMost(int p0) { return false; }
 
     public static class LateSdk<T extends java.lang.Object> {

@@ -30,7 +30,7 @@ public final class WifiMigration {
     public static void removeUserConfigStoreFile(int p0, android.os.UserHandle p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface KeystoreMigrationStatus {
+    public static @interface SharedStoreFileId {
     }
 
     public static final class SettingsMigrationData implements android.os.Parcelable {
@@ -74,7 +74,7 @@ public final class WifiMigration {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SharedStoreFileId {
+    public static @interface KeystoreMigrationStatus {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

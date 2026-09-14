@@ -19,6 +19,10 @@ public class TextGraphReader extends android.filterfw.io.GraphReader {
     public android.filterfw.core.FilterGraph readGraphString(java.lang.String p0) throws android.filterfw.io.GraphIOException { return null; }
     public android.filterfw.core.KeyValueMap readKeyValueAssignments(java.lang.String p0) throws android.filterfw.io.GraphIOException { return null; }
 
+    private static interface Command {
+        public void execute(android.filterfw.io.TextGraphReader p0) throws android.filterfw.io.GraphIOException;
+    }
+
     private class AddLibraryCommand implements android.filterfw.io.TextGraphReader.Command {
         private java.lang.String mLibraryName;
         public AddLibraryCommand(android.filterfw.io.TextGraphReader p0, java.lang.String p1) {}
@@ -30,10 +34,6 @@ public class TextGraphReader extends android.filterfw.io.GraphReader {
         private java.lang.String mFilterName;
         public AllocateFilterCommand(android.filterfw.io.TextGraphReader p0, java.lang.String p1, java.lang.String p2) {}
         public void execute(android.filterfw.io.TextGraphReader p0) throws android.filterfw.io.GraphIOException {}
-    }
-
-    private static interface Command {
-        public void execute(android.filterfw.io.TextGraphReader p0) throws android.filterfw.io.GraphIOException;
     }
 
     private class ConnectCommand implements android.filterfw.io.TextGraphReader.Command {

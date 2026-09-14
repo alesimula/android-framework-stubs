@@ -13,21 +13,6 @@ public interface IOadListener extends android.os.IInterface {
     public void onSystemUpToDate() throws android.os.RemoteException;
     public void onUpgradeResult(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.oad.IOadListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDownloadComplete(java.lang.String p0, long p1, long p2, android.os.Bundle p3) throws android.os.RemoteException {}
-        public void onDownloadFail() throws android.os.RemoteException {}
-        public void onDownloadProgress(int p0, long p1, long p2) throws android.os.RemoteException {}
-        public void onDownloadStarted() throws android.os.RemoteException {}
-        public void onFileFound(int p0) throws android.os.RemoteException {}
-        public void onFileNotFound() throws android.os.RemoteException {}
-        public void onScanProgress(int p0, int p1) throws android.os.RemoteException {}
-        public void onScanStarted() throws android.os.RemoteException {}
-        public void onSystemUpToDate() throws android.os.RemoteException {}
-        public void onUpgradeResult(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.oad.IOadListener {
         static final int TRANSACTION_onDownloadComplete = 8;
         static final int TRANSACTION_onDownloadFail = 9;
@@ -62,5 +47,20 @@ public interface IOadListener extends android.os.IInterface {
             public void onSystemUpToDate() throws android.os.RemoteException {}
             public void onUpgradeResult(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.oad.IOadListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDownloadComplete(java.lang.String p0, long p1, long p2, android.os.Bundle p3) throws android.os.RemoteException {}
+        public void onDownloadFail() throws android.os.RemoteException {}
+        public void onDownloadProgress(int p0, long p1, long p2) throws android.os.RemoteException {}
+        public void onDownloadStarted() throws android.os.RemoteException {}
+        public void onFileFound(int p0) throws android.os.RemoteException {}
+        public void onFileNotFound() throws android.os.RemoteException {}
+        public void onScanProgress(int p0, int p1) throws android.os.RemoteException {}
+        public void onScanStarted() throws android.os.RemoteException {}
+        public void onSystemUpToDate() throws android.os.RemoteException {}
+        public void onUpgradeResult(int p0) throws android.os.RemoteException {}
     }
 }

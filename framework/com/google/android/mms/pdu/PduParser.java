@@ -8,6 +8,7 @@ public class PduParser {
     private static final boolean LOCAL_LOGV = false;
     private static final java.lang.String LOG_TAG = "PduParser";
     private static final int LONG_INTEGER_LENGTH_MAX = 8;
+    private static final int MAX_PARSING_DEPTH = 30;
     private static final int QUOTE = 127;
     private static final int QUOTED_STRING_FLAG = 34;
     private static final int SHORT_INTEGER_MAX = 127;
@@ -39,6 +40,7 @@ public class PduParser {
     protected static com.google.android.mms.pdu.EncodedStringValue parseEncodedStringValue(java.io.ByteArrayInputStream p0) { return null; }
     protected static long parseIntegerValue(java.io.ByteArrayInputStream p0) { return 0L; }
     protected static long parseLongInteger(java.io.ByteArrayInputStream p0) { return 0L; }
+    private com.google.android.mms.pdu.PduBody parseParts(java.io.ByteArrayInputStream p0, int p1) { return null; }
     protected static int parseShortInteger(java.io.ByteArrayInputStream p0) { return 0; }
     protected static int parseUnsignedInt(java.io.ByteArrayInputStream p0) { return 0; }
     protected static int parseValueLength(java.io.ByteArrayInputStream p0) { return 0; }

@@ -12,21 +12,6 @@ public interface IVoldListener extends android.os.IInterface {
     public void onVolumePathChanged(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
     public void onVolumeStateChanged(java.lang.String p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IVoldListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDiskCreated(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onDiskDestroyed(java.lang.String p0) throws android.os.RemoteException {}
-        public void onDiskMetadataChanged(java.lang.String p0, long p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void onDiskScanned(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVolumeCreated(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4) throws android.os.RemoteException {}
-        public void onVolumeDestroyed(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVolumeInternalPathChanged(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onVolumeMetadataChanged(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void onVolumePathChanged(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onVolumeStateChanged(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IVoldListener {
         public static final java.lang.String DESCRIPTOR = "android.os.IVoldListener";
         static final int TRANSACTION_onDiskCreated = 1;
@@ -62,5 +47,20 @@ public interface IVoldListener extends android.os.IInterface {
             public void onVolumePathChanged(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
             public void onVolumeStateChanged(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IVoldListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDiskCreated(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onDiskDestroyed(java.lang.String p0) throws android.os.RemoteException {}
+        public void onDiskMetadataChanged(java.lang.String p0, long p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void onDiskScanned(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVolumeCreated(java.lang.String p0, int p1, java.lang.String p2, java.lang.String p3, int p4) throws android.os.RemoteException {}
+        public void onVolumeDestroyed(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVolumeInternalPathChanged(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onVolumeMetadataChanged(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void onVolumePathChanged(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onVolumeStateChanged(java.lang.String p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

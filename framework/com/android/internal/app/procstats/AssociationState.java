@@ -46,25 +46,6 @@ public final class AssociationState {
     public java.lang.String toString() { return null; }
     public void writeToParcel(com.android.internal.app.procstats.ProcessStats p0, android.os.Parcel p1, long p2) {}
 
-    static final class SourceDumpContainer {
-        public long mActiveTime;
-        public final com.android.internal.app.procstats.AssociationState.SourceState mState = null;
-        public long mTotalTime;
-        public SourceDumpContainer(com.android.internal.app.procstats.AssociationState.SourceState p0) {}
-    }
-
-    public static final class SourceKey {
-        java.lang.String mPackage;
-        java.lang.String mProcess;
-        int mUid;
-        SourceKey(int p0, java.lang.String p1, java.lang.String p2) {}
-        SourceKey(com.android.internal.app.procstats.ProcessStats p0, android.os.Parcel p1, int p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
-        void writeToParcel(com.android.internal.app.procstats.ProcessStats p0, android.os.Parcel p1) {}
-    }
-
     public static final class SourceState implements android.os.Parcelable {
         int mActiveCount;
         long mActiveDuration;
@@ -109,5 +90,24 @@ public final class AssociationState {
         public java.lang.String toString() { return null; }
         public void trackProcState(int p0, int p1, long p2) {}
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    static final class SourceDumpContainer {
+        public long mActiveTime;
+        public final com.android.internal.app.procstats.AssociationState.SourceState mState = null;
+        public long mTotalTime;
+        public SourceDumpContainer(com.android.internal.app.procstats.AssociationState.SourceState p0) {}
+    }
+
+    public static final class SourceKey {
+        java.lang.String mPackage;
+        java.lang.String mProcess;
+        int mUid;
+        SourceKey(int p0, java.lang.String p1, java.lang.String p2) {}
+        SourceKey(com.android.internal.app.procstats.ProcessStats p0, android.os.Parcel p1, int p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+        void writeToParcel(com.android.internal.app.procstats.ProcessStats p0, android.os.Parcel p1) {}
     }
 }

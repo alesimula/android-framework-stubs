@@ -51,5 +51,6 @@ public final class NavigationBarController implements android.view.Window.DecorC
         public boolean isFullscreenMode();
         public void onCustomImeSwitcherButtonRequestedVisible(boolean p0);
         public void onImeSwitchButtonClickFromClient();
+        public void onImeSwitchButtonLongClickFromClient();
     }
 }

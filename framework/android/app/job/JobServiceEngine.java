@@ -1,7 +1,6 @@
 package android.app.job;
 
 public abstract class JobServiceEngine {
-    private static final boolean DEBUG_STORE_ENABLED = Boolean.valueOf(false);
     private static final int MSG_EXECUTE_JOB = 0;
     private static final int MSG_GET_TRANSFERRED_DOWNLOAD_BYTES = 3;
     private static final int MSG_GET_TRANSFERRED_UPLOAD_BYTES = 4;

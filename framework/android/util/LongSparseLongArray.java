@@ -9,6 +9,7 @@ public class LongSparseLongArray implements java.lang.Cloneable {
     public void append(long p0, long p1) {}
     public void clear() {}
     public android.util.LongSparseLongArray clone() { return null; }
+    public long compute(long p0, java.util.function.LongBinaryOperator p1) { return 0L; }
     public void delete(long p0) {}
     public long get(long p0) { return 0L; }
     public long get(long p0, long p1) { return 0L; }

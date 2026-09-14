@@ -21,6 +21,10 @@ public final class KnownNetworkConnectionStatus implements android.os.Parcelable
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ConnectionStatus {
+    }
+
     public static final class Builder {
         private android.os.Bundle mExtras;
         private android.net.wifi.sharedconnectivity.app.KnownNetwork mKnownNetwork;
@@ -30,9 +34,5 @@ public final class KnownNetworkConnectionStatus implements android.os.Parcelable
         public android.net.wifi.sharedconnectivity.app.KnownNetworkConnectionStatus.Builder setExtras(android.os.Bundle p0) { return null; }
         public android.net.wifi.sharedconnectivity.app.KnownNetworkConnectionStatus.Builder setKnownNetwork(android.net.wifi.sharedconnectivity.app.KnownNetwork p0) { return null; }
         public android.net.wifi.sharedconnectivity.app.KnownNetworkConnectionStatus.Builder setStatus(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ConnectionStatus {
     }
 }

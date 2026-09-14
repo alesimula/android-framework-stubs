@@ -16,6 +16,7 @@ public final class ApkAssets {
     private static final int UPTODATE_FALSE = 0;
     private static final int UPTODATE_TRUE = 1;
     private final android.content.res.loader.AssetsProvider mAssets = null;
+    private java.lang.ref.Cleaner.Cleanable mCleanable;
     private final int mFlags = 0;
     private final boolean mIsOverlay = false;
     private java.lang.String mName;
@@ -54,7 +55,6 @@ public final class ApkAssets {
     public void close() {}
     public boolean definesOverlayable() throws java.io.IOException { return false; }
     void dump(java.io.PrintWriter p0, java.lang.String p1) {}
-    protected void finalize() throws java.lang.Throwable {}
     public java.lang.String getAssetPath() { return null; }
     public android.content.res.loader.AssetsProvider getAssetsProvider() { return null; }
     public java.lang.String getDebugName() { return null; }
@@ -67,6 +67,12 @@ public final class ApkAssets {
     public boolean isUpToDate() { return false; }
     public android.content.res.XmlResourceParser openXml(java.lang.String p0) throws java.io.IOException { return null; }
     public java.lang.String toString() { return null; }
+
+    private static final class Destroyer implements java.lang.Runnable {
+        private final long mNativePtr = 0L;
+        Destroyer(long p0) {}
+        public void run() {}
+    }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface FormatType {

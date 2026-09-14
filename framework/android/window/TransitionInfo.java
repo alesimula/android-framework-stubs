@@ -74,6 +74,30 @@ public final class TransitionInfo implements android.os.Parcelable {
     public java.lang.String toString(java.lang.String p0) { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static final class Root implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.window.TransitionInfo.Root> CREATOR = null;
+        private final int mDisplayId = 0;
+        private final android.view.SurfaceControl mLeash = null;
+        private final android.graphics.Point mOffset = null;
+        public Root(int p0, android.view.SurfaceControl p1, int p2, int p3) {}
+        private Root(android.os.Parcel p0) {}
+        private android.window.TransitionInfo.Root localRemoteCopy() { return null; }
+        public int describeContents() { return 0; }
+        public int getDisplayId() { return 0; }
+        public android.view.SurfaceControl getLeash() { return null; }
+        public android.graphics.Point getOffset() { return null; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TransitionMode {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ChangeFlags {
+    }
+
     public static final class AnimationOptions implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.window.TransitionInfo.AnimationOptions> CREATOR = null;
         public static final int DEFAULT_ANIMATION_RESOURCES_ID = -1;
@@ -223,29 +247,5 @@ public final class TransitionInfo implements android.os.Parcelable {
         public void setTopCompatActivityLeash(android.view.SurfaceControl p0) {}
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ChangeFlags {
-    }
-
-    public static final class Root implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.window.TransitionInfo.Root> CREATOR = null;
-        private final int mDisplayId = 0;
-        private final android.view.SurfaceControl mLeash = null;
-        private final android.graphics.Point mOffset = null;
-        public Root(int p0, android.view.SurfaceControl p1, int p2, int p3) {}
-        private Root(android.os.Parcel p0) {}
-        private android.window.TransitionInfo.Root localRemoteCopy() { return null; }
-        public int describeContents() { return 0; }
-        public int getDisplayId() { return 0; }
-        public android.view.SurfaceControl getLeash() { return null; }
-        public android.graphics.Point getOffset() { return null; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransitionMode {
     }
 }

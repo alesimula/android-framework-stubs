@@ -11,7 +11,7 @@ public class ActivityChooserModel extends android.database.DataSetObservable {
     public static final int DEFAULT_HISTORY_MAX_LENGTH = 50;
     private static final java.lang.String HISTORY_FILE_EXTENSION = ".xml";
     private static final int INVALID_INDEX = -1;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "ActivityChooserModel";
     private static final java.lang.String TAG_HISTORICAL_RECORD = "historical-record";
     private static final java.lang.String TAG_HISTORICAL_RECORDS = "historical-records";
     private static final java.util.Map<java.lang.String, android.widget.ActivityChooserModel> sDataModelRegistry = null;
@@ -55,8 +55,8 @@ public class ActivityChooserModel extends android.database.DataSetObservable {
     public void setIntent(android.content.Intent p0) {}
     public void setOnChooseActivityListener(android.widget.ActivityChooserModel.OnChooseActivityListener p0) {}
 
-    public static interface ActivityChooserModelClient {
-        public void setActivityChooserModel(android.widget.ActivityChooserModel p0);
+    public static interface OnChooseActivityListener {
+        public boolean onChooseActivity(android.widget.ActivityChooserModel p0, android.content.Intent p1);
     }
 
     public final class ActivityResolveInfo implements java.lang.Comparable<android.widget.ActivityChooserModel.ActivityResolveInfo> {
@@ -69,8 +69,8 @@ public class ActivityChooserModel extends android.database.DataSetObservable {
         public java.lang.String toString() { return null; }
     }
 
-    public static interface ActivitySorter {
-        public void sort(android.content.Intent p0, java.util.List<android.widget.ActivityChooserModel.ActivityResolveInfo> p1, java.util.List<android.widget.ActivityChooserModel.HistoricalRecord> p2);
+    public static interface ActivityChooserModelClient {
+        public void setActivityChooserModel(android.widget.ActivityChooserModel p0);
     }
 
     private final class DataModelPackageMonitor extends com.android.internal.content.PackageMonitor {
@@ -85,6 +85,10 @@ public class ActivityChooserModel extends android.database.DataSetObservable {
         public void sort(android.content.Intent p0, java.util.List<android.widget.ActivityChooserModel.ActivityResolveInfo> p1, java.util.List<android.widget.ActivityChooserModel.HistoricalRecord> p2) {}
     }
 
+    public static interface ActivitySorter {
+        public void sort(android.content.Intent p0, java.util.List<android.widget.ActivityChooserModel.ActivityResolveInfo> p1, java.util.List<android.widget.ActivityChooserModel.HistoricalRecord> p2);
+    }
+
     public static final class HistoricalRecord {
         public final android.content.ComponentName activity = null;
         public final long time = 0L;
@@ -94,10 +98,6 @@ public class ActivityChooserModel extends android.database.DataSetObservable {
         public boolean equals(java.lang.Object p0) { return false; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
-    }
-
-    public static interface OnChooseActivityListener {
-        public boolean onChooseActivity(android.widget.ActivityChooserModel p0, android.content.Intent p1);
     }
 
     private final class PersistHistoryAsyncTask extends android.os.AsyncTask<java.lang.Object, java.lang.Void, java.lang.Void> {

@@ -7,15 +7,6 @@ public interface IAccessibilityInputMethodSession extends android.os.IInterface 
     public void invalidateInput(android.view.inputmethod.EditorInfo p0, com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p1, int p2) throws android.os.RemoteException;
     public void updateSelection(int p0, int p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IAccessibilityInputMethodSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void finishInput() throws android.os.RemoteException {}
-        public void finishSession() throws android.os.RemoteException {}
-        public void invalidateInput(android.view.inputmethod.EditorInfo p0, com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p1, int p2) throws android.os.RemoteException {}
-        public void updateSelection(int p0, int p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IAccessibilityInputMethodSession {
         static final int TRANSACTION_finishInput = 2;
         static final int TRANSACTION_finishSession = 3;
@@ -38,5 +29,14 @@ public interface IAccessibilityInputMethodSession extends android.os.IInterface 
             public void invalidateInput(android.view.inputmethod.EditorInfo p0, com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p1, int p2) throws android.os.RemoteException {}
             public void updateSelection(int p0, int p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IAccessibilityInputMethodSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void finishInput() throws android.os.RemoteException {}
+        public void finishSession() throws android.os.RemoteException {}
+        public void invalidateInput(android.view.inputmethod.EditorInfo p0, com.android.internal.inputmethod.IRemoteAccessibilityInputConnection p1, int p2) throws android.os.RemoteException {}
+        public void updateSelection(int p0, int p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException {}
     }
 }

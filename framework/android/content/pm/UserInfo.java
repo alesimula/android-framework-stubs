@@ -64,6 +64,7 @@ public class UserInfo implements android.os.Parcelable {
     public boolean isFull() { return false; }
     public boolean isGuest() { return false; }
     public boolean isInitialized() { return false; }
+    public boolean isKiosk() { return false; }
     public boolean isMain() { return false; }
     public boolean isMainUnlogged() { return false; }
     public boolean isManagedProfile() { return false; }

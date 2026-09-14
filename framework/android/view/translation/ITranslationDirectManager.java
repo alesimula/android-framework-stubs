@@ -5,13 +5,6 @@ public interface ITranslationDirectManager extends android.os.IInterface {
     public void onFinishTranslationSession(int p0) throws android.os.RemoteException;
     public void onTranslationRequest(android.view.translation.TranslationRequest p0, int p1, android.os.ICancellationSignal p2, android.service.translation.ITranslationCallback p3) throws android.os.RemoteException;
 
-    public static class Default implements android.view.translation.ITranslationDirectManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFinishTranslationSession(int p0) throws android.os.RemoteException {}
-        public void onTranslationRequest(android.view.translation.TranslationRequest p0, int p1, android.os.ICancellationSignal p2, android.service.translation.ITranslationCallback p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.translation.ITranslationDirectManager {
         static final int TRANSACTION_onFinishTranslationSession = 2;
         static final int TRANSACTION_onTranslationRequest = 1;
@@ -30,5 +23,12 @@ public interface ITranslationDirectManager extends android.os.IInterface {
             public void onFinishTranslationSession(int p0) throws android.os.RemoteException {}
             public void onTranslationRequest(android.view.translation.TranslationRequest p0, int p1, android.os.ICancellationSignal p2, android.service.translation.ITranslationCallback p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.translation.ITranslationDirectManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFinishTranslationSession(int p0) throws android.os.RemoteException {}
+        public void onTranslationRequest(android.view.translation.TranslationRequest p0, int p1, android.os.ICancellationSignal p2, android.service.translation.ITranslationCallback p3) throws android.os.RemoteException {}
     }
 }

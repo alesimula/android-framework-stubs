@@ -110,6 +110,7 @@ public final class DisplayManager {
     public android.hardware.display.BrightnessConfiguration getDefaultBrightnessConfiguration() { return null; }
     public float getDefaultDozeBrightness(int p0) { return 0.0f; }
     public android.view.Display getDisplay(int p0) { return null; }
+    public android.view.Display getDisplayForHostToken(android.window.InputTransferToken p0) { return null; }
     public android.hardware.display.DisplayTopology getDisplayTopology() { return null; }
     public android.view.Display[] getDisplays() { return null; }
     public android.view.Display[] getDisplays(java.lang.String p0) { return null; }
@@ -150,6 +151,7 @@ public final class DisplayManager {
     @android.annotation.SystemApi
     public void setBrightnessConfigurationForDisplay(android.hardware.display.BrightnessConfiguration p0, java.lang.String p1) {}
     public void setBrightnessConfigurationForUser(android.hardware.display.BrightnessConfiguration p0, int p1, java.lang.String p2) {}
+    public void setBrightnessRangeOverride(int p0, android.hardware.display.BrightnessRangeOverrideRequest p1) {}
     public void setDisplayTopology(android.hardware.display.DisplayTopology p0) {}
     public void setExternalDisplayConnectionPreference(java.lang.String p0, int p1) {}
     public void setGlobalUserPreferredDisplayMode(android.view.Display.Mode p0) {}
@@ -172,7 +174,51 @@ public final class DisplayManager {
     public void unregisterTopologyListener(java.util.function.Consumer<android.hardware.display.DisplayTopology> p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PrivateEventType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VirtualDisplayFlag {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ExternalDisplayConnection {
+    }
+
+    private static final class WeakDisplayCache {
+        private final android.util.SparseArray<java.lang.ref.WeakReference<android.view.Display>> mDisplayCache = null;
+        private WeakDisplayCache() {}
+        private void removeStaleEntries() {}
+        android.view.Display get(int p0) { return null; }
+        void put(android.view.Display p0) {}
+    }
+
+    public static interface DisplayListener {
+        public void onDisplayAdded(int p0);
+        public void onDisplayChanged(int p0);
+        default public void onDisplayConnected(int p0) {}
+        default public void onDisplayDisconnected(int p0) {}
+        public void onDisplayRemoved(int p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface BrightnessUnit {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SwitchingType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface MatchContentFrameRateType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HdrPreference {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EventType {
     }
 
     public static interface DeviceConfig {
@@ -189,49 +235,5 @@ public final class DisplayManager {
         public static final java.lang.String KEY_REFRESH_RATE_IN_HBM_SUNLIGHT = "refresh_rate_in_hbm_sunlight";
         public static final java.lang.String KEY_REFRESH_RATE_IN_HIGH_ZONE = "refresh_rate_in_high_zone";
         public static final java.lang.String KEY_REFRESH_RATE_IN_LOW_ZONE = "refresh_rate_in_zone";
-    }
-
-    public static interface DisplayListener {
-        public void onDisplayAdded(int p0);
-        public void onDisplayChanged(int p0);
-        default public void onDisplayConnected(int p0) {}
-        default public void onDisplayDisconnected(int p0) {}
-        public void onDisplayRemoved(int p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EventType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ExternalDisplayConnection {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HdrPreference {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MatchContentFrameRateType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PrivateEventType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SwitchingType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VirtualDisplayFlag {
-    }
-
-    private static final class WeakDisplayCache {
-        private final android.util.SparseArray<java.lang.ref.WeakReference<android.view.Display>> mDisplayCache = null;
-        private WeakDisplayCache() {}
-        private void removeStaleEntries() {}
-        android.view.Display get(int p0) { return null; }
-        void put(android.view.Display p0) {}
     }
 }

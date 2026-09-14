@@ -4,12 +4,6 @@ public interface IHdmiCecSettingChangeListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.hardware.hdmi.IHdmiCecSettingChangeListener";
     public void onChange(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hdmi.IHdmiCecSettingChangeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onChange(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hdmi.IHdmiCecSettingChangeListener {
         static final int TRANSACTION_onChange = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IHdmiCecSettingChangeListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onChange(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hdmi.IHdmiCecSettingChangeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onChange(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

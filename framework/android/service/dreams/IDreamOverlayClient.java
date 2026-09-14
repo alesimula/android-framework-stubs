@@ -6,6 +6,7 @@ public interface IDreamOverlayClient extends android.os.IInterface {
     public void endDream() throws android.os.RemoteException;
     public void onWakeRequested() throws android.os.RemoteException;
     public void startDream(android.view.WindowManager.LayoutParams p0, android.service.dreams.IDreamOverlayCallback p1, java.lang.String p2, boolean p3, boolean p4) throws android.os.RemoteException;
+    public void triggerDreamSwitcherDialog() throws android.os.RemoteException;
     public void wakeUp() throws android.os.RemoteException;
 
     public static class Default implements android.service.dreams.IDreamOverlayClient {
@@ -15,6 +16,7 @@ public interface IDreamOverlayClient extends android.os.IInterface {
         public void endDream() throws android.os.RemoteException {}
         public void onWakeRequested() throws android.os.RemoteException {}
         public void startDream(android.view.WindowManager.LayoutParams p0, android.service.dreams.IDreamOverlayCallback p1, java.lang.String p2, boolean p3, boolean p4) throws android.os.RemoteException {}
+        public void triggerDreamSwitcherDialog() throws android.os.RemoteException {}
         public void wakeUp() throws android.os.RemoteException {}
     }
 
@@ -23,6 +25,7 @@ public interface IDreamOverlayClient extends android.os.IInterface {
         static final int TRANSACTION_endDream = 3;
         static final int TRANSACTION_onWakeRequested = 4;
         static final int TRANSACTION_startDream = 1;
+        static final int TRANSACTION_triggerDreamSwitcherDialog = 6;
         static final int TRANSACTION_wakeUp = 2;
         public Stub() { super(); }
         public static android.service.dreams.IDreamOverlayClient asInterface(android.os.IBinder p0) { return null; }
@@ -40,6 +43,7 @@ public interface IDreamOverlayClient extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onWakeRequested() throws android.os.RemoteException {}
             public void startDream(android.view.WindowManager.LayoutParams p0, android.service.dreams.IDreamOverlayCallback p1, java.lang.String p2, boolean p3, boolean p4) throws android.os.RemoteException {}
+            public void triggerDreamSwitcherDialog() throws android.os.RemoteException {}
             public void wakeUp() throws android.os.RemoteException {}
         }
     }

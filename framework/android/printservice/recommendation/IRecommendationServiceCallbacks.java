@@ -3,12 +3,6 @@ package android.printservice.recommendation;
 public interface IRecommendationServiceCallbacks extends android.os.IInterface {
     public void onRecommendationsUpdated(java.util.List<android.printservice.recommendation.RecommendationInfo> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.printservice.recommendation.IRecommendationServiceCallbacks {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onRecommendationsUpdated(java.util.List<android.printservice.recommendation.RecommendationInfo> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.printservice.recommendation.IRecommendationServiceCallbacks {
         public static final java.lang.String DESCRIPTOR = "android.printservice.recommendation.IRecommendationServiceCallbacks";
         static final int TRANSACTION_onRecommendationsUpdated = 1;
@@ -26,5 +20,11 @@ public interface IRecommendationServiceCallbacks extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onRecommendationsUpdated(java.util.List<android.printservice.recommendation.RecommendationInfo> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.printservice.recommendation.IRecommendationServiceCallbacks {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onRecommendationsUpdated(java.util.List<android.printservice.recommendation.RecommendationInfo> p0) throws android.os.RemoteException {}
     }
 }

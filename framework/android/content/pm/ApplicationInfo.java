@@ -121,7 +121,7 @@ public class ApplicationInfo extends android.content.pm.PackageItemInfo implemen
     public static final int RAW_EXTERNAL_STORAGE_ACCESS_DEFAULT = 0;
     public static final int RAW_EXTERNAL_STORAGE_ACCESS_NOT_REQUESTED = 2;
     public static final int RAW_EXTERNAL_STORAGE_ACCESS_REQUESTED = 1;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "ApplicationInfo";
     public static final int ZEROINIT_DEFAULT = -1;
     public static final int ZEROINIT_DISABLED = 0;
     public static final int ZEROINIT_ENABLED = 1;
@@ -164,7 +164,7 @@ public class ApplicationInfo extends android.content.pm.PackageItemInfo implemen
     private int mPageSizeAppCompatFlags;
     public java.lang.String manageSpaceActivityName;
     public float maxAspectRatio;
-    public final java.util.List<android.content.pm.MemoryBudget> memoryBudgets = null;
+    public java.util.List<android.content.pm.MemoryBudgetInfo> memoryBudgets;
     private int memtagMode;
     public float minAspectRatio;
     public int minSdkVersion;

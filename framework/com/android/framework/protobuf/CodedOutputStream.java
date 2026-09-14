@@ -168,6 +168,91 @@ public abstract class CodedOutputStream extends com.android.framework.protobuf.B
         public final int spaceLeft() { return 0; }
     }
 
+    private static final class UnsafeDirectNioEncoder extends com.android.framework.protobuf.CodedOutputStream {
+        private final long address = 0L;
+        private final java.nio.ByteBuffer buffer = null;
+        private final long initialPosition = 0L;
+        private final long limit = 0L;
+        private final long oneVarintLimit = 0L;
+        private final java.nio.ByteBuffer originalBuffer = null;
+        private long position;
+        UnsafeDirectNioEncoder(java.nio.ByteBuffer p0) { super(); }
+        private int bufferPos(long p0) { return 0; }
+        static boolean isSupported() { return false; }
+        private void repositionBuffer(long p0) {}
+        public void flush() {}
+        public int getTotalBytesWritten() { return 0; }
+        public int spaceLeft() { return 0; }
+        public void write(byte p0) throws java.io.IOException {}
+        public void write(java.nio.ByteBuffer p0) throws java.io.IOException {}
+        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeBool(int p0, boolean p1) throws java.io.IOException {}
+        public void writeByteArray(int p0, byte[] p1) throws java.io.IOException {}
+        public void writeByteArray(int p0, byte[] p1, int p2, int p3) throws java.io.IOException {}
+        public void writeByteArrayNoTag(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeByteBuffer(int p0, java.nio.ByteBuffer p1) throws java.io.IOException {}
+        public void writeBytes(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
+        public void writeBytesNoTag(com.android.framework.protobuf.ByteString p0) throws java.io.IOException {}
+        public void writeFixed32(int p0, int p1) throws java.io.IOException {}
+        public void writeFixed32NoTag(int p0) throws java.io.IOException {}
+        public void writeFixed64(int p0, long p1) throws java.io.IOException {}
+        public void writeFixed64NoTag(long p0) throws java.io.IOException {}
+        public void writeInt32(int p0, int p1) throws java.io.IOException {}
+        public void writeInt32NoTag(int p0) throws java.io.IOException {}
+        public void writeLazy(java.nio.ByteBuffer p0) throws java.io.IOException {}
+        public void writeLazy(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeMessage(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
+        public void writeMessageNoTag(com.android.framework.protobuf.MessageLite p0) throws java.io.IOException {}
+        public void writeMessageSetExtension(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
+        public void writeRawBytes(java.nio.ByteBuffer p0) throws java.io.IOException {}
+        public void writeRawMessageSetExtension(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
+        public void writeString(int p0, java.lang.String p1) throws java.io.IOException {}
+        public void writeStringNoTag(java.lang.String p0) throws java.io.IOException {}
+        public void writeTag(int p0, int p1) throws java.io.IOException {}
+        public void writeUInt32(int p0, int p1) throws java.io.IOException {}
+        public void writeUInt32NoTag(int p0) throws java.io.IOException {}
+        public void writeUInt64(int p0, long p1) throws java.io.IOException {}
+        public void writeUInt64NoTag(long p0) throws java.io.IOException {}
+    }
+
+    private static final class ByteOutputEncoder extends com.android.framework.protobuf.CodedOutputStream.AbstractBufferedEncoder {
+        private final com.android.framework.protobuf.ByteOutput out = null;
+        ByteOutputEncoder(com.android.framework.protobuf.ByteOutput p0, int p1) { super(0); }
+        private void doFlush() throws java.io.IOException {}
+        private void flushIfNotAvailable(int p0) throws java.io.IOException {}
+        public void flush() throws java.io.IOException {}
+        public void write(byte p0) throws java.io.IOException {}
+        public void write(java.nio.ByteBuffer p0) throws java.io.IOException {}
+        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeBool(int p0, boolean p1) throws java.io.IOException {}
+        public void writeByteArray(int p0, byte[] p1) throws java.io.IOException {}
+        public void writeByteArray(int p0, byte[] p1, int p2, int p3) throws java.io.IOException {}
+        public void writeByteArrayNoTag(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeByteBuffer(int p0, java.nio.ByteBuffer p1) throws java.io.IOException {}
+        public void writeBytes(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
+        public void writeBytesNoTag(com.android.framework.protobuf.ByteString p0) throws java.io.IOException {}
+        public void writeFixed32(int p0, int p1) throws java.io.IOException {}
+        public void writeFixed32NoTag(int p0) throws java.io.IOException {}
+        public void writeFixed64(int p0, long p1) throws java.io.IOException {}
+        public void writeFixed64NoTag(long p0) throws java.io.IOException {}
+        public void writeInt32(int p0, int p1) throws java.io.IOException {}
+        public void writeInt32NoTag(int p0) throws java.io.IOException {}
+        public void writeLazy(java.nio.ByteBuffer p0) throws java.io.IOException {}
+        public void writeLazy(byte[] p0, int p1, int p2) throws java.io.IOException {}
+        public void writeMessage(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
+        public void writeMessageNoTag(com.android.framework.protobuf.MessageLite p0) throws java.io.IOException {}
+        public void writeMessageSetExtension(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
+        public void writeRawBytes(java.nio.ByteBuffer p0) throws java.io.IOException {}
+        public void writeRawMessageSetExtension(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
+        public void writeString(int p0, java.lang.String p1) throws java.io.IOException {}
+        public void writeStringNoTag(java.lang.String p0) throws java.io.IOException {}
+        public void writeTag(int p0, int p1) throws java.io.IOException {}
+        public void writeUInt32(int p0, int p1) throws java.io.IOException {}
+        public void writeUInt32NoTag(int p0) throws java.io.IOException {}
+        public void writeUInt64(int p0, long p1) throws java.io.IOException {}
+        public void writeUInt64NoTag(long p0) throws java.io.IOException {}
+    }
+
     private static class ArrayEncoder extends com.android.framework.protobuf.CodedOutputStream {
         private final byte[] buffer = null;
         private final int limit = 0;
@@ -209,64 +294,6 @@ public abstract class CodedOutputStream extends com.android.framework.protobuf.B
         public final void writeUInt64NoTag(long p0) throws java.io.IOException {}
     }
 
-    private static final class ByteOutputEncoder extends com.android.framework.protobuf.CodedOutputStream.AbstractBufferedEncoder {
-        private final com.android.framework.protobuf.ByteOutput out = null;
-        ByteOutputEncoder(com.android.framework.protobuf.ByteOutput p0, int p1) { super(0); }
-        private void doFlush() throws java.io.IOException {}
-        private void flushIfNotAvailable(int p0) throws java.io.IOException {}
-        public void flush() throws java.io.IOException {}
-        public void write(byte p0) throws java.io.IOException {}
-        public void write(java.nio.ByteBuffer p0) throws java.io.IOException {}
-        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeBool(int p0, boolean p1) throws java.io.IOException {}
-        public void writeByteArray(int p0, byte[] p1) throws java.io.IOException {}
-        public void writeByteArray(int p0, byte[] p1, int p2, int p3) throws java.io.IOException {}
-        public void writeByteArrayNoTag(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeByteBuffer(int p0, java.nio.ByteBuffer p1) throws java.io.IOException {}
-        public void writeBytes(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
-        public void writeBytesNoTag(com.android.framework.protobuf.ByteString p0) throws java.io.IOException {}
-        public void writeFixed32(int p0, int p1) throws java.io.IOException {}
-        public void writeFixed32NoTag(int p0) throws java.io.IOException {}
-        public void writeFixed64(int p0, long p1) throws java.io.IOException {}
-        public void writeFixed64NoTag(long p0) throws java.io.IOException {}
-        public void writeInt32(int p0, int p1) throws java.io.IOException {}
-        public void writeInt32NoTag(int p0) throws java.io.IOException {}
-        public void writeLazy(java.nio.ByteBuffer p0) throws java.io.IOException {}
-        public void writeLazy(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeMessage(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
-        public void writeMessageNoTag(com.android.framework.protobuf.MessageLite p0) throws java.io.IOException {}
-        public void writeMessageSetExtension(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
-        public void writeRawBytes(java.nio.ByteBuffer p0) throws java.io.IOException {}
-        public void writeRawMessageSetExtension(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
-        public void writeString(int p0, java.lang.String p1) throws java.io.IOException {}
-        public void writeStringNoTag(java.lang.String p0) throws java.io.IOException {}
-        public void writeTag(int p0, int p1) throws java.io.IOException {}
-        public void writeUInt32(int p0, int p1) throws java.io.IOException {}
-        public void writeUInt32NoTag(int p0) throws java.io.IOException {}
-        public void writeUInt64(int p0, long p1) throws java.io.IOException {}
-        public void writeUInt64NoTag(long p0) throws java.io.IOException {}
-    }
-
-    private static final class HeapNioEncoder extends com.android.framework.protobuf.CodedOutputStream.ArrayEncoder {
-        private final java.nio.ByteBuffer byteBuffer = null;
-        private int initialPosition;
-        HeapNioEncoder(java.nio.ByteBuffer p0) { super(null, 0, 0); }
-        public void flush() {}
-    }
-
-    public static class OutOfSpaceException extends java.io.IOException {
-        private static final java.lang.String MESSAGE = "CodedOutputStream was writing to a flat byte array and ran out of space.";
-        private static final long serialVersionUID = -6947486886997889499L;
-        OutOfSpaceException() { super(); }
-        OutOfSpaceException(int p0, int p1, int p2) { super(); }
-        OutOfSpaceException(int p0, int p1, int p2, java.lang.Throwable p3) { super(); }
-        OutOfSpaceException(long p0, long p1, int p2) { super(); }
-        OutOfSpaceException(long p0, long p1, int p2, java.lang.Throwable p3) { super(); }
-        OutOfSpaceException(java.lang.String p0) { super(); }
-        OutOfSpaceException(java.lang.String p0, java.lang.Throwable p1) { super(); }
-        OutOfSpaceException(java.lang.Throwable p0) { super(); }
-    }
-
     private static final class OutputStreamEncoder extends com.android.framework.protobuf.CodedOutputStream.AbstractBufferedEncoder {
         private final java.io.OutputStream out = null;
         OutputStreamEncoder(java.io.OutputStream p0, int p1) { super(0); }
@@ -305,59 +332,32 @@ public abstract class CodedOutputStream extends com.android.framework.protobuf.B
         public void writeUInt64NoTag(long p0) throws java.io.IOException {}
     }
 
+    public static class OutOfSpaceException extends java.io.IOException {
+        private static final java.lang.String MESSAGE = "CodedOutputStream was writing to a flat byte array and ran out of space.";
+        private static final long serialVersionUID = -6947486886997889499L;
+        OutOfSpaceException() { super(); }
+        OutOfSpaceException(int p0, int p1, int p2) { super(); }
+        OutOfSpaceException(int p0, int p1, int p2, java.lang.Throwable p3) { super(); }
+        OutOfSpaceException(long p0, long p1, int p2) { super(); }
+        OutOfSpaceException(long p0, long p1, int p2, java.lang.Throwable p3) { super(); }
+        OutOfSpaceException(java.lang.String p0) { super(); }
+        OutOfSpaceException(java.lang.String p0, java.lang.Throwable p1) { super(); }
+        OutOfSpaceException(java.lang.Throwable p0) { super(); }
+    }
+
+    private static final class HeapNioEncoder extends com.android.framework.protobuf.CodedOutputStream.ArrayEncoder {
+        private final java.nio.ByteBuffer byteBuffer = null;
+        private int initialPosition;
+        HeapNioEncoder(java.nio.ByteBuffer p0) { super(null, 0, 0); }
+        public void flush() {}
+    }
+
     private static final class SafeDirectNioEncoder extends com.android.framework.protobuf.CodedOutputStream {
         private final java.nio.ByteBuffer buffer = null;
         private final int initialPosition = 0;
         private final java.nio.ByteBuffer originalBuffer = null;
         SafeDirectNioEncoder(java.nio.ByteBuffer p0) { super(); }
         private void encode(java.lang.String p0) throws java.io.IOException {}
-        public void flush() {}
-        public int getTotalBytesWritten() { return 0; }
-        public int spaceLeft() { return 0; }
-        public void write(byte p0) throws java.io.IOException {}
-        public void write(java.nio.ByteBuffer p0) throws java.io.IOException {}
-        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeBool(int p0, boolean p1) throws java.io.IOException {}
-        public void writeByteArray(int p0, byte[] p1) throws java.io.IOException {}
-        public void writeByteArray(int p0, byte[] p1, int p2, int p3) throws java.io.IOException {}
-        public void writeByteArrayNoTag(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeByteBuffer(int p0, java.nio.ByteBuffer p1) throws java.io.IOException {}
-        public void writeBytes(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
-        public void writeBytesNoTag(com.android.framework.protobuf.ByteString p0) throws java.io.IOException {}
-        public void writeFixed32(int p0, int p1) throws java.io.IOException {}
-        public void writeFixed32NoTag(int p0) throws java.io.IOException {}
-        public void writeFixed64(int p0, long p1) throws java.io.IOException {}
-        public void writeFixed64NoTag(long p0) throws java.io.IOException {}
-        public void writeInt32(int p0, int p1) throws java.io.IOException {}
-        public void writeInt32NoTag(int p0) throws java.io.IOException {}
-        public void writeLazy(java.nio.ByteBuffer p0) throws java.io.IOException {}
-        public void writeLazy(byte[] p0, int p1, int p2) throws java.io.IOException {}
-        public void writeMessage(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
-        public void writeMessageNoTag(com.android.framework.protobuf.MessageLite p0) throws java.io.IOException {}
-        public void writeMessageSetExtension(int p0, com.android.framework.protobuf.MessageLite p1) throws java.io.IOException {}
-        public void writeRawBytes(java.nio.ByteBuffer p0) throws java.io.IOException {}
-        public void writeRawMessageSetExtension(int p0, com.android.framework.protobuf.ByteString p1) throws java.io.IOException {}
-        public void writeString(int p0, java.lang.String p1) throws java.io.IOException {}
-        public void writeStringNoTag(java.lang.String p0) throws java.io.IOException {}
-        public void writeTag(int p0, int p1) throws java.io.IOException {}
-        public void writeUInt32(int p0, int p1) throws java.io.IOException {}
-        public void writeUInt32NoTag(int p0) throws java.io.IOException {}
-        public void writeUInt64(int p0, long p1) throws java.io.IOException {}
-        public void writeUInt64NoTag(long p0) throws java.io.IOException {}
-    }
-
-    private static final class UnsafeDirectNioEncoder extends com.android.framework.protobuf.CodedOutputStream {
-        private final long address = 0L;
-        private final java.nio.ByteBuffer buffer = null;
-        private final long initialPosition = 0L;
-        private final long limit = 0L;
-        private final long oneVarintLimit = 0L;
-        private final java.nio.ByteBuffer originalBuffer = null;
-        private long position;
-        UnsafeDirectNioEncoder(java.nio.ByteBuffer p0) { super(); }
-        private int bufferPos(long p0) { return 0; }
-        static boolean isSupported() { return false; }
-        private void repositionBuffer(long p0) {}
         public void flush() {}
         public int getTotalBytesWritten() { return 0; }
         public int spaceLeft() { return 0; }

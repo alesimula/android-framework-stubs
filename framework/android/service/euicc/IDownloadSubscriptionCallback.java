@@ -3,12 +3,6 @@ package android.service.euicc;
 public interface IDownloadSubscriptionCallback extends android.os.IInterface {
     public void onComplete(android.service.euicc.DownloadSubscriptionResult p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.euicc.IDownloadSubscriptionCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onComplete(android.service.euicc.DownloadSubscriptionResult p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.euicc.IDownloadSubscriptionCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.euicc.IDownloadSubscriptionCallback";
         static final int TRANSACTION_onComplete = 1;
@@ -26,5 +20,11 @@ public interface IDownloadSubscriptionCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onComplete(android.service.euicc.DownloadSubscriptionResult p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.euicc.IDownloadSubscriptionCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onComplete(android.service.euicc.DownloadSubscriptionResult p0) throws android.os.RemoteException {}
     }
 }

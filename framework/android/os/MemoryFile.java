@@ -25,6 +25,14 @@ public class MemoryFile {
     public int readBytes(byte[] p0, int p1, int p2, int p3) throws java.io.IOException { return 0; }
     public void writeBytes(byte[] p0, int p1, int p2, int p3) throws java.io.IOException {}
 
+    private class MemoryOutputStream extends java.io.OutputStream {
+        private int mOffset;
+        private byte[] mSingleByte;
+        private MemoryOutputStream(android.os.MemoryFile p0) { super(); }
+        public void write(int p0) throws java.io.IOException {}
+        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
+    }
+
     private class MemoryInputStream extends java.io.InputStream {
         private int mMark;
         private int mOffset;
@@ -37,13 +45,5 @@ public class MemoryFile {
         public int read(byte[] p0, int p1, int p2) throws java.io.IOException { return 0; }
         public void reset() throws java.io.IOException {}
         public long skip(long p0) throws java.io.IOException { return 0L; }
-    }
-
-    private class MemoryOutputStream extends java.io.OutputStream {
-        private int mOffset;
-        private byte[] mSingleByte;
-        private MemoryOutputStream(android.os.MemoryFile p0) { super(); }
-        public void write(int p0) throws java.io.IOException {}
-        public void write(byte[] p0, int p1, int p2) throws java.io.IOException {}
     }
 }

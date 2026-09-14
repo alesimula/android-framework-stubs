@@ -82,6 +82,87 @@ public abstract class GeneratedMessageLite<MessageType extends com.android.frame
     public java.lang.String toString() { return null; }
     public void writeTo(com.android.framework.protobuf.CodedOutputStream p0) throws java.io.IOException {}
 
+    static final class ExtensionDescriptor implements com.android.framework.protobuf.FieldSet.FieldDescriptorLite<com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor> {
+        final com.android.framework.protobuf.Internal.EnumLiteMap<?> enumTypeMap = null;
+        final boolean isPacked = false;
+        final boolean isRepeated = false;
+        final int number = 0;
+        final com.android.framework.protobuf.WireFormat.FieldType type = null;
+        ExtensionDescriptor(com.android.framework.protobuf.Internal.EnumLiteMap<?> p0, int p1, com.android.framework.protobuf.WireFormat.FieldType p2, boolean p3, boolean p4) {}
+        public int compareTo(com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor p0) { return 0; }
+        public com.android.framework.protobuf.Internal.EnumLiteMap<?> getEnumType() { return null; }
+        public com.android.framework.protobuf.WireFormat.JavaType getLiteJavaType() { return null; }
+        public com.android.framework.protobuf.WireFormat.FieldType getLiteType() { return null; }
+        public int getNumber() { return 0; }
+        public void internalMergeFrom(java.lang.Object p0, java.lang.Object p1) {}
+        public boolean internalMessageIsImmutable(java.lang.Object p0) { return false; }
+        public boolean isPacked() { return false; }
+        public boolean isRepeated() { return false; }
+    }
+
+    protected static class DefaultInstanceBasedParser<T extends com.android.framework.protobuf.GeneratedMessageLite<T, ?>> extends com.android.framework.protobuf.AbstractParser<T> {
+        private final T defaultInstance = null;
+        public DefaultInstanceBasedParser(T p0) { super(); }
+        public T parsePartialFrom(com.android.framework.protobuf.CodedInputStream p0, com.android.framework.protobuf.ExtensionRegistryLite p1) throws com.android.framework.protobuf.InvalidProtocolBufferException { return null; }
+        public T parsePartialFrom(byte[] p0, int p1, int p2, com.android.framework.protobuf.ExtensionRegistryLite p3) throws com.android.framework.protobuf.InvalidProtocolBufferException { return null; }
+    }
+
+    protected static final class SerializedForm implements java.io.Serializable {
+        private static final long serialVersionUID = 0L;
+        private final byte[] asBytes = null;
+        private final java.lang.Class<?> messageClass = null;
+        private final java.lang.String messageClassName = null;
+        SerializedForm(com.android.framework.protobuf.MessageLite p0) {}
+        public static com.android.framework.protobuf.GeneratedMessageLite.SerializedForm of(com.android.framework.protobuf.MessageLite p0) { return null; }
+        private java.lang.Class<?> resolveMessageClass() throws java.lang.ClassNotFoundException { return null; }
+        protected java.lang.Object readResolve() throws java.io.ObjectStreamException { return null; }
+    }
+
+    public static enum MethodToInvoke {
+        BUILD_MESSAGE_INFO,
+        GET_DEFAULT_INSTANCE,
+        GET_MEMOIZED_IS_INITIALIZED,
+        GET_PARSER,
+        NEW_BUILDER,
+        NEW_MUTABLE_INSTANCE,
+        SET_MEMOIZED_IS_INITIALIZED;
+        private static final com.android.framework.protobuf.GeneratedMessageLite.MethodToInvoke[] $VALUES = null;
+        private MethodToInvoke() {}
+    }
+
+    public static class GeneratedExtension<ContainingType extends com.android.framework.protobuf.MessageLite, Type extends java.lang.Object> extends com.android.framework.protobuf.ExtensionLite<ContainingType, Type> {
+        final com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor descriptor = null;
+        final com.android.framework.protobuf.MessageLite messageDefaultInstance = null;
+        GeneratedExtension(ContainingType p0, Type p1, com.android.framework.protobuf.MessageLite p2, com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor p3, java.lang.Class p4) { super(); }
+        java.lang.Object fromFieldSetType(java.lang.Object p0) { return null; }
+        public ContainingType getContainingTypeDefaultInstance() { return null; }
+        public Type getDefaultValue() { return null; }
+        public com.android.framework.protobuf.WireFormat.FieldType getLiteType() { return null; }
+        public com.android.framework.protobuf.MessageLite getMessageDefaultInstance() { return null; }
+        public int getNumber() { return 0; }
+        public boolean isRepeated() { return false; }
+        java.lang.Object singularFromFieldSetType(java.lang.Object p0) { return null; }
+        java.lang.Object singularToFieldSetType(java.lang.Object p0) { return null; }
+        java.lang.Object toFieldSetType(java.lang.Object p0) { return null; }
+    }
+
+    public static abstract class ExtendableBuilder<MessageType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessage<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableBuilder<MessageType, BuilderType>> extends com.android.framework.protobuf.GeneratedMessageLite.Builder<MessageType, BuilderType> implements com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder<MessageType, BuilderType> {
+        protected ExtendableBuilder(MessageType p0) { super(null); }
+        private com.android.framework.protobuf.FieldSet<com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor> ensureExtensionsAreMutable() { return null; }
+        private void verifyExtensionContainingType(com.android.framework.protobuf.GeneratedMessageLite.GeneratedExtension<MessageType, ?> p0) {}
+        public final <Type extends java.lang.Object> BuilderType addExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, Type p1) { return null; }
+        public final MessageType buildPartial() { return null; }
+        public final BuilderType clearExtension(com.android.framework.protobuf.ExtensionLite<MessageType, ?> p0) { return null; }
+        protected void copyOnWriteInternal() {}
+        public final <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0) { return null; }
+        public final <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, int p1) { return null; }
+        public final <Type extends java.lang.Object> int getExtensionCount(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0) { return 0; }
+        public final <Type extends java.lang.Object> boolean hasExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0) { return false; }
+        void internalSetExtensionSet(com.android.framework.protobuf.FieldSet<com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor> p0) {}
+        public final <Type extends java.lang.Object> BuilderType setExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, int p1, Type p2) { return null; }
+        public final <Type extends java.lang.Object> BuilderType setExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0, Type p1) { return null; }
+    }
+
     public static abstract class Builder<MessageType extends com.android.framework.protobuf.GeneratedMessageLite<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.GeneratedMessageLite.Builder<MessageType, BuilderType>> extends com.android.framework.protobuf.AbstractMessageLite.Builder<MessageType, BuilderType> {
         protected Builder(MessageType p0) { super(); }
         private static <MessageType extends java.lang.Object> void mergeFromInstance(MessageType p0, MessageType p1) {}
@@ -101,28 +182,11 @@ public abstract class GeneratedMessageLite<MessageType extends com.android.frame
         public BuilderType mergeFrom(byte[] p0, int p1, int p2, com.android.framework.protobuf.ExtensionRegistryLite p3) throws com.android.framework.protobuf.InvalidProtocolBufferException { return null; }
     }
 
-    protected static class DefaultInstanceBasedParser<T extends com.android.framework.protobuf.GeneratedMessageLite<T, ?>> extends com.android.framework.protobuf.AbstractParser<T> {
-        private final T defaultInstance = null;
-        public DefaultInstanceBasedParser(T p0) { super(); }
-        public T parsePartialFrom(com.android.framework.protobuf.CodedInputStream p0, com.android.framework.protobuf.ExtensionRegistryLite p1) throws com.android.framework.protobuf.InvalidProtocolBufferException { return null; }
-        public T parsePartialFrom(byte[] p0, int p1, int p2, com.android.framework.protobuf.ExtensionRegistryLite p3) throws com.android.framework.protobuf.InvalidProtocolBufferException { return null; }
-    }
-
-    public static abstract class ExtendableBuilder<MessageType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessage<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableBuilder<MessageType, BuilderType>> extends com.android.framework.protobuf.GeneratedMessageLite.Builder<MessageType, BuilderType> implements com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder<MessageType, BuilderType> {
-        protected ExtendableBuilder(MessageType p0) { super(null); }
-        private com.android.framework.protobuf.FieldSet<com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor> ensureExtensionsAreMutable() { return null; }
-        private void verifyExtensionContainingType(com.android.framework.protobuf.GeneratedMessageLite.GeneratedExtension<MessageType, ?> p0) {}
-        public final <Type extends java.lang.Object> BuilderType addExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, Type p1) { return null; }
-        public final MessageType buildPartial() { return null; }
-        public final BuilderType clearExtension(com.android.framework.protobuf.ExtensionLite<MessageType, ?> p0) { return null; }
-        protected void copyOnWriteInternal() {}
-        public final <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0) { return null; }
-        public final <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, int p1) { return null; }
-        public final <Type extends java.lang.Object> int getExtensionCount(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0) { return 0; }
-        public final <Type extends java.lang.Object> boolean hasExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0) { return false; }
-        void internalSetExtensionSet(com.android.framework.protobuf.FieldSet<com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor> p0) {}
-        public final <Type extends java.lang.Object> BuilderType setExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, int p1, Type p2) { return null; }
-        public final <Type extends java.lang.Object> BuilderType setExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0, Type p1) { return null; }
+    public static interface ExtendableMessageOrBuilder<MessageType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessage<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableBuilder<MessageType, BuilderType>> extends com.android.framework.protobuf.MessageLiteOrBuilder {
+        public <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0);
+        public <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, int p1);
+        public <Type extends java.lang.Object> int getExtensionCount(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0);
+        public <Type extends java.lang.Object> boolean hasExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0);
     }
 
     public static abstract class ExtendableMessage<MessageType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessage<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableBuilder<MessageType, BuilderType>> extends com.android.framework.protobuf.GeneratedMessageLite<MessageType, BuilderType> implements com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder<MessageType, BuilderType> {
@@ -154,69 +218,5 @@ public abstract class GeneratedMessageLite<MessageType extends com.android.frame
             private ExtensionWriter(com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessage p0, boolean p1) {}
             public void writeUntil(int p0, com.android.framework.protobuf.CodedOutputStream p1) throws java.io.IOException {}
         }
-    }
-
-    public static interface ExtendableMessageOrBuilder<MessageType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableMessage<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.GeneratedMessageLite.ExtendableBuilder<MessageType, BuilderType>> extends com.android.framework.protobuf.MessageLiteOrBuilder {
-        public <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0);
-        public <Type extends java.lang.Object> Type getExtension(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0, int p1);
-        public <Type extends java.lang.Object> int getExtensionCount(com.android.framework.protobuf.ExtensionLite<MessageType, java.util.List<Type>> p0);
-        public <Type extends java.lang.Object> boolean hasExtension(com.android.framework.protobuf.ExtensionLite<MessageType, Type> p0);
-    }
-
-    static final class ExtensionDescriptor implements com.android.framework.protobuf.FieldSet.FieldDescriptorLite<com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor> {
-        final com.android.framework.protobuf.Internal.EnumLiteMap<?> enumTypeMap = null;
-        final boolean isPacked = false;
-        final boolean isRepeated = false;
-        final int number = 0;
-        final com.android.framework.protobuf.WireFormat.FieldType type = null;
-        ExtensionDescriptor(com.android.framework.protobuf.Internal.EnumLiteMap<?> p0, int p1, com.android.framework.protobuf.WireFormat.FieldType p2, boolean p3, boolean p4) {}
-        public int compareTo(com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor p0) { return 0; }
-        public com.android.framework.protobuf.Internal.EnumLiteMap<?> getEnumType() { return null; }
-        public com.android.framework.protobuf.WireFormat.JavaType getLiteJavaType() { return null; }
-        public com.android.framework.protobuf.WireFormat.FieldType getLiteType() { return null; }
-        public int getNumber() { return 0; }
-        public void internalMergeFrom(java.lang.Object p0, java.lang.Object p1) {}
-        public boolean internalMessageIsImmutable(java.lang.Object p0) { return false; }
-        public boolean isPacked() { return false; }
-        public boolean isRepeated() { return false; }
-    }
-
-    public static class GeneratedExtension<ContainingType extends com.android.framework.protobuf.MessageLite, Type extends java.lang.Object> extends com.android.framework.protobuf.ExtensionLite<ContainingType, Type> {
-        final com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor descriptor = null;
-        final com.android.framework.protobuf.MessageLite messageDefaultInstance = null;
-        GeneratedExtension(ContainingType p0, Type p1, com.android.framework.protobuf.MessageLite p2, com.android.framework.protobuf.GeneratedMessageLite.ExtensionDescriptor p3, java.lang.Class p4) { super(); }
-        java.lang.Object fromFieldSetType(java.lang.Object p0) { return null; }
-        public ContainingType getContainingTypeDefaultInstance() { return null; }
-        public Type getDefaultValue() { return null; }
-        public com.android.framework.protobuf.WireFormat.FieldType getLiteType() { return null; }
-        public com.android.framework.protobuf.MessageLite getMessageDefaultInstance() { return null; }
-        public int getNumber() { return 0; }
-        public boolean isRepeated() { return false; }
-        java.lang.Object singularFromFieldSetType(java.lang.Object p0) { return null; }
-        java.lang.Object singularToFieldSetType(java.lang.Object p0) { return null; }
-        java.lang.Object toFieldSetType(java.lang.Object p0) { return null; }
-    }
-
-    public static enum MethodToInvoke {
-        BUILD_MESSAGE_INFO,
-        GET_DEFAULT_INSTANCE,
-        GET_MEMOIZED_IS_INITIALIZED,
-        GET_PARSER,
-        NEW_BUILDER,
-        NEW_MUTABLE_INSTANCE,
-        SET_MEMOIZED_IS_INITIALIZED;
-        private static final com.android.framework.protobuf.GeneratedMessageLite.MethodToInvoke[] $VALUES = null;
-        private MethodToInvoke() {}
-    }
-
-    protected static final class SerializedForm implements java.io.Serializable {
-        private static final long serialVersionUID = 0L;
-        private final byte[] asBytes = null;
-        private final java.lang.Class<?> messageClass = null;
-        private final java.lang.String messageClassName = null;
-        SerializedForm(com.android.framework.protobuf.MessageLite p0) {}
-        public static com.android.framework.protobuf.GeneratedMessageLite.SerializedForm of(com.android.framework.protobuf.MessageLite p0) { return null; }
-        private java.lang.Class<?> resolveMessageClass() throws java.lang.ClassNotFoundException { return null; }
-        protected java.lang.Object readResolve() throws java.io.ObjectStreamException { return null; }
     }
 }

@@ -34,6 +34,7 @@ public final class DesktopModeEnums {
     public static final int MAXIMIZE_BUTTON_RESIZE_TRIGGER = 4;
     public static final int MAXIMIZE_MENU_RESIZE_TRIGGER = 10;
     public static final int MINIMIZE_BUTTON = 2;
+    public static final int MINIMIZE_HOME_GESTURE = 6;
     public static final int MINIMIZE_KEY_GESTURE = 3;
     public static final int MINIMIZE_MULTI_ACTIVITY_PIP = 4;
     public static final int MINIMIZE_TASKBAR_ICON_TAP = 5;

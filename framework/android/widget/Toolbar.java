@@ -165,6 +165,10 @@ public class Toolbar extends android.view.ViewGroup {
     public void setTitleTextColor(int p0) {}
     public boolean showOverflowMenu() { return false; }
 
+    public static interface OnMenuItemClickListener {
+        public boolean onMenuItemClick(android.view.MenuItem p0);
+    }
+
     private class ExpandedActionViewMenuPresenter implements com.android.internal.view.menu.MenuPresenter {
         com.android.internal.view.menu.MenuItemImpl mCurrentExpandedItem;
         com.android.internal.view.menu.MenuBuilder mMenu;
@@ -183,6 +187,15 @@ public class Toolbar extends android.view.ViewGroup {
         public void updateMenuView(boolean p0) {}
     }
 
+    static class SavedState extends android.view.View.BaseSavedState {
+        public static final android.os.Parcelable.Creator<android.widget.Toolbar.SavedState> CREATOR = null;
+        public int expandedMenuItemId;
+        public boolean isOverflowOpen;
+        public SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
+        public SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static class LayoutParams extends android.app.ActionBar.LayoutParams {
         static final int CUSTOM = 0;
         static final int EXPANDED = 2;
@@ -196,19 +209,6 @@ public class Toolbar extends android.view.ViewGroup {
         public LayoutParams(android.view.ViewGroup.LayoutParams p0) { super(0); }
         public LayoutParams(android.view.ViewGroup.MarginLayoutParams p0) { super(0); }
         public LayoutParams(android.widget.Toolbar.LayoutParams p0) { super(0); }
-    }
-
-    public static interface OnMenuItemClickListener {
-        public boolean onMenuItemClick(android.view.MenuItem p0);
-    }
-
-    static class SavedState extends android.view.View.BaseSavedState {
-        public static final android.os.Parcelable.Creator<android.widget.Toolbar.SavedState> CREATOR = null;
-        public int expandedMenuItemId;
-        public boolean isOverflowOpen;
-        public SavedState(android.os.Parcel p0) { super((android.os.Parcel)null); }
-        public SavedState(android.os.Parcelable p0) { super((android.os.Parcel)null); }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public final class InspectionCompanion implements android.view.inspector.InspectionCompanion<android.widget.Toolbar> {

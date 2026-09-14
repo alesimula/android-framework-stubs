@@ -8,17 +8,6 @@ public interface ITvInputManagerCallback extends android.os.IInterface {
     public void onInputUpdated(java.lang.String p0) throws android.os.RemoteException;
     public void onTvInputInfoUpdated(android.media.tv.TvInputInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.ITvInputManagerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCurrentTunedInfosUpdated(java.util.List<android.media.tv.TunedInfo> p0) throws android.os.RemoteException {}
-        public void onInputAdded(java.lang.String p0) throws android.os.RemoteException {}
-        public void onInputRemoved(java.lang.String p0) throws android.os.RemoteException {}
-        public void onInputStateChanged(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onInputUpdated(java.lang.String p0) throws android.os.RemoteException {}
-        public void onTvInputInfoUpdated(android.media.tv.TvInputInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.ITvInputManagerCallback {
         public static final java.lang.String DESCRIPTOR = "android.media.tv.ITvInputManagerCallback";
         static final int TRANSACTION_onCurrentTunedInfosUpdated = 6;
@@ -46,5 +35,16 @@ public interface ITvInputManagerCallback extends android.os.IInterface {
             public void onInputUpdated(java.lang.String p0) throws android.os.RemoteException {}
             public void onTvInputInfoUpdated(android.media.tv.TvInputInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.ITvInputManagerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCurrentTunedInfosUpdated(java.util.List<android.media.tv.TunedInfo> p0) throws android.os.RemoteException {}
+        public void onInputAdded(java.lang.String p0) throws android.os.RemoteException {}
+        public void onInputRemoved(java.lang.String p0) throws android.os.RemoteException {}
+        public void onInputStateChanged(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onInputUpdated(java.lang.String p0) throws android.os.RemoteException {}
+        public void onTvInputInfoUpdated(android.media.tv.TvInputInfo p0) throws android.os.RemoteException {}
     }
 }

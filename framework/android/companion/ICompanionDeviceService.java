@@ -6,32 +6,19 @@ public interface ICompanionDeviceService extends android.os.IInterface {
     public void onDeviceAppeared(android.companion.AssociationInfo p0) throws android.os.RemoteException;
     public void onDeviceDisappeared(android.companion.AssociationInfo p0) throws android.os.RemoteException;
     public void onDevicePresenceEvent(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException;
+    public void onDeviceTrustFailure(android.companion.AssociationInfo p0, int p1) throws android.os.RemoteException;
     public void onDeviceTrusted(android.companion.AssociationInfo p0) throws android.os.RemoteException;
     public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException;
-    public void onTrustPairingFailure(android.companion.AssociationInfo p0, int p1) throws android.os.RemoteException;
     public void onTrustPairingResponsePending(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException;
-
-    public static class Default implements android.companion.ICompanionDeviceService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onActionRequested(android.companion.AssociationInfo p0, android.companion.ActionRequest p1) throws android.os.RemoteException {}
-        public void onDeviceAppeared(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
-        public void onDeviceDisappeared(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
-        public void onDevicePresenceEvent(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException {}
-        public void onDeviceTrusted(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
-        public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
-        public void onTrustPairingFailure(android.companion.AssociationInfo p0, int p1) throws android.os.RemoteException {}
-        public void onTrustPairingResponsePending(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements android.companion.ICompanionDeviceService {
         static final int TRANSACTION_onActionRequested = 4;
         static final int TRANSACTION_onDeviceAppeared = 1;
         static final int TRANSACTION_onDeviceDisappeared = 2;
         static final int TRANSACTION_onDevicePresenceEvent = 3;
+        static final int TRANSACTION_onDeviceTrustFailure = 8;
         static final int TRANSACTION_onDeviceTrusted = 6;
         static final int TRANSACTION_onTrustPairingCanceledFromRemote = 7;
-        static final int TRANSACTION_onTrustPairingFailure = 8;
         static final int TRANSACTION_onTrustPairingResponsePending = 5;
         public Stub() { super(); }
         public static android.companion.ICompanionDeviceService asInterface(android.os.IBinder p0) { return null; }
@@ -49,10 +36,23 @@ public interface ICompanionDeviceService extends android.os.IInterface {
             public void onDeviceAppeared(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
             public void onDeviceDisappeared(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
             public void onDevicePresenceEvent(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException {}
+            public void onDeviceTrustFailure(android.companion.AssociationInfo p0, int p1) throws android.os.RemoteException {}
             public void onDeviceTrusted(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
             public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
-            public void onTrustPairingFailure(android.companion.AssociationInfo p0, int p1) throws android.os.RemoteException {}
             public void onTrustPairingResponsePending(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.ICompanionDeviceService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onActionRequested(android.companion.AssociationInfo p0, android.companion.ActionRequest p1) throws android.os.RemoteException {}
+        public void onDeviceAppeared(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
+        public void onDeviceDisappeared(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
+        public void onDevicePresenceEvent(android.companion.DevicePresenceEvent p0) throws android.os.RemoteException {}
+        public void onDeviceTrustFailure(android.companion.AssociationInfo p0, int p1) throws android.os.RemoteException {}
+        public void onDeviceTrusted(android.companion.AssociationInfo p0) throws android.os.RemoteException {}
+        public void onTrustPairingCanceledFromRemote(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
+        public void onTrustPairingResponsePending(android.companion.AssociationInfo p0, android.content.IntentSender p1) throws android.os.RemoteException {}
     }
 }

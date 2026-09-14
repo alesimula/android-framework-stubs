@@ -6,14 +6,6 @@ public interface IGameSession extends android.os.IInterface {
     public void onTaskFocusChanged(boolean p0) throws android.os.RemoteException;
     public void onTransientSystemBarVisibilityFromRevealGestureChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.games.IGameSession {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDestroyed() throws android.os.RemoteException {}
-        public void onTaskFocusChanged(boolean p0) throws android.os.RemoteException {}
-        public void onTransientSystemBarVisibilityFromRevealGestureChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.games.IGameSession {
         static final int TRANSACTION_onDestroyed = 1;
         static final int TRANSACTION_onTaskFocusChanged = 3;
@@ -34,5 +26,13 @@ public interface IGameSession extends android.os.IInterface {
             public void onTaskFocusChanged(boolean p0) throws android.os.RemoteException {}
             public void onTransientSystemBarVisibilityFromRevealGestureChanged(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.games.IGameSession {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDestroyed() throws android.os.RemoteException {}
+        public void onTaskFocusChanged(boolean p0) throws android.os.RemoteException {}
+        public void onTransientSystemBarVisibilityFromRevealGestureChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

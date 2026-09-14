@@ -5,14 +5,6 @@ public interface IRadioService extends android.os.IInterface {
     public java.util.List<android.hardware.radio.RadioManager.ModuleProperties> listModules() throws android.os.RemoteException;
     public android.hardware.radio.ITuner openTuner(int p0, android.hardware.radio.RadioManager.BandConfig p1, boolean p2, android.hardware.radio.ITunerCallback p3) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.IRadioService {
-        public Default() {}
-        public android.hardware.radio.ICloseHandle addAnnouncementListener(int[] p0, android.hardware.radio.IAnnouncementListener p1) throws android.os.RemoteException { return null; }
-        public android.os.IBinder asBinder() { return null; }
-        public java.util.List<android.hardware.radio.RadioManager.ModuleProperties> listModules() throws android.os.RemoteException { return null; }
-        public android.hardware.radio.ITuner openTuner(int p0, android.hardware.radio.RadioManager.BandConfig p1, boolean p2, android.hardware.radio.ITunerCallback p3) throws android.os.RemoteException { return null; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.IRadioService {
         public static final java.lang.String DESCRIPTOR = "android.hardware.radio.IRadioService";
         static final int TRANSACTION_addAnnouncementListener = 3;
@@ -34,5 +26,13 @@ public interface IRadioService extends android.os.IInterface {
             public java.util.List<android.hardware.radio.RadioManager.ModuleProperties> listModules() throws android.os.RemoteException { return null; }
             public android.hardware.radio.ITuner openTuner(int p0, android.hardware.radio.RadioManager.BandConfig p1, boolean p2, android.hardware.radio.ITunerCallback p3) throws android.os.RemoteException { return null; }
         }
+    }
+
+    public static class Default implements android.hardware.radio.IRadioService {
+        public Default() {}
+        public android.hardware.radio.ICloseHandle addAnnouncementListener(int[] p0, android.hardware.radio.IAnnouncementListener p1) throws android.os.RemoteException { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        public java.util.List<android.hardware.radio.RadioManager.ModuleProperties> listModules() throws android.os.RemoteException { return null; }
+        public android.hardware.radio.ITuner openTuner(int p0, android.hardware.radio.RadioManager.BandConfig p1, boolean p2, android.hardware.radio.ITunerCallback p3) throws android.os.RemoteException { return null; }
     }
 }

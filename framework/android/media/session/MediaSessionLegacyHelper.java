@@ -25,21 +25,6 @@ public class MediaSessionLegacyHelper {
     public void sendMediaButtonEvent(android.view.KeyEvent p0, boolean p1) {}
     public void sendVolumeKeyEvent(android.view.KeyEvent p0, int p1, boolean p2) {}
 
-    private static final class MediaButtonListener extends android.media.session.MediaSession.Callback {
-        private final android.content.Context mContext = null;
-        private final android.app.PendingIntent mPendingIntent = null;
-        public MediaButtonListener(android.app.PendingIntent p0, android.content.Context p1) { super(); }
-        private void sendKeyEvent(int p0) {}
-        public void onFastForward() {}
-        public boolean onMediaButtonEvent(android.content.Intent p0) { return false; }
-        public void onPause() {}
-        public void onPlay() {}
-        public void onRewind() {}
-        public void onSkipToNext() {}
-        public void onSkipToPrevious() {}
-        public void onStop() {}
-    }
-
     private class SessionHolder {
         public android.media.session.MediaSessionLegacyHelper.SessionHolder.SessionCallback mCb;
         public int mFlags;
@@ -63,5 +48,20 @@ public class MediaSessionLegacyHelper {
             public void onSkipToPrevious() {}
             public void onStop() {}
         }
+    }
+
+    private static final class MediaButtonListener extends android.media.session.MediaSession.Callback {
+        private final android.content.Context mContext = null;
+        private final android.app.PendingIntent mPendingIntent = null;
+        public MediaButtonListener(android.app.PendingIntent p0, android.content.Context p1) { super(); }
+        private void sendKeyEvent(int p0) {}
+        public void onFastForward() {}
+        public boolean onMediaButtonEvent(android.content.Intent p0) { return false; }
+        public void onPause() {}
+        public void onPlay() {}
+        public void onRewind() {}
+        public void onSkipToNext() {}
+        public void onSkipToPrevious() {}
+        public void onStop() {}
     }
 }

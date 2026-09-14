@@ -11,17 +11,6 @@ public interface IKeystoreOperation extends android.os.IInterface {
     public byte[] update(byte[] p0) throws android.os.RemoteException;
     public void updateAad(byte[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.system.keystore2.IKeystoreOperation {
-        public Default() {}
-        public void abort() throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public byte[] finish(byte[] p0, byte[] p1) throws android.os.RemoteException { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public byte[] update(byte[] p0) throws android.os.RemoteException { return null; }
-        public void updateAad(byte[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.system.keystore2.IKeystoreOperation {
         static final int TRANSACTION_abort = 4;
         static final int TRANSACTION_finish = 3;
@@ -50,5 +39,16 @@ public interface IKeystoreOperation extends android.os.IInterface {
             public byte[] update(byte[] p0) throws android.os.RemoteException { return null; }
             public void updateAad(byte[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.system.keystore2.IKeystoreOperation {
+        public Default() {}
+        public void abort() throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public byte[] finish(byte[] p0, byte[] p1) throws android.os.RemoteException { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public byte[] update(byte[] p0) throws android.os.RemoteException { return null; }
+        public void updateAad(byte[] p0) throws android.os.RemoteException {}
     }
 }

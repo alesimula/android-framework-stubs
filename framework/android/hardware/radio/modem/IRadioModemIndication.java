@@ -13,19 +13,6 @@ public interface IRadioModemIndication extends android.os.IInterface {
     public void radioStateChanged(int p0, int p1) throws android.os.RemoteException;
     public void rilConnected(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.modem.IRadioModemIndication {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void hardwareConfigChanged(int p0, android.hardware.radio.modem.HardwareConfig[] p1) throws android.os.RemoteException {}
-        public void modemReset(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public void onImeiMappingChanged(int p0, android.hardware.radio.modem.ImeiInfo p1) throws android.os.RemoteException {}
-        public void radioCapabilityIndication(int p0, android.hardware.radio.modem.RadioCapability p1) throws android.os.RemoteException {}
-        public void radioStateChanged(int p0, int p1) throws android.os.RemoteException {}
-        public void rilConnected(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.modem.IRadioModemIndication {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -56,5 +43,18 @@ public interface IRadioModemIndication extends android.os.IInterface {
             public void radioStateChanged(int p0, int p1) throws android.os.RemoteException {}
             public void rilConnected(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.modem.IRadioModemIndication {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void hardwareConfigChanged(int p0, android.hardware.radio.modem.HardwareConfig[] p1) throws android.os.RemoteException {}
+        public void modemReset(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public void onImeiMappingChanged(int p0, android.hardware.radio.modem.ImeiInfo p1) throws android.os.RemoteException {}
+        public void radioCapabilityIndication(int p0, android.hardware.radio.modem.RadioCapability p1) throws android.os.RemoteException {}
+        public void radioStateChanged(int p0, int p1) throws android.os.RemoteException {}
+        public void rilConnected(int p0) throws android.os.RemoteException {}
     }
 }

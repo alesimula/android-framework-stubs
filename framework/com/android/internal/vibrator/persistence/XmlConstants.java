@@ -32,8 +32,16 @@ public final class XmlConstants {
     public static final java.lang.String VALUE_AMPLITUDE_DEFAULT = "default";
     public XmlConstants() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Flags {
+    public static enum PrimitiveDelayType {
+        PAUSE,
+        RELATIVE_START_OFFSET;
+        private static final com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType[] $VALUES = null;
+        private final int mDelayType = 0;
+        private PrimitiveDelayType() {}
+        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType findByName(java.lang.String p0) { return null; }
+        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType findByType(int p0) { return null; }
+        public int getDelayType() { return 0; }
+        public java.lang.String toString() { return null; }
     }
 
     public static enum PredefinedEffectName {
@@ -69,16 +77,8 @@ public final class XmlConstants {
         public java.lang.String toString() { return null; }
     }
 
-    public static enum PrimitiveDelayType {
-        PAUSE,
-        RELATIVE_START_OFFSET;
-        private static final com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType[] $VALUES = null;
-        private final int mDelayType = 0;
-        private PrimitiveDelayType() {}
-        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType findByName(java.lang.String p0) { return null; }
-        public static com.android.internal.vibrator.persistence.XmlConstants.PrimitiveDelayType findByType(int p0) { return null; }
-        public int getDelayType() { return 0; }
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Flags {
     }
 
     public static enum PrimitiveEffectName {

@@ -86,7 +86,7 @@ public final class ContextHubManager {
     public void unregisterEndpointDiscoveryCallback(android.hardware.contexthub.HubEndpointDiscoveryCallback p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AuthorizationState {
+    public static @interface Event {
     }
 
     @java.lang.Deprecated
@@ -95,12 +95,12 @@ public final class ContextHubManager {
         public abstract void onMessageReceipt(int p0, int p1, android.hardware.location.ContextHubMessage p2);
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Event {
-    }
-
     @java.lang.Deprecated
     public static interface ICallback {
         public void onMessageReceipt(int p0, int p1, android.hardware.location.ContextHubMessage p2);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AuthorizationState {
     }
 }

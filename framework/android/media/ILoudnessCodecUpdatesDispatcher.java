@@ -4,12 +4,6 @@ public interface ILoudnessCodecUpdatesDispatcher extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.ILoudnessCodecUpdatesDispatcher";
     public void dispatchLoudnessCodecParameterChange(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ILoudnessCodecUpdatesDispatcher {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchLoudnessCodecParameterChange(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ILoudnessCodecUpdatesDispatcher {
         static final int TRANSACTION_dispatchLoudnessCodecParameterChange = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ILoudnessCodecUpdatesDispatcher extends android.os.IInterface {
             public void dispatchLoudnessCodecParameterChange(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.ILoudnessCodecUpdatesDispatcher {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchLoudnessCodecParameterChange(int p0, android.os.PersistableBundle p1) throws android.os.RemoteException {}
     }
 }

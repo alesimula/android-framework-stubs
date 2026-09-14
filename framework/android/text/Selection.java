@@ -40,12 +40,18 @@ public class Selection {
     private static void setSelectionAndMemory(android.text.Spannable p0, android.text.Layout p1, int p2, int p3, int p4, boolean p5) {}
     private static void updateMemory(android.text.Spannable p0, int p1) {}
 
+    private static final class MEMORY implements android.text.NoCopySpan {
+        private MEMORY() {}
+    }
+
     private static final class END implements android.text.NoCopySpan {
         private END() {}
     }
 
-    private static final class MEMORY implements android.text.NoCopySpan {
-        private MEMORY() {}
+    public static interface PositionIterator {
+        public static final int DONE = -1;
+        public int following(int p0);
+        public int preceding(int p0);
     }
 
     public static final class MemoryTextWatcher implements android.text.TextWatcher {
@@ -53,12 +59,6 @@ public class Selection {
         public void afterTextChanged(android.text.Editable p0) {}
         public void beforeTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
         public void onTextChanged(java.lang.CharSequence p0, int p1, int p2, int p3) {}
-    }
-
-    public static interface PositionIterator {
-        public static final int DONE = -1;
-        public int following(int p0);
-        public int preceding(int p0);
     }
 
     private static final class START implements android.text.NoCopySpan {

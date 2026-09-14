@@ -109,38 +109,29 @@ public final class MediaQualityManager {
     public void updateSoundProfile(java.lang.String p0, android.media.quality.SoundProfile p1) {}
     public boolean usesDisplayTechnology(int p0) { return false; }
 
-    private static final class ActiveProcessingPictureListenerRecord {
+    private static final class SoundProfileCallbackRecord {
+        private final android.media.quality.MediaQualityManager.SoundProfileCallback mCallback = null;
         private final java.util.concurrent.Executor mExecutor = null;
-        private final boolean mIsGlobal = false;
-        private final java.util.function.Consumer<java.util.List<android.media.quality.ActiveProcessingPicture>> mListener = null;
-        ActiveProcessingPictureListenerRecord(java.util.function.Consumer<java.util.List<android.media.quality.ActiveProcessingPicture>> p0, java.util.concurrent.Executor p1, boolean p2) {}
-        public java.util.function.Consumer<java.util.List<android.media.quality.ActiveProcessingPicture>> getListener() { return null; }
-        public void postActiveProcessingPicturesChanged(java.util.List<android.media.quality.ActiveProcessingPicture> p0) {}
-    }
-
-    public static interface AmbientBacklightCallback {
-        public void onAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0);
-    }
-
-    private static final class AmbientBacklightCallbackRecord {
-        private final android.media.quality.MediaQualityManager.AmbientBacklightCallback mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        AmbientBacklightCallbackRecord(android.media.quality.MediaQualityManager.AmbientBacklightCallback p0, java.util.concurrent.Executor p1) {}
-        public android.media.quality.MediaQualityManager.AmbientBacklightCallback getCallback() { return null; }
-        public void postAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0) {}
+        SoundProfileCallbackRecord(android.media.quality.MediaQualityManager.SoundProfileCallback p0, java.util.concurrent.Executor p1) {}
+        public android.media.quality.MediaQualityManager.SoundProfileCallback getCallback() { return null; }
+        public void postError(java.lang.String p0, int p1) {}
+        public void postParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) {}
+        public void postSoundProfileAdded(java.lang.String p0, android.media.quality.SoundProfile p1) {}
+        public void postSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) {}
+        public void postSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AmbientBacklightEventTypes {
     }
 
-    public static abstract class PictureProfileCallback {
-        public PictureProfileCallback() {}
+    public static abstract class SoundProfileCallback {
+        public SoundProfileCallback() {}
         public void onError(java.lang.String p0, int p1) {}
         public void onParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) {}
-        public void onPictureProfileAdded(java.lang.String p0, android.media.quality.PictureProfile p1) {}
-        public void onPictureProfileRemoved(java.lang.String p0, android.media.quality.PictureProfile p1) {}
-        public void onPictureProfileUpdated(java.lang.String p0, android.media.quality.PictureProfile p1) {}
+        public void onSoundProfileAdded(java.lang.String p0, android.media.quality.SoundProfile p1) {}
+        public void onSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) {}
+        public void onSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) {}
     }
 
     private static final class PictureProfileCallbackRecord {
@@ -153,6 +144,32 @@ public final class MediaQualityManager {
         public void postPictureProfileAdded(java.lang.String p0, android.media.quality.PictureProfile p1) {}
         public void postPictureProfileRemoved(java.lang.String p0, android.media.quality.PictureProfile p1) {}
         public void postPictureProfileUpdated(java.lang.String p0, android.media.quality.PictureProfile p1) {}
+    }
+
+    private static final class ActiveProcessingPictureListenerRecord {
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final boolean mIsGlobal = false;
+        private final java.util.function.Consumer<java.util.List<android.media.quality.ActiveProcessingPicture>> mListener = null;
+        ActiveProcessingPictureListenerRecord(java.util.function.Consumer<java.util.List<android.media.quality.ActiveProcessingPicture>> p0, java.util.concurrent.Executor p1, boolean p2) {}
+        public java.util.function.Consumer<java.util.List<android.media.quality.ActiveProcessingPicture>> getListener() { return null; }
+        public void postActiveProcessingPicturesChanged(java.util.List<android.media.quality.ActiveProcessingPicture> p0) {}
+    }
+
+    private static final class AmbientBacklightCallbackRecord {
+        private final android.media.quality.MediaQualityManager.AmbientBacklightCallback mCallback = null;
+        private final java.util.concurrent.Executor mExecutor = null;
+        AmbientBacklightCallbackRecord(android.media.quality.MediaQualityManager.AmbientBacklightCallback p0, java.util.concurrent.Executor p1) {}
+        public android.media.quality.MediaQualityManager.AmbientBacklightCallback getCallback() { return null; }
+        public void postAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0) {}
+    }
+
+    public static abstract class PictureProfileCallback {
+        public PictureProfileCallback() {}
+        public void onError(java.lang.String p0, int p1) {}
+        public void onParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) {}
+        public void onPictureProfileAdded(java.lang.String p0, android.media.quality.PictureProfile p1) {}
+        public void onPictureProfileRemoved(java.lang.String p0, android.media.quality.PictureProfile p1) {}
+        public void onPictureProfileUpdated(java.lang.String p0, android.media.quality.PictureProfile p1) {}
     }
 
     public static final class ProfileQueryParams implements android.os.Parcelable {
@@ -174,24 +191,7 @@ public final class MediaQualityManager {
         }
     }
 
-    public static abstract class SoundProfileCallback {
-        public SoundProfileCallback() {}
-        public void onError(java.lang.String p0, int p1) {}
-        public void onParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) {}
-        public void onSoundProfileAdded(java.lang.String p0, android.media.quality.SoundProfile p1) {}
-        public void onSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) {}
-        public void onSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) {}
-    }
-
-    private static final class SoundProfileCallbackRecord {
-        private final android.media.quality.MediaQualityManager.SoundProfileCallback mCallback = null;
-        private final java.util.concurrent.Executor mExecutor = null;
-        SoundProfileCallbackRecord(android.media.quality.MediaQualityManager.SoundProfileCallback p0, java.util.concurrent.Executor p1) {}
-        public android.media.quality.MediaQualityManager.SoundProfileCallback getCallback() { return null; }
-        public void postError(java.lang.String p0, int p1) {}
-        public void postParameterCapabilitiesChanged(java.lang.String p0, java.util.List<android.media.quality.ParameterCapability> p1) {}
-        public void postSoundProfileAdded(java.lang.String p0, android.media.quality.SoundProfile p1) {}
-        public void postSoundProfileRemoved(java.lang.String p0, android.media.quality.SoundProfile p1) {}
-        public void postSoundProfileUpdated(java.lang.String p0, android.media.quality.SoundProfile p1) {}
+    public static interface AmbientBacklightCallback {
+        public void onAmbientBacklightEvent(android.media.quality.AmbientBacklightEvent p0);
     }
 }

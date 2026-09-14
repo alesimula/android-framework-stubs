@@ -34,6 +34,14 @@ public final class FileOperationResult implements android.os.Parcelable {
     public android.os.storage.operations.targets.OperationTarget getTarget() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Status {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ErrorCode {
+    }
+
     public static final class Builder {
         private int mErrorCode;
         private java.lang.String mErrorMessage;
@@ -48,13 +56,5 @@ public final class FileOperationResult implements android.os.Parcelable {
         public android.os.storage.operations.FileOperationResult.Builder setErrorMessage(java.lang.String p0) { return null; }
         public android.os.storage.operations.FileOperationResult.Builder setFailedPaths(java.util.List<java.lang.String> p0) { return null; }
         public android.os.storage.operations.FileOperationResult.Builder setStatus(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ErrorCode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Status {
     }
 }

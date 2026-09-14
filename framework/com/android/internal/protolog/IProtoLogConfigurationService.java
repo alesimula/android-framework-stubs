@@ -6,14 +6,6 @@ public interface IProtoLogConfigurationService extends android.os.IInterface {
     public void registerGroups(com.android.internal.protolog.IProtoLogClient p0, com.android.internal.protolog.IProtoLogConfigurationService.RegisterGroupsArgs p1) throws android.os.RemoteException;
     public void unregisterClient(com.android.internal.protolog.IProtoLogClient p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.protolog.IProtoLogConfigurationService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void registerClient(com.android.internal.protolog.IProtoLogClient p0, com.android.internal.protolog.IProtoLogConfigurationService.RegisterClientArgs p1) throws android.os.RemoteException {}
-        public void registerGroups(com.android.internal.protolog.IProtoLogClient p0, com.android.internal.protolog.IProtoLogConfigurationService.RegisterGroupsArgs p1) throws android.os.RemoteException {}
-        public void unregisterClient(com.android.internal.protolog.IProtoLogClient p0) throws android.os.RemoteException {}
-    }
-
     public static class RegisterClientArgs implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<com.android.internal.protolog.IProtoLogConfigurationService.RegisterClientArgs> CREATOR = null;
         public java.lang.String[] groups;
@@ -61,5 +53,13 @@ public interface IProtoLogConfigurationService extends android.os.IInterface {
             public void registerGroups(com.android.internal.protolog.IProtoLogClient p0, com.android.internal.protolog.IProtoLogConfigurationService.RegisterGroupsArgs p1) throws android.os.RemoteException {}
             public void unregisterClient(com.android.internal.protolog.IProtoLogClient p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.protolog.IProtoLogConfigurationService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void registerClient(com.android.internal.protolog.IProtoLogClient p0, com.android.internal.protolog.IProtoLogConfigurationService.RegisterClientArgs p1) throws android.os.RemoteException {}
+        public void registerGroups(com.android.internal.protolog.IProtoLogClient p0, com.android.internal.protolog.IProtoLogConfigurationService.RegisterGroupsArgs p1) throws android.os.RemoteException {}
+        public void unregisterClient(com.android.internal.protolog.IProtoLogClient p0) throws android.os.RemoteException {}
     }
 }

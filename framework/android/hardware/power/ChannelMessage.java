@@ -49,6 +49,14 @@ public class ChannelMessage implements android.os.Parcelable {
         public void setWorkDuration(android.hardware.power.WorkDurationFixedV1 p0) {}
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+        public static @interface Tag {
+            public static final byte hint = 2;
+            public static final byte mode = 3;
+            public static final byte reserved = 0;
+            public static final byte targetDuration = 1;
+            public static final byte workDuration = 4;
+        }
+
         public static class SessionModeSetter implements android.os.Parcelable {
             public static final android.os.Parcelable.Creator<android.hardware.power.ChannelMessage.ChannelMessageContents.SessionModeSetter> CREATOR = null;
             public boolean enabled;
@@ -58,14 +66,6 @@ public class ChannelMessage implements android.os.Parcelable {
             public final int getStability() { return 0; }
             public final void readFromParcel(android.os.Parcel p0) {}
             public final void writeToParcel(android.os.Parcel p0, int p1) {}
-        }
-
-        public static @interface Tag {
-            public static final byte hint = 2;
-            public static final byte mode = 3;
-            public static final byte reserved = 0;
-            public static final byte targetDuration = 1;
-            public static final byte workDuration = 4;
         }
     }
 }

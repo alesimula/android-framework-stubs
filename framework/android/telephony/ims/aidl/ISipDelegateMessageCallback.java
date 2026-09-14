@@ -6,14 +6,6 @@ public interface ISipDelegateMessageCallback extends android.os.IInterface {
     public void onMessageSendFailure(java.lang.String p0, int p1) throws android.os.RemoteException;
     public void onMessageSent(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.ISipDelegateMessageCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onMessageReceived(android.telephony.ims.SipMessage p0) throws android.os.RemoteException {}
-        public void onMessageSendFailure(java.lang.String p0, int p1) throws android.os.RemoteException {}
-        public void onMessageSent(java.lang.String p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.ISipDelegateMessageCallback {
         static final int TRANSACTION_onMessageReceived = 1;
         static final int TRANSACTION_onMessageSendFailure = 3;
@@ -34,5 +26,13 @@ public interface ISipDelegateMessageCallback extends android.os.IInterface {
             public void onMessageSendFailure(java.lang.String p0, int p1) throws android.os.RemoteException {}
             public void onMessageSent(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.ISipDelegateMessageCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onMessageReceived(android.telephony.ims.SipMessage p0) throws android.os.RemoteException {}
+        public void onMessageSendFailure(java.lang.String p0, int p1) throws android.os.RemoteException {}
+        public void onMessageSent(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

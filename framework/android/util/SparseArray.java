@@ -12,6 +12,7 @@ public class SparseArray<E extends java.lang.Object> implements java.lang.Clonea
     public void append(int p0, E p1) {}
     public void clear() {}
     public android.util.SparseArray<E> clone() { return null; }
+    public E compute(int p0, android.util.function.IntObjFunction<? super E, ? extends E> p1) { return null; }
     public boolean contains(int p0) { return false; }
     public boolean contentEquals(android.util.SparseArray<?> p0) { return false; }
     public int contentHashCode() { return 0; }

@@ -4,13 +4,6 @@ public interface ISpellCheckerSessionListener extends android.os.IInterface {
     public void onGetSentenceSuggestions(android.view.textservice.SentenceSuggestionsInfo[] p0) throws android.os.RemoteException;
     public void onGetSuggestions(android.view.textservice.SuggestionsInfo[] p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.textservice.ISpellCheckerSessionListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onGetSentenceSuggestions(android.view.textservice.SentenceSuggestionsInfo[] p0) throws android.os.RemoteException {}
-        public void onGetSuggestions(android.view.textservice.SuggestionsInfo[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.textservice.ISpellCheckerSessionListener {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.textservice.ISpellCheckerSessionListener";
         static final int TRANSACTION_onGetSentenceSuggestions = 2;
@@ -30,5 +23,12 @@ public interface ISpellCheckerSessionListener extends android.os.IInterface {
             public void onGetSentenceSuggestions(android.view.textservice.SentenceSuggestionsInfo[] p0) throws android.os.RemoteException {}
             public void onGetSuggestions(android.view.textservice.SuggestionsInfo[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.textservice.ISpellCheckerSessionListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onGetSentenceSuggestions(android.view.textservice.SentenceSuggestionsInfo[] p0) throws android.os.RemoteException {}
+        public void onGetSuggestions(android.view.textservice.SuggestionsInfo[] p0) throws android.os.RemoteException {}
     }
 }

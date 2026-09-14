@@ -8,17 +8,6 @@ public interface ICarrierMessagingService extends android.os.IInterface {
     public void sendMultipartTextSms(java.util.List<java.lang.String> p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException;
     public void sendTextSms(java.lang.String p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException;
 
-    public static class Default implements android.service.carrier.ICarrierMessagingService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void downloadMms(android.net.Uri p0, int p1, android.net.Uri p2, android.service.carrier.ICarrierMessagingCallback p3) throws android.os.RemoteException {}
-        public void filterSms(android.service.carrier.MessagePdu p0, java.lang.String p1, int p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
-        public void sendDataSms(byte[] p0, int p1, java.lang.String p2, int p3, int p4, android.service.carrier.ICarrierMessagingCallback p5) throws android.os.RemoteException {}
-        public void sendMms(android.net.Uri p0, int p1, android.net.Uri p2, android.service.carrier.ICarrierMessagingCallback p3) throws android.os.RemoteException {}
-        public void sendMultipartTextSms(java.util.List<java.lang.String> p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
-        public void sendTextSms(java.lang.String p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.carrier.ICarrierMessagingService {
         public static final java.lang.String DESCRIPTOR = "android.service.carrier.ICarrierMessagingService";
         static final int TRANSACTION_downloadMms = 6;
@@ -46,5 +35,16 @@ public interface ICarrierMessagingService extends android.os.IInterface {
             public void sendMultipartTextSms(java.util.List<java.lang.String> p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
             public void sendTextSms(java.lang.String p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.carrier.ICarrierMessagingService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void downloadMms(android.net.Uri p0, int p1, android.net.Uri p2, android.service.carrier.ICarrierMessagingCallback p3) throws android.os.RemoteException {}
+        public void filterSms(android.service.carrier.MessagePdu p0, java.lang.String p1, int p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
+        public void sendDataSms(byte[] p0, int p1, java.lang.String p2, int p3, int p4, android.service.carrier.ICarrierMessagingCallback p5) throws android.os.RemoteException {}
+        public void sendMms(android.net.Uri p0, int p1, android.net.Uri p2, android.service.carrier.ICarrierMessagingCallback p3) throws android.os.RemoteException {}
+        public void sendMultipartTextSms(java.util.List<java.lang.String> p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
+        public void sendTextSms(java.lang.String p0, int p1, java.lang.String p2, int p3, android.service.carrier.ICarrierMessagingCallback p4) throws android.os.RemoteException {}
     }
 }

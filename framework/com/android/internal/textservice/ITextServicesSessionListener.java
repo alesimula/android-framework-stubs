@@ -3,12 +3,6 @@ package com.android.internal.textservice;
 public interface ITextServicesSessionListener extends android.os.IInterface {
     public void onServiceConnected(com.android.internal.textservice.ISpellCheckerSession p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.textservice.ITextServicesSessionListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onServiceConnected(com.android.internal.textservice.ISpellCheckerSession p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.textservice.ITextServicesSessionListener {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.textservice.ITextServicesSessionListener";
         static final int TRANSACTION_onServiceConnected = 1;
@@ -26,5 +20,11 @@ public interface ITextServicesSessionListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onServiceConnected(com.android.internal.textservice.ISpellCheckerSession p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.textservice.ITextServicesSessionListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onServiceConnected(com.android.internal.textservice.ISpellCheckerSession p0) throws android.os.RemoteException {}
     }
 }

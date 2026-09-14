@@ -14,15 +14,13 @@ public class SharedDataRegion implements android.os.Parcelable {
     public final void readFromParcel(android.os.Parcel p0) {}
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static class DataFlowBlockHeader implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowBlockHeader> CREATOR = null;
-        public int baseIndex;
-        public int nextBlockOffsetBytes;
+    public static class DataFlowSourceMetadata implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowSourceMetadata> CREATOR = null;
+        public int indexCorrection;
         public byte[] reserved;
-        public int skipIndex;
-        public android.hardware.contexthub.SharedDataRegion.DataFlowSourceMetadata sourceMetadata;
-        public DataFlowBlockHeader() {}
-        private int describeContents(java.lang.Object p0) { return 0; }
+        public int tailBlockOffsetBytes;
+        public int writeIndex;
+        public DataFlowSourceMetadata() {}
         public int describeContents() { return 0; }
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
@@ -66,11 +64,6 @@ public class SharedDataRegion implements android.os.Parcelable {
             public final void writeToParcel(android.os.Parcel p0, int p1) {}
         }
 
-        public static @interface Tag {
-            public static final byte fixedSize = 0;
-            public static final byte variableSize = 1;
-        }
-
         public static class VariableSize implements android.os.Parcelable {
             public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowElementConfig.VariableSize> CREATOR = null;
             public char elementAlignmentBytes;
@@ -81,24 +74,11 @@ public class SharedDataRegion implements android.os.Parcelable {
             public final void readFromParcel(android.os.Parcel p0) {}
             public final void writeToParcel(android.os.Parcel p0, int p1) {}
         }
-    }
 
-    public static class DataFlowMetadata implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowMetadata> CREATOR = null;
-        public int blockCapacityBytes;
-        public int blockListEpoch;
-        public android.hardware.contexthub.SharedDataRegion.DataFlowElementConfig elementConfig;
-        public byte localNotify;
-        public byte[] reserved;
-        public android.hardware.contexthub.SharedDataRegion.EndpointIdFixedSize sourceId;
-        public int sourceMetadataOffsetBytes;
-        public android.hardware.contexthub.SharedDataRegion.Version version;
-        public DataFlowMetadata() {}
-        private int describeContents(java.lang.Object p0) { return 0; }
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+        public static @interface Tag {
+            public static final byte fixedSize = 0;
+            public static final byte variableSize = 1;
+        }
     }
 
     public static class DataFlowSinkMetadata implements android.os.Parcelable {
@@ -135,13 +115,39 @@ public class SharedDataRegion implements android.os.Parcelable {
         }
     }
 
-    public static class DataFlowSourceMetadata implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowSourceMetadata> CREATOR = null;
-        public int indexCorrection;
+    public static class DataFlowVariableSizeElementHeader implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowVariableSizeElementHeader> CREATOR = null;
+        public int sizeBytes;
+        public DataFlowVariableSizeElementHeader() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class DataFlowMetadata implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowMetadata> CREATOR = null;
+        public int blockCapacityBytes;
+        public int blockListEpoch;
+        public android.hardware.contexthub.SharedDataRegion.DataFlowElementConfig elementConfig;
+        public byte localNotify;
         public byte[] reserved;
-        public int tailBlockOffsetBytes;
-        public int writeIndex;
-        public DataFlowSourceMetadata() {}
+        public android.hardware.contexthub.SharedDataRegion.EndpointIdFixedSize sourceId;
+        public int sourceMetadataOffsetBytes;
+        public android.hardware.contexthub.SharedDataRegion.Version version;
+        public DataFlowMetadata() {}
+        private int describeContents(java.lang.Object p0) { return 0; }
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class EndpointIdFixedSize implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.EndpointIdFixedSize> CREATOR = null;
+        public long endpointId;
+        public long hubId;
+        public EndpointIdFixedSize() {}
         public int describeContents() { return 0; }
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
@@ -161,33 +167,27 @@ public class SharedDataRegion implements android.os.Parcelable {
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
-    public static class DataFlowVariableSizeElementHeader implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowVariableSizeElementHeader> CREATOR = null;
-        public int sizeBytes;
-        public DataFlowVariableSizeElementHeader() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
-    public static class EndpointIdFixedSize implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.EndpointIdFixedSize> CREATOR = null;
-        public long endpointId;
-        public long hubId;
-        public EndpointIdFixedSize() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static class Version implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.Version> CREATOR = null;
         public byte major;
         public byte minor;
         public char patch;
         public Version() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class DataFlowBlockHeader implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.contexthub.SharedDataRegion.DataFlowBlockHeader> CREATOR = null;
+        public int baseIndex;
+        public int nextBlockOffsetBytes;
+        public byte[] reserved;
+        public int skipIndex;
+        public android.hardware.contexthub.SharedDataRegion.DataFlowSourceMetadata sourceMetadata;
+        public DataFlowBlockHeader() {}
+        private int describeContents(java.lang.Object p0) { return 0; }
         public int describeContents() { return 0; }
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}

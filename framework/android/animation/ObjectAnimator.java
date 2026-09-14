@@ -41,7 +41,7 @@ public final class ObjectAnimator extends android.animation.ValueAnimator {
     public static android.animation.ObjectAnimator ofPropertyValuesHolder(java.lang.Object p0, android.animation.PropertyValuesHolder... p1) { return null; }
     void animateValue(float p0) {}
     public android.animation.ObjectAnimator clone() { return null; }
-    java.lang.String getNameForTrace() { return null; }
+    public java.lang.String getNameForTrace() { return null; }
     public java.lang.String getPropertyName() { return null; }
     public java.lang.Object getTarget() { return null; }
     void initAnimation() {}

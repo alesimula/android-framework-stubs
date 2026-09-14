@@ -14,6 +14,18 @@ public interface IGnssBatching extends android.os.IInterface {
     public void start(android.hardware.gnss.IGnssBatching.Options p0) throws android.os.RemoteException;
     public void stop() throws android.os.RemoteException;
 
+    public static class Options implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.gnss.IGnssBatching.Options> CREATOR = null;
+        public int flags;
+        public float minDistanceMeters;
+        public long periodNanos;
+        public Options() {}
+        public int describeContents() { return 0; }
+        public final int getStability() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static class Default implements android.hardware.gnss.IGnssBatching {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
@@ -25,18 +37,6 @@ public interface IGnssBatching extends android.os.IInterface {
         public void init(android.hardware.gnss.IGnssBatchingCallback p0) throws android.os.RemoteException {}
         public void start(android.hardware.gnss.IGnssBatching.Options p0) throws android.os.RemoteException {}
         public void stop() throws android.os.RemoteException {}
-    }
-
-    public static class Options implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.gnss.IGnssBatching.Options> CREATOR = null;
-        public int flags;
-        public float minDistanceMeters;
-        public long periodNanos;
-        public Options() {}
-        public int describeContents() { return 0; }
-        public final int getStability() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.hardware.gnss.IGnssBatching {

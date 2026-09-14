@@ -11,6 +11,11 @@ public interface ServiceWatcher {
     public void runOnBinder(com.android.server.servicewatcher.ServiceWatcher.BinderOperation p0);
     public void unregister();
 
+    public static interface ServiceListener<TBoundServiceInfo extends com.android.server.servicewatcher.ServiceWatcher.BoundServiceInfo> {
+        public void onBind(android.os.IBinder p0, TBoundServiceInfo p1) throws android.os.RemoteException;
+        public void onUnbind();
+    }
+
     public static interface BinderOperation {
         default public void onError(java.lang.Throwable p0) {}
         public void run(android.os.IBinder p0) throws android.os.RemoteException;
@@ -36,11 +41,6 @@ public interface ServiceWatcher {
 
     public static interface ServiceChangedListener {
         public void onServiceChanged();
-    }
-
-    public static interface ServiceListener<TBoundServiceInfo extends com.android.server.servicewatcher.ServiceWatcher.BoundServiceInfo> {
-        public void onBind(android.os.IBinder p0, TBoundServiceInfo p1) throws android.os.RemoteException;
-        public void onUnbind();
     }
 
     public static interface ServiceSupplier<TBoundServiceInfo extends com.android.server.servicewatcher.ServiceWatcher.BoundServiceInfo> {

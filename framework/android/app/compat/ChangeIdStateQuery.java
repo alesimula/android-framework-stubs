@@ -3,6 +3,7 @@ package android.app.compat;
 final class ChangeIdStateQuery {
     static final int QUERY_BY_PACKAGE_NAME = 0;
     static final int QUERY_BY_UID = 1;
+    private final int cachedHashCode = 0;
     public final long changeId = 0L;
     public final java.lang.String packageName = null;
     public final int type = 0;

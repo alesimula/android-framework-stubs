@@ -3,7 +3,7 @@ package android.app;
 public class QueuedWork {
     private static final boolean DEBUG = false;
     private static final long DELAY = 100L;
-    private static final java.lang.String LOG_TAG = null;
+    private static final java.lang.String LOG_TAG = "QueuedWork";
     private static final long MAX_WAIT_TIME_MILLIS = 512L;
     private static int mNumWaits;
     private static final com.android.internal.util.ExponentiallyBucketedHistogram mWaitTimes = null;

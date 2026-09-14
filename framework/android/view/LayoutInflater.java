@@ -6,7 +6,7 @@ public abstract class LayoutInflater {
     private static final java.lang.ClassLoader BOOT_CLASS_LOADER = null;
     private static final boolean DEBUG = false;
     private static final java.lang.StackTraceElement[] EMPTY_STACK_TRACE = null;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "LayoutInflater";
     private static final java.lang.String TAG_1995 = "blink";
     private static final java.lang.String TAG_INCLUDE = "include";
     private static final java.lang.String TAG_MERGE = "merge";
@@ -57,6 +57,14 @@ public abstract class LayoutInflater {
     public void setPrivateFactory(android.view.LayoutInflater.Factory2 p0) {}
     public final android.view.View tryCreateView(android.view.View p0, java.lang.String p1, android.content.Context p2, android.util.AttributeSet p3) { return null; }
 
+    public static interface Factory {
+        public android.view.View onCreateView(java.lang.String p0, android.content.Context p1, android.util.AttributeSet p2);
+    }
+
+    public static interface Factory2 extends android.view.LayoutInflater.Factory {
+        public android.view.View onCreateView(android.view.View p0, java.lang.String p1, android.content.Context p2, android.util.AttributeSet p3);
+    }
+
     private static class BlinkLayout extends android.widget.FrameLayout {
         private static final int BLINK_DELAY = 500;
         private static final int MESSAGE_BLINK = 66;
@@ -70,12 +78,8 @@ public abstract class LayoutInflater {
         protected void onDetachedFromWindow() {}
     }
 
-    public static interface Factory {
-        public android.view.View onCreateView(java.lang.String p0, android.content.Context p1, android.util.AttributeSet p2);
-    }
-
-    public static interface Factory2 extends android.view.LayoutInflater.Factory {
-        public android.view.View onCreateView(android.view.View p0, java.lang.String p1, android.content.Context p2, android.util.AttributeSet p3);
+    public static interface Filter {
+        public boolean onLoadClass(java.lang.Class p0);
     }
 
     private static class FactoryMerger implements android.view.LayoutInflater.Factory2 {
@@ -86,9 +90,5 @@ public abstract class LayoutInflater {
         FactoryMerger(android.view.LayoutInflater.Factory p0, android.view.LayoutInflater.Factory2 p1, android.view.LayoutInflater.Factory p2, android.view.LayoutInflater.Factory2 p3) {}
         public android.view.View onCreateView(android.view.View p0, java.lang.String p1, android.content.Context p2, android.util.AttributeSet p3) { return null; }
         public android.view.View onCreateView(java.lang.String p0, android.content.Context p1, android.util.AttributeSet p2) { return null; }
-    }
-
-    public static interface Filter {
-        public boolean onLoadClass(java.lang.Class p0);
     }
 }

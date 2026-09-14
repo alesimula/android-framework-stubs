@@ -1,7 +1,7 @@
 package com.android.internal.widget;
 
 public class NumericTextView extends android.widget.TextView {
-    private static final double LOG_RADIX = Double.valueOf(0.0);
+    private static final double LOG_RADIX = 2.302585092994046;
     private static final int RADIX = 10;
     private int mCount;
     private com.android.internal.widget.NumericTextView.OnValueChangedListener mListener;

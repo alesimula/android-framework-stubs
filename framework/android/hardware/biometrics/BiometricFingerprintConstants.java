@@ -40,10 +40,10 @@ public interface BiometricFingerprintConstants {
     public static boolean shouldDisableUdfpsDisplayMode(int p0) { return false; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FingerprintAcquired {
+    public static @interface FingerprintError {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FingerprintError {
+    public static @interface FingerprintAcquired {
     }
 }

@@ -5,8 +5,6 @@ public final class TracePacketOuterClass {
 
     public final class TracePacket {
         public static final long ANDROID_AFLAGS = 1146756268159L;
-        public static final long ANDROID_CAMERA_FRAME_EVENT = 1146756268112L;
-        public static final long ANDROID_CAMERA_SESSION_STATS = 1146756268113L;
         public static final long ANDROID_ENERGY_ESTIMATION_BREAKDOWN = 1146756268109L;
         public static final long ANDROID_GAME_INTERVENTION_LIST = 1146756268115L;
         public static final long ANDROID_LOG = 1146756268071L;
@@ -20,16 +18,25 @@ public final class TracePacketOuterClass {
         public static final long CLOCK_SNAPSHOT = 1146756268038L;
         public static final long CLONE_SNAPSHOT_TRIGGER = 1146756268145L;
         public static final long COMPRESSED_PACKETS = 1151051235378L;
+        public static final long CONCURRENT_SESSION_EVENT = 1146756268166L;
         public static final long CPU_INFO = 1146756268099L;
         public static final long CPU_PER_UID_DATA = 1146756268151L;
+        public static final int DATA_LOSS_CHUNK_CORRUPTED = 4;
+        public static final int DATA_LOSS_ORPHAN_CONTINUATION = 8;
+        public static final int DATA_LOSS_OVERWRITE = 64;
+        public static final int DATA_LOSS_PRESENT = 1;
+        public static final int DATA_LOSS_READ_GAP = 2;
+        public static final int DATA_LOSS_REASSEMBLY_BROKEN_CHAIN = 32;
+        public static final int DATA_LOSS_REASSEMBLY_GAP = 16;
+        public static final int DATA_LOSS_SMB_FULL = 256;
+        public static final int DATA_LOSS_UNSPECIFIED = 0;
+        public static final int DATA_LOSS_WRITER_ABORT = 128;
         public static final long DEOBFUSCATION_MAPPING = 1146756268096L;
         public static final long ENTITY_STATE_RESIDENCY = 1146756268123L;
         public static final long ETW_EVENTS = 1146756268127L;
-        public static final long EVDEV_EVENT = 1146756268153L;
         public static final long EXTENSION_DESCRIPTOR = 1146756268104L;
         public static final long FIRST_PACKET_ON_SEQUENCE = 1133871366231L;
         public static final long FOR_TESTING = 1146756268932L;
-        public static final long FRAME_TIMELINE_EVENT = 1146756268108L;
         public static final long FTRACE_EVENTS = 1146756268033L;
         public static final long FTRACE_STATS = 1146756268066L;
         public static final long GENERIC_GPU_FREQUENCY_EVENT = 1146756268161L;
@@ -59,7 +66,7 @@ public final class TracePacketOuterClass {
         public static final long PIXEL_MODEM_EVENTS = 1146756268142L;
         public static final long PIXEL_MODEM_TOKEN_DATABASE = 1146756268143L;
         public static final long POWER_RAILS = 1146756268072L;
-        public static final long PREVIOUS_PACKET_DROPPED = 1133871366186L;
+        public static final long PREVIOUS_PACKET_DROPPED = 1155346202666L;
         public static final long PROCESS_DESCRIPTOR = 1146756268075L;
         public static final long PROCESS_STATS = 1146756268041L;
         public static final long PROCESS_TREE = 1146756268034L;
@@ -72,6 +79,7 @@ public final class TracePacketOuterClass {
         public static final int SEQ_UNSPECIFIED = 0;
         public static final long SERVICE_EVENT = 1146756268101L;
         public static final long SMAPS_PACKET = 1146756268100L;
+        public static final long STACK_SAMPLE = 1146756268167L;
         public static final long STATSD_ATOM = 1146756268116L;
         public static final long STREAMING_ALLOCATION = 1146756268106L;
         public static final long STREAMING_FREE = 1146756268107L;
@@ -105,6 +113,7 @@ public final class TracePacketOuterClass {
         public static final long V8_WASM_CODE = 1146756268133L;
         public static final long VULKAN_API_EVENT = 1146756268097L;
         public static final long VULKAN_MEMORY_EVENT = 1146756268094L;
+        public static final long ZSTD_COMPRESSED_PACKETS = 1151051235461L;
         public TracePacket(android.internal.perfetto.protos.TracePacketOuterClass p0) {}
 
         public final class ProtoVms {

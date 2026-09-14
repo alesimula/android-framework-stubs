@@ -4,13 +4,6 @@ public interface IVoiceInteractionSessionShowCallback extends android.os.IInterf
     public void onFailed() throws android.os.RemoteException;
     public void onShown() throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IVoiceInteractionSessionShowCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onFailed() throws android.os.RemoteException {}
-        public void onShown() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IVoiceInteractionSessionShowCallback {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.app.IVoiceInteractionSessionShowCallback";
         static final int TRANSACTION_onFailed = 1;
@@ -30,5 +23,12 @@ public interface IVoiceInteractionSessionShowCallback extends android.os.IInterf
             public void onFailed() throws android.os.RemoteException {}
             public void onShown() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.app.IVoiceInteractionSessionShowCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onFailed() throws android.os.RemoteException {}
+        public void onShown() throws android.os.RemoteException {}
     }
 }

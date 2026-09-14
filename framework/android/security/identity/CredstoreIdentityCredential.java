@@ -2,24 +2,19 @@ package android.security.identity;
 
 @java.lang.Deprecated
 class CredstoreIdentityCredential extends android.security.identity.IdentityCredential {
-    private static final java.lang.String TAG = "CredstoreIdentityCredential";
     private boolean mAllowUsingExhaustedKeys;
     private boolean mAllowUsingExpiredKeys;
-    private android.security.identity.ICredential mBinder;
-    private int mCipherSuite;
-    private android.content.Context mContext;
-    private java.lang.String mCredentialName;
+    private final android.security.identity.ICredential mBinder = null;
     private int mEphemeralCounter;
     private java.security.KeyPair mEphemeralKeyPair;
-    private int mFeatureVersion;
+    private final int mFeatureVersion = 0;
     private boolean mIncrementKeyUsageCount;
     private long mOperationHandle;
     private boolean mOperationHandleSet;
     private javax.crypto.SecretKey mReaderSecretKey;
     private int mReadersExpectedEphemeralCounter;
     private javax.crypto.SecretKey mSecretKey;
-    private android.security.identity.CredstorePresentationSession mSession;
-    CredstoreIdentityCredential(android.content.Context p0, java.lang.String p1, int p2, android.security.identity.ICredential p3, android.security.identity.CredstorePresentationSession p4, int p5) { super(); }
+    CredstoreIdentityCredential(android.security.identity.ICredential p0, int p1) { super(); }
     private void ensureEphemeralKeyPair() {}
     public java.security.KeyPair createEphemeralKeyPair() { return null; }
     public byte[] decryptMessageFromReader(byte[] p0) throws android.security.identity.MessageDecryptionException { return null; }

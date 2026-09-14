@@ -15,6 +15,10 @@ public abstract class AbstractMessageLite<MessageType extends com.android.framew
     public void writeDelimitedTo(java.io.OutputStream p0) throws java.io.IOException {}
     public void writeTo(java.io.OutputStream p0) throws java.io.IOException {}
 
+    protected static interface InternalOneOfEnum {
+        public int getNumber();
+    }
+
     public static abstract class Builder<MessageType extends com.android.framework.protobuf.AbstractMessageLite<MessageType, BuilderType>, BuilderType extends com.android.framework.protobuf.AbstractMessageLite.Builder<MessageType, BuilderType>> implements com.android.framework.protobuf.MessageLite.Builder {
         public Builder() {}
         @java.lang.Deprecated
@@ -48,9 +52,5 @@ public abstract class AbstractMessageLite<MessageType extends com.android.framew
             public int read(byte[] p0, int p1, int p2) throws java.io.IOException { return 0; }
             public long skip(long p0) throws java.io.IOException { return 0L; }
         }
-    }
-
-    protected static interface InternalOneOfEnum {
-        public int getNumber();
     }
 }

@@ -21,15 +21,16 @@ public final class PackageProto {
         public InstallSourceProto(android.service.pm.PackageProto p0) {}
     }
 
+    public final class UserPermissionsProto {
+        public static final long GRANTED_PERMISSIONS = 2237677961218L;
+        public static final long ID = 1120986464257L;
+        public UserPermissionsProto(android.service.pm.PackageProto p0) {}
+    }
+
     public final class SplitProto {
         public static final long NAME = 1138166333441L;
         public static final long REVISION_CODE = 1120986464258L;
         public SplitProto(android.service.pm.PackageProto p0) {}
-    }
-
-    public final class StatesProto {
-        public static final long IS_LOADING = 1133871366146L;
-        public StatesProto(android.service.pm.PackageProto p0) {}
     }
 
     public final class UserInfoProto {
@@ -72,9 +73,8 @@ public final class PackageProto {
         }
     }
 
-    public final class UserPermissionsProto {
-        public static final long GRANTED_PERMISSIONS = 2237677961218L;
-        public static final long ID = 1120986464257L;
-        public UserPermissionsProto(android.service.pm.PackageProto p0) {}
+    public final class StatesProto {
+        public static final long IS_LOADING = 1133871366146L;
+        public StatesProto(android.service.pm.PackageProto p0) {}
     }
 }

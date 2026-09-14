@@ -14,6 +14,25 @@ public final class Palette {
     public com.android.internal.graphics.palette.Palette.Swatch getDominantSwatch() { return null; }
     public java.util.List<com.android.internal.graphics.palette.Palette.Swatch> getSwatches() { return null; }
 
+    public static class Swatch {
+        private final android.graphics.Color mColor = null;
+        private final int mPopulation = 0;
+        public Swatch(int p0, int p1) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int getInt() { return 0; }
+        public int getPopulation() { return 0; }
+        public int hashCode() { return 0; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static interface PaletteAsyncListener {
+        public void onGenerated(com.android.internal.graphics.palette.Palette p0);
+    }
+
+    public static interface Filter {
+        public boolean isAllowed(int p0, float[] p1);
+    }
+
     public static class Builder {
         static final boolean $assertionsDisabled = false;
         private final android.graphics.Bitmap mBitmap = null;
@@ -36,24 +55,5 @@ public final class Palette {
         @java.lang.Deprecated
         public com.android.internal.graphics.palette.Palette.Builder resizeBitmapSize(int p0) { return null; }
         public com.android.internal.graphics.palette.Palette.Builder setRegion(int p0, int p1, int p2, int p3) { return null; }
-    }
-
-    public static interface Filter {
-        public boolean isAllowed(int p0, float[] p1);
-    }
-
-    public static interface PaletteAsyncListener {
-        public void onGenerated(com.android.internal.graphics.palette.Palette p0);
-    }
-
-    public static class Swatch {
-        private final android.graphics.Color mColor = null;
-        private final int mPopulation = 0;
-        public Swatch(int p0, int p1) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int getInt() { return 0; }
-        public int getPopulation() { return 0; }
-        public int hashCode() { return 0; }
-        public java.lang.String toString() { return null; }
     }
 }

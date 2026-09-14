@@ -5,13 +5,6 @@ public interface IVisualQueryRecognitionStatusListener extends android.os.IInter
     public void onStartPerceiving() throws android.os.RemoteException;
     public void onStopPerceiving() throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.app.IVisualQueryRecognitionStatusListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onStartPerceiving() throws android.os.RemoteException {}
-        public void onStopPerceiving() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.app.IVisualQueryRecognitionStatusListener {
         static final int TRANSACTION_onStartPerceiving = 1;
         static final int TRANSACTION_onStopPerceiving = 2;
@@ -30,5 +23,12 @@ public interface IVisualQueryRecognitionStatusListener extends android.os.IInter
             public void onStartPerceiving() throws android.os.RemoteException {}
             public void onStopPerceiving() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.app.IVisualQueryRecognitionStatusListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onStartPerceiving() throws android.os.RemoteException {}
+        public void onStopPerceiving() throws android.os.RemoteException {}
     }
 }

@@ -100,67 +100,6 @@ public final class BinderCallsStats implements com.android.internal.os.BinderInt
     public void setTrackDirectCallerUid(boolean p0) {}
     public void setTrackScreenInteractive(boolean p0) {}
 
-    public static final class CallStat {
-        public final java.lang.Class<? extends android.os.Binder> binderClass = null;
-        public long callCount;
-        public final int callingUid = 0;
-        public long cpuTimeMicros;
-        public long exceptionCount;
-        public long incrementalCallCount;
-        public long latencyMicros;
-        public long maxCpuTimeMicros;
-        public long maxLatencyMicros;
-        public long maxReplySizeBytes;
-        public long maxRequestSizeBytes;
-        public long recordedCallCount;
-        public final boolean screenInteractive = false;
-        public final int transactionCode = 0;
-        public CallStat(int p0, java.lang.Class<? extends android.os.Binder> p1, int p2, boolean p3) {}
-        public com.android.internal.os.BinderCallsStats.CallStat clone() { return null; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static final class CallStatKey {
-        public java.lang.Class<? extends android.os.Binder> binderClass;
-        public int callingUid;
-        private boolean screenInteractive;
-        public int transactionCode;
-        public CallStatKey() {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
-    public static final class ExportedCallStat {
-        java.lang.Class<? extends android.os.Binder> binderClass;
-        public long callCount;
-        public int callingUid;
-        public java.lang.String className;
-        public long cpuTimeMicros;
-        public long exceptionCount;
-        public long latencyMicros;
-        public long maxCpuTimeMicros;
-        public long maxLatencyMicros;
-        public long maxReplySizeBytes;
-        public long maxRequestSizeBytes;
-        public java.lang.String methodName;
-        public long recordedCallCount;
-        public boolean screenInteractive;
-        int transactionCode;
-        public int workSourceUid;
-        public ExportedCallStat() {}
-    }
-
-    public static class Injector {
-        public Injector() {}
-        public int getCallingUid() { return 0; }
-        public long getElapsedRealtimeMicro() { return 0L; }
-        public android.os.Handler getHandler() { return null; }
-        public com.android.internal.os.BinderLatencyObserver getLatencyObserver(int p0) { return null; }
-        public int getNativeTid() { return 0; }
-        public java.util.Random getRandomGenerator() { return null; }
-        public long getThreadTimeMicro() { return 0L; }
-    }
-
     private static class OverflowBinder extends android.os.Binder {
         private OverflowBinder() { super(); }
     }
@@ -193,6 +132,37 @@ public final class BinderCallsStats implements com.android.internal.os.BinderInt
         public void onChange(boolean p0, android.net.Uri p1, int p2) {}
     }
 
+    public static final class CallStat {
+        public final java.lang.Class<? extends android.os.Binder> binderClass = null;
+        public long callCount;
+        public final int callingUid = 0;
+        public long cpuTimeMicros;
+        public long exceptionCount;
+        public long incrementalCallCount;
+        public long latencyMicros;
+        public long maxCpuTimeMicros;
+        public long maxLatencyMicros;
+        public long maxReplySizeBytes;
+        public long maxRequestSizeBytes;
+        public long recordedCallCount;
+        public final boolean screenInteractive = false;
+        public final int transactionCode = 0;
+        public CallStat(int p0, java.lang.Class<? extends android.os.Binder> p1, int p2, boolean p3) {}
+        public com.android.internal.os.BinderCallsStats.CallStat clone() { return null; }
+        public java.lang.String toString() { return null; }
+    }
+
+    public static class Injector {
+        public Injector() {}
+        public int getCallingUid() { return 0; }
+        public long getElapsedRealtimeMicro() { return 0L; }
+        public android.os.Handler getHandler() { return null; }
+        public com.android.internal.os.BinderLatencyObserver getLatencyObserver(int p0) { return null; }
+        public int getNativeTid() { return 0; }
+        public java.util.Random getRandomGenerator() { return null; }
+        public long getThreadTimeMicro() { return 0L; }
+    }
+
     public static final class UidEntry {
         public long callCount;
         public long cpuTimeMicros;
@@ -209,5 +179,35 @@ public final class BinderCallsStats implements com.android.internal.os.BinderInt
         com.android.internal.os.BinderCallsStats.CallStat getOrCreate(int p0, java.lang.Class<? extends android.os.Binder> p1, int p2, boolean p3, boolean p4) { return null; }
         public int hashCode() { return 0; }
         public java.lang.String toString() { return null; }
+    }
+
+    public static final class ExportedCallStat {
+        java.lang.Class<? extends android.os.Binder> binderClass;
+        public long callCount;
+        public int callingUid;
+        public java.lang.String className;
+        public long cpuTimeMicros;
+        public long exceptionCount;
+        public long latencyMicros;
+        public long maxCpuTimeMicros;
+        public long maxLatencyMicros;
+        public long maxReplySizeBytes;
+        public long maxRequestSizeBytes;
+        public java.lang.String methodName;
+        public long recordedCallCount;
+        public boolean screenInteractive;
+        int transactionCode;
+        public int workSourceUid;
+        public ExportedCallStat() {}
+    }
+
+    public static final class CallStatKey {
+        public java.lang.Class<? extends android.os.Binder> binderClass;
+        public int callingUid;
+        private boolean screenInteractive;
+        public int transactionCode;
+        public CallStatKey() {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
     }
 }

@@ -7,11 +7,13 @@ public class ComponentModifiers extends com.android.internal.widget.remotecompos
     public void addAll(java.util.ArrayList<com.android.internal.widget.remotecompose.core.operations.layout.modifiers.ModifierOperation> p0) {}
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public float getHorizontalScrollDimension() { return 0.0f; }
-    public java.util.ArrayList<com.android.internal.widget.remotecompose.core.operations.layout.modifiers.ModifierOperation> getList() { return null; }
+    public java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> getList() { return null; }
+    public java.util.ArrayList<com.android.internal.widget.remotecompose.core.operations.layout.modifiers.ModifierOperation> getModifiersList() { return null; }
     public float getVerticalScrollDimension() { return 0.0f; }
     public boolean hasHorizontalScroll() { return false; }
     public boolean hasVerticalScroll() { return false; }
     public void layout(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.operations.layout.Component p1, float p2, float p3) {}
+    public void materialize(com.android.internal.widget.remotecompose.core.operations.loom.ExpansionContext p0, java.util.ArrayList<com.android.internal.widget.remotecompose.core.Operation> p1, com.android.internal.widget.remotecompose.core.operations.loom.LoomManager p2) {}
     public boolean onClick(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.CoreDocument p1, com.android.internal.widget.remotecompose.core.operations.layout.Component p2, float p3, float p4) { return false; }
     public boolean onDoubleClick(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.CoreDocument p1, com.android.internal.widget.remotecompose.core.operations.layout.Component p2, float p3, float p4) { return false; }
     public boolean onLongPress(com.android.internal.widget.remotecompose.core.RemoteContext p0, com.android.internal.widget.remotecompose.core.CoreDocument p1, com.android.internal.widget.remotecompose.core.operations.layout.Component p2, float p3, float p4) { return false; }

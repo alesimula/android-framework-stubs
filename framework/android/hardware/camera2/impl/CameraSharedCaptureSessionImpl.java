@@ -3,9 +3,9 @@ package android.hardware.camera2.impl;
 public class CameraSharedCaptureSessionImpl extends android.hardware.camera2.CameraSharedCaptureSession implements android.hardware.camera2.impl.CameraCaptureSessionCore {
     private static final java.lang.String TAG = "CameraSharedCaptureSessionImpl";
     private final android.hardware.camera2.impl.CameraDeviceImpl mCameraDevice = null;
-    private final java.util.concurrent.Executor mDeviceExecutor = null;
+    private final long mConstructorThreadId = 0L;
     private final android.os.ConditionVariable mInitialized = null;
-    private final android.hardware.camera2.impl.CameraCaptureSessionImpl mSessionImpl = null;
+    private volatile android.hardware.camera2.impl.CameraCaptureSessionImpl mSessionImpl;
     CameraSharedCaptureSessionImpl(int p0, android.hardware.camera2.CameraCaptureSession.StateCallback p1, java.util.concurrent.Executor p2, android.hardware.camera2.impl.CameraDeviceImpl p3, java.util.concurrent.Executor p4, boolean p5) { super(); }
     public void abortCaptures() throws android.hardware.camera2.CameraAccessException {}
     public int capture(android.hardware.camera2.CaptureRequest p0, android.hardware.camera2.CameraCaptureSession.CaptureCallback p1, android.os.Handler p2) throws android.hardware.camera2.CameraAccessException { return 0; }

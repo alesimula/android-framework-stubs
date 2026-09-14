@@ -7,6 +7,7 @@ public final class LongArrayMultiStateCounter implements android.os.Parcelable {
     private final int mStateCount = 0;
     public LongArrayMultiStateCounter(int p0, int p1) {}
     private LongArrayMultiStateCounter(android.os.Parcel p0) {}
+    private void checkArrayLength(long[] p0) {}
     private static native void native_addCounts(long p0, long[] p1);
     private static native void native_copyStatesFrom(long p0, long p1);
     private static native int native_getArrayLength(long p0);

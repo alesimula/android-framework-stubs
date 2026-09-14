@@ -24,6 +24,7 @@ public final class VpnProfile implements java.lang.Cloneable, android.os.Parcela
     public final boolean automaticIpVersionSelectionEnabled = false;
     public final boolean automaticNattKeepaliveTimerEnabled = false;
     public java.lang.String dnsServers;
+    public final java.lang.String eapIdentity = null;
     public final boolean excludeLocalRoutes = false;
     public java.lang.String ipsecCaCert;
     public java.lang.String ipsecIdentifier;
@@ -52,6 +53,7 @@ public final class VpnProfile implements java.lang.Cloneable, android.os.Parcela
     public VpnProfile(java.lang.String p0, boolean p1) {}
     public VpnProfile(java.lang.String p0, boolean p1, boolean p2, boolean p3, android.net.ipsec.ike.IkeTunnelConnectionParams p4) {}
     public VpnProfile(java.lang.String p0, boolean p1, boolean p2, boolean p3, android.net.ipsec.ike.IkeTunnelConnectionParams p4, boolean p5, boolean p6) {}
+    public VpnProfile(java.lang.String p0, boolean p1, boolean p2, boolean p3, android.net.ipsec.ike.IkeTunnelConnectionParams p4, boolean p5, boolean p6, java.lang.String p7) {}
     public static com.android.internal.net.VpnProfile decode(java.lang.String p0, byte[] p1) { return null; }
     public static boolean isLegacyType(int p0) { return false; }
     private boolean isValidLockdownLegacyVpnProfile() { return false; }

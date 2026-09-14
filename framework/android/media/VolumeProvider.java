@@ -20,12 +20,12 @@ public abstract class VolumeProvider {
     public void setCallback(android.media.VolumeProvider.Callback p0) {}
     public final void setCurrentVolume(int p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ControlType {
+    }
+
     public static abstract class Callback {
         public Callback() {}
         public abstract void onVolumeChanged(android.media.VolumeProvider p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ControlType {
     }
 }

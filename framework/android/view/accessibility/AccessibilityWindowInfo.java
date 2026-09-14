@@ -27,6 +27,7 @@ public final class AccessibilityWindowInfo implements android.os.Parcelable {
     private android.util.LongArray mChildIds;
     private int mConnectionId;
     private android.util.LongArray mControlledWindowIds;
+    private int mControllingWindowId;
     private int mDisplayId;
     private int mId;
     private int mLayer;
@@ -37,7 +38,6 @@ public final class AccessibilityWindowInfo implements android.os.Parcelable {
     private java.lang.CharSequence mTitle;
     private long mTransitionTime;
     private int mType;
-    private int mWindowControlId;
     public AccessibilityWindowInfo() {}
     public AccessibilityWindowInfo(android.view.accessibility.AccessibilityWindowInfo p0) {}
     private void clear() {}
@@ -84,6 +84,7 @@ public final class AccessibilityWindowInfo implements android.os.Parcelable {
     public void setActive(boolean p0) {}
     public void setAnchorId(long p0) {}
     public void setConnectionId(int p0) {}
+    public void setControllingWindowId(int p0) {}
     public void setDisplayId(int p0) {}
     public void setFocused(boolean p0) {}
     public void setId(int p0) {}
@@ -96,7 +97,6 @@ public final class AccessibilityWindowInfo implements android.os.Parcelable {
     public void setTitle(java.lang.CharSequence p0) {}
     public void setTransitionTimeMillis(long p0) {}
     public void setType(int p0) {}
-    public void setWindowControlId(int p0) {}
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 

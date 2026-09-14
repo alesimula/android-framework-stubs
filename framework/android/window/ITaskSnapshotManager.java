@@ -7,15 +7,6 @@ public interface ITaskSnapshotManager extends android.os.IInterface {
     public android.window.TaskSnapshot takeTaskSnapshot(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException;
     public void unregisterTaskSnapshotListener(android.window.ITaskSnapshotListener p0) throws android.os.RemoteException;
 
-    public static class Default implements android.window.ITaskSnapshotManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.window.TaskSnapshot getTaskSnapshot(int p0, long p1, int p2) throws android.os.RemoteException { return null; }
-        public void registerTaskSnapshotListener(android.window.ITaskSnapshotListener p0) throws android.os.RemoteException {}
-        public android.window.TaskSnapshot takeTaskSnapshot(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException { return null; }
-        public void unregisterTaskSnapshotListener(android.window.ITaskSnapshotListener p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.window.ITaskSnapshotManager {
         static final int TRANSACTION_getTaskSnapshot = 1;
         static final int TRANSACTION_registerTaskSnapshotListener = 3;
@@ -38,5 +29,14 @@ public interface ITaskSnapshotManager extends android.os.IInterface {
             public android.window.TaskSnapshot takeTaskSnapshot(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException { return null; }
             public void unregisterTaskSnapshotListener(android.window.ITaskSnapshotListener p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.window.ITaskSnapshotManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.window.TaskSnapshot getTaskSnapshot(int p0, long p1, int p2) throws android.os.RemoteException { return null; }
+        public void registerTaskSnapshotListener(android.window.ITaskSnapshotListener p0) throws android.os.RemoteException {}
+        public android.window.TaskSnapshot takeTaskSnapshot(int p0, boolean p1, boolean p2, boolean p3) throws android.os.RemoteException { return null; }
+        public void unregisterTaskSnapshotListener(android.window.ITaskSnapshotListener p0) throws android.os.RemoteException {}
     }
 }

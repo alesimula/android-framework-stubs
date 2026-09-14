@@ -5,14 +5,6 @@ public interface IConditionProvider extends android.os.IInterface {
     public void onSubscribe(android.net.Uri p0) throws android.os.RemoteException;
     public void onUnsubscribe(android.net.Uri p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.notification.IConditionProvider {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConnected() throws android.os.RemoteException {}
-        public void onSubscribe(android.net.Uri p0) throws android.os.RemoteException {}
-        public void onUnsubscribe(android.net.Uri p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.notification.IConditionProvider {
         public static final java.lang.String DESCRIPTOR = "android.service.notification.IConditionProvider";
         static final int TRANSACTION_onConnected = 1;
@@ -34,5 +26,13 @@ public interface IConditionProvider extends android.os.IInterface {
             public void onSubscribe(android.net.Uri p0) throws android.os.RemoteException {}
             public void onUnsubscribe(android.net.Uri p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.notification.IConditionProvider {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConnected() throws android.os.RemoteException {}
+        public void onSubscribe(android.net.Uri p0) throws android.os.RemoteException {}
+        public void onUnsubscribe(android.net.Uri p0) throws android.os.RemoteException {}
     }
 }

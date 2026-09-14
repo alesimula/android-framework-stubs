@@ -5,13 +5,6 @@ public interface IProcessResultImpl extends android.os.IInterface {
     public void onCaptureCompleted(long p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException;
     public void onCaptureProcessProgressed(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.IProcessResultImpl {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCaptureCompleted(long p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
-        public void onCaptureProcessProgressed(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.IProcessResultImpl {
         static final int TRANSACTION_onCaptureCompleted = 1;
         static final int TRANSACTION_onCaptureProcessProgressed = 2;
@@ -30,5 +23,12 @@ public interface IProcessResultImpl extends android.os.IInterface {
             public void onCaptureCompleted(long p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
             public void onCaptureProcessProgressed(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.IProcessResultImpl {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCaptureCompleted(long p0, android.hardware.camera2.impl.CameraMetadataNative p1) throws android.os.RemoteException {}
+        public void onCaptureProcessProgressed(int p0) throws android.os.RemoteException {}
     }
 }

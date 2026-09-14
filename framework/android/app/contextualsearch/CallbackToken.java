@@ -4,7 +4,7 @@ package android.app.contextualsearch;
 public final class CallbackToken implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.app.contextualsearch.CallbackToken> CREATOR = null;
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "CallbackToken";
     private final java.lang.Object mLock = null;
     private final android.os.IBinder mToken = null;
     private boolean mTokenUsed;

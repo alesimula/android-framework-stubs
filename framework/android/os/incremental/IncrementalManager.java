@@ -32,15 +32,15 @@ public final class IncrementalManager {
     public void rmPackageDir(java.io.File p0) {}
     public void unregisterLoadingProgressCallbacks(java.lang.String p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CreateMode {
-    }
-
     private static class LoadingProgressCallbacks extends android.os.incremental.IStorageLoadingProgressListener.Stub {
         private final android.util.SparseArray<android.os.RemoteCallbackList<android.content.pm.IPackageLoadingProgressCallback>> mCallbacks = null;
         private LoadingProgressCallbacks() { super(); }
         public void cleanUpCallbacks(android.os.incremental.IncrementalStorage p0) {}
         public void onStorageLoadingProgressChanged(int p0, float p1) {}
         public boolean registerCallback(android.os.incremental.IncrementalStorage p0, android.content.pm.IPackageLoadingProgressCallback p1) { return false; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CreateMode {
     }
 }

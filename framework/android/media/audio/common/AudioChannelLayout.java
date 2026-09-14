@@ -138,6 +138,15 @@ public final class AudioChannelLayout implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public final void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    public static @interface Tag {
+        public static final int acnMask = 5;
+        public static final int indexMask = 2;
+        public static final int invalid = 1;
+        public static final int layoutMask = 3;
+        public static final int none = 0;
+        public static final int voiceMask = 4;
+    }
+
     public static class Ambisonics implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.media.audio.common.AudioChannelLayout.Ambisonics> CREATOR = null;
         public static final int FULL_SPHERE_CHANNEL_COUNT_ORDER_0 = 1;
@@ -184,14 +193,5 @@ public final class AudioChannelLayout implements android.os.Parcelable {
             public static final byte FULL_SPHERE = 0;
             public static final byte HORIZONTAL = 1;
         }
-    }
-
-    public static @interface Tag {
-        public static final int acnMask = 5;
-        public static final int indexMask = 2;
-        public static final int invalid = 1;
-        public static final int layoutMask = 3;
-        public static final int none = 0;
-        public static final int voiceMask = 4;
     }
 }

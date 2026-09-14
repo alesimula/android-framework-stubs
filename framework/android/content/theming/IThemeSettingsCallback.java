@@ -4,12 +4,6 @@ public interface IThemeSettingsCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.content.theming.IThemeSettingsCallback";
     public void onSettingsChanged(android.content.theming.ThemeSettings p0, android.content.theming.ThemeSettings p1) throws android.os.RemoteException;
 
-    public static class Default implements android.content.theming.IThemeSettingsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onSettingsChanged(android.content.theming.ThemeSettings p0, android.content.theming.ThemeSettings p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.theming.IThemeSettingsCallback {
         static final int TRANSACTION_onSettingsChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IThemeSettingsCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onSettingsChanged(android.content.theming.ThemeSettings p0, android.content.theming.ThemeSettings p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.theming.IThemeSettingsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onSettingsChanged(android.content.theming.ThemeSettings p0, android.content.theming.ThemeSettings p1) throws android.os.RemoteException {}
     }
 }

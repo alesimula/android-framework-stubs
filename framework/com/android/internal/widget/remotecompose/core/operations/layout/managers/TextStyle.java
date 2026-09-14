@@ -1,6 +1,6 @@
 package com.android.internal.widget.remotecompose.core.operations.layout.managers;
 
-public class TextStyle extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.operations.ComponentData {
+public class TextStyle extends com.android.internal.widget.remotecompose.core.Operation implements com.android.internal.widget.remotecompose.core.operations.ComponentData, com.android.internal.widget.remotecompose.core.VariableProvider {
     public static final float DEFAULT_FONT_SIZE = 36.0f;
     public static final float DEFAULT_FONT_WEIGHT = 400.0f;
     public static final com.android.internal.widget.remotecompose.core.operations.utilities.touch.CommandParameters PARAMETERS = null;
@@ -40,7 +40,7 @@ public class TextStyle extends com.android.internal.widget.remotecompose.core.Op
     java.lang.Integer mFontStyle;
     java.lang.Float mFontWeight;
     java.lang.Integer mHyphenationFrequency;
-    java.lang.Integer mId;
+    public int mId;
     java.lang.Integer mJustificationMode;
     java.lang.Float mLetterSpacing;
     java.lang.Integer mLineBreakStrategy;
@@ -66,5 +66,7 @@ public class TextStyle extends com.android.internal.widget.remotecompose.core.Op
     public void apply(com.android.internal.widget.remotecompose.core.RemoteContext p0) {}
     public void applyStyle(com.android.internal.widget.remotecompose.core.operations.layout.managers.TextStyle p0) {}
     public java.lang.String deepToString(java.lang.String p0) { return null; }
+    public int getId() { return 0; }
+    public void setId(int p0) {}
     public void write(com.android.internal.widget.remotecompose.core.WireBuffer p0) {}
 }

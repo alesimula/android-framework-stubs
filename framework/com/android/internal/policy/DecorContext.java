@@ -9,6 +9,8 @@ public class DecorContext extends android.view.ContextThemeWrapper {
     public android.content.res.AssetManager getAssets() { return null; }
     public android.content.AutofillOptions getAutofillOptions() { return null; }
     public android.content.ContentCaptureOptions getContentCaptureOptions() { return null; }
+    public android.view.Display getDisplay() { return null; }
+    public android.view.Display getDisplayNoVerify() { return null; }
     public android.content.res.Resources getResources() { return null; }
     public java.lang.Object getSystemService(java.lang.String p0) { return null; }
     public boolean isConfigurationContext() { return false; }

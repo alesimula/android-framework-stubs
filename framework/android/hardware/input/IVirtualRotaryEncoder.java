@@ -6,14 +6,6 @@ public interface IVirtualRotaryEncoder extends android.os.IInterface {
     public int getInputDeviceId() throws android.os.RemoteException;
     public boolean sendRotaryEncoderScrollEvent(android.hardware.input.VirtualRotaryEncoderScrollEvent p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.input.IVirtualRotaryEncoder {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void close() throws android.os.RemoteException {}
-        public int getInputDeviceId() throws android.os.RemoteException { return 0; }
-        public boolean sendRotaryEncoderScrollEvent(android.hardware.input.VirtualRotaryEncoderScrollEvent p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.input.IVirtualRotaryEncoder {
         static final int TRANSACTION_close = 1;
         static final int TRANSACTION_getInputDeviceId = 2;
@@ -34,5 +26,13 @@ public interface IVirtualRotaryEncoder extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public boolean sendRotaryEncoderScrollEvent(android.hardware.input.VirtualRotaryEncoderScrollEvent p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.hardware.input.IVirtualRotaryEncoder {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void close() throws android.os.RemoteException {}
+        public int getInputDeviceId() throws android.os.RemoteException { return 0; }
+        public boolean sendRotaryEncoderScrollEvent(android.hardware.input.VirtualRotaryEncoderScrollEvent p0) throws android.os.RemoteException { return false; }
     }
 }

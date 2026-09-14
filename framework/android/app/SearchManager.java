@@ -62,10 +62,14 @@ public class SearchManager implements android.content.DialogInterface.OnDismissL
     private final android.content.Context mContext = null;
     android.app.SearchManager.OnDismissListener mDismissListener;
     final android.os.Handler mHandler = null;
+    private final java.lang.Object mLock = null;
     private android.app.SearchDialog mSearchDialog;
+    private final android.util.SparseArray<android.util.ArrayMap<java.util.function.Consumer<android.os.UserHandle>, android.app.IOnSearchEngineRoleAvailabilityChangedListener>> mSearchEngineRoleListeners = null;
     private final android.app.ISearchManager mService = null;
     SearchManager(android.content.Context p0, android.os.Handler p1) throws android.os.ServiceManager.ServiceNotFoundException {}
     private void ensureSearchDialog() {}
+    @android.annotation.SystemApi
+    public void addOnSearchEngineRoleAvailabilityChangedListenerAsUser(android.os.UserHandle p0, java.util.concurrent.Executor p1, java.util.function.Consumer<android.os.UserHandle> p2) {}
     public android.content.Intent getAssistIntent(boolean p0) { return null; }
     public java.util.List<android.content.pm.ResolveInfo> getGlobalSearchActivities() { return null; }
     public android.content.ComponentName getGlobalSearchActivity() { return null; }
@@ -73,7 +77,11 @@ public class SearchManager implements android.content.DialogInterface.OnDismissL
     public java.util.List<android.app.SearchableInfo> getSearchablesInGlobalSearch() { return null; }
     public android.database.Cursor getSuggestions(android.app.SearchableInfo p0, java.lang.String p1) { return null; }
     public android.database.Cursor getSuggestions(android.app.SearchableInfo p0, java.lang.String p1, int p2) { return null; }
+    @android.annotation.SystemApi
+    public java.lang.String getUserSetupSearchEngineRoleHolder() { return null; }
     public android.content.ComponentName getWebSearchActivity() { return null; }
+    @android.annotation.SystemApi
+    public boolean isSearchEngineRoleAvailable() { return false; }
     public boolean isVisible() { return false; }
     @android.annotation.SystemApi
     public void launchAssist(android.os.Bundle p0) {}
@@ -81,8 +89,14 @@ public class SearchManager implements android.content.DialogInterface.OnDismissL
     public void onCancel(android.content.DialogInterface p0) {}
     @java.lang.Deprecated
     public void onDismiss(android.content.DialogInterface p0) {}
+    @android.annotation.SystemApi
+    public void removeOnSearchEngineRoleAvailabilityChangedListenerAsUser(android.os.UserHandle p0, java.util.function.Consumer<android.os.UserHandle> p1) {}
     public void setOnCancelListener(android.app.SearchManager.OnCancelListener p0) {}
     public void setOnDismissListener(android.app.SearchManager.OnDismissListener p0) {}
+    @android.annotation.SystemApi
+    public void setSearchEngineRoleAvailable(boolean p0) {}
+    @android.annotation.SystemApi
+    public void setUserSetupSearchEngineRoleHolder(java.lang.String p0) {}
     void startGlobalSearch(java.lang.String p0, boolean p1, android.os.Bundle p2, android.graphics.Rect p3) {}
     public void startSearch(java.lang.String p0, boolean p1, android.content.ComponentName p2, android.os.Bundle p3, boolean p4) {}
     public void startSearch(java.lang.String p0, boolean p1, android.content.ComponentName p2, android.os.Bundle p3, boolean p4, android.graphics.Rect p5) {}

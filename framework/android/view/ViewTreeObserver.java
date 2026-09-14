@@ -18,6 +18,7 @@ public final class ViewTreeObserver {
     private java.util.concurrent.CopyOnWriteArrayList<android.view.ViewTreeObserver.OnWindowAttachListener> mOnWindowAttachListeners;
     private java.util.concurrent.CopyOnWriteArrayList<android.view.ViewTreeObserver.OnWindowFocusChangeListener> mOnWindowFocusListeners;
     private java.util.concurrent.CopyOnWriteArrayList<android.view.ViewTreeObserver.OnWindowVisibilityChangeListener> mOnWindowVisibilityListeners;
+    private android.view.ViewTreeObserver.CopyOnWriteArray<android.view.ViewTreeObserver.WindowInsetsAnimationListener> mWindowInsetsAnimationListeners;
     ViewTreeObserver(android.content.Context p0) {}
     private void checkIsAlive() {}
     private void kill() {}
@@ -33,6 +34,7 @@ public final class ViewTreeObserver {
     public void addOnWindowAttachListener(android.view.ViewTreeObserver.OnWindowAttachListener p0) {}
     public void addOnWindowFocusChangeListener(android.view.ViewTreeObserver.OnWindowFocusChangeListener p0) {}
     public void addOnWindowVisibilityChangeListener(android.view.ViewTreeObserver.OnWindowVisibilityChangeListener p0) {}
+    public void addWindowInsetsAnimationListener(android.view.ViewTreeObserver.WindowInsetsAnimationListener p0) {}
     java.util.ArrayList<java.lang.Runnable> captureFrameCommitCallbacks() { return null; }
     final void dispatchOnComputeInternalInsets(android.view.ViewTreeObserver.InternalInsetsInfo p0) {}
     public final void dispatchOnDraw() {}
@@ -45,6 +47,8 @@ public final class ViewTreeObserver {
     final void dispatchOnTouchModeChanged(boolean p0) {}
     final void dispatchOnWindowAttachedChange(boolean p0) {}
     final void dispatchOnWindowFocusChange(boolean p0) {}
+    void dispatchOnWindowInsetsAnimationEnd(android.view.WindowInsetsAnimation p0) {}
+    void dispatchOnWindowInsetsAnimationPrepare(android.view.WindowInsetsAnimation p0) {}
     void dispatchOnWindowVisibilityChange(int p0) {}
     final java.lang.String getLastDispatchOnPreDrawCanceledReason() { return null; }
     final boolean hasComputeInternalInsetsListeners() { return false; }
@@ -66,7 +70,33 @@ public final class ViewTreeObserver {
     public void removeOnWindowAttachListener(android.view.ViewTreeObserver.OnWindowAttachListener p0) {}
     public void removeOnWindowFocusChangeListener(android.view.ViewTreeObserver.OnWindowFocusChangeListener p0) {}
     public void removeOnWindowVisibilityChangeListener(android.view.ViewTreeObserver.OnWindowVisibilityChangeListener p0) {}
+    public void removeWindowInsetsAnimationListener(android.view.ViewTreeObserver.WindowInsetsAnimationListener p0) {}
     public boolean unregisterFrameCommitCallback(java.lang.Runnable p0) { return false; }
+
+    public static interface OnGlobalLayoutListener {
+        public void onGlobalLayout();
+    }
+
+    public static interface OnDrawListener {
+        public void onDraw();
+    }
+
+    public static interface OnWindowAttachListener {
+        public void onWindowAttached();
+        public void onWindowDetached();
+    }
+
+    public static interface OnTouchModeChangeListener {
+        public void onTouchModeChanged(boolean p0);
+    }
+
+    public static interface OnGlobalFocusChangeListener {
+        public void onGlobalFocusChanged(android.view.View p0, android.view.View p1);
+    }
+
+    public static interface OnPreDrawListener {
+        public boolean onPreDraw();
+    }
 
     static class CopyOnWriteArray<T extends java.lang.Object> {
         private final android.view.ViewTreeObserver.CopyOnWriteArray.Access<T> mAccess = null;
@@ -92,6 +122,22 @@ public final class ViewTreeObserver {
         }
     }
 
+    public static interface OnWindowFocusChangeListener {
+        public void onWindowFocusChanged(boolean p0);
+    }
+
+    public static interface OnComputeInternalInsetsListener {
+        public void onComputeInternalInsets(android.view.ViewTreeObserver.InternalInsetsInfo p0);
+    }
+
+    public static interface OnWindowVisibilityChangeListener {
+        public void onWindowVisibilityChanged(int p0);
+    }
+
+    public static interface OnEnterAnimationCompleteListener {
+        public void onEnterAnimationComplete();
+    }
+
     public static final class InternalInsetsInfo {
         public static final int TOUCHABLE_INSETS_CONTENT = 1;
         public static final int TOUCHABLE_INSETS_FRAME = 0;
@@ -110,48 +156,12 @@ public final class ViewTreeObserver {
         public void setTouchableInsets(int p0) {}
     }
 
-    public static interface OnComputeInternalInsetsListener {
-        public void onComputeInternalInsets(android.view.ViewTreeObserver.InternalInsetsInfo p0);
-    }
-
-    public static interface OnDrawListener {
-        public void onDraw();
-    }
-
-    public static interface OnEnterAnimationCompleteListener {
-        public void onEnterAnimationComplete();
-    }
-
-    public static interface OnGlobalFocusChangeListener {
-        public void onGlobalFocusChanged(android.view.View p0, android.view.View p1);
-    }
-
-    public static interface OnGlobalLayoutListener {
-        public void onGlobalLayout();
-    }
-
-    public static interface OnPreDrawListener {
-        public boolean onPreDraw();
-    }
-
     public static interface OnScrollChangedListener {
         public void onScrollChanged();
     }
 
-    public static interface OnTouchModeChangeListener {
-        public void onTouchModeChanged(boolean p0);
-    }
-
-    public static interface OnWindowAttachListener {
-        public void onWindowAttached();
-        public void onWindowDetached();
-    }
-
-    public static interface OnWindowFocusChangeListener {
-        public void onWindowFocusChanged(boolean p0);
-    }
-
-    public static interface OnWindowVisibilityChangeListener {
-        public void onWindowVisibilityChanged(int p0);
+    public static interface WindowInsetsAnimationListener {
+        default public void onEnd(android.view.WindowInsetsAnimation p0) {}
+        default public void onPrepare(android.view.WindowInsetsAnimation p0) {}
     }
 }

@@ -222,13 +222,21 @@ public class Tuner implements java.lang.AutoCloseable {
     public int tune(android.media.tv.tuner.frontend.FrontendSettings p0) { return 0; }
     public void updateResourcePriority(int p0, int p1) {}
 
+    private class EventHandler extends android.os.Handler {
+        private EventHandler(android.media.tv.tuner.Tuner p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Result {
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface DvrType {
     }
 
-    private class EventHandler extends android.os.Handler {
-        private EventHandler(android.media.tv.tuner.Tuner p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScanType {
     }
 
     private class Frontend {
@@ -238,13 +246,5 @@ public class Tuner implements java.lang.AutoCloseable {
 
     public static interface OnResourceLostListener {
         public void onResourceLost(android.media.tv.tuner.Tuner p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Result {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScanType {
     }
 }

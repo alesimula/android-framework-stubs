@@ -10,6 +10,7 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean callConnectedIndicatorPreference() { return false; }
     public boolean callDetailsGetAssociatedUserApi2() { return false; }
     public boolean callEndpointRequestedApi() { return false; }
+    public boolean callMetricsApi() { return false; }
     public boolean changeRttToAudio() { return false; }
     public boolean deprecateSelfManagedCs() { return false; }
     public boolean enableAudioProcessingUseCase() { return false; }
@@ -22,17 +23,19 @@ public class CustomFeatureFlags implements com.android.internal.hidden_from_boot
     public boolean isFlagFinalized(java.lang.String p0) { return false; }
     public boolean isInExternalCall() { return false; }
     public boolean isUsingCrs() { return false; }
-    public boolean isUsingUnidirectionalVideoService() { return false; }
     public boolean isUsingVideoRingback() { return false; }
     public boolean localVoicemail() { return false; }
     public boolean multiPartyAnchorConf() { return false; }
     public boolean optOutPremiumNetwork() { return false; }
+    public boolean phoneAccountChangedBroadcast() { return false; }
     public boolean placeCallToAlternateNumber() { return false; }
     public boolean promoteExtraDoNotLogCallToSystemApi() { return false; }
     public boolean rejectAsMissedApi() { return false; }
-    public boolean releaseIconAsApi() { return false; }
     public boolean remotelyHostedProperty() { return false; }
+    public boolean resetCallEndpoint() { return false; }
     public boolean sendOriginalNumberOnPlaceCall() { return false; }
+    public boolean supportTetheredCallProperty() { return false; }
     public boolean telecomMainlineApi() { return false; }
     public boolean unhideCapabilityTransfer() { return false; }
+    public boolean unwantedCallIndication() { return false; }
 }

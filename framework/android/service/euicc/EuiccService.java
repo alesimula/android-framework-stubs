@@ -72,6 +72,14 @@ public abstract class EuiccService extends android.app.Service {
     public int onSwitchToSubscriptionWithPort(int p0, int p1, java.lang.String p2, boolean p3) { return 0; }
     public abstract int onUpdateSubscriptionNickname(int p0, java.lang.String p1, java.lang.String p2);
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Result {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ResolvableError {
+    }
+
     private class IEuiccServiceWrapper extends android.service.euicc.IEuiccService.Stub {
         private IEuiccServiceWrapper(android.service.euicc.EuiccService p0) { super(); }
         public void deleteSubscription(int p0, java.lang.String p1, android.service.euicc.IDeleteSubscriptionCallback p2) {}
@@ -95,13 +103,5 @@ public abstract class EuiccService extends android.app.Service {
     public static abstract class OtaStatusChangedCallback {
         public OtaStatusChangedCallback() {}
         public abstract void onOtaStatusChanged(int p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ResolvableError {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Result {
     }
 }

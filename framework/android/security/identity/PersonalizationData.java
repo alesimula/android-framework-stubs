@@ -9,19 +9,6 @@ public class PersonalizationData {
     android.security.identity.PersonalizationData.NamespaceData getNamespaceData(java.lang.String p0) { return null; }
     java.util.Collection<java.lang.String> getNamespaces() { return null; }
 
-    @java.lang.Deprecated
-    public static final class Builder {
-        private android.security.identity.PersonalizationData mData;
-        @java.lang.Deprecated
-        public Builder() {}
-        @java.lang.Deprecated
-        public android.security.identity.PersonalizationData.Builder addAccessControlProfile(android.security.identity.AccessControlProfile p0) { return null; }
-        @java.lang.Deprecated
-        public android.security.identity.PersonalizationData build() { return null; }
-        @java.lang.Deprecated
-        public android.security.identity.PersonalizationData.Builder putEntry(java.lang.String p0, java.lang.String p1, java.util.Collection<android.security.identity.AccessControlProfileId> p2, byte[] p3) { return null; }
-    }
-
     private static class EntryData {
         java.util.Collection<android.security.identity.AccessControlProfileId> mAccessControlProfileIds;
         byte[] mValue;
@@ -36,5 +23,18 @@ public class PersonalizationData {
         java.util.Collection<java.lang.String> getEntryNames() { return null; }
         byte[] getEntryValue(java.lang.String p0) { return null; }
         java.lang.String getNamespaceName() { return null; }
+    }
+
+    @java.lang.Deprecated
+    public static final class Builder {
+        private android.security.identity.PersonalizationData mData;
+        @java.lang.Deprecated
+        public Builder() {}
+        @java.lang.Deprecated
+        public android.security.identity.PersonalizationData.Builder addAccessControlProfile(android.security.identity.AccessControlProfile p0) { return null; }
+        @java.lang.Deprecated
+        public android.security.identity.PersonalizationData build() { return null; }
+        @java.lang.Deprecated
+        public android.security.identity.PersonalizationData.Builder putEntry(java.lang.String p0, java.lang.String p1, java.util.Collection<android.security.identity.AccessControlProfileId> p2, byte[] p3) { return null; }
     }
 }

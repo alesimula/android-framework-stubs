@@ -6,10 +6,6 @@ public class BluetoothServiceManager {
     public BluetoothServiceManager() {}
     public android.os.BluetoothServiceManager.ServiceRegisterer getBluetoothManagerServiceRegisterer() { return null; }
 
-    public static class ServiceNotFoundException extends android.os.ServiceManager.ServiceNotFoundException {
-        public ServiceNotFoundException(java.lang.String p0) { super(null); }
-    }
-
     public static final class ServiceRegisterer {
         private final java.lang.String mServiceName = null;
         public ServiceRegisterer(java.lang.String p0) {}
@@ -17,5 +13,9 @@ public class BluetoothServiceManager {
         public android.os.IBinder getOrThrow() throws android.os.BluetoothServiceManager.ServiceNotFoundException { return null; }
         public void register(android.os.IBinder p0) {}
         public android.os.IBinder tryGet() { return null; }
+    }
+
+    public static class ServiceNotFoundException extends android.os.ServiceManager.ServiceNotFoundException {
+        public ServiceNotFoundException(java.lang.String p0) { super(null); }
     }
 }

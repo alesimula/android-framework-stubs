@@ -4,6 +4,7 @@ package android.service.personalcontext.embedded;
 public final class InsightSurfaceClientUpdate implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.service.personalcontext.embedded.InsightSurfaceClientUpdate> CREATOR = null;
     public static final java.lang.String KEY_BACKGROUND_COLOR = "key_background_color";
+    public static final java.lang.String KEY_BUNDLE = "key_bundle";
     public static final java.lang.String KEY_CONFIGURATION = "key_configuration";
     public static final java.lang.String KEY_MEASURE_SPEC_HEIGHT = "key_measure_spec_height";
     public static final java.lang.String KEY_MEASURE_SPEC_WIDTH = "key_measure_spec_width";
@@ -17,6 +18,7 @@ public final class InsightSurfaceClientUpdate implements android.os.Parcelable {
     public int describeContents() { return 0; }
     public android.graphics.Color getBackgroundColor() { return null; }
     public android.content.res.Configuration getConfiguration() { return null; }
+    public android.os.Bundle getExtras() { return null; }
     public int getMeasureSpecHeight() { return 0; }
     public int getMeasureSpecWidth() { return 0; }
     public int getNestedScrollAxes() { return 0; }
@@ -32,6 +34,7 @@ public final class InsightSurfaceClientUpdate implements android.os.Parcelable {
         public android.service.personalcontext.embedded.InsightSurfaceClientUpdate build() { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClientUpdate.Builder setBackgroundColor(android.graphics.Color p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClientUpdate.Builder setConfiguration(android.content.res.Configuration p0) { return null; }
+        public android.service.personalcontext.embedded.InsightSurfaceClientUpdate.Builder setExtras(android.os.Bundle p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClientUpdate.Builder setMeasureSpecHeight(int p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClientUpdate.Builder setMeasureSpecWidth(int p0) { return null; }
         public android.service.personalcontext.embedded.InsightSurfaceClientUpdate.Builder setNestedScrollAxes(int p0) { return null; }

@@ -17,12 +17,6 @@ public interface IMultisensoryPlayerLoadCallback extends android.os.IInterface {
     public static final int START_SESSION_UNKNOWN_ERROR = 17;
     public void onLoadComplete(long p0, int p1, int p2) throws android.os.RemoteException;
 
-    public static class Default implements android.os.multisensory.IMultisensoryPlayerLoadCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onLoadComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.multisensory.IMultisensoryPlayerLoadCallback {
         static final int TRANSACTION_onLoadComplete = 2;
         public Stub() { super(); }
@@ -39,5 +33,11 @@ public interface IMultisensoryPlayerLoadCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onLoadComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.multisensory.IMultisensoryPlayerLoadCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onLoadComplete(long p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

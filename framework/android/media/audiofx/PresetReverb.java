@@ -20,13 +20,13 @@ public class PresetReverb extends android.media.audiofx.AudioEffect {
     public void setPreset(short p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
     public void setProperties(android.media.audiofx.PresetReverb.Settings p0) throws java.lang.IllegalStateException, java.lang.IllegalArgumentException, java.lang.UnsupportedOperationException {}
 
+    public static interface OnParameterChangeListener {
+        public void onParameterChange(android.media.audiofx.PresetReverb p0, int p1, int p2, short p3);
+    }
+
     private class BaseParameterListener implements android.media.audiofx.AudioEffect.OnParameterChangeListener {
         private BaseParameterListener(android.media.audiofx.PresetReverb p0) {}
         public void onParameterChange(android.media.audiofx.AudioEffect p0, int p1, byte[] p2, byte[] p3) {}
-    }
-
-    public static interface OnParameterChangeListener {
-        public void onParameterChange(android.media.audiofx.PresetReverb p0, int p1, int p2, short p3);
     }
 
     public static class Settings {

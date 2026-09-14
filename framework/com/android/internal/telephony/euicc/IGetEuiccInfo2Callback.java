@@ -4,12 +4,6 @@ public interface IGetEuiccInfo2Callback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.euicc.IGetEuiccInfo2Callback";
     public void onComplete(int p0, byte[] p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.euicc.IGetEuiccInfo2Callback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onComplete(int p0, byte[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.euicc.IGetEuiccInfo2Callback {
         static final int TRANSACTION_onComplete = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IGetEuiccInfo2Callback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onComplete(int p0, byte[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.euicc.IGetEuiccInfo2Callback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onComplete(int p0, byte[] p1) throws android.os.RemoteException {}
     }
 }

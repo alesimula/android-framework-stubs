@@ -2,11 +2,13 @@ package com.android.internal.hidden_from_bootclasspath.android.location.flags;
 
 public final class Flags {
     public static final java.lang.String FLAG_ASYNCHRONOUS_FGS_LOGGING_LMS = "android.location.flags.asynchronous_fgs_logging_lms";
+    public static final java.lang.String FLAG_ASYNC_EMERGENCY_SMS_MODE = "android.location.flags.async_emergency_sms_mode";
     public static final java.lang.String FLAG_CHANGE_GET_ADAS_ALLOWLIST_FROM_HIDDEN_TO_SYSTEM = "android.location.flags.change_get_adas_allowlist_from_hidden_to_system";
     public static final java.lang.String FLAG_DEPRECATE_PROVIDER_REQUEST_APIS = "android.location.flags.deprecate_provider_request_apis";
     public static final java.lang.String FLAG_DISABLE_HARDWARE_AR = "android.location.flags.disable_hardware_ar";
     public static final java.lang.String FLAG_ENABLE_NI_SUPL_MESSAGE_INJECTION_BY_CARRIER_CONFIG_BUGFIX = "android.location.flags.enable_ni_supl_message_injection_by_carrier_config_bugfix";
     public static final java.lang.String FLAG_ENABLE_PUBLIC_SATELLITE_PVT_API = "android.location.flags.enable_public_satellite_pvt_api";
+    public static final java.lang.String FLAG_FIX_AGNSS_RIL_NULL_INTERFACE = "android.location.flags.fix_agnss_ril_null_interface";
     public static final java.lang.String FLAG_FIX_APP_OPS_RESTRICTION_FOR_EMERGENCY_MODE = "android.location.flags.fix_app_ops_restriction_for_emergency_mode";
     public static final java.lang.String FLAG_FIX_SERVICE_WATCHER = "android.location.flags.fix_service_watcher";
     public static final java.lang.String FLAG_FLUSH_EVENTS_FOR_LOCATION_AUDITING = "android.location.flags.flush_events_for_location_auditing";
@@ -31,15 +33,16 @@ public final class Flags {
     public static final java.lang.String FLAG_SUPPORT_CODETYPE_IN_GNSS_STATUS = "android.location.flags.support_codetype_in_gnss_status";
     public static final java.lang.String FLAG_SUPPORT_IONEX_ASSISTANCE = "android.location.flags.support_ionex_assistance";
     public static final java.lang.String FLAG_SUPPORT_TOA_IN_GNSS_SATELLITE_ALMANAC = "android.location.flags.support_toa_in_gnss_satellite_almanac";
-    public static final java.lang.String FLAG_UPDATE_MIN_LOCATION_REQUEST_INTERVAL = "android.location.flags.update_min_location_request_interval";
     public static final java.lang.String FLAG_USE_SETTINGS_MAIN_SWITCH_FOR_SCANNING = "android.location.flags.use_settings_main_switch_for_scanning";
     public Flags() {}
+    public static boolean asyncEmergencySmsMode() { return false; }
     public static boolean asynchronousFgsLoggingLms() { return false; }
     public static boolean changeGetAdasAllowlistFromHiddenToSystem() { return false; }
     public static boolean deprecateProviderRequestApis() { return false; }
     public static boolean disableHardwareAr() { return false; }
     public static boolean enableNiSuplMessageInjectionByCarrierConfigBugfix() { return false; }
     public static boolean enablePublicSatellitePvtApi() { return false; }
+    public static boolean fixAgnssRilNullInterface() { return false; }
     public static boolean fixAppOpsRestrictionForEmergencyMode() { return false; }
     public static boolean fixServiceWatcher() { return false; }
     public static boolean flushEventsForLocationAuditing() { return false; }
@@ -64,6 +67,5 @@ public final class Flags {
     public static boolean supportCodetypeInGnssStatus() { return false; }
     public static boolean supportIonexAssistance() { return false; }
     public static boolean supportToaInGnssSatelliteAlmanac() { return false; }
-    public static boolean updateMinLocationRequestInterval() { return false; }
     public static boolean useSettingsMainSwitchForScanning() { return false; }
 }

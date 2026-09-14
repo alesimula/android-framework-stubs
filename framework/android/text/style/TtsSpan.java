@@ -95,24 +95,6 @@ public class TtsSpan implements android.text.ParcelableSpan {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
     public void writeToParcelInternal(android.os.Parcel p0, int p1) {}
 
-    public static class Builder<C extends android.text.style.TtsSpan.Builder<?>> {
-        private android.os.PersistableBundle mArgs;
-        private final java.lang.String mType = null;
-        public Builder(java.lang.String p0) {}
-        public android.text.style.TtsSpan build() { return null; }
-        public C setIntArgument(java.lang.String p0, int p1) { return null; }
-        public C setLongArgument(java.lang.String p0, long p1) { return null; }
-        public C setStringArgument(java.lang.String p0, java.lang.String p1) { return null; }
-    }
-
-    public static class CardinalBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.CardinalBuilder> {
-        public CardinalBuilder() { super(null); }
-        public CardinalBuilder(long p0) { super(null); }
-        public CardinalBuilder(java.lang.String p0) { super(null); }
-        public android.text.style.TtsSpan.CardinalBuilder setNumber(long p0) { return null; }
-        public android.text.style.TtsSpan.CardinalBuilder setNumber(java.lang.String p0) { return null; }
-    }
-
     public static class DateBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DateBuilder> {
         public DateBuilder() { super(null); }
         public DateBuilder(java.lang.Integer p0, java.lang.Integer p1, java.lang.Integer p2, java.lang.Integer p3) { super(null); }
@@ -122,27 +104,12 @@ public class TtsSpan implements android.text.ParcelableSpan {
         public android.text.style.TtsSpan.DateBuilder setYear(int p0) { return null; }
     }
 
-    public static class DecimalBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DecimalBuilder> {
-        public DecimalBuilder() { super(null); }
-        public DecimalBuilder(double p0, int p1, int p2) { super(null); }
-        public DecimalBuilder(java.lang.String p0, java.lang.String p1) { super(null); }
-        public android.text.style.TtsSpan.DecimalBuilder setArgumentsFromDouble(double p0, int p1, int p2) { return null; }
-        public android.text.style.TtsSpan.DecimalBuilder setFractionalPart(java.lang.String p0) { return null; }
-        public android.text.style.TtsSpan.DecimalBuilder setIntegerPart(long p0) { return null; }
-        public android.text.style.TtsSpan.DecimalBuilder setIntegerPart(java.lang.String p0) { return null; }
-    }
-
-    public static class DigitsBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DigitsBuilder> {
-        public DigitsBuilder() { super(null); }
-        public DigitsBuilder(java.lang.String p0) { super(null); }
-        public android.text.style.TtsSpan.DigitsBuilder setDigits(java.lang.String p0) { return null; }
-    }
-
-    public static class DurationBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DurationBuilder> {
-        public DurationBuilder() { super(null); }
-        public android.text.style.TtsSpan.DurationBuilder setHours(int p0) { return null; }
-        public android.text.style.TtsSpan.DurationBuilder setMinutes(int p0) { return null; }
-        public android.text.style.TtsSpan.DurationBuilder setSeconds(int p0) { return null; }
+    public static class TelephoneBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.TelephoneBuilder> {
+        public TelephoneBuilder() { super(null); }
+        public TelephoneBuilder(java.lang.String p0) { super(null); }
+        public android.text.style.TtsSpan.TelephoneBuilder setCountryCode(java.lang.String p0) { return null; }
+        public android.text.style.TtsSpan.TelephoneBuilder setExtension(java.lang.String p0) { return null; }
+        public android.text.style.TtsSpan.TelephoneBuilder setNumberParts(java.lang.String p0) { return null; }
     }
 
     public static class ElectronicBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.ElectronicBuilder> {
@@ -156,17 +123,6 @@ public class TtsSpan implements android.text.ParcelableSpan {
         public android.text.style.TtsSpan.ElectronicBuilder setProtocol(java.lang.String p0) { return null; }
         public android.text.style.TtsSpan.ElectronicBuilder setQueryString(java.lang.String p0) { return null; }
         public android.text.style.TtsSpan.ElectronicBuilder setUsername(java.lang.String p0) { return null; }
-    }
-
-    public static class FractionBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.FractionBuilder> {
-        public FractionBuilder() { super(null); }
-        public FractionBuilder(long p0, long p1, long p2) { super(null); }
-        public android.text.style.TtsSpan.FractionBuilder setDenominator(long p0) { return null; }
-        public android.text.style.TtsSpan.FractionBuilder setDenominator(java.lang.String p0) { return null; }
-        public android.text.style.TtsSpan.FractionBuilder setIntegerPart(long p0) { return null; }
-        public android.text.style.TtsSpan.FractionBuilder setIntegerPart(java.lang.String p0) { return null; }
-        public android.text.style.TtsSpan.FractionBuilder setNumerator(long p0) { return null; }
-        public android.text.style.TtsSpan.FractionBuilder setNumerator(java.lang.String p0) { return null; }
     }
 
     public static class MeasureBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.MeasureBuilder> {
@@ -192,12 +148,12 @@ public class TtsSpan implements android.text.ParcelableSpan {
         public android.text.style.TtsSpan.MoneyBuilder setQuantity(java.lang.String p0) { return null; }
     }
 
-    public static class OrdinalBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.OrdinalBuilder> {
-        public OrdinalBuilder() { super(null); }
-        public OrdinalBuilder(long p0) { super(null); }
-        public OrdinalBuilder(java.lang.String p0) { super(null); }
-        public android.text.style.TtsSpan.OrdinalBuilder setNumber(long p0) { return null; }
-        public android.text.style.TtsSpan.OrdinalBuilder setNumber(java.lang.String p0) { return null; }
+    public static class TimeBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.TimeBuilder> {
+        public TimeBuilder() { super(null); }
+        public TimeBuilder(int p0, int p1) { super(null); }
+        public android.text.style.TtsSpan.TimeBuilder setHours(int p0) { return null; }
+        public android.text.style.TtsSpan.TimeBuilder setMinutes(int p0) { return null; }
+        public android.text.style.TtsSpan.TimeBuilder setSeconds(int p0) { return null; }
     }
 
     public static class SemioticClassBuilder<C extends android.text.style.TtsSpan.SemioticClassBuilder<?>> extends android.text.style.TtsSpan.Builder<C> {
@@ -208,12 +164,28 @@ public class TtsSpan implements android.text.ParcelableSpan {
         public C setMultiplicity(java.lang.String p0) { return null; }
     }
 
-    public static class TelephoneBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.TelephoneBuilder> {
-        public TelephoneBuilder() { super(null); }
-        public TelephoneBuilder(java.lang.String p0) { super(null); }
-        public android.text.style.TtsSpan.TelephoneBuilder setCountryCode(java.lang.String p0) { return null; }
-        public android.text.style.TtsSpan.TelephoneBuilder setExtension(java.lang.String p0) { return null; }
-        public android.text.style.TtsSpan.TelephoneBuilder setNumberParts(java.lang.String p0) { return null; }
+    public static class VerbatimBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.VerbatimBuilder> {
+        public VerbatimBuilder() { super(null); }
+        public VerbatimBuilder(java.lang.String p0) { super(null); }
+        public android.text.style.TtsSpan.VerbatimBuilder setVerbatim(java.lang.String p0) { return null; }
+    }
+
+    public static class OrdinalBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.OrdinalBuilder> {
+        public OrdinalBuilder() { super(null); }
+        public OrdinalBuilder(long p0) { super(null); }
+        public OrdinalBuilder(java.lang.String p0) { super(null); }
+        public android.text.style.TtsSpan.OrdinalBuilder setNumber(long p0) { return null; }
+        public android.text.style.TtsSpan.OrdinalBuilder setNumber(java.lang.String p0) { return null; }
+    }
+
+    public static class Builder<C extends android.text.style.TtsSpan.Builder<?>> {
+        private android.os.PersistableBundle mArgs;
+        private final java.lang.String mType = null;
+        public Builder(java.lang.String p0) {}
+        public android.text.style.TtsSpan build() { return null; }
+        public C setIntArgument(java.lang.String p0, int p1) { return null; }
+        public C setLongArgument(java.lang.String p0, long p1) { return null; }
+        public C setStringArgument(java.lang.String p0, java.lang.String p1) { return null; }
     }
 
     public static class TextBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.TextBuilder> {
@@ -222,17 +194,45 @@ public class TtsSpan implements android.text.ParcelableSpan {
         public android.text.style.TtsSpan.TextBuilder setText(java.lang.String p0) { return null; }
     }
 
-    public static class TimeBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.TimeBuilder> {
-        public TimeBuilder() { super(null); }
-        public TimeBuilder(int p0, int p1) { super(null); }
-        public android.text.style.TtsSpan.TimeBuilder setHours(int p0) { return null; }
-        public android.text.style.TtsSpan.TimeBuilder setMinutes(int p0) { return null; }
-        public android.text.style.TtsSpan.TimeBuilder setSeconds(int p0) { return null; }
+    public static class DurationBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DurationBuilder> {
+        public DurationBuilder() { super(null); }
+        public android.text.style.TtsSpan.DurationBuilder setHours(int p0) { return null; }
+        public android.text.style.TtsSpan.DurationBuilder setMinutes(int p0) { return null; }
+        public android.text.style.TtsSpan.DurationBuilder setSeconds(int p0) { return null; }
     }
 
-    public static class VerbatimBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.VerbatimBuilder> {
-        public VerbatimBuilder() { super(null); }
-        public VerbatimBuilder(java.lang.String p0) { super(null); }
-        public android.text.style.TtsSpan.VerbatimBuilder setVerbatim(java.lang.String p0) { return null; }
+    public static class DecimalBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DecimalBuilder> {
+        public DecimalBuilder() { super(null); }
+        public DecimalBuilder(double p0, int p1, int p2) { super(null); }
+        public DecimalBuilder(java.lang.String p0, java.lang.String p1) { super(null); }
+        public android.text.style.TtsSpan.DecimalBuilder setArgumentsFromDouble(double p0, int p1, int p2) { return null; }
+        public android.text.style.TtsSpan.DecimalBuilder setFractionalPart(java.lang.String p0) { return null; }
+        public android.text.style.TtsSpan.DecimalBuilder setIntegerPart(long p0) { return null; }
+        public android.text.style.TtsSpan.DecimalBuilder setIntegerPart(java.lang.String p0) { return null; }
+    }
+
+    public static class CardinalBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.CardinalBuilder> {
+        public CardinalBuilder() { super(null); }
+        public CardinalBuilder(long p0) { super(null); }
+        public CardinalBuilder(java.lang.String p0) { super(null); }
+        public android.text.style.TtsSpan.CardinalBuilder setNumber(long p0) { return null; }
+        public android.text.style.TtsSpan.CardinalBuilder setNumber(java.lang.String p0) { return null; }
+    }
+
+    public static class DigitsBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.DigitsBuilder> {
+        public DigitsBuilder() { super(null); }
+        public DigitsBuilder(java.lang.String p0) { super(null); }
+        public android.text.style.TtsSpan.DigitsBuilder setDigits(java.lang.String p0) { return null; }
+    }
+
+    public static class FractionBuilder extends android.text.style.TtsSpan.SemioticClassBuilder<android.text.style.TtsSpan.FractionBuilder> {
+        public FractionBuilder() { super(null); }
+        public FractionBuilder(long p0, long p1, long p2) { super(null); }
+        public android.text.style.TtsSpan.FractionBuilder setDenominator(long p0) { return null; }
+        public android.text.style.TtsSpan.FractionBuilder setDenominator(java.lang.String p0) { return null; }
+        public android.text.style.TtsSpan.FractionBuilder setIntegerPart(long p0) { return null; }
+        public android.text.style.TtsSpan.FractionBuilder setIntegerPart(java.lang.String p0) { return null; }
+        public android.text.style.TtsSpan.FractionBuilder setNumerator(long p0) { return null; }
+        public android.text.style.TtsSpan.FractionBuilder setNumerator(java.lang.String p0) { return null; }
     }
 }

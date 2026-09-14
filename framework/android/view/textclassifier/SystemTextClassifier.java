@@ -20,14 +20,6 @@ public final class SystemTextClassifier implements android.view.textclassifier.T
     public android.view.textclassifier.ConversationActions suggestConversationActions(android.view.textclassifier.ConversationActions.Request p0) { return null; }
     public android.view.textclassifier.TextSelection suggestSelection(android.view.textclassifier.TextSelection.Request p0) { return null; }
 
-    private static final class BlockingCallback<T extends android.os.Parcelable> extends android.service.textclassifier.ITextClassifierCallback.Stub {
-        private final android.view.textclassifier.SystemTextClassifier.ResponseReceiver<T> mReceiver = null;
-        BlockingCallback(java.lang.String p0, android.view.textclassifier.TextClassificationConstants p1) { super(); }
-        public T get() { return null; }
-        public void onFailure() {}
-        public void onSuccess(android.os.Bundle p0) {}
-    }
-
     private static final class ResponseReceiver<T extends java.lang.Object> {
         private final java.util.concurrent.CountDownLatch mLatch = null;
         private final java.lang.String mName = null;
@@ -37,5 +29,13 @@ public final class SystemTextClassifier implements android.view.textclassifier.T
         public T get() { return null; }
         public void onFailure() {}
         public void onSuccess(T p0) {}
+    }
+
+    private static final class BlockingCallback<T extends android.os.Parcelable> extends android.service.textclassifier.ITextClassifierCallback.Stub {
+        private final android.view.textclassifier.SystemTextClassifier.ResponseReceiver<T> mReceiver = null;
+        BlockingCallback(java.lang.String p0, android.view.textclassifier.TextClassificationConstants p1) { super(); }
+        public T get() { return null; }
+        public void onFailure() {}
+        public void onSuccess(android.os.Bundle p0) {}
     }
 }

@@ -4,13 +4,6 @@ public interface ISnapshotRuntimeProfileCallback extends android.os.IInterface {
     public void onError(int p0) throws android.os.RemoteException;
     public void onSuccess(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.dex.ISnapshotRuntimeProfileCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onError(int p0) throws android.os.RemoteException {}
-        public void onSuccess(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.dex.ISnapshotRuntimeProfileCallback {
         public static final java.lang.String DESCRIPTOR = "android.content.pm.dex.ISnapshotRuntimeProfileCallback";
         static final int TRANSACTION_onError = 2;
@@ -30,5 +23,12 @@ public interface ISnapshotRuntimeProfileCallback extends android.os.IInterface {
             public void onError(int p0) throws android.os.RemoteException {}
             public void onSuccess(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.dex.ISnapshotRuntimeProfileCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onError(int p0) throws android.os.RemoteException {}
+        public void onSuccess(android.os.ParcelFileDescriptor p0) throws android.os.RemoteException {}
     }
 }

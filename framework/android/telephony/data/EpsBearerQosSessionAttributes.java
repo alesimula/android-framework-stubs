@@ -3,7 +3,8 @@ package android.telephony.data;
 @android.annotation.SystemApi
 public final class EpsBearerQosSessionAttributes implements android.os.Parcelable {
     public static final android.os.Parcelable.Creator<android.telephony.data.EpsBearerQosSessionAttributes> CREATOR = null;
-    private static final java.lang.String TAG = null;
+    private static final int MAX_REMOTE_ADDRESSES = 16;
+    private static final java.lang.String TAG = "EpsBearerQosSessionAttributes";
     private final long mGuaranteedDownlinkBitRate = 0L;
     private final long mGuaranteedUplinkBitRate = 0L;
     private final long mMaxDownlinkBitRate = 0L;

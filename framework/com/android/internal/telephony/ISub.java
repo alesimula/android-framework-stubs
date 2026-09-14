@@ -18,6 +18,7 @@ public interface ISub extends android.os.IInterface {
     public byte[] getAllPlatformManagedPinsForBackup() throws android.os.RemoteException;
     public java.util.List<android.telephony.SubscriptionInfo> getAllSubInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
     public java.util.List<android.telephony.SubscriptionInfo> getAvailableSubscriptionInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException;
+    public void getCarrierPresetSimPin(int p0, com.android.internal.telephony.ICarrierPresetSimPinCallback p1) throws android.os.RemoteException;
     public int getDefaultDataSubId() throws android.os.RemoteException;
     public int getDefaultSmsSubId() throws android.os.RemoteException;
     public int getDefaultSmsSubIdAsUser(int p0) throws android.os.RemoteException;
@@ -40,6 +41,7 @@ public interface ISub extends android.os.IInterface {
     public java.lang.String getSubscriptionProperty(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException;
     public android.os.UserHandle getSubscriptionUserHandle(int p0) throws android.os.RemoteException;
     public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionsInGroup(android.os.ParcelUuid p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
+    public boolean hasGroupedOpportunisticSubscriptions(int p0) throws android.os.RemoteException;
     public boolean isActiveSubId(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
     public boolean isSubscriptionAssociatedWithCallingUser(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
     public boolean isSubscriptionAssociatedWithUser(int p0, android.os.UserHandle p1) throws android.os.RemoteException;
@@ -69,78 +71,6 @@ public interface ISub extends android.os.IInterface {
     public void setUiccApplicationsEnabled(boolean p0, int p1) throws android.os.RemoteException;
     public int setUsageSetting(int p0, int p1, java.lang.String p2) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.telephony.ISub {
-        public Default() {}
-        public int addSubInfo(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return 0; }
-        public void addSubscriptionsIntoGroup(int[] p0, android.os.ParcelUuid p1, java.lang.String p2) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean canDisablePhysicalSubscription() throws android.os.RemoteException { return false; }
-        public boolean canManageSubscriptionAsUser(android.telephony.SubscriptionInfo p0, java.lang.String p1, android.os.UserHandle p2) throws android.os.RemoteException { return false; }
-        public android.os.ParcelUuid createSubscriptionGroup(int[] p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.telephony.SubscriptionInfo> getAccessibleSubscriptionInfoList(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public int getActiveDataSubscriptionId() throws android.os.RemoteException { return 0; }
-        public int[] getActiveSubIdList(boolean p0) throws android.os.RemoteException { return null; }
-        public int getActiveSubInfoCount(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return 0; }
-        public int getActiveSubInfoCountMax() throws android.os.RemoteException { return 0; }
-        public android.telephony.SubscriptionInfo getActiveSubscriptionInfo(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public android.telephony.SubscriptionInfo getActiveSubscriptionInfoForIccId(java.lang.String p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public android.telephony.SubscriptionInfo getActiveSubscriptionInfoForSimSlotIndex(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public java.util.List<android.telephony.SubscriptionInfo> getActiveSubscriptionInfoList(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return null; }
-        public byte[] getAllPlatformManagedPinsForBackup() throws android.os.RemoteException { return null; }
-        public java.util.List<android.telephony.SubscriptionInfo> getAllSubInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public java.util.List<android.telephony.SubscriptionInfo> getAvailableSubscriptionInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public int getDefaultDataSubId() throws android.os.RemoteException { return 0; }
-        public int getDefaultSmsSubId() throws android.os.RemoteException { return 0; }
-        public int getDefaultSmsSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
-        public int getDefaultSubId() throws android.os.RemoteException { return 0; }
-        public int getDefaultSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
-        public int getDefaultVoiceSubId() throws android.os.RemoteException { return 0; }
-        public int getDefaultVoiceSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
-        public int getEnabledSubscriptionId(int p0) throws android.os.RemoteException { return 0; }
-        public android.telephony.SubscriptionPlan[] getEnrollableSubscriptionPlans(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public java.lang.String getEnrollableSubscriptionPlansOwner(int p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getLastKnownPhoneNumberFromFirstAvailableSource(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public java.util.List<android.telephony.SubscriptionInfo> getOpportunisticSubscriptions(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
-        public int getPhoneId(int p0) throws android.os.RemoteException { return 0; }
-        public java.lang.String getPhoneNumber(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-        public java.lang.String getPhoneNumberFromFirstAvailableSource(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public int getPreferredDataSubscriptionId() throws android.os.RemoteException { return 0; }
-        public int getSlotIndex(int p0) throws android.os.RemoteException { return 0; }
-        public int getSubId(int p0) throws android.os.RemoteException { return 0; }
-        public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionInfoListAssociatedWithUser(android.os.UserHandle p0) throws android.os.RemoteException { return null; }
-        public java.lang.String getSubscriptionProperty(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
-        public android.os.UserHandle getSubscriptionUserHandle(int p0) throws android.os.RemoteException { return null; }
-        public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionsInGroup(android.os.ParcelUuid p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
-        public boolean isActiveSubId(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
-        public boolean isSubscriptionAssociatedWithCallingUser(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
-        public boolean isSubscriptionAssociatedWithUser(int p0, android.os.UserHandle p1) throws android.os.RemoteException { return false; }
-        public boolean isSubscriptionEnabled(int p0) throws android.os.RemoteException { return false; }
-        public boolean removeSubInfo(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
-        public void removeSubscriptionsFromGroup(int[] p0, android.os.ParcelUuid p1, java.lang.String p2) throws android.os.RemoteException {}
-        public void requestEmbeddedSubscriptionInfoListRefresh(int p0) throws android.os.RemoteException {}
-        public void restoreAllSimSpecificSettingsFromBackup(byte[] p0) throws android.os.RemoteException {}
-        public void restorePlatformManagedSimPins(byte[] p0) throws android.os.RemoteException {}
-        public int setDataRoaming(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public void setDefaultDataSubId(int p0) throws android.os.RemoteException {}
-        public void setDefaultSmsSubId(int p0) throws android.os.RemoteException {}
-        public void setDefaultVoiceSubId(int p0) throws android.os.RemoteException {}
-        public int setDeviceToDeviceStatusSharing(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public int setDeviceToDeviceStatusSharingContacts(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
-        public int setDisplayNameUsingSrc(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return 0; }
-        public int setDisplayNumber(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
-        public void setEnrollableSubscriptionPlans(int p0, android.telephony.SubscriptionPlan[] p1, long p2, java.lang.String p3) throws android.os.RemoteException {}
-        public void setGroupOwner(int p0, java.lang.String p1) throws android.os.RemoteException {}
-        public int setIconTint(int p0, int p1) throws android.os.RemoteException { return 0; }
-        public int setOpportunistic(boolean p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
-        public void setPhoneNumber(int p0, int p1, java.lang.String p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
-        public void setPreferredDataSubscriptionId(int p0, boolean p1, com.android.internal.telephony.ISetOpportunisticDataCallback p2) throws android.os.RemoteException {}
-        public void setSubscriptionProperty(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-        public int setSubscriptionUserHandle(android.os.UserHandle p0, int p1) throws android.os.RemoteException { return 0; }
-        public void setTransferStatus(int p0, int p1) throws android.os.RemoteException {}
-        public void setUiccApplicationsEnabled(boolean p0, int p1) throws android.os.RemoteException {}
-        public int setUsageSetting(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.telephony.ISub {
         public static final java.lang.String DESCRIPTOR = "com.android.internal.telephony.ISub";
         static final int TRANSACTION_addSubInfo = 11;
@@ -160,6 +90,7 @@ public interface ISub extends android.os.IInterface {
         static final int TRANSACTION_getAllPlatformManagedPinsForBackup = 66;
         static final int TRANSACTION_getAllSubInfoList = 1;
         static final int TRANSACTION_getAvailableSubscriptionInfoList = 8;
+        static final int TRANSACTION_getCarrierPresetSimPin = 68;
         static final int TRANSACTION_getDefaultDataSubId = 30;
         static final int TRANSACTION_getDefaultSmsSubId = 35;
         static final int TRANSACTION_getDefaultSmsSubIdAsUser = 36;
@@ -182,6 +113,7 @@ public interface ISub extends android.os.IInterface {
         static final int TRANSACTION_getSubscriptionProperty = 40;
         static final int TRANSACTION_getSubscriptionUserHandle = 57;
         static final int TRANSACTION_getSubscriptionsInGroup = 24;
+        static final int TRANSACTION_hasGroupedOpportunisticSubscriptions = 69;
         static final int TRANSACTION_isActiveSubId = 43;
         static final int TRANSACTION_isSubscriptionAssociatedWithCallingUser = 58;
         static final int TRANSACTION_isSubscriptionAssociatedWithUser = 59;
@@ -218,6 +150,7 @@ public interface ISub extends android.os.IInterface {
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
         public android.os.IBinder asBinder() { return null; }
         protected void getAllPlatformManagedPinsForBackup_enforcePermission() throws java.lang.SecurityException {}
+        protected void getCarrierPresetSimPin_enforcePermission() throws java.lang.SecurityException {}
         public java.lang.String getTransactionName(int p0) { return null; }
         public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
         protected void restorePlatformManagedSimPins_enforcePermission() throws java.lang.SecurityException {}
@@ -244,6 +177,7 @@ public interface ISub extends android.os.IInterface {
             public byte[] getAllPlatformManagedPinsForBackup() throws android.os.RemoteException { return null; }
             public java.util.List<android.telephony.SubscriptionInfo> getAllSubInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
             public java.util.List<android.telephony.SubscriptionInfo> getAvailableSubscriptionInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+            public void getCarrierPresetSimPin(int p0, com.android.internal.telephony.ICarrierPresetSimPinCallback p1) throws android.os.RemoteException {}
             public int getDefaultDataSubId() throws android.os.RemoteException { return 0; }
             public int getDefaultSmsSubId() throws android.os.RemoteException { return 0; }
             public int getDefaultSmsSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
@@ -267,6 +201,7 @@ public interface ISub extends android.os.IInterface {
             public java.lang.String getSubscriptionProperty(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
             public android.os.UserHandle getSubscriptionUserHandle(int p0) throws android.os.RemoteException { return null; }
             public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionsInGroup(android.os.ParcelUuid p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+            public boolean hasGroupedOpportunisticSubscriptions(int p0) throws android.os.RemoteException { return false; }
             public boolean isActiveSubId(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
             public boolean isSubscriptionAssociatedWithCallingUser(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
             public boolean isSubscriptionAssociatedWithUser(int p0, android.os.UserHandle p1) throws android.os.RemoteException { return false; }
@@ -296,5 +231,79 @@ public interface ISub extends android.os.IInterface {
             public void setUiccApplicationsEnabled(boolean p0, int p1) throws android.os.RemoteException {}
             public int setUsageSetting(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements com.android.internal.telephony.ISub {
+        public Default() {}
+        public int addSubInfo(java.lang.String p0, java.lang.String p1, int p2, int p3) throws android.os.RemoteException { return 0; }
+        public void addSubscriptionsIntoGroup(int[] p0, android.os.ParcelUuid p1, java.lang.String p2) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean canDisablePhysicalSubscription() throws android.os.RemoteException { return false; }
+        public boolean canManageSubscriptionAsUser(android.telephony.SubscriptionInfo p0, java.lang.String p1, android.os.UserHandle p2) throws android.os.RemoteException { return false; }
+        public android.os.ParcelUuid createSubscriptionGroup(int[] p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.telephony.SubscriptionInfo> getAccessibleSubscriptionInfoList(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public int getActiveDataSubscriptionId() throws android.os.RemoteException { return 0; }
+        public int[] getActiveSubIdList(boolean p0) throws android.os.RemoteException { return null; }
+        public int getActiveSubInfoCount(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return 0; }
+        public int getActiveSubInfoCountMax() throws android.os.RemoteException { return 0; }
+        public android.telephony.SubscriptionInfo getActiveSubscriptionInfo(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public android.telephony.SubscriptionInfo getActiveSubscriptionInfoForIccId(java.lang.String p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public android.telephony.SubscriptionInfo getActiveSubscriptionInfoForSimSlotIndex(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public java.util.List<android.telephony.SubscriptionInfo> getActiveSubscriptionInfoList(java.lang.String p0, java.lang.String p1, boolean p2) throws android.os.RemoteException { return null; }
+        public byte[] getAllPlatformManagedPinsForBackup() throws android.os.RemoteException { return null; }
+        public java.util.List<android.telephony.SubscriptionInfo> getAllSubInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public java.util.List<android.telephony.SubscriptionInfo> getAvailableSubscriptionInfoList(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public void getCarrierPresetSimPin(int p0, com.android.internal.telephony.ICarrierPresetSimPinCallback p1) throws android.os.RemoteException {}
+        public int getDefaultDataSubId() throws android.os.RemoteException { return 0; }
+        public int getDefaultSmsSubId() throws android.os.RemoteException { return 0; }
+        public int getDefaultSmsSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
+        public int getDefaultSubId() throws android.os.RemoteException { return 0; }
+        public int getDefaultSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
+        public int getDefaultVoiceSubId() throws android.os.RemoteException { return 0; }
+        public int getDefaultVoiceSubIdAsUser(int p0) throws android.os.RemoteException { return 0; }
+        public int getEnabledSubscriptionId(int p0) throws android.os.RemoteException { return 0; }
+        public android.telephony.SubscriptionPlan[] getEnrollableSubscriptionPlans(int p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public java.lang.String getEnrollableSubscriptionPlansOwner(int p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getLastKnownPhoneNumberFromFirstAvailableSource(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public java.util.List<android.telephony.SubscriptionInfo> getOpportunisticSubscriptions(java.lang.String p0, java.lang.String p1) throws android.os.RemoteException { return null; }
+        public int getPhoneId(int p0) throws android.os.RemoteException { return 0; }
+        public java.lang.String getPhoneNumber(int p0, int p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
+        public java.lang.String getPhoneNumberFromFirstAvailableSource(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public int getPreferredDataSubscriptionId() throws android.os.RemoteException { return 0; }
+        public int getSlotIndex(int p0) throws android.os.RemoteException { return 0; }
+        public int getSubId(int p0) throws android.os.RemoteException { return 0; }
+        public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionInfoListAssociatedWithUser(android.os.UserHandle p0) throws android.os.RemoteException { return null; }
+        public java.lang.String getSubscriptionProperty(int p0, java.lang.String p1, java.lang.String p2, java.lang.String p3) throws android.os.RemoteException { return null; }
+        public android.os.UserHandle getSubscriptionUserHandle(int p0) throws android.os.RemoteException { return null; }
+        public java.util.List<android.telephony.SubscriptionInfo> getSubscriptionsInGroup(android.os.ParcelUuid p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return null; }
+        public boolean hasGroupedOpportunisticSubscriptions(int p0) throws android.os.RemoteException { return false; }
+        public boolean isActiveSubId(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
+        public boolean isSubscriptionAssociatedWithCallingUser(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException { return false; }
+        public boolean isSubscriptionAssociatedWithUser(int p0, android.os.UserHandle p1) throws android.os.RemoteException { return false; }
+        public boolean isSubscriptionEnabled(int p0) throws android.os.RemoteException { return false; }
+        public boolean removeSubInfo(java.lang.String p0, int p1) throws android.os.RemoteException { return false; }
+        public void removeSubscriptionsFromGroup(int[] p0, android.os.ParcelUuid p1, java.lang.String p2) throws android.os.RemoteException {}
+        public void requestEmbeddedSubscriptionInfoListRefresh(int p0) throws android.os.RemoteException {}
+        public void restoreAllSimSpecificSettingsFromBackup(byte[] p0) throws android.os.RemoteException {}
+        public void restorePlatformManagedSimPins(byte[] p0) throws android.os.RemoteException {}
+        public int setDataRoaming(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public void setDefaultDataSubId(int p0) throws android.os.RemoteException {}
+        public void setDefaultSmsSubId(int p0) throws android.os.RemoteException {}
+        public void setDefaultVoiceSubId(int p0) throws android.os.RemoteException {}
+        public int setDeviceToDeviceStatusSharing(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public int setDeviceToDeviceStatusSharingContacts(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
+        public int setDisplayNameUsingSrc(java.lang.String p0, int p1, int p2) throws android.os.RemoteException { return 0; }
+        public int setDisplayNumber(java.lang.String p0, int p1) throws android.os.RemoteException { return 0; }
+        public void setEnrollableSubscriptionPlans(int p0, android.telephony.SubscriptionPlan[] p1, long p2, java.lang.String p3) throws android.os.RemoteException {}
+        public void setGroupOwner(int p0, java.lang.String p1) throws android.os.RemoteException {}
+        public int setIconTint(int p0, int p1) throws android.os.RemoteException { return 0; }
+        public int setOpportunistic(boolean p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
+        public void setPhoneNumber(int p0, int p1, java.lang.String p2, java.lang.String p3, java.lang.String p4) throws android.os.RemoteException {}
+        public void setPreferredDataSubscriptionId(int p0, boolean p1, com.android.internal.telephony.ISetOpportunisticDataCallback p2) throws android.os.RemoteException {}
+        public void setSubscriptionProperty(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
+        public int setSubscriptionUserHandle(android.os.UserHandle p0, int p1) throws android.os.RemoteException { return 0; }
+        public void setTransferStatus(int p0, int p1) throws android.os.RemoteException {}
+        public void setUiccApplicationsEnabled(boolean p0, int p1) throws android.os.RemoteException {}
+        public int setUsageSetting(int p0, int p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
     }
 }

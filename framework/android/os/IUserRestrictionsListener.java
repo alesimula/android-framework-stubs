@@ -4,12 +4,6 @@ public interface IUserRestrictionsListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.os.IUserRestrictionsListener";
     public void onUserRestrictionsChanged(int p0, android.os.Bundle p1, android.os.Bundle p2) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IUserRestrictionsListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onUserRestrictionsChanged(int p0, android.os.Bundle p1, android.os.Bundle p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IUserRestrictionsListener {
         static final int TRANSACTION_onUserRestrictionsChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IUserRestrictionsListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onUserRestrictionsChanged(int p0, android.os.Bundle p1, android.os.Bundle p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.IUserRestrictionsListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onUserRestrictionsChanged(int p0, android.os.Bundle p1, android.os.Bundle p2) throws android.os.RemoteException {}
     }
 }

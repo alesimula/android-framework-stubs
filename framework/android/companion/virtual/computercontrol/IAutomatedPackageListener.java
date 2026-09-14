@@ -4,12 +4,6 @@ public interface IAutomatedPackageListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.virtual.computercontrol.IAutomatedPackageListener";
     public void onAutomatedPackagesChanged(java.lang.String p0, java.util.List<java.lang.String> p1, android.os.UserHandle p2) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.virtual.computercontrol.IAutomatedPackageListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAutomatedPackagesChanged(java.lang.String p0, java.util.List<java.lang.String> p1, android.os.UserHandle p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.virtual.computercontrol.IAutomatedPackageListener {
         static final int TRANSACTION_onAutomatedPackagesChanged = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IAutomatedPackageListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAutomatedPackagesChanged(java.lang.String p0, java.util.List<java.lang.String> p1, android.os.UserHandle p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.virtual.computercontrol.IAutomatedPackageListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAutomatedPackagesChanged(java.lang.String p0, java.util.List<java.lang.String> p1, android.os.UserHandle p2) throws android.os.RemoteException {}
     }
 }

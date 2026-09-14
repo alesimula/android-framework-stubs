@@ -18,10 +18,6 @@ public final class VirtualKeyEvent implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Action {
-    }
-
     public static final class Builder {
         private int mAction;
         private long mEventTimeNanos;
@@ -31,6 +27,10 @@ public final class VirtualKeyEvent implements android.os.Parcelable {
         public android.hardware.input.VirtualKeyEvent.Builder setAction(int p0) { return null; }
         public android.hardware.input.VirtualKeyEvent.Builder setEventTimeNanos(long p0) { return null; }
         public android.hardware.input.VirtualKeyEvent.Builder setKeyCode(int p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Action {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

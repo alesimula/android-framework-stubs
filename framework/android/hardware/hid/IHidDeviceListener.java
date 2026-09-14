@@ -5,13 +5,6 @@ public interface IHidDeviceListener extends android.os.IInterface {
     public void onHidDeviceAdded(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException;
     public void onHidDeviceRemoved(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hid.IHidDeviceListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onHidDeviceAdded(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
-        public void onHidDeviceRemoved(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hid.IHidDeviceListener {
         static final int TRANSACTION_onHidDeviceAdded = 1;
         static final int TRANSACTION_onHidDeviceRemoved = 2;
@@ -30,5 +23,12 @@ public interface IHidDeviceListener extends android.os.IInterface {
             public void onHidDeviceAdded(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
             public void onHidDeviceRemoved(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hid.IHidDeviceListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onHidDeviceAdded(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
+        public void onHidDeviceRemoved(android.hardware.hid.HidDeviceInfo p0) throws android.os.RemoteException {}
     }
 }

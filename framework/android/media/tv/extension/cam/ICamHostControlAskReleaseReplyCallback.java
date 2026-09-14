@@ -4,12 +4,6 @@ public interface ICamHostControlAskReleaseReplyCallback extends android.os.IInte
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback";
     public void onAskReleaseReply(java.lang.String p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onAskReleaseReply(java.lang.String p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback {
         static final int TRANSACTION_onAskReleaseReply = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface ICamHostControlAskReleaseReplyCallback extends android.os.IInte
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onAskReleaseReply(java.lang.String p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.tv.extension.cam.ICamHostControlAskReleaseReplyCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onAskReleaseReply(java.lang.String p0, int p1) throws android.os.RemoteException {}
     }
 }

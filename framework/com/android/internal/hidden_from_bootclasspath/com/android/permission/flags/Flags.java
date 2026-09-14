@@ -8,7 +8,6 @@ public final class Flags {
     public static final java.lang.String FLAG_CROSS_USER_ROLE_ENABLED = "com.android.permission.flags.cross_user_role_enabled";
     public static final java.lang.String FLAG_CROSS_USER_ROLE_UX_BUGFIX_ENABLED = "com.android.permission.flags.cross_user_role_ux_bugfix_enabled";
     public static final java.lang.String FLAG_DEFAULT_APPS_RECOMMENDATION_ENABLED = "com.android.permission.flags.default_apps_recommendation_enabled";
-    public static final java.lang.String FLAG_ENABLE_COARSE_FINE_LOCATION_PROMPT_FOR_AAOS = "com.android.permission.flags.enable_coarse_fine_location_prompt_for_aaos";
     public static final java.lang.String FLAG_ENHANCED_CONFIRMATION_BACKPORT_ENABLED = "com.android.permission.flags.enhanced_confirmation_backport_enabled";
     public static final java.lang.String FLAG_EXPRESSIVE_DESIGN_ENABLED = "com.android.permission.flags.expressive_design_enabled";
     public static final java.lang.String FLAG_FIX_SAFETY_CENTER_TOUCH_TARGET = "com.android.permission.flags.fix_safety_center_touch_target";
@@ -28,7 +27,6 @@ public final class Flags {
     public static boolean crossUserRoleEnabled() { return false; }
     public static boolean crossUserRoleUxBugfixEnabled() { return false; }
     public static boolean defaultAppsRecommendationEnabled() { return false; }
-    public static boolean enableCoarseFineLocationPromptForAaos() { return false; }
     public static boolean enhancedConfirmationBackportEnabled() { return false; }
     public static boolean expressiveDesignEnabled() { return false; }
     public static boolean fixSafetyCenterTouchTarget() { return false; }

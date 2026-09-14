@@ -4,12 +4,6 @@ public interface IOnChecksumsReadyListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.content.pm.IOnChecksumsReadyListener";
     public void onChecksumsReady(java.util.List<android.content.pm.ApkChecksum> p0) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.IOnChecksumsReadyListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onChecksumsReady(java.util.List<android.content.pm.ApkChecksum> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.IOnChecksumsReadyListener {
         static final int TRANSACTION_onChecksumsReady = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IOnChecksumsReadyListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onChecksumsReady(java.util.List<android.content.pm.ApkChecksum> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.IOnChecksumsReadyListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onChecksumsReady(java.util.List<android.content.pm.ApkChecksum> p0) throws android.os.RemoteException {}
     }
 }

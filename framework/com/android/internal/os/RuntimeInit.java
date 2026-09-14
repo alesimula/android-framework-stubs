@@ -32,6 +32,19 @@ public class RuntimeInit {
         public boolean handleApplicationWtf(android.os.IBinder p0, java.lang.String p1, boolean p2, android.app.ApplicationErrorReport.ParcelableCrashInfo p3, int p4);
     }
 
+    static class MethodAndArgsCaller implements java.lang.Runnable {
+        private final java.lang.String[] mArgs = null;
+        private final java.lang.reflect.Method mMethod = null;
+        public MethodAndArgsCaller(java.lang.reflect.Method p0, java.lang.String[] p1) {}
+        public void run() {}
+    }
+
+    private static class LoggingHandler implements java.lang.Thread.UncaughtExceptionHandler {
+        public volatile boolean mTriggered;
+        private LoggingHandler() {}
+        public void uncaughtException(java.lang.Thread p0, java.lang.Throwable p1) {}
+    }
+
     static class Arguments {
         java.lang.String[] startArgs;
         java.lang.String startClass;
@@ -44,18 +57,5 @@ public class RuntimeInit {
         public KillApplicationHandler(com.android.internal.os.RuntimeInit.LoggingHandler p0) {}
         private void ensureLogging(java.lang.Thread p0, java.lang.Throwable p1) {}
         public void uncaughtException(java.lang.Thread p0, java.lang.Throwable p1) {}
-    }
-
-    private static class LoggingHandler implements java.lang.Thread.UncaughtExceptionHandler {
-        public volatile boolean mTriggered;
-        private LoggingHandler() {}
-        public void uncaughtException(java.lang.Thread p0, java.lang.Throwable p1) {}
-    }
-
-    static class MethodAndArgsCaller implements java.lang.Runnable {
-        private final java.lang.String[] mArgs = null;
-        private final java.lang.reflect.Method mMethod = null;
-        public MethodAndArgsCaller(java.lang.reflect.Method p0, java.lang.String[] p1) {}
-        public void run() {}
     }
 }

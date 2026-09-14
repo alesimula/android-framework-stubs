@@ -37,6 +37,7 @@ public class VibratorInfo implements android.os.Parcelable {
     public int getMaxEnvelopeEffectDurationMillis() { return 0; }
     public int getMaxEnvelopeEffectSize() { return 0; }
     public int getMinEnvelopeEffectControlPointDurationMillis() { return 0; }
+    public java.time.Duration getPresetDuration(int p0) { return null; }
     public int getPrimitiveDelayMax() { return 0; }
     public int getPrimitiveDuration(int p0) { return 0; }
     public float getQFactor() { return 0.0f; }
@@ -49,38 +50,10 @@ public class VibratorInfo implements android.os.Parcelable {
     public int hashCode() { return 0; }
     public boolean isEffectSupportKnown() { return false; }
     public int isEffectSupported(int p0) { return 0; }
+    public boolean isPresetSupported(int p0) { return false; }
     public boolean isPrimitiveSupported(int p0) { return false; }
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
-
-    public static final class Builder {
-        private long mCapabilities;
-        private int mCompositionSizeMax;
-        private android.os.VibratorInfo.FrequencyProfile mFrequencyProfile;
-        private android.os.VibratorInfo.FrequencyProfileLegacy mFrequencyProfileLegacy;
-        private final int mId = 0;
-        private int mMaxEnvelopeEffectControlPointDurationMillis;
-        private int mMaxEnvelopeEffectSize;
-        private int mMinEnvelopeEffectControlPointDurationMillis;
-        private int mPrimitiveDelayMax;
-        private float mQFactor;
-        private android.util.SparseBooleanArray mSupportedEffects;
-        private android.util.SparseIntArray mSupportedPrimitives;
-        public Builder(int p0) {}
-        private static android.util.SparseBooleanArray toSparseBooleanArray(int[] p0) { return null; }
-        public android.os.VibratorInfo build() { return null; }
-        public android.os.VibratorInfo.Builder setCapabilities(long p0) { return null; }
-        public android.os.VibratorInfo.Builder setCompositionSizeMax(int p0) { return null; }
-        public android.os.VibratorInfo.Builder setFrequencyProfile(android.os.VibratorInfo.FrequencyProfile p0) { return null; }
-        public android.os.VibratorInfo.Builder setFrequencyProfileLegacy(android.os.VibratorInfo.FrequencyProfileLegacy p0) { return null; }
-        public android.os.VibratorInfo.Builder setMaxEnvelopeEffectControlPointDurationMillis(int p0) { return null; }
-        public android.os.VibratorInfo.Builder setMaxEnvelopeEffectSize(int p0) { return null; }
-        public android.os.VibratorInfo.Builder setMinEnvelopeEffectControlPointDurationMillis(int p0) { return null; }
-        public android.os.VibratorInfo.Builder setPrimitiveDelayMax(int p0) { return null; }
-        public android.os.VibratorInfo.Builder setQFactor(float p0) { return null; }
-        public android.os.VibratorInfo.Builder setSupportedEffects(int... p0) { return null; }
-        public android.os.VibratorInfo.Builder setSupportedPrimitive(int p0, int p1) { return null; }
-    }
 
     public static final class FrequencyProfile implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.os.VibratorInfo.FrequencyProfile> CREATOR = null;
@@ -91,6 +64,7 @@ public class VibratorInfo implements android.os.Parcelable {
         private final float[] mOutputAccelerationsGs = null;
         private final float mResonantFrequencyHz = 0.0f;
         public FrequencyProfile(float p0, float[] p1, float[] p2) {}
+        private FrequencyProfile(float p0, float[] p1, float[] p2, boolean p3) {}
         public FrequencyProfile(android.os.Parcel p0) {}
         public int describeContents() { return 0; }
         public boolean equals(java.lang.Object p0) { return false; }
@@ -126,5 +100,34 @@ public class VibratorInfo implements android.os.Parcelable {
         public boolean isEmpty() { return false; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static final class Builder {
+        private long mCapabilities;
+        private int mCompositionSizeMax;
+        private android.os.VibratorInfo.FrequencyProfile mFrequencyProfile;
+        private android.os.VibratorInfo.FrequencyProfileLegacy mFrequencyProfileLegacy;
+        private final int mId = 0;
+        private int mMaxEnvelopeEffectControlPointDurationMillis;
+        private int mMaxEnvelopeEffectSize;
+        private int mMinEnvelopeEffectControlPointDurationMillis;
+        private int mPrimitiveDelayMax;
+        private float mQFactor;
+        private android.util.SparseBooleanArray mSupportedEffects;
+        private android.util.SparseIntArray mSupportedPrimitives;
+        public Builder(int p0) {}
+        private static android.util.SparseBooleanArray toSparseBooleanArray(int[] p0) { return null; }
+        public android.os.VibratorInfo build() { return null; }
+        public android.os.VibratorInfo.Builder setCapabilities(long p0) { return null; }
+        public android.os.VibratorInfo.Builder setCompositionSizeMax(int p0) { return null; }
+        public android.os.VibratorInfo.Builder setFrequencyProfile(android.os.VibratorInfo.FrequencyProfile p0) { return null; }
+        public android.os.VibratorInfo.Builder setFrequencyProfileLegacy(android.os.VibratorInfo.FrequencyProfileLegacy p0) { return null; }
+        public android.os.VibratorInfo.Builder setMaxEnvelopeEffectControlPointDurationMillis(int p0) { return null; }
+        public android.os.VibratorInfo.Builder setMaxEnvelopeEffectSize(int p0) { return null; }
+        public android.os.VibratorInfo.Builder setMinEnvelopeEffectControlPointDurationMillis(int p0) { return null; }
+        public android.os.VibratorInfo.Builder setPrimitiveDelayMax(int p0) { return null; }
+        public android.os.VibratorInfo.Builder setQFactor(float p0) { return null; }
+        public android.os.VibratorInfo.Builder setSupportedEffects(int... p0) { return null; }
+        public android.os.VibratorInfo.Builder setSupportedPrimitive(int p0, int p1) { return null; }
     }
 }

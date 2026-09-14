@@ -2,16 +2,14 @@ package android.view.contentcapture;
 
 public interface IContentCaptureDirectManager extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.view.contentcapture.IContentCaptureDirectManager";
+    public void onContentCaptureFrameCommit(int p0) throws android.os.RemoteException;
     public void sendEvents(android.content.pm.ParceledListSlice p0, int p1, android.content.ContentCaptureOptions p2) throws android.os.RemoteException;
-
-    public static class Default implements android.view.contentcapture.IContentCaptureDirectManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void sendEvents(android.content.pm.ParceledListSlice p0, int p1, android.content.ContentCaptureOptions p2) throws android.os.RemoteException {}
-    }
+    public void sendSharedMemory(android.os.ParcelFileDescriptor p0, int p1, int p2) throws android.os.RemoteException;
 
     public static abstract class Stub extends android.os.Binder implements android.view.contentcapture.IContentCaptureDirectManager {
+        static final int TRANSACTION_onContentCaptureFrameCommit = 3;
         static final int TRANSACTION_sendEvents = 1;
+        static final int TRANSACTION_sendSharedMemory = 2;
         public Stub() { super(); }
         public static android.view.contentcapture.IContentCaptureDirectManager asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
@@ -24,7 +22,17 @@ public interface IContentCaptureDirectManager extends android.os.IInterface {
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
+            public void onContentCaptureFrameCommit(int p0) throws android.os.RemoteException {}
             public void sendEvents(android.content.pm.ParceledListSlice p0, int p1, android.content.ContentCaptureOptions p2) throws android.os.RemoteException {}
+            public void sendSharedMemory(android.os.ParcelFileDescriptor p0, int p1, int p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.contentcapture.IContentCaptureDirectManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onContentCaptureFrameCommit(int p0) throws android.os.RemoteException {}
+        public void sendEvents(android.content.pm.ParceledListSlice p0, int p1, android.content.ContentCaptureOptions p2) throws android.os.RemoteException {}
+        public void sendSharedMemory(android.os.ParcelFileDescriptor p0, int p1, int p2) throws android.os.RemoteException {}
     }
 }

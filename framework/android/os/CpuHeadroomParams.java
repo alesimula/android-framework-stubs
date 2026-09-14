@@ -13,6 +13,10 @@ public final class CpuHeadroomParams {
     public android.os.CpuHeadroomParams.Builder toBuilder() { return null; }
     public java.lang.String toString() { return null; }
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface CpuHeadroomCalculationType {
+    }
+
     public static final class Builder {
         private int mCalculationType;
         private int mCalculationWindowMillis;
@@ -23,9 +27,5 @@ public final class CpuHeadroomParams {
         public android.os.CpuHeadroomParams.Builder setCalculationType(int p0) { return null; }
         public android.os.CpuHeadroomParams.Builder setCalculationWindowMillis(int p0) { return null; }
         public android.os.CpuHeadroomParams.Builder setTids(int... p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CpuHeadroomCalculationType {
     }
 }

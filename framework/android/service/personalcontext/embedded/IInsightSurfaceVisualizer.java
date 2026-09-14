@@ -2,14 +2,14 @@ package android.service.personalcontext.embedded;
 
 public interface IInsightSurfaceVisualizer extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.embedded.IInsightSurfaceVisualizer";
-    public void createVisualizationForClient(android.service.personalcontext.insight.ContextInsightWrapper p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.service.personalcontext.RenderToken p2, android.service.personalcontext.embedded.IVisualizationResult p3, android.service.personalcontext.IOpCallback p4) throws android.os.RemoteException;
-    public void onClientDisconnected(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.IOpCallback p1) throws android.os.RemoteException;
+    public void createVisualizationForClient(android.service.personalcontext.insight.ContextInsightWrapper p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.app.personalcontext.RenderToken p2, android.service.personalcontext.embedded.IVisualizationResult p3, android.app.personalcontext.IOpCallback p4) throws android.os.RemoteException;
+    public void onClientDisconnected(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.app.personalcontext.IOpCallback p1) throws android.os.RemoteException;
 
     public static class Default implements android.service.personalcontext.embedded.IInsightSurfaceVisualizer {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void createVisualizationForClient(android.service.personalcontext.insight.ContextInsightWrapper p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.service.personalcontext.RenderToken p2, android.service.personalcontext.embedded.IVisualizationResult p3, android.service.personalcontext.IOpCallback p4) throws android.os.RemoteException {}
-        public void onClientDisconnected(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.IOpCallback p1) throws android.os.RemoteException {}
+        public void createVisualizationForClient(android.service.personalcontext.insight.ContextInsightWrapper p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.app.personalcontext.RenderToken p2, android.service.personalcontext.embedded.IVisualizationResult p3, android.app.personalcontext.IOpCallback p4) throws android.os.RemoteException {}
+        public void onClientDisconnected(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.app.personalcontext.IOpCallback p1) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.embedded.IInsightSurfaceVisualizer {
@@ -26,9 +26,9 @@ public interface IInsightSurfaceVisualizer extends android.os.IInterface {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
-            public void createVisualizationForClient(android.service.personalcontext.insight.ContextInsightWrapper p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.service.personalcontext.RenderToken p2, android.service.personalcontext.embedded.IVisualizationResult p3, android.service.personalcontext.IOpCallback p4) throws android.os.RemoteException {}
+            public void createVisualizationForClient(android.service.personalcontext.insight.ContextInsightWrapper p0, android.service.personalcontext.embedded.InsightSurfaceClientInfo p1, android.app.personalcontext.RenderToken p2, android.service.personalcontext.embedded.IVisualizationResult p3, android.app.personalcontext.IOpCallback p4) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void onClientDisconnected(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.service.personalcontext.IOpCallback p1) throws android.os.RemoteException {}
+            public void onClientDisconnected(android.service.personalcontext.embedded.InsightSurfaceClientInfo p0, android.app.personalcontext.IOpCallback p1) throws android.os.RemoteException {}
         }
     }
 }

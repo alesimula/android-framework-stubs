@@ -26,7 +26,9 @@ public final class CellularIdentifierDisclosure implements android.os.Parcelable
     private boolean mIsEmergency;
     private int mNasProtocolMessage;
     private java.lang.String mPlmn;
+    private long mTimestampMillis;
     public CellularIdentifierDisclosure(int p0, int p1, java.lang.String p2, boolean p3) {}
+    public CellularIdentifierDisclosure(int p0, int p1, java.lang.String p2, boolean p3, long p4) {}
     private CellularIdentifierDisclosure(android.os.Parcel p0) {}
     private void readFromParcel(android.os.Parcel p0) {}
     public int describeContents() { return 0; }
@@ -34,6 +36,7 @@ public final class CellularIdentifierDisclosure implements android.os.Parcelable
     public int getCellularIdentifier() { return 0; }
     public int getNasProtocolMessage() { return 0; }
     public java.lang.String getPlmn() { return null; }
+    public long getTimestampMillis() { return 0L; }
     public int hashCode() { return 0; }
     public boolean isBenign() { return false; }
     public boolean isEmergency() { return false; }
@@ -41,10 +44,10 @@ public final class CellularIdentifierDisclosure implements android.os.Parcelable
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface CellularIdentifier {
+    public static @interface NasProtocolMessage {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface NasProtocolMessage {
+    public static @interface CellularIdentifier {
     }
 }

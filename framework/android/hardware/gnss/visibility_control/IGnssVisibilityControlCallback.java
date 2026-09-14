@@ -9,15 +9,6 @@ public interface IGnssVisibilityControlCallback extends android.os.IInterface {
     public boolean isInEmergencySession() throws android.os.RemoteException;
     public void nfwNotifyCb(android.hardware.gnss.visibility_control.IGnssVisibilityControlCallback.NfwNotification p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.gnss.visibility_control.IGnssVisibilityControlCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public boolean isInEmergencySession() throws android.os.RemoteException { return false; }
-        public void nfwNotifyCb(android.hardware.gnss.visibility_control.IGnssVisibilityControlCallback.NfwNotification p0) throws android.os.RemoteException {}
-    }
-
     public static class NfwNotification implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.hardware.gnss.visibility_control.IGnssVisibilityControlCallback.NfwNotification> CREATOR = null;
         public boolean inEmergencyMode;
@@ -33,6 +24,15 @@ public interface IGnssVisibilityControlCallback extends android.os.IInterface {
         public final int getStability() { return 0; }
         public final void readFromParcel(android.os.Parcel p0) {}
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    public static class Default implements android.hardware.gnss.visibility_control.IGnssVisibilityControlCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public boolean isInEmergencySession() throws android.os.RemoteException { return false; }
+        public void nfwNotifyCb(android.hardware.gnss.visibility_control.IGnssVisibilityControlCallback.NfwNotification p0) throws android.os.RemoteException {}
     }
 
     public static @interface NfwProtocolStack {

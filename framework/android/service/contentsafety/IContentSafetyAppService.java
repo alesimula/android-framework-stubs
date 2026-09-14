@@ -5,13 +5,6 @@ public interface IContentSafetyAppService extends android.os.IInterface {
     public void onClassifyContent(android.app.contentsafety.ClassifiableContent p0, android.app.contentsafety.IContentSafetyCallback p1) throws android.os.RemoteException;
     public void onContentSafetyEnabled(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.contentsafety.IContentSafetyAppService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onClassifyContent(android.app.contentsafety.ClassifiableContent p0, android.app.contentsafety.IContentSafetyCallback p1) throws android.os.RemoteException {}
-        public void onContentSafetyEnabled(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.contentsafety.IContentSafetyAppService {
         static final int TRANSACTION_onClassifyContent = 2;
         static final int TRANSACTION_onContentSafetyEnabled = 1;
@@ -30,5 +23,12 @@ public interface IContentSafetyAppService extends android.os.IInterface {
             public void onClassifyContent(android.app.contentsafety.ClassifiableContent p0, android.app.contentsafety.IContentSafetyCallback p1) throws android.os.RemoteException {}
             public void onContentSafetyEnabled(boolean p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.contentsafety.IContentSafetyAppService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onClassifyContent(android.app.contentsafety.ClassifiableContent p0, android.app.contentsafety.IContentSafetyCallback p1) throws android.os.RemoteException {}
+        public void onContentSafetyEnabled(boolean p0) throws android.os.RemoteException {}
     }
 }

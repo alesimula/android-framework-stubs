@@ -3,6 +3,10 @@ package com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec;
 public abstract class KeyPairGeneratorSpi extends java.security.KeyPairGenerator {
     public KeyPairGeneratorSpi(java.lang.String p0) { super((java.lang.String)null); }
 
+    public static class ECDHC extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi.EC {
+        public ECDHC() { super(); }
+    }
+
     public static class EC extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi {
         private static java.util.Hashtable ecParameters;
         java.lang.String algorithm;
@@ -24,19 +28,15 @@ public abstract class KeyPairGeneratorSpi extends java.security.KeyPairGenerator
         protected void initializeNamedCurve(java.lang.String p0, java.security.SecureRandom p1) throws java.security.InvalidAlgorithmParameterException {}
     }
 
+    public static class ECMQV extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi.EC {
+        public ECMQV() { super(); }
+    }
+
     public static class ECDH extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi.EC {
         public ECDH() { super(); }
     }
 
-    public static class ECDHC extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi.EC {
-        public ECDHC() { super(); }
-    }
-
     public static class ECDSA extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi.EC {
         public ECDSA() { super(); }
-    }
-
-    public static class ECMQV extends com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi.EC {
-        public ECMQV() { super(); }
     }
 }

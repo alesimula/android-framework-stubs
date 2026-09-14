@@ -1245,7 +1245,9 @@ public interface MetricsProto {
         public static final int NOTIFICATION_SINCE_INTERRUPTION_MILLIS = 1500;
         public static final int NOTIFICATION_SINCE_UPDATE_MILLIS = 795;
         public static final int NOTIFICATION_SINCE_VISIBLE_MILLIS = 794;
+        public static final int NOTIFICATION_SMART_ACTION_ANIMATED_COUNT = 1752;
         public static final int NOTIFICATION_SMART_ACTION_COUNT = 1599;
+        public static final int NOTIFICATION_SMART_REPLY_ANIMATED_COUNT = 1751;
         public static final int NOTIFICATION_SMART_REPLY_COUNT = 1384;
         public static final int NOTIFICATION_SMART_REPLY_EDIT_BEFORE_SENDING = 1647;
         public static final int NOTIFICATION_SMART_REPLY_MODIFIED_BEFORE_SENDING = 1648;

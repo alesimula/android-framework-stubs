@@ -25,6 +25,11 @@ public class FileRotator {
     public void rewriteAll(com.android.internal.util.FileRotator.Rewriter p0) throws java.io.IOException {}
     public void rewriteSingle(com.android.internal.util.FileRotator.Rewriter p0, long p1, long p2) throws java.io.IOException {}
 
+    public static interface Rewriter extends com.android.internal.util.FileRotator.Reader, com.android.internal.util.FileRotator.Writer {
+        public void reset();
+        public boolean shouldWrite();
+    }
+
     private static class FileInfo {
         public long endMillis;
         public final java.lang.String prefix = null;
@@ -37,11 +42,6 @@ public class FileRotator {
 
     public static interface Reader {
         public void read(java.io.InputStream p0) throws java.io.IOException;
-    }
-
-    public static interface Rewriter extends com.android.internal.util.FileRotator.Reader, com.android.internal.util.FileRotator.Writer {
-        public void reset();
-        public boolean shouldWrite();
     }
 
     public static interface Writer {

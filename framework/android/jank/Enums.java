@@ -1,6 +1,9 @@
 package android.jank;
 
 public final class Enums {
+    public static final int ACTION_A11Y_SERVICE_STARTUP_CLIENT_INIT = 42;
+    public static final int ACTION_A11Y_SERVICE_STARTUP_CLIENT_UI = 43;
+    public static final int ACTION_A11Y_SERVICE_STARTUP_FRAMEWORK = 41;
     public static final int ACTION_BACK_SYSTEM_ANIMATION = 29;
     public static final int ACTION_CHECK_CREDENTIAL = 4;
     public static final int ACTION_CHECK_CREDENTIAL_UNLOCKED = 5;
@@ -38,6 +41,10 @@ public final class Enums {
     public static final int ACTION_UDFPS_ILLUMINATE = 15;
     public static final int ACTION_UDFPS_OVERLAY_ATTACHED_AFTER_GOING_TO_SLEEP = 39;
     public static final int ACTION_USER_SWITCH = 13;
+    public static final int AGENT_ICON_ANIMATION = 183;
+    public static final int AGENT_ICON_WHISPER_BG_ANIMATION = 184;
+    public static final int AGENT_ICON_WHISPER_SHORT_ENTER = 181;
+    public static final int AGENT_ICON_WHISPER_SHORT_EXIT = 182;
     public static final int AMBIENT_CUE_COLLAPSE = 148;
     public static final int AMBIENT_CUE_EXPAND = 147;
     public static final int AMBIENT_CUE_HIDE = 146;
@@ -62,7 +69,9 @@ public final class Enums {
     public static final int DESKTOP_MODE_ENTER_APP_HANDLE_DRAG_RELEASE = 116;
     public static final int DESKTOP_MODE_ENTER_FROM_OVERVIEW_MENU = 120;
     public static final int DESKTOP_MODE_ENTER_MODE_APP_HANDLE_MENU = 112;
+    public static final int DESKTOP_MODE_ENTER_MODE_KEYBOARD_SHORTCUT = 185;
     public static final int DESKTOP_MODE_EXIT_MODE = 108;
+    public static final int DESKTOP_MODE_EXIT_MODE_KEYBOARD_SHORTCUT = 186;
     public static final int DESKTOP_MODE_EXIT_MODE_ON_LAST_WINDOW_CLOSE = 117;
     public static final int DESKTOP_MODE_FULLSCREEN_TO_DESK_SLIDE = 180;
     public static final int DESKTOP_MODE_HOME_SCREEN_PEEK = 167;
@@ -81,6 +90,7 @@ public final class Enums {
     public static final int DESKTOP_MODE_TILE_RESIZING = 140;
     public static final int DESKTOP_MODE_UNMAXIMIZE_WINDOW = 119;
     public static final int DREAM_SWITCHER_EDGE_SWIPE = 173;
+    public static final int FACE_AUTH_LOW_LIGHT_ANIMATION = 195;
     public static final int FHD = 3;
     public static final int FOLD_ANIM = 105;
     public static final int HD = 2;
@@ -151,6 +161,10 @@ public final class Enums {
     public static final int PREDICTIVE_BACK_CROSS_TASK = 86;
     public static final int PREDICTIVE_BACK_HOME = 87;
     public static final int QHD = 4;
+    public static final int QS_SHADE_OVERLAY_FROM_DEFAULT_TO_EDIT = 187;
+    public static final int QS_SHADE_OVERLAY_FROM_DEFAULT_TO_TILE_DETAILS = 189;
+    public static final int QS_SHADE_OVERLAY_FROM_EDIT_TO_DEFAULT = 188;
+    public static final int QS_SHADE_OVERLAY_FROM_TILE_DETAILS_TO_DEFAULT = 190;
     public static final int RECENTS_SCROLLING = 66;
     public static final int RR_120_HZ = 5;
     public static final int RR_240_HZ = 6;
@@ -191,6 +205,10 @@ public final class Enums {
     public static final int STATUS_BAR_APP_LAUNCH_FROM_CALL_CHIP = 35;
     public static final int STATUS_BAR_APP_RETURN_TO_CALL_CHIP = 130;
     public static final int STATUS_BAR_APP_RETURN_TO_ONGOING_CHIP = 151;
+    public static final int STATUS_BAR_HEADLINE_COLLAPSE = 192;
+    public static final int STATUS_BAR_HEADLINE_EXPAND = 191;
+    public static final int STATUS_BAR_HEADLINE_SWIPE = 193;
+    public static final int STATUS_BAR_HEADLINE_SYSTEM_TRANSITION = 194;
     public static final int STATUS_BAR_LAUNCH_DIALOG_FROM_CHIP = 111;
     public static final int SUW_LOADING_SCREEN_FOR_STATUS = 49;
     public static final int SUW_LOADING_TO_NEXT_FLOW = 48;

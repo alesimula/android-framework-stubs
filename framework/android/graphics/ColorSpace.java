@@ -78,13 +78,34 @@ public abstract class ColorSpace {
     public float[] toXyz(float p0, float p1, float p2) { return null; }
     public abstract float[] toXyz(float[] p0);
 
-    public static enum Adaptation {
-        BRADFORD,
-        CIECAT02,
-        VON_KRIES;
-        private static final android.graphics.ColorSpace.Adaptation[] $VALUES = null;
-        final float[] mTransform = null;
-        private Adaptation() {}
+    public static enum Model {
+        CMYK,
+        LAB,
+        RGB,
+        XYZ;
+        private static final android.graphics.ColorSpace.Model[] $VALUES = null;
+        private final int mComponentCount = 0;
+        private Model() {}
+        public int getComponentCount() { return 0; }
+    }
+
+    public static enum RenderIntent {
+        ABSOLUTE,
+        PERCEPTUAL,
+        RELATIVE,
+        SATURATION;
+        private static final android.graphics.ColorSpace.RenderIntent[] $VALUES = null;
+        private RenderIntent() {}
+    }
+
+    private static final class Xyz extends android.graphics.ColorSpace {
+        private Xyz(java.lang.String p0, int p1) { super(null, null, 0); }
+        private static float clamp(float p0) { return 0.0f; }
+        public float[] fromXyz(float[] p0) { return null; }
+        public float getMaxValue(int p0) { return 0.0f; }
+        public float getMinValue(int p0) { return 0.0f; }
+        public boolean isWideGamut() { return false; }
+        public float[] toXyz(float[] p0) { return null; }
     }
 
     public static class Connector {
@@ -114,55 +135,6 @@ public abstract class ColorSpace {
         }
     }
 
-    private static final class Lab extends android.graphics.ColorSpace {
-        private static final float A = 0.008856452070176601f;
-        private static final float B = 7.787036895751953f;
-        private static final float C = 0.13793103396892548f;
-        private static final float D = 0.2068965584039688f;
-        private Lab(java.lang.String p0, int p1) { super(null, null, 0); }
-        public float[] fromXyz(float[] p0) { return null; }
-        public float getMaxValue(int p0) { return 0.0f; }
-        public float getMinValue(int p0) { return 0.0f; }
-        public boolean isWideGamut() { return false; }
-        public float[] toXyz(float[] p0) { return null; }
-    }
-
-    public static enum Model {
-        CMYK,
-        LAB,
-        RGB,
-        XYZ;
-        private static final android.graphics.ColorSpace.Model[] $VALUES = null;
-        private final int mComponentCount = 0;
-        private Model() {}
-        public int getComponentCount() { return 0; }
-    }
-
-    public static enum Named {
-        ACES,
-        ACESCG,
-        ADOBE_RGB,
-        BT2020,
-        BT2020_HLG,
-        BT2020_PQ,
-        BT709,
-        CIE_LAB,
-        CIE_XYZ,
-        DCI_P3,
-        DISPLAY_BT2020,
-        DISPLAY_P3,
-        EXTENDED_SRGB,
-        LINEAR_EXTENDED_SRGB,
-        LINEAR_SRGB,
-        NTSC_1953,
-        OK_LAB,
-        PRO_PHOTO_RGB,
-        SMPTE_C,
-        SRGB;
-        private static final android.graphics.ColorSpace.Named[] $VALUES = null;
-        private Named() {}
-    }
-
     private static final class OkLab extends android.graphics.ColorSpace {
         private static final float[] INVERSE_M1 = null;
         private static final float[] INVERSE_M2 = null;
@@ -177,13 +149,26 @@ public abstract class ColorSpace {
         public float[] toXyz(float[] p0) { return null; }
     }
 
-    public static enum RenderIntent {
-        ABSOLUTE,
-        PERCEPTUAL,
-        RELATIVE,
-        SATURATION;
-        private static final android.graphics.ColorSpace.RenderIntent[] $VALUES = null;
-        private RenderIntent() {}
+    public static enum Adaptation {
+        BRADFORD,
+        CIECAT02,
+        VON_KRIES;
+        private static final android.graphics.ColorSpace.Adaptation[] $VALUES = null;
+        final float[] mTransform = null;
+        private Adaptation() {}
+    }
+
+    private static final class Lab extends android.graphics.ColorSpace {
+        private static final float A = 0.008856452070176601f;
+        private static final float B = 7.787036895751953f;
+        private static final float C = 0.13793103396892548f;
+        private static final float D = 0.2068965584039688f;
+        private Lab(java.lang.String p0, int p1) { super(null, null, 0); }
+        public float[] fromXyz(float[] p0) { return null; }
+        public float getMaxValue(int p0) { return 0.0f; }
+        public float getMinValue(int p0) { return 0.0f; }
+        public boolean isWideGamut() { return false; }
+        public float[] toXyz(float[] p0) { return null; }
     }
 
     public static class Rgb extends android.graphics.ColorSpace {
@@ -251,16 +236,6 @@ public abstract class ColorSpace {
         public float[] toLinear(float[] p0) { return null; }
         public float[] toXyz(float[] p0) { return null; }
 
-        static class Native {
-            Native() {}
-            static native long nativeCreate(float p0, float p1, float p2, float p3, float p4, float p5, float p6, float[] p7);
-            static native long nativeGetNativeFinalizer();
-        }
-
-        private static class NoImagePreloadHolder {
-            private NoImagePreloadHolder() {}
-        }
-
         public static class TransferParameters {
             private static final double TYPE_HLGish = -3.0;
             private static final double TYPE_PQish = -2.0;
@@ -279,15 +254,40 @@ public abstract class ColorSpace {
             public boolean equals(java.lang.Object p0) { return false; }
             public int hashCode() { return 0; }
         }
+
+        static class Native {
+            Native() {}
+            static native long nativeCreate(float p0, float p1, float p2, float p3, float p4, float p5, float p6, float[] p7);
+            static native long nativeGetNativeFinalizer();
+        }
+
+        private static class NoImagePreloadHolder {
+            private NoImagePreloadHolder() {}
+        }
     }
 
-    private static final class Xyz extends android.graphics.ColorSpace {
-        private Xyz(java.lang.String p0, int p1) { super(null, null, 0); }
-        private static float clamp(float p0) { return 0.0f; }
-        public float[] fromXyz(float[] p0) { return null; }
-        public float getMaxValue(int p0) { return 0.0f; }
-        public float getMinValue(int p0) { return 0.0f; }
-        public boolean isWideGamut() { return false; }
-        public float[] toXyz(float[] p0) { return null; }
+    public static enum Named {
+        ACES,
+        ACESCG,
+        ADOBE_RGB,
+        BT2020,
+        BT2020_HLG,
+        BT2020_PQ,
+        BT709,
+        CIE_LAB,
+        CIE_XYZ,
+        DCI_P3,
+        DISPLAY_BT2020,
+        DISPLAY_P3,
+        EXTENDED_SRGB,
+        LINEAR_EXTENDED_SRGB,
+        LINEAR_SRGB,
+        NTSC_1953,
+        OK_LAB,
+        PRO_PHOTO_RGB,
+        SMPTE_C,
+        SRGB;
+        private static final android.graphics.ColorSpace.Named[] $VALUES = null;
+        private Named() {}
     }
 }

@@ -93,6 +93,53 @@ public abstract class BatteryConsumer {
     boolean hasStatsProtoData() { return false; }
     void writeStatsProto(android.util.proto.ProtoOutputStream p0, long p1) {}
 
+    public static final class Dimensions {
+        public final int powerComponentId = 0;
+        public final int powerState = 0;
+        public final int processState = 0;
+        public final int screenState = 0;
+        public Dimensions(int p0, int p1) {}
+        public Dimensions(int p0, int p1, int p2, int p3) {}
+        public java.lang.String toString() { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ProcessState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ScreenState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PowerComponent {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PowerState {
+    }
+
+    static class BatteryConsumerData {
+        public final android.os.BatteryConsumer.BatteryConsumerDataLayout layout = null;
+        private final int mCursorRow = 0;
+        private final android.database.CursorWindow mCursorWindow = null;
+        BatteryConsumerData(android.database.CursorWindow p0, int p1, android.os.BatteryConsumer.BatteryConsumerDataLayout p2) {}
+        static android.os.BatteryConsumer.BatteryConsumerData create(android.database.CursorWindow p0, android.os.BatteryConsumer.BatteryConsumerDataLayout p1) { return null; }
+        double getDouble(int p0) { return 0.0; }
+        int getInt(int p0) { return 0; }
+        long getLong(int p0) { return 0L; }
+        java.lang.String getString(int p0) { return null; }
+        boolean hasValue(int p0) { return false; }
+        void putDouble(int p0, double p1) {}
+        void putInt(int p0, int p1) {}
+        void putLong(int p0, long p1) {}
+        void putString(int p0, java.lang.String p1) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PowerComponentId {
+    }
+
     protected static abstract class BaseBuilder<T extends android.os.BatteryConsumer.BaseBuilder<?>> {
         protected final android.os.BatteryConsumer.BatteryConsumerData mData = null;
         protected final android.os.PowerComponents.Builder mPowerComponentsBuilder = null;
@@ -117,23 +164,6 @@ public abstract class BatteryConsumer {
         public T setUsageDurationMillis(android.os.BatteryConsumer.Key p0, long p1) { return null; }
     }
 
-    static class BatteryConsumerData {
-        public final android.os.BatteryConsumer.BatteryConsumerDataLayout layout = null;
-        private final int mCursorRow = 0;
-        private final android.database.CursorWindow mCursorWindow = null;
-        BatteryConsumerData(android.database.CursorWindow p0, int p1, android.os.BatteryConsumer.BatteryConsumerDataLayout p2) {}
-        static android.os.BatteryConsumer.BatteryConsumerData create(android.database.CursorWindow p0, android.os.BatteryConsumer.BatteryConsumerDataLayout p1) { return null; }
-        double getDouble(int p0) { return 0.0; }
-        int getInt(int p0) { return 0; }
-        long getLong(int p0) { return 0L; }
-        java.lang.String getString(int p0) { return null; }
-        boolean hasValue(int p0) { return false; }
-        void putDouble(int p0, double p1) {}
-        void putInt(int p0, int p1) {}
-        void putLong(int p0, long p1) {}
-        void putString(int p0, java.lang.String p1) {}
-    }
-
     static class BatteryConsumerDataLayout {
         private static final android.os.BatteryConsumer.Key[] KEY_ARRAY = null;
         public final int columnCount = 0;
@@ -156,14 +186,8 @@ public abstract class BatteryConsumer {
         public java.lang.String getPowerComponentName(int p0) { return null; }
     }
 
-    public static final class Dimensions {
-        public final int powerComponentId = 0;
-        public final int powerState = 0;
-        public final int processState = 0;
-        public final int screenState = 0;
-        public Dimensions(int p0, int p1) {}
-        public Dimensions(int p0, int p1, int p2, int p3) {}
-        public java.lang.String toString() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PowerModel {
     }
 
     public static final class Key {
@@ -179,29 +203,5 @@ public abstract class BatteryConsumer {
         public int hashCode() { return 0; }
         boolean matches(int p0, int p1, int p2, int p3) { return false; }
         public java.lang.String toString() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PowerComponent {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PowerComponentId {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PowerModel {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PowerState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ProcessState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ScreenState {
     }
 }

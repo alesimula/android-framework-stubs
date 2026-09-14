@@ -10,6 +10,7 @@ public final class SettingsEnums {
     public static final int ACCESSIBILITY_CAPTION_PROPERTIES = 3;
     public static final int ACCESSIBILITY_COLOR_AND_MOTION = 1918;
     public static final int ACCESSIBILITY_COLOR_CONTRAST = 2072;
+    public static final int ACCESSIBILITY_COLOR_FILTER_SETTINGS = 2222;
     public static final int ACCESSIBILITY_COLOR_INVERSION_SETTINGS = 1817;
     public static final int ACCESSIBILITY_DETAILS_SETTINGS = 1682;
     public static final int ACCESSIBILITY_FONT_SIZE = 340;
@@ -124,6 +125,9 @@ public final class SettingsEnums {
     public static final int ACTION_AUDIO_STREAM_NOTIFICATION_MUTE_BUTTON_CLICK = 1952;
     public static final int ACTION_AUDIO_STREAM_PASSWORD_UPDATED = 1944;
     public static final int ACTION_AUDIO_STREAM_QR_CODE_SCAN_SUCCEED = 1950;
+    public static final int ACTION_AURACAST_LIVE_MIC_FAIL = 2176;
+    public static final int ACTION_AURACAST_LIVE_MIC_START_CLICK = 2174;
+    public static final int ACTION_AURACAST_LIVE_MIC_SUCCESS = 2175;
     public static final int ACTION_AUTO_CONFIRM_UNLOCK_OFF = 35;
     public static final int ACTION_AUTO_CONFIRM_UNLOCK_ON = 34;
     public static final int ACTION_AUTO_JOIN_AUDIO_SHARING = 1938;
@@ -230,6 +234,9 @@ public final class SettingsEnums {
     public static final int ACTION_CHOOSE_REGION_AFTER_SEARCH_REGION_IN_SUW = 2034;
     public static final int ACTION_CLEAR = 18;
     public static final int ACTION_CLEAR_REMAPPINGS = 1845;
+    public static final int ACTION_COLOR_CORRECTION_MIGRATION_NOTIFICATION_DISMISSED = 2172;
+    public static final int ACTION_COLOR_CORRECTION_MIGRATION_NOTIFICATION_OPENED_SETTINGS = 2173;
+    public static final int ACTION_COLOR_CORRECTION_MIGRATION_NOTIFICATION_POSTED = 2171;
     public static final int ACTION_COLUMBUS_ACTION_ASSISTANT = 1742;
     public static final int ACTION_COLUMBUS_ACTION_FLASHLIGHT = 1787;
     public static final int ACTION_COLUMBUS_ACTION_NOTIFICATION_SHADE = 1746;
@@ -331,6 +338,9 @@ public final class SettingsEnums {
     public static final int ACTION_GET_SYSTEM_LANGUAGE_POSITION = 2125;
     public static final int ACTION_GRANT_ADMIN_FROM_SETTINGS = 1820;
     public static final int ACTION_GRANT_ADMIN_FROM_SETTINGS_CREATION_DIALOG = 1818;
+    public static final int ACTION_HIGH_CONTRAST_TEXT_MIGRATION_NOTIFICATION_DISMISSED = 2169;
+    public static final int ACTION_HIGH_CONTRAST_TEXT_MIGRATION_NOTIFICATION_OPENED_SETTINGS = 2170;
+    public static final int ACTION_HIGH_CONTRAST_TEXT_MIGRATION_NOTIFICATION_POSTED = 2168;
     public static final int ACTION_HIGH_USAGE_TIP = 1348;
     public static final int ACTION_HIGH_USAGE_TIP_LIST = 1354;
     public static final int ACTION_INCOMPATIBLE_CHARGING_TIP = 1823;
@@ -704,6 +714,8 @@ public final class SettingsEnums {
     public static final int APP_FUNCTION_GET_APPS = 6;
     public static final int APP_FUNCTION_GET_BATTERY = 3;
     public static final int APP_FUNCTION_GET_DEVICE_STATE = 11;
+    public static final int APP_FUNCTION_GET_DEVICE_STATE_ITEMS = 12;
+    public static final int APP_FUNCTION_GET_DEVICE_STATE_SCREENS = 13;
     public static final int APP_FUNCTION_GET_METADATA = 7;
     public static final int APP_FUNCTION_GET_MOBILE_DATA = 4;
     public static final int APP_FUNCTION_GET_NOTIFICATIONS = 5;
@@ -739,6 +751,8 @@ public final class SettingsEnums {
     public static final int APP_SPECIAL_PERMISSION_USAGE_VIEW_DENY = 784;
     public static final int APP_SPECIAL_PERMISSION_VRHELPER_ALLOW = 772;
     public static final int APP_SPECIAL_PERMISSION_VRHELPER_DENY = 773;
+    public static final int ASSOCIATED_DEVICE_DETAILS = 2229;
+    public static final int ASSOCIATED_DEVICE_LIST = 2228;
     public static final int AUDIO_SHARING_JOIN_HANDLER = 2169;
     public static final int AUDIO_SHARING_SETTINGS = 2048;
     public static final int AUDIO_STREAM_DETAIL = 2092;
@@ -830,6 +844,7 @@ public final class SettingsEnums {
     public static final int DEVELOPMENT_QS_TILE_CONFIG = 1224;
     public static final int DEVICEINFO = 40;
     public static final int DEVICEINFO_STORAGE = 42;
+    public static final int DEVICE_ACCESS_SINCE_LAST_UNLOCK = 2230;
     public static final int DEVICE_ADMIN_SETTINGS = 516;
     public static final int DEVICE_CONTROLS_SETTINGS = 1844;
     public static final int DIALOG_ACCESSIBILITY_HEARINGAID = 1512;
@@ -914,6 +929,7 @@ public final class SettingsEnums {
     public static final int DIALOG_FINGERPRINT_SKIP_SETUP = 573;
     public static final int DIALOG_FIRMWARE_VERSION = 1247;
     public static final int DIALOG_FORCE_ENABLE_PSS_PROFILING = 2066;
+    public static final int DIALOG_FORGET_ASSOCIATED_DEVICE = 2231;
     public static final int DIALOG_FRP = 528;
     public static final int DIALOG_GRANT_USER_ADMIN = 2000;
     public static final int DIALOG_HAC_DISCLAIMER = 2164;
@@ -1105,6 +1121,7 @@ public final class SettingsEnums {
     public static final int MAGNIFIER = 2162;
     public static final int MANAGE_APPLICATIONS = 65;
     public static final int MANAGE_APPLICATIONS_NOTIFICATIONS = 133;
+    public static final int MANAGE_CONTACTS = 2223;
     public static final int MANAGE_DOMAIN_URLS = 143;
     public static final int MANAGE_EXTERNAL_SOURCES = 808;
     public static final int MANAGE_EXTERNAL_STORAGE = 1822;
@@ -1188,6 +1205,9 @@ public final class SettingsEnums {
     public static final int PANEL_NFC = 1656;
     public static final int PANEL_VOLUME = 1655;
     public static final int PANEL_WIFI = 1687;
+    public static final int PCC_AUDIT_LOG_VIEWER = 2224;
+    public static final int PERSONAL_CONTEXT = 2221;
+    public static final int PERSONAL_CONTEXT_APP_INCLUSION = 2225;
     public static final int PHYSICAL_KEYBOARDS = 346;
     public static final int PHYSICAL_KEYBOARD_A11Y = 2112;
     public static final int PHYSICAL_KEYBOARD_REPEAT_KEYS = 2135;
@@ -1277,6 +1297,8 @@ public final class SettingsEnums {
     public static final int SECURITY_ADVANCED = 1885;
     public static final int SECURITY_ALTERNATIVE = 1884;
     public static final int SECURITY_CONFIRMATION_DIALOG = 1891;
+    public static final int SECURITY_INFORMATION = 2226;
+    public static final int SECURITY_TIMELINE = 2227;
     public static final int SECURITY_WARNINGS = 1887;
     public static final int SELECT_TO_SPEAK = 1901;
     public static final int SESSION_BROWSE = 1;
@@ -1426,6 +1448,7 @@ public final class SettingsEnums {
     public static final int SUW_ACCESSIBILITY_TOGGLE_SCREEN_COLOR_INVERSION = 2191;
     public static final int SUW_ACCESSIBILITY_TOGGLE_SCREEN_MAGNIFICATION = 368;
     public static final int SUW_ACCESSIBILITY_TOGGLE_SCREEN_READER = 371;
+    public static final int SUW_ACCESSIBILITY_TOGGLE_SCREEN_REMOVE_ANIMATIONS = 2232;
     public static final int SUW_ACCESSIBILITY_TOGGLE_SELECT_TO_SPEAK = 817;
     public static final int SUW_DREAM = 1935;
     public static final int SWITCH_ACCESS = 1902;

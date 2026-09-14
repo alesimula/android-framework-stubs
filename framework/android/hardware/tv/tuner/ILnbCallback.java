@@ -9,15 +9,6 @@ public interface ILnbCallback extends android.os.IInterface {
     public void onDiseqcMessage(byte[] p0) throws android.os.RemoteException;
     public void onEvent(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.tv.tuner.ILnbCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void onDiseqcMessage(byte[] p0) throws android.os.RemoteException {}
-        public void onEvent(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.tv.tuner.ILnbCallback {
         static final int TRANSACTION_getInterfaceHash = 16777214;
         static final int TRANSACTION_getInterfaceVersion = 16777215;
@@ -40,5 +31,14 @@ public interface ILnbCallback extends android.os.IInterface {
             public void onDiseqcMessage(byte[] p0) throws android.os.RemoteException {}
             public void onEvent(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.tv.tuner.ILnbCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void onDiseqcMessage(byte[] p0) throws android.os.RemoteException {}
+        public void onEvent(int p0) throws android.os.RemoteException {}
     }
 }

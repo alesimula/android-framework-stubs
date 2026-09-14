@@ -4,6 +4,11 @@ public class RemoteServiceException extends android.util.AndroidRuntimeException
     public RemoteServiceException(java.lang.String p0) { super(); }
     public RemoteServiceException(java.lang.String p0, java.lang.Throwable p1) { super(); }
 
+    public static class AnomalyDetectedException extends android.app.RemoteServiceException {
+        public static final int TYPE_ID = 10;
+        public AnomalyDetectedException(java.lang.String p0) { super((java.lang.String)null); }
+    }
+
     public static class BadComputerControlNotificationException extends android.app.RemoteServiceException {
         public static final int TYPE_ID = 9;
         public BadComputerControlNotificationException(java.lang.String p0) { super((java.lang.String)null); }

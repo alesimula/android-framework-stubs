@@ -66,6 +66,14 @@ public final class MediaRouter2Manager {
     void updateDiscoveryPreference(java.lang.String p0, android.media.RouteDiscoveryPreference p1) {}
     void updateRoutesOnHandler(java.util.List<android.media.MediaRoute2Info> p0) {}
 
+    final class CallbackRecord {
+        public final android.media.MediaRouter2Manager.Callback mCallback = null;
+        public final java.util.concurrent.Executor mExecutor = null;
+        CallbackRecord(android.media.MediaRouter2Manager p0, java.util.concurrent.Executor p1, android.media.MediaRouter2Manager.Callback p2) {}
+        public boolean equals(java.lang.Object p0) { return false; }
+        public int hashCode() { return 0; }
+    }
+
     public static interface Callback {
         default public void onDiscoveryPreferenceChanged(java.lang.String p0, android.media.RouteDiscoveryPreference p1) {}
         default public void onPreferredFeaturesChanged(java.lang.String p0, java.util.List<java.lang.String> p1) {}
@@ -78,27 +86,19 @@ public final class MediaRouter2Manager {
         default public void onTransferred(android.media.RoutingSessionInfo p0, android.media.RoutingSessionInfo p1) {}
     }
 
-    final class CallbackRecord {
-        public final android.media.MediaRouter2Manager.Callback mCallback = null;
-        public final java.util.concurrent.Executor mExecutor = null;
-        CallbackRecord(android.media.MediaRouter2Manager p0, java.util.concurrent.Executor p1, android.media.MediaRouter2Manager.Callback p2) {}
-        public boolean equals(java.lang.Object p0) { return false; }
-        public int hashCode() { return 0; }
-    }
-
     class Client extends android.media.IMediaRouter2Manager.Stub {
         Client(android.media.MediaRouter2Manager p0) { super(); }
         public void invalidateInstance() {}
         public void notifyDeviceSuggestionRequested() {}
         public void notifyDeviceSuggestionsUpdated(java.lang.String p0, java.lang.String p1, java.util.List<android.media.SuggestedDeviceInfo> p2) {}
         public void notifyDiscoveryPreferenceChanged(java.lang.String p0, android.media.RouteDiscoveryPreference p1) {}
+        public void notifyGlobalSessionOverridesChanged(java.util.List<android.media.AppId> p0) {}
         public void notifyRequestFailed(int p0, int p1) {}
         public void notifyRouteListingPreferenceChange(java.lang.String p0, android.media.RouteListingPreference p1) {}
         public void notifyRoutesUpdated(java.util.List<android.media.MediaRoute2Info> p0, java.util.List<java.lang.String> p1) {}
         public void notifySessionCreated(int p0, android.media.RoutingSessionInfo p1) {}
         public void notifySessionReleased(android.media.RoutingSessionInfo p0) {}
         public void notifySessionUpdated(android.media.RoutingSessionInfo p0, boolean p1) {}
-        public void notifySystemSessionOverridesChanged(java.util.List<android.media.AppId> p0) {}
     }
 
     static final class TransferRequest {

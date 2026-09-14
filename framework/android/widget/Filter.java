@@ -15,14 +15,17 @@ public abstract class Filter {
     public final void filter(java.lang.CharSequence p0, android.widget.Filter.FilterListener p1) {}
     protected abstract android.widget.Filter.FilterResults performFiltering(java.lang.CharSequence p0);
     protected abstract void publishResults(java.lang.CharSequence p0, android.widget.Filter.FilterResults p1);
-    public void setDelayer(android.widget.Filter.Delayer p0) {}
-
-    public static interface Delayer {
-        public long getPostingDelay(java.lang.CharSequence p0);
-    }
+    public final void setDelayer(android.widget.Filter.Delayer p0) {}
 
     public static interface FilterListener {
         public void onFilterComplete(int p0);
+    }
+
+    private static class RequestArguments {
+        java.lang.CharSequence constraint;
+        android.widget.Filter.FilterListener listener;
+        android.widget.Filter.FilterResults results;
+        private RequestArguments() {}
     }
 
     protected static class FilterResults {
@@ -31,11 +34,8 @@ public abstract class Filter {
         public FilterResults() {}
     }
 
-    private static class RequestArguments {
-        java.lang.CharSequence constraint;
-        android.widget.Filter.FilterListener listener;
-        android.widget.Filter.FilterResults results;
-        private RequestArguments() {}
+    public static interface Delayer {
+        public long getPostingDelay(java.lang.CharSequence p0);
     }
 
     private class RequestHandler extends android.os.Handler {

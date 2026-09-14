@@ -15,37 +15,6 @@ public interface IHintManager extends android.os.IInterface {
     public android.os.IHintManager.HintManagerClientData registerClient(android.os.IHintManager.IHintManagerClient p0) throws android.os.RemoteException;
     public void setHintSessionThreads(android.os.IHintSession p0, int[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IHintManager {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void closeSessionChannel() throws android.os.RemoteException {}
-        public android.os.IHintManager.SessionCreationReturn createHintSessionWithConfig(android.os.IBinder p0, int p1, android.os.SessionCreationConfig p2, android.hardware.power.SessionConfig p3) throws android.os.RemoteException { return null; }
-        public android.os.IHintManager.HintManagerClientData getClientData() throws android.os.RemoteException { return null; }
-        public android.hardware.power.CpuHeadroomResult getCpuHeadroom(android.os.CpuHeadroomParamsInternal p0) throws android.os.RemoteException { return null; }
-        public long getCpuHeadroomMinIntervalMillis() throws android.os.RemoteException { return 0L; }
-        public android.hardware.power.GpuHeadroomResult getGpuHeadroom(android.os.GpuHeadroomParamsInternal p0) throws android.os.RemoteException { return null; }
-        public long getGpuHeadroomMinIntervalMillis() throws android.os.RemoteException { return 0L; }
-        public int[] getHintSessionThreadIds(android.os.IHintSession p0) throws android.os.RemoteException { return null; }
-        public android.hardware.power.ChannelConfig getSessionChannel(android.os.IBinder p0) throws android.os.RemoteException { return null; }
-        public void passSessionManagerBinder(android.os.IBinder p0) throws android.os.RemoteException {}
-        public android.os.IHintManager.HintManagerClientData registerClient(android.os.IHintManager.IHintManagerClient p0) throws android.os.RemoteException { return null; }
-        public void setHintSessionThreads(android.os.IHintSession p0, int[] p1) throws android.os.RemoteException {}
-    }
-
-    public static class HintManagerClientData implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.os.IHintManager.HintManagerClientData> CREATOR = null;
-        public int maxCpuHeadroomThreads;
-        public int maxGraphicsPipelineThreads;
-        public int powerHalVersion;
-        public long preferredRateNanos;
-        public android.hardware.power.SupportInfo supportInfo;
-        public HintManagerClientData() {}
-        private int describeContents(java.lang.Object p0) { return 0; }
-        public int describeContents() { return 0; }
-        public final void readFromParcel(android.os.Parcel p0) {}
-        public final void writeToParcel(android.os.Parcel p0, int p1) {}
-    }
-
     public static interface IHintManagerClient extends android.os.IInterface {
         public static final java.lang.String DESCRIPTOR = "android.os.IHintManager.IHintManagerClient";
         public void receiveChannelConfig(android.hardware.power.ChannelConfig p0) throws android.os.RemoteException;
@@ -86,6 +55,23 @@ public interface IHintManager extends android.os.IInterface {
         public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
+    public static class Default implements android.os.IHintManager {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void closeSessionChannel() throws android.os.RemoteException {}
+        public android.os.IHintManager.SessionCreationReturn createHintSessionWithConfig(android.os.IBinder p0, int p1, android.os.SessionCreationConfig p2, android.hardware.power.SessionConfig p3) throws android.os.RemoteException { return null; }
+        public android.os.IHintManager.HintManagerClientData getClientData() throws android.os.RemoteException { return null; }
+        public android.hardware.power.CpuHeadroomResult getCpuHeadroom(android.os.CpuHeadroomParamsInternal p0) throws android.os.RemoteException { return null; }
+        public long getCpuHeadroomMinIntervalMillis() throws android.os.RemoteException { return 0L; }
+        public android.hardware.power.GpuHeadroomResult getGpuHeadroom(android.os.GpuHeadroomParamsInternal p0) throws android.os.RemoteException { return null; }
+        public long getGpuHeadroomMinIntervalMillis() throws android.os.RemoteException { return 0L; }
+        public int[] getHintSessionThreadIds(android.os.IHintSession p0) throws android.os.RemoteException { return null; }
+        public android.hardware.power.ChannelConfig getSessionChannel(android.os.IBinder p0) throws android.os.RemoteException { return null; }
+        public void passSessionManagerBinder(android.os.IBinder p0) throws android.os.RemoteException {}
+        public android.os.IHintManager.HintManagerClientData registerClient(android.os.IHintManager.IHintManagerClient p0) throws android.os.RemoteException { return null; }
+        public void setHintSessionThreads(android.os.IHintSession p0, int[] p1) throws android.os.RemoteException {}
+    }
+
     public static abstract class Stub extends android.os.Binder implements android.os.IHintManager {
         static final int TRANSACTION_closeSessionChannel = 5;
         static final int TRANSACTION_createHintSessionWithConfig = 1;
@@ -124,5 +110,19 @@ public interface IHintManager extends android.os.IInterface {
             public android.os.IHintManager.HintManagerClientData registerClient(android.os.IHintManager.IHintManagerClient p0) throws android.os.RemoteException { return null; }
             public void setHintSessionThreads(android.os.IHintSession p0, int[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class HintManagerClientData implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.os.IHintManager.HintManagerClientData> CREATOR = null;
+        public int maxCpuHeadroomThreads;
+        public int maxGraphicsPipelineThreads;
+        public int powerHalVersion;
+        public long preferredRateNanos;
+        public android.hardware.power.SupportInfo supportInfo;
+        public HintManagerClientData() {}
+        private int describeContents(java.lang.Object p0) { return 0; }
+        public int describeContents() { return 0; }
+        public final void readFromParcel(android.os.Parcel p0) {}
+        public final void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 }

@@ -8,17 +8,6 @@ public interface IFusedGeofenceHardware extends android.os.IInterface {
     public void removeGeofences(int[] p0) throws android.os.RemoteException;
     public void resumeMonitoringGeofence(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.location.IFusedGeofenceHardware {
-        public Default() {}
-        public void addGeofences(android.hardware.location.GeofenceHardwareRequestParcelable[] p0) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean isSupported() throws android.os.RemoteException { return false; }
-        public void modifyGeofenceOptions(int p0, int p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException {}
-        public void pauseMonitoringGeofence(int p0) throws android.os.RemoteException {}
-        public void removeGeofences(int[] p0) throws android.os.RemoteException {}
-        public void resumeMonitoringGeofence(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.location.IFusedGeofenceHardware {
         public static final java.lang.String DESCRIPTOR = "android.location.IFusedGeofenceHardware";
         static final int TRANSACTION_addGeofences = 2;
@@ -46,5 +35,16 @@ public interface IFusedGeofenceHardware extends android.os.IInterface {
             public void removeGeofences(int[] p0) throws android.os.RemoteException {}
             public void resumeMonitoringGeofence(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.location.IFusedGeofenceHardware {
+        public Default() {}
+        public void addGeofences(android.hardware.location.GeofenceHardwareRequestParcelable[] p0) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean isSupported() throws android.os.RemoteException { return false; }
+        public void modifyGeofenceOptions(int p0, int p1, int p2, int p3, int p4, int p5) throws android.os.RemoteException {}
+        public void pauseMonitoringGeofence(int p0) throws android.os.RemoteException {}
+        public void removeGeofences(int[] p0) throws android.os.RemoteException {}
+        public void resumeMonitoringGeofence(int p0, int p1) throws android.os.RemoteException {}
     }
 }

@@ -1,15 +1,14 @@
 package android.media.tv;
 
 public final class TvInputServiceExtensionManager {
-    private static final java.lang.String ANALOG_PACKAGE = "android.media.tv.extension.analog.";
     private static final java.lang.String CAM_PACKAGE = "android.media.tv.extension.cam.";
     private static final java.lang.String CLIENT_TOKEN_PACKAGE = "android.media.tv.extension.clienttoken.";
     private static final java.lang.String EVENT_PACKAGE = "android.media.tv.extension.event.";
-    public static final java.lang.String IANALOG_ATTRIBUTE_INTERFACE = "android.media.tv.extension.analog.IAnalogAttributeInterface";
     public static final java.lang.String IANALOG_AUDIO_INFO = "android.media.tv.extension.signal.IAnalogAudioInfo";
     public static final java.lang.String IAUDIO_SIGNAL_INFO = "android.media.tv.extension.signal.IAudioSignalInfo";
     public static final java.lang.String IAUDIO_SIGNAL_INFO_LISTENER = "android.media.tv.extension.signal.IAudioSignalInfoListener";
     public static final java.lang.String IBROADCAST_TIME = "android.media.tv.extension.time.IBroadcastTime";
+    public static final java.lang.String IBROADCAST_TIME_LISTENER = "android.media.tv.extension.time.IBroadcastTimeListener";
     public static final java.lang.String ICAM_APP_INFO_LISTENER = "android.media.tv.extension.cam.ICamAppInfoListener";
     public static final java.lang.String ICAM_APP_INFO_SERVICE = "android.media.tv.extension.cam.ICamAppInfoService";
     public static final java.lang.String ICAM_DRM_INFO_LISTENER = "android.media.tv.extension.cam.ICamDrmInfoListener";
@@ -24,9 +23,8 @@ public final class TvInputServiceExtensionManager {
     public static final java.lang.String ICAM_PIN_SERVICE = "android.media.tv.extension.cam.ICamPinService";
     public static final java.lang.String ICAM_PIN_STATUS_LISTENER = "android.media.tv.extension.cam.ICamPinStatusListener";
     public static final java.lang.String ICAM_PROFILE_INTERFACE = "android.media.tv.extension.cam.ICamProfileInterface";
+    public static final java.lang.String ICAM_PROFILE_LISTENER = "android.media.tv.extension.cam.ICamProfileListener";
     public static final java.lang.String ICHANNEL_LIST_TRANSFER = "android.media.tv.extension.servicedb.IChannelListTransfer";
-    public static final java.lang.String ICHANNEL_TUNED_INTERFACE = "android.media.tv.extension.tune.IChannelTunedInterface";
-    public static final java.lang.String ICHANNEL_TUNED_LISTENER = "android.media.tv.extension.tune.IChannelTunedListener";
     public static final java.lang.String ICI_OPERATOR_INTERFACE = "android.media.tv.extension.cam.ICiOperatorInterface";
     public static final java.lang.String ICI_OPERATOR_LISTENER = "android.media.tv.extension.cam.ICiOperatorListener";
     public static final java.lang.String ICLIENT_TOKEN = "android.media.tv.extension.clienttoken.IClientToken";
@@ -34,7 +32,6 @@ public final class TvInputServiceExtensionManager {
     public static final java.lang.String IDATA_SERVICE_SIGNAL_INFO = "android.media.tv.extension.teletext.IDataServiceSignalInfo";
     public static final java.lang.String IDATA_SERVICE_SIGNAL_INFO_LISTENER = "android.media.tv.extension.teletext.IDataServiceSignalInfoListener";
     public static final java.lang.String IDELETE_RECORDED_CONTENTS_CALLBACK = "android.media.tv.extension.pvr.IDeleteRecordedContentsCallback";
-    public static final java.lang.String IDOWNLOADABLE_RATING_TABLE_MONITOR = "android.media.tv.extension.rating.IDownloadableRatingTableMonitor";
     public static final java.lang.String IENTER_MENU_ERROR_CALLBACK = "android.media.tv.extension.cam.IEnterMenuErrorCallback";
     public static final java.lang.String IEVENT_DOWNLOAD = "android.media.tv.extension.event.IEventDownload";
     public static final java.lang.String IEVENT_DOWNLOAD_LISTENER = "android.media.tv.extension.event.IEventDownloadListener";
@@ -54,26 +51,25 @@ public final class TvInputServiceExtensionManager {
     public static final java.lang.String IMMI_INTERFACE = "android.media.tv.extension.cam.IMmiInterface";
     public static final java.lang.String IMMI_SESSION = "android.media.tv.extension.cam.IMmiSession";
     public static final java.lang.String IMMI_STATUS_CALLBACK = "android.media.tv.extension.cam.IMmiStatusCallback";
-    public static final java.lang.String IMUX_TUNE = "android.media.tv.extension.tune.IMuxTune";
-    public static final java.lang.String IMUX_TUNE_SESSION = "android.media.tv.extension.tune.IMuxTuneSession";
+    public static final java.lang.String IOAD_LISTENER = "android.media.tv.extension.oad.IOadListener";
     public static final java.lang.String IOAD_UPDATE_INTERFACE = "android.media.tv.extension.oad.IOadUpdateInterface";
     public static final java.lang.String IOPERATOR_DETECTION = "android.media.tv.extension.scan.IOperatorDetection";
     public static final java.lang.String IOPERATOR_DETECTION_LISTENER = "android.media.tv.extension.scan.IOperatorDetectionListener";
     public static final java.lang.String IPMT_RATING_INTERFACE = "android.media.tv.extension.rating.IPmtRatingInterface";
     public static final java.lang.String IPMT_RATING_LISTENER = "android.media.tv.extension.rating.IPmtRatingListener";
-    public static final java.lang.String IPROGRAM_INFO = "android.media.tv.extension.rating.IProgramInfo";
-    public static final java.lang.String IPROGRAM_INFO_LISTENER = "android.media.tv.extension.rating.IProgramInfoListener";
+    public static final java.lang.String IPROGRAM_RATING_INFO = "android.media.tv.extension.rating.IProgramRatingInfo";
+    public static final java.lang.String IPROGRAM_RATING_INFO_LISTENER = "android.media.tv.extension.rating.IProgramRatingInfoListener";
+    public static final java.lang.String IPVR_SESSION_MANAGER = "android.media.tv.extension.pvr.IPvrSessionManager";
     public static final java.lang.String IRATING_INTERFACE = "android.media.tv.extension.rating.IRatingInterface";
+    public static final java.lang.String IRATING_UPDATE_LISTENER = "android.media.tv.extension.rating.IRatingUpdateListener";
     public static final java.lang.String IRECORDED_CONTENTS = "android.media.tv.extension.pvr.IRecordedContents";
     public static final java.lang.String IREGION_CHANNEL_LIST = "android.media.tv.extension.scan.IRegionChannelList";
     public static final java.lang.String IREGION_CHANNEL_LIST_LISTENER = "android.media.tv.extension.scan.IRegionChannelListListener";
-    public static final java.lang.String ISCAN_BACKGROUND_SERVICE_UPDATE = "android.media.tv.extension.scanbsu.IScanBackgroundServiceUpdate";
-    public static final java.lang.String ISCAN_BACKGROUND_SERVICE_UPDATE_LISTENER = "android.media.tv.extension.scanbsu.IScanBackgroundServiceUpdateListener";
+    public static final java.lang.String ISCAN_GLOBAL_LISTENER = "android.media.tv.extension.scan.IScanGlobalListener";
     public static final java.lang.String ISCAN_INTERFACE = "android.media.tv.extension.scan.IScanInterface";
     public static final java.lang.String ISCAN_LISTENER = "android.media.tv.extension.scan.IScanListener";
     public static final java.lang.String ISCAN_SAT_SEARCH = "android.media.tv.extension.scan.IScanSatSearch";
     public static final java.lang.String ISCAN_SESSION = "android.media.tv.extension.scan.IScanSession";
-    public static final java.lang.String ISCREEN_MODE_SETTINGS = "android.media.tv.extension.screenmode.IScreenModeSettings";
     public static final java.lang.String ISERVICE_LIST = "android.media.tv.extension.servicedb.IServiceList";
     public static final java.lang.String ISERVICE_LIST_EDIT = "android.media.tv.extension.servicedb.IServiceListEdit";
     public static final java.lang.String ISERVICE_LIST_EDIT_LISTENER = "android.media.tv.extension.servicedb.IServiceListEditListener";
@@ -98,15 +94,12 @@ public final class TvInputServiceExtensionManager {
     private static final java.lang.String OAD_PACKAGE = "android.media.tv.extension.oad.";
     private static final java.lang.String PVR_PACKAGE = "android.media.tv.extension.pvr.";
     private static final java.lang.String RATING_PACKAGE = "android.media.tv.extension.rating.";
-    private static final java.lang.String SCAN_BSU_PACKAGE = "android.media.tv.extension.scanbsu.";
     private static final java.lang.String SCAN_PACKAGE = "android.media.tv.extension.scan.";
-    private static final java.lang.String SCREEN_MODE_PACKAGE = "android.media.tv.extension.screenmode.";
     private static final java.lang.String SERVICE_DATABASE_PACKAGE = "android.media.tv.extension.servicedb.";
     private static final java.lang.String SIGNAL_PACKAGE = "android.media.tv.extension.signal.";
     private static final java.lang.String TAG = "TvInputServiceExtensionManager";
     private static final java.lang.String TELETEXT_PACKAGE = "android.media.tv.extension.teletext.";
     private static final java.lang.String TIME_PACKAGE = "android.media.tv.extension.time.";
-    private static final java.lang.String TUNE_PACKAGE = "android.media.tv.extension.tune.";
     private static final java.util.Set<java.lang.String> sTisExtensions = null;
     public TvInputServiceExtensionManager() {}
     public static boolean checkIsStandardizedIBinder(java.lang.String p0, android.os.IBinder p1) { return false; }

@@ -9,16 +9,17 @@ public final class MediaSessionManager {
     private android.content.Context mContext;
     private android.media.session.MediaSession.Token mCurMediaKeyEventSession;
     private java.lang.String mCurMediaKeyEventSessionPackage;
+    private boolean mInitialMediaKeyEventSessionReceived;
     private final android.util.ArrayMap<android.media.session.MediaSessionManager.OnActiveSessionsChangedListener, android.media.session.MediaSessionManager.SessionsChangedWrapper> mListeners = null;
     private final java.lang.Object mLock = null;
-    private final java.util.Map<android.media.session.MediaSessionManager.OnMediaKeyEventSessionChangedListener, java.util.concurrent.Executor> mMediaKeyEventSessionChangedCallbacks = null;
+    private final java.util.concurrent.CopyOnWriteArrayList<android.util.Pair<android.media.session.MediaSessionManager.OnMediaKeyEventSessionChangedListener, java.util.concurrent.Executor>> mMediaKeyEventSessionChangedCallbacks = null;
     private final android.media.session.MediaSessionManager.OnMediaKeyEventDispatchedListenerStub mOnMediaKeyEventDispatchedListenerStub = null;
-    private final java.util.Map<android.media.session.MediaSessionManager.OnMediaKeyEventDispatchedListener, java.util.concurrent.Executor> mOnMediaKeyEventDispatchedListeners = null;
+    private final java.util.concurrent.CopyOnWriteArrayList<android.util.Pair<android.media.session.MediaSessionManager.OnMediaKeyEventDispatchedListener, java.util.concurrent.Executor>> mOnMediaKeyEventDispatchedListeners = null;
     private final android.media.session.MediaSessionManager.OnMediaKeyEventSessionChangedListenerStub mOnMediaKeyEventSessionChangedListenerStub = null;
     private android.media.session.MediaSessionManager.OnMediaKeyListenerImpl mOnMediaKeyListener;
     private android.media.session.MediaSessionManager.OnVolumeKeyLongPressListenerImpl mOnVolumeKeyLongPressListener;
     private final android.media.session.MediaSessionManager.RemoteSessionCallbackStub mRemoteSessionCallbackStub = null;
-    private final java.util.Map<android.media.session.MediaSessionManager.RemoteSessionCallback, java.util.concurrent.Executor> mRemoteSessionCallbacks = null;
+    private final java.util.concurrent.CopyOnWriteArrayList<android.util.Pair<android.media.session.MediaSessionManager.RemoteSessionCallback, java.util.concurrent.Executor>> mRemoteSessionCallbacks = null;
     private final android.media.session.ISessionManager mService = null;
     private final android.util.ArrayMap<android.media.session.MediaSessionManager.OnSession2TokensChangedListener, android.media.session.MediaSessionManager.Session2TokensChangedWrapper> mSession2TokensListeners = null;
     public MediaSessionManager(android.content.Context p0) {}
@@ -92,56 +93,12 @@ public final class MediaSessionManager {
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
     public void unregisterRemoteSessionCallback(android.media.session.MediaSessionManager.RemoteSessionCallback p0) {}
 
-    public static interface OnActiveSessionsChangedListener {
-        public void onActiveSessionsChanged(java.util.List<android.media.session.MediaController> p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnMediaKeyEventDispatchedListener {
-        public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2);
-    }
-
-    private final class OnMediaKeyEventDispatchedListenerStub extends android.media.session.IOnMediaKeyEventDispatchedListener.Stub {
-        private OnMediaKeyEventDispatchedListenerStub(android.media.session.MediaSessionManager p0) { super(); }
-        public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2) {}
-    }
-
     public static interface OnMediaKeyEventSessionChangedListener {
         public void onMediaKeyEventSessionChanged(java.lang.String p0, android.media.session.MediaSession.Token p1);
     }
 
-    private final class OnMediaKeyEventSessionChangedListenerStub extends android.media.session.IOnMediaKeyEventSessionChangedListener.Stub {
-        private OnMediaKeyEventSessionChangedListenerStub(android.media.session.MediaSessionManager p0) { super(); }
-        public void onMediaKeyEventSessionChanged(java.lang.String p0, android.media.session.MediaSession.Token p1) {}
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnMediaKeyListener {
-        public boolean onMediaKey(android.view.KeyEvent p0);
-    }
-
-    private static final class OnMediaKeyListenerImpl extends android.media.session.IOnMediaKeyListener.Stub {
-        private android.os.Handler mHandler;
-        private android.media.session.MediaSessionManager.OnMediaKeyListener mListener;
-        public OnMediaKeyListenerImpl(android.media.session.MediaSessionManager.OnMediaKeyListener p0, android.os.Handler p1) { super(); }
-        public void onMediaKey(android.view.KeyEvent p0, android.os.ResultReceiver p1) {}
-    }
-
-    @java.lang.Deprecated
-    public static interface OnSession2TokensChangedListener {
-        public void onSession2TokensChanged(java.util.List<android.media.Session2Token> p0);
-    }
-
-    @android.annotation.SystemApi
-    public static interface OnVolumeKeyLongPressListener {
-        public void onVolumeKeyLongPress(android.view.KeyEvent p0);
-    }
-
-    private static final class OnVolumeKeyLongPressListenerImpl extends android.media.session.IOnVolumeKeyLongPressListener.Stub {
-        private android.os.Handler mHandler;
-        private android.media.session.MediaSessionManager.OnVolumeKeyLongPressListener mListener;
-        public OnVolumeKeyLongPressListenerImpl(android.media.session.MediaSessionManager.OnVolumeKeyLongPressListener p0, android.os.Handler p1) { super(); }
-        public void onVolumeKeyLongPress(android.view.KeyEvent p0) {}
+    public static interface OnActiveSessionsChangedListener {
+        public void onActiveSessionsChanged(java.util.List<android.media.session.MediaController> p0);
     }
 
     @android.annotation.SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES)
@@ -150,10 +107,12 @@ public final class MediaSessionManager {
         public void onVolumeChanged(android.media.session.MediaSession.Token p0, int p1);
     }
 
-    private final class RemoteSessionCallbackStub extends android.media.IRemoteSessionCallback.Stub {
-        private RemoteSessionCallbackStub(android.media.session.MediaSessionManager p0) { super(); }
-        public void onSessionChanged(android.media.session.MediaSession.Token p0) {}
-        public void onVolumeChanged(android.media.session.MediaSession.Token p0, int p1) {}
+    private static final class Session2TokensChangedWrapper {
+        private final java.util.concurrent.Executor mExecutor = null;
+        private final android.media.session.MediaSessionManager.OnSession2TokensChangedListener mListener = null;
+        private final android.media.session.ISession2TokensListener.Stub mStub = null;
+        Session2TokensChangedWrapper(android.media.session.MediaSessionManager.OnSession2TokensChangedListener p0, java.util.concurrent.Executor p1) {}
+        public android.media.session.ISession2TokensListener.Stub getStub() { return null; }
     }
 
     public static final class RemoteUserInfo {
@@ -168,12 +127,20 @@ public final class MediaSessionManager {
         public int hashCode() { return 0; }
     }
 
-    private static final class Session2TokensChangedWrapper {
-        private final java.util.concurrent.Executor mExecutor = null;
-        private final android.media.session.MediaSessionManager.OnSession2TokensChangedListener mListener = null;
-        private final android.media.session.ISession2TokensListener.Stub mStub = null;
-        Session2TokensChangedWrapper(android.media.session.MediaSessionManager.OnSession2TokensChangedListener p0, java.util.concurrent.Executor p1) {}
-        public android.media.session.ISession2TokensListener.Stub getStub() { return null; }
+    @android.annotation.SystemApi
+    public static interface OnMediaKeyListener {
+        public boolean onMediaKey(android.view.KeyEvent p0);
+    }
+
+    private final class RemoteSessionCallbackStub extends android.media.IRemoteSessionCallback.Stub {
+        private RemoteSessionCallbackStub(android.media.session.MediaSessionManager p0) { super(); }
+        public void onSessionChanged(android.media.session.MediaSession.Token p0) {}
+        public void onVolumeChanged(android.media.session.MediaSession.Token p0, int p1) {}
+    }
+
+    private final class OnMediaKeyEventSessionChangedListenerStub extends android.media.session.IOnMediaKeyEventSessionChangedListener.Stub {
+        private OnMediaKeyEventSessionChangedListenerStub(android.media.session.MediaSessionManager p0) { super(); }
+        public void onMediaKeyEventSessionChanged(java.lang.String p0, android.media.session.MediaSession.Token p1) {}
     }
 
     private static final class SessionsChangedWrapper {
@@ -184,5 +151,39 @@ public final class MediaSessionManager {
         public SessionsChangedWrapper(android.content.Context p0, android.media.session.MediaSessionManager.OnActiveSessionsChangedListener p1, java.util.concurrent.Executor p2) {}
         private void callOnActiveSessionsChangedListener(java.util.List<android.media.session.MediaSession.Token> p0) {}
         private void release() {}
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnMediaKeyEventDispatchedListener {
+        public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2);
+    }
+
+    private static final class OnMediaKeyListenerImpl extends android.media.session.IOnMediaKeyListener.Stub {
+        private final android.os.Handler mHandler = null;
+        private final android.media.session.MediaSessionManager.OnMediaKeyListener mListener = null;
+        public OnMediaKeyListenerImpl(android.media.session.MediaSessionManager.OnMediaKeyListener p0, android.os.Handler p1) { super(); }
+        public void onMediaKey(android.view.KeyEvent p0, android.os.ResultReceiver p1) {}
+    }
+
+    private static final class OnVolumeKeyLongPressListenerImpl extends android.media.session.IOnVolumeKeyLongPressListener.Stub {
+        private android.os.Handler mHandler;
+        private android.media.session.MediaSessionManager.OnVolumeKeyLongPressListener mListener;
+        public OnVolumeKeyLongPressListenerImpl(android.media.session.MediaSessionManager.OnVolumeKeyLongPressListener p0, android.os.Handler p1) { super(); }
+        public void onVolumeKeyLongPress(android.view.KeyEvent p0) {}
+    }
+
+    @java.lang.Deprecated
+    public static interface OnSession2TokensChangedListener {
+        public void onSession2TokensChanged(java.util.List<android.media.Session2Token> p0);
+    }
+
+    private final class OnMediaKeyEventDispatchedListenerStub extends android.media.session.IOnMediaKeyEventDispatchedListener.Stub {
+        private OnMediaKeyEventDispatchedListenerStub(android.media.session.MediaSessionManager p0) { super(); }
+        public void onMediaKeyEventDispatched(android.view.KeyEvent p0, java.lang.String p1, android.media.session.MediaSession.Token p2) {}
+    }
+
+    @android.annotation.SystemApi
+    public static interface OnVolumeKeyLongPressListener {
+        public void onVolumeKeyLongPress(android.view.KeyEvent p0);
     }
 }

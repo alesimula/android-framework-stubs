@@ -6,59 +6,9 @@ public final class SurfaceflingerCommon {
     public static final int UNSET = 0;
     public SurfaceflingerCommon() {}
 
-    public final class BlurRegion {
-        public static final long ALPHA = 1108101562374L;
-        public static final long BLUR_RADIUS = 1155346202625L;
-        public static final long BOTTOM = 1120986464266L;
-        public static final long CORNER_RADIUS_BL = 1155346202628L;
-        public static final long CORNER_RADIUS_BLX = 1108101562383L;
-        public static final long CORNER_RADIUS_BLY = 1108101562384L;
-        public static final long CORNER_RADIUS_BR = 1108101562373L;
-        public static final long CORNER_RADIUS_BRX = 1108101562385L;
-        public static final long CORNER_RADIUS_BRY = 1108101562386L;
-        public static final long CORNER_RADIUS_TL = 1155346202626L;
-        public static final long CORNER_RADIUS_TLX = 1108101562379L;
-        public static final long CORNER_RADIUS_TLY = 1108101562380L;
-        public static final long CORNER_RADIUS_TR = 1155346202627L;
-        public static final long CORNER_RADIUS_TRX = 1108101562381L;
-        public static final long CORNER_RADIUS_TRY = 1108101562382L;
-        public static final long LEFT = 1120986464263L;
-        public static final long RIGHT = 1120986464265L;
-        public static final long TOP = 1120986464264L;
-        public BlurRegion(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
-    }
-
-    public final class BorderSettings {
-        public static final long COLOR = 1120986464258L;
-        public static final long STROKE_WIDTH = 1108101562369L;
-        public BorderSettings(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
-    }
-
-    public final class BoxShadowSettings {
-        public static final long BOX_SHADOWS = 2246267895809L;
-        public BoxShadowSettings(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
-
-        public final class BoxShadowParams {
-            public static final long BLUR_RADIUS = 1108101562369L;
-            public static final long COLOR = 1120986464259L;
-            public static final long OFFSET_X = 1108101562372L;
-            public static final long OFFSET_Y = 1108101562373L;
-            public static final long SPREAD_RADIUS = 1108101562370L;
-            public BoxShadowParams(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon.BoxShadowSettings p0) {}
-        }
-    }
-
-    public final class ColorProto {
-        public static final long A = 1108101562372L;
-        public static final long B = 1108101562371L;
-        public static final long G = 1108101562370L;
-        public static final long R = 1108101562369L;
-        public ColorProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
-    }
-
-    public final class ColorTransformProto {
-        public static final long VAL = 5506148073473L;
-        public ColorTransformProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+    public final class RegionProto {
+        public static final long RECT = 2246267895810L;
+        public RegionProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
     }
 
     public final class InputWindowInfoProto {
@@ -82,17 +32,6 @@ public final class SurfaceflingerCommon {
         public InputWindowInfoProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
     }
 
-    public final class RegionProto {
-        public static final long RECT = 2246267895810L;
-        public RegionProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
-    }
-
-    public final class SizeProto {
-        public static final long H = 1120986464258L;
-        public static final long W = 1120986464257L;
-        public SizeProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
-    }
-
     public final class TransformProto {
         public static final long DSDX = 1108101562369L;
         public static final long DSDY = 1108101562371L;
@@ -100,5 +39,66 @@ public final class SurfaceflingerCommon {
         public static final long DTDY = 1108101562372L;
         public static final long TYPE = 1120986464261L;
         public TransformProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+    }
+
+    public final class ColorTransformProto {
+        public static final long VAL = 5506148073473L;
+        public ColorTransformProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+    }
+
+    public final class BlurRegion {
+        public static final long ALPHA = 1108101562374L;
+        public static final long BLUR_RADIUS = 1155346202625L;
+        public static final long BOTTOM = 1120986464266L;
+        public static final long CORNER_RADIUS_BL = 1155346202628L;
+        public static final long CORNER_RADIUS_BLX = 1108101562383L;
+        public static final long CORNER_RADIUS_BLY = 1108101562384L;
+        public static final long CORNER_RADIUS_BR = 1108101562373L;
+        public static final long CORNER_RADIUS_BRX = 1108101562385L;
+        public static final long CORNER_RADIUS_BRY = 1108101562386L;
+        public static final long CORNER_RADIUS_TL = 1155346202626L;
+        public static final long CORNER_RADIUS_TLX = 1108101562379L;
+        public static final long CORNER_RADIUS_TLY = 1108101562380L;
+        public static final long CORNER_RADIUS_TR = 1155346202627L;
+        public static final long CORNER_RADIUS_TRX = 1108101562381L;
+        public static final long CORNER_RADIUS_TRY = 1108101562382L;
+        public static final long LEFT = 1120986464263L;
+        public static final long RIGHT = 1120986464265L;
+        public static final long TOP = 1120986464264L;
+        public BlurRegion(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+    }
+
+    public final class ColorProto {
+        public static final long A = 1108101562372L;
+        public static final long B = 1108101562371L;
+        public static final long G = 1108101562370L;
+        public static final long R = 1108101562369L;
+        public ColorProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+    }
+
+    public final class BoxShadowSettings {
+        public static final long BOX_SHADOWS = 2246267895809L;
+        public BoxShadowSettings(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+
+        public final class BoxShadowParams {
+            public static final long BLUR_RADIUS = 1108101562369L;
+            public static final long COLOR = 1120986464259L;
+            public static final long OFFSET_X = 1108101562372L;
+            public static final long OFFSET_Y = 1108101562373L;
+            public static final long SPREAD_RADIUS = 1108101562370L;
+            public BoxShadowParams(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon.BoxShadowSettings p0) {}
+        }
+    }
+
+    public final class BorderSettings {
+        public static final long COLOR = 1120986464258L;
+        public static final long STROKE_WIDTH = 1108101562369L;
+        public BorderSettings(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
+    }
+
+    public final class SizeProto {
+        public static final long H = 1120986464258L;
+        public static final long W = 1120986464257L;
+        public SizeProto(com.android.internal.tracing.winscope.protos.SurfaceflingerCommon p0) {}
     }
 }

@@ -20,29 +20,6 @@ public interface IUceService extends android.os.IInterface {
     public boolean startService(com.android.ims.internal.uce.uceservice.IUceListener p0) throws android.os.RemoteException;
     public boolean stopService() throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.uce.uceservice.IUceService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        @java.lang.Deprecated
-        public int createOptionsService(com.android.ims.internal.uce.options.IOptionsListener p0, com.android.ims.internal.uce.common.UceLong p1) throws android.os.RemoteException { return 0; }
-        public int createOptionsServiceForSubscription(com.android.ims.internal.uce.options.IOptionsListener p0, com.android.ims.internal.uce.common.UceLong p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
-        @java.lang.Deprecated
-        public int createPresenceService(com.android.ims.internal.uce.presence.IPresenceListener p0, com.android.ims.internal.uce.common.UceLong p1) throws android.os.RemoteException { return 0; }
-        public int createPresenceServiceForSubscription(com.android.ims.internal.uce.presence.IPresenceListener p0, com.android.ims.internal.uce.common.UceLong p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
-        public void destroyOptionsService(int p0) throws android.os.RemoteException {}
-        public void destroyPresenceService(int p0) throws android.os.RemoteException {}
-        @java.lang.Deprecated
-        public com.android.ims.internal.uce.options.IOptionsService getOptionsService() throws android.os.RemoteException { return null; }
-        public com.android.ims.internal.uce.options.IOptionsService getOptionsServiceForSubscription(java.lang.String p0) throws android.os.RemoteException { return null; }
-        @java.lang.Deprecated
-        public com.android.ims.internal.uce.presence.IPresenceService getPresenceService() throws android.os.RemoteException { return null; }
-        public com.android.ims.internal.uce.presence.IPresenceService getPresenceServiceForSubscription(java.lang.String p0) throws android.os.RemoteException { return null; }
-        public boolean getServiceStatus() throws android.os.RemoteException { return false; }
-        public boolean isServiceStarted() throws android.os.RemoteException { return false; }
-        public boolean startService(com.android.ims.internal.uce.uceservice.IUceListener p0) throws android.os.RemoteException { return false; }
-        public boolean stopService() throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.uce.uceservice.IUceService {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.uce.uceservice.IUceService";
         static final int TRANSACTION_createOptionsService = 4;
@@ -90,5 +67,28 @@ public interface IUceService extends android.os.IInterface {
             public boolean startService(com.android.ims.internal.uce.uceservice.IUceListener p0) throws android.os.RemoteException { return false; }
             public boolean stopService() throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements com.android.ims.internal.uce.uceservice.IUceService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        @java.lang.Deprecated
+        public int createOptionsService(com.android.ims.internal.uce.options.IOptionsListener p0, com.android.ims.internal.uce.common.UceLong p1) throws android.os.RemoteException { return 0; }
+        public int createOptionsServiceForSubscription(com.android.ims.internal.uce.options.IOptionsListener p0, com.android.ims.internal.uce.common.UceLong p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
+        @java.lang.Deprecated
+        public int createPresenceService(com.android.ims.internal.uce.presence.IPresenceListener p0, com.android.ims.internal.uce.common.UceLong p1) throws android.os.RemoteException { return 0; }
+        public int createPresenceServiceForSubscription(com.android.ims.internal.uce.presence.IPresenceListener p0, com.android.ims.internal.uce.common.UceLong p1, java.lang.String p2) throws android.os.RemoteException { return 0; }
+        public void destroyOptionsService(int p0) throws android.os.RemoteException {}
+        public void destroyPresenceService(int p0) throws android.os.RemoteException {}
+        @java.lang.Deprecated
+        public com.android.ims.internal.uce.options.IOptionsService getOptionsService() throws android.os.RemoteException { return null; }
+        public com.android.ims.internal.uce.options.IOptionsService getOptionsServiceForSubscription(java.lang.String p0) throws android.os.RemoteException { return null; }
+        @java.lang.Deprecated
+        public com.android.ims.internal.uce.presence.IPresenceService getPresenceService() throws android.os.RemoteException { return null; }
+        public com.android.ims.internal.uce.presence.IPresenceService getPresenceServiceForSubscription(java.lang.String p0) throws android.os.RemoteException { return null; }
+        public boolean getServiceStatus() throws android.os.RemoteException { return false; }
+        public boolean isServiceStarted() throws android.os.RemoteException { return false; }
+        public boolean startService(com.android.ims.internal.uce.uceservice.IUceListener p0) throws android.os.RemoteException { return false; }
+        public boolean stopService() throws android.os.RemoteException { return false; }
     }
 }

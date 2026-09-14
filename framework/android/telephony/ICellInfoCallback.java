@@ -5,13 +5,6 @@ public interface ICellInfoCallback extends android.os.IInterface {
     public void onCellInfo(java.util.List<android.telephony.CellInfo> p0) throws android.os.RemoteException;
     public void onError(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ICellInfoCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCellInfo(java.util.List<android.telephony.CellInfo> p0) throws android.os.RemoteException {}
-        public void onError(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ICellInfoCallback {
         static final int TRANSACTION_onCellInfo = 1;
         static final int TRANSACTION_onError = 2;
@@ -30,5 +23,12 @@ public interface ICellInfoCallback extends android.os.IInterface {
             public void onCellInfo(java.util.List<android.telephony.CellInfo> p0) throws android.os.RemoteException {}
             public void onError(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ICellInfoCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCellInfo(java.util.List<android.telephony.CellInfo> p0) throws android.os.RemoteException {}
+        public void onError(int p0, java.lang.String p1, java.lang.String p2) throws android.os.RemoteException {}
     }
 }

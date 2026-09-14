@@ -2,6 +2,9 @@ package com.android.internal.util;
 
 public class LatencyTracker {
     private static final int[] ACTIONS_ALL = null;
+    public static final int ACTION_A11Y_SERVICE_STARTUP_CLIENT_INIT = 38;
+    public static final int ACTION_A11Y_SERVICE_STARTUP_CLIENT_UI = 39;
+    public static final int ACTION_A11Y_SERVICE_STARTUP_FRAMEWORK = 37;
     public static final int ACTION_BACK_SYSTEM_ANIMATION = 25;
     public static final int ACTION_CHECK_CREDENTIAL = 3;
     public static final int ACTION_CHECK_CREDENTIAL_UNLOCKED = 4;
@@ -39,7 +42,7 @@ public class LatencyTracker {
     public static final int ACTION_UDFPS_ILLUMINATE = 14;
     public static final int ACTION_UDFPS_OVERLAY_ATTACHED_AFTER_GOING_TO_SLEEP = 35;
     public static final int ACTION_USER_SWITCH = 12;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = Boolean.valueOf(false);
     private static final boolean DEFAULT_ENABLED = Boolean.valueOf(false);
     private static final int DEFAULT_SAMPLING_INTERVAL = 5;
     public static final java.lang.String SETTINGS_ENABLED_KEY = "enabled";
@@ -60,6 +63,7 @@ public class LatencyTracker {
     public static boolean isEnabled(android.content.Context p0) { return false; }
     public static boolean isEnabled(android.content.Context p0, int p1) { return false; }
     private void updateProperties(android.provider.DeviceConfig.Properties p0) {}
+    private void updatePropertiesAndRegisterListener(java.util.concurrent.Executor p0) {}
     public long getActiveActionStartTime(int p0) { return 0L; }
     @java.lang.Deprecated
     public boolean isEnabled() { return false; }
@@ -74,11 +78,8 @@ public class LatencyTracker {
     public void onTriggerPerfetto(java.lang.String p0) {}
     public void setDebugOverlay(com.android.internal.jank.InteractionMonitorDebugOverlay p0) {}
     public void startListeningForLatencyTrackerConfigChanges(java.util.concurrent.Executor p0) {}
+    public void startListeningForLatencyTrackerConfigChanges$ravenwood(java.util.concurrent.Executor p0) {}
     public void stopListeningForLatencyTrackerConfigChanges() {}
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Action {
-    }
 
     public static class ActionProperties {
         static final java.lang.String ENABLE_SUFFIX = "_enable";
@@ -96,15 +97,6 @@ public class LatencyTracker {
         public int getTraceThreshold() { return 0; }
         public int hashCode() { return 0; }
         public boolean isEnabled() { return false; }
-        public java.lang.String toString() { return null; }
-    }
-
-    public static class FrameworkStatsLogEvent {
-        public final int action = 0;
-        public final int durationMillis = 0;
-        public final int logCode = 0;
-        public final int statsdAction = 0;
-        private FrameworkStatsLogEvent(int p0, int p1, int p2, int p3) {}
         public java.lang.String toString() { return null; }
     }
 
@@ -127,5 +119,18 @@ public class LatencyTracker {
     private static final class SLatencyTrackerHolder {
         private static final com.android.internal.util.LatencyTracker sLatencyTracker = null;
         private SLatencyTrackerHolder() {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Action {
+    }
+
+    public static class FrameworkStatsLogEvent {
+        public final int action = 0;
+        public final int durationMillis = 0;
+        public final int logCode = 0;
+        public final int statsdAction = 0;
+        private FrameworkStatsLogEvent(int p0, int p1, int p2, int p3) {}
+        public java.lang.String toString() { return null; }
     }
 }

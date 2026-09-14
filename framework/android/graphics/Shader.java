@@ -21,10 +21,6 @@ public class Shader {
     public void setLocalMatrix(android.graphics.Matrix p0) {}
     protected boolean shouldDiscardNativeInstance(boolean p0) { return false; }
 
-    private static class NoImagePreloadHolder {
-        private NoImagePreloadHolder() {}
-    }
-
     public static enum TileMode {
         CLAMP,
         DECAL,
@@ -33,5 +29,9 @@ public class Shader {
         private static final android.graphics.Shader.TileMode[] $VALUES = null;
         final int nativeInt = 0;
         private TileMode() {}
+    }
+
+    private static class NoImagePreloadHolder {
+        private NoImagePreloadHolder() {}
     }
 }

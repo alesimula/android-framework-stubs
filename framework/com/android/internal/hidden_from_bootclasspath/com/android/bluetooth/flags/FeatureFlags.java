@@ -5,18 +5,19 @@ public interface FeatureFlags {
     public boolean a2dpCreateCodecTypeFromIdApi();
     public boolean a2dpDisconnectReasonApi();
     public boolean a2dpLdacApi();
+    public boolean addCarkitRdiMetadataApi();
     public boolean addForceDisconnectApi();
     public boolean addHearingAidClassOfDevice();
     public boolean addNewLocalDisconnectReason();
     public boolean apairing26q2PermissionImprovements();
-    public boolean autonomousRepairingInitiation();
     public boolean bluetoothQualityReportV8();
+    public boolean channelSoundingApiEnhancements();
     public boolean deprecateConnectAudio();
-    public boolean enableGetBondStatus();
+    public boolean encryptionUsingTransientApplicationKey();
     public boolean enforceBluetoothPrivilegedForHeadset();
     public boolean enforceNonNullWorksource();
-    public boolean explicitUuidTransportApi();
     public boolean gattConnSettings();
+    public boolean gattConnectionUpdate();
     public boolean gattOffloadApi();
     public boolean hfpGetCodecApi();
     public boolean includePowerAndRssiInDistanceMeasurementResult();
@@ -25,10 +26,11 @@ public interface FeatureFlags {
     public boolean leaudioCodecIdSupport();
     public boolean leaudioOverHdtPhyApi();
     public boolean leaudioPeripheralFeature();
-    public boolean maxAdvertisingPower();
     public boolean oppDevicePickerExtraIntentApis();
+    public boolean poweredOffFindingCallbacks();
+    public boolean preloadGattDatabase();
     public boolean providePairingAlgo();
     public boolean removeScanFilterBuilderException();
-    public boolean reportVendorEventsFromAcl();
+    public boolean reportLeAppearanceToApps();
     public boolean rssiThresholdForLeConn();
 }

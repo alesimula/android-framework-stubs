@@ -42,6 +42,26 @@ public final class OperatorAppServiceInfo implements android.os.Parcelable {
     public android.media.tv.interactive.TvInteractiveAppServiceInfo getBaseInfo() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OperatorAppUninstallMethod {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OperatorAppState {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OperatorAppSearchMethod {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OperatorAppStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface OperatorAppPackageStatus {
+    }
+
     public static final class Builder {
         private android.os.Bundle mExtra;
         private final java.util.List<java.lang.String> mExtraTypes = null;
@@ -61,25 +81,5 @@ public final class OperatorAppServiceInfo implements android.os.Parcelable {
         public android.media.tv.interactive.OperatorAppServiceInfo.Builder setService(android.content.pm.ResolveInfo p0) { return null; }
         public android.media.tv.interactive.OperatorAppServiceInfo.Builder setSubtype(int p0) { return null; }
         public android.media.tv.interactive.OperatorAppServiceInfo.Builder setSupportedTypes(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OperatorAppPackageStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OperatorAppSearchMethod {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OperatorAppState {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OperatorAppStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface OperatorAppUninstallMethod {
     }
 }

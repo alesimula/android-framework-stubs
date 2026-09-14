@@ -32,16 +32,6 @@ public class ChangeTransform extends android.transition.Transition {
     public void setReparent(boolean p0) {}
     public void setReparentWithOverlay(boolean p0) {}
 
-    private static class GhostListener extends android.transition.TransitionListenerAdapter {
-        private android.view.GhostView mGhostView;
-        private android.view.View mStartView;
-        private android.view.View mView;
-        public GhostListener(android.view.View p0, android.view.View p1, android.view.GhostView p2) { super(); }
-        public void onTransitionEnd(android.transition.Transition p0) {}
-        public void onTransitionPause(android.transition.Transition p0) {}
-        public void onTransitionResume(android.transition.Transition p0) {}
-    }
-
     private static class PathAnimatorMatrix {
         private final android.graphics.Matrix mMatrix = null;
         private float mTranslationX;
@@ -53,6 +43,16 @@ public class ChangeTransform extends android.transition.Transition {
         public android.graphics.Matrix getMatrix() { return null; }
         public void setTranslation(android.graphics.PointF p0) {}
         public void setValues(float[] p0) {}
+    }
+
+    private static class GhostListener extends android.transition.TransitionListenerAdapter {
+        private android.view.GhostView mGhostView;
+        private android.view.View mStartView;
+        private android.view.View mView;
+        public GhostListener(android.view.View p0, android.view.View p1, android.view.GhostView p2) { super(); }
+        public void onTransitionEnd(android.transition.Transition p0) {}
+        public void onTransitionPause(android.transition.Transition p0) {}
+        public void onTransitionResume(android.transition.Transition p0) {}
     }
 
     private static class Transforms {

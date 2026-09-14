@@ -21,7 +21,6 @@ public class ImsMmTelManager implements android.telephony.ims.RegistrationManage
     public static java.lang.String wifiCallingModeToString(int p0) { return null; }
     @android.annotation.SystemApi
     public void getFeatureState(java.util.concurrent.Executor p0, java.util.function.Consumer<java.lang.Integer> p1) throws android.telephony.ims.ImsException {}
-    @android.annotation.SystemApi
     public void getRegistrationState(java.util.concurrent.Executor p0, java.util.function.Consumer<java.lang.Integer> p1) {}
     public void getRegistrationTransportType(java.util.concurrent.Executor p0, java.util.function.Consumer<java.lang.Integer> p1) {}
     public int getVoWiFiModeSetting() { return 0; }
@@ -74,6 +73,10 @@ public class ImsMmTelManager implements android.telephony.ims.RegistrationManage
     public void unregisterImsStateCallback(android.telephony.ims.ImsStateCallback p0) {}
     public void unregisterMmTelCapabilityCallback(android.telephony.ims.ImsMmTelManager.CapabilityCallback p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface WiFiCallingMode {
+    }
+
     public static class CapabilityCallback {
         private final android.telephony.ims.ImsMmTelManager.CapabilityCallback.CapabilityBinder mBinder = null;
         public CapabilityCallback() {}
@@ -100,9 +103,5 @@ public class ImsMmTelManager implements android.telephony.ims.RegistrationManage
         public void onRegistering(int p0) {}
         public void onTechnologyChangeFailed(int p0, android.telephony.ims.ImsReasonInfo p1) {}
         public void onUnregistered(android.telephony.ims.ImsReasonInfo p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface WiFiCallingMode {
     }
 }

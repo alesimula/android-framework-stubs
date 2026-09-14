@@ -22,13 +22,6 @@ final class TextClassificationSession implements android.view.textclassifier.Tex
     public android.view.textclassifier.ConversationActions suggestConversationActions(android.view.textclassifier.ConversationActions.Request p0) { return null; }
     public android.view.textclassifier.TextSelection suggestSelection(android.view.textclassifier.TextSelection.Request p0) { return null; }
 
-    private static class CleanerRunnable implements java.lang.Runnable {
-        private final android.view.textclassifier.TextClassifier mDelegate = null;
-        private final android.view.textclassifier.TextClassificationSession.SelectionEventHelper mEventHelper = null;
-        CleanerRunnable(android.view.textclassifier.TextClassificationSession.SelectionEventHelper p0, android.view.textclassifier.TextClassifier p1) {}
-        public void run() {}
-    }
-
     private static final class SelectionEventHelper {
         private final android.view.textclassifier.TextClassificationContext mContext = null;
         private int mInvocationMethod;
@@ -41,5 +34,12 @@ final class TextClassificationSession implements android.view.textclassifier.Tex
         private void updateInvocationMethod(android.view.textclassifier.SelectionEvent p0) {}
         void endSession() {}
         boolean sanitizeEvent(android.view.textclassifier.SelectionEvent p0) { return false; }
+    }
+
+    private static class CleanerRunnable implements java.lang.Runnable {
+        private final android.view.textclassifier.TextClassifier mDelegate = null;
+        private final android.view.textclassifier.TextClassificationSession.SelectionEventHelper mEventHelper = null;
+        CleanerRunnable(android.view.textclassifier.TextClassificationSession.SelectionEventHelper p0, android.view.textclassifier.TextClassifier p1) {}
+        public void run() {}
     }
 }

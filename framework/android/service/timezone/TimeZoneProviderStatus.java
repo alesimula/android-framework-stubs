@@ -35,6 +35,16 @@ public final class TimeZoneProviderStatus implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+    public static @interface DependencyStatus {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
+    public static @interface OperationStatus {
+    }
+
     public static final class Builder {
         private int mConnectivityDependencyStatus;
         private int mLocationDetectionDependencyStatus;
@@ -45,15 +55,5 @@ public final class TimeZoneProviderStatus implements android.os.Parcelable {
         public android.service.timezone.TimeZoneProviderStatus.Builder setConnectivityDependencyStatus(int p0) { return null; }
         public android.service.timezone.TimeZoneProviderStatus.Builder setLocationDetectionDependencyStatus(int p0) { return null; }
         public android.service.timezone.TimeZoneProviderStatus.Builder setTimeZoneResolutionOperationStatus(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-    public static @interface DependencyStatus {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE_USE)
-    public static @interface OperationStatus {
     }
 }

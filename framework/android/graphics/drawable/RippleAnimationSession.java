@@ -37,6 +37,15 @@ public final class RippleAnimationSession {
     android.graphics.drawable.RippleAnimationSession setOnSessionEnd(java.util.function.Consumer<android.graphics.drawable.RippleAnimationSession> p0) { return null; }
     void setRadius(float p0) {}
 
+    private static class AnimatorListener implements android.animation.Animator.AnimatorListener {
+        private final android.graphics.drawable.RippleAnimationSession mSession = null;
+        AnimatorListener(android.graphics.drawable.RippleAnimationSession p0) {}
+        public void onAnimationCancel(android.animation.Animator p0) {}
+        public void onAnimationEnd(android.animation.Animator p0) {}
+        public void onAnimationRepeat(android.animation.Animator p0) {}
+        public void onAnimationStart(android.animation.Animator p0) {}
+    }
+
     static class AnimationProperties<FloatType extends java.lang.Object, PaintType extends java.lang.Object> {
         private final int mColor = 0;
         private final android.graphics.drawable.RippleShader mShader = null;
@@ -51,14 +60,5 @@ public final class RippleAnimationSession {
         FloatType getY() { return null; }
         void setOrigin(FloatType p0, FloatType p1) {}
         void setRadius(FloatType p0) {}
-    }
-
-    private static class AnimatorListener implements android.animation.Animator.AnimatorListener {
-        private final android.graphics.drawable.RippleAnimationSession mSession = null;
-        AnimatorListener(android.graphics.drawable.RippleAnimationSession p0) {}
-        public void onAnimationCancel(android.animation.Animator p0) {}
-        public void onAnimationEnd(android.animation.Animator p0) {}
-        public void onAnimationRepeat(android.animation.Animator p0) {}
-        public void onAnimationStart(android.animation.Animator p0) {}
     }
 }

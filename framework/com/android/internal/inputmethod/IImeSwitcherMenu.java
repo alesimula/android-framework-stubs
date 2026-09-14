@@ -7,15 +7,6 @@ public interface IImeSwitcherMenu extends android.os.IInterface {
     public void registerListener(com.android.internal.inputmethod.IImeSwitcherMenuListener p0) throws android.os.RemoteException;
     public void show(com.android.internal.inputmethod.ImeSwitcherMenuItemSafeList p0, java.lang.String p1, int p2, android.content.Intent p3, boolean p4, int p5, int p6, int p7) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IImeSwitcherMenu {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void hide(int p0) throws android.os.RemoteException {}
-        public void notifyImeAndSubtypeChanged(java.lang.String p0, int p1, android.content.Intent p2, int p3) throws android.os.RemoteException {}
-        public void registerListener(com.android.internal.inputmethod.IImeSwitcherMenuListener p0) throws android.os.RemoteException {}
-        public void show(com.android.internal.inputmethod.ImeSwitcherMenuItemSafeList p0, java.lang.String p1, int p2, android.content.Intent p3, boolean p4, int p5, int p6, int p7) throws android.os.RemoteException {}
-    }
-
     public static class Item implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<com.android.internal.inputmethod.IImeSwitcherMenu.Item> CREATOR = null;
         public java.lang.String imeId;
@@ -57,5 +48,14 @@ public interface IImeSwitcherMenu extends android.os.IInterface {
             public void registerListener(com.android.internal.inputmethod.IImeSwitcherMenuListener p0) throws android.os.RemoteException {}
             public void show(com.android.internal.inputmethod.ImeSwitcherMenuItemSafeList p0, java.lang.String p1, int p2, android.content.Intent p3, boolean p4, int p5, int p6, int p7) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IImeSwitcherMenu {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void hide(int p0) throws android.os.RemoteException {}
+        public void notifyImeAndSubtypeChanged(java.lang.String p0, int p1, android.content.Intent p2, int p3) throws android.os.RemoteException {}
+        public void registerListener(com.android.internal.inputmethod.IImeSwitcherMenuListener p0) throws android.os.RemoteException {}
+        public void show(com.android.internal.inputmethod.ImeSwitcherMenuItemSafeList p0, java.lang.String p1, int p2, android.content.Intent p3, boolean p4, int p5, int p6, int p7) throws android.os.RemoteException {}
     }
 }

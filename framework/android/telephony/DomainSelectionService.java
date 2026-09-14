@@ -23,23 +23,12 @@ public abstract class DomainSelectionService extends android.app.Service {
     public abstract void onDomainSelection(android.telephony.DomainSelectionService.SelectionAttributes p0, android.telephony.TransportSelectorCallback p1);
     public void onServiceStateUpdated(int p0, int p1, android.telephony.ServiceState p2) {}
 
-    private final class DomainSelectorWrapper {
-        private static final java.lang.String TAG = "DomainSelectorWrapper";
-        private com.android.internal.telephony.IDomainSelector mCallbackBinder;
-        DomainSelectorWrapper(android.telephony.DomainSelectionService p0, android.telephony.DomainSelector p1, java.util.concurrent.Executor p2) {}
-        public com.android.internal.telephony.IDomainSelector getCallbackBinder() { return null; }
-
-        private class IDomainSelectorAdapter extends com.android.internal.telephony.IDomainSelector.Stub {
-            private final java.lang.ref.WeakReference<android.telephony.DomainSelector> mDomainSelectorWeakRef = null;
-            private final java.util.concurrent.Executor mExecutor = null;
-            IDomainSelectorAdapter(android.telephony.DomainSelectionService.DomainSelectorWrapper p0, android.telephony.DomainSelector p1, java.util.concurrent.Executor p2) { super(); }
-            public void finishSelection() {}
-            public void reselectDomain(android.telephony.DomainSelectionService.SelectionAttributes p0) {}
-        }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface EmergencyScanType {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface EmergencyScanType {
+    public static @interface SelectorType {
     }
 
     public static final class SelectionAttributes implements android.os.Parcelable {
@@ -107,10 +96,6 @@ public abstract class DomainSelectionService extends android.app.Service {
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SelectorType {
-    }
-
     private final class TransportSelectorCallbackWrapper implements android.telephony.TransportSelectorCallback {
         private static final java.lang.String TAG = "TransportSelectorCallbackWrapper";
         private final com.android.internal.telephony.ITransportSelectorCallback mCallback = null;
@@ -128,6 +113,21 @@ public abstract class DomainSelectionService extends android.app.Service {
             private final java.util.concurrent.Executor mExecutor = null;
             ITransportSelectorResultCallbackAdapter(java.util.function.Consumer<android.telephony.WwanSelectorCallback> p0, java.util.concurrent.Executor p1) { super(); }
             public void onCompleted(com.android.internal.telephony.IWwanSelectorCallback p0) {}
+        }
+    }
+
+    private final class DomainSelectorWrapper {
+        private static final java.lang.String TAG = "DomainSelectorWrapper";
+        private com.android.internal.telephony.IDomainSelector mCallbackBinder;
+        DomainSelectorWrapper(android.telephony.DomainSelectionService p0, android.telephony.DomainSelector p1, java.util.concurrent.Executor p2) {}
+        public com.android.internal.telephony.IDomainSelector getCallbackBinder() { return null; }
+
+        private class IDomainSelectorAdapter extends com.android.internal.telephony.IDomainSelector.Stub {
+            private final java.lang.ref.WeakReference<android.telephony.DomainSelector> mDomainSelectorWeakRef = null;
+            private final java.util.concurrent.Executor mExecutor = null;
+            IDomainSelectorAdapter(android.telephony.DomainSelectionService.DomainSelectorWrapper p0, android.telephony.DomainSelector p1, java.util.concurrent.Executor p2) { super(); }
+            public void finishSelection() {}
+            public void reselectDomain(android.telephony.DomainSelectionService.SelectionAttributes p0) {}
         }
     }
 

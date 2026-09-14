@@ -22,6 +22,7 @@ public class ActivityTaskManager {
     public static android.app.ActivityTaskManager getInstance() { return null; }
     public static int getMaxAppRecentsLimitStatic() { return 0; }
     public static int getMaxNumPictureInPictureActions(android.content.Context p0) { return 0; }
+    public static int getMaxNumPictureInPictureOverlayActions(android.content.Context p0) { return 0; }
     public static int getMaxRecentTasksStatic() { return 0; }
     public static android.app.IActivityTaskManager getService() { return null; }
     public static boolean supportsMultiWindow(android.content.Context p0) { return false; }

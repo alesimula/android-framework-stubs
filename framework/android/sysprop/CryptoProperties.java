@@ -10,7 +10,6 @@ public final class CryptoProperties {
     public static java.util.Optional<android.sysprop.CryptoProperties.state_values> state() { return null; }
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -26,8 +25,10 @@ public final class CryptoProperties {
         UNENCRYPTED,
         UNSUPPORTED;
         private static final android.sysprop.CryptoProperties.state_values[] $VALUES = null;
+        private static final android.sysprop.CryptoProperties.state_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private state_values() {}
+        public static android.sysprop.CryptoProperties.state_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 
@@ -36,8 +37,10 @@ public final class CryptoProperties {
         FILE,
         NONE;
         private static final android.sysprop.CryptoProperties.type_values[] $VALUES = null;
+        private static final android.sysprop.CryptoProperties.type_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private type_values() {}
+        public static android.sysprop.CryptoProperties.type_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 }

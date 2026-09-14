@@ -122,14 +122,6 @@ public class RadialTimePickerView extends android.view.View {
     public void showHours(boolean p0) {}
     public void showMinutes(boolean p0) {}
 
-    static interface OnValueSelectedListener {
-        public void onValueSelected(int p0, int p1, boolean p2);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    static @interface PickerType {
-    }
-
     private class RadialPickerTouchHelper extends com.android.internal.widget.ExploreByTouchHelper {
         private final int MASK_TYPE = 0;
         private final int MASK_VALUE = 0;
@@ -158,5 +150,13 @@ public class RadialTimePickerView extends android.view.View {
         protected void onPopulateEventForVirtualView(int p0, android.view.accessibility.AccessibilityEvent p1) {}
         protected void onPopulateNodeForVirtualView(int p0, android.view.accessibility.AccessibilityNodeInfo p1) {}
         public boolean performAccessibilityAction(android.view.View p0, int p1, android.os.Bundle p2) { return false; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    static @interface PickerType {
+    }
+
+    static interface OnValueSelectedListener {
+        public void onValueSelected(int p0, int p1, boolean p2);
     }
 }

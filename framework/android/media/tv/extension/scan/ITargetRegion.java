@@ -6,14 +6,6 @@ public interface ITargetRegion extends android.os.IInterface {
     public int setListener(android.media.tv.extension.scan.ITargetRegionListener p0) throws android.os.RemoteException;
     public int setTargetRegion(android.os.Bundle p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.scan.ITargetRegion {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public android.os.Bundle[] getTargetRegions() throws android.os.RemoteException { return null; }
-        public int setListener(android.media.tv.extension.scan.ITargetRegionListener p0) throws android.os.RemoteException { return 0; }
-        public int setTargetRegion(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.scan.ITargetRegion {
         static final int TRANSACTION_getTargetRegions = 1;
         static final int TRANSACTION_setListener = 3;
@@ -34,5 +26,13 @@ public interface ITargetRegion extends android.os.IInterface {
             public int setListener(android.media.tv.extension.scan.ITargetRegionListener p0) throws android.os.RemoteException { return 0; }
             public int setTargetRegion(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.scan.ITargetRegion {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public android.os.Bundle[] getTargetRegions() throws android.os.RemoteException { return null; }
+        public int setListener(android.media.tv.extension.scan.ITargetRegionListener p0) throws android.os.RemoteException { return 0; }
+        public int setTargetRegion(android.os.Bundle p0) throws android.os.RemoteException { return 0; }
     }
 }

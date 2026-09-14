@@ -10,13 +10,13 @@ public abstract class AccessibilityRequestPreparer {
     public android.view.View getView() { return null; }
     public abstract void onPrepareExtraData(int p0, java.lang.String p1, android.os.Bundle p2, android.os.Message p3);
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface RequestTypes {
-    }
-
     private class ViewAttachStateListener implements android.view.View.OnAttachStateChangeListener {
         private ViewAttachStateListener(android.view.accessibility.AccessibilityRequestPreparer p0) {}
         public void onViewAttachedToWindow(android.view.View p0) {}
         public void onViewDetachedFromWindow(android.view.View p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface RequestTypes {
     }
 }

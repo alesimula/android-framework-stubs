@@ -19,22 +19,11 @@ public final class IkeSessionParamsUtils {
     private static final java.lang.String SA_PROPOSALS_KEY = "SA_PROPOSALS_KEY";
     private static final java.lang.String SERVER_HOST_NAME_KEY = "SERVER_HOST_NAME_KEY";
     private static final java.lang.String SOFT_LIFETIME_SEC_KEY = "SOFT_LIFETIME_SEC_KEY";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "IkeSessionParamsUtils";
     public IkeSessionParamsUtils() {}
     public static android.net.ipsec.ike.IkeSessionParams fromPersistableBundle(android.os.PersistableBundle p0) { return null; }
     public static boolean isIkeOptionValid(int p0) { return false; }
     public static android.os.PersistableBundle toPersistableBundle(android.net.ipsec.ike.IkeSessionParams p0) { return null; }
-
-    private static final class AuthConfigUtils {
-        private static final java.lang.String AUTH_METHOD_KEY = "AUTH_METHOD_KEY";
-        private static final int IKE_AUTH_METHOD_EAP = 3;
-        private static final int IKE_AUTH_METHOD_PSK = 1;
-        private static final int IKE_AUTH_METHOD_PUB_KEY_SIGNATURE = 2;
-        private AuthConfigUtils() {}
-        private static android.os.PersistableBundle createPersistableBundle(int p0) { return null; }
-        public static void setBuilderByReadingPersistableBundle(android.os.PersistableBundle p0, android.os.PersistableBundle p1, android.net.ipsec.ike.IkeSessionParams.Builder p2) {}
-        public static android.os.PersistableBundle toPersistableBundle(android.net.ipsec.ike.IkeSessionParams.IkeAuthConfig p0) { return null; }
-    }
 
     private static final class ConfigRequest {
         private static final java.lang.String ADDRESS_KEY = "address";
@@ -71,5 +60,16 @@ public final class IkeSessionParamsUtils {
         private IkeAuthPskConfigUtils() {}
         public static void setBuilderByReadingPersistableBundle(android.os.PersistableBundle p0, android.os.PersistableBundle p1, android.net.ipsec.ike.IkeSessionParams.Builder p2) {}
         public static android.os.PersistableBundle toPersistableBundle(android.net.ipsec.ike.IkeSessionParams.IkeAuthPskConfig p0, android.os.PersistableBundle p1) { return null; }
+    }
+
+    private static final class AuthConfigUtils {
+        private static final java.lang.String AUTH_METHOD_KEY = "AUTH_METHOD_KEY";
+        private static final int IKE_AUTH_METHOD_EAP = 3;
+        private static final int IKE_AUTH_METHOD_PSK = 1;
+        private static final int IKE_AUTH_METHOD_PUB_KEY_SIGNATURE = 2;
+        private AuthConfigUtils() {}
+        private static android.os.PersistableBundle createPersistableBundle(int p0) { return null; }
+        public static void setBuilderByReadingPersistableBundle(android.os.PersistableBundle p0, android.os.PersistableBundle p1, android.net.ipsec.ike.IkeSessionParams.Builder p2) {}
+        public static android.os.PersistableBundle toPersistableBundle(android.net.ipsec.ike.IkeSessionParams.IkeAuthConfig p0) { return null; }
     }
 }

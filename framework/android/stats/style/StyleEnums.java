@@ -1,6 +1,7 @@
 package android.stats.style;
 
 public final class StyleEnums {
+    public static final int AI_CLOCK_GENERATED = 47;
     public static final int APP_ICON_STYLE_EXTENDIBLE_THEME = 2;
     public static final int APP_ICON_STYLE_THEMED = 1;
     public static final int APP_ICON_STYLE_UNSPECIFIED = 0;

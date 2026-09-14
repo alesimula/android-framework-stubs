@@ -14,10 +14,13 @@ public final class InputMethodManager {
     @java.lang.Deprecated
     public static final int HIDE_NOT_ALWAYS = 2;
     public static final int IM_PICKER_ENTRY_POINT_DEFAULT = 0;
+    public static final int IM_PICKER_ENTRY_POINT_IMS_NAVIGATION_BAR = 4;
     public static final int IM_PICKER_ENTRY_POINT_QUICK_SETTINGS = 2;
     public static final int IM_PICKER_ENTRY_POINT_STATUS_BAR_CHIP = 1;
+    public static final int IM_PICKER_ENTRY_POINT_SYSUI_NAVIGATION_BAR = 3;
     private static final long INPUT_METHOD_NOT_RESPONDING_TIMEOUT = 2500L;
     static final int INVALID_SEQ_ID = -1;
+    public static final java.time.Duration MAX_IME_ANIMATION_DURATION_OVERRIDE = null;
     private static final int MSG_BIND = 2;
     private static final int MSG_BIND_ACCESSIBILITY_SERVICE = 11;
     private static final int MSG_DUMP = 1;
@@ -34,7 +37,6 @@ public final class InputMethodManager {
     private static final int NOT_A_SUBTYPE_ID = -1;
     private static final boolean OPTIMIZE_NONEDITABLE_VIEWS = Boolean.valueOf(false);
     private static final java.lang.String PENDING_EVENT_COUNTER = "aq:imm";
-    private static final int REQUEST_UPDATE_CURSOR_ANCHOR_INFO_NONE = 0;
     public static final int RESULT_HIDDEN = 3;
     public static final int RESULT_SHOWN = 2;
     public static final int RESULT_UNCHANGED_HIDDEN = 1;
@@ -59,10 +61,6 @@ public final class InputMethodManager {
     private android.view.inputmethod.CompletionInfo[] mCompletions;
     private android.app.PropertyInvalidatedCache<java.lang.Integer, java.lang.Boolean> mConnectionlessStylusHandwritingAvailableCache;
     private android.view.inputmethod.InputMethodManager.BindState mCurBindState;
-    @java.lang.Deprecated
-    java.lang.String mCurId;
-    @java.lang.Deprecated
-    com.android.internal.inputmethod.IInputMethodSession mCurMethod;
     android.view.ViewRootImpl mCurRootView;
     boolean mCurRootViewWindowFocused;
     private android.view.inputmethod.InputMethodManager.ImeInputEventSender mCurSender;
@@ -89,8 +87,6 @@ public final class InputMethodManager {
     private final android.util.SparseArray<android.view.inputmethod.InputMethodManager.PendingEvent> mPendingEvents = null;
     private android.view.inputmethod.ViewFocusParameterInfo mPreviousViewFocusParameters;
     private android.view.inputmethod.InputMethodManager.ReportInputConnectionOpenedRunner mReportInputConnectionOpenedRunner;
-    @java.lang.Deprecated
-    private int mRequestUpdateCursorAnchorInfoMonitorMode;
     private boolean mRestartOnNextWindowFocus;
     private boolean mServedConnecting;
     private android.view.inputmethod.RemoteInputConnectionImpl mServedInputConnection;
@@ -105,7 +101,7 @@ public final class InputMethodManager {
     private boolean checkFocusInternalLocked(boolean p0, android.view.ViewRootImpl p1) { return false; }
     private void clearAccessibilityBindingLocked(int p0) {}
     private void clearAllAccessibilityBindingLocked() {}
-    private void clearBindingLocked() {}
+    private void clearBindingLocked(int p0) {}
     private void clearConnectionLocked() {}
     private boolean clearCurRootViewIfNeeded() { return false; }
     private static android.util.Pair<android.view.inputmethod.InputConnection, android.view.inputmethod.EditorInfo> createInputConnection(android.view.View p0) { return null; }
@@ -150,8 +146,9 @@ public final class InputMethodManager {
     private void sendFailureCallback(java.util.concurrent.Executor p0, java.util.function.Consumer<java.lang.Boolean> p1) {}
     private void sendInputEventAndReportResultOnMainLooper(android.view.inputmethod.InputMethodManager.PendingEvent p0) {}
     private int sendInputEventOnMainLooperLocked(android.view.inputmethod.InputMethodManager.PendingEvent p0) { return 0; }
+    private void setImeAnimationDurationOverrideMillis(android.view.View p0, long p1, boolean p2) {}
     private static void setImeVisibilityOnInsetsController(android.view.ViewRootImpl p0, boolean p1, android.view.inputmethod.ImeTracker.Token p2) {}
-    private void showInputMethodPickerLocked() {}
+    private void showInputMethodPickerLocked(int p0) {}
     private boolean showSoftInput(android.view.View p0, int p1, android.os.ResultReceiver p2, int p3) { return false; }
     private boolean showSoftInput(android.view.View p0, android.view.inputmethod.ImeTracker.Token p1, int p2, android.os.ResultReceiver p3, int p4) { return false; }
     private void startConnectionlessStylusHandwritingInternal(android.view.View p0, android.view.inputmethod.CursorAnchorInfo p1, java.lang.String p2, java.lang.String p3, java.util.concurrent.Executor p4, android.view.inputmethod.ConnectionlessHandwritingCallback p5) {}
@@ -189,6 +186,8 @@ public final class InputMethodManager {
     public java.util.List<android.view.inputmethod.InputMethodSubtype> getEnabledInputMethodSubtypeListAsUser(java.lang.String p0, boolean p1, android.os.UserHandle p2) { return null; }
     android.content.Context getFallbackContextFromServedView() { return null; }
     public android.window.ImeBackCallbackProxy getImeBackCallbackProxy() { return null; }
+    public long getImeHideAnimationDurationOverrideMillis(android.view.View p0) { return 0L; }
+    public long getImeShowAnimationDurationOverrideMillis(android.view.View p0) { return 0L; }
     public java.util.List<android.view.inputmethod.InputMethodInfo> getInputMethodList() { return null; }
     public java.util.List<android.view.inputmethod.InputMethodInfo> getInputMethodListAsUser(int p0) { return null; }
     public java.util.List<android.view.inputmethod.InputMethodInfo> getInputMethodListAsUser(int p0, int p1) { return null; }
@@ -210,8 +209,6 @@ public final class InputMethodManager {
     public boolean isActive(android.view.View p0) { return false; }
     public boolean isConnectionlessStylusHandwritingAvailable() { return false; }
     public boolean isCurrentRootView(android.view.View p0) { return false; }
-    @java.lang.Deprecated
-    public boolean isCursorAnchorInfoEnabled() { return false; }
     public boolean isFullscreenMode() { return false; }
     public boolean isImeBoundForTesting() { return false; }
     public boolean isInputMethodPickerShown() { return false; }
@@ -222,8 +219,6 @@ public final class InputMethodManager {
     public boolean isWatchingCursor(android.view.View p0) { return false; }
     @java.lang.Deprecated
     public void notifySuggestionPicked(android.text.style.SuggestionSpan p0, java.lang.String p1, int p2) {}
-    @java.lang.Deprecated
-    public void notifyUserAction() {}
     public void onImeSwitchButtonClickFromSystem(int p0) {}
     public void prepareStylusHandwritingDelegation(android.view.View p0) {}
     public void prepareStylusHandwritingDelegation(android.view.View p0, java.lang.String p1) {}
@@ -242,6 +237,8 @@ public final class InputMethodManager {
     @java.lang.Deprecated
     public boolean setCurrentInputMethodSubtype(android.view.inputmethod.InputMethodSubtype p0) { return false; }
     public void setExplicitlyEnabledInputMethodSubtypes(java.lang.String p0, int[] p1) {}
+    public void setImeHideAnimationDurationOverrideMillis(android.view.View p0, long p1) {}
+    public void setImeShowAnimationDurationOverrideMillis(android.view.View p0, long p1) {}
     @java.lang.Deprecated
     public void setInputMethod(android.os.IBinder p0, java.lang.String p1) {}
     @java.lang.Deprecated
@@ -249,8 +246,6 @@ public final class InputMethodManager {
     public boolean setInputMethodForTesting(java.lang.String p0, int p1) { return false; }
     public void setPreventImeStartupBypassedAppsForTest(java.util.List<java.lang.String> p0) {}
     public void setStylusWindowIdleTimeoutForTest(long p0) {}
-    @java.lang.Deprecated
-    public void setUpdateCursorAnchorInfoMode(int p0) {}
     @java.lang.Deprecated
     public boolean shouldOfferSwitchingToNextInputMethod(android.os.IBinder p0) { return false; }
     public boolean shouldShowImeSwitcherButtonForTest() { return false; }
@@ -261,8 +256,6 @@ public final class InputMethodManager {
     public boolean showSoftInput(android.view.View p0, int p1, android.os.ResultReceiver p2) { return false; }
     @java.lang.Deprecated
     public void showSoftInputFromInputMethod(android.os.IBinder p0, int p1) {}
-    @java.lang.Deprecated
-    public void showSoftInputUnchecked(int p0, android.os.ResultReceiver p1) {}
     @java.lang.Deprecated
     public void showStatusIcon(android.os.IBinder p0, java.lang.String p1, int p2) {}
     public void startConnectionlessStylusHandwriting(android.view.View p0, android.view.inputmethod.CursorAnchorInfo p1, java.util.concurrent.Executor p2, android.view.inputmethod.ConnectionlessHandwritingCallback p3) {}
@@ -286,15 +279,30 @@ public final class InputMethodManager {
     @java.lang.Deprecated
     public void viewClicked(android.view.View p0) {}
     public void waitUntilNoPendingRequests(long p0) {}
-    @java.lang.Deprecated
-    public void windowDismissed(android.os.IBinder p0) {}
 
-    private static final class BindState {
-        final int mBindSequence = 0;
-        final java.lang.String mImeId = null;
-        final android.view.inputmethod.IInputMethodSessionInvoker mImeSession = null;
-        final boolean mIsInputMethodSuppressingSpellChecker = false;
-        BindState(com.android.internal.inputmethod.InputBindResult p0) {}
+    private static abstract class ReportInputConnectionOpenedRunner implements java.lang.Runnable {
+        int mSequenceNum;
+        ReportInputConnectionOpenedRunner(int p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface IMPickerEntryPoint {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HideFlags {
+    }
+
+    private final class PendingEvent implements java.lang.Runnable {
+        public android.view.inputmethod.InputMethodManager.FinishedInputEventCallback mCallback;
+        public android.view.InputEvent mEvent;
+        public boolean mHandled;
+        public android.os.Handler mHandler;
+        public java.lang.String mInputMethodId;
+        public java.lang.Object mToken;
+        private PendingEvent(android.view.inputmethod.InputMethodManager p0) {}
+        public void recycle() {}
+        public void run() {}
     }
 
     private static class ConnectionlessHandwritingCallbackProxy extends com.android.internal.inputmethod.IConnectionlessHandwritingCallback.Stub {
@@ -304,6 +312,20 @@ public final class InputMethodManager {
         ConnectionlessHandwritingCallbackProxy(java.util.concurrent.Executor p0, android.view.inputmethod.ConnectionlessHandwritingCallback p1) { super(); }
         public void onError(int p0) {}
         public void onResult(java.lang.CharSequence p0) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ShowFlags {
+    }
+
+    class H extends android.os.Handler {
+        H(android.view.inputmethod.InputMethodManager p0, android.os.Looper p1) { super(); }
+        public void handleMessage(android.os.Message p0) {}
+    }
+
+    private final class ImeInputEventSender extends android.view.InputEventSender {
+        public ImeInputEventSender(android.view.inputmethod.InputMethodManager p0, android.view.InputChannel p1, android.os.Looper p2) { super(null, null); }
+        public void onInputEventFinished(int p0, boolean p1) {}
     }
 
     private final class DelegateImpl implements android.view.ImeFocusController.InputMethodManagerDelegate {
@@ -322,46 +344,15 @@ public final class InputMethodManager {
         public void onFinishedInputEvent(java.lang.Object p0, boolean p1);
     }
 
-    class H extends android.os.Handler {
-        H(android.view.inputmethod.InputMethodManager p0, android.os.Looper p1) { super(); }
-        public void handleMessage(android.os.Message p0) {}
+    private static final class BindState {
+        final int mBindSequence = 0;
+        final java.lang.String mImeId = null;
+        final android.view.inputmethod.IInputMethodSessionInvoker mImeSession = null;
+        final boolean mIsInputMethodSuppressingSpellChecker = false;
+        BindState(com.android.internal.inputmethod.InputBindResult p0) {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface HandwritingDelegateFlags {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HideFlags {
-    }
-
-    private final class ImeInputEventSender extends android.view.InputEventSender {
-        public ImeInputEventSender(android.view.inputmethod.InputMethodManager p0, android.view.InputChannel p1, android.os.Looper p2) { super(null, null); }
-        public void onInputEventFinished(int p0, boolean p1) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface IMPickerEntryPoint {
-    }
-
-    private final class PendingEvent implements java.lang.Runnable {
-        public android.view.inputmethod.InputMethodManager.FinishedInputEventCallback mCallback;
-        public android.view.InputEvent mEvent;
-        public boolean mHandled;
-        public android.os.Handler mHandler;
-        public java.lang.String mInputMethodId;
-        public java.lang.Object mToken;
-        private PendingEvent(android.view.inputmethod.InputMethodManager p0) {}
-        public void recycle() {}
-        public void run() {}
-    }
-
-    private static abstract class ReportInputConnectionOpenedRunner implements java.lang.Runnable {
-        int mSequenceNum;
-        ReportInputConnectionOpenedRunner(int p0) {}
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ShowFlags {
     }
 }

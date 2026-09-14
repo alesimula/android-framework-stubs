@@ -51,6 +51,14 @@ public abstract class AbstractMultiProfilePagerAdapter extends com.android.inter
     protected void showEmptyState(com.android.internal.app.ResolverListAdapter p0, com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyState p1, android.view.View.OnClickListener p2) {}
     protected void showListView(com.android.internal.app.ResolverListAdapter p0) {}
 
+    public static interface OnProfileSelectedListener {
+        public void onProfilePageStateChanged(int p0);
+        public void onProfileSelected(int p0);
+    }
+
+    static @interface Profile {
+    }
+
     public static class CompositeEmptyStateProvider implements com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyStateProvider {
         private final com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyStateProvider[] mProviders = null;
         public CompositeEmptyStateProvider(com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyStateProvider... p0) {}
@@ -63,6 +71,17 @@ public abstract class AbstractMultiProfilePagerAdapter extends com.android.inter
         public boolean hasCrossProfileIntents(java.util.List<android.content.Intent> p0, int p1, int p2) { return false; }
     }
 
+    public static interface QuietModeManager {
+        public boolean isQuietModeEnabled(android.os.UserHandle p0);
+        public boolean isWaitingToEnableWorkProfile();
+        public void markWorkProfileEnabledBroadcastReceived();
+        public void requestQuietModeEnabled(boolean p0, android.os.UserHandle p1);
+    }
+
+    public static interface EmptyStateProvider {
+        default public com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyState getEmptyState(com.android.internal.app.ResolverListAdapter p0) { return null; }
+    }
+
     public static interface EmptyState {
         default public com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyState.ClickListener getButtonClickListener() { return null; }
         default public java.lang.String getSubtitle() { return null; }
@@ -71,34 +90,13 @@ public abstract class AbstractMultiProfilePagerAdapter extends com.android.inter
         default public boolean shouldSkipDataRebuild() { return false; }
         default public boolean useDefaultEmptyView() { return false; }
 
-        public static interface ClickListener {
-            public void onClick(com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyState.TabControl p0);
-        }
-
         public static interface TabControl {
             public void showSpinner();
         }
-    }
 
-    public static interface EmptyStateProvider {
-        default public com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyState getEmptyState(com.android.internal.app.ResolverListAdapter p0) { return null; }
-    }
-
-    public static class MyUserIdProvider {
-        public MyUserIdProvider() {}
-        public int getMyUserId() { return 0; }
-    }
-
-    public static interface OnProfileSelectedListener {
-        public void onProfilePageStateChanged(int p0);
-        public void onProfileSelected(int p0);
-    }
-
-    static interface OnSwitchOnWorkSelectedListener {
-        public void onSwitchOnWorkSelected();
-    }
-
-    static @interface Profile {
+        public static interface ClickListener {
+            public void onClick(com.android.internal.app.AbstractMultiProfilePagerAdapter.EmptyState.TabControl p0);
+        }
     }
 
     public static class ProfileDescriptor {
@@ -108,10 +106,12 @@ public abstract class AbstractMultiProfilePagerAdapter extends com.android.inter
         protected android.view.ViewGroup getEmptyStateView() { return null; }
     }
 
-    public static interface QuietModeManager {
-        public boolean isQuietModeEnabled(android.os.UserHandle p0);
-        public boolean isWaitingToEnableWorkProfile();
-        public void markWorkProfileEnabledBroadcastReceived();
-        public void requestQuietModeEnabled(boolean p0, android.os.UserHandle p1);
+    static interface OnSwitchOnWorkSelectedListener {
+        public void onSwitchOnWorkSelected();
+    }
+
+    public static class MyUserIdProvider {
+        public MyUserIdProvider() {}
+        public int getMyUserId() { return 0; }
     }
 }

@@ -3,7 +3,7 @@ package android.service.assist.classification;
 @android.annotation.SystemApi
 public abstract class FieldClassificationService extends android.app.Service {
     public static final java.lang.String SERVICE_INTERFACE = "android.service.assist.classification.FieldClassificationService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "FieldClassificationService";
     static boolean sDebug;
     static boolean sVerbose;
     private android.content.ComponentName mServiceComponentName;

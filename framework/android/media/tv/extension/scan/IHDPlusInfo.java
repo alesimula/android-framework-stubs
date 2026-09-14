@@ -4,12 +4,6 @@ public interface IHDPlusInfo extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.media.tv.extension.scan.IHDPlusInfo";
     public int setHDPlusInfo(boolean p0, boolean p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.tv.extension.scan.IHDPlusInfo {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public int setHDPlusInfo(boolean p0, boolean p1) throws android.os.RemoteException { return 0; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.tv.extension.scan.IHDPlusInfo {
         static final int TRANSACTION_setHDPlusInfo = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IHDPlusInfo extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public int setHDPlusInfo(boolean p0, boolean p1) throws android.os.RemoteException { return 0; }
         }
+    }
+
+    public static class Default implements android.media.tv.extension.scan.IHDPlusInfo {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public int setHDPlusInfo(boolean p0, boolean p1) throws android.os.RemoteException { return 0; }
     }
 }

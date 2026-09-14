@@ -17,13 +17,24 @@ public @interface DataClass {
     public boolean genHiddenCopyConstructor() default false;
     public boolean genHiddenGetters() default false;
     public boolean genHiddenSetters() default false;
+    public boolean genHiddenToStringHelper() default false;
     public boolean genParcelable() default false;
     public boolean genSetters() default false;
     public boolean genToString() default false;
 
+    public static interface PerIntFieldAction<THIS extends java.lang.Object> {
+        public void acceptInt(THIS p0, java.lang.String p1, int p2);
+    }
+
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.METHOD, java.lang.annotation.ElementType.PARAMETER, java.lang.annotation.ElementType.LOCAL_VARIABLE})
-    public static @interface Each {
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
+    public static @interface MaySetToNull {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
+    public static @interface ParcelWith {
+        public java.lang.Class<? extends com.android.internal.util.Parcelling> value();
     }
 
     @java.lang.Deprecated
@@ -44,27 +55,12 @@ public @interface DataClass {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
-    public static @interface MaySetToNull {
+    public static @interface SuppressConstDefsGeneration {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
-    public static @interface ParcelWith {
-        public java.lang.Class<? extends com.android.internal.util.Parcelling> value();
-    }
-
-    public static interface PerIntFieldAction<THIS extends java.lang.Object> {
-        public void acceptInt(THIS p0, java.lang.String p1, int p2);
-    }
-
-    public static interface PerObjectFieldAction<THIS extends java.lang.Object> {
-        public void acceptObject(THIS p0, java.lang.String p1, java.lang.Object p2);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
-    public static @interface PluralOf {
-        public java.lang.String value();
+    @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.METHOD, java.lang.annotation.ElementType.PARAMETER, java.lang.annotation.ElementType.LOCAL_VARIABLE})
+    public static @interface Each {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
@@ -75,6 +71,11 @@ public @interface DataClass {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     @java.lang.annotation.Target(java.lang.annotation.ElementType.FIELD)
-    public static @interface SuppressConstDefsGeneration {
+    public static @interface PluralOf {
+        public java.lang.String value();
+    }
+
+    public static interface PerObjectFieldAction<THIS extends java.lang.Object> {
+        public void acceptObject(THIS p0, java.lang.String p1, java.lang.Object p2);
     }
 }

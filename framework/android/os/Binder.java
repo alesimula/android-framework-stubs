@@ -34,6 +34,7 @@ public class Binder implements android.os.IBinder {
     public static void defaultBlockingForCurrentThread() {}
     public static void disableStackTracking() {}
     public static void enableStackTracking() {}
+    public static void enforceShellCommandUid(android.os.ResultReceiver p0) {}
     private boolean execTransact(int p0, long p1, long p2, int p3) { return false; }
     private boolean execTransactInternal(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3, int p4) { return false; }
     public static final native void flushPendingCommands();

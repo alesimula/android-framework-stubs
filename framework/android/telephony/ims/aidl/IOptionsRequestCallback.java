@@ -5,13 +5,6 @@ public interface IOptionsRequestCallback extends android.os.IInterface {
     public void respondToCapabilityRequest(android.telephony.ims.RcsContactUceCapability p0, boolean p1) throws android.os.RemoteException;
     public void respondToCapabilityRequestWithError(int p0, java.lang.String p1) throws android.os.RemoteException;
 
-    public static class Default implements android.telephony.ims.aidl.IOptionsRequestCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void respondToCapabilityRequest(android.telephony.ims.RcsContactUceCapability p0, boolean p1) throws android.os.RemoteException {}
-        public void respondToCapabilityRequestWithError(int p0, java.lang.String p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.telephony.ims.aidl.IOptionsRequestCallback {
         static final int TRANSACTION_respondToCapabilityRequest = 1;
         static final int TRANSACTION_respondToCapabilityRequestWithError = 2;
@@ -30,5 +23,12 @@ public interface IOptionsRequestCallback extends android.os.IInterface {
             public void respondToCapabilityRequest(android.telephony.ims.RcsContactUceCapability p0, boolean p1) throws android.os.RemoteException {}
             public void respondToCapabilityRequestWithError(int p0, java.lang.String p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.telephony.ims.aidl.IOptionsRequestCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void respondToCapabilityRequest(android.telephony.ims.RcsContactUceCapability p0, boolean p1) throws android.os.RemoteException {}
+        public void respondToCapabilityRequestWithError(int p0, java.lang.String p1) throws android.os.RemoteException {}
     }
 }

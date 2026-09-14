@@ -24,10 +24,10 @@ public class GroupCall implements java.lang.AutoCloseable {
     public void updateGroupCall(java.util.List<java.lang.Integer> p0, java.util.List<java.lang.Integer> p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GroupCallState {
+    public static @interface GroupCallStateChangeReason {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface GroupCallStateChangeReason {
+    public static @interface GroupCallState {
     }
 }

@@ -8,6 +8,14 @@ public class SerializedRepeatingEffect implements com.android.internal.vibrator.
     public java.lang.String toString() { return null; }
     public void write(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException {}
 
+    static final class Parser {
+        Parser() {}
+        private static com.android.internal.vibrator.persistence.SerializedComposedEffect parseEffect(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1, int p2) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException { return null; }
+        static com.android.internal.vibrator.persistence.SerializedRepeatingEffect parseNext(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException { return null; }
+        private static com.android.internal.vibrator.persistence.SerializedComposedEffect parsePrimitiveEffects(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws java.io.IOException, com.android.internal.vibrator.persistence.XmlParserException { return null; }
+        private static com.android.internal.vibrator.persistence.SerializedComposedEffect parseWaveformEntries(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws java.io.IOException, com.android.internal.vibrator.persistence.XmlParserException { return null; }
+    }
+
     static final class Builder {
         private com.android.internal.vibrator.persistence.SerializedComposedEffect mPreamble;
         private com.android.internal.vibrator.persistence.SerializedComposedEffect mRepeating;
@@ -16,13 +24,5 @@ public class SerializedRepeatingEffect implements com.android.internal.vibrator.
         boolean hasRepeatingSegment() { return false; }
         void setPreamble(com.android.internal.vibrator.persistence.SerializedComposedEffect p0) {}
         void setRepeating(com.android.internal.vibrator.persistence.SerializedComposedEffect p0) {}
-    }
-
-    static final class Parser {
-        Parser() {}
-        private static com.android.internal.vibrator.persistence.SerializedComposedEffect parseEffect(com.android.modules.utils.TypedXmlPullParser p0, java.lang.String p1, int p2) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException { return null; }
-        static com.android.internal.vibrator.persistence.SerializedRepeatingEffect parseNext(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws com.android.internal.vibrator.persistence.XmlParserException, java.io.IOException { return null; }
-        private static com.android.internal.vibrator.persistence.SerializedComposedEffect parsePrimitiveEffects(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws java.io.IOException, com.android.internal.vibrator.persistence.XmlParserException { return null; }
-        private static com.android.internal.vibrator.persistence.SerializedComposedEffect parseWaveformEntries(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws java.io.IOException, com.android.internal.vibrator.persistence.XmlParserException { return null; }
     }
 }

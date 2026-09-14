@@ -143,6 +143,35 @@ public class ProvisioningManager {
     @android.annotation.SystemApi
     public void unregisterRcsProvisioningCallback(android.telephony.ims.ProvisioningManager.RcsProvisioningCallback p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface StringResultError {
+    }
+
+    @android.annotation.SystemApi
+    public static class RcsProvisioningCallback {
+        private final android.telephony.ims.ProvisioningManager.RcsProvisioningCallback.CallbackBinder mBinder = null;
+        public RcsProvisioningCallback() {}
+        public final android.telephony.ims.aidl.IRcsConfigCallback getBinder() { return null; }
+        public void onAutoConfigurationErrorReceived(int p0, java.lang.String p1) {}
+        public void onConfigurationChanged(byte[] p0) {}
+        public void onConfigurationReset() {}
+        public void onPreProvisioningReceived(byte[] p0) {}
+        public void onRemoved() {}
+        public void setExecutor(java.util.concurrent.Executor p0) {}
+
+        private static class CallbackBinder extends android.telephony.ims.aidl.IRcsConfigCallback.Stub {
+            private java.util.concurrent.Executor mExecutor;
+            private final android.telephony.ims.ProvisioningManager.RcsProvisioningCallback mLocalCallback = null;
+            private CallbackBinder(android.telephony.ims.ProvisioningManager.RcsProvisioningCallback p0) { super(); }
+            private void setExecutor(java.util.concurrent.Executor p0) {}
+            public void onAutoConfigurationErrorReceived(int p0, java.lang.String p1) {}
+            public void onConfigurationChanged(byte[] p0) {}
+            public void onConfigurationReset() {}
+            public void onPreProvisioningReceived(byte[] p0) {}
+            public void onRemoved() {}
+        }
+    }
+
     @android.annotation.SystemApi
     public static class Callback {
         private final android.telephony.ims.ProvisioningManager.Callback.CallbackBinder mBinder = null;
@@ -178,34 +207,5 @@ public class ProvisioningManager {
             public final void onFeatureProvisioningChanged(int p0, int p1, boolean p2) {}
             public final void onRcsFeatureProvisioningChanged(int p0, int p1, boolean p2) {}
         }
-    }
-
-    @android.annotation.SystemApi
-    public static class RcsProvisioningCallback {
-        private final android.telephony.ims.ProvisioningManager.RcsProvisioningCallback.CallbackBinder mBinder = null;
-        public RcsProvisioningCallback() {}
-        public final android.telephony.ims.aidl.IRcsConfigCallback getBinder() { return null; }
-        public void onAutoConfigurationErrorReceived(int p0, java.lang.String p1) {}
-        public void onConfigurationChanged(byte[] p0) {}
-        public void onConfigurationReset() {}
-        public void onPreProvisioningReceived(byte[] p0) {}
-        public void onRemoved() {}
-        public void setExecutor(java.util.concurrent.Executor p0) {}
-
-        private static class CallbackBinder extends android.telephony.ims.aidl.IRcsConfigCallback.Stub {
-            private java.util.concurrent.Executor mExecutor;
-            private final android.telephony.ims.ProvisioningManager.RcsProvisioningCallback mLocalCallback = null;
-            private CallbackBinder(android.telephony.ims.ProvisioningManager.RcsProvisioningCallback p0) { super(); }
-            private void setExecutor(java.util.concurrent.Executor p0) {}
-            public void onAutoConfigurationErrorReceived(int p0, java.lang.String p1) {}
-            public void onConfigurationChanged(byte[] p0) {}
-            public void onConfigurationReset() {}
-            public void onPreProvisioningReceived(byte[] p0) {}
-            public void onRemoved() {}
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface StringResultError {
     }
 }

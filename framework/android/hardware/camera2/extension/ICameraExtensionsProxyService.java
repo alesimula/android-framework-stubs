@@ -11,19 +11,6 @@ public interface ICameraExtensionsProxyService extends android.os.IInterface {
     public void releaseSession() throws android.os.RemoteException;
     public void unregisterClient(android.os.IBinder p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.camera2.extension.ICameraExtensionsProxyService {
-        public Default() {}
-        public boolean advancedExtensionsSupported() throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public android.hardware.camera2.extension.IAdvancedExtenderImpl initializeAdvancedExtension(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.IImageCaptureExtenderImpl initializeImageExtension(int p0) throws android.os.RemoteException { return null; }
-        public android.hardware.camera2.extension.IPreviewExtenderImpl initializePreviewExtension(int p0) throws android.os.RemoteException { return null; }
-        public void initializeSession(android.hardware.camera2.extension.IInitializeSessionCallback p0) throws android.os.RemoteException {}
-        public boolean registerClient(android.os.IBinder p0) throws android.os.RemoteException { return false; }
-        public void releaseSession() throws android.os.RemoteException {}
-        public void unregisterClient(android.os.IBinder p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.camera2.extension.ICameraExtensionsProxyService {
         static final int TRANSACTION_advancedExtensionsSupported = 3;
         static final int TRANSACTION_initializeAdvancedExtension = 8;
@@ -54,5 +41,18 @@ public interface ICameraExtensionsProxyService extends android.os.IInterface {
             public void releaseSession() throws android.os.RemoteException {}
             public void unregisterClient(android.os.IBinder p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.camera2.extension.ICameraExtensionsProxyService {
+        public Default() {}
+        public boolean advancedExtensionsSupported() throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public android.hardware.camera2.extension.IAdvancedExtenderImpl initializeAdvancedExtension(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.IImageCaptureExtenderImpl initializeImageExtension(int p0) throws android.os.RemoteException { return null; }
+        public android.hardware.camera2.extension.IPreviewExtenderImpl initializePreviewExtension(int p0) throws android.os.RemoteException { return null; }
+        public void initializeSession(android.hardware.camera2.extension.IInitializeSessionCallback p0) throws android.os.RemoteException {}
+        public boolean registerClient(android.os.IBinder p0) throws android.os.RemoteException { return false; }
+        public void releaseSession() throws android.os.RemoteException {}
+        public void unregisterClient(android.os.IBinder p0) throws android.os.RemoteException {}
     }
 }

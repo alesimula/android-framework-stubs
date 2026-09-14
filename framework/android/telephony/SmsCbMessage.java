@@ -66,10 +66,10 @@ public final class SmsCbMessage implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MessageFormat {
+    public static @interface MessagePriority {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface MessagePriority {
+    public static @interface MessageFormat {
     }
 }

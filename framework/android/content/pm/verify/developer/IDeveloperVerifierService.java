@@ -8,16 +8,6 @@ public interface IDeveloperVerifierService extends android.os.IInterface {
     public void onVerificationRetry(android.content.pm.verify.developer.DeveloperVerificationSession p0) throws android.os.RemoteException;
     public void onVerificationTimeout(int p0) throws android.os.RemoteException;
 
-    public static class Default implements android.content.pm.verify.developer.IDeveloperVerifierService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPackageNameAvailable(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVerificationCancelled(java.lang.String p0) throws android.os.RemoteException {}
-        public void onVerificationRequired(android.content.pm.verify.developer.DeveloperVerificationSession p0) throws android.os.RemoteException {}
-        public void onVerificationRetry(android.content.pm.verify.developer.DeveloperVerificationSession p0) throws android.os.RemoteException {}
-        public void onVerificationTimeout(int p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.content.pm.verify.developer.IDeveloperVerifierService {
         static final int TRANSACTION_onPackageNameAvailable = 1;
         static final int TRANSACTION_onVerificationCancelled = 2;
@@ -42,5 +32,15 @@ public interface IDeveloperVerifierService extends android.os.IInterface {
             public void onVerificationRetry(android.content.pm.verify.developer.DeveloperVerificationSession p0) throws android.os.RemoteException {}
             public void onVerificationTimeout(int p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.content.pm.verify.developer.IDeveloperVerifierService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPackageNameAvailable(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVerificationCancelled(java.lang.String p0) throws android.os.RemoteException {}
+        public void onVerificationRequired(android.content.pm.verify.developer.DeveloperVerificationSession p0) throws android.os.RemoteException {}
+        public void onVerificationRetry(android.content.pm.verify.developer.DeveloperVerificationSession p0) throws android.os.RemoteException {}
+        public void onVerificationTimeout(int p0) throws android.os.RemoteException {}
     }
 }

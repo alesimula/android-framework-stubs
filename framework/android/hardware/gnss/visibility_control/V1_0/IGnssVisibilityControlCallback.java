@@ -45,6 +45,27 @@ public interface IGnssVisibilityControlCallback extends android.internal.hidl.ba
         public final void writeToParcel(android.os.HwParcel p0) {}
     }
 
+    public static final class Proxy implements android.hardware.gnss.visibility_control.V1_0.IGnssVisibilityControlCallback {
+        private android.os.IHwBinder mRemote;
+        public Proxy(android.os.IHwBinder p0) {}
+        public android.os.IHwBinder asBinder() { return null; }
+        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) throws android.os.RemoteException {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() throws android.os.RemoteException { return null; }
+        public java.util.ArrayList<byte[]> getHashChain() throws android.os.RemoteException { return null; }
+        public final int hashCode() { return 0; }
+        public java.util.ArrayList<java.lang.String> interfaceChain() throws android.os.RemoteException { return null; }
+        public java.lang.String interfaceDescriptor() throws android.os.RemoteException { return null; }
+        public boolean isInEmergencySession() throws android.os.RemoteException { return false; }
+        public boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) throws android.os.RemoteException { return false; }
+        public void nfwNotifyCb(android.hardware.gnss.visibility_control.V1_0.IGnssVisibilityControlCallback.NfwNotification p0) throws android.os.RemoteException {}
+        public void notifySyspropsChanged() throws android.os.RemoteException {}
+        public void ping() throws android.os.RemoteException {}
+        public void setHALInstrumentation() throws android.os.RemoteException {}
+        public java.lang.String toString() { return null; }
+        public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
+    }
+
     public static final class NfwProtocolStack {
         public static final byte CTRL_PLANE = 0;
         public static final byte IMS = 10;
@@ -76,27 +97,6 @@ public interface IGnssVisibilityControlCallback extends android.internal.hidl.ba
         public NfwResponseType() {}
         public static final java.lang.String dumpBitfield(byte p0) { return null; }
         public static final java.lang.String toString(byte p0) { return null; }
-    }
-
-    public static final class Proxy implements android.hardware.gnss.visibility_control.V1_0.IGnssVisibilityControlCallback {
-        private android.os.IHwBinder mRemote;
-        public Proxy(android.os.IHwBinder p0) {}
-        public android.os.IHwBinder asBinder() { return null; }
-        public void debug(android.os.NativeHandle p0, java.util.ArrayList<java.lang.String> p1) throws android.os.RemoteException {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public android.internal.hidl.base.V1_0.DebugInfo getDebugInfo() throws android.os.RemoteException { return null; }
-        public java.util.ArrayList<byte[]> getHashChain() throws android.os.RemoteException { return null; }
-        public final int hashCode() { return 0; }
-        public java.util.ArrayList<java.lang.String> interfaceChain() throws android.os.RemoteException { return null; }
-        public java.lang.String interfaceDescriptor() throws android.os.RemoteException { return null; }
-        public boolean isInEmergencySession() throws android.os.RemoteException { return false; }
-        public boolean linkToDeath(android.os.IHwBinder.DeathRecipient p0, long p1) throws android.os.RemoteException { return false; }
-        public void nfwNotifyCb(android.hardware.gnss.visibility_control.V1_0.IGnssVisibilityControlCallback.NfwNotification p0) throws android.os.RemoteException {}
-        public void notifySyspropsChanged() throws android.os.RemoteException {}
-        public void ping() throws android.os.RemoteException {}
-        public void setHALInstrumentation() throws android.os.RemoteException {}
-        public java.lang.String toString() { return null; }
-        public boolean unlinkToDeath(android.os.IHwBinder.DeathRecipient p0) throws android.os.RemoteException { return false; }
     }
 
     public static abstract class Stub extends android.os.HwBinder implements android.hardware.gnss.visibility_control.V1_0.IGnssVisibilityControlCallback {

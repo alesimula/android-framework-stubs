@@ -1,7 +1,7 @@
 package android.security.authenticationpolicy;
 
-@android.annotation.SystemApi
 public final class CrossDeviceAuthenticationException extends java.lang.Exception {
+    public static final int ERROR_COMPANION_DEVICE_MANAGER_NOT_PRESENT = 7;
     public static final int ERROR_DECRYPTION_FAILED = 2;
     public static final int ERROR_INVALID_PACKAGE = 3;
     public static final int ERROR_INVALID_TIMESTAMP = 4;

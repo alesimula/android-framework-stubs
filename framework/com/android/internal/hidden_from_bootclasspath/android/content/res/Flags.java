@@ -12,9 +12,11 @@ public final class Flags {
     public static final java.lang.String FLAG_GENERATE_EXTERNAL_RESOURCE_IDMAPS = "android.content.res.generate_external_resource_idmaps";
     public static final java.lang.String FLAG_HANDLE_ALL_CONFIG_CHANGES = "android.content.res.handle_all_config_changes";
     public static final java.lang.String FLAG_IDMAP_CRC_IS_MTIME = "android.content.res.idmap_crc_is_mtime";
+    public static final java.lang.String FLAG_KEEP_THEME_SETTINGS_NULL_ON_BOOT = "android.content.res.keep_theme_settings_null_on_boot";
     public static final java.lang.String FLAG_LAYOUT_READWRITE_FLAGS = "android.content.res.layout_readwrite_flags";
     public static final java.lang.String FLAG_MANIFEST_FLAGGING = "android.content.res.manifest_flagging";
     public static final java.lang.String FLAG_MERGE_IDMAP_BINDER_TRANSACTIONS = "android.content.res.merge_idmap_binder_transactions";
+    public static final java.lang.String FLAG_MIGRATE_TO_THEME_SERVICE = "android.content.res.migrate_to_theme_service";
     public static final java.lang.String FLAG_NINE_PATCH_FRRO = "android.content.res.nine_patch_frro";
     public static final java.lang.String FLAG_REGISTER_RESOURCE_PATHS = "android.content.res.register_resource_paths";
     public static final java.lang.String FLAG_RESOURCES_MANAGER_CACHE_LEAK_CLEANUP = "android.content.res.resources_manager_cache_leak_cleanup";
@@ -42,9 +44,11 @@ public final class Flags {
     public static boolean generateExternalResourceIdmaps() { return false; }
     public static boolean handleAllConfigChanges() { return false; }
     public static boolean idmapCrcIsMtime() { return false; }
+    public static boolean keepThemeSettingsNullOnBoot() { return false; }
     public static boolean layoutReadwriteFlags() { return false; }
     public static boolean manifestFlagging() { return false; }
     public static boolean mergeIdmapBinderTransactions() { return false; }
+    public static boolean migrateToThemeService() { return false; }
     public static boolean ninePatchFrro() { return false; }
     public static boolean registerResourcePaths() { return false; }
     public static boolean resourceReadwriteFlags() { return false; }

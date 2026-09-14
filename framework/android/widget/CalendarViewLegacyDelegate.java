@@ -106,29 +106,6 @@ class CalendarViewLegacyDelegate extends android.widget.CalendarView.AbstractCal
         public void run() {}
     }
 
-    private class WeeksAdapter extends android.widget.BaseAdapter implements android.view.View.OnTouchListener {
-        private int mFocusedMonth;
-        private android.view.GestureDetector mGestureDetector;
-        private int mSelectedWeek;
-        private int mTotalWeekCount;
-        public WeeksAdapter(android.widget.CalendarViewLegacyDelegate p0, android.content.Context p1) { super(); }
-        private void init() {}
-        private void onDateTapped(android.icu.util.Calendar p0) {}
-        public int getCount() { return 0; }
-        public java.lang.Object getItem(int p0) { return null; }
-        public long getItemId(int p0) { return 0L; }
-        public android.icu.util.Calendar getSelectedDay() { return null; }
-        public android.view.View getView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
-        public boolean onTouch(android.view.View p0, android.view.MotionEvent p1) { return false; }
-        public void setFocusMonth(int p0) {}
-        public void setSelectedDay(android.icu.util.Calendar p0) {}
-
-        class CalendarGestureListener extends android.view.GestureDetector.SimpleOnGestureListener {
-            CalendarGestureListener(android.widget.CalendarViewLegacyDelegate.WeeksAdapter p0) { super(); }
-            public boolean onSingleTapUp(android.view.MotionEvent p0) { return false; }
-        }
-    }
-
     private class WeekView extends android.view.View {
         private java.lang.String[] mDayNumbers;
         private final android.graphics.Paint mDrawPaint = null;
@@ -163,5 +140,28 @@ class CalendarViewLegacyDelegate extends android.widget.CalendarView.AbstractCal
         protected void onDraw(android.graphics.Canvas p0) {}
         protected void onMeasure(int p0, int p1) {}
         protected void onSizeChanged(int p0, int p1, int p2, int p3) {}
+    }
+
+    private class WeeksAdapter extends android.widget.BaseAdapter implements android.view.View.OnTouchListener {
+        private int mFocusedMonth;
+        private android.view.GestureDetector mGestureDetector;
+        private int mSelectedWeek;
+        private int mTotalWeekCount;
+        public WeeksAdapter(android.widget.CalendarViewLegacyDelegate p0, android.content.Context p1) { super(); }
+        private void init() {}
+        private void onDateTapped(android.icu.util.Calendar p0) {}
+        public int getCount() { return 0; }
+        public java.lang.Object getItem(int p0) { return null; }
+        public long getItemId(int p0) { return 0L; }
+        public android.icu.util.Calendar getSelectedDay() { return null; }
+        public android.view.View getView(int p0, android.view.View p1, android.view.ViewGroup p2) { return null; }
+        public boolean onTouch(android.view.View p0, android.view.MotionEvent p1) { return false; }
+        public void setFocusMonth(int p0) {}
+        public void setSelectedDay(android.icu.util.Calendar p0) {}
+
+        class CalendarGestureListener extends android.view.GestureDetector.SimpleOnGestureListener {
+            CalendarGestureListener(android.widget.CalendarViewLegacyDelegate.WeeksAdapter p0) { super(); }
+            public boolean onSingleTapUp(android.view.MotionEvent p0) { return false; }
+        }
     }
 }

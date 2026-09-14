@@ -13,6 +13,7 @@ public final class ApplicationExitInfoProto {
     public static final long REAL_UID = 1120986464258L;
     public static final long REASON = 1159641169927L;
     public static final long RSS = 1112396529676L;
+    public static final long START_SEQ_ID = 1112396529682L;
     public static final long STATE = 1151051235343L;
     public static final long STATUS = 1120986464265L;
     public static final long SUB_REASON = 1159641169928L;

@@ -15,17 +15,6 @@ public class NetworkMetrics {
     public void addTcpStatsResult(int p0, int p1, int p2, int p3) {}
     public android.net.metrics.NetworkMetrics.Summary getPendingStats() { return null; }
 
-    static class Metrics {
-        public int count;
-        public double max;
-        public double sum;
-        Metrics() {}
-        double average() { return 0.0; }
-        void count(double p0) {}
-        void count(double p0, int p1) {}
-        void merge(android.net.metrics.NetworkMetrics.Metrics p0) {}
-    }
-
     public static class Summary {
         public final android.net.metrics.NetworkMetrics.Metrics connectErrorRate = null;
         public final android.net.metrics.NetworkMetrics.Metrics connectLatencies = null;
@@ -39,5 +28,16 @@ public class NetworkMetrics {
         public Summary(int p0, long p1) {}
         void merge(android.net.metrics.NetworkMetrics.Summary p0) {}
         public java.lang.String toString() { return null; }
+    }
+
+    static class Metrics {
+        public int count;
+        public double max;
+        public double sum;
+        Metrics() {}
+        double average() { return 0.0; }
+        void count(double p0) {}
+        void count(double p0, int p1) {}
+        void merge(android.net.metrics.NetworkMetrics.Metrics p0) {}
     }
 }

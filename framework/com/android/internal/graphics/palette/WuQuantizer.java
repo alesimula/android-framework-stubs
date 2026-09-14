@@ -32,6 +32,12 @@ public final class WuQuantizer implements com.android.internal.graphics.palette.
     public java.util.Map<java.lang.Integer, java.lang.Integer> inputPixelToCount() { return null; }
     public void quantize(int[] p0, int p1) {}
 
+    private static class MaximizeResult {
+        final int mCutLocation = 0;
+        final double mMaximum = 0.0;
+        MaximizeResult(int p0, double p1) {}
+    }
+
     private static class Box {
         public int b0;
         public int b1;
@@ -55,11 +61,5 @@ public final class WuQuantizer implements com.android.internal.graphics.palette.
         RED;
         private static final com.android.internal.graphics.palette.WuQuantizer.Direction[] $VALUES = null;
         private Direction() {}
-    }
-
-    private static class MaximizeResult {
-        final int mCutLocation = 0;
-        final double mMaximum = 0.0;
-        MaximizeResult(int p0, double p1) {}
     }
 }

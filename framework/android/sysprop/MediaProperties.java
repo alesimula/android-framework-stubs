@@ -16,7 +16,6 @@ public final class MediaProperties {
     public static java.util.Optional<java.lang.Integer> swcodec_ion_heapmask() { return null; }
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -29,8 +28,10 @@ public final class MediaProperties {
         AIDL,
         HIDL;
         private static final android.sysprop.MediaProperties.codec2_hal_selection_values[] $VALUES = null;
+        private static final android.sysprop.MediaProperties.codec2_hal_selection_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private codec2_hal_selection_values() {}
+        public static android.sysprop.MediaProperties.codec2_hal_selection_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 }

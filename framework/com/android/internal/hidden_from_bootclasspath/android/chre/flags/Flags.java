@@ -3,7 +3,6 @@ package com.android.internal.hidden_from_bootclasspath.android.chre.flags;
 public final class Flags {
     public static final java.lang.String FLAG_ABORT_IF_NO_CONTEXT_HUB_FOUND = "android.chre.flags.abort_if_no_context_hub_found";
     public static final java.lang.String FLAG_FMCQ_API = "android.chre.flags.fmcq_api";
-    public static final java.lang.String FLAG_FMCQ_IMPLEMENTATION = "android.chre.flags.fmcq_implementation";
     public static final java.lang.String FLAG_GET_HUBS_API = "android.chre.flags.get_hubs_api";
     public static final java.lang.String FLAG_HAL_HANDLE_NANOAPP_QUERY_TEST_MODE = "android.chre.flags.hal_handle_nanoapp_query_test_mode";
     public static final java.lang.String FLAG_OFFLOAD_API = "android.chre.flags.offload_api";
@@ -13,7 +12,6 @@ public final class Flags {
     public Flags() {}
     public static boolean abortIfNoContextHubFound() { return false; }
     public static boolean fmcqApi() { return false; }
-    public static boolean fmcqImplementation() { return false; }
     public static boolean getHubsApi() { return false; }
     public static boolean halHandleNanoappQueryTestMode() { return false; }
     public static boolean offloadApi() { return false; }

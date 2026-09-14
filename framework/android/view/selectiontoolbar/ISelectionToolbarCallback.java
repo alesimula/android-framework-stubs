@@ -7,15 +7,6 @@ public interface ISelectionToolbarCallback extends android.os.IInterface {
     public void onShown(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException;
     public void onUpdated(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.view.selectiontoolbar.ISelectionToolbarCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onInvisible() throws android.os.RemoteException {}
-        public void onMenuItemClicked(int p0) throws android.os.RemoteException {}
-        public void onShown(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException {}
-        public void onUpdated(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.selectiontoolbar.ISelectionToolbarCallback {
         static final int TRANSACTION_onInvisible = 2;
         static final int TRANSACTION_onMenuItemClicked = 4;
@@ -38,5 +29,14 @@ public interface ISelectionToolbarCallback extends android.os.IInterface {
             public void onShown(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException {}
             public void onUpdated(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.selectiontoolbar.ISelectionToolbarCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onInvisible() throws android.os.RemoteException {}
+        public void onMenuItemClicked(int p0) throws android.os.RemoteException {}
+        public void onShown(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException {}
+        public void onUpdated(android.view.selectiontoolbar.WidgetInfo p0) throws android.os.RemoteException {}
     }
 }

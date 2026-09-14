@@ -56,20 +56,6 @@ public final class SigningDetails implements android.os.Parcelable {
     public boolean signaturesMatchExactly(android.content.pm.SigningDetails p0) { return false; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    public static class Builder {
-        private android.content.pm.Signature[] mPastSigningCertificates;
-        private int mSignatureSchemeMinorVersion;
-        private int mSignatureSchemeVersion;
-        private android.content.pm.Signature[] mSignatures;
-        public Builder() {}
-        private void checkInvariants() {}
-        public android.content.pm.SigningDetails build() throws java.security.cert.CertificateException { return null; }
-        public android.content.pm.SigningDetails.Builder setPastSigningCertificates(android.content.pm.Signature[] p0) { return null; }
-        public android.content.pm.SigningDetails.Builder setSignatureSchemeMinorVersion(int p0) { return null; }
-        public android.content.pm.SigningDetails.Builder setSignatureSchemeVersion(int p0) { return null; }
-        public android.content.pm.SigningDetails.Builder setSignatures(android.content.pm.Signature[] p0) { return null; }
-    }
-
     public static @interface CapabilityMergeRule {
         public static final int MERGE_OTHER_CAPABILITY = 1;
         public static final int MERGE_RESTRICTED_CAPABILITY = 2;
@@ -97,5 +83,19 @@ public final class SigningDetails implements android.os.Parcelable {
         public static final int SIGNING_BLOCK_V3 = 3;
         public static final int SIGNING_BLOCK_V4 = 4;
         public static final int UNKNOWN = 0;
+    }
+
+    public static class Builder {
+        private android.content.pm.Signature[] mPastSigningCertificates;
+        private int mSignatureSchemeMinorVersion;
+        private int mSignatureSchemeVersion;
+        private android.content.pm.Signature[] mSignatures;
+        public Builder() {}
+        private void checkInvariants() {}
+        public android.content.pm.SigningDetails build() throws java.security.cert.CertificateException { return null; }
+        public android.content.pm.SigningDetails.Builder setPastSigningCertificates(android.content.pm.Signature[] p0) { return null; }
+        public android.content.pm.SigningDetails.Builder setSignatureSchemeMinorVersion(int p0) { return null; }
+        public android.content.pm.SigningDetails.Builder setSignatureSchemeVersion(int p0) { return null; }
+        public android.content.pm.SigningDetails.Builder setSignatures(android.content.pm.Signature[] p0) { return null; }
     }
 }

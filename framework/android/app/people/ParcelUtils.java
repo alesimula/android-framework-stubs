@@ -7,9 +7,11 @@ public final class ParcelUtils {
     public static int checkCollectionSize(int p0) { return 0; }
     public static int checkRecursionDepth(int p0) { return 0; }
     public static java.util.List<java.lang.Integer> readIntList(android.os.Parcel p0) { return null; }
-    public static <V extends java.lang.Object> java.util.Map<java.lang.Integer, V> readIntMap(android.os.Parcel p0, int p1, java.util.function.BiFunction<android.os.Parcel, java.lang.Integer, V> p2) { return null; }
-    public static <T extends java.lang.Object> java.util.List<T> readTypedList(android.os.Parcel p0, int p1, java.util.function.BiFunction<android.os.Parcel, java.lang.Integer, T> p2) { return null; }
-    public static <T extends java.lang.Object> T readTypedObject(android.os.Parcel p0, int p1, java.util.function.BiFunction<android.os.Parcel, java.lang.Integer, T> p2) { return null; }
+    public static <V extends java.lang.Object> java.util.Map<java.lang.Integer, V> readIntMap(android.os.Parcel p0, int p1, android.util.function.IntObjFunction<android.os.Parcel, V> p2) { return null; }
+    public static <V extends java.lang.Object> java.util.Map<java.lang.String, V> readStringMap(android.os.Parcel p0, int p1, android.util.function.IntObjFunction<android.os.Parcel, V> p2) { return null; }
+    public static <T extends java.lang.Object> java.util.List<T> readTypedList(android.os.Parcel p0, int p1, android.util.function.IntObjFunction<android.os.Parcel, T> p2) { return null; }
+    public static <T extends java.lang.Object> T readTypedObject(android.os.Parcel p0, int p1, android.util.function.IntObjFunction<android.os.Parcel, T> p2) { return null; }
     public static void writeIntList(java.util.List<java.lang.Integer> p0, android.os.Parcel p1, int p2) {}
     public static <V extends android.os.Parcelable> void writeIntMap(java.util.Map<java.lang.Integer, V> p0, android.os.Parcel p1, int p2) {}
+    public static <V extends android.os.Parcelable> void writeStringMap(java.util.Map<java.lang.String, V> p0, android.os.Parcel p1, int p2) {}
 }

@@ -58,6 +58,20 @@ public class GridLayoutManager extends com.android.internal.widget.LinearLayoutM
     public void setStackFromEnd(boolean p0) {}
     public boolean supportsPredictiveItemAnimations() { return false; }
 
+    public static abstract class SpanSizeLookup {
+        private boolean mCacheSpanIndices;
+        final android.util.SparseIntArray mSpanIndexCache = null;
+        public SpanSizeLookup() {}
+        int findReferenceIndexFromCache(int p0) { return 0; }
+        int getCachedSpanIndex(int p0, int p1) { return 0; }
+        public int getSpanGroupIndex(int p0, int p1) { return 0; }
+        public int getSpanIndex(int p0, int p1) { return 0; }
+        public abstract int getSpanSize(int p0);
+        public void invalidateSpanIndexCache() {}
+        public boolean isSpanIndexCacheEnabled() { return false; }
+        public void setSpanIndexCacheEnabled(boolean p0) {}
+    }
+
     public static final class DefaultSpanSizeLookup extends com.android.internal.widget.GridLayoutManager.SpanSizeLookup {
         public DefaultSpanSizeLookup() { super(); }
         public int getSpanIndex(int p0, int p1) { return 0; }
@@ -75,19 +89,5 @@ public class GridLayoutManager extends com.android.internal.widget.LinearLayoutM
         public LayoutParams(com.android.internal.widget.RecyclerView.LayoutParams p0) { super((android.view.ViewGroup.LayoutParams)null); }
         public int getSpanIndex() { return 0; }
         public int getSpanSize() { return 0; }
-    }
-
-    public static abstract class SpanSizeLookup {
-        private boolean mCacheSpanIndices;
-        final android.util.SparseIntArray mSpanIndexCache = null;
-        public SpanSizeLookup() {}
-        int findReferenceIndexFromCache(int p0) { return 0; }
-        int getCachedSpanIndex(int p0, int p1) { return 0; }
-        public int getSpanGroupIndex(int p0, int p1) { return 0; }
-        public int getSpanIndex(int p0, int p1) { return 0; }
-        public abstract int getSpanSize(int p0);
-        public void invalidateSpanIndexCache() {}
-        public boolean isSpanIndexCacheEnabled() { return false; }
-        public void setSpanIndexCacheEnabled(boolean p0) {}
     }
 }

@@ -12,7 +12,7 @@ public final class SystemFonts {
     private static final java.lang.String TAG = "SystemFonts";
     private static java.util.Set<android.graphics.fonts.Font> sAvailableFonts;
     private SystemFonts() {}
-    private static void appendNamedFamilyList(android.text.FontConfig.NamedFamilyList p0, android.util.ArrayMap<java.lang.String, java.nio.ByteBuffer> p1, android.util.ArrayMap<java.lang.String, android.graphics.fonts.SystemFonts.NativeFamilyListSet> p2) {}
+    private static void appendNamedFamilyList(android.text.FontConfig.NamedFamilyList p0, android.util.ArrayMap<java.lang.String, java.nio.ByteBuffer> p1, android.util.ArrayMap<java.lang.String, android.graphics.fonts.SystemFonts.NativeFamilyListSet> p2, android.text.FontConfig.FontFamily p3) {}
     public static java.util.Map<java.lang.String, android.graphics.fonts.FontFamily[]> buildSystemFallback(android.text.FontConfig p0) { return null; }
     public static java.util.Map<java.lang.String, android.graphics.fonts.FontFamily[]> buildSystemFallback(android.text.FontConfig p0, android.util.ArrayMap<java.lang.String, java.nio.ByteBuffer> p1) { return null; }
     public static java.util.Map<java.lang.String, android.graphics.Typeface> buildSystemTypefaces(android.text.FontConfig p0, java.util.Map<java.lang.String, android.graphics.fonts.FontFamily[]> p1) { return null; }
@@ -32,6 +32,7 @@ public final class SystemFonts {
     public static void resetAvailableFonts() {}
     public static int resolveVarFamilyType(android.text.FontConfig.FontFamily p0, java.lang.String p1) { return 0; }
     private static boolean scriptMatch(android.os.LocaleList p0, java.lang.String p1) { return false; }
+    private static boolean shouldAddFirstFontAsFallback(android.text.FontConfig.FontFamily p0, android.text.FontConfig.FontFamily p1) { return false; }
 
     private static final class NativeFamilyListSet {
         public java.lang.String customFallback;

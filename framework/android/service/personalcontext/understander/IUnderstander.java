@@ -2,16 +2,16 @@ package android.service.personalcontext.understander;
 
 public interface IUnderstander extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.understander.IUnderstander";
-    public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException;
-    public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.service.personalcontext.insight.interaction.InsightEvent p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException;
-    public void understand(android.os.ParcelUuid p0, java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p1, java.util.List<android.service.personalcontext.insight.destination.ContextDestination> p2, android.service.personalcontext.understander.IUnderstandCallback p3, android.service.personalcontext.IOpCallback p4) throws android.os.RemoteException;
+    public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException;
+    public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.service.personalcontext.insight.interaction.InsightEvent p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException;
+    public void understand(android.os.ParcelUuid p0, java.lang.String p1, java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p2, java.util.List<android.app.personalcontext.destination.ContextDestination> p3, android.service.personalcontext.understander.IUnderstandCallback p4, android.app.personalcontext.IOpCallback p5) throws android.os.RemoteException;
 
     public static class Default implements android.service.personalcontext.understander.IUnderstander {
         public Default() {}
         public android.os.IBinder asBinder() { return null; }
-        public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
-        public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.service.personalcontext.insight.interaction.InsightEvent p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
-        public void understand(android.os.ParcelUuid p0, java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p1, java.util.List<android.service.personalcontext.insight.destination.ContextDestination> p2, android.service.personalcontext.understander.IUnderstandCallback p3, android.service.personalcontext.IOpCallback p4) throws android.os.RemoteException {}
+        public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+        public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.service.personalcontext.insight.interaction.InsightEvent p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+        public void understand(android.os.ParcelUuid p0, java.lang.String p1, java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p2, java.util.List<android.app.personalcontext.destination.ContextDestination> p3, android.service.personalcontext.understander.IUnderstandCallback p4, android.app.personalcontext.IOpCallback p5) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.understander.IUnderstander {
@@ -29,10 +29,10 @@ public interface IUnderstander extends android.os.IInterface {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
             public android.os.IBinder asBinder() { return null; }
-            public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.service.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+            public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
-            public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.service.personalcontext.insight.interaction.InsightEvent p2, android.service.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
-            public void understand(android.os.ParcelUuid p0, java.util.List<android.service.personalcontext.hint.ContextHintWrapper> p1, java.util.List<android.service.personalcontext.insight.destination.ContextDestination> p2, android.service.personalcontext.understander.IUnderstandCallback p3, android.service.personalcontext.IOpCallback p4) throws android.os.RemoteException {}
+            public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.service.personalcontext.insight.interaction.InsightEvent p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+            public void understand(android.os.ParcelUuid p0, java.lang.String p1, java.util.List<android.app.personalcontext.hint.ContextHintWrapper> p2, java.util.List<android.app.personalcontext.destination.ContextDestination> p3, android.service.personalcontext.understander.IUnderstandCallback p4, android.app.personalcontext.IOpCallback p5) throws android.os.RemoteException {}
         }
     }
 }

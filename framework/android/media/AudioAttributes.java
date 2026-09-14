@@ -142,23 +142,7 @@ public final class AudioAttributes implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttributeContentType {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttributeSdkUsage {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface AttributeSystemUsage {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttributeUsage {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AttrInternalContentType {
     }
 
     public static class Builder {
@@ -209,15 +193,31 @@ public final class AudioAttributes implements android.os.Parcelable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AttributeUsage {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface CapturePolicy {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AttributeSdkUsage {
+    }
+
+    private static final class XsdHolder {
+        static final java.util.Map<java.lang.String, java.lang.Integer> sInstance = null;
+        private XsdHolder() {}
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SpatializationBehavior {
     }
 
-    private static final class XsdHolder {
-        static final java.util.Map<java.lang.String, java.lang.Integer> sInstance = null;
-        private XsdHolder() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AttributeContentType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AttrInternalContentType {
     }
 }

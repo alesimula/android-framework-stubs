@@ -41,289 +41,15 @@ public final class MediaCodecInfo {
     public final boolean isVendor() { return false; }
     public android.media.MediaCodecInfo makeRegular() { return null; }
 
-    public static final class AudioCapabilities {
-        private static final java.lang.String TAG = "AudioCapabilities";
-        private android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf mImpl;
-        private AudioCapabilities() {}
-        AudioCapabilities(android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf p0) {}
-        public static android.media.MediaCodecInfo.AudioCapabilities create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
-        public android.util.Range<java.lang.Integer> getBitrateRange() { return null; }
-        public void getDefaultFormat(android.media.MediaFormat p0) {}
-        public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges() { return null; }
-        public int getMaxInputChannelCount() { return 0; }
-        public int getMinInputChannelCount() { return 0; }
-        public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges() { return null; }
-        public int[] getSupportedSampleRates() { return null; }
-        public boolean isSampleRateSupported(int p0) { return false; }
-        public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-
-        static interface AudioCapsIntf {
-            public android.util.Range<java.lang.Integer> getBitrateRange();
-            public void getDefaultFormat(android.media.MediaFormat p0);
-            public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges();
-            public int getMaxInputChannelCount();
-            public int getMinInputChannelCount();
-            public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges();
-            public int[] getSupportedSampleRates();
-            public boolean isSampleRateSupported(int p0);
-            public boolean supportsFormat(android.media.MediaFormat p0);
-        }
-
-        static final class AudioCapsLegacyImpl implements android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf {
-            static final java.util.Set<java.lang.String> AUDIO_LEVEL_CRITICAL_FORMAT_KEYS = null;
-            private static final int MAX_INPUT_CHANNEL_COUNT = 30;
-            private android.util.Range<java.lang.Integer> mBitrateRange;
-            private android.util.Range<java.lang.Integer>[] mInputChannelRanges;
-            private android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl mParent;
-            private android.util.Range<java.lang.Integer>[] mSampleRateRanges;
-            private int[] mSampleRates;
-            private AudioCapsLegacyImpl() {}
-            private static android.util.Range<java.lang.Integer>[] ConvertDiscreteSampleRatesToRanges(int[] p0) { return null; }
-            private static int[] MergeSortedArraysAndRemoveDuplicates(int[] p0, int[] p1) { return null; }
-            private static <T extends java.lang.Comparable<? super T>> android.util.Range<T>[] UnionSortedDistinctRanges(android.util.Range<T>[] p0, android.util.Range<T>[] p1) { return null; }
-            private void applyLevelLimits() {}
-            private void applyLimits(android.util.Range<java.lang.Integer>[] p0, android.util.Range<java.lang.Integer> p1) {}
-            public static android.media.MediaCodecInfo.AudioCapabilities.AudioCapsLegacyImpl create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
-            private void createDiscreteSampleRates() {}
-            private void init(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) {}
-            private void initWithPlatformLimits() {}
-            private void limitSampleRates(int[] p0) {}
-            private void limitSampleRates(android.util.Range<java.lang.Integer>[] p0) {}
-            private void parseFromInfo(android.media.MediaFormat p0) {}
-            private boolean supports(java.lang.Integer p0, java.lang.Integer p1) { return false; }
-            public android.util.Range<java.lang.Integer> getBitrateRange() { return null; }
-            public void getDefaultFormat(android.media.MediaFormat p0) {}
-            public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges() { return null; }
-            public int getMaxInputChannelCount() { return 0; }
-            public int getMinInputChannelCount() { return 0; }
-            public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges() { return null; }
-            public int[] getSupportedSampleRates() { return null; }
-            public boolean isSampleRateSupported(int p0) { return false; }
-            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-        }
-
-        static final class AudioCapsNativeImpl implements android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf {
-            private android.util.Range<java.lang.Integer> mBitrateRange;
-            private android.util.Range<java.lang.Integer>[] mInputChannelRanges;
-            private long mNativeContext;
-            private android.util.Range<java.lang.Integer>[] mSampleRateRanges;
-            private int[] mSampleRates;
-            private AudioCapsNativeImpl() {}
-            AudioCapsNativeImpl(android.util.Range<java.lang.Integer> p0, int[] p1, android.util.Range<java.lang.Integer>[] p2, android.util.Range<java.lang.Integer>[] p3) {}
-            private native int native_getMaxInputChannelCount();
-            private native int native_getMinInputChannelCount();
-            private static native void native_init();
-            private native boolean native_isSampleRateSupported(int p0);
-            public android.util.Range<java.lang.Integer> getBitrateRange() { return null; }
-            public void getDefaultFormat(android.media.MediaFormat p0) {}
-            public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges() { return null; }
-            public int getMaxInputChannelCount() { return 0; }
-            public int getMinInputChannelCount() { return 0; }
-            public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges() { return null; }
-            public int[] getSupportedSampleRates() { return null; }
-            public boolean isSampleRateSupported(int p0) { return false; }
-            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-        }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SecurityModel {
     }
 
-    public static final class CodecCapabilities {
-        public static final int COLOR_Format12bitRGB444 = 3;
-        public static final int COLOR_Format16bitARGB1555 = 5;
-        public static final int COLOR_Format16bitARGB4444 = 4;
-        public static final int COLOR_Format16bitBGR565 = 7;
-        public static final int COLOR_Format16bitRGB565 = 6;
-        public static final int COLOR_Format18BitBGR666 = 41;
-        public static final int COLOR_Format18bitARGB1665 = 9;
-        public static final int COLOR_Format18bitRGB666 = 8;
-        public static final int COLOR_Format19bitARGB1666 = 10;
-        public static final int COLOR_Format24BitABGR6666 = 43;
-        public static final int COLOR_Format24BitARGB6666 = 42;
-        public static final int COLOR_Format24bitARGB1887 = 13;
-        public static final int COLOR_Format24bitBGR888 = 12;
-        public static final int COLOR_Format24bitRGB888 = 11;
-        public static final int COLOR_Format25bitARGB1888 = 14;
-        public static final int COLOR_Format32bitABGR2101010 = 2130750114;
-        public static final int COLOR_Format32bitABGR8888 = 2130747392;
-        public static final int COLOR_Format32bitARGB8888 = 16;
-        public static final int COLOR_Format32bitBGRA8888 = 15;
-        public static final int COLOR_Format64bitABGRFloat = 2130710294;
-        public static final int COLOR_Format8bitRGB332 = 2;
-        public static final int COLOR_FormatCbYCrY = 27;
-        public static final int COLOR_FormatCrYCbY = 28;
-        public static final int COLOR_FormatL16 = 36;
-        public static final int COLOR_FormatL2 = 33;
-        public static final int COLOR_FormatL24 = 37;
-        public static final int COLOR_FormatL32 = 38;
-        public static final int COLOR_FormatL4 = 34;
-        public static final int COLOR_FormatL8 = 35;
-        public static final int COLOR_FormatMonochrome = 1;
-        public static final int COLOR_FormatRGBAFlexible = 2134288520;
-        public static final int COLOR_FormatRGBFlexible = 2134292616;
-        public static final int COLOR_FormatRawBayer10bit = 31;
-        public static final int COLOR_FormatRawBayer8bit = 30;
-        public static final int COLOR_FormatRawBayer8bitcompressed = 32;
-        public static final int COLOR_FormatSurface = 2130708361;
-        public static final int COLOR_FormatYCbYCr = 25;
-        public static final int COLOR_FormatYCrYCb = 26;
-        public static final int COLOR_FormatYUV411PackedPlanar = 18;
-        public static final int COLOR_FormatYUV411Planar = 17;
-        public static final int COLOR_FormatYUV420Flexible = 2135033992;
-        public static final int COLOR_FormatYUV420PackedPlanar = 20;
-        public static final int COLOR_FormatYUV420PackedSemiPlanar = 39;
-        public static final int COLOR_FormatYUV420Planar = 19;
-        public static final int COLOR_FormatYUV420SemiPlanar = 21;
-        public static final int COLOR_FormatYUV422Flexible = 2135042184;
-        public static final int COLOR_FormatYUV422PackedPlanar = 23;
-        public static final int COLOR_FormatYUV422PackedSemiPlanar = 40;
-        public static final int COLOR_FormatYUV422Planar = 22;
-        public static final int COLOR_FormatYUV422SemiPlanar = 24;
-        public static final int COLOR_FormatYUV444Flexible = 2135181448;
-        public static final int COLOR_FormatYUV444Interleaved = 29;
-        public static final int COLOR_FormatYUVP010 = 54;
-        public static final int COLOR_FormatYUVP210 = 60;
-        public static final int COLOR_QCOM_FormatYUV420SemiPlanar = 2141391872;
-        public static final int COLOR_TI_FormatYUV420PackedSemiPlanar = 2130706688;
-        public static final java.lang.String FEATURE_AdaptivePlayback = "adaptive-playback";
-        public static final java.lang.String FEATURE_DetachedSurface = "detached-surface";
-        public static final java.lang.String FEATURE_DynamicColorAspects = "dynamic-color-aspects";
-        public static final java.lang.String FEATURE_DynamicTimestamp = "dynamic-timestamp";
-        public static final java.lang.String FEATURE_EncodingStatistics = "encoding-statistics";
-        public static final java.lang.String FEATURE_FrameParsing = "frame-parsing";
-        public static final java.lang.String FEATURE_HdrEditing = "hdr-editing";
-        public static final java.lang.String FEATURE_HlgEditing = "hlg-editing";
-        public static final java.lang.String FEATURE_IntraRefresh = "intra-refresh";
-        public static final java.lang.String FEATURE_LowLatency = "low-latency";
-        public static final java.lang.String FEATURE_MultipleFrames = "multiple-frames";
-        public static final java.lang.String FEATURE_PartialFrame = "partial-frame";
-        public static final java.lang.String FEATURE_QpBounds = "qp-bounds";
-        public static final java.lang.String FEATURE_Roi = "region-of-interest";
-        public static final java.lang.String FEATURE_SecurePlayback = "secure-playback";
-        private static final java.lang.String FEATURE_SpecialCodec = "special-codec";
-        public static final java.lang.String FEATURE_TunneledPlayback = "tunneled-playback";
-        private static final java.lang.String TAG = "CodecCapabilities";
-        public int[] colorFormats;
-        private android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf mImpl;
-        public android.media.MediaCodecInfo.CodecProfileLevel[] profileLevels;
-        public CodecCapabilities() {}
-        CodecCapabilities(android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf p0) {}
-        public static android.media.MediaCodecInfo.CodecCapabilities createFromProfileLevel(java.lang.String p0, int p1, int p2) { return null; }
-        public android.media.MediaCodecInfo.CodecCapabilities dup() { return null; }
-        public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities() { return null; }
-        public android.media.MediaFormat getDefaultFormat() { return null; }
-        public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities() { return null; }
-        public int getMaxSupportedInstances() { return 0; }
-        public java.lang.String getMimeType() { return null; }
-        public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities() { return null; }
-        public final boolean isFeatureRequired(java.lang.String p0) { return false; }
-        public final boolean isFeatureSupported(java.lang.String p0) { return false; }
-        public final boolean isFormatSupported(android.media.MediaFormat p0) { return false; }
-        public boolean isRegular() { return false; }
-        public java.lang.String[] validFeatures() { return null; }
-
-        static interface CodecCapsIntf {
-            public android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf dup();
-            public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities();
-            public int[] getColorFormats();
-            public android.media.MediaFormat getDefaultFormat();
-            public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities();
-            public int getMaxSupportedInstances();
-            public java.lang.String getMimeType();
-            public android.media.MediaCodecInfo.CodecProfileLevel[] getProfileLevels();
-            public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities();
-            public boolean isFeatureRequired(java.lang.String p0);
-            public boolean isFeatureSupported(java.lang.String p0);
-            public boolean isFormatSupported(android.media.MediaFormat p0);
-            public boolean isRegular();
-            public java.lang.String[] validFeatures();
-        }
-
-        static final class CodecCapsLegacyImpl implements android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf {
-            private android.media.MediaCodecInfo.AudioCapabilities mAudioCaps;
-            private android.media.MediaFormat mCapabilitiesInfo;
-            private int[] mColorFormats;
-            private android.media.MediaFormat mDefaultFormat;
-            private android.media.MediaCodecInfo.EncoderCapabilities mEncoderCaps;
-            int mError;
-            private int mFlagsRequired;
-            private int mFlagsSupported;
-            private int mFlagsVerified;
-            private int mMaxSupportedInstances;
-            private java.lang.String mMime;
-            private android.media.MediaCodecInfo.CodecProfileLevel[] mProfileLevels;
-            private android.media.MediaCodecInfo.VideoCapabilities mVideoCaps;
-            public CodecCapsLegacyImpl() {}
-            CodecCapsLegacyImpl(android.media.MediaCodecInfo.CodecProfileLevel[] p0, int[] p1, boolean p2, android.media.MediaFormat p3, android.media.MediaFormat p4) {}
-            CodecCapsLegacyImpl(android.media.MediaCodecInfo.CodecProfileLevel[] p0, int[] p1, boolean p2, java.util.Map<java.lang.String, java.lang.Object> p3, java.util.Map<java.lang.String, java.lang.Object> p4) {}
-            private boolean checkFeature(java.lang.String p0, int p1) { return false; }
-            public static android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl createFromProfileLevel(java.lang.String p0, int p1, int p2) { return null; }
-            private android.media.MediaCodecInfo.Feature[] getValidFeatures() { return null; }
-            private boolean isAudio() { return false; }
-            private boolean isEncoder() { return false; }
-            private boolean isVideo() { return false; }
-            private static boolean supportsBitrate(android.util.Range<java.lang.Integer> p0, android.media.MediaFormat p1) { return false; }
-            private boolean supportsProfileLevel(int p0, java.lang.Integer p1) { return false; }
-            public android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl dup() { return null; }
-            public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities() { return null; }
-            public int[] getColorFormats() { return null; }
-            public android.media.MediaFormat getDefaultFormat() { return null; }
-            public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities() { return null; }
-            public int getMaxSupportedInstances() { return 0; }
-            public java.lang.String getMimeType() { return null; }
-            public android.media.MediaCodecInfo.CodecProfileLevel[] getProfileLevels() { return null; }
-            public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities() { return null; }
-            public boolean isFeatureRequired(java.lang.String p0) { return false; }
-            public boolean isFeatureSupported(java.lang.String p0) { return false; }
-            public boolean isFormatSupported(android.media.MediaFormat p0) { return false; }
-            public boolean isRegular() { return false; }
-            public java.lang.String[] validFeatures() { return null; }
-
-            private static class FeatureList {
-                private static android.media.MediaCodecInfo.Feature[] decoderFeatures;
-                private static android.media.MediaCodecInfo.Feature[] encoderFeatures;
-                private FeatureList() {}
-                private static android.media.MediaCodecInfo.Feature[] getDecoderFeatures() { return null; }
-                private static android.media.MediaCodecInfo.Feature[] getEncoderFeatures() { return null; }
-                public static android.media.MediaCodecInfo.Feature[] getFeatures(boolean p0) { return null; }
-            }
-        }
-
-        static final class CodecCapsNativeImpl implements android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf {
-            private android.media.MediaCodecInfo.AudioCapabilities mAudioCaps;
-            private int[] mColorFormats;
-            private android.media.MediaFormat mDefaultFormat;
-            private android.media.MediaCodecInfo.EncoderCapabilities mEncoderCaps;
-            private long mNativeContext;
-            private android.media.MediaCodecInfo.CodecProfileLevel[] mProfileLevels;
-            private android.media.MediaCodecInfo.VideoCapabilities mVideoCaps;
-            CodecCapsNativeImpl(android.media.MediaCodecInfo.CodecProfileLevel[] p0, int[] p1, android.media.MediaFormat p2, android.media.MediaCodecInfo.AudioCapabilities p3, android.media.MediaCodecInfo.VideoCapabilities p4, android.media.MediaCodecInfo.EncoderCapabilities p5) {}
-            public static android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl createFromProfileLevel(java.lang.String p0, int p1, int p2) { return null; }
-            private static native android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl native_createFromProfileLevel(java.lang.String p0, int p1, int p2);
-            private native android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl native_dup();
-            private native void native_finalize();
-            private native int native_getMaxSupportedInstances();
-            private native java.lang.String native_getMimeType();
-            private static native void native_init();
-            private native boolean native_isFeatureRequired(java.lang.String p0);
-            private native boolean native_isFeatureSupported(java.lang.String p0);
-            private native boolean native_isFormatSupported(java.lang.String[] p0, java.lang.Object[] p1);
-            private native boolean native_isRegular();
-            private native java.lang.String[] native_validFeatures();
-            public android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl dup() { return null; }
-            protected void finalize() {}
-            public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities() { return null; }
-            public int[] getColorFormats() { return null; }
-            public android.media.MediaFormat getDefaultFormat() { return null; }
-            public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities() { return null; }
-            public int getMaxSupportedInstances() { return 0; }
-            public java.lang.String getMimeType() { return null; }
-            public android.media.MediaCodecInfo.CodecProfileLevel[] getProfileLevels() { return null; }
-            public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities() { return null; }
-            public boolean isFeatureRequired(java.lang.String p0) { return false; }
-            public boolean isFeatureSupported(java.lang.String p0) { return false; }
-            public boolean isFormatSupported(android.media.MediaFormat p0) { return false; }
-            public boolean isRegular() { return false; }
-            public java.lang.String[] validFeatures() { return null; }
-        }
+    class GenericHelper {
+        GenericHelper(android.media.MediaCodecInfo p0) {}
+        private static android.util.Range<java.lang.Double> constructDoubleRange(double p0, double p1) { return null; }
+        private static android.util.Range<java.lang.Integer> constructIntegerRange(int p0, int p1) { return null; }
+        private static java.util.List<android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint> constructPerformancePointList(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint[] p0) { return null; }
     }
 
     public static final class CodecProfileLevel {
@@ -670,74 +396,6 @@ public final class MediaCodecInfo {
         public int hashCode() { return 0; }
     }
 
-    public static final class EncoderCapabilities {
-        public static final int BITRATE_MODE_CBR = 2;
-        public static final int BITRATE_MODE_CBR_FD = 3;
-        public static final int BITRATE_MODE_CQ = 0;
-        public static final int BITRATE_MODE_VBR = 1;
-        private static final java.lang.String TAG = "EncoderCapabilities";
-        private android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf mImpl;
-        EncoderCapabilities(android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf p0) {}
-        public static android.media.MediaCodecInfo.EncoderCapabilities create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
-        public android.util.Range<java.lang.Integer> getComplexityRange() { return null; }
-        public void getDefaultFormat(android.media.MediaFormat p0) {}
-        public android.util.Range<java.lang.Integer> getQualityRange() { return null; }
-        public java.lang.String[] getSupportedLayeringSchemas() { return null; }
-        public boolean isBitrateModeSupported(int p0) { return false; }
-        public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-
-        static interface EncoderCapsIntf {
-            public android.util.Range<java.lang.Integer> getComplexityRange();
-            public void getDefaultFormat(android.media.MediaFormat p0);
-            public android.util.Range<java.lang.Integer> getQualityRange();
-            public java.lang.String[] getSupportedLayeringSchemas();
-            public boolean isBitrateModeSupported(int p0);
-            public boolean supportsFormat(android.media.MediaFormat p0);
-        }
-
-        static final class EncoderCapsLegacyImpl implements android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf {
-            private static final android.media.MediaCodecInfo.Feature[] bitrates = null;
-            private int mBitControl;
-            private android.util.Range<java.lang.Integer> mComplexityRange;
-            private java.lang.Integer mDefaultComplexity;
-            private java.lang.Integer mDefaultQuality;
-            private android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl mParent;
-            private android.util.Range<java.lang.Integer> mQualityRange;
-            private java.lang.String mQualityScale;
-            private java.lang.String[] mSupportedLayeringSchemas;
-            private EncoderCapsLegacyImpl() {}
-            private void applyLevelLimits() {}
-            public static android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsLegacyImpl create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
-            private void init(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) {}
-            private static int parseBitrateMode(java.lang.String p0) { return 0; }
-            private void parseFromInfo(android.media.MediaFormat p0) {}
-            private boolean supports(java.lang.Integer p0, java.lang.Integer p1, java.lang.Integer p2) { return false; }
-            public android.util.Range<java.lang.Integer> getComplexityRange() { return null; }
-            public void getDefaultFormat(android.media.MediaFormat p0) {}
-            public android.util.Range<java.lang.Integer> getQualityRange() { return null; }
-            public java.lang.String[] getSupportedLayeringSchemas() { return null; }
-            public boolean isBitrateModeSupported(int p0) { return false; }
-            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-        }
-
-        static final class EncoderCapsNativeImpl implements android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf {
-            private android.util.Range<java.lang.Integer> mComplexityRange;
-            private long mNativeContext;
-            private android.util.Range<java.lang.Integer> mQualityRange;
-            private EncoderCapsNativeImpl() {}
-            EncoderCapsNativeImpl(android.util.Range<java.lang.Integer> p0, android.util.Range<java.lang.Integer> p1) {}
-            private native java.lang.String[] native_getSupportedLayeringSchemas();
-            private static native void native_init();
-            private native boolean native_isBitrateModeSupported(int p0);
-            public android.util.Range<java.lang.Integer> getComplexityRange() { return null; }
-            public void getDefaultFormat(android.media.MediaFormat p0) {}
-            public android.util.Range<java.lang.Integer> getQualityRange() { return null; }
-            public java.lang.String[] getSupportedLayeringSchemas() { return null; }
-            public boolean isBitrateModeSupported(int p0) { return false; }
-            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-        }
-    }
-
     private static class Feature {
         public boolean mDefault;
         public boolean mInternal;
@@ -747,15 +405,89 @@ public final class MediaCodecInfo {
         public Feature(java.lang.String p0, int p1, boolean p2, boolean p3) {}
     }
 
-    class GenericHelper {
-        GenericHelper(android.media.MediaCodecInfo p0) {}
-        private static android.util.Range<java.lang.Double> constructDoubleRange(double p0, double p1) { return null; }
-        private static android.util.Range<java.lang.Integer> constructIntegerRange(int p0, int p1) { return null; }
-        private static java.util.List<android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint> constructPerformancePointList(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint[] p0) { return null; }
-    }
+    public static final class AudioCapabilities {
+        private static final java.lang.String TAG = "AudioCapabilities";
+        private android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf mImpl;
+        private AudioCapabilities() {}
+        AudioCapabilities(android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf p0) {}
+        public static android.media.MediaCodecInfo.AudioCapabilities create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
+        public android.util.Range<java.lang.Integer> getBitrateRange() { return null; }
+        public void getDefaultFormat(android.media.MediaFormat p0) {}
+        public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges() { return null; }
+        public int getMaxInputChannelCount() { return 0; }
+        public int getMinInputChannelCount() { return 0; }
+        public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges() { return null; }
+        public int[] getSupportedSampleRates() { return null; }
+        public boolean isSampleRateSupported(int p0) { return false; }
+        public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SecurityModel {
+        static final class AudioCapsLegacyImpl implements android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf {
+            static final java.util.Set<java.lang.String> AUDIO_LEVEL_CRITICAL_FORMAT_KEYS = null;
+            private static final int MAX_INPUT_CHANNEL_COUNT = 30;
+            private android.util.Range<java.lang.Integer> mBitrateRange;
+            private android.util.Range<java.lang.Integer>[] mInputChannelRanges;
+            private android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl mParent;
+            private android.util.Range<java.lang.Integer>[] mSampleRateRanges;
+            private int[] mSampleRates;
+            private AudioCapsLegacyImpl() {}
+            private static android.util.Range<java.lang.Integer>[] ConvertDiscreteSampleRatesToRanges(int[] p0) { return null; }
+            private static int[] MergeSortedArraysAndRemoveDuplicates(int[] p0, int[] p1) { return null; }
+            private static <T extends java.lang.Comparable<? super T>> android.util.Range<T>[] UnionSortedDistinctRanges(android.util.Range<T>[] p0, android.util.Range<T>[] p1) { return null; }
+            private void applyLevelLimits() {}
+            private void applyLimits(android.util.Range<java.lang.Integer>[] p0, android.util.Range<java.lang.Integer> p1) {}
+            public static android.media.MediaCodecInfo.AudioCapabilities.AudioCapsLegacyImpl create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
+            private void createDiscreteSampleRates() {}
+            private void init(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) {}
+            private void initWithPlatformLimits() {}
+            private void limitSampleRates(int[] p0) {}
+            private void limitSampleRates(android.util.Range<java.lang.Integer>[] p0) {}
+            private void parseFromInfo(android.media.MediaFormat p0) {}
+            private boolean supports(java.lang.Integer p0, java.lang.Integer p1) { return false; }
+            public android.util.Range<java.lang.Integer> getBitrateRange() { return null; }
+            public void getDefaultFormat(android.media.MediaFormat p0) {}
+            public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges() { return null; }
+            public int getMaxInputChannelCount() { return 0; }
+            public int getMinInputChannelCount() { return 0; }
+            public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges() { return null; }
+            public int[] getSupportedSampleRates() { return null; }
+            public boolean isSampleRateSupported(int p0) { return false; }
+            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
+        }
+
+        static final class AudioCapsNativeImpl implements android.media.MediaCodecInfo.AudioCapabilities.AudioCapsIntf {
+            private android.util.Range<java.lang.Integer> mBitrateRange;
+            private android.util.Range<java.lang.Integer>[] mInputChannelRanges;
+            private long mNativeContext;
+            private android.util.Range<java.lang.Integer>[] mSampleRateRanges;
+            private int[] mSampleRates;
+            private AudioCapsNativeImpl() {}
+            AudioCapsNativeImpl(android.util.Range<java.lang.Integer> p0, int[] p1, android.util.Range<java.lang.Integer>[] p2, android.util.Range<java.lang.Integer>[] p3) {}
+            private native int native_getMaxInputChannelCount();
+            private native int native_getMinInputChannelCount();
+            private static native void native_init();
+            private native boolean native_isSampleRateSupported(int p0);
+            public android.util.Range<java.lang.Integer> getBitrateRange() { return null; }
+            public void getDefaultFormat(android.media.MediaFormat p0) {}
+            public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges() { return null; }
+            public int getMaxInputChannelCount() { return 0; }
+            public int getMinInputChannelCount() { return 0; }
+            public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges() { return null; }
+            public int[] getSupportedSampleRates() { return null; }
+            public boolean isSampleRateSupported(int p0) { return false; }
+            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
+        }
+
+        static interface AudioCapsIntf {
+            public android.util.Range<java.lang.Integer> getBitrateRange();
+            public void getDefaultFormat(android.media.MediaFormat p0);
+            public android.util.Range<java.lang.Integer>[] getInputChannelCountRanges();
+            public int getMaxInputChannelCount();
+            public int getMinInputChannelCount();
+            public android.util.Range<java.lang.Integer>[] getSupportedSampleRateRanges();
+            public int[] getSupportedSampleRates();
+            public boolean isSampleRateSupported(int p0);
+            public boolean supportsFormat(android.media.MediaFormat p0);
+        }
     }
 
     public static final class VideoCapabilities {
@@ -779,70 +511,6 @@ public final class MediaCodecInfo {
         public int getWidthAlignment() { return 0; }
         public boolean isSizeSupported(int p0, int p1) { return false; }
         public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
-
-        public static final class PerformancePoint {
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_100 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_120 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_200 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_24 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_240 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_25 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_30 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_50 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_60 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_100 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_120 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_200 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_24 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_240 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_25 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_30 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_50 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_60 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_24 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_25 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_30 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_48 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_50 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_60 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_100 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_120 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_200 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_24 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_240 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_25 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_30 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_50 = null;
-            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_60 = null;
-            private android.util.Size mBlockSize;
-            private int mHeight;
-            private int mMaxFrameRate;
-            private long mMaxMacroBlockRate;
-            private int mWidth;
-            public PerformancePoint(int p0, int p1, int p2) {}
-            public PerformancePoint(int p0, int p1, int p2, int p3, android.util.Size p4) {}
-            PerformancePoint(int p0, int p1, int p2, long p3, int p4, int p5) {}
-            private PerformancePoint(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0) {}
-            public PerformancePoint(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0, android.util.Size p1) {}
-            private int align(int p0, int p1) { return 0; }
-            private void checkPowerOfTwo2(int p0, java.lang.String p1) {}
-            private android.util.Size getCommonBlockSize(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0) { return null; }
-            private native boolean native_covers(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0);
-            private native boolean native_equals(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0);
-            private int saturateLongToInt(long p0) { return 0; }
-            public boolean covers(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0) { return false; }
-            public boolean covers(android.media.MediaFormat p0) { return false; }
-            public boolean equals(java.lang.Object p0) { return false; }
-            int getBlockHeight() { return 0; }
-            int getBlockWidth() { return 0; }
-            int getHeight() { return 0; }
-            public int getMaxFrameRate() { return 0; }
-            public long getMaxMacroBlockRate() { return 0L; }
-            public int getMaxMacroBlocks() { return 0; }
-            int getWidth() { return 0; }
-            public int hashCode() { return 0; }
-            public java.lang.String toString() { return null; }
-        }
 
         static interface VideoCapsIntf {
             public boolean areSizeAndRateSupported(int p0, int p1, double p2);
@@ -923,6 +591,70 @@ public final class MediaCodecInfo {
             public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
         }
 
+        public static final class PerformancePoint {
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_100 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_120 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_200 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_24 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_240 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_25 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_30 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_50 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint FHD_60 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_100 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_120 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_200 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_24 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_240 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_25 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_30 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_50 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint HD_60 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_24 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_25 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_30 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_48 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_50 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint SD_60 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_100 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_120 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_200 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_24 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_240 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_25 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_30 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_50 = null;
+            public static final android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint UHD_60 = null;
+            private android.util.Size mBlockSize;
+            private int mHeight;
+            private int mMaxFrameRate;
+            private long mMaxMacroBlockRate;
+            private int mWidth;
+            public PerformancePoint(int p0, int p1, int p2) {}
+            public PerformancePoint(int p0, int p1, int p2, int p3, android.util.Size p4) {}
+            PerformancePoint(int p0, int p1, int p2, long p3, int p4, int p5) {}
+            private PerformancePoint(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0) {}
+            public PerformancePoint(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0, android.util.Size p1) {}
+            private int align(int p0, int p1) { return 0; }
+            private void checkPowerOfTwo2(int p0, java.lang.String p1) {}
+            private android.util.Size getCommonBlockSize(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0) { return null; }
+            private native boolean native_covers(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0);
+            private native boolean native_equals(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0);
+            private int saturateLongToInt(long p0) { return 0; }
+            public boolean covers(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint p0) { return false; }
+            public boolean covers(android.media.MediaFormat p0) { return false; }
+            public boolean equals(java.lang.Object p0) { return false; }
+            int getBlockHeight() { return 0; }
+            int getBlockWidth() { return 0; }
+            int getHeight() { return 0; }
+            public int getMaxFrameRate() { return 0; }
+            public long getMaxMacroBlockRate() { return 0L; }
+            public int getMaxMacroBlocks() { return 0; }
+            int getWidth() { return 0; }
+            public int hashCode() { return 0; }
+            public java.lang.String toString() { return null; }
+        }
+
         static final class VideoCapsNativeImpl implements android.media.MediaCodecInfo.VideoCapabilities.VideoCapsIntf {
             private android.util.Range<java.lang.Integer> mBitrateRange;
             private android.util.Range<java.lang.Integer> mFrameRateRange;
@@ -956,6 +688,274 @@ public final class MediaCodecInfo {
             public android.util.Range<java.lang.Integer> getSupportedWidthsFor(int p0) { return null; }
             public int getWidthAlignment() { return 0; }
             public boolean isSizeSupported(int p0, int p1) { return false; }
+            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
+        }
+    }
+
+    public static final class CodecCapabilities {
+        public static final int COLOR_Format12bitRGB444 = 3;
+        public static final int COLOR_Format16bitARGB1555 = 5;
+        public static final int COLOR_Format16bitARGB4444 = 4;
+        public static final int COLOR_Format16bitBGR565 = 7;
+        public static final int COLOR_Format16bitRGB565 = 6;
+        public static final int COLOR_Format18BitBGR666 = 41;
+        public static final int COLOR_Format18bitARGB1665 = 9;
+        public static final int COLOR_Format18bitRGB666 = 8;
+        public static final int COLOR_Format19bitARGB1666 = 10;
+        public static final int COLOR_Format24BitABGR6666 = 43;
+        public static final int COLOR_Format24BitARGB6666 = 42;
+        public static final int COLOR_Format24bitARGB1887 = 13;
+        public static final int COLOR_Format24bitBGR888 = 12;
+        public static final int COLOR_Format24bitRGB888 = 11;
+        public static final int COLOR_Format25bitARGB1888 = 14;
+        public static final int COLOR_Format32bitABGR2101010 = 2130750114;
+        public static final int COLOR_Format32bitABGR8888 = 2130747392;
+        public static final int COLOR_Format32bitARGB8888 = 16;
+        public static final int COLOR_Format32bitBGRA8888 = 15;
+        public static final int COLOR_Format64bitABGRFloat = 2130710294;
+        public static final int COLOR_Format8bitRGB332 = 2;
+        public static final int COLOR_FormatCbYCrY = 27;
+        public static final int COLOR_FormatCrYCbY = 28;
+        public static final int COLOR_FormatL16 = 36;
+        public static final int COLOR_FormatL2 = 33;
+        public static final int COLOR_FormatL24 = 37;
+        public static final int COLOR_FormatL32 = 38;
+        public static final int COLOR_FormatL4 = 34;
+        public static final int COLOR_FormatL8 = 35;
+        public static final int COLOR_FormatMonochrome = 1;
+        public static final int COLOR_FormatRGBAFlexible = 2134288520;
+        public static final int COLOR_FormatRGBFlexible = 2134292616;
+        public static final int COLOR_FormatRawBayer10bit = 31;
+        public static final int COLOR_FormatRawBayer8bit = 30;
+        public static final int COLOR_FormatRawBayer8bitcompressed = 32;
+        public static final int COLOR_FormatSurface = 2130708361;
+        public static final int COLOR_FormatYCbYCr = 25;
+        public static final int COLOR_FormatYCrYCb = 26;
+        public static final int COLOR_FormatYUV411PackedPlanar = 18;
+        public static final int COLOR_FormatYUV411Planar = 17;
+        public static final int COLOR_FormatYUV420Flexible = 2135033992;
+        public static final int COLOR_FormatYUV420PackedPlanar = 20;
+        public static final int COLOR_FormatYUV420PackedSemiPlanar = 39;
+        public static final int COLOR_FormatYUV420Planar = 19;
+        public static final int COLOR_FormatYUV420SemiPlanar = 21;
+        public static final int COLOR_FormatYUV422Flexible = 2135042184;
+        public static final int COLOR_FormatYUV422PackedPlanar = 23;
+        public static final int COLOR_FormatYUV422PackedSemiPlanar = 40;
+        public static final int COLOR_FormatYUV422Planar = 22;
+        public static final int COLOR_FormatYUV422SemiPlanar = 24;
+        public static final int COLOR_FormatYUV444Flexible = 2135181448;
+        public static final int COLOR_FormatYUV444Interleaved = 29;
+        public static final int COLOR_FormatYUVP010 = 54;
+        public static final int COLOR_FormatYUVP210 = 60;
+        public static final int COLOR_QCOM_FormatYUV420SemiPlanar = 2141391872;
+        public static final int COLOR_TI_FormatYUV420PackedSemiPlanar = 2130706688;
+        public static final java.lang.String FEATURE_AdaptivePlayback = "adaptive-playback";
+        public static final java.lang.String FEATURE_DetachedSurface = "detached-surface";
+        public static final java.lang.String FEATURE_DynamicColorAspects = "dynamic-color-aspects";
+        public static final java.lang.String FEATURE_DynamicTimestamp = "dynamic-timestamp";
+        public static final java.lang.String FEATURE_EncodingStatistics = "encoding-statistics";
+        public static final java.lang.String FEATURE_FrameParsing = "frame-parsing";
+        public static final java.lang.String FEATURE_HdrEditing = "hdr-editing";
+        public static final java.lang.String FEATURE_HlgEditing = "hlg-editing";
+        public static final java.lang.String FEATURE_IntraRefresh = "intra-refresh";
+        public static final java.lang.String FEATURE_LowLatency = "low-latency";
+        public static final java.lang.String FEATURE_MultipleFrames = "multiple-frames";
+        public static final java.lang.String FEATURE_PartialFrame = "partial-frame";
+        public static final java.lang.String FEATURE_QpBounds = "qp-bounds";
+        public static final java.lang.String FEATURE_Roi = "region-of-interest";
+        public static final java.lang.String FEATURE_SecurePlayback = "secure-playback";
+        private static final java.lang.String FEATURE_SpecialCodec = "special-codec";
+        public static final java.lang.String FEATURE_TunneledPlayback = "tunneled-playback";
+        private static final java.lang.String TAG = "CodecCapabilities";
+        public int[] colorFormats;
+        private android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf mImpl;
+        public android.media.MediaCodecInfo.CodecProfileLevel[] profileLevels;
+        public CodecCapabilities() {}
+        CodecCapabilities(android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf p0) {}
+        public static android.media.MediaCodecInfo.CodecCapabilities createFromProfileLevel(java.lang.String p0, int p1, int p2) { return null; }
+        public android.media.MediaCodecInfo.CodecCapabilities dup() { return null; }
+        public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities() { return null; }
+        public android.media.MediaFormat getDefaultFormat() { return null; }
+        public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities() { return null; }
+        public int getMaxSupportedInstances() { return 0; }
+        public java.lang.String getMimeType() { return null; }
+        public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities() { return null; }
+        public final boolean isFeatureRequired(java.lang.String p0) { return false; }
+        public final boolean isFeatureSupported(java.lang.String p0) { return false; }
+        public final boolean isFormatSupported(android.media.MediaFormat p0) { return false; }
+        public boolean isRegular() { return false; }
+        public java.lang.String[] validFeatures() { return null; }
+
+        static final class CodecCapsNativeImpl implements android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf {
+            private android.media.MediaCodecInfo.AudioCapabilities mAudioCaps;
+            private int[] mColorFormats;
+            private android.media.MediaFormat mDefaultFormat;
+            private android.media.MediaCodecInfo.EncoderCapabilities mEncoderCaps;
+            private long mNativeContext;
+            private android.media.MediaCodecInfo.CodecProfileLevel[] mProfileLevels;
+            private android.media.MediaCodecInfo.VideoCapabilities mVideoCaps;
+            CodecCapsNativeImpl(android.media.MediaCodecInfo.CodecProfileLevel[] p0, int[] p1, android.media.MediaFormat p2, android.media.MediaCodecInfo.AudioCapabilities p3, android.media.MediaCodecInfo.VideoCapabilities p4, android.media.MediaCodecInfo.EncoderCapabilities p5) {}
+            public static android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl createFromProfileLevel(java.lang.String p0, int p1, int p2) { return null; }
+            private static native android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl native_createFromProfileLevel(java.lang.String p0, int p1, int p2);
+            private native android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl native_dup();
+            private native void native_finalize();
+            private native int native_getMaxSupportedInstances();
+            private native java.lang.String native_getMimeType();
+            private static native void native_init();
+            private native boolean native_isFeatureRequired(java.lang.String p0);
+            private native boolean native_isFeatureSupported(java.lang.String p0);
+            private native boolean native_isFormatSupported(java.lang.String[] p0, java.lang.Object[] p1);
+            private native boolean native_isRegular();
+            private native java.lang.String[] native_validFeatures();
+            public android.media.MediaCodecInfo.CodecCapabilities.CodecCapsNativeImpl dup() { return null; }
+            protected void finalize() {}
+            public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities() { return null; }
+            public int[] getColorFormats() { return null; }
+            public android.media.MediaFormat getDefaultFormat() { return null; }
+            public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities() { return null; }
+            public int getMaxSupportedInstances() { return 0; }
+            public java.lang.String getMimeType() { return null; }
+            public android.media.MediaCodecInfo.CodecProfileLevel[] getProfileLevels() { return null; }
+            public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities() { return null; }
+            public boolean isFeatureRequired(java.lang.String p0) { return false; }
+            public boolean isFeatureSupported(java.lang.String p0) { return false; }
+            public boolean isFormatSupported(android.media.MediaFormat p0) { return false; }
+            public boolean isRegular() { return false; }
+            public java.lang.String[] validFeatures() { return null; }
+        }
+
+        static interface CodecCapsIntf {
+            public android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf dup();
+            public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities();
+            public int[] getColorFormats();
+            public android.media.MediaFormat getDefaultFormat();
+            public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities();
+            public int getMaxSupportedInstances();
+            public java.lang.String getMimeType();
+            public android.media.MediaCodecInfo.CodecProfileLevel[] getProfileLevels();
+            public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities();
+            public boolean isFeatureRequired(java.lang.String p0);
+            public boolean isFeatureSupported(java.lang.String p0);
+            public boolean isFormatSupported(android.media.MediaFormat p0);
+            public boolean isRegular();
+            public java.lang.String[] validFeatures();
+        }
+
+        static final class CodecCapsLegacyImpl implements android.media.MediaCodecInfo.CodecCapabilities.CodecCapsIntf {
+            private android.media.MediaCodecInfo.AudioCapabilities mAudioCaps;
+            private android.media.MediaFormat mCapabilitiesInfo;
+            private int[] mColorFormats;
+            private android.media.MediaFormat mDefaultFormat;
+            private android.media.MediaCodecInfo.EncoderCapabilities mEncoderCaps;
+            int mError;
+            private int mFlagsRequired;
+            private int mFlagsSupported;
+            private int mFlagsVerified;
+            private int mMaxSupportedInstances;
+            private java.lang.String mMime;
+            private android.media.MediaCodecInfo.CodecProfileLevel[] mProfileLevels;
+            private android.media.MediaCodecInfo.VideoCapabilities mVideoCaps;
+            public CodecCapsLegacyImpl() {}
+            CodecCapsLegacyImpl(android.media.MediaCodecInfo.CodecProfileLevel[] p0, int[] p1, boolean p2, android.media.MediaFormat p3, android.media.MediaFormat p4) {}
+            CodecCapsLegacyImpl(android.media.MediaCodecInfo.CodecProfileLevel[] p0, int[] p1, boolean p2, java.util.Map<java.lang.String, java.lang.Object> p3, java.util.Map<java.lang.String, java.lang.Object> p4) {}
+            private boolean checkFeature(java.lang.String p0, int p1) { return false; }
+            public static android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl createFromProfileLevel(java.lang.String p0, int p1, int p2) { return null; }
+            private android.media.MediaCodecInfo.Feature[] getValidFeatures() { return null; }
+            private boolean isAudio() { return false; }
+            private boolean isEncoder() { return false; }
+            private boolean isVideo() { return false; }
+            private static boolean supportsBitrate(android.util.Range<java.lang.Integer> p0, android.media.MediaFormat p1) { return false; }
+            private boolean supportsProfileLevel(int p0, java.lang.Integer p1) { return false; }
+            public android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl dup() { return null; }
+            public android.media.MediaCodecInfo.AudioCapabilities getAudioCapabilities() { return null; }
+            public int[] getColorFormats() { return null; }
+            public android.media.MediaFormat getDefaultFormat() { return null; }
+            public android.media.MediaCodecInfo.EncoderCapabilities getEncoderCapabilities() { return null; }
+            public int getMaxSupportedInstances() { return 0; }
+            public java.lang.String getMimeType() { return null; }
+            public android.media.MediaCodecInfo.CodecProfileLevel[] getProfileLevels() { return null; }
+            public android.media.MediaCodecInfo.VideoCapabilities getVideoCapabilities() { return null; }
+            public boolean isFeatureRequired(java.lang.String p0) { return false; }
+            public boolean isFeatureSupported(java.lang.String p0) { return false; }
+            public boolean isFormatSupported(android.media.MediaFormat p0) { return false; }
+            public boolean isRegular() { return false; }
+            public java.lang.String[] validFeatures() { return null; }
+
+            private static class FeatureList {
+                private static android.media.MediaCodecInfo.Feature[] decoderFeatures;
+                private static android.media.MediaCodecInfo.Feature[] encoderFeatures;
+                private FeatureList() {}
+                private static android.media.MediaCodecInfo.Feature[] getDecoderFeatures() { return null; }
+                private static android.media.MediaCodecInfo.Feature[] getEncoderFeatures() { return null; }
+                public static android.media.MediaCodecInfo.Feature[] getFeatures(boolean p0) { return null; }
+            }
+        }
+    }
+
+    public static final class EncoderCapabilities {
+        public static final int BITRATE_MODE_CBR = 2;
+        public static final int BITRATE_MODE_CBR_FD = 3;
+        public static final int BITRATE_MODE_CQ = 0;
+        public static final int BITRATE_MODE_VBR = 1;
+        private static final java.lang.String TAG = "EncoderCapabilities";
+        private android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf mImpl;
+        EncoderCapabilities(android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf p0) {}
+        public static android.media.MediaCodecInfo.EncoderCapabilities create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
+        public android.util.Range<java.lang.Integer> getComplexityRange() { return null; }
+        public void getDefaultFormat(android.media.MediaFormat p0) {}
+        public android.util.Range<java.lang.Integer> getQualityRange() { return null; }
+        public java.lang.String[] getSupportedLayeringSchemas() { return null; }
+        public boolean isBitrateModeSupported(int p0) { return false; }
+        public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
+
+        static final class EncoderCapsLegacyImpl implements android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf {
+            private static final android.media.MediaCodecInfo.Feature[] bitrates = null;
+            private int mBitControl;
+            private android.util.Range<java.lang.Integer> mComplexityRange;
+            private java.lang.Integer mDefaultComplexity;
+            private java.lang.Integer mDefaultQuality;
+            private android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl mParent;
+            private android.util.Range<java.lang.Integer> mQualityRange;
+            private java.lang.String mQualityScale;
+            private java.lang.String[] mSupportedLayeringSchemas;
+            private EncoderCapsLegacyImpl() {}
+            private void applyLevelLimits() {}
+            public static android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsLegacyImpl create(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) { return null; }
+            private void init(android.media.MediaFormat p0, android.media.MediaCodecInfo.CodecCapabilities.CodecCapsLegacyImpl p1) {}
+            private static int parseBitrateMode(java.lang.String p0) { return 0; }
+            private void parseFromInfo(android.media.MediaFormat p0) {}
+            private boolean supports(java.lang.Integer p0, java.lang.Integer p1, java.lang.Integer p2) { return false; }
+            public android.util.Range<java.lang.Integer> getComplexityRange() { return null; }
+            public void getDefaultFormat(android.media.MediaFormat p0) {}
+            public android.util.Range<java.lang.Integer> getQualityRange() { return null; }
+            public java.lang.String[] getSupportedLayeringSchemas() { return null; }
+            public boolean isBitrateModeSupported(int p0) { return false; }
+            public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
+        }
+
+        static interface EncoderCapsIntf {
+            public android.util.Range<java.lang.Integer> getComplexityRange();
+            public void getDefaultFormat(android.media.MediaFormat p0);
+            public android.util.Range<java.lang.Integer> getQualityRange();
+            public java.lang.String[] getSupportedLayeringSchemas();
+            public boolean isBitrateModeSupported(int p0);
+            public boolean supportsFormat(android.media.MediaFormat p0);
+        }
+
+        static final class EncoderCapsNativeImpl implements android.media.MediaCodecInfo.EncoderCapabilities.EncoderCapsIntf {
+            private android.util.Range<java.lang.Integer> mComplexityRange;
+            private long mNativeContext;
+            private android.util.Range<java.lang.Integer> mQualityRange;
+            private EncoderCapsNativeImpl() {}
+            EncoderCapsNativeImpl(android.util.Range<java.lang.Integer> p0, android.util.Range<java.lang.Integer> p1) {}
+            private native java.lang.String[] native_getSupportedLayeringSchemas();
+            private static native void native_init();
+            private native boolean native_isBitrateModeSupported(int p0);
+            public android.util.Range<java.lang.Integer> getComplexityRange() { return null; }
+            public void getDefaultFormat(android.media.MediaFormat p0) {}
+            public android.util.Range<java.lang.Integer> getQualityRange() { return null; }
+            public java.lang.String[] getSupportedLayeringSchemas() { return null; }
+            public boolean isBitrateModeSupported(int p0) { return false; }
             public boolean supportsFormat(android.media.MediaFormat p0) { return false; }
         }
     }

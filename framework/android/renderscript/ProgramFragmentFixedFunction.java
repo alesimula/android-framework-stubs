@@ -28,6 +28,12 @@ public class ProgramFragmentFixedFunction extends android.renderscript.ProgramFr
             private EnvMode() {}
         }
 
+        private class Slot {
+            android.renderscript.ProgramFragmentFixedFunction.Builder.EnvMode env;
+            android.renderscript.ProgramFragmentFixedFunction.Builder.Format format;
+            Slot(android.renderscript.ProgramFragmentFixedFunction.Builder p0, android.renderscript.ProgramFragmentFixedFunction.Builder.EnvMode p1, android.renderscript.ProgramFragmentFixedFunction.Builder.Format p2) {}
+        }
+
         public static enum Format {
             ALPHA,
             LUMINANCE_ALPHA,
@@ -36,12 +42,6 @@ public class ProgramFragmentFixedFunction extends android.renderscript.ProgramFr
             private static final android.renderscript.ProgramFragmentFixedFunction.Builder.Format[] $VALUES = null;
             int mID;
             private Format() {}
-        }
-
-        private class Slot {
-            android.renderscript.ProgramFragmentFixedFunction.Builder.EnvMode env;
-            android.renderscript.ProgramFragmentFixedFunction.Builder.Format format;
-            Slot(android.renderscript.ProgramFragmentFixedFunction.Builder p0, android.renderscript.ProgramFragmentFixedFunction.Builder.EnvMode p1, android.renderscript.ProgramFragmentFixedFunction.Builder.Format p2) {}
         }
     }
 

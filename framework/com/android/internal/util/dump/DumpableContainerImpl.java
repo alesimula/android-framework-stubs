@@ -2,7 +2,7 @@ package com.android.internal.util.dump;
 
 public final class DumpableContainerImpl implements android.util.DumpableContainer {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "DumpableContainerImpl";
     private final android.util.ArrayMap<java.lang.String, android.util.Dumpable> mDumpables = null;
     public DumpableContainerImpl() {}
     private int dumpNumberDumpables(android.util.IndentingPrintWriter p0) { return 0; }

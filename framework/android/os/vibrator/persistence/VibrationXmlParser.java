@@ -13,6 +13,7 @@ public final class VibrationXmlParser {
     private static <T extends java.lang.Object> T parseDocumentInternal(java.io.Reader p0, int p1, android.os.vibrator.persistence.VibrationXmlParser.ElementParser<T> p2) throws java.io.IOException { return null; }
     public static android.os.vibrator.persistence.ParsedVibration parseElement(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws java.io.IOException { return null; }
     private static android.os.vibrator.persistence.ParsedVibration parseElementInternal(com.android.modules.utils.TypedXmlPullParser p0, int p1) throws java.io.IOException, com.android.internal.vibrator.persistence.XmlParserException { return null; }
+    public static android.os.VibrationEffect parseVibrationEffect(com.android.modules.utils.TypedXmlPullParser p0) throws java.io.IOException { return null; }
     @android.annotation.SystemApi
     public static android.os.VibrationEffect parseVibrationEffect(java.io.InputStream p0) throws java.io.IOException { return null; }
     public static android.os.VibrationEffect parseVibrationEffect(java.io.Reader p0) throws java.io.IOException { return null; }

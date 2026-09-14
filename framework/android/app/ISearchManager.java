@@ -1,50 +1,83 @@
 package android.app;
 
 public interface ISearchManager extends android.os.IInterface {
+    public void addOnSearchEngineRoleAvailabilityChangedListener(android.app.IOnSearchEngineRoleAvailabilityChangedListener p0, int p1) throws android.os.RemoteException;
     public java.util.List<android.content.pm.ResolveInfo> getGlobalSearchActivities() throws android.os.RemoteException;
     public android.content.ComponentName getGlobalSearchActivity() throws android.os.RemoteException;
     public android.app.SearchableInfo getSearchableInfo(android.content.ComponentName p0) throws android.os.RemoteException;
     public java.util.List<android.app.SearchableInfo> getSearchablesInGlobalSearch() throws android.os.RemoteException;
+    public java.lang.String getUserSetupSearchEngineRoleHolder(int p0) throws android.os.RemoteException;
     public android.content.ComponentName getWebSearchActivity() throws android.os.RemoteException;
+    public boolean isSearchEngineRoleAvailable(int p0) throws android.os.RemoteException;
     public void launchAssist(int p0, android.os.Bundle p1) throws android.os.RemoteException;
+    public void removeOnSearchEngineRoleAvailabilityChangedListener(android.app.IOnSearchEngineRoleAvailabilityChangedListener p0, int p1) throws android.os.RemoteException;
+    public void setSearchEngineRoleAvailable(boolean p0, int p1) throws android.os.RemoteException;
+    public void setUserSetupSearchEngineRoleHolder(java.lang.String p0, int p1) throws android.os.RemoteException;
 
     public static class Default implements android.app.ISearchManager {
         public Default() {}
+        public void addOnSearchEngineRoleAvailabilityChangedListener(android.app.IOnSearchEngineRoleAvailabilityChangedListener p0, int p1) throws android.os.RemoteException {}
         public android.os.IBinder asBinder() { return null; }
         public java.util.List<android.content.pm.ResolveInfo> getGlobalSearchActivities() throws android.os.RemoteException { return null; }
         public android.content.ComponentName getGlobalSearchActivity() throws android.os.RemoteException { return null; }
         public android.app.SearchableInfo getSearchableInfo(android.content.ComponentName p0) throws android.os.RemoteException { return null; }
         public java.util.List<android.app.SearchableInfo> getSearchablesInGlobalSearch() throws android.os.RemoteException { return null; }
+        public java.lang.String getUserSetupSearchEngineRoleHolder(int p0) throws android.os.RemoteException { return null; }
         public android.content.ComponentName getWebSearchActivity() throws android.os.RemoteException { return null; }
+        public boolean isSearchEngineRoleAvailable(int p0) throws android.os.RemoteException { return false; }
         public void launchAssist(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void removeOnSearchEngineRoleAvailabilityChangedListener(android.app.IOnSearchEngineRoleAvailabilityChangedListener p0, int p1) throws android.os.RemoteException {}
+        public void setSearchEngineRoleAvailable(boolean p0, int p1) throws android.os.RemoteException {}
+        public void setUserSetupSearchEngineRoleHolder(java.lang.String p0, int p1) throws android.os.RemoteException {}
     }
 
     public static abstract class Stub extends android.os.Binder implements android.app.ISearchManager {
         public static final java.lang.String DESCRIPTOR = "android.app.ISearchManager";
+        static final int TRANSACTION_addOnSearchEngineRoleAvailabilityChangedListener = 11;
         static final int TRANSACTION_getGlobalSearchActivities = 3;
         static final int TRANSACTION_getGlobalSearchActivity = 4;
         static final int TRANSACTION_getSearchableInfo = 1;
         static final int TRANSACTION_getSearchablesInGlobalSearch = 2;
+        static final int TRANSACTION_getUserSetupSearchEngineRoleHolder = 9;
         static final int TRANSACTION_getWebSearchActivity = 5;
+        static final int TRANSACTION_isSearchEngineRoleAvailable = 8;
         static final int TRANSACTION_launchAssist = 6;
+        static final int TRANSACTION_removeOnSearchEngineRoleAvailabilityChangedListener = 12;
+        static final int TRANSACTION_setSearchEngineRoleAvailable = 7;
+        static final int TRANSACTION_setUserSetupSearchEngineRoleHolder = 10;
+        private final android.os.PermissionEnforcer mEnforcer = null;
+        @java.lang.Deprecated
         public Stub() { super(); }
+        public Stub(android.os.PermissionEnforcer p0) { super(); }
         public static android.app.ISearchManager asInterface(android.os.IBinder p0) { return null; }
         public static java.lang.String getDefaultTransactionName(int p0) { return null; }
+        protected void addOnSearchEngineRoleAvailabilityChangedListener_enforcePermission() throws java.lang.SecurityException {}
         public android.os.IBinder asBinder() { return null; }
         public java.lang.String getTransactionName(int p0) { return null; }
+        protected void getUserSetupSearchEngineRoleHolder_enforcePermission() throws java.lang.SecurityException {}
+        protected void isSearchEngineRoleAvailable_enforcePermission() throws java.lang.SecurityException {}
         public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+        protected void removeOnSearchEngineRoleAvailabilityChangedListener_enforcePermission() throws java.lang.SecurityException {}
+        protected void setSearchEngineRoleAvailable_enforcePermission() throws java.lang.SecurityException {}
+        protected void setUserSetupSearchEngineRoleHolder_enforcePermission() throws java.lang.SecurityException {}
 
         private static final class Proxy implements android.app.ISearchManager {
             private android.os.IBinder mRemote;
             Proxy(android.os.IBinder p0) {}
+            public void addOnSearchEngineRoleAvailabilityChangedListener(android.app.IOnSearchEngineRoleAvailabilityChangedListener p0, int p1) throws android.os.RemoteException {}
             public android.os.IBinder asBinder() { return null; }
             public java.util.List<android.content.pm.ResolveInfo> getGlobalSearchActivities() throws android.os.RemoteException { return null; }
             public android.content.ComponentName getGlobalSearchActivity() throws android.os.RemoteException { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public android.app.SearchableInfo getSearchableInfo(android.content.ComponentName p0) throws android.os.RemoteException { return null; }
             public java.util.List<android.app.SearchableInfo> getSearchablesInGlobalSearch() throws android.os.RemoteException { return null; }
+            public java.lang.String getUserSetupSearchEngineRoleHolder(int p0) throws android.os.RemoteException { return null; }
             public android.content.ComponentName getWebSearchActivity() throws android.os.RemoteException { return null; }
+            public boolean isSearchEngineRoleAvailable(int p0) throws android.os.RemoteException { return false; }
             public void launchAssist(int p0, android.os.Bundle p1) throws android.os.RemoteException {}
+            public void removeOnSearchEngineRoleAvailabilityChangedListener(android.app.IOnSearchEngineRoleAvailabilityChangedListener p0, int p1) throws android.os.RemoteException {}
+            public void setSearchEngineRoleAvailable(boolean p0, int p1) throws android.os.RemoteException {}
+            public void setUserSetupSearchEngineRoleHolder(java.lang.String p0, int p1) throws android.os.RemoteException {}
         }
     }
 }

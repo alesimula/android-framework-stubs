@@ -7,16 +7,6 @@ public interface IGpsGeofenceHardware extends android.os.IInterface {
     public boolean removeHardwareGeofence(int p0) throws android.os.RemoteException;
     public boolean resumeHardwareGeofence(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.location.IGpsGeofenceHardware {
-        public Default() {}
-        public boolean addCircularHardwareGeofence(int p0, double p1, double p2, double p3, int p4, int p5, int p6, int p7) throws android.os.RemoteException { return false; }
-        public android.os.IBinder asBinder() { return null; }
-        public boolean isHardwareGeofenceSupported() throws android.os.RemoteException { return false; }
-        public boolean pauseHardwareGeofence(int p0) throws android.os.RemoteException { return false; }
-        public boolean removeHardwareGeofence(int p0) throws android.os.RemoteException { return false; }
-        public boolean resumeHardwareGeofence(int p0, int p1) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.location.IGpsGeofenceHardware {
         public static final java.lang.String DESCRIPTOR = "android.location.IGpsGeofenceHardware";
         static final int TRANSACTION_addCircularHardwareGeofence = 2;
@@ -42,5 +32,15 @@ public interface IGpsGeofenceHardware extends android.os.IInterface {
             public boolean removeHardwareGeofence(int p0) throws android.os.RemoteException { return false; }
             public boolean resumeHardwareGeofence(int p0, int p1) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.location.IGpsGeofenceHardware {
+        public Default() {}
+        public boolean addCircularHardwareGeofence(int p0, double p1, double p2, double p3, int p4, int p5, int p6, int p7) throws android.os.RemoteException { return false; }
+        public android.os.IBinder asBinder() { return null; }
+        public boolean isHardwareGeofenceSupported() throws android.os.RemoteException { return false; }
+        public boolean pauseHardwareGeofence(int p0) throws android.os.RemoteException { return false; }
+        public boolean removeHardwareGeofence(int p0) throws android.os.RemoteException { return false; }
+        public boolean resumeHardwareGeofence(int p0, int p1) throws android.os.RemoteException { return false; }
     }
 }

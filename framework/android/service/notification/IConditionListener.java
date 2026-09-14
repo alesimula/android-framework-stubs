@@ -3,12 +3,6 @@ package android.service.notification;
 public interface IConditionListener extends android.os.IInterface {
     public void onConditionsReceived(android.service.notification.Condition[] p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.notification.IConditionListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onConditionsReceived(android.service.notification.Condition[] p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.notification.IConditionListener {
         public static final java.lang.String DESCRIPTOR = "android.service.notification.IConditionListener";
         static final int TRANSACTION_onConditionsReceived = 1;
@@ -26,5 +20,11 @@ public interface IConditionListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onConditionsReceived(android.service.notification.Condition[] p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.notification.IConditionListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onConditionsReceived(android.service.notification.Condition[] p0) throws android.os.RemoteException {}
     }
 }

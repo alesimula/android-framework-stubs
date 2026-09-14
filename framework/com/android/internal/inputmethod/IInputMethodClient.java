@@ -3,7 +3,7 @@ package com.android.internal.inputmethod;
 public interface IInputMethodClient extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "com.android.internal.inputmethod.IInputMethodClient";
     public void onBindAccessibilityService(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException;
-    public void onBindMethod(com.android.internal.inputmethod.InputBindResult p0) throws android.os.RemoteException;
+    public void onBindMethod(android.view.InputChannel p0, com.android.internal.inputmethod.InputBindResult p1) throws android.os.RemoteException;
     public void onStartInputResult(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException;
     public void onUnbindAccessibilityService(int p0, int p1) throws android.os.RemoteException;
     public void onUnbindMethod(int p0, int p1) throws android.os.RemoteException;
@@ -14,23 +14,6 @@ public interface IInputMethodClient extends android.os.IInterface {
     public void setImeVisibility(boolean p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException;
     public void setInteractive(boolean p0, boolean p1) throws android.os.RemoteException;
     public void throwExceptionFromSystem(java.lang.String p0) throws android.os.RemoteException;
-
-    public static class Default implements com.android.internal.inputmethod.IInputMethodClient {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onBindAccessibilityService(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException {}
-        public void onBindMethod(com.android.internal.inputmethod.InputBindResult p0) throws android.os.RemoteException {}
-        public void onStartInputResult(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException {}
-        public void onUnbindAccessibilityService(int p0, int p1) throws android.os.RemoteException {}
-        public void onUnbindMethod(int p0, int p1) throws android.os.RemoteException {}
-        public void reportFullscreenMode(boolean p0) throws android.os.RemoteException {}
-        public void scheduleStartInputIfNecessary(boolean p0) throws android.os.RemoteException {}
-        public void setActive(boolean p0, boolean p1) throws android.os.RemoteException {}
-        public void setImeTraceEnabled(boolean p0) throws android.os.RemoteException {}
-        public void setImeVisibility(boolean p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
-        public void setInteractive(boolean p0, boolean p1) throws android.os.RemoteException {}
-        public void throwExceptionFromSystem(java.lang.String p0) throws android.os.RemoteException {}
-    }
 
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IInputMethodClient {
         static final int TRANSACTION_onBindAccessibilityService = 3;
@@ -58,7 +41,7 @@ public interface IInputMethodClient extends android.os.IInterface {
             public android.os.IBinder asBinder() { return null; }
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onBindAccessibilityService(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException {}
-            public void onBindMethod(com.android.internal.inputmethod.InputBindResult p0) throws android.os.RemoteException {}
+            public void onBindMethod(android.view.InputChannel p0, com.android.internal.inputmethod.InputBindResult p1) throws android.os.RemoteException {}
             public void onStartInputResult(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException {}
             public void onUnbindAccessibilityService(int p0, int p1) throws android.os.RemoteException {}
             public void onUnbindMethod(int p0, int p1) throws android.os.RemoteException {}
@@ -70,5 +53,22 @@ public interface IInputMethodClient extends android.os.IInterface {
             public void setInteractive(boolean p0, boolean p1) throws android.os.RemoteException {}
             public void throwExceptionFromSystem(java.lang.String p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IInputMethodClient {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onBindAccessibilityService(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException {}
+        public void onBindMethod(android.view.InputChannel p0, com.android.internal.inputmethod.InputBindResult p1) throws android.os.RemoteException {}
+        public void onStartInputResult(com.android.internal.inputmethod.InputBindResult p0, int p1) throws android.os.RemoteException {}
+        public void onUnbindAccessibilityService(int p0, int p1) throws android.os.RemoteException {}
+        public void onUnbindMethod(int p0, int p1) throws android.os.RemoteException {}
+        public void reportFullscreenMode(boolean p0) throws android.os.RemoteException {}
+        public void scheduleStartInputIfNecessary(boolean p0) throws android.os.RemoteException {}
+        public void setActive(boolean p0, boolean p1) throws android.os.RemoteException {}
+        public void setImeTraceEnabled(boolean p0) throws android.os.RemoteException {}
+        public void setImeVisibility(boolean p0, android.view.inputmethod.ImeTracker.Token p1) throws android.os.RemoteException {}
+        public void setInteractive(boolean p0, boolean p1) throws android.os.RemoteException {}
+        public void throwExceptionFromSystem(java.lang.String p0) throws android.os.RemoteException {}
     }
 }

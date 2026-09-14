@@ -30,10 +30,6 @@ public final class ConversationAction implements android.os.Parcelable {
     public android.view.textclassifier.ConversationAction.Builder toBuilder() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ActionType {
-    }
-
     public static final class Builder {
         private android.app.RemoteAction mAction;
         private android.os.Bundle mExtras;
@@ -46,5 +42,9 @@ public final class ConversationAction implements android.os.Parcelable {
         public android.view.textclassifier.ConversationAction.Builder setConfidenceScore(float p0) { return null; }
         public android.view.textclassifier.ConversationAction.Builder setExtras(android.os.Bundle p0) { return null; }
         public android.view.textclassifier.ConversationAction.Builder setTextReply(java.lang.CharSequence p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ActionType {
     }
 }

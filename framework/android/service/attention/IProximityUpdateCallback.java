@@ -4,12 +4,6 @@ public interface IProximityUpdateCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.service.attention.IProximityUpdateCallback";
     public void onProximityUpdate(double p0) throws android.os.RemoteException;
 
-    public static class Default implements android.service.attention.IProximityUpdateCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onProximityUpdate(double p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.attention.IProximityUpdateCallback {
         static final int TRANSACTION_onProximityUpdate = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IProximityUpdateCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onProximityUpdate(double p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.attention.IProximityUpdateCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onProximityUpdate(double p0) throws android.os.RemoteException {}
     }
 }

@@ -27,6 +27,32 @@ public final class PowerStats {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0) {}
 
+    public static class DescriptorRegistry {
+        private final android.util.SparseArray<com.android.internal.os.PowerStats.Descriptor> mDescriptors = null;
+        public DescriptorRegistry() {}
+        public com.android.internal.os.PowerStats.Descriptor get(int p0) { return null; }
+        public void register(com.android.internal.os.PowerStats.Descriptor p0) {}
+    }
+
+    public static class PowerStatsFormatter {
+        private static final double NANO_TO_MILLI_MULTIPLIER = 1e-06;
+        private static final java.util.regex.Pattern SECTION_PATTERN = null;
+        private final java.util.List<com.android.internal.os.PowerStats.PowerStatsFormatter.Section> mSections = null;
+        public PowerStatsFormatter(java.lang.String p0) {}
+        private java.lang.String format(java.util.List<com.android.internal.os.PowerStats.PowerStatsFormatter.Section> p0, long[] p1) { return null; }
+        private java.util.List<com.android.internal.os.PowerStats.PowerStatsFormatter.Section> parseFormat(java.lang.String p0) { return null; }
+        public java.lang.String format(long[] p0) { return null; }
+
+        private static class Section {
+            public java.lang.String label;
+            public int length;
+            public boolean optional;
+            public int position;
+            public boolean typePower;
+            private Section() {}
+        }
+    }
+
     public static class Descriptor {
         public static final java.lang.String EXTRA_DEVICE_STATS_FORMAT = "format-device";
         public static final java.lang.String EXTRA_STATE_STATS_FORMAT = "format-state";
@@ -64,31 +90,5 @@ public final class PowerStats {
         public java.lang.String toString() { return null; }
         public void writeSummaryToParcel(android.os.Parcel p0) {}
         public void writeXml(com.android.modules.utils.TypedXmlSerializer p0) throws java.io.IOException {}
-    }
-
-    public static class DescriptorRegistry {
-        private final android.util.SparseArray<com.android.internal.os.PowerStats.Descriptor> mDescriptors = null;
-        public DescriptorRegistry() {}
-        public com.android.internal.os.PowerStats.Descriptor get(int p0) { return null; }
-        public void register(com.android.internal.os.PowerStats.Descriptor p0) {}
-    }
-
-    public static class PowerStatsFormatter {
-        private static final double NANO_TO_MILLI_MULTIPLIER = 1e-06;
-        private static final java.util.regex.Pattern SECTION_PATTERN = null;
-        private final java.util.List<com.android.internal.os.PowerStats.PowerStatsFormatter.Section> mSections = null;
-        public PowerStatsFormatter(java.lang.String p0) {}
-        private java.lang.String format(java.util.List<com.android.internal.os.PowerStats.PowerStatsFormatter.Section> p0, long[] p1) { return null; }
-        private java.util.List<com.android.internal.os.PowerStats.PowerStatsFormatter.Section> parseFormat(java.lang.String p0) { return null; }
-        public java.lang.String format(long[] p0) { return null; }
-
-        private static class Section {
-            public java.lang.String label;
-            public int length;
-            public boolean optional;
-            public int position;
-            public boolean typePower;
-            private Section() {}
-        }
     }
 }

@@ -20,10 +20,10 @@ public final class LutProperties {
     public java.lang.String toString() { return null; }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Dimension {
+    public static @interface SamplingKey {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SamplingKey {
+    public static @interface Dimension {
     }
 }

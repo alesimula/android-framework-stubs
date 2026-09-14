@@ -1,8 +1,9 @@
 package com.android.internal.hidden_from_bootclasspath.android.view.flags;
 
 public final class Flags {
-    private static com.android.internal.hidden_from_bootclasspath.android.view.flags.FeatureFlags FEATURE_FLAGS;
-    public static final java.lang.String FLAG_ATOMIC_TRAVERSAL_BARRIER = "android.view.flags.atomic_traversal_barrier";
+    public static final java.lang.String FLAG_ABSTRACT_GESTURE_ACTION_VIEW_API = "android.view.flags.abstract_gesture_action_view_api";
+    public static final java.lang.String FLAG_ANIMATION_LEAK_DETECTION = "android.view.flags.animation_leak_detection";
+    public static final java.lang.String FLAG_ANIMATION_TIME_API = "android.view.flags.animation_time_api";
     public static final java.lang.String FLAG_BUFFER_STUFFING_MULTI_RECOVERY = "android.view.flags.buffer_stuffing_multi_recovery";
     public static final java.lang.String FLAG_CALLED_FROM_WRONG_THREAD_LISTENER_API = "android.view.flags.called_from_wrong_thread_listener_api";
     public static final java.lang.String FLAG_CLEANUP_INITIAL_TOUCH_BOOST_ON_DETACH = "android.view.flags.cleanup_initial_touch_boost_on_detach";
@@ -12,21 +13,27 @@ public final class Flags {
     public static final java.lang.String FLAG_DISABLE_DRAW_WAKE_LOCK = "android.view.flags.disable_draw_wake_lock";
     public static final java.lang.String FLAG_ENABLE_ARROW_ICON_ON_HOVER_WHEN_CLICKABLE = "android.view.flags.enable_arrow_icon_on_hover_when_clickable";
     public static final java.lang.String FLAG_ENABLE_DISPATCH_ON_SCROLL_CHANGED = "android.view.flags.enable_dispatch_on_scroll_changed";
+    public static final java.lang.String FLAG_ENABLE_GESTURE_INTENT = "android.view.flags.enable_gesture_intent";
     public static final java.lang.String FLAG_ENABLE_GLOBAL_KEYBOARD_WINDOW_NAVIGATION = "android.view.flags.enable_global_keyboard_window_navigation";
+    public static final java.lang.String FLAG_ENABLE_ROTARY_INPUT_VIEW_CALLBACKS = "android.view.flags.enable_rotary_input_view_callbacks";
     public static final java.lang.String FLAG_ENABLE_USE_MEASURE_CACHE_DURING_FORCE_LAYOUT = "android.view.flags.enable_use_measure_cache_during_force_layout";
     public static final java.lang.String FLAG_ENABLE_VECTOR_CURSORS = "android.view.flags.enable_vector_cursors";
     public static final java.lang.String FLAG_ENABLE_VECTOR_CURSOR_A11Y_SETTINGS = "android.view.flags.enable_vector_cursor_a11y_settings";
     public static final java.lang.String FLAG_ENABLE_WINDOWLESS_WINDOW_FOCUS_NAVIGATION = "android.view.flags.enable_windowless_window_focus_navigation";
     public static final java.lang.String FLAG_EXPECTED_PRESENTATION_TIME_API = "android.view.flags.expected_presentation_time_api";
     public static final java.lang.String FLAG_FORWARD_TEXT_SELECTION_TO_SYSTEMUI = "android.view.flags.forward_text_selection_to_systemui";
-    public static final java.lang.String FLAG_HOLDBACK_ATOMIC_TRAVERSAL_BARRIER = "android.view.flags.holdback_atomic_traversal_barrier";
     public static final java.lang.String FLAG_HW_ROTARY_NAVIGATION = "android.view.flags.hw_rotary_navigation";
+    public static final java.lang.String FLAG_HW_ROTARY_NAVIGATION_STEP_IN_OUT_CONTRACT = "android.view.flags.hw_rotary_navigation_step_in_out_contract";
+    public static final java.lang.String FLAG_HW_ROTARY_NAVIGATION_SUPPLEMENT = "android.view.flags.hw_rotary_navigation_supplement";
     public static final java.lang.String FLAG_NOTIFY_GPU_LOAD_UP = "android.view.flags.notify_gpu_load_up";
     public static final java.lang.String FLAG_NO_MORE_RESYNC = "android.view.flags.no_more_resync";
     public static final java.lang.String FLAG_PHYSICAL_SCROLLING = "android.view.flags.physical_scrolling";
     public static final java.lang.String FLAG_PHYSICAL_SCROLLING_FEATURE = "android.view.flags.physical_scrolling_feature";
+    public static final java.lang.String FLAG_PHYSICAL_SCROLLING_HORIZONTAL = "android.view.flags.physical_scrolling_horizontal";
+    public static final java.lang.String FLAG_PREVENT_LOCALLY_MANAGED_WINDOW_CONFIG_LEAK = "android.view.flags.prevent_locally_managed_window_config_leak";
     public static final java.lang.String FLAG_REDACT_OTP_APP_COMPAT_API = "android.view.flags.redact_otp_app_compat_api";
     public static final java.lang.String FLAG_REDACT_WEB_OTP_SMS_API = "android.view.flags.redact_web_otp_sms_api";
+    public static final java.lang.String FLAG_RENDER_AHEAD = "android.view.flags.render_ahead";
     public static final java.lang.String FLAG_ROOT_VIEW_CHANGED_LISTENER = "android.view.flags.root_view_changed_listener";
     public static final java.lang.String FLAG_SCROLL_FEEDBACK_API = "android.view.flags.scroll_feedback_api";
     public static final java.lang.String FLAG_SCROLL_TO_TOP = "android.view.flags.scroll_to_top";
@@ -49,8 +56,11 @@ public final class Flags {
     public static final java.lang.String FLAG_USE_REFACTORED_ROUND_SCROLLBAR = "android.view.flags.use_refactored_round_scrollbar";
     public static final java.lang.String FLAG_USE_VIEW_BASED_ROTARY_ENCODER_SCROLL_HAPTICS = "android.view.flags.use_view_based_rotary_encoder_scroll_haptics";
     public static final java.lang.String FLAG_VIEW_VELOCITY_API = "android.view.flags.view_velocity_api";
+    public static final java.lang.String FLAG_WALLPAPER_OBSERVED_INSETS = "android.view.flags.wallpaper_observed_insets";
     public Flags() {}
-    public static boolean atomicTraversalBarrier() { return false; }
+    public static boolean abstractGestureActionViewApi() { return false; }
+    public static boolean animationLeakDetection() { return false; }
+    public static boolean animationTimeApi() { return false; }
     public static boolean bufferStuffingMultiRecovery() { return false; }
     public static boolean calledFromWrongThreadListenerApi() { return false; }
     public static boolean cleanupInitialTouchBoostOnDetach() { return false; }
@@ -60,21 +70,27 @@ public final class Flags {
     public static boolean disableDrawWakeLock() { return false; }
     public static boolean enableArrowIconOnHoverWhenClickable() { return false; }
     public static boolean enableDispatchOnScrollChanged() { return false; }
+    public static boolean enableGestureIntent() { return false; }
     public static boolean enableGlobalKeyboardWindowNavigation() { return false; }
+    public static boolean enableRotaryInputViewCallbacks() { return false; }
     public static boolean enableUseMeasureCacheDuringForceLayout() { return false; }
     public static boolean enableVectorCursorA11ySettings() { return false; }
     public static boolean enableVectorCursors() { return false; }
     public static boolean enableWindowlessWindowFocusNavigation() { return false; }
     public static boolean expectedPresentationTimeApi() { return false; }
     public static boolean forwardTextSelectionToSystemui() { return false; }
-    public static boolean holdbackAtomicTraversalBarrier() { return false; }
     public static boolean hwRotaryNavigation() { return false; }
+    public static boolean hwRotaryNavigationStepInOutContract() { return false; }
+    public static boolean hwRotaryNavigationSupplement() { return false; }
     public static boolean noMoreResync() { return false; }
     public static boolean notifyGpuLoadUp() { return false; }
     public static boolean physicalScrolling() { return false; }
     public static boolean physicalScrollingFeature() { return false; }
+    public static boolean physicalScrollingHorizontal() { return false; }
+    public static boolean preventLocallyManagedWindowConfigLeak() { return false; }
     public static boolean redactOtpAppCompatApi() { return false; }
     public static boolean redactWebOtpSmsApi() { return false; }
+    public static boolean renderAhead() { return false; }
     public static boolean rootViewChangedListener() { return false; }
     public static boolean scrollFeedbackApi() { return false; }
     public static boolean scrollToTop() { return false; }
@@ -97,4 +113,5 @@ public final class Flags {
     public static boolean useRefactoredRoundScrollbar() { return false; }
     public static boolean useViewBasedRotaryEncoderScrollHaptics() { return false; }
     public static boolean viewVelocityApi() { return false; }
+    public static boolean wallpaperObservedInsets() { return false; }
 }

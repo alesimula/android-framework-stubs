@@ -10,17 +10,17 @@ public interface DataFlowCallback {
     public void onDataFlowSourceEvent(android.hardware.contexthub.DataFlowSource p0, int p1, android.hardware.contexthub.DataFlowCallback.SourceEventData p2);
     public void onReceivedDataFlowSink(android.hardware.contexthub.DataFlowSink p0, android.hardware.contexthub.HubEndpointInfo p1, android.hardware.contexthub.HubEndpointSession p2, android.hardware.contexthub.HubMessage p3);
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SinkEvent {
+    public static class SourceEventData {
+        private final android.hardware.contexthub.HubEndpointInfo mSink = null;
+        public SourceEventData(android.hardware.contexthub.HubEndpointInfo p0) {}
+        public android.hardware.contexthub.HubEndpointInfo getSink() { return null; }
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface SourceEvent {
     }
 
-    public static class SourceEventData {
-        private final android.hardware.contexthub.HubEndpointInfo mSink = null;
-        public SourceEventData(android.hardware.contexthub.HubEndpointInfo p0) {}
-        public android.hardware.contexthub.HubEndpointInfo getSink() { return null; }
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SinkEvent {
     }
 }

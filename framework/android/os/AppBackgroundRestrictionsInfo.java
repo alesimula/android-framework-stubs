@@ -121,9 +121,10 @@ public final class AppBackgroundRestrictionsInfo {
         public BatteryTrackerInfo(android.os.AppBackgroundRestrictionsInfo p0) {}
     }
 
-    public final class BindServiceEventsTrackerInfo {
-        public static final long BIND_SERVICE_REQUESTS = 1120986464257L;
-        public BindServiceEventsTrackerInfo(android.os.AppBackgroundRestrictionsInfo p0) {}
+    public final class FgsTrackerInfo {
+        public static final long FGS_DURATION = 1112396529666L;
+        public static final long FGS_NOTIFICATION_VISIBLE = 1133871366145L;
+        public FgsTrackerInfo(android.os.AppBackgroundRestrictionsInfo p0) {}
     }
 
     public final class BroadcastEventsTrackerInfo {
@@ -131,9 +132,8 @@ public final class AppBackgroundRestrictionsInfo {
         public BroadcastEventsTrackerInfo(android.os.AppBackgroundRestrictionsInfo p0) {}
     }
 
-    public final class FgsTrackerInfo {
-        public static final long FGS_DURATION = 1112396529666L;
-        public static final long FGS_NOTIFICATION_VISIBLE = 1133871366145L;
-        public FgsTrackerInfo(android.os.AppBackgroundRestrictionsInfo p0) {}
+    public final class BindServiceEventsTrackerInfo {
+        public static final long BIND_SERVICE_REQUESTS = 1120986464257L;
+        public BindServiceEventsTrackerInfo(android.os.AppBackgroundRestrictionsInfo p0) {}
     }
 }

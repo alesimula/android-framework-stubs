@@ -8,11 +8,14 @@ public abstract class TvInputService extends android.app.Service {
     public static final int CAS_CC_URI_UNKNOWN = -1;
     private static final boolean DEBUG = false;
     private static final int DETACH_OVERLAY_VIEW_TIMEOUT_MS = 5000;
+    public static final java.lang.String EVENT_BLOCK_CONTENT_BY_CHANNEL_LOCK = "block_content_by_channel_lock";
     public static final java.lang.String EVENT_CAS_PLAYBACK_ERROR = "cam_playback_error";
     public static final java.lang.String EVENT_EAS_START = "eas_start";
     public static final java.lang.String EVENT_EAS_STOP = "eas_stop";
     public static final java.lang.String EVENT_FIRST_TUNE = "first_tune";
+    public static final java.lang.String EVENT_NETWORK_CHANGE = "network_change";
     public static final java.lang.String EVENT_SESSION_ID_SYNC = "session_id_sync";
+    public static final java.lang.String EVENT_UNBLOCK_CONTENT_BY_CHANNEL_LOCK = "unblock_content_by_channel_lock";
     public static final java.lang.String EXTRA_CAS_CC_URI_STATUS = "extra_cas_cc_uri_status";
     public static final java.lang.String EXTRA_EAS_CHANNEL_CHANGE_URI = "eas_channel_change_uri";
     public static final java.lang.String EXTRA_EAS_IS_CHANNEL_CHANGE = "eas_is_channel_change";
@@ -61,60 +64,6 @@ public abstract class TvInputService extends android.app.Service {
     public static @interface CasCcUriStatus {
     }
 
-    public static abstract class HardwareSession extends android.media.tv.TvInputService.Session {
-        private android.media.tv.TvInputManager.Session mHardwareSession;
-        private final android.media.tv.TvInputManager.SessionCallback mHardwareSessionCallback = null;
-        private android.media.tv.ITvInputSession mProxySession;
-        private android.media.tv.ITvInputSessionCallback mProxySessionCallback;
-        private android.os.Handler mServiceHandler;
-        public HardwareSession(android.content.Context p0) { super(null); }
-        public abstract java.lang.String getHardwareInputId();
-        public void onHardwareVideoAvailable() {}
-        public void onHardwareVideoUnavailable(int p0) {}
-        public final boolean onSetSurface(android.view.Surface p0) { return false; }
-        void release() {}
-    }
-
-    private static final class OverlayViewCleanUpTask extends android.os.AsyncTask<android.view.View, java.lang.Void, java.lang.Void> {
-        private OverlayViewCleanUpTask() { super(); }
-        protected java.lang.Void doInBackground(android.view.View... p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PriorityHintUseCaseType {
-    }
-
-    public static abstract class RecordingSession {
-        final android.os.Handler mHandler = null;
-        private final java.lang.Object mLock = null;
-        private final java.util.List<java.lang.Runnable> mPendingActions = null;
-        private android.media.tv.ITvInputSessionCallback mSessionCallback;
-        public RecordingSession(android.content.Context p0) {}
-        private void executeOrPostRunnableOnMainThread(java.lang.Runnable p0) {}
-        private void initialize(android.media.tv.ITvInputSessionCallback p0) {}
-        void appPrivateCommand(java.lang.String p0, android.os.Bundle p1) {}
-        public void notifyError(int p0) {}
-        public void notifyRecordingStopped(android.net.Uri p0) {}
-        @android.annotation.SystemApi
-        public void notifySessionEvent(java.lang.String p0, android.os.Bundle p1) {}
-        public void notifyTuned(android.net.Uri p0) {}
-        public void onAppPrivateCommand(java.lang.String p0, android.os.Bundle p1) {}
-        public void onPauseRecording(android.os.Bundle p0) {}
-        public abstract void onRelease();
-        public void onResumeRecording(android.os.Bundle p0) {}
-        public abstract void onStartRecording(android.net.Uri p0);
-        public void onStartRecording(android.net.Uri p0, android.os.Bundle p1) {}
-        public abstract void onStopRecording();
-        public abstract void onTune(android.net.Uri p0);
-        public void onTune(android.net.Uri p0, android.os.Bundle p1) {}
-        void pauseRecording(android.os.Bundle p0) {}
-        void release() {}
-        void resumeRecording(android.os.Bundle p0) {}
-        void startRecording(android.net.Uri p0, android.os.Bundle p1) {}
-        void stopRecording() {}
-        void tune(android.net.Uri p0, android.os.Bundle p1) {}
-    }
-
     private final class ServiceHandler extends android.os.Handler {
         private static final int DO_ADD_HARDWARE_INPUT = 4;
         private static final int DO_ADD_HDMI_INPUT = 6;
@@ -129,6 +78,33 @@ public abstract class TvInputService extends android.app.Service {
         private void broadcastAddHdmiInput(int p0, android.media.tv.TvInputInfo p1) {}
         private void broadcastRemoveHardwareInput(java.lang.String p0) {}
         public final void handleMessage(android.os.Message p0) {}
+    }
+
+    private static final class OverlayViewCleanUpTask extends android.os.AsyncTask<android.view.View, java.lang.Void, java.lang.Void> {
+        private OverlayViewCleanUpTask() { super(); }
+        protected java.lang.Void doInBackground(android.view.View... p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface SessionEventType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PriorityHintUseCaseType {
+    }
+
+    public static abstract class HardwareSession extends android.media.tv.TvInputService.Session {
+        private android.media.tv.TvInputManager.Session mHardwareSession;
+        private final android.media.tv.TvInputManager.SessionCallback mHardwareSessionCallback = null;
+        private android.media.tv.ITvInputSession mProxySession;
+        private android.media.tv.ITvInputSessionCallback mProxySessionCallback;
+        private android.os.Handler mServiceHandler;
+        public HardwareSession(android.content.Context p0) { super(null); }
+        public abstract java.lang.String getHardwareInputId();
+        public void onHardwareVideoAvailable() {}
+        public void onHardwareVideoUnavailable(int p0) {}
+        public final boolean onSetSurface(android.view.Surface p0) { return false; }
+        void release() {}
     }
 
     public static abstract class Session implements android.view.KeyEvent.Callback {
@@ -210,6 +186,7 @@ public abstract class TvInputService extends android.app.Service {
         public abstract void onSetStreamVolume(float p0);
         public abstract boolean onSetSurface(android.view.Surface p0);
         public void onSetTvMessageEnabled(int p0, boolean p1) {}
+        public void onSetVideoBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
         public void onSetVideoFrozen(boolean p0) {}
         public void onStopPlayback(int p0) {}
         public void onSurfaceChanged(int p0, int p1, int p2) {}
@@ -221,6 +198,7 @@ public abstract class TvInputService extends android.app.Service {
         public void onTimeShiftSeekTo(long p0) {}
         public void onTimeShiftSetMode(int p0) {}
         public void onTimeShiftSetPlaybackParams(android.media.PlaybackParams p0) {}
+        public void onTimeShiftStop() {}
         public boolean onTouchEvent(android.view.MotionEvent p0) { return false; }
         public boolean onTrackballEvent(android.view.MotionEvent p0) { return false; }
         public abstract boolean onTune(android.net.Uri p0);
@@ -247,6 +225,7 @@ public abstract class TvInputService extends android.app.Service {
         void setStreamVolume(float p0) {}
         void setSurface(android.view.Surface p0) {}
         void setTvMessageEnabled(int p0, boolean p1) {}
+        void setVideoBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
         void setVideoFrozen(boolean p0) {}
         void stopPlayback(int p0) {}
         void timeShiftEnablePositionTracking(boolean p0) {}
@@ -256,6 +235,7 @@ public abstract class TvInputService extends android.app.Service {
         void timeShiftSeekTo(long p0) {}
         void timeShiftSetMode(int p0) {}
         void timeShiftSetPlaybackParams(android.media.PlaybackParams p0) {}
+        void timeShiftStop() {}
         void tune(android.net.Uri p0, android.os.Bundle p1) {}
         void unblockContent(java.lang.String p0) {}
 
@@ -265,7 +245,34 @@ public abstract class TvInputService extends android.app.Service {
         }
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface SessionEventType {
+    public static abstract class RecordingSession {
+        final android.os.Handler mHandler = null;
+        private final java.lang.Object mLock = null;
+        private final java.util.List<java.lang.Runnable> mPendingActions = null;
+        private android.media.tv.ITvInputSessionCallback mSessionCallback;
+        public RecordingSession(android.content.Context p0) {}
+        private void executeOrPostRunnableOnMainThread(java.lang.Runnable p0) {}
+        private void initialize(android.media.tv.ITvInputSessionCallback p0) {}
+        void appPrivateCommand(java.lang.String p0, android.os.Bundle p1) {}
+        public void notifyError(int p0) {}
+        public void notifyRecordingStopped(android.net.Uri p0) {}
+        @android.annotation.SystemApi
+        public void notifySessionEvent(java.lang.String p0, android.os.Bundle p1) {}
+        public void notifyTuned(android.net.Uri p0) {}
+        public void onAppPrivateCommand(java.lang.String p0, android.os.Bundle p1) {}
+        public void onPauseRecording(android.os.Bundle p0) {}
+        public abstract void onRelease();
+        public void onResumeRecording(android.os.Bundle p0) {}
+        public abstract void onStartRecording(android.net.Uri p0);
+        public void onStartRecording(android.net.Uri p0, android.os.Bundle p1) {}
+        public abstract void onStopRecording();
+        public abstract void onTune(android.net.Uri p0);
+        public void onTune(android.net.Uri p0, android.os.Bundle p1) {}
+        void pauseRecording(android.os.Bundle p0) {}
+        void release() {}
+        void resumeRecording(android.os.Bundle p0) {}
+        void startRecording(android.net.Uri p0, android.os.Bundle p1) {}
+        void stopRecording() {}
+        void tune(android.net.Uri p0, android.os.Bundle p1) {}
     }
 }

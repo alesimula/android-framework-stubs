@@ -24,6 +24,22 @@ public class RcsFeature extends android.telephony.ims.feature.ImsFeature {
     public final android.telephony.ims.feature.RcsFeature.RcsImsCapabilities queryCapabilityStatus() { return null; }
     public final void setDefaultExecutor(java.util.concurrent.Executor p0) {}
 
+    public static class RcsImsCapabilities extends android.telephony.ims.feature.ImsFeature.Capabilities {
+        public static final int CAPABILITY_TYPE_MAX = 3;
+        public static final int CAPABILITY_TYPE_NONE = 0;
+        public static final int CAPABILITY_TYPE_OPTIONS_UCE = 1;
+        public static final int CAPABILITY_TYPE_PRESENCE_UCE = 2;
+        public RcsImsCapabilities(int p0) { super(); }
+        private RcsImsCapabilities(android.telephony.ims.feature.ImsFeature.Capabilities p0) { super(); }
+        public void addCapabilities(int p0) {}
+        public boolean isCapable(int p0) { return false; }
+        public void removeCapabilities(int p0) {}
+
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface RcsImsCapabilityFlag {
+        }
+    }
+
     private static final class RcsFeatureBinder extends android.telephony.ims.aidl.IImsRcsFeature.Stub {
         private java.util.concurrent.Executor mExecutor;
         private final android.telephony.ims.feature.RcsFeature mReference = null;
@@ -40,21 +56,5 @@ public class RcsFeature extends android.telephony.ims.feature.ImsFeature {
         public void sendOptionsCapabilityRequest(android.net.Uri p0, java.util.List<java.lang.String> p1, android.telephony.ims.aidl.IOptionsResponseCallback p2) throws android.os.RemoteException {}
         public void setCapabilityExchangeEventListener(android.telephony.ims.aidl.ICapabilityExchangeEventListener p0) throws android.os.RemoteException {}
         public void subscribeForCapabilities(java.util.List<android.net.Uri> p0, android.telephony.ims.aidl.ISubscribeResponseCallback p1) throws android.os.RemoteException {}
-    }
-
-    public static class RcsImsCapabilities extends android.telephony.ims.feature.ImsFeature.Capabilities {
-        public static final int CAPABILITY_TYPE_MAX = 3;
-        public static final int CAPABILITY_TYPE_NONE = 0;
-        public static final int CAPABILITY_TYPE_OPTIONS_UCE = 1;
-        public static final int CAPABILITY_TYPE_PRESENCE_UCE = 2;
-        public RcsImsCapabilities(int p0) { super(); }
-        private RcsImsCapabilities(android.telephony.ims.feature.ImsFeature.Capabilities p0) { super(); }
-        public void addCapabilities(int p0) {}
-        public boolean isCapable(int p0) { return false; }
-        public void removeCapabilities(int p0) {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface RcsImsCapabilityFlag {
-        }
     }
 }

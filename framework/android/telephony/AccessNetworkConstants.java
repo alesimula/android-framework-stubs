@@ -1,7 +1,7 @@
 package android.telephony;
 
 public final class AccessNetworkConstants {
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "AccessNetworkConstants";
     @android.annotation.SystemApi
     public static final int TRANSPORT_TYPE_INVALID = -1;
     public static final int TRANSPORT_TYPE_WLAN = 2;
@@ -9,43 +9,38 @@ public final class AccessNetworkConstants {
     private AccessNetworkConstants() {}
     public static java.lang.String transportTypeToString(int p0) { return null; }
 
-    public static final class AccessNetworkType {
-        public static final int CDMA2000 = 4;
-        public static final int EUTRAN = 3;
-        public static final int GERAN = 1;
-        public static final int IWLAN = 5;
-        public static final int NGRAN = 6;
-        public static final int UNKNOWN = 0;
-        public static final int UTRAN = 2;
-        private AccessNetworkType() {}
-        public static int fromString(java.lang.String p0) { return 0; }
-        public static java.lang.String toString(int p0) { return null; }
-    }
+    public static final class UtranBand {
+        public static final int BAND_1 = 1;
+        public static final int BAND_10 = 10;
+        public static final int BAND_11 = 11;
+        public static final int BAND_12 = 12;
+        public static final int BAND_13 = 13;
+        public static final int BAND_14 = 14;
+        public static final int BAND_19 = 19;
+        public static final int BAND_2 = 2;
+        public static final int BAND_20 = 20;
+        public static final int BAND_21 = 21;
+        public static final int BAND_22 = 22;
+        public static final int BAND_25 = 25;
+        public static final int BAND_26 = 26;
+        public static final int BAND_3 = 3;
+        public static final int BAND_4 = 4;
+        public static final int BAND_5 = 5;
+        public static final int BAND_6 = 6;
+        public static final int BAND_7 = 7;
+        public static final int BAND_8 = 8;
+        public static final int BAND_9 = 9;
+        public static final int BAND_A = 101;
+        public static final int BAND_B = 102;
+        public static final int BAND_C = 103;
+        public static final int BAND_D = 104;
+        public static final int BAND_E = 105;
+        public static final int BAND_F = 106;
+        private UtranBand() {}
 
-    public static final class CdmaBands {
-        public static final int BAND_0 = 1;
-        public static final int BAND_1 = 2;
-        public static final int BAND_10 = 11;
-        public static final int BAND_11 = 12;
-        public static final int BAND_12 = 13;
-        public static final int BAND_13 = 14;
-        public static final int BAND_14 = 15;
-        public static final int BAND_15 = 16;
-        public static final int BAND_16 = 17;
-        public static final int BAND_17 = 18;
-        public static final int BAND_18 = 19;
-        public static final int BAND_19 = 20;
-        public static final int BAND_2 = 3;
-        public static final int BAND_20 = 21;
-        public static final int BAND_21 = 22;
-        public static final int BAND_3 = 4;
-        public static final int BAND_4 = 5;
-        public static final int BAND_5 = 6;
-        public static final int BAND_6 = 7;
-        public static final int BAND_7 = 8;
-        public static final int BAND_8 = 9;
-        public static final int BAND_9 = 10;
-        private CdmaBands() {}
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface UtranBands {
+        }
     }
 
     public static final class EutranBand {
@@ -114,6 +109,109 @@ public final class AccessNetworkConstants {
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
         public static @interface EutranBands {
         }
+    }
+
+    static enum GeranBandArfcnFrequency {
+        GERAN_ARFCN_FREQUENCY_BAND_450(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_480(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_850(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_DCS1800(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_E900_1(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_E900_2(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_ER900_1(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_ER900_2(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_P900(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_PCS1900(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_R900_1(0, 0, 0, 0),
+        GERAN_ARFCN_FREQUENCY_BAND_R900_2(0, 0, 0, 0);
+        private static final android.telephony.AccessNetworkConstants.GeranBandArfcnFrequency[] $VALUES = null;
+        int arfcnOffset;
+        int arfcnRangeFirst;
+        int arfcnRangeLast;
+        int band;
+        int downlinkOffset;
+        int uplinkFrequencyFirst;
+        private GeranBandArfcnFrequency(int p0, int p1, int p2, int p3) {}
+    }
+
+    static enum NgranArfcnFrequency {
+        NGRAN_ARFCN_FREQUENCY_RANGE_1(0, 0, 0),
+        NGRAN_ARFCN_FREQUENCY_RANGE_2(0, 0, 0),
+        NGRAN_ARFCN_FREQUENCY_RANGE_3(0, 0, 0);
+        private static final android.telephony.AccessNetworkConstants.NgranArfcnFrequency[] $VALUES = null;
+        int arfcnOffset;
+        int globalKhz;
+        int rangeFirst;
+        int rangeLast;
+        int rangeOffset;
+        private NgranArfcnFrequency(int p0, int p1, int p2) {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface TransportType {
+    }
+
+    static enum UtranBandArfcnFrequency {
+        UTRAN_ARFCN_FREQUENCY_BAND_1(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_10(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_11(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_12(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_13(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_14(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_19(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_2(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_20(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_21(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_22(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_25(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_3(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_4(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_5(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_6(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_7(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_8(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_9(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_A(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_B(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_C(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_D(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_E(0, 0, 0, 0, 0),
+        UTRAN_ARFCN_FREQUENCY_BAND_F(0, 0, 0, 0, 0);
+        private static final android.telephony.AccessNetworkConstants.UtranBandArfcnFrequency[] $VALUES = null;
+        int band;
+        int downlinkOffset;
+        int downlinkRangeFirst;
+        int downlinkRangeLast;
+        int uplinkOffset;
+        int uplinkRangeFirst;
+        int uplinkRangeLast;
+        private UtranBandArfcnFrequency(int p0, int p1, int p2, int p3, int p4) {}
+    }
+
+    public static final class CdmaBands {
+        public static final int BAND_0 = 1;
+        public static final int BAND_1 = 2;
+        public static final int BAND_10 = 11;
+        public static final int BAND_11 = 12;
+        public static final int BAND_12 = 13;
+        public static final int BAND_13 = 14;
+        public static final int BAND_14 = 15;
+        public static final int BAND_15 = 16;
+        public static final int BAND_16 = 17;
+        public static final int BAND_17 = 18;
+        public static final int BAND_18 = 19;
+        public static final int BAND_19 = 20;
+        public static final int BAND_2 = 3;
+        public static final int BAND_20 = 21;
+        public static final int BAND_21 = 22;
+        public static final int BAND_3 = 4;
+        public static final int BAND_4 = 5;
+        public static final int BAND_5 = 6;
+        public static final int BAND_6 = 7;
+        public static final int BAND_7 = 8;
+        public static final int BAND_8 = 9;
+        public static final int BAND_9 = 10;
+        private CdmaBands() {}
     }
 
     static enum EutranBandArfcnFrequency {
@@ -188,62 +286,17 @@ public final class AccessNetworkConstants {
         private EutranBandArfcnFrequency(int p0, int p1, int p2, int p3, int p4) {}
     }
 
-    public static final class GeranBand {
-        public static final int BAND_450 = 3;
-        public static final int BAND_480 = 4;
-        public static final int BAND_710 = 5;
-        public static final int BAND_750 = 6;
-        public static final int BAND_850 = 8;
-        public static final int BAND_DCS1800 = 12;
-        public static final int BAND_E900 = 10;
-        public static final int BAND_ER900 = 14;
-        public static final int BAND_P900 = 9;
-        public static final int BAND_PCS1900 = 13;
-        public static final int BAND_R900 = 11;
-        public static final int BAND_T380 = 1;
-        public static final int BAND_T410 = 2;
-        public static final int BAND_T810 = 7;
-        private GeranBand() {}
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface GeranBands {
-        }
-    }
-
-    static enum GeranBandArfcnFrequency {
-        GERAN_ARFCN_FREQUENCY_BAND_450(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_480(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_850(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_DCS1800(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_E900_1(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_E900_2(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_ER900_1(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_ER900_2(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_P900(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_PCS1900(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_R900_1(0, 0, 0, 0),
-        GERAN_ARFCN_FREQUENCY_BAND_R900_2(0, 0, 0, 0);
-        private static final android.telephony.AccessNetworkConstants.GeranBandArfcnFrequency[] $VALUES = null;
-        int arfcnOffset;
-        int arfcnRangeFirst;
-        int arfcnRangeLast;
-        int band;
-        int downlinkOffset;
-        int uplinkFrequencyFirst;
-        private GeranBandArfcnFrequency(int p0, int p1, int p2, int p3) {}
-    }
-
-    static enum NgranArfcnFrequency {
-        NGRAN_ARFCN_FREQUENCY_RANGE_1(0, 0, 0),
-        NGRAN_ARFCN_FREQUENCY_RANGE_2(0, 0, 0),
-        NGRAN_ARFCN_FREQUENCY_RANGE_3(0, 0, 0);
-        private static final android.telephony.AccessNetworkConstants.NgranArfcnFrequency[] $VALUES = null;
-        int arfcnOffset;
-        int globalKhz;
-        int rangeFirst;
-        int rangeLast;
-        int rangeOffset;
-        private NgranArfcnFrequency(int p0, int p1, int p2) {}
+    public static final class AccessNetworkType {
+        public static final int CDMA2000 = 4;
+        public static final int EUTRAN = 3;
+        public static final int GERAN = 1;
+        public static final int IWLAN = 5;
+        public static final int NGRAN = 6;
+        public static final int UNKNOWN = 0;
+        public static final int UTRAN = 2;
+        private AccessNetworkType() {}
+        public static int fromString(java.lang.String p0) { return 0; }
+        public static java.lang.String toString(int p0) { return null; }
     }
 
     public static final class NgranBands {
@@ -323,78 +376,25 @@ public final class AccessNetworkConstants {
     public static @interface RadioAccessNetworkType {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface TransportType {
-    }
-
-    public static final class UtranBand {
-        public static final int BAND_1 = 1;
-        public static final int BAND_10 = 10;
-        public static final int BAND_11 = 11;
-        public static final int BAND_12 = 12;
-        public static final int BAND_13 = 13;
-        public static final int BAND_14 = 14;
-        public static final int BAND_19 = 19;
-        public static final int BAND_2 = 2;
-        public static final int BAND_20 = 20;
-        public static final int BAND_21 = 21;
-        public static final int BAND_22 = 22;
-        public static final int BAND_25 = 25;
-        public static final int BAND_26 = 26;
-        public static final int BAND_3 = 3;
-        public static final int BAND_4 = 4;
-        public static final int BAND_5 = 5;
-        public static final int BAND_6 = 6;
-        public static final int BAND_7 = 7;
-        public static final int BAND_8 = 8;
-        public static final int BAND_9 = 9;
-        public static final int BAND_A = 101;
-        public static final int BAND_B = 102;
-        public static final int BAND_C = 103;
-        public static final int BAND_D = 104;
-        public static final int BAND_E = 105;
-        public static final int BAND_F = 106;
-        private UtranBand() {}
+    public static final class GeranBand {
+        public static final int BAND_450 = 3;
+        public static final int BAND_480 = 4;
+        public static final int BAND_710 = 5;
+        public static final int BAND_750 = 6;
+        public static final int BAND_850 = 8;
+        public static final int BAND_DCS1800 = 12;
+        public static final int BAND_E900 = 10;
+        public static final int BAND_ER900 = 14;
+        public static final int BAND_P900 = 9;
+        public static final int BAND_PCS1900 = 13;
+        public static final int BAND_R900 = 11;
+        public static final int BAND_T380 = 1;
+        public static final int BAND_T410 = 2;
+        public static final int BAND_T810 = 7;
+        private GeranBand() {}
 
         @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface UtranBands {
+        public static @interface GeranBands {
         }
-    }
-
-    static enum UtranBandArfcnFrequency {
-        UTRAN_ARFCN_FREQUENCY_BAND_1(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_10(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_11(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_12(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_13(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_14(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_19(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_2(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_20(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_21(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_22(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_25(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_3(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_4(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_5(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_6(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_7(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_8(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_9(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_A(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_B(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_C(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_D(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_E(0, 0, 0, 0, 0),
-        UTRAN_ARFCN_FREQUENCY_BAND_F(0, 0, 0, 0, 0);
-        private static final android.telephony.AccessNetworkConstants.UtranBandArfcnFrequency[] $VALUES = null;
-        int band;
-        int downlinkOffset;
-        int downlinkRangeFirst;
-        int downlinkRangeLast;
-        int uplinkOffset;
-        int uplinkRangeFirst;
-        int uplinkRangeLast;
-        private UtranBandArfcnFrequency(int p0, int p1, int p2, int p3, int p4) {}
     }
 }

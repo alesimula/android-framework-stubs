@@ -3,12 +3,6 @@ package com.android.ims.internal;
 public interface IImsExternalCallStateListener extends android.os.IInterface {
     public void onImsExternalCallStateUpdate(java.util.List<android.telephony.ims.ImsExternalCallState> p0) throws android.os.RemoteException;
 
-    public static class Default implements com.android.ims.internal.IImsExternalCallStateListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onImsExternalCallStateUpdate(java.util.List<android.telephony.ims.ImsExternalCallState> p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.ims.internal.IImsExternalCallStateListener {
         public static final java.lang.String DESCRIPTOR = "com.android.ims.internal.IImsExternalCallStateListener";
         static final int TRANSACTION_onImsExternalCallStateUpdate = 1;
@@ -26,5 +20,11 @@ public interface IImsExternalCallStateListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onImsExternalCallStateUpdate(java.util.List<android.telephony.ims.ImsExternalCallState> p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.ims.internal.IImsExternalCallStateListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onImsExternalCallStateUpdate(java.util.List<android.telephony.ims.ImsExternalCallState> p0) throws android.os.RemoteException {}
     }
 }

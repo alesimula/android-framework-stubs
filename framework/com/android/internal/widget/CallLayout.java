@@ -1,6 +1,6 @@
 package com.android.internal.widget;
 
-@android.widget.RemoteViews.RemoteView
+@android.widget.RemoteViews.NotificationOnlyRemoteView
 public class CallLayout extends com.android.internal.widget.NotificationFrameLayout {
     private com.android.internal.widget.CachingIconView mConversationIconBadgeBg;
     private com.android.internal.widget.CachingIconView mConversationIconView;

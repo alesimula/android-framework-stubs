@@ -13,30 +13,9 @@ public interface ISandboxedDetectionService extends android.os.IInterface {
     public void updateRecognitionServiceManager(android.speech.IRecognitionServiceManager p0) throws android.os.RemoteException;
     public void updateState(android.os.PersistableBundle p0, android.os.SharedMemory p1, android.os.IRemoteCallback p2) throws android.os.RemoteException;
 
-    public static class Default implements android.service.voice.ISandboxedDetectionService {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void detectFromDspSource(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.media.AudioFormat p1, long p2, android.service.voice.IDspHotwordDetectionCallback p3) throws android.os.RemoteException {}
-        public void detectFromMicrophoneSource(android.os.ParcelFileDescriptor p0, int p1, android.media.AudioFormat p2, android.os.PersistableBundle p3, android.service.voice.IDspHotwordDetectionCallback p4) throws android.os.RemoteException {}
-        public void detectWithVisualSignals(android.service.voice.IDetectorSessionVisualQueryDetectionCallback p0) throws android.os.RemoteException {}
-        public void ping(android.service.voice.ISandboxedDetectionService.IPingMe p0) throws android.os.RemoteException {}
-        public void registerRemoteStorageService(android.service.voice.IDetectorSessionStorageService p0) throws android.os.RemoteException {}
-        public void stopDetection() throws android.os.RemoteException {}
-        public void updateAudioFlinger(android.os.IBinder p0) throws android.os.RemoteException {}
-        public void updateContentCaptureManager(android.view.contentcapture.IContentCaptureManager p0, android.content.ContentCaptureOptions p1) throws android.os.RemoteException {}
-        public void updateRecognitionServiceManager(android.speech.IRecognitionServiceManager p0) throws android.os.RemoteException {}
-        public void updateState(android.os.PersistableBundle p0, android.os.SharedMemory p1, android.os.IRemoteCallback p2) throws android.os.RemoteException {}
-    }
-
     public static interface IPingMe extends android.os.IInterface {
         public static final java.lang.String DESCRIPTOR = "android.service.voice.ISandboxedDetectionService.IPingMe";
         public void onPing() throws android.os.RemoteException;
-
-        public static class Default implements android.service.voice.ISandboxedDetectionService.IPingMe {
-            public Default() {}
-            public android.os.IBinder asBinder() { return null; }
-            public void onPing() throws android.os.RemoteException {}
-        }
 
         public static abstract class Stub extends android.os.Binder implements android.service.voice.ISandboxedDetectionService.IPingMe {
             static final int TRANSACTION_onPing = 1;
@@ -54,6 +33,12 @@ public interface ISandboxedDetectionService extends android.os.IInterface {
                 public final java.lang.String getInterfaceDescriptor() { return null; }
                 public void onPing() throws android.os.RemoteException {}
             }
+        }
+
+        public static class Default implements android.service.voice.ISandboxedDetectionService.IPingMe {
+            public Default() {}
+            public android.os.IBinder asBinder() { return null; }
+            public void onPing() throws android.os.RemoteException {}
         }
     }
 
@@ -91,5 +76,20 @@ public interface ISandboxedDetectionService extends android.os.IInterface {
             public void updateRecognitionServiceManager(android.speech.IRecognitionServiceManager p0) throws android.os.RemoteException {}
             public void updateState(android.os.PersistableBundle p0, android.os.SharedMemory p1, android.os.IRemoteCallback p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.voice.ISandboxedDetectionService {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void detectFromDspSource(android.hardware.soundtrigger.SoundTrigger.KeyphraseRecognitionEvent p0, android.media.AudioFormat p1, long p2, android.service.voice.IDspHotwordDetectionCallback p3) throws android.os.RemoteException {}
+        public void detectFromMicrophoneSource(android.os.ParcelFileDescriptor p0, int p1, android.media.AudioFormat p2, android.os.PersistableBundle p3, android.service.voice.IDspHotwordDetectionCallback p4) throws android.os.RemoteException {}
+        public void detectWithVisualSignals(android.service.voice.IDetectorSessionVisualQueryDetectionCallback p0) throws android.os.RemoteException {}
+        public void ping(android.service.voice.ISandboxedDetectionService.IPingMe p0) throws android.os.RemoteException {}
+        public void registerRemoteStorageService(android.service.voice.IDetectorSessionStorageService p0) throws android.os.RemoteException {}
+        public void stopDetection() throws android.os.RemoteException {}
+        public void updateAudioFlinger(android.os.IBinder p0) throws android.os.RemoteException {}
+        public void updateContentCaptureManager(android.view.contentcapture.IContentCaptureManager p0, android.content.ContentCaptureOptions p1) throws android.os.RemoteException {}
+        public void updateRecognitionServiceManager(android.speech.IRecognitionServiceManager p0) throws android.os.RemoteException {}
+        public void updateState(android.os.PersistableBundle p0, android.os.SharedMemory p1, android.os.IRemoteCallback p2) throws android.os.RemoteException {}
     }
 }

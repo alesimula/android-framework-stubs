@@ -32,6 +32,8 @@ public abstract class TvInteractiveAppService extends android.app.Service {
     public static final java.lang.String TIME_SHIFT_COMMAND_TYPE_SEEK_TO = "seek_to";
     public static final java.lang.String TIME_SHIFT_COMMAND_TYPE_SET_MODE = "set_mode";
     public static final java.lang.String TIME_SHIFT_COMMAND_TYPE_SET_PLAYBACK_PARAMS = "set_playback_params";
+    public static final int VIDEO_BOUND_TARGET_DISPLAY = 1;
+    public static final int VIDEO_BOUND_TARGET_SOURCE = 2;
     private final android.os.RemoteCallbackList<android.media.tv.interactive.ITvInteractiveAppServiceCallback> mCallbacks = null;
     private final android.os.Handler mServiceHandler = null;
     public TvInteractiveAppService() { super(); }
@@ -44,23 +46,16 @@ public abstract class TvInteractiveAppService extends android.app.Service {
     public android.media.tv.interactive.TvInteractiveAppService.Session onCreateSession(java.lang.String p0, int p1, int p2) { return null; }
     public void onInstallOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0) {}
     public void onRegisterAppLinkInfo(android.media.tv.interactive.AppLinkInfo p0) {}
+    public void onRequestOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.os.Bundle p1) {}
     public void onRequestOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0) {}
     public void onSearchOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) {}
     public void onUninstallOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, java.lang.String p2) {}
     public void onUnregisterAppLinkInfo(android.media.tv.interactive.AppLinkInfo p0) {}
     public void onUpdateOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) {}
-
-    private static final class MediaViewCleanUpTask extends android.os.AsyncTask<android.view.View, java.lang.Void, java.lang.Void> {
-        private MediaViewCleanUpTask() { super(); }
-        protected java.lang.Void doInBackground(android.view.View... p0) { return null; }
-    }
+    public final void sendOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.graphics.Bitmap p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface PlaybackCommandStopMode {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface PlaybackCommandType {
     }
 
     private final class ServiceHandler extends android.os.Handler {
@@ -68,9 +63,11 @@ public abstract class TvInteractiveAppService extends android.app.Service {
         private static final int DO_NOTIFY_OPERATOR_APP_PACKAGE_STATUS = 4;
         private static final int DO_NOTIFY_RTE_STATE_CHANGED = 3;
         private static final int DO_NOTIFY_SESSION_CREATED = 2;
+        private static final int DO_SEND_OPERATOR_APP_ICON = 5;
         private ServiceHandler(android.media.tv.interactive.TvInteractiveAppService p0) { super(); }
-        private void broadcastOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) {}
+        private void broadcastNotifyOperatorAppPackageStatus(android.media.tv.interactive.OperatorAppServiceInfo p0, int p1, android.os.Bundle p2) {}
         private void broadcastRteStateChanged(int p0, int p1, int p2) {}
+        private void broadcastSendOperatorAppIcon(android.media.tv.interactive.OperatorAppServiceInfo p0, android.graphics.Bitmap p1) {}
         public void handleMessage(android.os.Message p0) {}
     }
 
@@ -226,6 +223,7 @@ public abstract class TvInteractiveAppService extends android.app.Service {
         public void requestCurrentChannelUri() {}
         public void requestCurrentTvInputId() {}
         public void requestCurrentVideoBounds() {}
+        public void requestCurrentVideoBounds(int p0) {}
         void requestOperatorAppSupportedStatus() {}
         public void requestParentalControlApproval(int p0, boolean p1, android.os.Bundle p2) {}
         public void requestParentalControlPinLength() {}
@@ -273,6 +271,7 @@ public abstract class TvInteractiveAppService extends android.app.Service {
         void setTeletextAppEnabled(boolean p0) {}
         public void setTvRecordingInfo(java.lang.String p0, android.media.tv.TvRecordingInfo p1) {}
         public void setVideoBounds(android.graphics.Rect p0) {}
+        public void setVideoBounds(android.graphics.Rect p0, android.graphics.Rect p1) {}
         void startInteractiveApp() {}
         void startInteractiveApp(int p0) {}
         void startOperatorApp(android.media.tv.interactive.OperatorAppServiceInfo p0, java.lang.String p1, java.lang.String p2, android.os.Bundle p3) {}
@@ -284,6 +283,19 @@ public abstract class TvInteractiveAppService extends android.app.Service {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface PlaybackCommandType {
+    }
+
+    private static final class MediaViewCleanUpTask extends android.os.AsyncTask<android.view.View, java.lang.Void, java.lang.Void> {
+        private MediaViewCleanUpTask() { super(); }
+        protected java.lang.Void doInBackground(android.view.View... p0) { return null; }
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface TimeShiftCommandType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VideoBoundTarget {
     }
 }

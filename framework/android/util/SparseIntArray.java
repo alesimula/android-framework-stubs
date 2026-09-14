@@ -9,6 +9,7 @@ public class SparseIntArray implements java.lang.Cloneable {
     public void append(int p0, int p1) {}
     public void clear() {}
     public android.util.SparseIntArray clone() { return null; }
+    public int compute(int p0, java.util.function.IntBinaryOperator p1) { return 0; }
     public int[] copyKeys() { return null; }
     public void delete(int p0) {}
     public int get(int p0) { return 0; }

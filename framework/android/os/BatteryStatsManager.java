@@ -67,10 +67,10 @@ public final class BatteryStatsManager {
     public void unplugBattery(boolean p0) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface WifiState {
+    public static @interface WifiSupplState {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface WifiSupplState {
+    public static @interface WifiState {
     }
 }

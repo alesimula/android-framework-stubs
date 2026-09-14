@@ -2,7 +2,7 @@ package android.hardware.camera2.marshal.impl;
 
 public class MarshalQueryableArray<T extends java.lang.Object> implements android.hardware.camera2.marshal.MarshalQueryable<T> {
     private static final boolean DEBUG = false;
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "MarshalQueryableArray";
     public MarshalQueryableArray() {}
     public android.hardware.camera2.marshal.Marshaler<T> createMarshaler(android.hardware.camera2.utils.TypeReference<T> p0, int p1) { return null; }
     public boolean isTypeMappingSupported(android.hardware.camera2.utils.TypeReference<T> p0, int p1) { return false; }

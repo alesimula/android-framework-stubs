@@ -23,20 +23,6 @@ abstract class AndroidKeyStoreUnauthenticatedAESCipherSpi extends android.securi
     protected final void resetAll() {}
     protected final void resetWhilePreservingInitState() {}
 
-    static abstract class CBC extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi {
-        protected CBC(int p0) { super(0, 0, false); }
-
-        public static class NoPadding extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi.CBC {
-            public NoPadding() { super(0); }
-            protected final java.lang.String getTransform() { return null; }
-        }
-
-        public static class PKCS7Padding extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi.CBC {
-            public PKCS7Padding() { super(0); }
-            protected final java.lang.String getTransform() { return null; }
-        }
-    }
-
     static abstract class CTR extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi {
         protected CTR(int p0) { super(0, 0, false); }
 
@@ -56,6 +42,20 @@ abstract class AndroidKeyStoreUnauthenticatedAESCipherSpi extends android.securi
 
         public static class PKCS7Padding extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi.ECB {
             public PKCS7Padding() { super(0); }
+            protected final java.lang.String getTransform() { return null; }
+        }
+    }
+
+    static abstract class CBC extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi {
+        protected CBC(int p0) { super(0, 0, false); }
+
+        public static class PKCS7Padding extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi.CBC {
+            public PKCS7Padding() { super(0); }
+            protected final java.lang.String getTransform() { return null; }
+        }
+
+        public static class NoPadding extends android.security.keystore2.AndroidKeyStoreUnauthenticatedAESCipherSpi.CBC {
+            public NoPadding() { super(0); }
             protected final java.lang.String getTransform() { return null; }
         }
     }

@@ -3,12 +3,6 @@ package android.print;
 public interface IPrintServicesChangeListener extends android.os.IInterface {
     public void onPrintServicesChanged() throws android.os.RemoteException;
 
-    public static class Default implements android.print.IPrintServicesChangeListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onPrintServicesChanged() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.print.IPrintServicesChangeListener {
         public static final java.lang.String DESCRIPTOR = "android.print.IPrintServicesChangeListener";
         static final int TRANSACTION_onPrintServicesChanged = 1;
@@ -26,5 +20,11 @@ public interface IPrintServicesChangeListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onPrintServicesChanged() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.print.IPrintServicesChangeListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onPrintServicesChanged() throws android.os.RemoteException {}
     }
 }

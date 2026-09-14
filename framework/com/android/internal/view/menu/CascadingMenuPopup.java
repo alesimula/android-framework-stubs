@@ -61,15 +61,15 @@ final class CascadingMenuPopup extends com.android.internal.view.menu.MenuPopup 
     public void show() {}
     public void updateMenuView(boolean p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface HorizPosition {
+    }
+
     private static class CascadingMenuInfo {
         public final com.android.internal.view.menu.MenuBuilder menu = null;
         public final int position = 0;
         public final android.widget.MenuPopupWindow window = null;
         public CascadingMenuInfo(android.widget.MenuPopupWindow p0, com.android.internal.view.menu.MenuBuilder p1, int p2) {}
         public android.widget.ListView getListView() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface HorizPosition {
     }
 }

@@ -4,12 +4,6 @@ public interface IOffsetCallback extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.os.instrumentation.IOffsetCallback";
     public void onResult(android.os.instrumentation.ExecutableMethodFileOffsets p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.instrumentation.IOffsetCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onResult(android.os.instrumentation.ExecutableMethodFileOffsets p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.instrumentation.IOffsetCallback {
         static final int TRANSACTION_onResult = 1;
         public Stub() { super(); }
@@ -24,5 +18,11 @@ public interface IOffsetCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onResult(android.os.instrumentation.ExecutableMethodFileOffsets p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.instrumentation.IOffsetCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onResult(android.os.instrumentation.ExecutableMethodFileOffsets p0) throws android.os.RemoteException {}
     }
 }

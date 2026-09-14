@@ -67,8 +67,13 @@ public class GestureDetector {
         public void handleMessage(android.os.Message p0) {}
     }
 
-    public static interface OnContextClickListener {
-        public boolean onContextClick(android.view.MotionEvent p0);
+    public static interface OnGestureListener {
+        public boolean onDown(android.view.MotionEvent p0);
+        public boolean onFling(android.view.MotionEvent p0, android.view.MotionEvent p1, float p2, float p3);
+        public void onLongPress(android.view.MotionEvent p0);
+        public boolean onScroll(android.view.MotionEvent p0, android.view.MotionEvent p1, float p2, float p3);
+        public void onShowPress(android.view.MotionEvent p0);
+        public boolean onSingleTapUp(android.view.MotionEvent p0);
     }
 
     public static interface OnDoubleTapListener {
@@ -77,13 +82,8 @@ public class GestureDetector {
         public boolean onSingleTapConfirmed(android.view.MotionEvent p0);
     }
 
-    public static interface OnGestureListener {
-        public boolean onDown(android.view.MotionEvent p0);
-        public boolean onFling(android.view.MotionEvent p0, android.view.MotionEvent p1, float p2, float p3);
-        public void onLongPress(android.view.MotionEvent p0);
-        public boolean onScroll(android.view.MotionEvent p0, android.view.MotionEvent p1, float p2, float p3);
-        public void onShowPress(android.view.MotionEvent p0);
-        public boolean onSingleTapUp(android.view.MotionEvent p0);
+    public static interface OnContextClickListener {
+        public boolean onContextClick(android.view.MotionEvent p0);
     }
 
     public static class SimpleOnGestureListener implements android.view.GestureDetector.OnGestureListener, android.view.GestureDetector.OnDoubleTapListener, android.view.GestureDetector.OnContextClickListener {

@@ -7,15 +7,6 @@ public interface IPlatformCompatNative extends android.os.IInterface {
     public void reportChangeByPackageName(long p0, java.lang.String p1, int p2) throws android.os.RemoteException;
     public void reportChangeByUid(long p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.compat.IPlatformCompatNative {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean isChangeEnabledByPackageName(long p0, java.lang.String p1, int p2) throws android.os.RemoteException { return false; }
-        public boolean isChangeEnabledByUid(long p0, int p1) throws android.os.RemoteException { return false; }
-        public void reportChangeByPackageName(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
-        public void reportChangeByUid(long p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.compat.IPlatformCompatNative {
         static final int TRANSACTION_isChangeEnabledByPackageName = 3;
         static final int TRANSACTION_isChangeEnabledByUid = 4;
@@ -38,5 +29,14 @@ public interface IPlatformCompatNative extends android.os.IInterface {
             public void reportChangeByPackageName(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
             public void reportChangeByUid(long p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.compat.IPlatformCompatNative {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean isChangeEnabledByPackageName(long p0, java.lang.String p1, int p2) throws android.os.RemoteException { return false; }
+        public boolean isChangeEnabledByUid(long p0, int p1) throws android.os.RemoteException { return false; }
+        public void reportChangeByPackageName(long p0, java.lang.String p1, int p2) throws android.os.RemoteException {}
+        public void reportChangeByUid(long p0, int p1) throws android.os.RemoteException {}
     }
 }

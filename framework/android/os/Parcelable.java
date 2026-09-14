@@ -13,21 +13,21 @@ public interface Parcelable {
     default public int getStability() { return 0; }
     public void writeToParcel(android.os.Parcel p0, int p1);
 
-    public static interface ClassLoaderCreator<T extends java.lang.Object> extends android.os.Parcelable.Creator<T> {
-        public T createFromParcel(android.os.Parcel p0, java.lang.ClassLoader p1);
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ContentsFlags {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ContentsFlags {
+    public static @interface Stability {
+    }
+
+    public static interface ClassLoaderCreator<T extends java.lang.Object> extends android.os.Parcelable.Creator<T> {
+        public T createFromParcel(android.os.Parcel p0, java.lang.ClassLoader p1);
     }
 
     public static interface Creator<T extends java.lang.Object> {
         public T createFromParcel(android.os.Parcel p0);
         public T[] newArray(int p0);
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Stability {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)

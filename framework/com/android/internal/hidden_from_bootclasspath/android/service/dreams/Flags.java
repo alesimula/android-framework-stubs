@@ -8,17 +8,16 @@ public final class Flags {
     public static final java.lang.String FLAG_DREAMS_SWITCHER_LONG_PRESS_ENABLED = "android.service.dreams.dreams_switcher_long_press_enabled";
     public static final java.lang.String FLAG_DREAMS_SWITCHER_RIGHT_CLICK_ENABLED = "android.service.dreams.dreams_switcher_right_click_enabled";
     public static final java.lang.String FLAG_DREAMS_V2 = "android.service.dreams.dreams_v2";
-    public static final java.lang.String FLAG_DREAM_HANDLES_CONFIRM_KEYS = "android.service.dreams.dream_handles_confirm_keys";
     public static final java.lang.String FLAG_DREAM_OVERLAY_HOST = "android.service.dreams.dream_overlay_host";
+    public static final java.lang.String FLAG_DREAM_OVERLAY_TRIGGER_ACTIONS_FROM_KEY_EVENTS = "android.service.dreams.dream_overlay_trigger_actions_from_key_events";
     public static final java.lang.String FLAG_DREAM_POLICY_ENABLED = "android.service.dreams.dream_policy_enabled";
     public static final java.lang.String FLAG_DRIVE_DREAM_STATE_FROM_OCCLUSION = "android.service.dreams.drive_dream_state_from_occlusion";
     public static final java.lang.String FLAG_NAP_WHEN_DREAM_ENABLED = "android.service.dreams.nap_when_dream_enabled";
-    public static final java.lang.String FLAG_USER_SELECTABLE_METADATA = "android.service.dreams.user_selectable_metadata";
     public Flags() {}
     public static boolean allowDreamWithChargeLimit() { return false; }
     public static boolean dismissDreamOnKeyguardDismiss() { return false; }
-    public static boolean dreamHandlesConfirmKeys() { return false; }
     public static boolean dreamOverlayHost() { return false; }
+    public static boolean dreamOverlayTriggerActionsFromKeyEvents() { return false; }
     public static boolean dreamPolicyEnabled() { return false; }
     public static boolean dreamsSwitcher() { return false; }
     public static boolean dreamsSwitcherEdgeSwipeEnabled() { return false; }
@@ -27,5 +26,4 @@ public final class Flags {
     public static boolean dreamsV2() { return false; }
     public static boolean driveDreamStateFromOcclusion() { return false; }
     public static boolean napWhenDreamEnabled() { return false; }
-    public static boolean userSelectableMetadata() { return false; }
 }

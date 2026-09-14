@@ -12,6 +12,7 @@ public class LongSparseArray<E extends java.lang.Object> implements java.lang.Cl
     public void append(long p0, E p1) {}
     public void clear() {}
     public android.util.LongSparseArray<E> clone() { return null; }
+    public E compute(long p0, android.util.function.LongObjFunction<? super E, ? extends E> p1) { return null; }
     public void delete(long p0) {}
     public int firstIndexOnOrAfter(long p0) { return 0; }
     public E get(long p0) { return null; }

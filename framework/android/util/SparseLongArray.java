@@ -9,6 +9,7 @@ public class SparseLongArray implements java.lang.Cloneable {
     public void append(int p0, long p1) {}
     public void clear() {}
     public android.util.SparseLongArray clone() { return null; }
+    public long compute(int p0, java.util.function.LongBinaryOperator p1) { return 0L; }
     public void delete(int p0) {}
     public long get(int p0) { return 0L; }
     public long get(int p0, long p1) { return 0L; }

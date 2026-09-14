@@ -19,25 +19,6 @@ public interface IRadioConfig extends android.os.IInterface {
     public void setSimSlotsMapping(int p0, android.hardware.radio.config.SlotPortMapping[] p1) throws android.os.RemoteException;
     public void setSimType(int p0, int[] p1) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.radio.config.IRadioConfig {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void getHalDeviceCapabilities(int p0) throws android.os.RemoteException {}
-        public java.lang.String getInterfaceHash() { return null; }
-        public int getInterfaceVersion() { return 0; }
-        public void getNumOfLiveModems(int p0) throws android.os.RemoteException {}
-        public void getPhoneCapability(int p0) throws android.os.RemoteException {}
-        public void getSimSlotsStatus(int p0) throws android.os.RemoteException {}
-        public void getSimTypeInfo(int p0) throws android.os.RemoteException {}
-        public void getSimultaneousCallingSupport(int p0) throws android.os.RemoteException {}
-        public void rebootModem(int p0) throws android.os.RemoteException {}
-        public void setNumOfLiveModems(int p0, byte p1) throws android.os.RemoteException {}
-        public void setPreferredDataModem(int p0, byte p1) throws android.os.RemoteException {}
-        public void setResponseFunctions(android.hardware.radio.config.IRadioConfigResponse p0, android.hardware.radio.config.IRadioConfigIndication p1) throws android.os.RemoteException {}
-        public void setSimSlotsMapping(int p0, android.hardware.radio.config.SlotPortMapping[] p1) throws android.os.RemoteException {}
-        public void setSimType(int p0, int[] p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.radio.config.IRadioConfig {
         static final int TRANSACTION_getHalDeviceCapabilities = 1;
         static final int TRANSACTION_getInterfaceHash = 16777214;
@@ -80,5 +61,24 @@ public interface IRadioConfig extends android.os.IInterface {
             public void setSimSlotsMapping(int p0, android.hardware.radio.config.SlotPortMapping[] p1) throws android.os.RemoteException {}
             public void setSimType(int p0, int[] p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.radio.config.IRadioConfig {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void getHalDeviceCapabilities(int p0) throws android.os.RemoteException {}
+        public java.lang.String getInterfaceHash() { return null; }
+        public int getInterfaceVersion() { return 0; }
+        public void getNumOfLiveModems(int p0) throws android.os.RemoteException {}
+        public void getPhoneCapability(int p0) throws android.os.RemoteException {}
+        public void getSimSlotsStatus(int p0) throws android.os.RemoteException {}
+        public void getSimTypeInfo(int p0) throws android.os.RemoteException {}
+        public void getSimultaneousCallingSupport(int p0) throws android.os.RemoteException {}
+        public void rebootModem(int p0) throws android.os.RemoteException {}
+        public void setNumOfLiveModems(int p0, byte p1) throws android.os.RemoteException {}
+        public void setPreferredDataModem(int p0, byte p1) throws android.os.RemoteException {}
+        public void setResponseFunctions(android.hardware.radio.config.IRadioConfigResponse p0, android.hardware.radio.config.IRadioConfigIndication p1) throws android.os.RemoteException {}
+        public void setSimSlotsMapping(int p0, android.hardware.radio.config.SlotPortMapping[] p1) throws android.os.RemoteException {}
+        public void setSimType(int p0, int[] p1) throws android.os.RemoteException {}
     }
 }

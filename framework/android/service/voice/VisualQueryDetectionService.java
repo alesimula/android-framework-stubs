@@ -5,7 +5,7 @@ public abstract class VisualQueryDetectionService extends android.app.Service im
     static final boolean $assertionsDisabled = false;
     public static final java.lang.String KEY_INITIALIZATION_STATUS = "initialization_status";
     public static final java.lang.String SERVICE_INTERFACE = "android.service.voice.VisualQueryDetectionService";
-    private static final java.lang.String TAG = null;
+    private static final java.lang.String TAG = "VisualQueryDetectionService";
     private static final long UPDATE_TIMEOUT_MILLIS = 20000L;
     private android.view.contentcapture.ContentCaptureManager mContentCaptureManager;
     private android.service.voice.IDetectorSessionStorageService mDetectorSessionStorageService;

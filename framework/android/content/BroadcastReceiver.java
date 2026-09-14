@@ -1,7 +1,6 @@
 package android.content;
 
 public abstract class BroadcastReceiver {
-    private static final boolean DEBUG_STORE_ENABLED = Boolean.valueOf(false);
     private boolean mDebugUnregister;
     private android.content.BroadcastReceiver.PendingResult mPendingResult;
     public BroadcastReceiver() {}

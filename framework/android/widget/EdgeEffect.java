@@ -12,7 +12,6 @@ public class EdgeEffect {
     private static final float LINEAR_STRETCH_INTENSITY = 0.01600000075995922f;
     private static final float LINEAR_VELOCITY_TAKE_OVER = 200.0f;
     private static final float MAX_ALPHA = 0.15000000596046448f;
-    private static final float MAX_GLOW_SCALE = 2.0f;
     private static final int MAX_VELOCITY = 10000;
     private static final int MIN_VELOCITY = 100;
     private static final double NATURAL_FREQUENCY = 24.657;

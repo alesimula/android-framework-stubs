@@ -84,6 +84,19 @@ public final class FrameworksBaseTrackEventOuterClass {
     public static final int BROADCAST_DELIVERY_GROUP_POLICY_ALL = 0;
     public static final int BROADCAST_DELIVERY_GROUP_POLICY_MERGED = 2;
     public static final int BROADCAST_DELIVERY_GROUP_POLICY_MOST_RECENT = 1;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_BOOT_UPGRADE = 33554432;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_EXCLUDE_BACKGROUND = 8388608;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_FOREGROUND = 268435456;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_FROM_SHELL = 4194304;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_INCLUDE_BACKGROUND = 16777216;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_NO_ABORT = 134217728;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_OFFLOAD = -2147483648;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_OFFLOAD_FOREGROUND = 2048;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_REGISTERED_ONLY = 1073741824;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT = 67108864;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_REPLACE_PENDING = 536870912;
+    public static final int BROADCAST_INTENT_FLAG_RECEIVER_VISIBLE_TO_INSTANT_APPS = 2097152;
+    public static final int BROADCAST_INTENT_FLAG_UNKNOWN = 0;
     public static final int BROADCAST_TYPE_ALARM = 4;
     public static final int BROADCAST_TYPE_BACKGROUND = 1;
     public static final int BROADCAST_TYPE_DEFERRABLE_UNTIL_ACTIVE = 128;
@@ -97,9 +110,44 @@ public final class FrameworksBaseTrackEventOuterClass {
     public static final int BROADCAST_TYPE_PUSH_MESSAGE_OVER_QUOTA = 512;
     public static final int BROADCAST_TYPE_RESULT_TO = 64;
     public static final int BROADCAST_TYPE_STICKY = 1024;
+    public static final int CAPABILITY_UPDATE_FLAG_ACTIVE_INSTRUMENTATION = 1;
+    public static final int CAPABILITY_UPDATE_FLAG_FOREGROUND_ACTIVITIES = 32;
+    public static final int CAPABILITY_UPDATE_FLAG_FOREGROUND_SERVICES = 4;
+    public static final int CAPABILITY_UPDATE_FLAG_NON_SHORT_FGS = 8;
+    public static final int CAPABILITY_UPDATE_FLAG_PENDING_FINISH_ATTACH = 16;
+    public static final int CAPABILITY_UPDATE_FLAG_RUNNING_REMOTE_ANIMATION = 2;
+    public static final int CAPABILITY_UPDATE_FLAG_UNKNOWN = 0;
+    public static final int CPU_TIME_REASON_ALLOW_LIST = 8;
+    public static final int CPU_TIME_REASON_NONE = 0;
+    public static final int CPU_TIME_REASON_OTHER = 1;
+    public static final int CPU_TIME_REASON_TRANSMITTED = 2;
+    public static final int CPU_TIME_REASON_TRANSMITTED_LEGACY = 4;
+    public static final int FOREGROUND_SERVICE_TYPE_CAMERA = 64;
+    public static final int FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE = 16;
+    public static final int FOREGROUND_SERVICE_TYPE_DATA_SYNC = 1;
+    public static final int FOREGROUND_SERVICE_TYPE_FILE_MANAGEMENT = 4096;
+    public static final int FOREGROUND_SERVICE_TYPE_HEALTH = 256;
+    public static final int FOREGROUND_SERVICE_TYPE_LOCATION = 8;
+    public static final int FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK = 2;
+    public static final int FOREGROUND_SERVICE_TYPE_MEDIA_PROCESSING = 8192;
+    public static final int FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION = 32;
+    public static final int FOREGROUND_SERVICE_TYPE_MICROPHONE = 128;
+    public static final int FOREGROUND_SERVICE_TYPE_NONE = 0;
+    public static final int FOREGROUND_SERVICE_TYPE_PHONE_CALL = 4;
+    public static final int FOREGROUND_SERVICE_TYPE_REMOTE_MESSAGING = 512;
+    public static final int FOREGROUND_SERVICE_TYPE_SHORT_SERVICE = 2048;
+    public static final int FOREGROUND_SERVICE_TYPE_SPECIAL_USE = 1073741824;
+    public static final int FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED = 1024;
+    public static final int FREEZER_FLAG_AGGRESSIVE_FREEZING = 16;
+    public static final int FREEZER_FLAG_FREEZE_IMMEDIATELY = 4;
+    public static final int FREEZER_FLAG_FREEZE_POLICY = 8;
+    public static final int FREEZER_FLAG_IS_FROZEN = 1;
+    public static final int FREEZER_FLAG_IS_PENDING_FREEZE = 2;
+    public static final int FREEZER_FLAG_UNKNOWN = 0;
     public static final int HOSTING_TYPE_ACTIVITY = 1;
     public static final int HOSTING_TYPE_ADDED_APPLICATION = 2;
     public static final int HOSTING_TYPE_BACKUP = 3;
+    public static final int HOSTING_TYPE_BOUND_SERVICE = 16;
     public static final int HOSTING_TYPE_BROADCAST = 4;
     public static final int HOSTING_TYPE_CONTENT_PROVIDER = 5;
     public static final int HOSTING_TYPE_EMPTY = 14;
@@ -109,10 +157,13 @@ public final class FrameworksBaseTrackEventOuterClass {
     public static final int HOSTING_TYPE_ON_HOLD = 7;
     public static final int HOSTING_TYPE_RESTART = 10;
     public static final int HOSTING_TYPE_SERVICE = 11;
+    public static final int HOSTING_TYPE_STARTED_SERVICE = 15;
     public static final int HOSTING_TYPE_SYSTEM = 12;
     public static final int HOSTING_TYPE_TOP_ACTIVITY = 13;
     public static final int HOSTING_TYPE_UNKNOWN = 0;
-    public static final int IMPORTANCE_BACKGROUND = 400;
+    public static final int HOSTING_ZYGOTE_VARIANT_LEGACY = 1;
+    public static final int HOSTING_ZYGOTE_VARIANT_NATIVE = 2;
+    public static final int HOSTING_ZYGOTE_VARIANT_UNKNOWN = 0;
     public static final int IMPORTANCE_CACHED = 400;
     public static final int IMPORTANCE_CANT_SAVE_STATE = 350;
     public static final int IMPORTANCE_CANT_SAVE_STATE_PRE_26 = 170;
@@ -157,16 +208,16 @@ public final class FrameworksBaseTrackEventOuterClass {
     public static final int PACKAGE_STATE_NORMAL = 1;
     public static final int PACKAGE_STATE_STOPPED = 2;
     public static final int PACKAGE_STATE_UNKNOWN = 0;
-    public static final int PROCESS_CAPABILITY_BFSL = 5;
-    public static final int PROCESS_CAPABILITY_CPU_TIME = 8;
-    public static final int PROCESS_CAPABILITY_FOREGROUND_AUDIO_CONTROL = 7;
+    public static final int PROCESS_CAPABILITY_BFSL = 16;
+    public static final int PROCESS_CAPABILITY_CPU_TIME = 128;
+    public static final int PROCESS_CAPABILITY_FOREGROUND_AUDIO_CONTROL = 64;
     public static final int PROCESS_CAPABILITY_FOREGROUND_CAMERA = 2;
     public static final int PROCESS_CAPABILITY_FOREGROUND_LOCATION = 1;
-    public static final int PROCESS_CAPABILITY_FOREGROUND_MICROPHONE = 3;
-    public static final int PROCESS_CAPABILITY_IMPLICIT_CPU_TIME = 9;
-    public static final int PROCESS_CAPABILITY_POWER_RESTRICTED_NETWORK = 4;
+    public static final int PROCESS_CAPABILITY_FOREGROUND_MICROPHONE = 4;
+    public static final int PROCESS_CAPABILITY_IMPLICIT_CPU_TIME = 256;
+    public static final int PROCESS_CAPABILITY_POWER_RESTRICTED_NETWORK = 8;
     public static final int PROCESS_CAPABILITY_UNKNOWN = 0;
-    public static final int PROCESS_CAPABILITY_USER_RESTRICTED_NETWORK = 6;
+    public static final int PROCESS_CAPABILITY_USER_RESTRICTED_NETWORK = 32;
     public static final int PROCESS_START_TYPE_COLD = 3;
     public static final int PROCESS_START_TYPE_HOT = 2;
     public static final int PROCESS_START_TYPE_UNKNOWN = 0;
@@ -195,9 +246,81 @@ public final class FrameworksBaseTrackEventOuterClass {
     public static final int PROCESS_STATE_UNKNOWN = 999;
     public static final int PROCESS_STATE_UNKNOWN_TO_PROTO = 998;
     public static final int PROCESS_STATE_UNSPECIFIED = 0;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_ATTACHING_TOP = 2;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_BACKUP = 8;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_CLIENT_ACT_TREAT_LIKE_ACT = 16;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_FORCE_IMP = 4;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_INITIALIZATION_IF_ELSE = 64;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_NONE = 0;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_OTHER_ACTIVITY = 1;
+    public static final int PROC_STATE_CONTROLLER_INCONSISTENT_BEHAVIOR_PERSISTENT_POLICY = 32;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_ACTIVE_INSTRUMENTATION = 256;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_ACTIVITY_PAUSED = 64;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_ACTIVITY_STOPPING = 128;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_ACTIVITY_VISIBLE = 32;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_BACKUP_PROCESS = 32768;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_CLIENT_ACTIVITIES = 16777216;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_EXECUTING_SERVICES = 131072;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_EXTERNAL_PROCESS_HANDLE = 2048;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_FORCED_TO_IMPORTANT = 8192;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_FOREGROUND_SERVICES = 512;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_HAS_ACTIVITIES = 16;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_HEAVY_WEIGHT_PROCESS = 524288;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_HOME_PROCESS = 1048576;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_IS_RUNNING = 1;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_NONE = 0;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_NON_SHORT_FGS = 1024;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_OVERLAY_UI = 4096;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_PENDING_FINISH_ATTACH = 4;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_PREVIOUS_PROCESS = 4194304;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_PROVIDER_RETAIN_TIME = 2097152;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_RECEIVING_BROADCAST = 262144;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_RECENT_TASKS = 33554432;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_RUNNING_REMOTE_ANIMATION = 8;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_STARTED_SERVICES = 65536;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_SYSTEM_PROCESS = 2;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_TOAST_ACTIVE = 16384;
+    public static final int PROC_STATE_CONTROLLER_TRACE_FLAG_TREAT_LIKE_ACTIVITY = 8388608;
     public static final int RECEIVER_TYPE_MANIFEST = 2;
     public static final int RECEIVER_TYPE_RUNTIME = 1;
     public static final int RECEIVER_TYPE_UNKNOWN = 0;
+    public static final int SERVICE_BIND_FLAG_ABOVE_CLIENT = 8;
+    public static final int SERVICE_BIND_FLAG_ADJUST_WITH_ACTIVITY = 128;
+    public static final int SERVICE_BIND_FLAG_ALLOW_ACTIVITY_STARTS = 512;
+    public static final int SERVICE_BIND_FLAG_ALLOW_BACKGROUND_ACTIVITY_STARTS = 1048576;
+    public static final int SERVICE_BIND_FLAG_ALLOW_FOREGROUND_SERVICE_STARTS_FROM_BACKGROUND = 262144;
+    public static final int SERVICE_BIND_FLAG_ALLOW_INSTANT = 4194304;
+    public static final int SERVICE_BIND_FLAG_ALLOW_OOM_MANAGEMENT = 16;
+    public static final int SERVICE_BIND_FLAG_ALLOW_WHITELIST_MANAGEMENT = 16777216;
+    public static final int SERVICE_BIND_FLAG_ALMOST_PERCEPTIBLE = 65536;
+    public static final int SERVICE_BIND_FLAG_AUTO_CREATE = 1;
+    public static final int SERVICE_BIND_FLAG_BYPASS_POWER_NETWORK_RESTRICTIONS = 131072;
+    public static final int SERVICE_BIND_FLAG_DEBUG_UNBIND = 2;
+    public static final int SERVICE_BIND_FLAG_EXTERNAL_SERVICE = -2147483648;
+    public static final int SERVICE_BIND_FLAG_FOREGROUND_SERVICE = 67108864;
+    public static final int SERVICE_BIND_FLAG_FOREGROUND_SERVICE_WHILE_AWAKE = 33554432;
+    public static final int SERVICE_BIND_FLAG_IMPORTANT = 64;
+    public static final int SERVICE_BIND_FLAG_IMPORTANT_BACKGROUND = 8388608;
+    public static final int SERVICE_BIND_FLAG_INCLUDE_CAPABILITIES = 4096;
+    public static final int SERVICE_BIND_FLAG_LONG_ALLOW_FREEZE = 4;
+    public static final int SERVICE_BIND_FLAG_LONG_BYPASS_USER_NETWORK_RESTRICTIONS = 1;
+    public static final int SERVICE_BIND_FLAG_LONG_EXTERNAL_SERVICE_LONG = 1073741824;
+    public static final int SERVICE_BIND_FLAG_LONG_MATCH_QUARANTINED_COMPONENTS = 2;
+    public static final int SERVICE_BIND_FLAG_LONG_SIMULATE_ALLOW_FREEZE = 8;
+    public static final int SERVICE_BIND_FLAG_LONG_UNKNOWN = 0;
+    public static final int SERVICE_BIND_FLAG_NOT_APP_COMPONENT_USAGE = 32768;
+    public static final int SERVICE_BIND_FLAG_NOT_FOREGROUND = 4;
+    public static final int SERVICE_BIND_FLAG_NOT_PERCEPTIBLE = 256;
+    public static final int SERVICE_BIND_FLAG_NOT_VISIBLE = 1073741824;
+    public static final int SERVICE_BIND_FLAG_PACKAGE_ISOLATED_PROCESS = 16384;
+    public static final int SERVICE_BIND_FLAG_RESTRICT_ASSOCIATIONS = 2097152;
+    public static final int SERVICE_BIND_FLAG_SCHEDULE_LIKE_TOP_APP = 524288;
+    public static final int SERVICE_BIND_FLAG_SHARED_ISOLATED_PROCESS = 8192;
+    public static final int SERVICE_BIND_FLAG_SHOWING_UI = 536870912;
+    public static final int SERVICE_BIND_FLAG_TREAT_LIKE_ACTIVITY = 134217728;
+    public static final int SERVICE_BIND_FLAG_UNKNOWN = 0;
+    public static final int SERVICE_BIND_FLAG_VISIBLE = 268435456;
+    public static final int SERVICE_BIND_FLAG_WAIVE_PRIORITY = 32;
     public static final int SERVICE_RESTART_REASON_CONNECTION = 2;
     public static final int SERVICE_RESTART_REASON_FORCED = 3;
     public static final int SERVICE_RESTART_REASON_PERSISTENT = 4;
@@ -208,46 +331,14 @@ public final class FrameworksBaseTrackEventOuterClass {
     public static final int TRIGGER_TYPE_PUSH_MESSAGE = 2;
     public static final int TRIGGER_TYPE_PUSH_MESSAGE_OVER_QUOTA = 3;
     public static final int TRIGGER_TYPE_UNKNOWN = 0;
-    public static final int UFR_ACTIVITY = 1;
-    public static final int UFR_ALLOWLIST = 10;
-    public static final int UFR_BACKUP = 22;
-    public static final int UFR_BINDER_TXNS = 18;
-    public static final int UFR_BIND_SERVICE = 4;
-    public static final int UFR_COMPONENT_DISABLED = 29;
-    public static final int UFR_EXECUTING_SERVICE = 27;
-    public static final int UFR_FEATURE_FLAGS = 19;
-    public static final int UFR_FILE_LOCKS = 16;
-    public static final int UFR_FILE_LOCK_CHECK_FAILURE = 17;
-    public static final int UFR_FINISH_RECEIVER = 2;
-    public static final int UFR_GET_PROVIDER = 7;
-    public static final int UFR_NONE = 0;
-    public static final int UFR_OOM_ADJ_FOLLOW_UP = 30;
-    public static final int UFR_OOM_ADJ_REASON_BATCH_UPDATE_REQUEST = 33;
-    public static final int UFR_OOM_ADJ_REASON_SERVICE_BINDER_CALL = 32;
-    public static final int UFR_OOM_ADJ_RECONFIGURATION = 31;
-    public static final int UFR_PING = 15;
-    public static final int UFR_PROCESS_BEGIN = 11;
-    public static final int UFR_PROCESS_END = 12;
-    public static final int UFR_REMOVE_PROVIDER = 8;
-    public static final int UFR_REMOVE_TASK = 24;
-    public static final int UFR_RESTRICTION_CHANGE = 28;
-    public static final int UFR_SHELL = 23;
-    public static final int UFR_SHORT_FGS_TIMEOUT = 20;
-    public static final int UFR_START_RECEIVER = 3;
-    public static final int UFR_START_SERVICE = 6;
-    public static final int UFR_STOP_SERVICE = 26;
-    public static final int UFR_SYSTEM_INIT = 21;
-    public static final int UFR_TRIM_MEMORY = 13;
-    public static final int UFR_UID_IDLE = 25;
-    public static final int UFR_UI_VISIBILITY = 9;
-    public static final int UFR_UNBIND_SERVICE = 5;
     public FrameworksBaseTrackEventOuterClass() {}
 
-    public final class AndroidBinderDiedEvent {
-        public static final long PID = 1120986464258L;
-        public static final long PROCESS_NAME = 1138166333443L;
-        public static final long UID = 1120986464257L;
-        public AndroidBinderDiedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    public final class AndroidMessageQueue {
+        public static final long MESSAGE_CODE = 1120986464259L;
+        public static final long MESSAGE_DELAY_MS = 1116691496964L;
+        public static final long RECEIVING_THREAD_NAME = 1138166333442L;
+        public static final long SENDING_THREAD_NAME = 1138166333441L;
+        public AndroidMessageQueue(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
     public final class AndroidBitmap {
@@ -260,6 +351,70 @@ public final class FrameworksBaseTrackEventOuterClass {
         public static final long SIZE = 1112396529665L;
         public static final long WIDTH = 1120986464258L;
         public AndroidBitmap(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
+    public final class AndroidBinderDiedEvent {
+        public static final long PID = 1120986464258L;
+        public static final long PROCESS_NAME = 1138166333443L;
+        public static final long START_SEQ_ID = 1112396529668L;
+        public static final long UID = 1120986464257L;
+        public AndroidBinderDiedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
+    public final class AndroidSelfBroadcastEvent {
+        public static final long ACTION_NAME = 1138166333443L;
+        public static final long BROADCAST_TYPE = 1120986464261L;
+        public static final long DELIVERY_GROUP_POLICY = 1120986464265L;
+        public static final long INTENT_FLAGS = 1120986464262L;
+        public static final long MANIFEST_RECEIVER_COUNT = 1120986464264L;
+        public static final long PID = 1120986464257L;
+        public static final long PROCESS_STATE = 1159641169924L;
+        public static final long REGISTERED_RECEIVER_COUNT = 1120986464263L;
+        public static final long TRACE_COOKIE = 1112396529674L;
+        public static final long UID = 1120986464258L;
+        public AndroidSelfBroadcastEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
+    public final class AndroidProcessStateChangedEvent {
+        public static final long CPU_TIME_REASONS = 1120986464267L;
+        public static final long CUR_CAPABILITY_FLAGS = 1120986464262L;
+        public static final long CUR_OOM_SCORE = 1120986464264L;
+        public static final long CUR_PROC_STATE = 1159641169924L;
+        public static final long FREEZE_POLICY_FLAGS = 1120986464269L;
+        public static final long IMPLICIT_CPU_TIME_REASONS = 1120986464268L;
+        public static final long PID = 1120986464258L;
+        public static final long PREV_CAPABILITY_FLAGS = 1120986464261L;
+        public static final long PREV_OOM_SCORE = 1120986464263L;
+        public static final long PREV_PROC_STATE = 1159641169923L;
+        public static final long REASON = 1159641169929L;
+        public static final long SEQ_ID = 1112396529674L;
+        public static final long UID = 1120986464257L;
+        public AndroidProcessStateChangedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
+    public final class AndroidProviderStateChangedEvent {
+        public static final long AUTHORITY = 1138166333443L;
+        public static final long CALLER_PID = 1120986464261L;
+        public static final long CALLER_UID = 1120986464260L;
+        public static final long IS_STABLE = 1120986464262L;
+        public static final long PID = 1120986464258L;
+        public static final long UID = 1120986464257L;
+        public AndroidProviderStateChangedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
+    public final class AndroidProcessDiedEvent {
+        public static final long DEFINING_UID = 1120986464267L;
+        public static final long HAS_FOREGROUND_SERVICES = 1120986464264L;
+        public static final long IMPORTANCE = 1159641169926L;
+        public static final long PACKAGE_UID = 1120986464266L;
+        public static final long PID = 1120986464258L;
+        public static final long PROCESS_NAME = 1138166333443L;
+        public static final long REASON = 1159641169924L;
+        public static final long RSS_KB = 1120986464263L;
+        public static final long START_SEQ_ID = 1112396529673L;
+        public static final long SUB_REASON = 1159641169925L;
+        public static final long UID = 1120986464257L;
+        public AndroidProcessDiedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
     public final class AndroidBroadcastEvent {
@@ -306,6 +461,8 @@ public final class FrameworksBaseTrackEventOuterClass {
         public static final long NUM_PREVIOUS_ATTEMPTS = 1120986464264L;
         public static final long NUM_RESCHEDULES_DUE_TO_ABANDONMENT = 1120986464272L;
         public static final long NUM_UNCOMPLETED_WORK_ITEMS = 1120986464268L;
+        public static final long PENDING_DURATIONS_MS = 2211908157463L;
+        public static final long PENDING_REASONS = 2220498092054L;
         public static final long PERIODIC_JOB_FLEX_INTERVAL_MS = 1112396529679L;
         public static final long PERIODIC_JOB_INTERVAL_MS = 1112396529678L;
         public static final long PROC_STATE = 1120986464269L;
@@ -318,66 +475,51 @@ public final class FrameworksBaseTrackEventOuterClass {
         public AndroidJobSchedulerJob(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
-    public final class AndroidMessageQueue {
-        public static final long MESSAGE_CODE = 1120986464259L;
-        public static final long MESSAGE_DELAY_MS = 1116691496964L;
-        public static final long RECEIVING_THREAD_NAME = 1138166333442L;
-        public static final long SENDING_THREAD_NAME = 1138166333441L;
-        public AndroidMessageQueue(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    public final class AndroidProcStateSummaryEvent {
+        public static final long DISCREPANT_PROCESSES = 1120986464260L;
+        public static final long IS_FULL_UPDATE = 1133871366145L;
+        public static final long KNOWN_DISCREPANT_PROCESSES = 1120986464261L;
+        public static final long REASON = 1159641169922L;
+        public static final long TOTAL_PROCESSES = 1120986464259L;
+        public AndroidProcStateSummaryEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
-    public final class AndroidProcessDiedEvent {
-        public static final long HAS_FOREGROUND_SERVICES = 1120986464264L;
-        public static final long IMPORTANCE = 1159641169926L;
-        public static final long PID = 1120986464258L;
-        public static final long PROCESS_NAME = 1138166333443L;
-        public static final long REASON = 1159641169924L;
-        public static final long RSS_KB = 1120986464263L;
-        public static final long SUB_REASON = 1159641169925L;
-        public static final long UID = 1120986464257L;
-        public AndroidProcessDiedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    public final class AndroidCapabilityUpdateEvent {
+        public static final long CAPABILITY = 1120986464260L;
+        public static final long CPU_REASONS = 1120986464261L;
+        public static final long FLAGS = 1120986464268L;
+        public static final long IMPLICIT_CPU_REASONS = 1120986464262L;
+        public static final long IS_FULL_UPDATE = 1133871366145L;
+        public static final long LEGACY_CAPABILITY = 1120986464263L;
+        public static final long LEGACY_CPU_REASONS = 1120986464264L;
+        public static final long LEGACY_IMPLICIT_CPU_REASONS = 1120986464265L;
+        public static final long OOM_ADJ = 1120986464266L;
+        public static final long PID = 1120986464259L;
+        public static final long PROC_STATE = 1159641169931L;
+        public static final long REASON = 1159641169922L;
+        public AndroidCapabilityUpdateEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
     public final class AndroidProcessStartEvent {
         public static final long BIND_APPLICATION_DELAY_MS = 1112396529668L;
+        public static final long CALLER_UID = 1120986464268L;
+        public static final long DEFINING_UID = 1120986464269L;
         public static final long HOSTING_NAME = 1138166333446L;
         public static final long HOSTING_TYPE = 1159641169927L;
+        public static final long HOSTING_ZYGOTE_VARIANT = 1159641169929L;
+        public static final long PACKAGE_UID = 1120986464267L;
         public static final long PID = 1120986464258L;
         public static final long PROCESS_NAME = 1138166333443L;
         public static final long PROCESS_START_DELAY_MS = 1112396529669L;
+        public static final long START_SEQ_ID = 1112396529674L;
         public static final long TRIGGER_TYPE = 1159641169928L;
         public static final long UID = 1120986464257L;
         public AndroidProcessStartEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
-    public final class AndroidProcessStateChangedEvent {
-        public static final long CPU_TIME_REASONS = 1120986464267L;
-        public static final long CUR_CAPABILITY_FLAGS = 1120986464262L;
-        public static final long CUR_OOM_SCORE = 1120986464264L;
-        public static final long CUR_PROC_STATE = 1159641169924L;
-        public static final long FREEZE_POLICY_FLAGS = 1120986464269L;
-        public static final long IMPLICIT_CPU_TIME_REASONS = 1120986464268L;
-        public static final long PID = 1120986464258L;
-        public static final long PREV_CAPABILITY_FLAGS = 1120986464261L;
-        public static final long PREV_OOM_SCORE = 1120986464263L;
-        public static final long PREV_PROC_STATE = 1159641169923L;
-        public static final long REASON = 1159641169929L;
-        public static final long SEQ_ID = 1112396529674L;
-        public static final long UID = 1120986464257L;
-        public AndroidProcessStateChangedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
-    }
-
-    public final class AndroidProviderStateChangedEvent {
-        public static final long AUTHORITY = 1138166333443L;
-        public static final long CALLER_PID = 1120986464261L;
-        public static final long CALLER_UID = 1120986464260L;
-        public static final long IS_STABLE = 1120986464262L;
-        public static final long PID = 1120986464258L;
-        public static final long UID = 1120986464257L;
-        public AndroidProviderStateChangedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
-    }
-
     public final class AndroidServiceStateChangedEvent {
+        public static final long BIND_FLAGS_32 = 1120986464266L;
+        public static final long BIND_FLAGS_32_TO_64 = 1120986464267L;
         public static final long BIND_ID = 1120986464261L;
         public static final long CALLER_PID = 1120986464264L;
         public static final long CALLER_UID = 1120986464263L;
@@ -390,10 +532,20 @@ public final class FrameworksBaseTrackEventOuterClass {
         public AndroidServiceStateChangedEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 
+    public final class AndroidCapabilitySummaryEvent {
+        public static final long DISCREPANT_PROCESSES = 1120986464260L;
+        public static final long IS_FULL_UPDATE = 1133871366145L;
+        public static final long REASON = 1159641169922L;
+        public static final long TOTAL_PROCESSES = 1120986464259L;
+        public AndroidCapabilitySummaryEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
     public final class FrameworksBaseTrackEvent {
         public static final long BINDER_DIED_EVENT = 1146756270045L;
         public static final long BITMAP = 1146756270037L;
         public static final long BROADCAST_EVENT = 1146756270040L;
+        public static final long CAPABILITY_SUMMARY_EVENT = 1146756270049L;
+        public static final long CAPABILITY_UPDATE_EVENT = 1146756270050L;
         public static final long FG_SERVICE_STATE_CHANGED_EVENT = 1146756270048L;
         public static final long FREEZER_EVENT = 1146756270041L;
         public static final long JOB_SCHEDULER_JOB = 1146756270038L;
@@ -401,8 +553,23 @@ public final class FrameworksBaseTrackEventOuterClass {
         public static final long PROCESS_DIED_EVENT = 1146756270043L;
         public static final long PROCESS_START_EVENT = 1146756270042L;
         public static final long PROCESS_STATE_CHANGED_EVENT = 1146756270044L;
+        public static final long PROC_STATE_SUMMARY_EVENT = 1146756270051L;
+        public static final long PROC_STATE_UPDATE_EVENT = 1146756270052L;
         public static final long PROVIDER_STATE_CHANGED_EVENT = 1146756270047L;
+        public static final long SELF_BROADCAST_EVENT = 1146756270053L;
         public static final long SERVICE_STATE_CHANGED_EVENT = 1146756270046L;
         public FrameworksBaseTrackEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
+    }
+
+    public final class AndroidProcStateUpdateEvent {
+        public static final long FLAGS = 1120986464263L;
+        public static final long IS_FULL_UPDATE = 1133871366145L;
+        public static final long KNOWN_INCONSISTENT_BEHAVIOR = 1120986464264L;
+        public static final long LEGACY_PROC_STATE = 1159641169925L;
+        public static final long OOM_ADJ = 1120986464262L;
+        public static final long PID = 1120986464259L;
+        public static final long PROC_STATE = 1159641169924L;
+        public static final long REASON = 1159641169922L;
+        public AndroidProcStateUpdateEvent(com.android.internal.FrameworksBaseTrackEventOuterClass p0) {}
     }
 }

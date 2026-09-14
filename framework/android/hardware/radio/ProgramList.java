@@ -26,22 +26,8 @@ public final class ProgramList implements java.lang.AutoCloseable {
     public java.util.List<android.hardware.radio.RadioManager.ProgramInfo> toList() { return null; }
     public void unregisterListCallback(android.hardware.radio.ProgramList.ListCallback p0) {}
 
-    public static final class Chunk implements android.os.Parcelable {
-        public static final android.os.Parcelable.Creator<android.hardware.radio.ProgramList.Chunk> CREATOR = null;
-        private final boolean mComplete = false;
-        private final java.util.Set<android.hardware.radio.RadioManager.ProgramInfo> mModified = null;
-        private final boolean mPurge = false;
-        private final java.util.Set<android.hardware.radio.UniqueProgramIdentifier> mRemoved = null;
-        private Chunk(android.os.Parcel p0) {}
-        public Chunk(boolean p0, boolean p1, java.util.Set<android.hardware.radio.RadioManager.ProgramInfo> p2, java.util.Set<android.hardware.radio.UniqueProgramIdentifier> p3) {}
-        public int describeContents() { return 0; }
-        public boolean equals(java.lang.Object p0) { return false; }
-        public java.util.Set<android.hardware.radio.RadioManager.ProgramInfo> getModified() { return null; }
-        public java.util.Set<android.hardware.radio.UniqueProgramIdentifier> getRemoved() { return null; }
-        public boolean isComplete() { return false; }
-        public boolean isPurge() { return false; }
-        public java.lang.String toString() { return null; }
-        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    static interface OnCloseListener {
+        public void onClose();
     }
 
     public static final class Filter implements android.os.Parcelable {
@@ -67,17 +53,31 @@ public final class ProgramList implements java.lang.AutoCloseable {
         public void writeToParcel(android.os.Parcel p0, int p1) {}
     }
 
+    public static interface OnCompleteListener {
+        public void onComplete();
+    }
+
+    public static final class Chunk implements android.os.Parcelable {
+        public static final android.os.Parcelable.Creator<android.hardware.radio.ProgramList.Chunk> CREATOR = null;
+        private final boolean mComplete = false;
+        private final java.util.Set<android.hardware.radio.RadioManager.ProgramInfo> mModified = null;
+        private final boolean mPurge = false;
+        private final java.util.Set<android.hardware.radio.UniqueProgramIdentifier> mRemoved = null;
+        private Chunk(android.os.Parcel p0) {}
+        public Chunk(boolean p0, boolean p1, java.util.Set<android.hardware.radio.RadioManager.ProgramInfo> p2, java.util.Set<android.hardware.radio.UniqueProgramIdentifier> p3) {}
+        public int describeContents() { return 0; }
+        public boolean equals(java.lang.Object p0) { return false; }
+        public java.util.Set<android.hardware.radio.RadioManager.ProgramInfo> getModified() { return null; }
+        public java.util.Set<android.hardware.radio.UniqueProgramIdentifier> getRemoved() { return null; }
+        public boolean isComplete() { return false; }
+        public boolean isPurge() { return false; }
+        public java.lang.String toString() { return null; }
+        public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
     public static abstract class ListCallback {
         public ListCallback() {}
         public void onItemChanged(android.hardware.radio.ProgramSelector.Identifier p0) {}
         public void onItemRemoved(android.hardware.radio.ProgramSelector.Identifier p0) {}
-    }
-
-    static interface OnCloseListener {
-        public void onClose();
-    }
-
-    public static interface OnCompleteListener {
-        public void onComplete();
     }
 }

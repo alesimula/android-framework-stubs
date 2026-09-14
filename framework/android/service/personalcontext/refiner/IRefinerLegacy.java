@@ -1,0 +1,42 @@
+package android.service.personalcontext.refiner;
+
+public interface IRefinerLegacy extends android.os.IInterface {
+    public static final java.lang.String DESCRIPTOR = "android.service.personalcontext.refiner.IRefinerLegacy";
+    public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException;
+    public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.app.personalcontext.insight.interaction.InsightEvent p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException;
+    public void handleFeedback(android.os.ParcelUuid p0, android.app.personalcontext.insight.PublishedContextInsightWrapper p1, android.os.Bundle p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException;
+    public void refine(android.os.ParcelUuid p0, java.util.List<android.app.personalcontext.hint.PublishedContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallbackLegacy p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException;
+
+    public static class Default implements android.service.personalcontext.refiner.IRefinerLegacy {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+        public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.app.personalcontext.insight.interaction.InsightEvent p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+        public void handleFeedback(android.os.ParcelUuid p0, android.app.personalcontext.insight.PublishedContextInsightWrapper p1, android.os.Bundle p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+        public void refine(android.os.ParcelUuid p0, java.util.List<android.app.personalcontext.hint.PublishedContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallbackLegacy p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+    }
+
+    public static abstract class Stub extends android.os.Binder implements android.service.personalcontext.refiner.IRefinerLegacy {
+        static final int TRANSACTION_getFilter = 2;
+        static final int TRANSACTION_handleEvent = 3;
+        static final int TRANSACTION_handleFeedback = 4;
+        static final int TRANSACTION_refine = 1;
+        public Stub() { super(); }
+        public static android.service.personalcontext.refiner.IRefinerLegacy asInterface(android.os.IBinder p0) { return null; }
+        public static java.lang.String getDefaultTransactionName(int p0) { return null; }
+        public android.os.IBinder asBinder() { return null; }
+        public java.lang.String getTransactionName(int p0) { return null; }
+        public boolean onTransact(int p0, android.os.Parcel p1, android.os.Parcel p2, int p3) throws android.os.RemoteException { return false; }
+
+        private static final class Proxy implements android.service.personalcontext.refiner.IRefinerLegacy {
+            private android.os.IBinder mRemote;
+            Proxy(android.os.IBinder p0) {}
+            public android.os.IBinder asBinder() { return null; }
+            public void getFilter(android.os.ParcelUuid p0, android.service.personalcontext.refiner.IGetFilterCallback p1, android.app.personalcontext.IOpCallback p2) throws android.os.RemoteException {}
+            public final java.lang.String getInterfaceDescriptor() { return null; }
+            public void handleEvent(android.os.ParcelUuid p0, java.lang.String p1, android.app.personalcontext.insight.interaction.InsightEvent p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+            public void handleFeedback(android.os.ParcelUuid p0, android.app.personalcontext.insight.PublishedContextInsightWrapper p1, android.os.Bundle p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+            public void refine(android.os.ParcelUuid p0, java.util.List<android.app.personalcontext.hint.PublishedContextHintWrapper> p1, android.service.personalcontext.refiner.IRefineCallbackLegacy p2, android.app.personalcontext.IOpCallback p3) throws android.os.RemoteException {}
+        }
+    }
+}

@@ -6,14 +6,6 @@ public interface IUsbAuthEventsListener extends android.os.IInterface {
     public void onDeviceAuthorizationStatusChanged(android.hardware.usb.UsbAuthDeviceInfo p0, int p1, int p2) throws android.os.RemoteException;
     public void onDeviceCheckPersistedAuthorization(android.hardware.usb.UsbAuthDeviceInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.usb.IUsbAuthEventsListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDeviceAskForAuthorization(android.hardware.usb.UsbAuthDeviceInfo p0) throws android.os.RemoteException {}
-        public void onDeviceAuthorizationStatusChanged(android.hardware.usb.UsbAuthDeviceInfo p0, int p1, int p2) throws android.os.RemoteException {}
-        public void onDeviceCheckPersistedAuthorization(android.hardware.usb.UsbAuthDeviceInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.usb.IUsbAuthEventsListener {
         static final int TRANSACTION_onDeviceAskForAuthorization = 1;
         static final int TRANSACTION_onDeviceAuthorizationStatusChanged = 3;
@@ -34,5 +26,13 @@ public interface IUsbAuthEventsListener extends android.os.IInterface {
             public void onDeviceAuthorizationStatusChanged(android.hardware.usb.UsbAuthDeviceInfo p0, int p1, int p2) throws android.os.RemoteException {}
             public void onDeviceCheckPersistedAuthorization(android.hardware.usb.UsbAuthDeviceInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.usb.IUsbAuthEventsListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDeviceAskForAuthorization(android.hardware.usb.UsbAuthDeviceInfo p0) throws android.os.RemoteException {}
+        public void onDeviceAuthorizationStatusChanged(android.hardware.usb.UsbAuthDeviceInfo p0, int p1, int p2) throws android.os.RemoteException {}
+        public void onDeviceCheckPersistedAuthorization(android.hardware.usb.UsbAuthDeviceInfo p0) throws android.os.RemoteException {}
     }
 }

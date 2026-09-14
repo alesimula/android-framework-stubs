@@ -44,16 +44,16 @@ public class ExitTransitionCoordinator extends android.app.ActivityTransitionCoo
     public void startExit(android.app.Activity p0) {}
     public void stop(android.app.Activity p0) {}
 
+    public static interface ExitTransitionCallbacks {
+        default public void hideSharedElements() {}
+        public boolean isReturnTransitionAllowed();
+        public void onFinish();
+    }
+
     public static class ActivityExitTransitionCallbacks implements android.app.ExitTransitionCoordinator.ExitTransitionCallbacks {
         final android.app.Activity mActivity = null;
         ActivityExitTransitionCallbacks(android.app.Activity p0) {}
         public boolean isReturnTransitionAllowed() { return false; }
         public void onFinish() {}
-    }
-
-    public static interface ExitTransitionCallbacks {
-        default public void hideSharedElements() {}
-        public boolean isReturnTransitionAllowed();
-        public void onFinish();
     }
 }

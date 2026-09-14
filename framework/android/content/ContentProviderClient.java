@@ -73,14 +73,29 @@ public class ContentProviderClient implements android.content.ContentInterface, 
     public int update(android.net.Uri p0, android.content.ContentValues p1, android.os.Bundle p2) throws android.os.RemoteException { return 0; }
     public int update(android.net.Uri p0, android.content.ContentValues p1, java.lang.String p2, java.lang.String[] p3) throws android.os.RemoteException { return 0; }
 
-    private final class CallNotCancelledRunnable implements java.lang.Runnable {
-        private CallNotCancelledRunnable(android.content.ContentProviderClient p0) {}
-        public void run() {}
+    @java.lang.FunctionalInterface
+    private static interface RemoteCall<T extends java.lang.Object> {
+        public T apply() throws android.os.RemoteException;
+    }
+
+    @java.lang.FunctionalInterface
+    private static interface RemoteCallWithOperationApplicationException<T extends java.lang.Object> {
+        public T apply() throws android.os.RemoteException, android.content.OperationApplicationException;
+    }
+
+    @java.lang.FunctionalInterface
+    private static interface RemoteCallWithFileNotFound<T extends java.lang.Object> {
+        public T apply(android.os.ICancellationSignal p0) throws android.os.RemoteException, java.io.FileNotFoundException;
     }
 
     @java.lang.FunctionalInterface
     private static interface CancellableRemoteCall<T extends java.lang.Object> {
         public T apply(android.os.ICancellationSignal p0) throws android.os.RemoteException;
+    }
+
+    private final class CallNotCancelledRunnable implements java.lang.Runnable {
+        private CallNotCancelledRunnable(android.content.ContentProviderClient p0) {}
+        public void run() {}
     }
 
     private static final class CursorWrapperInner extends android.database.CrossProcessCursorWrapper {
@@ -92,20 +107,5 @@ public class ContentProviderClient implements android.content.ContentInterface, 
     private class NotRespondingRunnable implements java.lang.Runnable {
         private NotRespondingRunnable(android.content.ContentProviderClient p0) {}
         public void run() {}
-    }
-
-    @java.lang.FunctionalInterface
-    private static interface RemoteCall<T extends java.lang.Object> {
-        public T apply() throws android.os.RemoteException;
-    }
-
-    @java.lang.FunctionalInterface
-    private static interface RemoteCallWithFileNotFound<T extends java.lang.Object> {
-        public T apply(android.os.ICancellationSignal p0) throws android.os.RemoteException, java.io.FileNotFoundException;
-    }
-
-    @java.lang.FunctionalInterface
-    private static interface RemoteCallWithOperationApplicationException<T extends java.lang.Object> {
-        public T apply() throws android.os.RemoteException, android.content.OperationApplicationException;
     }
 }

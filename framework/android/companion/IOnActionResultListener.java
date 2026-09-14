@@ -4,12 +4,6 @@ public interface IOnActionResultListener extends android.os.IInterface {
     public static final java.lang.String DESCRIPTOR = "android.companion.IOnActionResultListener";
     public void onActionResult(int p0, android.companion.ActionResult p1) throws android.os.RemoteException;
 
-    public static class Default implements android.companion.IOnActionResultListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onActionResult(int p0, android.companion.ActionResult p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.companion.IOnActionResultListener {
         static final int TRANSACTION_onActionResult = 1;
         public Stub() { super(); }
@@ -26,5 +20,11 @@ public interface IOnActionResultListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onActionResult(int p0, android.companion.ActionResult p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.companion.IOnActionResultListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onActionResult(int p0, android.companion.ActionResult p1) throws android.os.RemoteException {}
     }
 }

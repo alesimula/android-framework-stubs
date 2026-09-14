@@ -22,10 +22,6 @@ public final class InlinePresentationSpec implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
-    static abstract class BaseBuilder {
-        BaseBuilder() {}
-    }
-
     public static final class Builder extends android.widget.inline.InlinePresentationSpec.BaseBuilder {
         private long mBuilderFieldsSet;
         private android.util.Size mMaxSize;
@@ -35,5 +31,9 @@ public final class InlinePresentationSpec implements android.os.Parcelable {
         private void checkNotUsed() {}
         public android.widget.inline.InlinePresentationSpec build() { return null; }
         public android.widget.inline.InlinePresentationSpec.Builder setStyle(android.os.Bundle p0) { return null; }
+    }
+
+    static abstract class BaseBuilder {
+        BaseBuilder() {}
     }
 }

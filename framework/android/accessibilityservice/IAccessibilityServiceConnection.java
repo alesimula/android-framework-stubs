@@ -33,6 +33,8 @@ public interface IAccessibilityServiceConnection extends android.os.IInterface {
     public void onDoubleTapAndHold(int p0) throws android.os.RemoteException;
     public boolean performAccessibilityAction(int p0, long p1, int p2, android.os.Bundle p3, int p4, android.view.accessibility.IAccessibilityInteractionConnectionCallback p5, long p6) throws android.os.RemoteException;
     public boolean performGlobalAction(int p0) throws android.os.RemoteException;
+    public void reportServiceReady() throws android.os.RemoteException;
+    public void reportUiDrawn() throws android.os.RemoteException;
     public void requestDelegating(int p0) throws android.os.RemoteException;
     public void requestDragging(int p0, int p1) throws android.os.RemoteException;
     public void requestTouchExploration(int p0) throws android.os.RemoteException;
@@ -94,6 +96,8 @@ public interface IAccessibilityServiceConnection extends android.os.IInterface {
         public void onDoubleTapAndHold(int p0) throws android.os.RemoteException {}
         public boolean performAccessibilityAction(int p0, long p1, int p2, android.os.Bundle p3, int p4, android.view.accessibility.IAccessibilityInteractionConnectionCallback p5, long p6) throws android.os.RemoteException { return false; }
         public boolean performGlobalAction(int p0) throws android.os.RemoteException { return false; }
+        public void reportServiceReady() throws android.os.RemoteException {}
+        public void reportUiDrawn() throws android.os.RemoteException {}
         public void requestDelegating(int p0) throws android.os.RemoteException {}
         public void requestDragging(int p0, int p1) throws android.os.RemoteException {}
         public void requestTouchExploration(int p0) throws android.os.RemoteException {}
@@ -155,6 +159,8 @@ public interface IAccessibilityServiceConnection extends android.os.IInterface {
         static final int TRANSACTION_onDoubleTapAndHold = 49;
         static final int TRANSACTION_performAccessibilityAction = 8;
         static final int TRANSACTION_performGlobalAction = 12;
+        static final int TRANSACTION_reportServiceReady = 59;
+        static final int TRANSACTION_reportUiDrawn = 58;
         static final int TRANSACTION_requestDelegating = 47;
         static final int TRANSACTION_requestDragging = 46;
         static final int TRANSACTION_requestTouchExploration = 45;
@@ -229,6 +235,8 @@ public interface IAccessibilityServiceConnection extends android.os.IInterface {
             public void onDoubleTapAndHold(int p0) throws android.os.RemoteException {}
             public boolean performAccessibilityAction(int p0, long p1, int p2, android.os.Bundle p3, int p4, android.view.accessibility.IAccessibilityInteractionConnectionCallback p5, long p6) throws android.os.RemoteException { return false; }
             public boolean performGlobalAction(int p0) throws android.os.RemoteException { return false; }
+            public void reportServiceReady() throws android.os.RemoteException {}
+            public void reportUiDrawn() throws android.os.RemoteException {}
             public void requestDelegating(int p0) throws android.os.RemoteException {}
             public void requestDragging(int p0, int p1) throws android.os.RemoteException {}
             public void requestTouchExploration(int p0) throws android.os.RemoteException {}

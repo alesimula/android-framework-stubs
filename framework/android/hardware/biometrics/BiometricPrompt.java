@@ -12,6 +12,7 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
     public static final int DISMISSED_REASON_FALLBACK_OPTION_BASE = 20;
     public static final int DISMISSED_REASON_FALLBACK_OPTION_MAX = 24;
     public static final int DISMISSED_REASON_NEGATIVE = 2;
+    public static final int DISMISSED_REASON_ON_BACK_INVOKED = 10;
     public static final int DISMISSED_REASON_SERVER_REQUESTED = 6;
     public static final int DISMISSED_REASON_USER_CANCEL = 3;
     @android.annotation.SystemApi
@@ -21,20 +22,25 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
     static final int MAX_LOGO_DESCRIPTION_CHARACTER_NUMBER = 30;
     private static final java.lang.String TAG = "BiometricPrompt";
     private android.hardware.biometrics.BiometricPrompt.AuthenticationCallback mAuthenticationCallback;
+    private android.hardware.biometrics.BiometricPromptStyleSpec mBiometricPromptStyleSpec;
     private final android.hardware.biometrics.IBiometricServiceReceiver mBiometricServiceReceiver = null;
     private final android.hardware.biometrics.BiometricPrompt.ButtonInfo mContentViewMoreOptionsButtonInfo = null;
     private final android.content.Context mContext = null;
     private android.hardware.biometrics.BiometricPrompt.CryptoObject mCryptoObject;
+    private android.hardware.biometrics.EmbeddedBiometricPrompt.AuthenticationCallback mEmbeddedPromptCallback;
+    private android.hardware.biometrics.BiometricPrompt.EmbeddedPromptDelegate mEmbeddedPromptDelegate;
     private java.util.concurrent.Executor mExecutor;
+    private long mExistingAuthSessionId;
     private final android.hardware.biometrics.BiometricPrompt.ButtonInfo[] mFallbackOptions = null;
     private boolean mIsPromptShowing;
     private final android.hardware.biometrics.BiometricPrompt.ButtonInfo mNegativeButtonInfo = null;
     private final android.hardware.biometrics.PromptInfo mPromptInfo = null;
     private final android.hardware.biometrics.IAuthService mService = null;
     private final android.os.IBinder mToken = null;
+    BiometricPrompt(android.content.Context p0, long p1, android.hardware.biometrics.PromptInfo p2, android.hardware.biometrics.BiometricPrompt.ButtonInfo p3, android.hardware.biometrics.BiometricPrompt.ButtonInfo p4, android.hardware.biometrics.BiometricPrompt.ButtonInfo[] p5, android.hardware.biometrics.IAuthService p6, java.util.concurrent.Executor p7, android.hardware.biometrics.EmbeddedBiometricPrompt.AuthenticationCallback p8) {}
     private BiometricPrompt(android.content.Context p0, android.hardware.biometrics.PromptInfo p1, android.hardware.biometrics.BiometricPrompt.ButtonInfo p2, android.hardware.biometrics.BiometricPrompt.ButtonInfo p3, android.hardware.biometrics.BiometricPrompt.ButtonInfo[] p4, android.hardware.biometrics.IAuthService p5) {}
-    private long authenticateInternal(long p0, android.os.CancellationSignal p1, java.util.concurrent.Executor p2, android.hardware.biometrics.BiometricPrompt.AuthenticationCallback p3, int p4) { return 0L; }
-    private void authenticateInternal(android.hardware.biometrics.BiometricPrompt.CryptoObject p0, android.os.CancellationSignal p1, java.util.concurrent.Executor p2, android.hardware.biometrics.BiometricPrompt.AuthenticationCallback p3, int p4) {}
+    private long authenticateInternal(long p0, android.os.CancellationSignal p1, java.util.concurrent.Executor p2, int p3) { return 0L; }
+    private void authenticateInternal(android.hardware.biometrics.BiometricPrompt.CryptoObject p0, android.os.CancellationSignal p1, java.util.concurrent.Executor p2, int p3) {}
     private void cancelAuthentication(long p0) {}
     private static android.graphics.Bitmap convertDrawableToBitmap(android.graphics.drawable.Drawable p0) { return null; }
     public static int getMaxFallbackOptions() { return 0; }
@@ -45,19 +51,30 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
     public void authenticateUser(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, android.hardware.biometrics.BiometricPrompt.AuthenticationCallback p2, int p3) {}
     public int getAllowedAuthenticators() { return 0; }
     public java.util.List<java.lang.Integer> getAllowedSensorIds() { return null; }
+    java.util.concurrent.Executor getAuthenticationExecutorInternal() { return null; }
+    public int getAuthenticationPurpose() { return 0; }
     public android.hardware.biometrics.PromptContentView getContentView() { return null; }
     public java.lang.CharSequence getDescription() { return null; }
+    long getExistingAuthSessionIdInternal() { return 0L; }
     public java.util.List<android.hardware.biometrics.FallbackOption> getFallbackOptions() { return null; }
     public android.graphics.Bitmap getLogoBitmap() { return null; }
     public java.lang.String getLogoDescription() { return null; }
     public int getLogoRes() { return 0; }
+    android.hardware.biometrics.BiometricPrompt.ButtonInfo getNegativeButtonInfoInternal() { return null; }
     public java.lang.CharSequence getNegativeButtonText() { return null; }
+    int getNextTranslationOffsetInternal() { return 0; }
+    int getPreviousTranslationOffsetInternal() { return 0; }
+    android.hardware.biometrics.BiometricPromptStyleSpec getStyleSpecInternal() { return null; }
     public java.lang.CharSequence getSubtitle() { return null; }
     public java.lang.CharSequence getTitle() { return null; }
+    android.os.IBinder getTokenInternal() { return null; }
     public boolean isAllowBackgroundAuthentication() { return false; }
     public boolean isConfirmationRequired() { return false; }
+    public void setEmbeddedPromptDelegate(android.hardware.biometrics.BiometricPrompt.EmbeddedPromptDelegate p0) {}
+    void setNextTranslationOffsetInternal(int p0) {}
     public boolean shouldUseDefaultSubtitle() { return false; }
     public boolean shouldUseDefaultTitle() { return false; }
+    public void startAuthenticationSessionInternal(android.os.CancellationSignal p0, java.util.concurrent.Executor p1, android.hardware.biometrics.EmbeddedBiometricPrompt.AuthenticationCallback p2, int p3) {}
 
     public static abstract class AuthenticationCallback extends android.hardware.biometrics.BiometricAuthenticator.AuthenticationCallback {
         public AuthenticationCallback() { super(); }
@@ -69,25 +86,22 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
         public void onSystemEvent(int p0) {}
     }
 
-    public static class AuthenticationResult extends android.hardware.biometrics.BiometricAuthenticator.AuthenticationResult {
-        public AuthenticationResult(android.hardware.biometrics.BiometricPrompt.CryptoObject p0, int p1) { super(); }
-        public int getAuthenticationType() { return 0; }
-        public android.hardware.biometrics.BiometricPrompt.CryptoObject getCryptoObject() { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface AuthenticationResultType {
+    static class ButtonInfo {
+        java.util.concurrent.Executor executor;
+        android.content.DialogInterface.OnClickListener listener;
+        ButtonInfo(java.util.concurrent.Executor p0, android.content.DialogInterface.OnClickListener p1) {}
     }
 
     public static class Builder {
-        private android.hardware.biometrics.BiometricPrompt.ButtonInfo mContentViewMoreOptionsButtonInfo;
-        private final android.content.Context mContext = null;
-        private int mFallbackOptionCount;
-        private final android.hardware.biometrics.BiometricPrompt.ButtonInfo[] mFallbackOptions = null;
-        private android.hardware.biometrics.BiometricPrompt.ButtonInfo mNegativeButtonInfo;
-        private final android.hardware.biometrics.PromptInfo mPromptInfo = null;
-        private android.hardware.biometrics.IAuthService mService;
+        android.hardware.biometrics.BiometricPrompt.ButtonInfo mContentViewMoreOptionsButtonInfo;
+        final android.content.Context mContext = null;
+        int mFallbackOptionCount;
+        final android.hardware.biometrics.BiometricPrompt.ButtonInfo[] mFallbackOptions = null;
+        android.hardware.biometrics.BiometricPrompt.ButtonInfo mNegativeButtonInfo;
+        final android.hardware.biometrics.PromptInfo mPromptInfo = null;
+        android.hardware.biometrics.IAuthService mService;
         public Builder(android.content.Context p0) {}
+        private static boolean isValidAuthenticationPurpose(int p0) { return false; }
         private static boolean isValidIconType(int p0) { return false; }
         public android.hardware.biometrics.BiometricPrompt.Builder addFallbackOption(java.lang.CharSequence p0, int p1, java.util.concurrent.Executor p2, android.content.DialogInterface.OnClickListener p3) { return null; }
         public android.hardware.biometrics.BiometricPrompt build() { return null; }
@@ -95,6 +109,7 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
         public android.hardware.biometrics.BiometricPrompt.Builder setAllowBackgroundAuthentication(boolean p0, boolean p1) { return null; }
         public android.hardware.biometrics.BiometricPrompt.Builder setAllowedAuthenticators(int p0) { return null; }
         public android.hardware.biometrics.BiometricPrompt.Builder setAllowedSensorIds(java.util.List<java.lang.Integer> p0) { return null; }
+        public android.hardware.biometrics.BiometricPrompt.Builder setAuthenticationPurpose(int p0) { return null; }
         public android.hardware.biometrics.BiometricPrompt.Builder setConfirmationRequired(boolean p0) { return null; }
         public android.hardware.biometrics.BiometricPrompt.Builder setContentView(android.hardware.biometrics.PromptContentView p0) { return null; }
         public android.hardware.biometrics.BiometricPrompt.Builder setDescription(java.lang.CharSequence p0) { return null; }
@@ -120,10 +135,20 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
         public android.hardware.biometrics.BiometricPrompt.Builder setUseDefaultTitle() { return null; }
     }
 
-    static class ButtonInfo {
-        java.util.concurrent.Executor executor;
-        android.content.DialogInterface.OnClickListener listener;
-        ButtonInfo(java.util.concurrent.Executor p0, android.content.DialogInterface.OnClickListener p1) {}
+    public static interface EmbeddedPromptDelegate {
+        public void onAuthenticationFinished();
+        public void onAuthenticationSucceeded();
+        public void onHostTokenAvailable(int p0, android.os.IBinder p1, int p2, int p3);
+        public void onSessionStarted(long p0);
+        public void onStyleUpdated(android.hardware.biometrics.BiometricPromptStyleSpec p0);
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface AuthenticationResultType {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface FallbackType {
     }
 
     public static final class CryptoObject extends android.hardware.biometrics.CryptoObject {
@@ -149,13 +174,15 @@ public class BiometricPrompt implements android.hardware.biometrics.BiometricAut
     public static @interface DismissedReason {
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface FallbackType {
-    }
-
     private class OnAuthenticationCancelListener implements android.os.CancellationSignal.OnCancelListener {
         private final long mAuthRequestId = 0L;
         OnAuthenticationCancelListener(android.hardware.biometrics.BiometricPrompt p0, long p1) {}
         public void onCancel() {}
+    }
+
+    public static class AuthenticationResult extends android.hardware.biometrics.BiometricAuthenticator.AuthenticationResult {
+        public AuthenticationResult(android.hardware.biometrics.BiometricPrompt.CryptoObject p0, int p1) { super(); }
+        public int getAuthenticationType() { return 0; }
+        public android.hardware.biometrics.BiometricPrompt.CryptoObject getCryptoObject() { return null; }
     }
 }

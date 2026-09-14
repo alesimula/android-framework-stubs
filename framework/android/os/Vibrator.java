@@ -40,6 +40,7 @@ public abstract class Vibrator {
     public float getHapticChannelMaximumAmplitude() { return 0.0f; }
     public int getId() { return 0; }
     public android.os.VibratorInfo getInfo() { return null; }
+    public java.time.Duration getPresetDuration(int p0) { return null; }
     public int[] getPrimitiveDurations(int... p0) { return null; }
     public float getQFactor() { return 0.0f; }
     public float getResonantFrequency() { return 0.0f; }
@@ -49,6 +50,7 @@ public abstract class Vibrator {
     public abstract boolean hasVibrator();
     @android.annotation.SystemApi
     public boolean isHapticGeneratorSupported() { return false; }
+    public boolean isPresetSupported(int p0) { return false; }
     @android.annotation.SystemApi
     public boolean isVibrating() { return false; }
     public void performHapticFeedback(int p0, int p1, java.lang.String p2, int p3, int p4) {}
@@ -75,6 +77,10 @@ public abstract class Vibrator {
     @java.lang.Deprecated
     public void vibrate(long[] p0, int p1, android.media.AudioAttributes p2) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VibrationIntensity {
+    }
+
     @android.annotation.SystemApi
     public static interface OnVibratorStateChangedListener {
         public void onVibratorStateChanged(boolean p0);
@@ -82,9 +88,5 @@ public abstract class Vibrator {
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface VibrationEffectSupport {
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VibrationIntensity {
     }
 }

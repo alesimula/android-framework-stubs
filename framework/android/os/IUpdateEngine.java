@@ -16,25 +16,6 @@ public interface IUpdateEngine extends android.os.IInterface {
     public boolean unbind(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException;
     public boolean verifyPayloadApplicable(java.lang.String p0) throws android.os.RemoteException;
 
-    public static class Default implements android.os.IUpdateEngine {
-        public Default() {}
-        public long allocateSpaceForPayload(java.lang.String p0, java.lang.String[] p1) throws android.os.RemoteException { return 0L; }
-        public void applyPayload(java.lang.String p0, long p1, long p2, java.lang.String[] p3) throws android.os.RemoteException {}
-        public void applyPayloadFd(android.os.ParcelFileDescriptor p0, long p1, long p2, java.lang.String[] p3) throws android.os.RemoteException {}
-        public android.os.IBinder asBinder() { return null; }
-        public boolean bind(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException { return false; }
-        public void cancel() throws android.os.RemoteException {}
-        public void cleanupSuccessfulUpdate(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException {}
-        public void resetShouldSwitchSlotOnReboot() throws android.os.RemoteException {}
-        public void resetStatus() throws android.os.RemoteException {}
-        public void resume() throws android.os.RemoteException {}
-        public void setShouldSwitchSlotOnReboot(java.lang.String p0) throws android.os.RemoteException {}
-        public void suspend() throws android.os.RemoteException {}
-        public void triggerPostinstall(java.lang.String p0) throws android.os.RemoteException {}
-        public boolean unbind(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException { return false; }
-        public boolean verifyPayloadApplicable(java.lang.String p0) throws android.os.RemoteException { return false; }
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.IUpdateEngine {
         public static final java.lang.String DESCRIPTOR = "android.os.IUpdateEngine";
         static final int TRANSACTION_allocateSpaceForPayload = 12;
@@ -78,5 +59,24 @@ public interface IUpdateEngine extends android.os.IInterface {
             public boolean unbind(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException { return false; }
             public boolean verifyPayloadApplicable(java.lang.String p0) throws android.os.RemoteException { return false; }
         }
+    }
+
+    public static class Default implements android.os.IUpdateEngine {
+        public Default() {}
+        public long allocateSpaceForPayload(java.lang.String p0, java.lang.String[] p1) throws android.os.RemoteException { return 0L; }
+        public void applyPayload(java.lang.String p0, long p1, long p2, java.lang.String[] p3) throws android.os.RemoteException {}
+        public void applyPayloadFd(android.os.ParcelFileDescriptor p0, long p1, long p2, java.lang.String[] p3) throws android.os.RemoteException {}
+        public android.os.IBinder asBinder() { return null; }
+        public boolean bind(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException { return false; }
+        public void cancel() throws android.os.RemoteException {}
+        public void cleanupSuccessfulUpdate(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException {}
+        public void resetShouldSwitchSlotOnReboot() throws android.os.RemoteException {}
+        public void resetStatus() throws android.os.RemoteException {}
+        public void resume() throws android.os.RemoteException {}
+        public void setShouldSwitchSlotOnReboot(java.lang.String p0) throws android.os.RemoteException {}
+        public void suspend() throws android.os.RemoteException {}
+        public void triggerPostinstall(java.lang.String p0) throws android.os.RemoteException {}
+        public boolean unbind(android.os.IUpdateEngineCallback p0) throws android.os.RemoteException { return false; }
+        public boolean verifyPayloadApplicable(java.lang.String p0) throws android.os.RemoteException { return false; }
     }
 }

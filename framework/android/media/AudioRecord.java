@@ -155,6 +155,32 @@ public class AudioRecord implements android.media.AudioRouting, android.media.Mi
     public void stop() throws java.lang.IllegalStateException {}
     public void unregisterAudioRecordingCallback(android.media.AudioManager.AudioRecordingCallback p0) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface ReadMode {
+    }
+
+    public static final class MetricsConstants {
+        public static final java.lang.String ATTRIBUTES = "android.media.audiorecord.attributes";
+        public static final java.lang.String CHANNELS = "android.media.audiorecord.channels";
+        public static final java.lang.String CHANNEL_MASK = "android.media.audiorecord.channelMask";
+        public static final java.lang.String DURATION_MS = "android.media.audiorecord.durationMs";
+        public static final java.lang.String ENCODING = "android.media.audiorecord.encoding";
+        public static final java.lang.String FRAME_COUNT = "android.media.audiorecord.frameCount";
+        @java.lang.Deprecated
+        public static final java.lang.String LATENCY = "android.media.audiorecord.latency";
+        private static final java.lang.String MM_PREFIX = "android.media.audiorecord.";
+        public static final java.lang.String PORT_ID = "android.media.audiorecord.portId";
+        public static final java.lang.String SAMPLERATE = "android.media.audiorecord.samplerate";
+        public static final java.lang.String SOURCE = "android.media.audiorecord.source";
+        public static final java.lang.String START_COUNT = "android.media.audiorecord.startCount";
+        private MetricsConstants() {}
+    }
+
+    public static interface OnRecordPositionUpdateListener {
+        public void onMarkerReached(android.media.AudioRecord p0);
+        public void onPeriodicNotification(android.media.AudioRecord p0);
+    }
+
     public static class Builder {
         private static final java.lang.String ERROR_MESSAGE_SOURCE_MISMATCH = "Cannot both set audio source and set playback capture config";
         private static final int PRIVACY_SENSITIVE_DEFAULT = -1;
@@ -197,41 +223,15 @@ public class AudioRecord implements android.media.AudioRouting, android.media.Mi
         public android.media.AudioRecord.Builder setSharedAudioEvent(android.media.MediaSyncEvent p0) throws java.lang.IllegalArgumentException { return null; }
     }
 
-    public static final class MetricsConstants {
-        public static final java.lang.String ATTRIBUTES = "android.media.audiorecord.attributes";
-        public static final java.lang.String CHANNELS = "android.media.audiorecord.channels";
-        public static final java.lang.String CHANNEL_MASK = "android.media.audiorecord.channelMask";
-        public static final java.lang.String DURATION_MS = "android.media.audiorecord.durationMs";
-        public static final java.lang.String ENCODING = "android.media.audiorecord.encoding";
-        public static final java.lang.String FRAME_COUNT = "android.media.audiorecord.frameCount";
-        @java.lang.Deprecated
-        public static final java.lang.String LATENCY = "android.media.audiorecord.latency";
-        private static final java.lang.String MM_PREFIX = "android.media.audiorecord.";
-        public static final java.lang.String PORT_ID = "android.media.audiorecord.portId";
-        public static final java.lang.String SAMPLERATE = "android.media.audiorecord.samplerate";
-        public static final java.lang.String SOURCE = "android.media.audiorecord.source";
-        public static final java.lang.String START_COUNT = "android.media.audiorecord.startCount";
-        private MetricsConstants() {}
-    }
-
-    private class NativeEventHandler extends android.os.Handler {
-        private final android.media.AudioRecord mAudioRecord = null;
-        NativeEventHandler(android.media.AudioRecord p0, android.media.AudioRecord p1, android.os.Looper p2) { super(); }
-        public void handleMessage(android.os.Message p0) {}
-    }
-
-    public static interface OnRecordPositionUpdateListener {
-        public void onMarkerReached(android.media.AudioRecord p0);
-        public void onPeriodicNotification(android.media.AudioRecord p0);
-    }
-
     @java.lang.Deprecated
     public static interface OnRoutingChangedListener extends android.media.AudioRouting.OnRoutingChangedListener {
         public void onRoutingChanged(android.media.AudioRecord p0);
         default public void onRoutingChanged(android.media.AudioRouting p0) {}
     }
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface ReadMode {
+    private class NativeEventHandler extends android.os.Handler {
+        private final android.media.AudioRecord mAudioRecord = null;
+        NativeEventHandler(android.media.AudioRecord p0, android.media.AudioRecord p1, android.os.Looper p2) { super(); }
+        public void handleMessage(android.os.Message p0) {}
     }
 }

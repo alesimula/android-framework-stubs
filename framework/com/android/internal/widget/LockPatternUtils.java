@@ -27,6 +27,7 @@ public class LockPatternUtils {
     private static final java.lang.String LOCK_SCREEN_OWNER_INFO = "lock_screen_owner_info";
     private static final java.lang.String LOCK_SCREEN_OWNER_INFO_ENABLED = "lock_screen_owner_info_enabled";
     private static final java.time.Duration MAX_INT_DURATION = null;
+    private static final java.time.Duration MAX_LONG_DURATION = null;
     public static final int MIN_AUTO_PIN_REQUIREMENT_LENGTH = 6;
     public static final int MIN_LOCK_PASSWORD_SIZE = 4;
     public static final int MIN_LOCK_PATTERN_SIZE = 4;
@@ -58,6 +59,7 @@ public class LockPatternUtils {
     public static java.util.List<com.android.internal.widget.LockPatternView.Cell> byteArrayToPattern(byte[] p0) { return null; }
     public static boolean canUserEnterRepairMode(android.content.Context p0, android.content.pm.UserInfo p1) { return false; }
     public static int clamp(java.time.Duration p0) { return 0; }
+    private static long clampToLong(java.time.Duration p0) { return 0L; }
     public static int credentialTypeToPasswordQuality(int p0) { return 0; }
     public static java.lang.String credentialTypeToString(int p0) { return null; }
     private java.util.List<android.content.ComponentName> deserializeTrustAgents(java.lang.String p0) { return null; }
@@ -184,10 +186,6 @@ public class LockPatternUtils {
     public com.android.internal.widget.VerifyCredentialResponse verifyTiedProfileChallenge(com.android.internal.widget.LockscreenCredential p0, int p1, int p2) { return null; }
     public boolean writeRepairModeCredential(int p0) { return false; }
 
-    public static interface CheckCredentialProgressCallback {
-        public void onEarlyMatched();
-    }
-
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface CredentialType {
     }
@@ -227,20 +225,16 @@ public class LockPatternUtils {
         public void onIsNonStrongBiometricAllowedChanged(int p0) {}
         public void onStrongAuthRequiredChanged(int p0) {}
 
+        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+        public static @interface StrongAuthFlags {
+        }
+
         private class H extends android.os.Handler {
             static final int MSG_ON_IS_NON_STRONG_BIOMETRIC_ALLOWED_CHANGED = 2;
             static final int MSG_ON_STRONG_AUTH_REQUIRED_CHANGED = 1;
             public H(com.android.internal.widget.LockPatternUtils.StrongAuthTracker p0, android.os.Looper p1) { super(); }
             public void handleMessage(android.os.Message p0) {}
         }
-
-        @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-        public static @interface StrongAuthFlags {
-        }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface VerifyFlag {
     }
 
     private static class WrappedCallback extends com.android.internal.widget.ICheckCredentialProgressCallback.Stub {
@@ -248,5 +242,13 @@ public class LockPatternUtils {
         private android.os.Handler mHandler;
         WrappedCallback(android.os.Handler p0, com.android.internal.widget.LockPatternUtils.CheckCredentialProgressCallback p1) { super(); }
         public void onCredentialVerified() throws android.os.RemoteException {}
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface VerifyFlag {
+    }
+
+    public static interface CheckCredentialProgressCallback {
+        public void onEarlyMatched();
     }
 }

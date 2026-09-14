@@ -22,6 +22,7 @@ public class NotificationActionListLayout extends android.widget.LinearLayout {
     private int measureAndGetUsedWidth(int p0, int p1, int p2, boolean p3) { return 0; }
     private int measureAndReturnEvenlyDividedWidth(int p0, int p1) { return 0; }
     private void rebuildMeasureOrder(int p0, int p1) {}
+    public static android.graphics.drawable.Drawable unwrapDrawable(android.graphics.drawable.Drawable p0) { return null; }
     protected void onLayout(boolean p0, int p1, int p2, int p3, int p4) {}
     protected void onMeasure(int p0, int p1) {}
     public void onViewAdded(android.view.View p0) {}

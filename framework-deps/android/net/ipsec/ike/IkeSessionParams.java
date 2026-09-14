@@ -2,11 +2,11 @@ package android.net.ipsec.ike;
 
 public class IkeSessionParams {
     public IkeSessionParams() {}
-    public android.net.ipsec.ike.IkeIdentification getLocalIdentification() { return null; }
-    public java.lang.String getServerHostname() { return null; }
     public android.net.Network getNetwork() { return null; }
     public android.net.ipsec.ike.ike3gpp.Ike3gppExtension getIke3gppExtension() { return null; }
+    public java.lang.String getServerHostname() { return null; }
     public java.util.List getSaProposals() { return null; }
+    public android.net.ipsec.ike.IkeIdentification getLocalIdentification() { return null; }
     public android.net.ipsec.ike.IkeIdentification getRemoteIdentification() { return null; }
     public android.net.ipsec.ike.IkeSessionParams.IkeAuthConfig getLocalAuthConfig() { return null; }
     public android.net.ipsec.ike.IkeSessionParams.IkeAuthConfig getRemoteAuthConfig() { return null; }
@@ -20,6 +20,10 @@ public class IkeSessionParams {
     public int getEncapType() { return 0; }
     public java.util.Set getIkeOptions() { return null; }
     public boolean hasIkeOption(int p0) { return false; }
+
+    public static class IkeConfigRequest {
+        public IkeConfigRequest() {}
+    }
 
     public static class Builder {
         public Builder() {}
@@ -43,14 +47,6 @@ public class IkeSessionParams {
         public android.net.ipsec.ike.IkeSessionParams build() { return null; }
     }
 
-    public static class IkeAuthConfig {
-        public IkeAuthConfig() {}
-    }
-
-    public static class IkeConfigRequest {
-        public IkeConfigRequest() {}
-    }
-
     public static class IkeAuthDigitalSignLocalConfig {
         public IkeAuthDigitalSignLocalConfig() {}
         public java.security.cert.X509Certificate getClientEndCertificate() { return null; }
@@ -71,6 +67,10 @@ public class IkeSessionParams {
     public static class IkeAuthPskConfig {
         public IkeAuthPskConfig() {}
         public byte[] getPsk() { return null; }
+    }
+
+    public static class IkeAuthConfig {
+        public IkeAuthConfig() {}
     }
 
     public static interface ConfigRequestIpv4PcscfServer {

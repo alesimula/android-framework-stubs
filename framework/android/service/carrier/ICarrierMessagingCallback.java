@@ -7,16 +7,6 @@ public interface ICarrierMessagingCallback extends android.os.IInterface {
     public void onSendMultipartSmsComplete(int p0, int[] p1) throws android.os.RemoteException;
     public void onSendSmsComplete(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.service.carrier.ICarrierMessagingCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onDownloadMmsComplete(int p0) throws android.os.RemoteException {}
-        public void onFilterComplete(int p0) throws android.os.RemoteException {}
-        public void onSendMmsComplete(int p0, byte[] p1) throws android.os.RemoteException {}
-        public void onSendMultipartSmsComplete(int p0, int[] p1) throws android.os.RemoteException {}
-        public void onSendSmsComplete(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.service.carrier.ICarrierMessagingCallback {
         public static final java.lang.String DESCRIPTOR = "android.service.carrier.ICarrierMessagingCallback";
         static final int TRANSACTION_onDownloadMmsComplete = 5;
@@ -42,5 +32,15 @@ public interface ICarrierMessagingCallback extends android.os.IInterface {
             public void onSendMultipartSmsComplete(int p0, int[] p1) throws android.os.RemoteException {}
             public void onSendSmsComplete(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.service.carrier.ICarrierMessagingCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onDownloadMmsComplete(int p0) throws android.os.RemoteException {}
+        public void onFilterComplete(int p0) throws android.os.RemoteException {}
+        public void onSendMmsComplete(int p0, byte[] p1) throws android.os.RemoteException {}
+        public void onSendMultipartSmsComplete(int p0, int[] p1) throws android.os.RemoteException {}
+        public void onSendSmsComplete(int p0, int p1) throws android.os.RemoteException {}
     }
 }

@@ -8,8 +8,8 @@ public interface EventType {
     public int getId();
     public java.lang.String getName();
 
-    public static final class BootCompleted implements android.uilatencystats.EventType {
-        public BootCompleted() {}
+    public static final class LauncherShown implements android.uilatencystats.EventType {
+        public LauncherShown() {}
         public final boolean equals(java.lang.Object p0) { return false; }
         public int getId() { return 0; }
         public java.lang.String getName() { return null; }
@@ -21,17 +21,8 @@ public interface EventType {
     public static @interface Id {
     }
 
-    public static final class LauncherShown implements android.uilatencystats.EventType {
-        public LauncherShown() {}
-        public final boolean equals(java.lang.Object p0) { return false; }
-        public int getId() { return 0; }
-        public java.lang.String getName() { return null; }
-        public final int hashCode() { return 0; }
-        public final java.lang.String toString() { return null; }
-    }
-
-    public static final class LockScreenUnlockStart implements android.uilatencystats.EventType {
-        public LockScreenUnlockStart() {}
+    public static final class BootCompleted implements android.uilatencystats.EventType {
+        public BootCompleted() {}
         public final boolean equals(java.lang.Object p0) { return false; }
         public int getId() { return 0; }
         public java.lang.String getName() { return null; }
@@ -48,5 +39,14 @@ public interface EventType {
         public final int hashCode() { return 0; }
         public final java.lang.String toString() { return null; }
         public int toUserId() { return 0; }
+    }
+
+    public static final class LockScreenUnlockStart implements android.uilatencystats.EventType {
+        public LockScreenUnlockStart() {}
+        public final boolean equals(java.lang.Object p0) { return false; }
+        public int getId() { return 0; }
+        public java.lang.String getName() { return null; }
+        public final int hashCode() { return 0; }
+        public final java.lang.String toString() { return null; }
     }
 }

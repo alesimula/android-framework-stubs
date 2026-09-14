@@ -3,12 +3,6 @@ package android.hardware.hdmi;
 public interface IHdmiMhlVendorCommandListener extends android.os.IInterface {
     public void onReceived(int p0, int p1, int p2, byte[] p3) throws android.os.RemoteException;
 
-    public static class Default implements android.hardware.hdmi.IHdmiMhlVendorCommandListener {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onReceived(int p0, int p1, int p2, byte[] p3) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.hardware.hdmi.IHdmiMhlVendorCommandListener {
         public static final java.lang.String DESCRIPTOR = "android.hardware.hdmi.IHdmiMhlVendorCommandListener";
         static final int TRANSACTION_onReceived = 1;
@@ -26,5 +20,11 @@ public interface IHdmiMhlVendorCommandListener extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onReceived(int p0, int p1, int p2, byte[] p3) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.hardware.hdmi.IHdmiMhlVendorCommandListener {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onReceived(int p0, int p1, int p2, byte[] p3) throws android.os.RemoteException {}
     }
 }

@@ -36,6 +36,10 @@ public final class PrinterInfo implements android.os.Parcelable {
     public java.lang.String toString() { return null; }
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Status {
+    }
+
     public static final class Builder {
         private android.print.PrinterCapabilitiesInfo mCapabilities;
         private int mCustomPrinterIconGen;
@@ -59,9 +63,5 @@ public final class PrinterInfo implements android.os.Parcelable {
         public android.print.PrinterInfo.Builder setName(java.lang.String p0) { return null; }
         public android.print.PrinterInfo.Builder setSetupIntent(android.app.PendingIntent p0) { return null; }
         public android.print.PrinterInfo.Builder setStatus(int p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Status {
     }
 }

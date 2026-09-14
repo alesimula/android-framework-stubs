@@ -94,7 +94,6 @@ public final class BluetoothProperties {
     public static void snoop_log_mode(android.sysprop.BluetoothProperties.snoop_log_mode_values p0) {}
     private static java.lang.Boolean tryParseBoolean(java.lang.String p0) { return null; }
     private static java.lang.Double tryParseDouble(java.lang.String p0) { return null; }
-    private static <T extends java.lang.Enum<T>> T tryParseEnum(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static <T extends java.lang.Enum<T>> java.util.List<T> tryParseEnumList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
     private static java.lang.Integer tryParseInteger(java.lang.String p0) { return null; }
     private static <T extends java.lang.Object> java.util.List<T> tryParseList(java.util.function.Function<java.lang.String, T> p0, java.lang.String p1) { return null; }
@@ -103,17 +102,6 @@ public final class BluetoothProperties {
     private static java.lang.Integer tryParseUInt(java.lang.String p0) { return null; }
     private static java.lang.Long tryParseULong(java.lang.String p0) { return null; }
 
-    public static enum snoop_default_mode_values {
-        DISABLED,
-        EMPTY,
-        FILTERED,
-        FULL;
-        private static final android.sysprop.BluetoothProperties.snoop_default_mode_values[] $VALUES = null;
-        private final java.lang.String propValue = null;
-        private snoop_default_mode_values() {}
-        public java.lang.String getPropValue() { return null; }
-    }
-
     public static enum snoop_log_filter_profile_map_values {
         DISABLED,
         EMPTY,
@@ -121,8 +109,23 @@ public final class BluetoothProperties {
         HEADER,
         MAGIC;
         private static final android.sysprop.BluetoothProperties.snoop_log_filter_profile_map_values[] $VALUES = null;
+        private static final android.sysprop.BluetoothProperties.snoop_log_filter_profile_map_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private snoop_log_filter_profile_map_values() {}
+        public static android.sysprop.BluetoothProperties.snoop_log_filter_profile_map_values fromPropValue(java.lang.String p0) { return null; }
+        public java.lang.String getPropValue() { return null; }
+    }
+
+    public static enum snoop_log_mode_values {
+        DISABLED,
+        EMPTY,
+        FILTERED,
+        FULL;
+        private static final android.sysprop.BluetoothProperties.snoop_log_mode_values[] $VALUES = null;
+        private static final android.sysprop.BluetoothProperties.snoop_log_mode_values[] VALUES = null;
+        private final java.lang.String propValue = null;
+        private snoop_log_mode_values() {}
+        public static android.sysprop.BluetoothProperties.snoop_log_mode_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 
@@ -133,19 +136,23 @@ public final class BluetoothProperties {
         HEADER,
         MAGIC;
         private static final android.sysprop.BluetoothProperties.snoop_log_filter_profile_pbap_values[] $VALUES = null;
+        private static final android.sysprop.BluetoothProperties.snoop_log_filter_profile_pbap_values[] VALUES = null;
         private final java.lang.String propValue = null;
         private snoop_log_filter_profile_pbap_values() {}
+        public static android.sysprop.BluetoothProperties.snoop_log_filter_profile_pbap_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 
-    public static enum snoop_log_mode_values {
+    public static enum snoop_default_mode_values {
         DISABLED,
         EMPTY,
         FILTERED,
         FULL;
-        private static final android.sysprop.BluetoothProperties.snoop_log_mode_values[] $VALUES = null;
+        private static final android.sysprop.BluetoothProperties.snoop_default_mode_values[] $VALUES = null;
+        private static final android.sysprop.BluetoothProperties.snoop_default_mode_values[] VALUES = null;
         private final java.lang.String propValue = null;
-        private snoop_log_mode_values() {}
+        private snoop_default_mode_values() {}
+        public static android.sysprop.BluetoothProperties.snoop_default_mode_values fromPropValue(java.lang.String p0) { return null; }
         public java.lang.String getPropValue() { return null; }
     }
 }

@@ -23,10 +23,6 @@ public abstract class KernelCpuUidTimeReader<T extends java.lang.Object> {
     public void removeUidsInRange(int p0, int p1) {}
     public void setThrottle(long p0) {}
 
-    public static interface Callback<T extends java.lang.Object> {
-        public void onUidCpuTime(int p0, T p1);
-    }
-
     public static class KernelCpuUidActiveTimeReader extends com.android.internal.os.KernelCpuUidTimeReader<java.lang.Long> {
         private long[] mBuffer;
         private int mCores;
@@ -42,38 +38,19 @@ public abstract class KernelCpuUidTimeReader<T extends java.lang.Object> {
         void readDeltaImpl(com.android.internal.os.KernelCpuUidTimeReader.Callback<java.lang.Long> p0, boolean p1) {}
     }
 
-    public static class KernelCpuUidClusterTimeReader extends com.android.internal.os.KernelCpuUidTimeReader<long[]> {
-        private long[] mBuffer;
-        private int[] mCoresOnClusters;
-        private long[] mCurTime;
-        private long[] mDeltaTime;
-        private int mNumClusters;
-        private int mNumCores;
-        public KernelCpuUidClusterTimeReader(com.android.internal.os.KernelCpuProcStringReader p0, com.android.internal.os.KernelCpuUidBpfMapReader p1, boolean p2) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
-        public KernelCpuUidClusterTimeReader(boolean p0) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
-        public KernelCpuUidClusterTimeReader(boolean p0, com.android.internal.os.Clock p1) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
-        private boolean checkPrecondition(com.android.internal.os.KernelCpuProcStringReader.ProcFileIterator p0) { return false; }
-        private boolean checkPrecondition(com.android.internal.os.KernelCpuUidBpfMapReader.BpfMapIterator p0) { return false; }
-        private void sumClusterTime() {}
-        void processUidDelta(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0) {}
-        void readAbsoluteImpl(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0) {}
-        void readDeltaImpl(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0, boolean p1) {}
+    public static interface Callback<T extends java.lang.Object> {
+        public void onUidCpuTime(int p0, T p1);
     }
 
     public static class KernelCpuUidFreqTimeReader extends com.android.internal.os.KernelCpuUidTimeReader<long[]> {
-        private static final int MAX_ERROR_COUNT = 5;
-        private static final java.lang.String UID_TIMES_PROC_FILE = "/proc/uid_time_in_state";
         private boolean mAllUidTimesAvailable;
         private long[] mBuffer;
         private long[] mCpuFreqs;
         private long[] mCurTimes;
         private long[] mDeltaTimes;
-        private int mErrors;
         private int mFreqCount;
-        private boolean mPerClusterTimesAvailable;
-        private final java.nio.file.Path mProcFilePath = null;
-        public KernelCpuUidFreqTimeReader(java.lang.String p0, com.android.internal.os.KernelCpuProcStringReader p1, com.android.internal.os.KernelCpuUidBpfMapReader p2, boolean p3) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
-        private KernelCpuUidFreqTimeReader(java.lang.String p0, com.android.internal.os.KernelCpuProcStringReader p1, com.android.internal.os.KernelCpuUidBpfMapReader p2, boolean p3, com.android.internal.os.Clock p4) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
+        public KernelCpuUidFreqTimeReader(com.android.internal.os.KernelCpuProcStringReader p0, com.android.internal.os.KernelCpuUidBpfMapReader p1, boolean p2) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
+        private KernelCpuUidFreqTimeReader(com.android.internal.os.KernelCpuProcStringReader p0, com.android.internal.os.KernelCpuUidBpfMapReader p1, boolean p2, com.android.internal.os.Clock p3) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
         public KernelCpuUidFreqTimeReader(boolean p0) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
         public KernelCpuUidFreqTimeReader(boolean p0, com.android.internal.os.Clock p1) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
         private boolean checkPrecondition(com.android.internal.os.KernelCpuProcStringReader.ProcFileIterator p0) { return false; }
@@ -104,5 +81,22 @@ public abstract class KernelCpuUidTimeReader<T extends java.lang.Object> {
         void readDeltaImpl(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0, boolean p1) {}
         public void removeUid(int p0) {}
         public void removeUidsInRange(int p0, int p1) {}
+    }
+
+    public static class KernelCpuUidClusterTimeReader extends com.android.internal.os.KernelCpuUidTimeReader<long[]> {
+        private long[] mBuffer;
+        private int[] mCoresOnClusters;
+        private long[] mCurTime;
+        private long[] mDeltaTime;
+        private int mNumClusters;
+        public KernelCpuUidClusterTimeReader(com.android.internal.os.KernelCpuProcStringReader p0, com.android.internal.os.KernelCpuUidBpfMapReader p1, boolean p2) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
+        public KernelCpuUidClusterTimeReader(boolean p0) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
+        public KernelCpuUidClusterTimeReader(boolean p0, com.android.internal.os.Clock p1) { super((com.android.internal.os.KernelCpuProcStringReader)null, false, (com.android.internal.os.Clock)null); }
+        private boolean checkPrecondition(com.android.internal.os.KernelCpuProcStringReader.ProcFileIterator p0) { return false; }
+        private boolean checkPrecondition(com.android.internal.os.KernelCpuUidBpfMapReader.BpfMapIterator p0) { return false; }
+        private void sumClusterTime() {}
+        void processUidDelta(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0) {}
+        void readAbsoluteImpl(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0) {}
+        void readDeltaImpl(com.android.internal.os.KernelCpuUidTimeReader.Callback<long[]> p0, boolean p1) {}
     }
 }

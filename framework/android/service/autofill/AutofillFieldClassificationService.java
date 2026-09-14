@@ -23,11 +23,6 @@ public abstract class AutofillFieldClassificationService extends android.app.Ser
     @java.lang.Deprecated
     public float[][] onGetScores(java.lang.String p0, android.os.Bundle p1, java.util.List<android.view.autofill.AutofillValue> p2, java.util.List<java.lang.String> p3) { return null; }
 
-    private final class AutofillFieldClassificationServiceWrapper extends android.service.autofill.IAutofillFieldClassificationService.Stub {
-        private AutofillFieldClassificationServiceWrapper(android.service.autofill.AutofillFieldClassificationService p0) { super(); }
-        public void calculateScores(android.os.RemoteCallback p0, java.util.List<android.view.autofill.AutofillValue> p1, java.lang.String[] p2, java.lang.String[] p3, java.lang.String p4, android.os.Bundle p5, java.util.Map p6, java.util.Map p7) throws android.os.RemoteException {}
-    }
-
     public static final class Scores implements android.os.Parcelable {
         public static final android.os.Parcelable.Creator<android.service.autofill.AutofillFieldClassificationService.Scores> CREATOR = null;
         public final float[][] scores = null;
@@ -36,5 +31,10 @@ public abstract class AutofillFieldClassificationService extends android.app.Ser
         public int describeContents() { return 0; }
         public java.lang.String toString() { return null; }
         public void writeToParcel(android.os.Parcel p0, int p1) {}
+    }
+
+    private final class AutofillFieldClassificationServiceWrapper extends android.service.autofill.IAutofillFieldClassificationService.Stub {
+        private AutofillFieldClassificationServiceWrapper(android.service.autofill.AutofillFieldClassificationService p0) { super(); }
+        public void calculateScores(android.os.RemoteCallback p0, java.util.List<android.view.autofill.AutofillValue> p1, java.lang.String[] p2, java.lang.String[] p3, java.lang.String p4, android.os.Bundle p5, java.util.Map p6, java.util.Map p7) throws android.os.RemoteException {}
     }
 }

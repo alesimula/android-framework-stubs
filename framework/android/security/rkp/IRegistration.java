@@ -6,14 +6,6 @@ public interface IRegistration extends android.os.IInterface {
     public void getKey(int p0, android.security.rkp.IGetKeyCallback p1) throws android.os.RemoteException;
     public void storeUpgradedKeyAsync(byte[] p0, byte[] p1, android.security.rkp.IStoreUpgradedKeyCallback p2) throws android.os.RemoteException;
 
-    public static class Default implements android.security.rkp.IRegistration {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelGetKey(android.security.rkp.IGetKeyCallback p0) throws android.os.RemoteException {}
-        public void getKey(int p0, android.security.rkp.IGetKeyCallback p1) throws android.os.RemoteException {}
-        public void storeUpgradedKeyAsync(byte[] p0, byte[] p1, android.security.rkp.IStoreUpgradedKeyCallback p2) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.rkp.IRegistration {
         static final int TRANSACTION_cancelGetKey = 2;
         static final int TRANSACTION_getKey = 1;
@@ -34,5 +26,13 @@ public interface IRegistration extends android.os.IInterface {
             public void getKey(int p0, android.security.rkp.IGetKeyCallback p1) throws android.os.RemoteException {}
             public void storeUpgradedKeyAsync(byte[] p0, byte[] p1, android.security.rkp.IStoreUpgradedKeyCallback p2) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.rkp.IRegistration {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelGetKey(android.security.rkp.IGetKeyCallback p0) throws android.os.RemoteException {}
+        public void getKey(int p0, android.security.rkp.IGetKeyCallback p1) throws android.os.RemoteException {}
+        public void storeUpgradedKeyAsync(byte[] p0, byte[] p1, android.security.rkp.IStoreUpgradedKeyCallback p2) throws android.os.RemoteException {}
     }
 }

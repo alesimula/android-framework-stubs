@@ -116,10 +116,10 @@ public class Switch extends android.widget.CompoundButton {
     public void setThumbDrawable(android.graphics.drawable.Drawable p0) {}
     @android.view.RemotableViewMethod(asyncImpl="setThumbIconAsync")
     public void setThumbIcon(android.graphics.drawable.Icon p0) {}
-    public java.lang.Runnable setThumbIconAsync(android.graphics.drawable.Icon p0) { return null; }
+    public final java.lang.Runnable setThumbIconAsync(android.graphics.drawable.Icon p0) { return null; }
     @android.view.RemotableViewMethod(asyncImpl="setThumbResourceAsync")
     public void setThumbResource(int p0) {}
-    public java.lang.Runnable setThumbResourceAsync(int p0) { return null; }
+    public final java.lang.Runnable setThumbResourceAsync(int p0) { return null; }
     @android.view.RemotableViewMethod
     public void setThumbTextPadding(int p0) {}
     @android.view.RemotableViewMethod
@@ -130,10 +130,10 @@ public class Switch extends android.widget.CompoundButton {
     public void setTrackDrawable(android.graphics.drawable.Drawable p0) {}
     @android.view.RemotableViewMethod(asyncImpl="setTrackIconAsync")
     public void setTrackIcon(android.graphics.drawable.Icon p0) {}
-    public java.lang.Runnable setTrackIconAsync(android.graphics.drawable.Icon p0) { return null; }
+    public final java.lang.Runnable setTrackIconAsync(android.graphics.drawable.Icon p0) { return null; }
     @android.view.RemotableViewMethod(asyncImpl="setTrackResourceAsync")
     public void setTrackResource(int p0) {}
-    public java.lang.Runnable setTrackResourceAsync(int p0) { return null; }
+    public final java.lang.Runnable setTrackResourceAsync(int p0) { return null; }
     @android.view.RemotableViewMethod
     public void setTrackTintBlendMode(android.graphics.BlendMode p0) {}
     @android.view.RemotableViewMethod

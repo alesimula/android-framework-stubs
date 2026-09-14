@@ -5,13 +5,6 @@ public interface ISpatializerCallback extends android.os.IInterface {
     public void dispatchSpatializerAvailableChanged(boolean p0) throws android.os.RemoteException;
     public void dispatchSpatializerEnabledChanged(boolean p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.ISpatializerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void dispatchSpatializerAvailableChanged(boolean p0) throws android.os.RemoteException {}
-        public void dispatchSpatializerEnabledChanged(boolean p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.ISpatializerCallback {
         static final int TRANSACTION_dispatchSpatializerAvailableChanged = 2;
         static final int TRANSACTION_dispatchSpatializerEnabledChanged = 1;
@@ -30,5 +23,12 @@ public interface ISpatializerCallback extends android.os.IInterface {
             public void dispatchSpatializerEnabledChanged(boolean p0) throws android.os.RemoteException {}
             public final java.lang.String getInterfaceDescriptor() { return null; }
         }
+    }
+
+    public static class Default implements android.media.ISpatializerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void dispatchSpatializerAvailableChanged(boolean p0) throws android.os.RemoteException {}
+        public void dispatchSpatializerEnabledChanged(boolean p0) throws android.os.RemoteException {}
     }
 }

@@ -61,7 +61,7 @@ public interface IPowerManager extends android.os.IInterface {
     public boolean isScreenBrightnessBoosted() throws android.os.RemoteException;
     public boolean isWakeLockLevelSupported(int p0) throws android.os.RemoteException;
     public boolean isWakeLockLevelSupportedWithDisplayId(int p0, int p1) throws android.os.RemoteException;
-    public void nap(long p0) throws android.os.RemoteException;
+    public void nap(long p0, int p1) throws android.os.RemoteException;
     public void reboot(boolean p0, java.lang.String p1, boolean p2) throws android.os.RemoteException;
     public void rebootSafeMode(boolean p0, boolean p1) throws android.os.RemoteException;
     public void releaseLowPowerStandbyPorts(android.os.IBinder p0) throws android.os.RemoteException;
@@ -137,7 +137,7 @@ public interface IPowerManager extends android.os.IInterface {
         public boolean isScreenBrightnessBoosted() throws android.os.RemoteException { return false; }
         public boolean isWakeLockLevelSupported(int p0) throws android.os.RemoteException { return false; }
         public boolean isWakeLockLevelSupportedWithDisplayId(int p0, int p1) throws android.os.RemoteException { return false; }
-        public void nap(long p0) throws android.os.RemoteException {}
+        public void nap(long p0, int p1) throws android.os.RemoteException {}
         public void reboot(boolean p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
         public void rebootSafeMode(boolean p0, boolean p1) throws android.os.RemoteException {}
         public void releaseLowPowerStandbyPorts(android.os.IBinder p0) throws android.os.RemoteException {}
@@ -321,7 +321,7 @@ public interface IPowerManager extends android.os.IInterface {
             public boolean isScreenBrightnessBoosted() throws android.os.RemoteException { return false; }
             public boolean isWakeLockLevelSupported(int p0) throws android.os.RemoteException { return false; }
             public boolean isWakeLockLevelSupportedWithDisplayId(int p0, int p1) throws android.os.RemoteException { return false; }
-            public void nap(long p0) throws android.os.RemoteException {}
+            public void nap(long p0, int p1) throws android.os.RemoteException {}
             public void reboot(boolean p0, java.lang.String p1, boolean p2) throws android.os.RemoteException {}
             public void rebootSafeMode(boolean p0, boolean p1) throws android.os.RemoteException {}
             public void releaseLowPowerStandbyPorts(android.os.IBinder p0) throws android.os.RemoteException {}

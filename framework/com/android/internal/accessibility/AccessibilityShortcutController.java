@@ -7,6 +7,8 @@ public class AccessibilityShortcutController {
     static final java.lang.String ACTION_LAUNCH_REMOVE_EXTRA_DIM_DIALOG = "com.android.systemui.action.LAUNCH_REMOVE_EXTRA_DIM_DIALOG";
     public static final android.content.ComponentName AUTOCLICK_COMPONENT_NAME = null;
     public static final android.content.ComponentName BOUNCE_KEYS_COMPONENT_NAME = null;
+    public static final android.content.ComponentName COLOR_FILTER_COMPONENT_NAME = null;
+    public static final android.content.ComponentName COLOR_FILTER_TILE_COMPONENT_NAME = null;
     public static final android.content.ComponentName COLOR_INVERSION_COMPONENT_NAME = null;
     public static final android.content.ComponentName COLOR_INVERSION_TILE_COMPONENT_NAME = null;
     public static final android.content.ComponentName DALTONIZER_COMPONENT_NAME = null;
@@ -58,16 +60,16 @@ public class AccessibilityShortcutController {
     public void playNotificationTone(int p0) {}
     public void setCurrentUser(int p0) {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface DialogStatus {
-        public static final int NOT_SHOWN = 0;
-        public static final int SHOWN = 1;
-    }
-
-    public static class ExtraDimFrameworkFeatureInfo extends com.android.internal.accessibility.AccessibilityShortcutController.FrameworkFeatureInfo {
-        ExtraDimFrameworkFeatureInfo(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) { super(null, null, null, 0); }
-        private void launchExtraDimDialog(android.content.Context p0) {}
-        public boolean activateShortcut(android.content.Context p0, int p1) { return false; }
+    public class UserSetupCompleteObserver extends android.database.ContentObserver {
+        private boolean mIsRegistered;
+        private int mUserId;
+        UserSetupCompleteObserver(com.android.internal.accessibility.AccessibilityShortcutController p0, android.os.Handler p1, int p2) { super((android.os.Handler)null); }
+        private boolean isUserSetupComplete() { return false; }
+        private void registerObserver() {}
+        private void setEmptyShortcutTargetIfNeeded() {}
+        private void unregisterObserver() {}
+        public void onChange(boolean p0) {}
+        void onUserSwitched(int p0) {}
     }
 
     public static abstract class FrameworkFeatureInfo {
@@ -90,15 +92,15 @@ public class AccessibilityShortcutController {
         ToggleableFrameworkFeatureInfo(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) { super(null, null, null, 0); }
     }
 
-    public class UserSetupCompleteObserver extends android.database.ContentObserver {
-        private boolean mIsRegistered;
-        private int mUserId;
-        UserSetupCompleteObserver(com.android.internal.accessibility.AccessibilityShortcutController p0, android.os.Handler p1, int p2) { super((android.os.Handler)null); }
-        private boolean isUserSetupComplete() { return false; }
-        private void registerObserver() {}
-        private void setEmptyShortcutTargetIfNeeded() {}
-        private void unregisterObserver() {}
-        public void onChange(boolean p0) {}
-        void onUserSwitched(int p0) {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface DialogStatus {
+        public static final int NOT_SHOWN = 0;
+        public static final int SHOWN = 1;
+    }
+
+    public static class ExtraDimFrameworkFeatureInfo extends com.android.internal.accessibility.AccessibilityShortcutController.FrameworkFeatureInfo {
+        ExtraDimFrameworkFeatureInfo(java.lang.String p0, java.lang.String p1, java.lang.String p2, int p3) { super(null, null, null, 0); }
+        private void launchExtraDimDialog(android.content.Context p0) {}
+        public boolean activateShortcut(android.content.Context p0, int p1) { return false; }
     }
 }

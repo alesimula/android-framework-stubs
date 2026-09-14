@@ -5,13 +5,6 @@ public interface IInputContentUriToken extends android.os.IInterface {
     public void release() throws android.os.RemoteException;
     public void take() throws android.os.RemoteException;
 
-    public static class Default implements com.android.internal.inputmethod.IInputContentUriToken {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void release() throws android.os.RemoteException {}
-        public void take() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements com.android.internal.inputmethod.IInputContentUriToken {
         static final int TRANSACTION_release = 2;
         static final int TRANSACTION_take = 1;
@@ -30,5 +23,12 @@ public interface IInputContentUriToken extends android.os.IInterface {
             public void release() throws android.os.RemoteException {}
             public void take() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements com.android.internal.inputmethod.IInputContentUriToken {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void release() throws android.os.RemoteException {}
+        public void take() throws android.os.RemoteException {}
     }
 }

@@ -6,14 +6,6 @@ public interface IAudioManagerNative extends android.os.IInterface {
     public void playbackHardeningEvent(int p0, byte p1, boolean p2, byte p3, int p4) throws android.os.RemoteException;
     public void portMuteEvent(int p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.media.IAudioManagerNative {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void permissionUpdateBarrier(boolean p0) throws android.os.RemoteException {}
-        public void playbackHardeningEvent(int p0, byte p1, boolean p2, byte p3, int p4) throws android.os.RemoteException {}
-        public void portMuteEvent(int p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static @interface HardeningExemptionReason {
         public static final byte ALARM = 4;
         public static final byte FLAG_DISABLED = 3;
@@ -47,5 +39,13 @@ public interface IAudioManagerNative extends android.os.IInterface {
             public void playbackHardeningEvent(int p0, byte p1, boolean p2, byte p3, int p4) throws android.os.RemoteException {}
             public void portMuteEvent(int p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.IAudioManagerNative {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void permissionUpdateBarrier(boolean p0) throws android.os.RemoteException {}
+        public void playbackHardeningEvent(int p0, byte p1, boolean p2, byte p3, int p4) throws android.os.RemoteException {}
+        public void portMuteEvent(int p0, int p1) throws android.os.RemoteException {}
     }
 }

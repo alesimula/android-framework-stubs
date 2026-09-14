@@ -25,6 +25,10 @@ public final class VirtualMouseButtonEvent implements android.os.Parcelable {
     public void writeToParcel(android.os.Parcel p0, int p1) {}
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface Button {
+    }
+
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
     public static @interface Action {
     }
 
@@ -37,9 +41,5 @@ public final class VirtualMouseButtonEvent implements android.os.Parcelable {
         public android.hardware.input.VirtualMouseButtonEvent.Builder setAction(int p0) { return null; }
         public android.hardware.input.VirtualMouseButtonEvent.Builder setButtonCode(int p0) { return null; }
         public android.hardware.input.VirtualMouseButtonEvent.Builder setEventTimeNanos(long p0) { return null; }
-    }
-
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Button {
     }
 }

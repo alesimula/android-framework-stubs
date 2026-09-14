@@ -8,14 +8,6 @@ public interface IProtectedConfirmation extends android.os.IInterface {
     public boolean isSupported() throws android.os.RemoteException;
     public void presentPrompt(android.security.apc.IConfirmationCallback p0, java.lang.String p1, byte[] p2, java.lang.String p3, int p4) throws android.os.RemoteException;
 
-    public static class Default implements android.security.apc.IProtectedConfirmation {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void cancelPrompt(android.security.apc.IConfirmationCallback p0) throws android.os.RemoteException {}
-        public boolean isSupported() throws android.os.RemoteException { return false; }
-        public void presentPrompt(android.security.apc.IConfirmationCallback p0, java.lang.String p1, byte[] p2, java.lang.String p3, int p4) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.security.apc.IProtectedConfirmation {
         static final int TRANSACTION_cancelPrompt = 2;
         static final int TRANSACTION_isSupported = 3;
@@ -34,5 +26,13 @@ public interface IProtectedConfirmation extends android.os.IInterface {
             public boolean isSupported() throws android.os.RemoteException { return false; }
             public void presentPrompt(android.security.apc.IConfirmationCallback p0, java.lang.String p1, byte[] p2, java.lang.String p3, int p4) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.security.apc.IProtectedConfirmation {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void cancelPrompt(android.security.apc.IConfirmationCallback p0) throws android.os.RemoteException {}
+        public boolean isSupported() throws android.os.RemoteException { return false; }
+        public void presentPrompt(android.security.apc.IConfirmationCallback p0, java.lang.String p1, byte[] p2, java.lang.String p3, int p4) throws android.os.RemoteException {}
     }
 }

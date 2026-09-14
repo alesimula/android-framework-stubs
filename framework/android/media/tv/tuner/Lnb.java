@@ -61,10 +61,10 @@ public class Lnb implements java.lang.AutoCloseable {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Tone {
+    public static @interface Voltage {
     }
 
     @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface Voltage {
+    public static @interface Tone {
     }
 }

@@ -3,12 +3,6 @@ package android.view;
 public interface IGraphicsStatsCallback extends android.os.IInterface {
     public void onRotateGraphicsStatsBuffer() throws android.os.RemoteException;
 
-    public static class Default implements android.view.IGraphicsStatsCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onRotateGraphicsStatsBuffer() throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.view.IGraphicsStatsCallback {
         public static final java.lang.String DESCRIPTOR = "android.view.IGraphicsStatsCallback";
         static final int TRANSACTION_onRotateGraphicsStatsBuffer = 1;
@@ -26,5 +20,11 @@ public interface IGraphicsStatsCallback extends android.os.IInterface {
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onRotateGraphicsStatsBuffer() throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.view.IGraphicsStatsCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onRotateGraphicsStatsBuffer() throws android.os.RemoteException {}
     }
 }

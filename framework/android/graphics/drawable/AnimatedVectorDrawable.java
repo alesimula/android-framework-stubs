@@ -74,49 +74,29 @@ public class AnimatedVectorDrawable extends android.graphics.drawable.Drawable i
     public void stop() {}
     public boolean unregisterAnimationCallback(android.graphics.drawable.Animatable2.AnimationCallback p0) { return false; }
 
-    private static class AnimatedVectorDrawableState extends android.graphics.drawable.Drawable.ConstantState {
-        java.util.ArrayList<android.animation.Animator> mAnimators;
-        int mChangingConfigurations;
-        java.util.ArrayList<android.graphics.drawable.AnimatedVectorDrawable.AnimatedVectorDrawableState.PendingAnimator> mPendingAnims;
-        private final boolean mShouldIgnoreInvalidAnim = false;
-        android.util.ArrayMap<android.animation.Animator, java.lang.String> mTargetNameMap;
-        android.graphics.drawable.VectorDrawable mVectorDrawable;
-        public AnimatedVectorDrawableState(android.graphics.drawable.AnimatedVectorDrawable.AnimatedVectorDrawableState p0, android.graphics.drawable.Drawable.Callback p1, android.content.res.Resources p2) { super(); }
-        private android.animation.Animator prepareLocalAnimator(int p0) { return null; }
-        public void addPendingAnimator(int p0, float p1, java.lang.String p2) {}
-        public void addTargetAnimator(java.lang.String p0, android.animation.Animator p1) {}
-        public boolean canApplyTheme() { return false; }
-        public int getChangingConfigurations() { return 0; }
-        public void inflatePendingAnimators(android.content.res.Resources p0, android.content.res.Resources.Theme p1) {}
-        public android.graphics.drawable.Drawable newDrawable() { return null; }
-        public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
-        public void prepareLocalAnimators(android.animation.AnimatorSet p0, android.content.res.Resources p1) {}
-
-        private static class PendingAnimator {
-            public final int animResId = 0;
-            public final float pathErrorScale = 0.0f;
-            public final java.lang.String target = null;
-            public PendingAnimator(int p0, float p1, java.lang.String p2) {}
-            public android.animation.Animator newInstance(android.content.res.Resources p0, android.content.res.Resources.Theme p1) { return null; }
-        }
-    }
-
-    private static interface VectorDrawableAnimator {
-        public boolean canReverse();
-        public void end();
-        public long getTotalDuration();
-        public void init(android.animation.AnimatorSet p0);
-        public boolean isInfinite();
-        public boolean isRunning();
-        public boolean isStarted();
-        public void onDraw(android.graphics.Canvas p0);
-        public void pause();
-        public void removeListener(android.animation.Animator.AnimatorListener p0);
-        public void reset();
-        public void resume();
-        public void reverse();
-        public void setListener(android.animation.Animator.AnimatorListener p0);
-        public void start();
+    private static class VectorDrawableAnimatorUI implements android.graphics.drawable.AnimatedVectorDrawable.VectorDrawableAnimator {
+        private final android.graphics.drawable.Drawable mDrawable = null;
+        private boolean mIsInfinite;
+        private java.util.ArrayList<android.animation.Animator.AnimatorListener> mListenerArray;
+        private android.animation.AnimatorSet mSet;
+        private long mTotalDuration;
+        VectorDrawableAnimatorUI(android.graphics.drawable.AnimatedVectorDrawable p0) {}
+        private void invalidateOwningView() {}
+        public boolean canReverse() { return false; }
+        public void end() {}
+        public long getTotalDuration() { return 0L; }
+        public void init(android.animation.AnimatorSet p0) {}
+        public boolean isInfinite() { return false; }
+        public boolean isRunning() { return false; }
+        public boolean isStarted() { return false; }
+        public void onDraw(android.graphics.Canvas p0) {}
+        public void pause() {}
+        public void removeListener(android.animation.Animator.AnimatorListener p0) {}
+        public void reset() {}
+        public void resume() {}
+        public void reverse() {}
+        public void setListener(android.animation.Animator.AnimatorListener p0) {}
+        public void start() {}
     }
 
     public static class VectorDrawableAnimatorRT implements android.graphics.drawable.AnimatedVectorDrawable.VectorDrawableAnimator, android.view.NativeVectorDrawableAnimator {
@@ -185,28 +165,48 @@ public class AnimatedVectorDrawable extends android.graphics.drawable.Drawable i
         public void start() {}
     }
 
-    private static class VectorDrawableAnimatorUI implements android.graphics.drawable.AnimatedVectorDrawable.VectorDrawableAnimator {
-        private final android.graphics.drawable.Drawable mDrawable = null;
-        private boolean mIsInfinite;
-        private java.util.ArrayList<android.animation.Animator.AnimatorListener> mListenerArray;
-        private android.animation.AnimatorSet mSet;
-        private long mTotalDuration;
-        VectorDrawableAnimatorUI(android.graphics.drawable.AnimatedVectorDrawable p0) {}
-        private void invalidateOwningView() {}
-        public boolean canReverse() { return false; }
-        public void end() {}
-        public long getTotalDuration() { return 0L; }
-        public void init(android.animation.AnimatorSet p0) {}
-        public boolean isInfinite() { return false; }
-        public boolean isRunning() { return false; }
-        public boolean isStarted() { return false; }
-        public void onDraw(android.graphics.Canvas p0) {}
-        public void pause() {}
-        public void removeListener(android.animation.Animator.AnimatorListener p0) {}
-        public void reset() {}
-        public void resume() {}
-        public void reverse() {}
-        public void setListener(android.animation.Animator.AnimatorListener p0) {}
-        public void start() {}
+    private static class AnimatedVectorDrawableState extends android.graphics.drawable.Drawable.ConstantState {
+        java.util.ArrayList<android.animation.Animator> mAnimators;
+        int mChangingConfigurations;
+        java.util.ArrayList<android.graphics.drawable.AnimatedVectorDrawable.AnimatedVectorDrawableState.PendingAnimator> mPendingAnims;
+        private final boolean mShouldIgnoreInvalidAnim = false;
+        android.util.ArrayMap<android.animation.Animator, java.lang.String> mTargetNameMap;
+        android.graphics.drawable.VectorDrawable mVectorDrawable;
+        public AnimatedVectorDrawableState(android.graphics.drawable.AnimatedVectorDrawable.AnimatedVectorDrawableState p0, android.graphics.drawable.Drawable.Callback p1, android.content.res.Resources p2) { super(); }
+        private android.animation.Animator prepareLocalAnimator(int p0) { return null; }
+        public void addPendingAnimator(int p0, float p1, java.lang.String p2) {}
+        public void addTargetAnimator(java.lang.String p0, android.animation.Animator p1) {}
+        public boolean canApplyTheme() { return false; }
+        public int getChangingConfigurations() { return 0; }
+        public void inflatePendingAnimators(android.content.res.Resources p0, android.content.res.Resources.Theme p1) {}
+        public android.graphics.drawable.Drawable newDrawable() { return null; }
+        public android.graphics.drawable.Drawable newDrawable(android.content.res.Resources p0) { return null; }
+        public void prepareLocalAnimators(android.animation.AnimatorSet p0, android.content.res.Resources p1) {}
+
+        private static class PendingAnimator {
+            public final int animResId = 0;
+            public final float pathErrorScale = 0.0f;
+            public final java.lang.String target = null;
+            public PendingAnimator(int p0, float p1, java.lang.String p2) {}
+            public android.animation.Animator newInstance(android.content.res.Resources p0, android.content.res.Resources.Theme p1) { return null; }
+        }
+    }
+
+    private static interface VectorDrawableAnimator {
+        public boolean canReverse();
+        public void end();
+        public long getTotalDuration();
+        public void init(android.animation.AnimatorSet p0);
+        public boolean isInfinite();
+        public boolean isRunning();
+        public boolean isStarted();
+        public void onDraw(android.graphics.Canvas p0);
+        public void pause();
+        public void removeListener(android.animation.Animator.AnimatorListener p0);
+        public void reset();
+        public void resume();
+        public void reverse();
+        public void setListener(android.animation.Animator.AnimatorListener p0);
+        public void start();
     }
 }

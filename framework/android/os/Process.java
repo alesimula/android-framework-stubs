@@ -81,12 +81,16 @@ public class Process {
     public static final int SYSTEM_UID = 1000;
     public static final int THREAD_GROUP_AUDIO_APP = 3;
     public static final int THREAD_GROUP_AUDIO_SYS = 4;
+    @android.annotation.SystemApi
     public static final int THREAD_GROUP_BACKGROUND = 0;
+    @android.annotation.SystemApi
     public static final int THREAD_GROUP_DEFAULT = -1;
+    @android.annotation.SystemApi
     public static final int THREAD_GROUP_FOREGROUND = 1;
     public static final int THREAD_GROUP_FOREGROUND_WINDOW = 8;
     public static final int THREAD_GROUP_RESTRICTED = 7;
     public static final int THREAD_GROUP_RT_APP = 6;
+    @android.annotation.SystemApi
     public static final int THREAD_GROUP_SYSTEM = 2;
     public static final int THREAD_GROUP_TOP_APP = 5;
     public static final int THREAD_PRIORITY_AUDIO = -16;
@@ -119,6 +123,7 @@ public class Process {
     private static long sStartRequestedUptimeMillis;
     private static long sStartUptimeMillis;
     public Process() {}
+    public static final boolean areUidsForSameApplication(int p0, int p1) { return false; }
     public static final void checkPid(int p0) throws java.lang.IllegalArgumentException, java.lang.SecurityException, java.util.NoSuchElementException {}
     public static final void checkTid(int p0, int p1) throws java.lang.IllegalArgumentException, java.lang.SecurityException, java.util.NoSuchElementException {}
     public static final native int createProcessGroup(int p0, int p1);
@@ -193,6 +198,8 @@ public class Process {
     public static final native void setProcessFrozen(int p0, int p1, boolean p2);
     public static final native void setProcessGroup(int p0, int p1) throws java.lang.IllegalArgumentException, java.lang.SecurityException;
     public static final native void setProcessGroup(int p0, int p1, int p2) throws java.lang.IllegalArgumentException, java.lang.SecurityException;
+    @android.annotation.SystemApi
+    public static void setProcessThreadGroup(int p0, int p1) {}
     public static final void setStartTimes(long p0, long p1, long p2, long p3) {}
     public static final native void setThreadGroup(int p0, int p1) throws java.lang.IllegalArgumentException, java.lang.SecurityException;
     public static final native void setThreadGroupAndCpuset(int p0, int p1) throws java.lang.IllegalArgumentException, java.lang.SecurityException;
@@ -201,7 +208,7 @@ public class Process {
     private static native void setThreadPriorityNative(int p0, int p1) throws java.lang.IllegalArgumentException, java.lang.SecurityException;
     public static final native void setThreadScheduler(int p0, int p1, int p2) throws java.lang.IllegalArgumentException;
     public static final native int setUid(int p0);
-    public static android.os.Process.ProcessStartResult start(java.lang.String p0, java.lang.String p1, int p2, int p3, int[] p4, int p5, int p6, int p7, java.lang.String p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, java.lang.String p13, int p14, boolean p15, long[] p16, long[] p17, boolean p18, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p19, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p20, boolean p21, boolean p22, boolean p23, long p24, java.lang.String[] p25) { return null; }
+    public static android.os.Process.ProcessStartResult start(java.lang.String p0, java.lang.String p1, int p2, int p3, int p4, int[] p5, int p6, int p7, int p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, java.lang.String p13, java.lang.String p14, int p15, boolean p16, long[] p17, long[] p18, boolean p19, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p20, java.util.Map<java.lang.String, android.util.Pair<java.lang.String, java.lang.Long>> p21, boolean p22, boolean p23, boolean p24, long p25, java.lang.String[] p26) { return null; }
     public static android.os.Process.ProcessStartResult startWebView(java.lang.String p0, java.lang.String p1, int p2, int p3, int[] p4, int p5, int p6, int p7, java.lang.String p8, java.lang.String p9, java.lang.String p10, java.lang.String p11, java.lang.String p12, java.lang.String p13, long[] p14, long[] p15, boolean p16, long p17, java.lang.String[] p18) { return null; }
     public static boolean supportsPidFd() { return false; }
     @java.lang.Deprecated

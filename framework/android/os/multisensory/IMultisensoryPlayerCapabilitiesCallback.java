@@ -5,12 +5,6 @@ public interface IMultisensoryPlayerCapabilitiesCallback extends android.os.IInt
     public static final int FLAG_SUPPORTS_SESSIONS = 32;
     public void onCapabilitiesUpdated(long p0, int p1) throws android.os.RemoteException;
 
-    public static class Default implements android.os.multisensory.IMultisensoryPlayerCapabilitiesCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onCapabilitiesUpdated(long p0, int p1) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.os.multisensory.IMultisensoryPlayerCapabilitiesCallback {
         static final int TRANSACTION_onCapabilitiesUpdated = 2;
         public Stub() { super(); }
@@ -27,5 +21,11 @@ public interface IMultisensoryPlayerCapabilitiesCallback extends android.os.IInt
             public final java.lang.String getInterfaceDescriptor() { return null; }
             public void onCapabilitiesUpdated(long p0, int p1) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.os.multisensory.IMultisensoryPlayerCapabilitiesCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onCapabilitiesUpdated(long p0, int p1) throws android.os.RemoteException {}
     }
 }

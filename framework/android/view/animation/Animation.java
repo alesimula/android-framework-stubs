@@ -119,6 +119,11 @@ public abstract class Animation implements java.lang.Cloneable {
     public boolean willChangeBounds() { return false; }
     public boolean willChangeTransformationMatrix() { return false; }
 
+    private static class NoImagePreloadHolder {
+        public static final boolean USE_CLOSEGUARD = Boolean.valueOf(false);
+        private NoImagePreloadHolder() {}
+    }
+
     public static interface AnimationListener {
         public void onAnimationEnd(android.view.animation.Animation p0);
         public void onAnimationRepeat(android.view.animation.Animation p0);
@@ -130,10 +135,5 @@ public abstract class Animation implements java.lang.Cloneable {
         public float value;
         protected Description() {}
         static android.view.animation.Animation.Description parseValue(android.util.TypedValue p0, android.content.Context p1) { return null; }
-    }
-
-    private static class NoImagePreloadHolder {
-        public static final boolean USE_CLOSEGUARD = Boolean.valueOf(false);
-        private NoImagePreloadHolder() {}
     }
 }

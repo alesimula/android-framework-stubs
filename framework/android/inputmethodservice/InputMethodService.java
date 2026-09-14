@@ -208,6 +208,7 @@ public class InputMethodService extends android.inputmethodservice.AbstractInput
     public void onFinishStylusHandwriting() {}
     public boolean onGenericMotionEvent(android.view.MotionEvent p0) { return false; }
     final void onImeSwitchButtonClickFromClient() {}
+    final void onImeSwitchButtonLongClickFromClient() {}
     public void onInitializeInterface() {}
     public boolean onInlineSuggestionsResponse(android.view.inputmethod.InlineSuggestionsResponse p0) { return false; }
     public boolean onKeyDown(int p0, android.view.KeyEvent p1) { return false; }
@@ -265,23 +266,23 @@ public class InputMethodService extends android.inputmethodservice.AbstractInput
     public void updateFullscreenMode() {}
     public void updateInputViewShown() {}
 
-    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
-    public static @interface BackDispositionMode {
-    }
-
-    private static final class HandwritingSession {
-        private final android.view.InputEventReceiver mEventReceiver = null;
-        private final int mRequestId = 0;
-        HandwritingSession(int p0, android.view.InputEventReceiver p1) {}
-        void dispose() {}
-        int getRequestId() { return 0; }
-    }
-
     public static @interface ImeWindowVisibility {
     }
 
+    private final class NavigationBarControllerDelegateImpl implements android.inputmethodservice.NavigationBarController.Delegate {
+        private NavigationBarControllerDelegateImpl(android.inputmethodservice.InputMethodService p0) {}
+        public android.content.Context getContext() { return null; }
+        public android.view.View getInputFrame() { return null; }
+        public android.content.res.Resources getResources() { return null; }
+        public android.view.Window getWindow() { return null; }
+        public boolean isExtractViewShown() { return false; }
+        public boolean isFullscreenMode() { return false; }
+        public void onCustomImeSwitcherButtonRequestedVisible(boolean p0) {}
+        public void onImeSwitchButtonClickFromClient() {}
+        public void onImeSwitchButtonLongClickFromClient() {}
+    }
+
     public class InputMethodImpl extends android.inputmethodservice.AbstractInputMethodService.AbstractInputMethodImpl {
-        private boolean mSimultaneousStylusAndTouchEnabled;
         private boolean mSystemCallingHideSoftInput;
         private boolean mSystemCallingShowSoftInput;
         public InputMethodImpl(android.inputmethodservice.InputMethodService p0) { super(null); }
@@ -328,29 +329,8 @@ public class InputMethodService extends android.inputmethodservice.AbstractInput
         public void viewClicked(boolean p0) {}
     }
 
-    public static final class Insets {
-        public static final int TOUCHABLE_INSETS_CONTENT = 1;
-        public static final int TOUCHABLE_INSETS_FRAME = 0;
-        public static final int TOUCHABLE_INSETS_REGION = 3;
-        public static final int TOUCHABLE_INSETS_VISIBLE = 2;
-        public int contentTopInsets;
-        public int touchableInsets;
-        public final android.graphics.Region touchableRegion = null;
-        public int visibleTopInsets;
-        public Insets() {}
-        private void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
-    }
-
-    private final class NavigationBarControllerDelegateImpl implements android.inputmethodservice.NavigationBarController.Delegate {
-        private NavigationBarControllerDelegateImpl(android.inputmethodservice.InputMethodService p0) {}
-        public android.content.Context getContext() { return null; }
-        public android.view.View getInputFrame() { return null; }
-        public android.content.res.Resources getResources() { return null; }
-        public android.view.Window getWindow() { return null; }
-        public boolean isExtractViewShown() { return false; }
-        public boolean isFullscreenMode() { return false; }
-        public void onCustomImeSwitcherButtonRequestedVisible(boolean p0) {}
-        public void onImeSwitchButtonClickFromClient() {}
+    @java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.SOURCE)
+    public static @interface BackDispositionMode {
     }
 
     private static final class SettingsObserver extends android.database.ContentObserver {
@@ -369,5 +349,26 @@ public class InputMethodService extends android.inputmethodservice.AbstractInput
             public static final int TRUE = 2;
             public static final int UNKNOWN = 0;
         }
+    }
+
+    public static final class Insets {
+        public static final int TOUCHABLE_INSETS_CONTENT = 1;
+        public static final int TOUCHABLE_INSETS_FRAME = 0;
+        public static final int TOUCHABLE_INSETS_REGION = 3;
+        public static final int TOUCHABLE_INSETS_VISIBLE = 2;
+        public int contentTopInsets;
+        public int touchableInsets;
+        public final android.graphics.Region touchableRegion = null;
+        public int visibleTopInsets;
+        public Insets() {}
+        private void dumpDebug(android.util.proto.ProtoOutputStream p0, long p1) {}
+    }
+
+    private static final class HandwritingSession {
+        private final android.view.InputEventReceiver mEventReceiver = null;
+        private final int mRequestId = 0;
+        HandwritingSession(int p0, android.view.InputEventReceiver p1) {}
+        void dispose() {}
+        int getRequestId() { return 0; }
     }
 }

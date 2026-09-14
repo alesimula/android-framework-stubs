@@ -10,19 +10,6 @@ public interface ISessionControllerCallback extends android.os.IInterface {
     public void onSessionDestroyed() throws android.os.RemoteException;
     public void onVolumeInfoChanged(android.media.session.MediaController.PlaybackInfo p0) throws android.os.RemoteException;
 
-    public static class Default implements android.media.session.ISessionControllerCallback {
-        public Default() {}
-        public android.os.IBinder asBinder() { return null; }
-        public void onEvent(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
-        public void onExtrasChanged(android.os.Bundle p0) throws android.os.RemoteException {}
-        public void onMetadataChanged(android.media.MediaMetadata p0) throws android.os.RemoteException {}
-        public void onPlaybackStateChanged(android.media.session.PlaybackState p0) throws android.os.RemoteException {}
-        public void onQueueChanged(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
-        public void onQueueTitleChanged(java.lang.CharSequence p0) throws android.os.RemoteException {}
-        public void onSessionDestroyed() throws android.os.RemoteException {}
-        public void onVolumeInfoChanged(android.media.session.MediaController.PlaybackInfo p0) throws android.os.RemoteException {}
-    }
-
     public static abstract class Stub extends android.os.Binder implements android.media.session.ISessionControllerCallback {
         public static final java.lang.String DESCRIPTOR = "android.media.session.ISessionControllerCallback";
         static final int TRANSACTION_onEvent = 1;
@@ -54,5 +41,18 @@ public interface ISessionControllerCallback extends android.os.IInterface {
             public void onSessionDestroyed() throws android.os.RemoteException {}
             public void onVolumeInfoChanged(android.media.session.MediaController.PlaybackInfo p0) throws android.os.RemoteException {}
         }
+    }
+
+    public static class Default implements android.media.session.ISessionControllerCallback {
+        public Default() {}
+        public android.os.IBinder asBinder() { return null; }
+        public void onEvent(java.lang.String p0, android.os.Bundle p1) throws android.os.RemoteException {}
+        public void onExtrasChanged(android.os.Bundle p0) throws android.os.RemoteException {}
+        public void onMetadataChanged(android.media.MediaMetadata p0) throws android.os.RemoteException {}
+        public void onPlaybackStateChanged(android.media.session.PlaybackState p0) throws android.os.RemoteException {}
+        public void onQueueChanged(android.content.pm.ParceledListSlice p0) throws android.os.RemoteException {}
+        public void onQueueTitleChanged(java.lang.CharSequence p0) throws android.os.RemoteException {}
+        public void onSessionDestroyed() throws android.os.RemoteException {}
+        public void onVolumeInfoChanged(android.media.session.MediaController.PlaybackInfo p0) throws android.os.RemoteException {}
     }
 }
